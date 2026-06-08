@@ -1,0 +1,48 @@
+Financial Rubric Agent V1.2
+Generated At: 2026-06-08 10:56:03
+
+Company: Tesla, Inc.
+Ticker: TSLA
+Sector: Consumer Cyclical
+Industry: Auto Manufacturers
+
+Raw Financial Metrics Used
+--------------------------
+Market Cap: $1.47T
+Revenue Growth: 15.80%
+Net Profit Margin: 3.95%
+Operating Margin: 4.20%
+Return on Equity: 4.90%
+Trailing P/E: 358.72
+Forward P/E: 156.11
+Price to Sales: 15.00
+Beta: 1.80
+Debt to Equity: 18.74
+Current Ratio: 2.04
+
+Investment Scores and Explanations
+----------------------------------
+Revenue Growth Score: 19/20
+Metrics Used: Revenue Growth = 15.80%
+Explanation: Revenue growth is strong at 15% or higher.
+
+Profitability Score: 8/20
+Metrics Used: Net Profit Margin = 3.95%, Operating Margin = 4.20%
+Explanation: The company's net profit margin is positive but low, between 0% and 5%.
+
+Valuation Score: 2/20
+Metrics Used: Trailing P/E = 358.72, Forward P/E = 156.11
+Explanation: The trailing P/E is above 60, which is very expensive.
+
+Competitive Moat Score: 15/20
+Metrics Used: Market Cap = $1.47T, Net Profit Margin = 3.95%, Operating Margin = 4.20%
+Explanation: Moat score is placeholder in V1.2. Large market cap may suggest scale advantages.
+
+Risk Score: 4/20
+Metrics Used: Debt to Equity = 18.74, Beta = 1.80
+Explanation: Risk is high because beta is above 1.7 or debt-to-equity is very high.
+
+Total Score: 48/100
+Interpretation: Weak or high-risk profile
+
+Note: These are simple rule-based scores, not investment advice.

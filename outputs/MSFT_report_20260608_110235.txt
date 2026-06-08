@@ -1,0 +1,49 @@
+Financial Rubric Agent V2.0
+Generated At: 2026-06-08 11:02:35
+
+Company: Microsoft Corporation
+Ticker: MSFT
+Sector: Technology
+Industry: Software - Infrastructure
+
+Raw Financial Metrics Used
+--------------------------
+Market Cap: $3.10T
+Revenue Growth: 18.30%
+Net Profit Margin: 39.34%
+Operating Margin: 46.33%
+Return on Equity: 34.01%
+Trailing P/E: 24.82
+Forward P/E: 21.53
+Price to Sales: 9.73
+Beta: 1.10
+Debt to Equity: 30.27
+Current Ratio: 1.28
+
+Investment Scores and Explanations
+----------------------------------
+Revenue Growth Score: 19/20
+Metrics Used: Revenue Growth = 18.30%
+Explanation: Revenue growth is strong at 15% or higher.
+
+Profitability Score: 19/20
+Metrics Used: Net Profit Margin = 39.34%, Operating Margin = 46.33%
+Explanation: The company's net profit margin is strong at 20% or higher.
+
+Valuation Score: 14/20
+Metrics Used: Trailing P/E = 24.82, Forward P/E = 21.53
+Explanation: The trailing P/E is between 15 and 25, which looks reasonable.
+
+Competitive Moat Score: 19/20
+Metrics Used: Market Cap = $3.10T, Net Profit Margin = 39.34%, Operating Margin = 46.33%
+Explanation: Moat score is placeholder in V2.0. Large market cap may suggest scale advantages. Strong profit margin may suggest pricing power. Strong operating margin may suggest business quality.
+
+Risk Score: 13/20
+Metrics Used: Debt to Equity = 30.27, Beta = 1.10
+Explanation: Risk is moderate based on debt-to-equity or beta.
+
+Total Score: 84/100
+Interpretation: Strong overall investment profile
+
+Note: Rule-based logic calculates the scores. AI explains the results when enabled.
+This report is educational analysis, not investment advice.

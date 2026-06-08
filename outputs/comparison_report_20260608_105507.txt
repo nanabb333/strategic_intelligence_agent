@@ -1,0 +1,13 @@
+Financial Rubric Agent V1.2 - Batch Comparison Report
+Generated At: 2026-06-08 10:55:07
+
+Companies are sorted by Total Score from highest to lowest.
+
+Ticker   | Company                      | Revenue Growth Score   | Profitability Score   | Valuation Score   | Competitive Moat Score   | Risk Assessment Score  | Total Score  | Interpretation                        
+---------+------------------------------+------------------------+-----------------------+-------------------+--------------------------+------------------------+--------------+---------------------------------------
+MSFT     | Microsoft Corporation        | 19/20                  | 19/20                 | 14/20             | 19/20                    | 13/20                  | 84/100       | Strong overall investment profile     
+AAPL     | Apple Inc.                   | 19/20                  | 19/20                 | 10/20             | 19/20                    | 13/20                  | 80/100       | Strong overall investment profile     
+KO       | The Coca-Cola Company        | 16/20                  | 19/20                 | 14/20             | 19/20                    | 8/20                   | 76/100       | Good company, but with some concerns  
+TSLA     | Tesla, Inc.                  | 19/20                  | 8/20                  | 2/20              | 15/20                    | 4/20                   | 48/100       | Weak or high-risk profile             
+
+Note: These are simple rule-based scores, not investment advice.

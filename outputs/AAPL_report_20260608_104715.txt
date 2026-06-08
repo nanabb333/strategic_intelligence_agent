@@ -1,0 +1,34 @@
+Financial Rubric Agent V1
+Generated At: 2026-06-08 10:47:15
+
+Company: Apple Inc.
+Ticker: AAPL
+Sector: Technology
+Industry: Consumer Electronics
+
+Financial Metrics
+-----------------
+Market Cap: $4.51T
+Revenue Growth: 16.60%
+Profit Margin: 27.15%
+Operating Margin: 32.27%
+Return on Equity: 141.47%
+Trailing P/E: 37.16
+Forward P/E: 31.99
+Price to Sales: 10.00
+Beta: 1.09
+Debt to Equity: 79.55
+Current Ratio: 1.07
+
+Investment Scores
+-----------------
+Revenue Growth Score: 17/20
+Profitability Score: 20/20
+Valuation Score: 10/20
+Competitive Moat Score: 20/20
+Risk Score: 12/20
+
+Total Score: 79/100
+Interpretation: Good company, but with some concerns
+
+Note: These are placeholder scores based on simple rules, not investment advice.

@@ -1,0 +1,5 @@
+timestamp,ticker,company,revenue_growth_score,profitability_score,valuation_score,competitive_moat_score,risk_assessment_score,total_score,interpretation,revenue_growth,profit_margin,operating_margin,trailing_pe,forward_pe,debt_to_equity,beta
+20260608_110240,AAPL,Apple Inc.,19,19,10,19,13,80,Strong overall investment profile,0.166,0.27152002,0.32275,37.16324,31.988194,79.548,1.086
+20260608_110240,MSFT,Microsoft Corporation,19,19,14,19,13,84,Strong overall investment profile,0.183,0.39341998,0.46326,24.816557,21.53399,30.271,1.103
+20260608_110240,TSLA,"Tesla, Inc.",19,8,2,15,4,48,Weak or high-risk profile,0.158,0.03946,0.04203,358.71558,156.1115,18.738,1.798
+20260608_110240,KO,The Coca-Cola Company,16,19,14,19,8,76,"Good company, but with some concerns",0.121,0.278,0.35055,24.993711,22.815283,124.943,0.354

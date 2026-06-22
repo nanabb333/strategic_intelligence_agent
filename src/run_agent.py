@@ -3,7 +3,6 @@
 from pathlib import Path
 
 from brief_generator import generate_brief
-from context_retriever import retrieve_current_context
 from document_loader import load_document
 from historical_retriever import retrieve_historical_analogues
 from implication_analyzer import analyze_implications
@@ -12,14 +11,13 @@ from scenario_classifier import classify_scenarios
 
 
 def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.md") -> Path:
-    """Run the full V0.1 workflow and write a Markdown brief."""
+    """Run the full V0.5 workflow and write a Markdown brief."""
     document_text = load_document(input_path)
     issues = extract_issues(document_text)
     classifications = classify_scenarios(issues)
-    analogues = retrieve_historical_analogues(classifications)
-    contexts = retrieve_current_context(classifications)
-    analyses = analyze_implications(issues, classifications, analogues, contexts)
-    brief = generate_brief(issues, classifications, analogues, contexts, analyses)
+    analogues = retrieve_historical_analogues(issues, classifications)
+    analyses = analyze_implications(issues, classifications, analogues)
+    brief = generate_brief(issues, classifications, analogues, analyses)
 
     destination = Path(output_path)
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -41,4 +39,3 @@ if __name__ == "__main__":
 
     result_path = run_agent(args.input_path, args.output)
     print(f"Wrote executive brief to {result_path}")
-

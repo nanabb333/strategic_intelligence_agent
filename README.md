@@ -4,7 +4,7 @@ An agentic decision-support workflow that converts documents, articles, policy t
 
 ## Project Overview
 
-Strategic Intelligence Agent is a V0.1 portfolio project that demonstrates how a modular LLM-oriented workflow can support analyst productivity. It takes source text, extracts strategic issues, classifies the scenario, retrieves placeholder historical and current context, analyzes implications, and generates a concise executive intelligence brief.
+Strategic Intelligence Agent is a V0.5 portfolio project that demonstrates how a modular agent workflow can support analyst productivity. It takes source text, extracts strategic issues, classifies the scenario, retrieves historical analogues from a local knowledge base, analyzes implications, and generates a concise executive intelligence brief.
 
 The project evolved from an earlier `financial_rubric_agent`. That older logic is preserved under `legacy/financial_rubric_agent/` for project history, but the active V0.1 workflow lives in `src/`.
 
@@ -37,12 +37,11 @@ Document
 -> Issue Extraction
 -> Scenario Classification
 -> Historical Analogue Retrieval
--> Current Context Retrieval
 -> Implication Analysis
 -> Executive Intelligence Brief
 ```
 
-The V0.1 implementation uses simple deterministic placeholders behind stable module interfaces. Later versions can replace those placeholders with retrieval, structured prompts, external tools, or LLM calls without redesigning the repository.
+The V0.5 implementation is deterministic and uses only local files plus the Python standard library. It does not use paid APIs or LLM calls.
 
 ## Repository Structure
 
@@ -50,10 +49,11 @@ The V0.1 implementation uses simple deterministic placeholders behind stable mod
 docs/                         Project documentation and migration roadmap.
 data/                         Local input data and future fixtures.
 examples/                     Example source documents.
-knowledge_base/               Future curated historical analogue records.
+knowledge_base/               Curated historical analogue records.
 legacy/financial_rubric_agent/ Preserved prior project code and historical reports.
 outputs/                      Strategic Intelligence Agent generated outputs.
-src/                          Active V0.1 agent workflow modules.
+scripts/                      Validation scripts.
+src/                          Active V0.5 agent workflow modules.
 ```
 
 Key active modules:
@@ -61,11 +61,10 @@ Key active modules:
 | File | Purpose |
 | --- | --- |
 | `src/document_loader.py` | Loads plain text and Markdown documents. |
-| `src/issue_extractor.py` | Extracts initial structured issue records. |
-| `src/scenario_classifier.py` | Classifies issues into strategic scenario categories. |
-| `src/historical_retriever.py` | Provides the historical analogue retrieval interface. |
-| `src/context_retriever.py` | Provides the current context retrieval interface. |
-| `src/implication_analyzer.py` | Converts issues, classifications, analogues, and context into implications. |
+| `src/issue_extractor.py` | Extracts core issue, actors, regions, industries, policy terms, companies, and document type. |
+| `src/scenario_classifier.py` | Classifies issues using deterministic keyword matching. |
+| `src/historical_retriever.py` | Retrieves top historical analogues from `knowledge_base/historical_analogues.csv`. |
+| `src/implication_analyzer.py` | Converts issues, classifications, and analogues into structured implications and strategic questions. |
 | `src/brief_generator.py` | Generates the Markdown executive intelligence brief. |
 | `src/run_agent.py` | Orchestrates the full workflow. |
 
@@ -77,6 +76,26 @@ Key active modules:
 - Includes a sample source document and sample generated output.
 - Preserves the prior financial rubric project in `legacy/` without mixing it into the active workflow.
 - Keeps the project positioned as decision support, not investment advice.
+
+## V0.5 Capabilities
+
+- Adds `knowledge_base/historical_analogues.csv` with public-history analogue cases.
+- Extracts structured fields from source documents using deterministic keyword and pattern matching.
+- Classifies scenarios into categories such as Export Controls, Industrial Policy, Sanctions, Supply Chain Disruption, Regulatory Action, Military / Security Shock, Earnings / Corporate Disclosure, Strategic Investment, Trade Policy, and Other.
+- Retrieves the top three historical analogues using scenario match, keyword overlap, industry overlap, and actor overlap.
+- Generates upgraded executive briefs with extracted entities, scenario confidence labels, historical analogues, current relevance, implications, strategic questions, and limitations.
+- Includes a validation script that checks the knowledge base, runs examples through the pipeline, confirms outputs exist, and screens generated briefs for advice-style language.
+
+## Historical Analogue Retrieval
+
+The V0.5 retriever is intentionally simple and inspectable:
+
+1. Load cases from `knowledge_base/historical_analogues.csv`.
+2. Score each case against the extracted issue and scenario classification.
+3. Add points for matching scenario type, overlapping keywords, overlapping industries, and overlapping actors.
+4. Return the top three cases with a similarity reason and caution note.
+
+Historical analogues are used for comparison and structured reasoning only. They are not forecasts.
 
 ## Sample Run
 
@@ -95,6 +114,30 @@ To verify source syntax:
 ```bash
 python3 -m compileall src
 ```
+
+## Example Commands
+
+```bash
+python3 src/run_agent.py examples/export_controls_example.md --output outputs/export_controls_brief.md
+python3 src/run_agent.py examples/earnings_disclosure_example.md --output outputs/earnings_disclosure_brief.md
+python3 src/run_agent.py examples/supply_chain_example.md --output outputs/supply_chain_brief.md
+python3 scripts/validate_v05.py
+```
+
+Sample outputs:
+
+- `outputs/export_controls_brief.md`
+- `outputs/earnings_disclosure_brief.md`
+- `outputs/supply_chain_brief.md`
+
+## Limitations
+
+- V0.5 is deterministic and keyword-based.
+- It does not call LLMs or paid APIs.
+- It does not perform live current-context retrieval.
+- It does not generate forecasts or probabilities.
+- It does not provide trading advice or investment recommendations.
+- Historical cases are concise public-history examples and should be checked against primary sources for production use.
 
 ## Portfolio Value
 
@@ -121,11 +164,11 @@ The repository is intentionally designed to be easy for reviewers to scan: docum
 
 ### V0.5
 
-- Add structured JSON intermediate outputs.
-- Add a small curated historical analogue knowledge base.
-- Improve scenario classification rules.
-- Add tests for each workflow stage.
-- Add richer sample documents across policy, market, and company contexts.
+- Add deterministic issue extraction, scenario classification, and historical analogue retrieval.
+- Add a curated historical analogue knowledge base.
+- Add upgraded executive brief sections.
+- Add validation coverage for examples and output language.
+- Add richer sample documents across policy, corporate disclosure, and supply chain contexts.
 
 ### V1.0
 
@@ -134,4 +177,3 @@ The repository is intentionally designed to be easy for reviewers to scan: docum
 - Add source traceability and citations.
 - Add current context retrieval through approved sources.
 - Add a CLI or lightweight UI for portfolio demos.
-

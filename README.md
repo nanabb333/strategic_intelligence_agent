@@ -1,228 +1,137 @@
-# Financial Rubric Agent
+# Strategic Intelligence Agent
 
-Financial Rubric Agent is a beginner-friendly Python finance analytics tool that pulls public company data from `yfinance`, applies a structured 100-point investment rubric, compares multiple stock tickers, exports CSV results, and optionally generates an AI investment narrative using OpenAI.
+An agentic decision-support workflow that converts documents, articles, policy texts, and earnings excerpts into structured executive intelligence briefs.
 
-The project is designed for Business Analytics students who want to combine finance, data analysis, and practical AI in a portfolio-ready project without using complex software frameworks.
+## Project Overview
 
-## Why I Built This
+Strategic Intelligence Agent is a V0.1 portfolio project that demonstrates how a modular LLM-oriented workflow can support analyst productivity. It takes source text, extracts strategic issues, classifies the scenario, retrieves placeholder historical and current context, analyzes implications, and generates a concise executive intelligence brief.
 
-I built this project to practice applying business analytics skills to public company analysis. Instead of trying to predict stock prices, the goal is to create a clear, repeatable scoring framework that evaluates companies across growth, profitability, valuation, moat, and risk.
+The project evolved from an earlier `financial_rubric_agent`. That older logic is preserved under `legacy/financial_rubric_agent/` for project history, but the active V0.1 workflow lives in `src/`.
 
-This project also shows how AI can support financial analysis responsibly: the rule-based model calculates the numeric scores, while the optional AI narrative explains the results in plain English. The AI does not overwrite the scores.
+## Business Problem
 
-## Features
+Executives and analysts often need to turn messy source material into decision-ready intelligence quickly. Source documents can include policy announcements, market commentary, company disclosures, earnings excerpts, or operational memos. The challenge is not simply summarization; the useful output should identify issues, frame the scenario, surface analogues, separate context from implication, and produce a brief that supports discussion.
 
-- Single ticker analysis
-- Batch ticker comparison
-- Public company data fetching with `yfinance`
-- Rule-based 100-point investment scoring
-- Revenue Growth score
-- Profitability score
-- Valuation score
-- Competitive Moat score
-- Risk Assessment score
-- Individual text reports
-- Batch comparison text reports
-- CSV export for batch results
-- Optional OpenAI-powered AI investment narrative
-- Graceful fallback when `OPENAI_API_KEY` is missing
+Strategic Intelligence Agent is designed to make that workflow repeatable and inspectable.
 
-## Folder Structure
+## What This Is / Is Not
+
+This is:
+
+- An analyst productivity tool.
+- A strategic decision-support workflow.
+- A modular agent architecture for structured intelligence briefs.
+- A portfolio demonstration of LLM applications, workflow orchestration, and business analytics.
+
+This is not:
+
+- A trading advisor.
+- A forecasting system.
+- An investment recommendation system.
+- A source of buy, sell, hold, timing, or portfolio allocation advice.
+
+## Agent Workflow
 
 ```text
-financial-rubric-agent/
-│
-├── main.py
-├── rubric.py
-├── ai_writer.py
-├── requirements.txt
-├── README.md
-└── outputs/
-    ├── AAPL_report_TIMESTAMP.txt
-    ├── comparison_report_TIMESTAMP.txt
-    └── comparison_results_TIMESTAMP.csv
+Document
+-> Issue Extraction
+-> Scenario Classification
+-> Historical Analogue Retrieval
+-> Current Context Retrieval
+-> Implication Analysis
+-> Executive Intelligence Brief
 ```
 
-### File Guide
+The V0.1 implementation uses simple deterministic placeholders behind stable module interfaces. Later versions can replace those placeholders with retrieval, structured prompts, external tools, or LLM calls without redesigning the repository.
+
+## Repository Structure
+
+```text
+docs/                         Project documentation and migration roadmap.
+data/                         Local input data and future fixtures.
+examples/                     Example source documents.
+knowledge_base/               Future curated historical analogue records.
+legacy/financial_rubric_agent/ Preserved prior project code and historical reports.
+outputs/                      Strategic Intelligence Agent generated outputs.
+src/                          Active V0.1 agent workflow modules.
+```
+
+Key active modules:
 
 | File | Purpose |
-|---|---|
-| `main.py` | Runs the terminal application, fetches data, creates reports, and handles batch mode |
-| `rubric.py` | Contains the rule-based scoring logic |
-| `ai_writer.py` | Creates the optional OpenAI investment narrative |
-| `requirements.txt` | Lists required Python packages |
-| `outputs/` | Stores generated text reports and CSV files |
+| --- | --- |
+| `src/document_loader.py` | Loads plain text and Markdown documents. |
+| `src/issue_extractor.py` | Extracts initial structured issue records. |
+| `src/scenario_classifier.py` | Classifies issues into strategic scenario categories. |
+| `src/historical_retriever.py` | Provides the historical analogue retrieval interface. |
+| `src/context_retriever.py` | Provides the current context retrieval interface. |
+| `src/implication_analyzer.py` | Converts issues, classifications, analogues, and context into implications. |
+| `src/brief_generator.py` | Generates the Markdown executive intelligence brief. |
+| `src/run_agent.py` | Orchestrates the full workflow. |
 
-## Installation
+## V0.1 Capabilities
 
-### 1. Open the project folder
+- Loads `.txt`, `.md`, and `.markdown` source documents.
+- Runs the full Strategic Intelligence Agent workflow from the command line.
+- Produces a Markdown executive intelligence brief.
+- Includes a sample source document and sample generated output.
+- Preserves the prior financial rubric project in `legacy/` without mixing it into the active workflow.
+- Keeps the project positioned as decision support, not investment advice.
 
-```bash
-cd financial-rubric-agent
-```
-
-### 2. Create a virtual environment
-
-```bash
-python3 -m venv .venv
-```
-
-### 3. Activate the virtual environment
-
-On macOS or Linux:
+## Sample Run
 
 ```bash
-source .venv/bin/activate
+python3 src/run_agent.py examples/sample_document.md --output outputs/sample_brief.md
 ```
 
-On Windows:
-
-```bash
-.venv\Scripts\activate
-```
-
-### 4. Install packages
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run Single Ticker Mode
-
-Use this mode when you want a detailed report for one company.
-
-```bash
-python3 main.py AAPL
-```
-
-Example:
-
-```bash
-python3 main.py MSFT
-```
-
-The program will:
-
-- fetch financial metrics from `yfinance`
-- calculate the five category scores
-- calculate the total score out of 100
-- optionally add an AI narrative if an OpenAI API key is available
-- save an individual text report in `outputs/`
-
-## Run Batch Mode
-
-Use this mode when you want to compare multiple companies.
-
-```bash
-python3 main.py AAPL MSFT TSLA KO
-```
-
-The program will:
-
-- generate an individual text report for each ticker
-- print a comparison table in the terminal
-- sort companies by total score from highest to lowest
-- save a batch comparison text report
-- save a CSV file with the scoring results and raw metrics
-
-## Set Up OpenAI API Key
-
-The OpenAI narrative mode is optional. If no API key is found, the program still works and prints:
+Expected result:
 
 ```text
-AI narrative skipped: OPENAI_API_KEY not found.
+Wrote executive brief to outputs/sample_brief.md
 ```
 
-To enable AI narratives, create a file named `.env` in the project folder:
-
-```text
-OPENAI_API_KEY=your_api_key_here
-```
-
-You can also choose a model:
-
-```text
-OPENAI_MODEL=gpt-5
-```
-
-Then run:
+To verify source syntax:
 
 ```bash
-python3 main.py AAPL
+python3 -m compileall src
 ```
 
-The individual company report will include an `AI Investment Narrative` section.
+## Portfolio Value
 
-## Example Output
+This project demonstrates:
 
-```text
-Financial Rubric Agent V2.0
+- LLM application architecture.
+- Agent workflow decomposition.
+- Tool-ready module boundaries.
+- Structured document analysis.
+- Strategic and business analytics framing.
+- Executive-facing synthesis.
+- Responsible AI positioning with clear non-advisory boundaries.
 
-Company: Apple Inc.
-Ticker: AAPL
-Sector: Technology
-Industry: Consumer Electronics
+The repository is intentionally designed to be easy for reviewers to scan: documentation explains the product direction, `src/` shows the workflow implementation, and `legacy/` preserves the project evolution.
 
-Investment Scores and Explanations
-----------------------------------
-Revenue Growth Score: 19/20
-Profitability Score: 19/20
-Valuation Score: 10/20
-Competitive Moat Score: 19/20
-Risk Score: 13/20
+## Roadmap
 
-Total Score: 80/100
-Interpretation: Strong overall investment profile
-```
+### V0.1
 
-Example batch comparison:
+- Establish repository architecture.
+- Add deterministic workflow scaffolding.
+- Generate a sample executive intelligence brief.
+- Preserve legacy financial rubric work separately.
 
-```text
-Ticker   | Company                  | Total Score | Interpretation
----------+--------------------------+-------------+--------------------------------
-MSFT     | Microsoft Corporation    | 84/100      | Strong overall investment profile
-AAPL     | Apple Inc.               | 80/100      | Strong overall investment profile
-KO       | The Coca-Cola Company    | 76/100      | Good company, but with some concerns
-TSLA     | Tesla, Inc.              | 48/100      | Weak or high-risk profile
-```
+### V0.5
 
-## Current Limitations
+- Add structured JSON intermediate outputs.
+- Add a small curated historical analogue knowledge base.
+- Improve scenario classification rules.
+- Add tests for each workflow stage.
+- Add richer sample documents across policy, market, and company contexts.
 
-- This is an educational analytics project, not investment advice.
-- The scoring rules are simple and not sector-specific.
-- `yfinance` data availability may vary by ticker.
-- Competitive Moat is still partly a placeholder because moat often requires qualitative research.
-- The model does not perform peer benchmarking yet.
-- The AI narrative depends on the quality of the provided metrics and should not be treated as a recommendation.
-- The project does not include real-time news, analyst estimates, backtesting, or portfolio optimization.
+### V1.0
 
-## Future Improvements
+- Add configurable LLM provider support.
+- Add retrieval over curated analogues.
+- Add source traceability and citations.
+- Add current context retrieval through approved sources.
+- Add a CLI or lightweight UI for portfolio demos.
 
-- Add sector-specific scoring rules
-- Add peer comparison by industry
-- Improve Competitive Moat scoring with qualitative research inputs
-- Add historical revenue and margin trends
-- Add charts for financial metrics
-- Add confidence scores for missing or incomplete data
-- Export results to Excel
-- Add a simple dashboard later, such as Streamlit
-- Add source citations for AI narratives
-- Add unit tests for the scoring rubric
-
-## Portfolio Description
-
-Financial Rubric Agent is a Python-based business analytics project that evaluates public companies using a structured 100-point investment rubric. The tool collects financial data from `yfinance`, scores companies across revenue growth, profitability, valuation, competitive moat, and risk, supports single-company and multi-company comparison modes, exports CSV results, and optionally uses OpenAI to generate an investment-style narrative. The project demonstrates applied finance analytics, rule-based modeling, data extraction, reporting automation, and responsible use of AI for explanation rather than score generation.
-
-## Resume Bullet Points
-
-- Built a Python-based financial analytics tool that scores public companies using a structured 100-point investment rubric.
-- Integrated `yfinance` to collect public company metrics such as revenue growth, profit margin, P/E ratio, debt-to-equity, and beta.
-- Designed rule-based scoring logic across revenue growth, profitability, valuation, competitive moat, and risk assessment.
-- Developed batch comparison mode to evaluate multiple tickers, rank companies by total score, and export results to CSV.
-- Added optional OpenAI narrative generation while preserving rule-based scores as the source of truth.
-- Automated individual company reports and batch comparison reports using beginner-friendly Python.
-- Demonstrated practical business analytics skills across finance, data processing, scoring models, and AI-assisted reporting.
-
-## Disclaimer
-
-This project is for learning and portfolio purposes only. It does not provide financial advice or investment recommendations.

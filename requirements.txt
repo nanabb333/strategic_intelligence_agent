@@ -1,4 +1,4 @@
-yfinance
-pandas
-openai
-python-dotenv
+# Strategic Intelligence Agent V0.1 has no third-party runtime dependencies.
+# The legacy financial rubric project keeps its original dependencies in:
+# legacy/financial_rubric_agent/requirements.txt
+

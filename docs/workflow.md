@@ -7,7 +7,8 @@ Document
 -> Issue Extraction
 -> Scenario Classification
 -> Historical Analogue Retrieval
--> Implication Analysis
+-> Current Context Retrieval
+-> Intelligence Synthesis
 -> Executive Intelligence Brief
 ```
 
@@ -56,35 +57,60 @@ describes classification quality only; it is not a forecast probability.
 The retriever searches curated examples for structurally similar events. The
 goal is not prediction; the goal is to support better reasoning by comparison.
 
-V0.5 loads `knowledge_base/historical_analogues.csv` and scores cases using:
+The retriever loads `knowledge_base/historical_analogues.csv` and scores cases
+using:
 
 - Scenario type match.
 - Keyword overlap.
 - Industry overlap.
 - Actor overlap.
 
-### 5. Implication Analysis
+### 5. Current Context Retrieval
 
-The analyzer converts extracted issues, scenario classifications, and analogues
-into structured implications:
+The context retriever loads local Markdown files from
+`knowledge_base/current_context/` and scores entries using:
 
-- Business implications.
-- Geopolitical implications.
-- Market-context implications.
-- Operational-risk implications.
+- Industry match.
+- Scenario match.
+- Keyword overlap.
+
+Historical analogues alone are insufficient because they show what an issue may
+resemble, but not which current stakeholders, constraints, and monitoring
+considerations are relevant. The context layer improves decision support by
+adding present-domain framing without making forecasts.
+
+### 6. Intelligence Synthesis
+
+The analyzer combines historical analogues and current context into:
+
+- Observed similarities.
+- Observed differences.
+- Business considerations.
+- Operational considerations.
+- Geopolitical considerations.
 - Strategic questions.
 
 The language avoids forecasts, probabilities, and investment recommendations.
+It uses phrasing such as "may resemble", "shares characteristics with",
+"differs from", and "requires monitoring".
 
-### 6. Executive Brief Generation
+### 7. Executive Brief Generation
 
 The generator writes a concise brief with these sections:
 
+- Executive Summary.
 - Key Issue.
 - Scenario Classification.
 - Extracted Entities.
 - Historical Analogues.
-- Current Relevance.
-- Business and Geopolitical Implications.
-- Strategic Questions for Decision-Makers.
-- Analyst Notes and Limitations.
+- Current Context.
+- Similarities and Differences.
+- Business Considerations.
+- Operational Considerations.
+- Geopolitical Considerations.
+- Strategic Questions.
+- Analyst Notes.
+- Limitations.
+
+Each brief includes an evidence trace section showing source origins.
+

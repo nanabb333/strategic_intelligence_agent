@@ -21,6 +21,7 @@ class HistoricalAnalogue:
     geopolitical_relevance: str
     caution_note: str
     source: str | None = None
+    evidence_trace: str = ""
 
     @property
     def title(self) -> str:
@@ -148,6 +149,7 @@ def retrieve_historical_analogues(
                 geopolitical_relevance=case["geopolitical_relevance"],
                 caution_note="Historical analogues support comparison, not prediction.",
                 source=case["source_note"],
+                evidence_trace=f"{case['case_title']} ({case['year']}) - Historical Database",
             )
             for _, reasons, case in top_cases
         ]

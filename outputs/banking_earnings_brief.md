@@ -4,26 +4,26 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Executive Summary
 
-- The document describes an Earnings / Corporate Disclosure issue involving AI, cloud, technology.
+- The document describes an Earnings / Corporate Disclosure issue involving strategic operations.
 - Historical analogues and current context are used for comparison and decision support, not prediction.
 - Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
 
 ## Key Issue
 
-**Title:** Cloud Infrastructure Earnings Disclosure
+**Title:** Regional Bank Earnings and Deposit Commentary
 
-**Core issue:** A major technology company disclosed in its quarterly earnings commentary that cloud infrastructure demand remains strong, but management noted rising capital expenditure, constrained AI accelerator supply, and uncertainty around data center deployment timelines.
+**Core issue:** A regional bank disclosed in quarterly earnings that deposit costs remain elevated while loan growth is slowing.
 
-**Summary:** A major technology company disclosed in its quarterly earnings commentary that cloud infrastructure demand remains strong, but management noted rising capital expenditure, constrained AI accelerator supply, and uncertainty around data center deployment timelines.
+**Summary:** A regional bank disclosed in quarterly earnings that deposit costs remain elevated while loan growth is slowing. Management highlighted credit quality monitoring, liquidity planning, and regulatory engagement as priorities for the next reporting period.
 
-The disclosure raises questions about supplier concentration, margin pressure, customer demand visibility, and how executives should communicate infrastructure constraints.
+The disclosure raises questions about stakeholder communication, operational controls, and how banking executives should monitor deposit mix, credit provisions, and capital planning.
 
 **Evidence trace:** Source Document
 
 ## Scenario Classification
 
 - **Primary scenario:** Earnings / Corporate Disclosure
-- **Matched keywords:** earnings, quarter, margin, disclosure
+- **Matched keywords:** earnings, quarter, disclosure
 - **Classification confidence:** High
 - **Evidence trace:** Source Document + deterministic keyword classifier
 - **Note:** Confidence describes classification quality only; it is not a forecast.
@@ -33,8 +33,8 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 - **Document type guess:** Earnings / Corporate Disclosure (Evidence trace: Source Document)
 - **Actors:** executives, management (Evidence trace: Source Document)
 - **Countries / regions:** None detected (Evidence trace: Source Document)
-- **Industries:** AI, cloud, technology (Evidence trace: Source Document)
-- **Policy terms:** None detected (Evidence trace: Source Document)
+- **Industries:** None detected (Evidence trace: Source Document)
+- **Policy terms:** regulatory (Evidence trace: Source Document)
 - **Companies:** None detected (Evidence trace: Source Document)
 
 ## Historical Analogues
@@ -42,29 +42,29 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 ### Major Earnings Guidance Withdrawal During COVID (2020)
 
 - **Scenario type:** Earnings / Corporate Disclosure
-- **Similarity reason:** scenario match on Earnings / Corporate Disclosure; keyword overlap: commentary, communicate, demand, disclosure; industry overlap: technology; actor overlap: executives
+- **Similarity reason:** scenario match on Earnings / Corporate Disclosure; keyword overlap: commentary, communication, disclosure, earnings; actor overlap: executives
 - **Business relevance:** Shows how disclosures can communicate operating uncertainty and planning limits.
 - **Geopolitical relevance:** Connects corporate communication with macro and policy disruption.
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
 
-### Huawei Entity List (2019)
-
-- **Scenario type:** Export Controls
-- **Similarity reason:** keyword overlap: around, how, supplier, supply; industry overlap: technology
-- **Business relevance:** Shows how export controls can alter supplier access and compliance workflows.
-- **Geopolitical relevance:** Illustrates technology competition between the United States and China.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Huawei Entity List (2019) - Historical Database
-
 ### CHIPS and Science Act (2022)
 
 - **Scenario type:** Industrial Policy
-- **Similarity reason:** keyword overlap: around, capital, how, supply; industry overlap: technology
+- **Similarity reason:** keyword overlap: capital, how, planning
 - **Business relevance:** Shows how public incentives can shape capital planning and site selection.
 - **Geopolitical relevance:** Reflects strategic concern about supply resilience and technology leadership.
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** CHIPS and Science Act (2022) - Historical Database
+
+### Taiwan Strait Military Exercises (2022)
+
+- **Scenario type:** Military / Security Shock
+- **Similarity reason:** keyword overlap: how, planning, regional
+- **Business relevance:** Shows how security shocks can affect continuity planning and supplier concentration review.
+- **Geopolitical relevance:** Highlights strategic sensitivity of Taiwan and regional deterrence dynamics.
+- **Caution note:** Historical analogues support comparison, not prediction.
+- **Source origin:** Taiwan Strait Military Exercises (2022) - Historical Database
 
 ## Current Context
 
@@ -74,7 +74,7 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 - **Why it matters:** These disclosures help analysts frame operating conditions and management priorities.
 - **Stakeholders:** Bank executives; depositors; regulators; borrowers; analysts
 - **Monitoring considerations:** Deposit flows; credit loss provisions; capital ratios; management commentary
-- **Retrieval reason:** scenario match: Earnings / Corporate Disclosure; keyword overlap: capital, commentary, disclosure, earning
+- **Retrieval reason:** scenario match: Earnings / Corporate Disclosure; keyword overlap: bank, capital, commentary, credit
 - **Source origin:** Banking Context KB: BK-001 (banking_context.md)
 
 ### Banking - Regulatory Action
@@ -83,22 +83,22 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 - **Why it matters:** Regulatory requirements can change operating flexibility and compliance workload.
 - **Stakeholders:** Banks; regulators; boards; risk officers; customers
 - **Monitoring considerations:** Rule proposals; supervisory guidance; stress-test results; enforcement actions
-- **Retrieval reason:** keyword overlap: capital, customer, management
+- **Retrieval reason:** keyword overlap: bank, banking, capital, control
 - **Source origin:** Banking Context KB: BK-002 (banking_context.md)
 
-### Banking - Other
+### Banking - Sanctions
 
-- **Context summary:** Banking sector stress can involve liquidity confidence, asset-liability management, and communication with stakeholders.
-- **Why it matters:** Executives need to distinguish institution-specific issues from broader sector context.
-- **Stakeholders:** Management; boards; regulators; depositors; counterparties
-- **Monitoring considerations:** Liquidity metrics; deposit composition; public communications; regulator statements
-- **Retrieval reason:** keyword overlap: executive, executives, management
-- **Source origin:** Banking Context KB: BK-004 (banking_context.md)
+- **Context summary:** Banks often implement sanctions screening, transaction monitoring, and customer due diligence controls.
+- **Why it matters:** Sanctions changes can affect payment flows, counterparty relationships, and operational risk controls.
+- **Stakeholders:** Compliance teams; correspondent banks; regulators; corporate customers
+- **Monitoring considerations:** Sanctions lists; payment exceptions; correspondent relationships; compliance updates
+- **Retrieval reason:** keyword overlap: bank, control, controls, monitoring
+- **Source origin:** Banking Context KB: BK-003 (banking_context.md)
 
 ## Similarities and Differences
 
 ### Observed Similarities
-- The issue may resemble Major Earnings Guidance Withdrawal During COVID (2020), Huawei Entity List (2019) because the retrieved cases share characteristics with the earnings / corporate disclosure scenario frame.
+- The issue may resemble Major Earnings Guidance Withdrawal During COVID (2020), CHIPS and Science Act (2022) because the retrieved cases share characteristics with the earnings / corporate disclosure scenario frame.
 - The current context findings from Banking share characteristics with the extracted industries and policy terms.
 
 ### Observed Differences
@@ -107,7 +107,7 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 
 ## Business Considerations
 
-- The issue may indicate changing constraints for AI, cloud, technology and requires monitoring of stakeholder exposure.
+- The issue may indicate changing constraints for affected business operations and requires monitoring of stakeholder exposure.
 - The earnings / corporate disclosure frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
 - Historical and context evidence should be used to structure diligence, not to imply an outcome.
 
@@ -147,8 +147,8 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 
 - Banking Context KB: BK-001 (banking_context.md)
 - Banking Context KB: BK-002 (banking_context.md)
-- Banking Context KB: BK-004 (banking_context.md)
+- Banking Context KB: BK-003 (banking_context.md)
 - CHIPS and Science Act (2022) - Historical Database
-- Huawei Entity List (2019) - Historical Database
 - Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
 - Source Document
+- Taiwan Strait Military Exercises (2022) - Historical Database

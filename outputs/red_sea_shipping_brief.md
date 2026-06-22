@@ -4,26 +4,26 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Executive Summary
 
-- The document describes a Supply Chain Disruption issue involving shipping, logistics, retail.
+- The document describes a Supply Chain Disruption issue involving shipping.
 - Historical analogues and current context are used for comparison and decision support, not prediction.
 - Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
 
 ## Key Issue
 
-**Title:** Red Sea Shipping and Retail Supply Chain Exposure
+**Title:** Red Sea Shipping Route Disruption
 
-**Core issue:** Security risks in the Red Sea are forcing shipping operators to reroute some vessels around longer paths.
+**Core issue:** Security risks in the Red Sea continue to affect shipping routes for goods moving between Asia, Europe, and North America.
 
-**Summary:** Security risks in the Red Sea are forcing shipping operators to reroute some vessels around longer paths. Retailers and manufacturers are reviewing logistics timing, supplier commitments, and inventory planning for goods moving between Asia, Europe, and North America.
+**Summary:** Security risks in the Red Sea continue to affect shipping routes for goods moving between Asia, Europe, and North America. Carriers are rerouting some vessels, while retailers and manufacturers review supplier commitments, inventory buffers, and delivery timelines.
 
-The issue could affect delivery schedules, freight assumptions, and operational contingency planning if route disruption persists.
+Executives need an intelligence brief that compares the current disruption with historical supply chain and security shocks without implying a forecast.
 
 **Evidence trace:** Source Document
 
 ## Scenario Classification
 
 - **Primary scenario:** Supply Chain Disruption
-- **Matched keywords:** supply chain, supplier, shipping, logistics, disruption
+- **Matched keywords:** supply chain, supplier, shipping, disruption, rerouting
 - **Classification confidence:** High
 - **Evidence trace:** Source Document + deterministic keyword classifier
 - **Note:** Confidence describes classification quality only; it is not a forecast.
@@ -31,40 +31,40 @@ The issue could affect delivery schedules, freight assumptions, and operational 
 ## Extracted Entities
 
 - **Document type guess:** Operational Risk Note (Evidence trace: Source Document)
-- **Actors:** None detected (Evidence trace: Source Document)
+- **Actors:** executives (Evidence trace: Source Document)
 - **Countries / regions:** Red Sea (Evidence trace: Source Document)
-- **Industries:** shipping, logistics, retail (Evidence trace: Source Document)
+- **Industries:** shipping (Evidence trace: Source Document)
 - **Policy terms:** None detected (Evidence trace: Source Document)
 - **Companies:** None detected (Evidence trace: Source Document)
 
 ## Historical Analogues
 
-### COVID Supply Chain Disruption (2020)
-
-- **Scenario type:** Supply Chain Disruption
-- **Similarity reason:** scenario match on Supply Chain Disruption; keyword overlap: affect, around, assumptions, chain; industry overlap: logistics, retail
-- **Business relevance:** Shows how operational shocks can expose supplier concentration and inventory assumptions.
-- **Geopolitical relevance:** Demonstrates how public health policy can affect cross-border operations.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** COVID Supply Chain Disruption (2020) - Historical Database
-
 ### Red Sea Shipping Disruption (2023)
 
 - **Scenario type:** Supply Chain Disruption
-- **Similarity reason:** scenario match on Supply Chain Disruption; keyword overlap: affect, around, delivery, disruption; industry overlap: logistics, retail, shipping
+- **Similarity reason:** scenario match on Supply Chain Disruption; keyword overlap: affect, delivery, disruption, inventory; industry overlap: shipping
 - **Business relevance:** Shows how route disruption can affect delivery timing and logistics costs.
 - **Geopolitical relevance:** Links regional security conditions with global trade flows.
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** Red Sea Shipping Disruption (2023) - Historical Database
 
-### Brexit Supply Chain Uncertainty (2016)
+### COVID Supply Chain Disruption (2020)
 
-- **Scenario type:** Trade Policy
-- **Similarity reason:** keyword overlap: around, chain, contingency, planning; industry overlap: logistics, retail
-- **Business relevance:**  rules
-- **Geopolitical relevance:**  and cross-border operating models.
+- **Scenario type:** Supply Chain Disruption
+- **Similarity reason:** scenario match on Supply Chain Disruption; keyword overlap: affect, chain, disruption, inventory
+- **Business relevance:** Shows how operational shocks can expose supplier concentration and inventory assumptions.
+- **Geopolitical relevance:** Demonstrates how public health policy can affect cross-border operations.
 - **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Brexit Supply Chain Uncertainty (2016) - Historical Database
+- **Source origin:** COVID Supply Chain Disruption (2020) - Historical Database
+
+### Taiwan Strait Military Exercises (2022)
+
+- **Scenario type:** Military / Security Shock
+- **Similarity reason:** keyword overlap: affect, review, routes, security; industry overlap: shipping
+- **Business relevance:** Shows how security shocks can affect continuity planning and supplier concentration review.
+- **Geopolitical relevance:** Highlights strategic sensitivity of Taiwan and regional deterrence dynamics.
+- **Caution note:** Historical analogues support comparison, not prediction.
+- **Source origin:** Taiwan Strait Military Exercises (2022) - Historical Database
 
 ## Current Context
 
@@ -74,7 +74,7 @@ The issue could affect delivery schedules, freight assumptions, and operational 
 - **Why it matters:** Disruption can affect delivery timing, maintenance planning, and contingency sourcing.
 - **Stakeholders:** Utilities; producers; shippers; equipment suppliers; customers
 - **Monitoring considerations:** Route availability; equipment lead times; regional security updates; inventory levels
-- **Retrieval reason:** scenario match: Supply Chain Disruption; keyword overlap: affect, chain, contingency, delivery
+- **Retrieval reason:** scenario match: Supply Chain Disruption; keyword overlap: affect, chain, delivery, disruption
 - **Source origin:** Energy Context KB: EN-003 (energy_context.md)
 
 ### Semiconductors - Supply Chain Disruption
@@ -83,7 +83,7 @@ The issue could affect delivery schedules, freight assumptions, and operational 
 - **Why it matters:** Concentrated inputs can create operational exposure when disruptions occur.
 - **Stakeholders:** Foundries; materials suppliers; device makers; automotive and electronics customers
 - **Monitoring considerations:** Supplier concentration; lead times; inventory disclosures; qualification cycles
-- **Retrieval reason:** scenario match: Supply Chain Disruption; keyword overlap: disruption, exposure, inventory, operational
+- **Retrieval reason:** scenario match: Supply Chain Disruption; keyword overlap: disruption, inventory, supplier
 - **Source origin:** Semiconductors Context KB: SC-003 (semiconductor_context.md)
 
 ### Supply Chain - Supply Chain Disruption
@@ -92,13 +92,13 @@ The issue could affect delivery schedules, freight assumptions, and operational 
 - **Why it matters:** Operational teams may need to update contingency plans and supplier communication.
 - **Stakeholders:** Logistics providers; manufacturers; retailers; customers; port operators
 - **Monitoring considerations:** Route changes; freight timing; port congestion; supplier delivery updates
-- **Retrieval reason:** scenario match: Supply Chain Disruption; keyword overlap: affect, commitment, commitments, contingency
+- **Retrieval reason:** scenario match: Supply Chain Disruption; keyword overlap: affect, commitment, commitments, delivery
 - **Source origin:** Supply Chain Context KB: SP-001 (supply_chain_context.md)
 
 ## Similarities and Differences
 
 ### Observed Similarities
-- The issue may resemble COVID Supply Chain Disruption (2020), Red Sea Shipping Disruption (2023) because the retrieved cases share characteristics with the supply chain disruption scenario frame.
+- The issue may resemble Red Sea Shipping Disruption (2023), COVID Supply Chain Disruption (2020) because the retrieved cases share characteristics with the supply chain disruption scenario frame.
 - The current context findings from Energy, Semiconductors, Supply Chain share characteristics with the extracted industries and policy terms.
 
 ### Observed Differences
@@ -107,7 +107,7 @@ The issue could affect delivery schedules, freight assumptions, and operational 
 
 ## Business Considerations
 
-- The issue may indicate changing constraints for shipping, logistics, retail and requires monitoring of stakeholder exposure.
+- The issue may indicate changing constraints for shipping and requires monitoring of stakeholder exposure.
 - The supply chain disruption frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
 - Historical and context evidence should be used to structure diligence, not to imply an outcome.
 
@@ -145,10 +145,10 @@ The issue could affect delivery schedules, freight assumptions, and operational 
 
 ### Evidence Trace
 
-- Brexit Supply Chain Uncertainty (2016) - Historical Database
 - COVID Supply Chain Disruption (2020) - Historical Database
 - Energy Context KB: EN-003 (energy_context.md)
 - Red Sea Shipping Disruption (2023) - Historical Database
 - Semiconductors Context KB: SC-003 (semiconductor_context.md)
 - Source Document
 - Supply Chain Context KB: SP-001 (supply_chain_context.md)
+- Taiwan Strait Military Exercises (2022) - Historical Database

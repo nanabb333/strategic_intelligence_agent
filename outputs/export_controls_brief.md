@@ -2,7 +2,13 @@
 
 This output is for decision-support and analyst productivity only. It does not provide forecasts, probabilities, trading advice, or investment recommendations.
 
-## 1. Key Issue
+## Executive Summary
+
+- The document describes an Export Controls issue involving semiconductor, chip, chips.
+- Historical analogues and current context are used for comparison and decision support, not prediction.
+- Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
+
+## Key Issue
 
 **Title:** Advanced AI Chip Export Controls
 
@@ -12,23 +18,26 @@ This output is for decision-support and analyst productivity only. It does not p
 
 Key uncertainties include allied coordination, implementation timing, company-level exemptions, and whether affected firms can redesign procurement around restricted inputs.
 
-## 2. Scenario Classification
+**Evidence trace:** Source Document
+
+## Scenario Classification
 
 - **Primary scenario:** Export Controls
 - **Matched keywords:** export control, export controls, licensing
 - **Classification confidence:** High
-- **Note:** Confidence describes deterministic keyword classification quality, not a forecast.
+- **Evidence trace:** Source Document + deterministic keyword classifier
+- **Note:** Confidence describes classification quality only; it is not a forecast.
 
-## 3. Extracted Entities
+## Extracted Entities
 
-- **Document type guess:** Policy / Regulatory Text
-- **Actors:** executives, suppliers, customers, firms
-- **Countries / regions:** United States, China
-- **Industries:** semiconductor, chip, chips, AI, cloud
-- **Policy terms:** export controls, licensing, compliance
-- **Companies:** None detected
+- **Document type guess:** Policy / Regulatory Text (Evidence trace: Source Document)
+- **Actors:** executives, suppliers, customers, firms (Evidence trace: Source Document)
+- **Countries / regions:** United States, China (Evidence trace: Source Document)
+- **Industries:** semiconductor, chip, chips, AI, cloud (Evidence trace: Source Document)
+- **Policy terms:** export controls, licensing, compliance (Evidence trace: Source Document)
+- **Companies:** None detected (Evidence trace: Source Document)
 
-## 4. Historical Analogues
+## Historical Analogues
 
 ### Huawei Entity List (2019)
 
@@ -37,7 +46,7 @@ Key uncertainties include allied coordination, implementation timing, company-le
 - **Business relevance:** Shows how export controls can alter supplier access and compliance workflows.
 - **Geopolitical relevance:** Illustrates technology competition between the United States and China.
 - **Caution note:** Historical analogues support comparison, not prediction.
-- **Source note:** Public-history example; concise summary only.
+- **Source origin:** Huawei Entity List (2019) - Historical Database
 
 ### ASML Export Controls (2023)
 
@@ -46,7 +55,7 @@ Key uncertainties include allied coordination, implementation timing, company-le
 - **Business relevance:** Highlights exposure to licensing rules for critical production tools.
 - **Geopolitical relevance:** Shows allied coordination around sensitive technology controls.
 - **Caution note:** Historical analogues support comparison, not prediction.
-- **Source note:** Public-history example; concise summary only.
+- **Source origin:** ASML Export Controls (2023) - Historical Database
 
 ### COVID Supply Chain Disruption (2020)
 
@@ -55,43 +64,91 @@ Key uncertainties include allied coordination, implementation timing, company-le
 - **Business relevance:** Shows how operational shocks can expose supplier concentration and inventory assumptions.
 - **Geopolitical relevance:** Demonstrates how public health policy can affect cross-border operations.
 - **Caution note:** Historical analogues support comparison, not prediction.
-- **Source note:** Public-history example; concise summary only.
+- **Source origin:** COVID Supply Chain Disruption (2020) - Historical Database
 
-## 5. Current Relevance
+## Current Context
 
-- The document may indicate a current Export Controls issue requiring structured monitoring.
-- Current relevance is based only on the supplied document and the local historical analogue knowledge base.
-- No external current-data retrieval or paid API is used in V0.5.
+### Semiconductors - Export Controls
 
-## 6. Business and Geopolitical Implications
+- **Context summary:** Advanced chip and semiconductor equipment supply chains depend on cross-border licensing, specialized suppliers, and government controls.
+- **Why it matters:** Controls can affect access to inputs, customer eligibility, and compliance review timelines.
+- **Stakeholders:** Chip designers; equipment vendors; foundries; cloud providers; regulators
+- **Monitoring considerations:** Licensing updates; allied coordination; supplier disclosures; compliance guidance
+- **Retrieval reason:** industry match: semiconductor; scenario match: Export Controls; keyword overlap: acces, access, advanced, affect
+- **Source origin:** Semiconductors Context KB: SC-001 (semiconductor_context.md)
 
-### Business Implications
-- The issue may indicate changing constraints for semiconductor, chip, chips.
-- The export controls frame raises questions about compliance, supplier exposure, and executive communication needs.
-- Comparable cases such as Huawei Entity List (2019), ASML Export Controls (2023) could help analysts structure follow-up research.
+### Supply Chain - Export Controls
 
-### Geopolitical Implications
+- **Context summary:** Export controls can restrict shipment of sensitive goods, software, or technology to certain end users.
+- **Why it matters:** Companies may need to screen counterparties and assess license requirements before fulfillment.
+- **Stakeholders:** Exporters; freight forwarders; compliance teams; customers; regulators
+- **Monitoring considerations:** Restricted party lists; product classifications; license applications; end-use statements
+- **Retrieval reason:** scenario match: Export Controls; keyword overlap: compliance, control, controls, customer
+- **Source origin:** Supply Chain Context KB: SP-004 (supply_chain_context.md)
+
+### Trade Policy - Export Controls
+
+- **Context summary:** Export-control policy can link national security priorities with commercial technology transfer restrictions.
+- **Why it matters:** Business teams may need to align sales, compliance, and product-classification processes.
+- **Stakeholders:** Regulators; exporters; technology firms; legal teams; customers
+- **Monitoring considerations:** Control lists; licensing policy; allied alignment; enforcement examples
+- **Retrieval reason:** scenario match: Export Controls; keyword overlap: allied, compliance, control, customer
+- **Source origin:** Trade Policy Context KB: TP-002 (trade_policy_context.md)
+
+## Similarities and Differences
+
+### Observed Similarities
+- The issue may resemble Huawei Entity List (2019), ASML Export Controls (2023) because the retrieved cases share characteristics with the export controls scenario frame.
+- The current context findings from Semiconductors, Supply Chain, Trade Policy share characteristics with the extracted industries and policy terms.
+
+### Observed Differences
+- The source document differs from historical analogues because current actors, implementation details, and timing are document-specific.
+- The retrieved context differs from historical cases because it describes standing monitoring considerations rather than a completed event.
+
+## Business Considerations
+
+- The issue may indicate changing constraints for semiconductor, chip, chips and requires monitoring of stakeholder exposure.
+- The export controls frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
+- Historical and context evidence should be used to structure diligence, not to imply an outcome.
+
+## Operational Considerations
+
+- Operational teams may need to monitor counterparties, implementation timelines, documentation requirements, and contingency plans.
+- The issue could affect supplier continuity, licensing workflows, routing choices, or internal escalation paths depending on the scenario.
+
+## Geopolitical Considerations
+
 - The issue could affect cross-border coordination involving United States, China.
-- The policy and security context requires monitoring because government actions can alter operating assumptions.
+- Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions.
 
-### Market Context Implications
-- The event may shape market narratives around resilience, access, and regulatory exposure.
-- Analysts should separate observed facts from broader market interpretation.
-
-### Operational Risk Implications
-- The issue could affect supplier continuity, licensing workflows, or contingency planning.
-- Operational teams may need to monitor counterparties, timelines, and implementation details.
-
-## 7. Strategic Questions for Decision-Makers
+## Strategic Questions
 
 - Which stakeholders are most exposed to this issue?
 - What facts would change the current scenario classification?
-- Which historical analogue is structurally closest, and where does the comparison break down?
+- Which historical analogue is structurally closest, and where does the comparison differ from current context?
+- Which current-context findings require source verification before executive discussion?
 - What decisions require more source verification before executive action?
 
-## 8. Analyst Notes and Limitations
+## Analyst Notes
 
-- V0.5 uses deterministic keyword and overlap matching.
+- Current context retrieval uses local Markdown knowledge-base entries.
 - Historical analogues support structured comparison, not prediction.
-- Classification confidence is not a probability.
+- The synthesis uses phrases such as may resemble, shares characteristics with, differs from, and requires monitoring by design.
+
+## Limitations
+
+- V1.0 uses deterministic keyword and overlap matching.
+- It does not call paid APIs or LLM services.
+- It does not generate forecasts or probabilities.
+- It does not provide trading advice or investment recommendations.
 - Outputs should be reviewed against primary sources before executive use.
+
+### Evidence Trace
+
+- ASML Export Controls (2023) - Historical Database
+- COVID Supply Chain Disruption (2020) - Historical Database
+- Huawei Entity List (2019) - Historical Database
+- Semiconductors Context KB: SC-001 (semiconductor_context.md)
+- Source Document
+- Supply Chain Context KB: SP-004 (supply_chain_context.md)
+- Trade Policy Context KB: TP-002 (trade_policy_context.md)

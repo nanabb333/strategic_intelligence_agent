@@ -1,0 +1,771 @@
+{
+  "issue": {
+    "title": "Regulatory Action Digital Markets Demo Case",
+    "summary": "A fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks. The rules require clearer data governance practices, limits on self-preferencing, faster complaint handling for business users, and reporting on platform access decisions. Regulators say the goal is to improve market fairness and reduce gatekeeper control over digital commerce.\n\nPlatform operators, software developers, advertiser...",
+    "core_issue": "A fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks.",
+    "actors": [
+      "regulator",
+      "firms",
+      "companies"
+    ],
+    "countries_or_regions": [],
+    "industries": [
+      "software"
+    ],
+    "policy_terms": [
+      "regulation",
+      "regulatory",
+      "compliance"
+    ],
+    "companies": [],
+    "document_type_guess": "Policy / Regulatory Text",
+    "uncertainties": [],
+    "evidence": [
+      "A fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks. The rules require clearer data governance practices, limits on self-preferencing, faster complaint handling for business users, and reporting on platform access decisions. Regulators say the goal is to improve market fairness and reduce gatekeeper control over digital commerce.\n\nPlatform operators, software developers, advertiser..."
+    ]
+  },
+  "event_context": {
+    "event_type": "Regulatory Action",
+    "primary_actor": "Government regulators",
+    "secondary_actor": "Digital platforms",
+    "affected_sectors": [
+      "Supply Chain / Logistics",
+      "Digital Platforms",
+      "Technology"
+    ],
+    "affected_regions": [
+      "Region not specified"
+    ],
+    "policy_domain": "Competition and data governance",
+    "strategic_significance": "This regulatory action context matters because it may affect Supply Chain / Logistics, Digital Platforms, Technology through competition and data governance considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.",
+    "event_summary": "Regulatory Action Digital Markets Demo Case\n\nA fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks. The rules require clearer data governance practices, limits on self-preferencing, faster complaint handling for business users, and reporting on platform access decisions.",
+    "confidence": "High",
+    "context_limitations": [
+      "Current-event context is extracted from the submitted document only.",
+      "No live web retrieval, external news API, or source verification is performed.",
+      "Actor, sector, and region labels use deterministic keyword rules and may miss nuance."
+    ]
+  },
+  "scenario": {
+    "issue_title": "Regulatory Action Digital Markets Demo Case",
+    "primary_scenario": "Regulatory Action",
+    "matched_keywords": [
+      "regulation",
+      "regulatory",
+      "compliance",
+      "rule"
+    ],
+    "confidence_label": "High"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "M-008",
+      "mechanism_name": "Regulatory Shock",
+      "description": "Sudden or material change in compliance obligations",
+      "related_scenarios": "Regulatory Action; Banking; Trade Policy",
+      "typical_actors": "regulators; firms; compliance teams",
+      "historical_examples": "GDPR Implementation",
+      "possible_observations": "new rules; enforcement; reporting obligations",
+      "detection_reason": "scenario match: Regulatory Action; observation overlap: compliance, reporting, rules; actor overlap: firms",
+      "evidence_references": [
+        "Source Document",
+        "Regulatory Shock (Mechanism Framework)"
+      ],
+      "source_title": "Regulatory Shock",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
+    {
+      "mechanism_id": "M-018",
+      "mechanism_name": "Legislative Implementation Gap",
+      "description": "Difference between enacted policy and operational implementation",
+      "related_scenarios": "Industrial Policy; Regulatory Action; Trade Policy",
+      "typical_actors": "lawmakers; agencies; firms",
+      "historical_examples": "CHIPS Act; IRA implementation",
+      "possible_observations": "eligibility rules; agency guidance; compliance deadlines",
+      "detection_reason": "scenario match: Regulatory Action; observation overlap: compliance, rules; actor overlap: firms",
+      "evidence_references": [
+        "Source Document",
+        "Legislative Implementation Gap (Mechanism Framework)"
+      ],
+      "source_title": "Legislative Implementation Gap",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
+    {
+      "mechanism_id": "M-012",
+      "mechanism_name": "Compliance Burden",
+      "description": "Operational workload created by screening reporting licensing or documentation",
+      "related_scenarios": "Export Controls; Sanctions; Regulatory Action; Trade Policy",
+      "typical_actors": "legal teams; compliance teams; regulators",
+      "historical_examples": "Export control regimes; sanctions programs",
+      "possible_observations": "screening; licenses; documentation; policy updates",
+      "detection_reason": "scenario match: Regulatory Action; observation overlap: reporting",
+      "evidence_references": [
+        "Source Document",
+        "Compliance Burden (Mechanism Framework)"
+      ],
+      "source_title": "Compliance Burden",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
+    {
+      "mechanism_id": "M-019",
+      "mechanism_name": "Reputational Sensitivity",
+      "description": "Stakeholder perception risk linked to public policy security or compliance issues",
+      "related_scenarios": "Sanctions; Regulatory Action; Earnings / Corporate Disclosure",
+      "typical_actors": "executives; customers; regulators; media",
+      "historical_examples": "sanctions compliance cases; public disclosures",
+      "possible_observations": "public statements; stakeholder concern; disclosure language",
+      "detection_reason": "scenario match: Regulatory Action; observation overlap: compliance",
+      "evidence_references": [
+        "Source Document",
+        "Reputational Sensitivity (Mechanism Framework)"
+      ],
+      "source_title": "Reputational Sensitivity",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    }
+  ],
+  "analogues": [
+    {
+      "case_title": "GDPR Implementation",
+      "year": "2018",
+      "scenario_type": "Regulatory Action",
+      "similarity_reason": "scenario match on Regulatory Action; keyword overlap: business, compliance, data, governance; industry overlap: software; actor overlap: firms",
+      "business_relevance": "Shows how regulation can require governance, documentation, and process changes.",
+      "geopolitical_relevance": "Illustrates regulatory power shaping global business practices.",
+      "caution_note": "Historical analogues support comparison, not prediction.",
+      "source": "Public-history example; concise summary only.",
+      "evidence_trace": "GDPR Implementation (2018) - Historical Database",
+      "source_title": "GDPR Implementation",
+      "source_type": "Historical analogue summary",
+      "source_date": "2018",
+      "source_url": "source pending",
+      "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
+    },
+    {
+      "case_title": "Huawei Entity List",
+      "year": "2019",
+      "scenario_type": "Export Controls",
+      "similarity_reason": "keyword overlap: access, competition, compliance",
+      "business_relevance": "Shows how export controls can alter supplier access and compliance workflows.",
+      "geopolitical_relevance": "Illustrates technology competition between the United States and China.",
+      "caution_note": "Historical analogues support comparison, not prediction.",
+      "source": "Public-history example; concise summary only.",
+      "evidence_trace": "Huawei Entity List (2019) - Historical Database",
+      "source_title": "Huawei Entity List",
+      "source_type": "Historical analogue summary",
+      "source_date": "2019",
+      "source_url": "source pending",
+      "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
+    },
+    {
+      "case_title": "Russia Sanctions After Ukraine Invasion",
+      "year": "2022",
+      "scenario_type": "Sanctions",
+      "similarity_reason": "keyword overlap: business, compliance; actor overlap: firms",
+      "business_relevance": " exports",
+      "geopolitical_relevance": " and business activity linked to Russia.",
+      "caution_note": "Historical analogues support comparison, not prediction.",
+      "source": "Shaped narratives around energy, payments, and cross-border exposure.",
+      "evidence_trace": "Russia Sanctions After Ukraine Invasion (2022) - Historical Database",
+      "source_title": "Russia Sanctions After Ukraine Invasion",
+      "source_type": "Historical analogue summary",
+      "source_date": "2022",
+      "source_url": "source pending",
+      "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
+    }
+  ],
+  "historical_outcomes": [
+    {
+      "case_id": "HO-004",
+      "case_name": "Russia Sanctions After Ukraine Invasion",
+      "event_family": "Sanctions",
+      "year": "2022",
+      "actor": "Governments; banks; exporters; energy firms",
+      "sector": "Energy and Finance",
+      "observed_outcome": "Sanctions disrupted transactions, counterparties, contracts, and compliance workflows.",
+      "strategic_response": "Organizations expanded screening, reviewed contracts, and escalated legal/compliance review.",
+      "time_horizon": "Short-to-medium-term",
+      "confidence": "High",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "High confidence because the outcome is broadly documented in public summaries; source URLs remain pending for this educational dataset.",
+      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Sanctions; event-family/title overlap",
+      "evidence_references": [
+        "Russia Sanctions After Ukraine Invasion (2022) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-001",
+      "case_name": "Huawei Entity List",
+      "event_family": "Export Controls",
+      "year": "2019",
+      "actor": "U.S. government; Huawei; suppliers",
+      "sector": "Technology",
+      "observed_outcome": "Restricted access to selected technology inputs changed supplier screening and product planning.",
+      "strategic_response": "Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.",
+      "time_horizon": "Medium-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Export Controls",
+      "evidence_references": [
+        "Huawei Entity List (2019) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-011",
+      "case_name": "GDPR Implementation",
+      "event_family": "Regulatory Action",
+      "year": "2018",
+      "actor": "EU regulators; technology firms",
+      "sector": "Technology and Software",
+      "observed_outcome": "Data protection rules increased governance, documentation, and compliance process needs.",
+      "strategic_response": "Organizations created privacy controls, reporting workflows, and compliance ownership.",
+      "time_horizon": "Long-term",
+      "confidence": "High",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "High confidence because the outcome is broadly documented in public summaries; source URLs remain pending for this educational dataset.",
+      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Regulatory Action",
+      "evidence_references": [
+        "GDPR Implementation (2018) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-005",
+      "case_name": "Iran Sanctions Reimposition",
+      "event_family": "Sanctions",
+      "year": "2018",
+      "actor": "U.S. government; multinational firms",
+      "sector": "Energy and Finance",
+      "observed_outcome": "Renewed sanctions increased counterparty and market-access restrictions for affected sectors.",
+      "strategic_response": "Firms reassessed market exposure, payment channels, and customer relationships.",
+      "time_horizon": "Medium-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "event-family match: Sanctions; event-family/title overlap",
+      "evidence_references": [
+        "Iran Sanctions Reimposition (2018) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-002",
+      "case_name": "ASML Export Controls",
+      "event_family": "Export Controls",
+      "year": "2023",
+      "actor": "Dutch government; ASML; chipmakers",
+      "sector": "Semiconductors",
+      "observed_outcome": "Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.",
+      "strategic_response": "Companies monitored license rules, tool availability, and jurisdictional alignment.",
+      "time_horizon": "Medium-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "event-family match: Export Controls",
+      "evidence_references": [
+        "ASML Export Controls (2023) - Historical Outcomes Database"
+      ]
+    }
+  ],
+  "strategic_lessons": [
+    {
+      "lesson": "Supply chain diversification frequently appears after export-control or disruption shocks.",
+      "supporting_cases": [
+        "Huawei Entity List (2019)",
+        "ASML Export Controls (2023)"
+      ],
+      "confidence": "Medium",
+      "rationale": "Matched 2 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.",
+      "evidence_references": [
+        "ASML Export Controls (2023) - Historical Outcomes Database",
+        "Huawei Entity List (2019) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "lesson": "Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.",
+      "supporting_cases": [
+        "Russia Sanctions After Ukraine Invasion (2022)",
+        "Huawei Entity List (2019)",
+        "GDPR Implementation (2018)",
+        "ASML Export Controls (2023)"
+      ],
+      "confidence": "High",
+      "rationale": "Matched 4 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.",
+      "evidence_references": [
+        "ASML Export Controls (2023) - Historical Outcomes Database",
+        "GDPR Implementation (2018) - Historical Outcomes Database",
+        "Huawei Entity List (2019) - Historical Outcomes Database",
+        "Russia Sanctions After Ukraine Invasion (2022) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "lesson": "Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.",
+      "supporting_cases": [
+        "Huawei Entity List (2019)"
+      ],
+      "confidence": "Low",
+      "rationale": "Matched 1 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.",
+      "evidence_references": [
+        "Huawei Entity List (2019) - Historical Outcomes Database"
+      ]
+    }
+  ],
+  "evidence_credibility": {
+    "evidence_summary": "5 historical outcomes were retrieved. 2 are high confidence and 3 are medium confidence. Source URLs are not fabricated; source status is reported separately. 3 rule-based strategic lesson(s) were generated from those outcomes.",
+    "confidence_distribution": {
+      "High": 2,
+      "Medium": 3
+    },
+    "source_status_distribution": {
+      "source pending; educational summary": 5
+    },
+    "key_limitations": [
+      "Historical outcomes are simplified educational summaries.",
+      "Confidence reflects internal evidence coding, not real-world predictive accuracy.",
+      "Lessons are pattern-based and should be reviewed by a human analyst.",
+      "Source URLs are not fabricated; missing source links remain marked as source pending."
+    ],
+    "reviewer_note": "Use these outcomes and lessons as decision-support context. They do not prove factual, legal, geopolitical, financial, or predictive accuracy."
+  },
+  "current_context": [
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "industry": "Banking",
+      "scenario_type": "Regulatory Action",
+      "context_summary": "Banking regulation can affect capital planning, liquidity management, risk controls, and reporting obligations.",
+      "why_it_matters": "Regulatory requirements can change operating flexibility and compliance workload.",
+      "stakeholders": "Banks; regulators; boards; risk officers; customers",
+      "monitoring_considerations": "Rule proposals; supervisory guidance; stress-test results; enforcement actions",
+      "similarity_reason": "scenario match: Regulatory Action; keyword overlap: action, compliance, control, regulation",
+      "source_file": "banking_context.md",
+      "evidence_trace": "Banking Context KB: BK-002 (banking_context.md)"
+    },
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "industry": "Energy",
+      "scenario_type": "Regulatory Action",
+      "context_summary": "Energy regulation can affect permitting, emissions compliance, grid access, and reporting obligations.",
+      "why_it_matters": "Regulatory changes can alter project timelines and operational controls.",
+      "stakeholders": "Regulators; utilities; project developers; communities; customers",
+      "monitoring_considerations": "Permit decisions; compliance deadlines; agency guidance; public filings",
+      "similarity_reason": "scenario match: Regulatory Action; keyword overlap: acces, access, compliance, control",
+      "source_file": "energy_context.md",
+      "evidence_trace": "Energy Context KB: EN-004 (energy_context.md)"
+    },
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "industry": "Banking",
+      "scenario_type": "Sanctions",
+      "context_summary": "Banks often implement sanctions screening, transaction monitoring, and customer due diligence controls.",
+      "why_it_matters": "Sanctions changes can affect payment flows, counterparty relationships, and operational risk controls.",
+      "stakeholders": "Compliance teams; correspondent banks; regulators; corporate customers",
+      "monitoring_considerations": "Sanctions lists; payment exceptions; correspondent relationships; compliance updates",
+      "similarity_reason": "keyword overlap: compliance, control, regulator, regulators",
+      "source_file": "banking_context.md",
+      "evidence_trace": "Banking Context KB: BK-003 (banking_context.md)"
+    }
+  ],
+  "implications": [
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "observed_similarities": [
+        "The issue may resemble GDPR Implementation (2018), Huawei Entity List (2019) because the retrieved cases share characteristics with the regulatory action scenario frame.",
+        "The current context findings from Banking, Energy share characteristics with the extracted industries and policy terms."
+      ],
+      "observed_differences": [
+        "The source document differs from historical analogues because current actors, implementation details, and timing are document-specific.",
+        "The retrieved context differs from historical cases because it describes standing monitoring considerations rather than a completed event."
+      ],
+      "business_considerations": [
+        "The issue may indicate changing constraints for software and requires monitoring of stakeholder exposure.",
+        "The regulatory action frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.",
+        "Historical and context evidence should be used to structure diligence, not to imply an outcome."
+      ],
+      "operational_considerations": [
+        "Operational teams may need to monitor counterparties, implementation timelines, documentation requirements, and contingency plans.",
+        "The issue could affect supplier continuity, licensing workflows, routing choices, or internal escalation paths depending on the scenario."
+      ],
+      "geopolitical_considerations": [
+        "The issue could affect cross-border coordination involving relevant jurisdictions.",
+        "Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions."
+      ],
+      "strategic_questions": [
+        "Which stakeholders are most exposed to this issue?",
+        "What facts would change the current scenario classification?",
+        "Which historical analogue is structurally closest, and where does the comparison differ from current context?",
+        "Which current-context findings require source verification before executive discussion?",
+        "What decisions require more source verification before executive action?"
+      ],
+      "evidence_trace": [
+        "GDPR Implementation (2018) - Historical Database",
+        "Huawei Entity List (2019) - Historical Database",
+        "Russia Sanctions After Ukraine Invasion (2022) - Historical Database",
+        "Banking Context KB: BK-002 (banking_context.md)",
+        "Energy Context KB: EN-004 (energy_context.md)",
+        "Banking Context KB: BK-003 (banking_context.md)"
+      ]
+    }
+  ],
+  "response_playbooks": [
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "pattern_name": "Monitoring and contingency planning",
+      "observed_historical_choices": [
+        "Organizations reviewed counterparties, suppliers, and implementation details.",
+        "Teams created monitoring routines around policy updates and operational constraints."
+      ],
+      "observed_outcomes": [
+        "Observed outcomes varied across cases and should not be treated as predictive.",
+        "Relevant analogues include GDPR Implementation, Huawei Entity List, Russia Sanctions After Ukraine Invasion."
+      ],
+      "business_lessons": [
+        "Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.",
+        "Cross-functional review can help separate compliance, operational, and strategic questions."
+      ],
+      "cross_domain_lessons": [
+        "Mechanisms such as Regulatory Shock, Legislative Implementation Gap, Compliance Burden can appear across policy, security, and business domains.",
+        "Historical response patterns are most useful when paired with current context and source verification."
+      ],
+      "evidence_references": [
+        "GDPR Implementation (2018) - Historical Database",
+        "Huawei Entity List (2019) - Historical Database",
+        "Russia Sanctions After Ukraine Invasion (2022) - Historical Database",
+        "Regulatory Shock (Mechanism Framework)",
+        "Legislative Implementation Gap (Mechanism Framework)",
+        "Compliance Burden (Mechanism Framework)"
+      ],
+      "source_title": "Response Playbook",
+      "source_type": "Deterministic response pattern",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Pattern derived from retrieved analogues and mechanisms; review before executive use."
+    }
+  ],
+  "lenses": [
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "lens": "Economics",
+      "hypothesis": "One possible interpretation is that the regulatory action event reflects resource allocation constraints linked to Regulatory Shock, Legislative Implementation Gap.",
+      "supporting_observations": [
+        "The issue references software and operating constraints.",
+        "Historical analogues such as GDPR Implementation, Huawei Entity List show comparable economic adjustment patterns."
+      ],
+      "limitations": [
+        "The document does not quantify cost, demand, or capacity effects."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "GDPR Implementation (2018) - Historical Database",
+        "Huawei Entity List (2019) - Historical Database",
+        "Banking Context KB: BK-002 (banking_context.md)",
+        "Energy Context KB: EN-004 (energy_context.md)",
+        "Regulatory Shock (Mechanism Framework)",
+        "Legislative Implementation Gap (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "lens": "Political Economy",
+      "hypothesis": "One possible interpretation is that public authority and business incentives are interacting through Regulatory Shock, Legislative Implementation Gap.",
+      "supporting_observations": [
+        "The scenario classification is Regulatory Action.",
+        "Current context from Banking, Energy highlights stakeholders and monitoring considerations."
+      ],
+      "limitations": [
+        "The balance between public policy goals and firm-level incentives requires more source detail."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "GDPR Implementation (2018) - Historical Database",
+        "Huawei Entity List (2019) - Historical Database",
+        "Banking Context KB: BK-002 (banking_context.md)",
+        "Energy Context KB: EN-004 (energy_context.md)",
+        "Regulatory Shock (Mechanism Framework)",
+        "Legislative Implementation Gap (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "lens": "International Relations",
+      "hypothesis": "One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.",
+      "supporting_observations": [
+        "Detected regions include no explicit region in the source document.",
+        "Mechanisms such as Regulatory Shock, Legislative Implementation Gap can appear in geopolitical or cross-border settings."
+      ],
+      "limitations": [
+        "The source does not establish intent by governments or counterparties."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "GDPR Implementation (2018) - Historical Database",
+        "Huawei Entity List (2019) - Historical Database",
+        "Banking Context KB: BK-002 (banking_context.md)",
+        "Energy Context KB: EN-004 (energy_context.md)",
+        "Regulatory Shock (Mechanism Framework)",
+        "Legislative Implementation Gap (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "lens": "Legislative / Regulatory",
+      "hypothesis": "One possible interpretation is that implementation rules and compliance obligations are central to the event.",
+      "supporting_observations": [
+        "Detected policy terms include regulation, regulatory, compliance.",
+        "The evidence trace includes source document signals and retrieved context records."
+      ],
+      "limitations": [
+        "Primary legal text or agency guidance would be needed for a complete regulatory reading."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "GDPR Implementation (2018) - Historical Database",
+        "Huawei Entity List (2019) - Historical Database",
+        "Banking Context KB: BK-002 (banking_context.md)",
+        "Energy Context KB: EN-004 (energy_context.md)",
+        "Regulatory Shock (Mechanism Framework)",
+        "Legislative Implementation Gap (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "lens": "Business Strategy",
+      "hypothesis": "One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.",
+      "supporting_observations": [
+        "The issue mentions actors such as regulator, firms, companies.",
+        "The brief combines analogue patterns with current context monitoring considerations."
+      ],
+      "limitations": [
+        "The source does not contain internal priorities, customer-level exposure, or implementation plans."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "GDPR Implementation (2018) - Historical Database",
+        "Huawei Entity List (2019) - Historical Database",
+        "Banking Context KB: BK-002 (banking_context.md)",
+        "Energy Context KB: EN-004 (energy_context.md)",
+        "Regulatory Shock (Mechanism Framework)",
+        "Legislative Implementation Gap (Mechanism Framework)"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "lens": "Economics",
+      "supporting_evidence": [
+        "The issue references software and operating constraints.",
+        "Historical analogues such as GDPR Implementation, Huawei Entity List show comparable economic adjustment patterns."
+      ],
+      "weakening_evidence": [
+        "The document does not quantify cost, demand, or capacity effects."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "lens": "Political Economy",
+      "supporting_evidence": [
+        "The scenario classification is Regulatory Action.",
+        "Current context from Banking, Energy highlights stakeholders and monitoring considerations."
+      ],
+      "weakening_evidence": [
+        "The balance between public policy goals and firm-level incentives requires more source detail."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "lens": "International Relations",
+      "supporting_evidence": [
+        "Detected regions include no explicit region in the source document.",
+        "Mechanisms such as Regulatory Shock, Legislative Implementation Gap can appear in geopolitical or cross-border settings."
+      ],
+      "weakening_evidence": [
+        "The source does not establish intent by governments or counterparties."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "lens": "Legislative / Regulatory",
+      "supporting_evidence": [
+        "Detected policy terms include regulation, regulatory, compliance.",
+        "The evidence trace includes source document signals and retrieved context records."
+      ],
+      "weakening_evidence": [
+        "Primary legal text or agency guidance would be needed for a complete regulatory reading."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Regulatory Action Digital Markets Demo Case",
+      "lens": "Business Strategy",
+      "supporting_evidence": [
+        "The issue mentions actors such as regulator, firms, companies.",
+        "The brief combines analogue patterns with current context monitoring considerations."
+      ],
+      "weakening_evidence": [
+        "The source does not contain internal priorities, customer-level exposure, or implementation plans."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    }
+  ],
+  "agent_trace": {
+    "document_type": "Policy / Regulatory Text",
+    "scenario_type": "Regulatory Action",
+    "selected_tools": [
+      "IssueExtractor",
+      "ScenarioClassifier",
+      "HistoricalRetriever",
+      "ContextRetriever",
+      "ImplicationAnalyzer",
+      "BriefGenerator"
+    ],
+    "skipped_tools": [],
+    "trace": [
+      {
+        "step": 1,
+        "event": "Scenario detected",
+        "detail": "Regulatory Action"
+      },
+      {
+        "step": 2,
+        "event": "Document type detected",
+        "detail": "Policy / Regulatory Text"
+      },
+      {
+        "step": 3,
+        "event": "Tool selected",
+        "detail": "IssueExtractor: Every route starts by converting source text into structured issue fields."
+      },
+      {
+        "step": 4,
+        "event": "Tool selected",
+        "detail": "ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted."
+      },
+      {
+        "step": 5,
+        "event": "Tool selected",
+        "detail": "HistoricalRetriever: Regulatory Action benefits from comparison against historical precedents."
+      },
+      {
+        "step": 6,
+        "event": "Tool selected",
+        "detail": "ContextRetriever: Regulatory Action usually benefits from domain context and monitoring considerations."
+      },
+      {
+        "step": 7,
+        "event": "Tool selected",
+        "detail": "ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations."
+      },
+      {
+        "step": 8,
+        "event": "Tool selected",
+        "detail": "BriefGenerator: The final deliverable is an executive intelligence brief."
+      }
+    ],
+    "reasoning_record": [
+      {
+        "tool": "IssueExtractor",
+        "decision": "Selected",
+        "why": "Every route starts by converting source text into structured issue fields.",
+        "expected_contribution": "Core issue, actors, industries, policy terms, and document type."
+      },
+      {
+        "tool": "ScenarioClassifier",
+        "decision": "Selected",
+        "why": "Scenario classification is required before retrieval decisions can be interpreted.",
+        "expected_contribution": "Primary scenario and matched keyword evidence."
+      },
+      {
+        "tool": "HistoricalRetriever",
+        "decision": "Selected",
+        "why": "Regulatory Action benefits from comparison against historical precedents.",
+        "expected_contribution": "Top analogue cases and similarity reasons from the historical database."
+      },
+      {
+        "tool": "ContextRetriever",
+        "decision": "Selected",
+        "why": "Regulatory Action usually benefits from domain context and monitoring considerations.",
+        "expected_contribution": "Adds current context from the local knowledge base."
+      },
+      {
+        "tool": "ImplicationAnalyzer",
+        "decision": "Selected",
+        "why": "Selected retrieval outputs need to be synthesized into analyst-facing considerations.",
+        "expected_contribution": "Similarities, differences, business considerations, operational considerations, geopolitical considerations, and questions."
+      },
+      {
+        "tool": "BriefGenerator",
+        "decision": "Selected",
+        "why": "The final deliverable is an executive intelligence brief.",
+        "expected_contribution": "Markdown brief with evidence sources, trace, and analysis path."
+      }
+    ],
+    "reasoning_stages": [
+      "Current event context extraction",
+      "Historical analogue retrieval",
+      "Historical outcome retrieval",
+      "Strategic lesson generation",
+      "Evidence credibility assessment",
+      "Response playbook retrieval",
+      "Executive brief generation"
+    ]
+  },
+  "evaluation_metadata": {
+    "framework": "V5 deterministic benchmark framework",
+    "note": "Run artifacts are generated by the local deterministic pipeline; they are not real-world accuracy claims."
+  },
+  "metadata": {
+    "run_id": "run_20260623_029",
+    "created_at": "2026-06-23T16:12:08",
+    "language": "en",
+    "output_mode": "analyst",
+    "question_id": "meaning",
+    "question_text": "What does this issue mean?",
+    "status": "complete",
+    "artifact_paths": {
+      "input": "outputs/runs/run_20260623_029/input.txt",
+      "analysis": "outputs/runs/run_20260623_029/analysis.json",
+      "brief_markdown": "outputs/runs/run_20260623_029/brief.md",
+      "brief_text": "outputs/runs/run_20260623_029/brief.txt",
+      "agent_trace": "outputs/runs/run_20260623_029/agent_trace.json",
+      "metadata": "outputs/runs/run_20260623_029/metadata.json"
+    }
+  }
+}

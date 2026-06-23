@@ -1,0 +1,20 @@
+{
+  "run_id": "run_20260623_026",
+  "created_at": "2026-06-23T16:12:08",
+  "language": "en",
+  "output_mode": "analyst",
+  "question_id": "meaning",
+  "question_text": "What does this issue mean?",
+  "status": "complete",
+  "artifact_paths": {
+    "input": "outputs/runs/run_20260623_026/input.txt",
+    "analysis": "outputs/runs/run_20260623_026/analysis.json",
+    "brief_markdown": "outputs/runs/run_20260623_026/brief.md",
+    "brief_text": "outputs/runs/run_20260623_026/brief.txt",
+    "agent_trace": "outputs/runs/run_20260623_026/agent_trace.json",
+    "metadata": "outputs/runs/run_20260623_026/metadata.json"
+  },
+  "demo_case": "financial_earnings_geopolitical_risk",
+  "source_input": "demo_cases/financial_earnings_geopolitical_risk.txt",
+  "note": "Fictional educational demo case generated through the local FastAPI pipeline."
+}

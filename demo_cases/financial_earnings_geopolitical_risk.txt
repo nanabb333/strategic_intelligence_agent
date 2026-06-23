@@ -1,0 +1,9 @@
+Financial Earnings Geopolitical Risk Demo Case
+
+A fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets. Management says revenue remains diversified, but compliance review costs, customer screening, and risk controls have increased. The bank also notes that some corporate clients are delaying cross-border financing decisions until policy and sanctions rules become clearer.
+
+Analysts reviewing the disclosure want to understand the strategic issue without turning the brief into investment advice. The earnings note includes several overlapping signals: operating expenses tied to compliance, possible revenue timing pressure, regional market uncertainty, and management attention to risk governance. The bank does not provide a forecast of geopolitical outcomes, and the document does not support a trading recommendation.
+
+The issue matters because financial institutions often experience geopolitical risk through indirect channels. Sanctions compliance can increase operational burden. Client hesitation can affect fee timing. Regional uncertainty can require additional controls, legal review, and board reporting. These pressures may not point to a single outcome, but they can change how executives discuss operating resilience, control investment, and market exposure.
+
+This demo case is fictional and educational. It is designed to test whether the Strategic Intelligence Agent can classify the input as financial or earnings risk, identify compliance burden and market access mechanisms, retrieve relevant historical response patterns, and generate evidence-aware decision considerations while avoiding investment advice.

@@ -1,0 +1,786 @@
+{
+  "issue": {
+    "title": "Geopolitical Escalation Supply Chain Demo Case",
+    "summary": "A fictional regional security update reports rising geopolitical tension near a major maritime corridor used by container ships, energy cargoes, and industrial components. Several shipping firms say they are reviewing routing options, insurance coverage, crew safety procedures, and contingency plans for customers with time-sensitive deliveries. Manufacturers that depend on imported components are asking logistics teams to estimate where delays could affect production schedules.\n\nThe update does...",
+    "core_issue": "A fictional regional security update reports rising geopolitical tension near a major maritime corridor used by container ships, energy cargoes, and industrial components.",
+    "actors": [
+      "executives",
+      "suppliers",
+      "customers",
+      "firms"
+    ],
+    "countries_or_regions": [],
+    "industries": [
+      "automotive",
+      "shipping",
+      "energy",
+      "logistics"
+    ],
+    "policy_terms": [],
+    "companies": [],
+    "document_type_guess": "Operational Risk Note",
+    "uncertainties": [
+      "Instead, it describes uncertainty around route reliability, insurance pricing, port congestion, and the cost of rerouting cargo.",
+      "Executives want a structured briefing that separates confirmed operational changes from issues that still require monitoring.",
+      "It is designed to test whether the Strategic Intelligence Agent can identify a geopolitical escalation and supply chain disruption, detect mechanisms such as routing uncertainty and supply chain reconfiguration, retrieve historical analogue patterns, and generate decision-support questions without predicting whether the situation will worsen."
+    ],
+    "evidence": [
+      "A fictional regional security update reports rising geopolitical tension near a major maritime corridor used by container ships, energy cargoes, and industrial components. Several shipping firms say they are reviewing routing options, insurance coverage, crew safety procedures, and contingency plans for customers with time-sensitive deliveries. Manufacturers that depend on imported components are asking logistics teams to estimate where delays could affect production schedules.\n\nThe update does..."
+    ]
+  },
+  "event_context": {
+    "event_type": "Supply Chain Disruption",
+    "primary_actor": "Corporate executives",
+    "secondary_actor": "Suppliers",
+    "affected_sectors": [
+      "Supply Chain / Logistics",
+      "Energy",
+      "Manufacturing",
+      "Technology"
+    ],
+    "affected_regions": [
+      "Region not specified"
+    ],
+    "policy_domain": "Geopolitical operating risk",
+    "strategic_significance": "This supply chain disruption context matters because it may affect Supply Chain / Logistics, Energy, Manufacturing through geopolitical operating risk considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.",
+    "event_summary": "Geopolitical Escalation Supply Chain Demo Case\n\nA fictional regional security update reports rising geopolitical tension near a major maritime corridor used by container ships, energy cargoes, and industrial components. Several shipping firms say they are reviewing routing options, insurance coverage, crew safety procedures, and contingency plans for customers with time-sensitive deliveries.",
+    "confidence": "High",
+    "context_limitations": [
+      "Current-event context is extracted from the submitted document only.",
+      "No live web retrieval, external news API, or source verification is performed.",
+      "Actor, sector, and region labels use deterministic keyword rules and may miss nuance."
+    ]
+  },
+  "scenario": {
+    "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+    "primary_scenario": "Supply Chain Disruption",
+    "matched_keywords": [
+      "supply chain",
+      "shipping",
+      "logistics"
+    ],
+    "confidence_label": "High"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "M-016",
+      "mechanism_name": "Operational Resilience",
+      "description": "Organizational ability to adapt workflows sourcing or controls",
+      "related_scenarios": "Supply Chain Disruption; Regulatory Action; Export Controls",
+      "typical_actors": "operators; executives; suppliers",
+      "historical_examples": "COVID Supply Chain Disruption",
+      "possible_observations": "contingency plans; alternate routes; monitoring routines",
+      "detection_reason": "scenario match: Supply Chain Disruption; observation overlap: contingency, plans; actor overlap: executives, suppliers",
+      "evidence_references": [
+        "Source Document",
+        "Operational Resilience (Mechanism Framework)"
+      ],
+      "source_title": "Operational Resilience",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
+    {
+      "mechanism_id": "M-007",
+      "mechanism_name": "Security Escalation",
+      "description": "Heightened security conditions that affect operations or cross-border flows",
+      "related_scenarios": "Military / Security Shock; Supply Chain Disruption; Sanctions",
+      "typical_actors": "militaries; governments; shippers",
+      "historical_examples": "Taiwan Strait Exercises; Red Sea Shipping Disruption",
+      "possible_observations": "military activity; route changes; advisories; insurance terms",
+      "detection_reason": "scenario match: Supply Chain Disruption; observation overlap: affect, insurance, security, that",
+      "evidence_references": [
+        "Source Document",
+        "Security Escalation (Mechanism Framework)"
+      ],
+      "source_title": "Security Escalation",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
+    {
+      "mechanism_id": "M-009",
+      "mechanism_name": "Information Uncertainty",
+      "description": "Limited visibility that complicates interpretation and executive communication",
+      "related_scenarios": "Earnings / Corporate Disclosure; Supply Chain Disruption; Other",
+      "typical_actors": "executives; analysts; customers",
+      "historical_examples": "Guidance Withdrawals During COVID",
+      "possible_observations": "uncertain demand; unclear timelines; missing source details",
+      "detection_reason": "scenario match: Supply Chain Disruption; observation overlap: that; actor overlap: customers, executives",
+      "evidence_references": [
+        "Source Document",
+        "Information Uncertainty (Mechanism Framework)"
+      ],
+      "source_title": "Information Uncertainty",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
+    {
+      "mechanism_id": "M-010",
+      "mechanism_name": "Demand Shock",
+      "description": "Change in customer demand visibility or order patterns",
+      "related_scenarios": "Earnings / Corporate Disclosure; Supply Chain Disruption",
+      "typical_actors": "customers; firms; suppliers",
+      "historical_examples": "COVID Demand Shifts",
+      "possible_observations": "order delays; revenue commentary; demand visibility",
+      "detection_reason": "scenario match: Supply Chain Disruption; observation overlap: delays; actor overlap: customers, firms, suppliers",
+      "evidence_references": [
+        "Source Document",
+        "Demand Shock (Mechanism Framework)"
+      ],
+      "source_title": "Demand Shock",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    }
+  ],
+  "analogues": [
+    {
+      "case_title": "COVID Supply Chain Disruption",
+      "year": "2020",
+      "scenario_type": "Supply Chain Disruption",
+      "similarity_reason": "scenario match on Supply Chain Disruption; keyword overlap: affect, chain, logistics, production; industry overlap: logistics; actor overlap: firms, suppliers",
+      "business_relevance": "Shows how operational shocks can expose supplier concentration and inventory assumptions.",
+      "geopolitical_relevance": "Demonstrates how public health policy can affect cross-border operations.",
+      "caution_note": "Historical analogues support comparison, not prediction.",
+      "source": "Public-history example; concise summary only.",
+      "evidence_trace": "COVID Supply Chain Disruption (2020) - Historical Database",
+      "source_title": "COVID Supply Chain Disruption",
+      "source_type": "Historical analogue summary",
+      "source_date": "2020",
+      "source_url": "source pending",
+      "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
+    },
+    {
+      "case_title": "Red Sea Shipping Disruption",
+      "year": "2023",
+      "scenario_type": "Supply Chain Disruption",
+      "similarity_reason": "scenario match on Supply Chain Disruption; keyword overlap: affect, energy, logistics, regional; industry overlap: energy, logistics, shipping; actor overlap: firms",
+      "business_relevance": "Shows how route disruption can affect delivery timing and logistics costs.",
+      "geopolitical_relevance": "Links regional security conditions with global trade flows.",
+      "caution_note": "Historical analogues support comparison, not prediction.",
+      "source": "Public-history example; concise summary only.",
+      "evidence_trace": "Red Sea Shipping Disruption (2023) - Historical Database",
+      "source_title": "Red Sea Shipping Disruption",
+      "source_type": "Historical analogue summary",
+      "source_date": "2023",
+      "source_url": "source pending",
+      "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
+    },
+    {
+      "case_title": "Inflation Reduction Act Clean Energy Incentives",
+      "year": "2022",
+      "scenario_type": "Industrial Policy",
+      "similarity_reason": "keyword overlap: energy, industrial, production, supply; industry overlap: automotive, energy; actor overlap: firms, suppliers",
+      "business_relevance": "Shows how incentives can alter capital allocation and supplier location decisions.",
+      "geopolitical_relevance": "Reflects strategic competition around clean energy production capacity.",
+      "caution_note": "Historical analogues support comparison, not prediction.",
+      "source": "Public-history example; concise summary only.",
+      "evidence_trace": "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+      "source_title": "Inflation Reduction Act Clean Energy Incentives",
+      "source_type": "Historical analogue summary",
+      "source_date": "2022",
+      "source_url": "source pending",
+      "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
+    }
+  ],
+  "historical_outcomes": [
+    {
+      "case_id": "HO-008",
+      "case_name": "COVID Supply Chain Disruption",
+      "event_family": "Supply Chain Disruption",
+      "year": "2020",
+      "actor": "Manufacturers; logistics firms; governments",
+      "sector": "Manufacturing and Logistics",
+      "observed_outcome": "Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions.",
+      "strategic_response": "Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.",
+      "time_horizon": "Short-to-medium-term",
+      "confidence": "High",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "High confidence because the outcome is broadly documented in public summaries; source URLs remain pending for this educational dataset.",
+      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Supply Chain Disruption; event-family/title overlap",
+      "evidence_references": [
+        "COVID Supply Chain Disruption (2020) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-009",
+      "case_name": "Red Sea Shipping Disruption",
+      "event_family": "Supply Chain Disruption",
+      "year": "2023",
+      "actor": "Shipping firms; militaries; exporters",
+      "sector": "Shipping and Logistics",
+      "observed_outcome": "Security risks disrupted routing, transit times, insurance terms, and delivery planning.",
+      "strategic_response": "Firms evaluated rerouting, customer communication, freight costs, and contingency planning.",
+      "time_horizon": "Short-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Supply Chain Disruption; event-family/title overlap",
+      "evidence_references": [
+        "Red Sea Shipping Disruption (2023) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-007",
+      "case_name": "Inflation Reduction Act Clean Energy Incentives",
+      "event_family": "Industrial Policy",
+      "year": "2022",
+      "actor": "U.S. government; energy firms; automakers",
+      "sector": "Energy and Manufacturing",
+      "observed_outcome": "Industrial incentives affected domestic content planning and clean-energy supply-chain strategy.",
+      "strategic_response": "Firms reviewed tax credit eligibility, supplier location, and compliance documentation.",
+      "time_horizon": "Long-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Industrial Policy",
+      "evidence_references": [
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-015",
+      "case_name": "Semiconductor Shortage",
+      "event_family": "Supply Chain Disruption",
+      "year": "2021",
+      "actor": "Automakers; chipmakers; suppliers",
+      "sector": "Automotive and Semiconductors",
+      "observed_outcome": "Chip shortages delayed production and exposed supplier concentration in critical components.",
+      "strategic_response": "Firms reviewed allocation processes, supplier relationships, and design flexibility.",
+      "time_horizon": "Medium-term",
+      "confidence": "High",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "High confidence because the outcome is broadly documented in public summaries; source URLs remain pending for this educational dataset.",
+      "retrieval_reason": "event-family match: Supply Chain Disruption; event-family/title overlap",
+      "evidence_references": [
+        "Semiconductor Shortage (2021) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-019",
+      "case_name": "Maritime Chokepoint Disruption",
+      "event_family": "Supply Chain Disruption",
+      "year": "2021",
+      "actor": "Shippers; ports; logistics firms",
+      "sector": "Shipping and Logistics",
+      "observed_outcome": "Route concentration created delivery delays and highlighted chokepoint exposure.",
+      "strategic_response": "Companies reviewed alternative routes, inventory buffers, and customer updates.",
+      "time_horizon": "Short-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "event-family match: Supply Chain Disruption; event-family/title overlap",
+      "evidence_references": [
+        "Maritime Chokepoint Disruption (2021) - Historical Outcomes Database"
+      ]
+    }
+  ],
+  "strategic_lessons": [
+    {
+      "lesson": "Supply chain diversification frequently appears after export-control or disruption shocks.",
+      "supporting_cases": [
+        "COVID Supply Chain Disruption (2020)",
+        "Red Sea Shipping Disruption (2023)",
+        "Inflation Reduction Act Clean Energy Incentives (2022)",
+        "Semiconductor Shortage (2021)",
+        "Maritime Chokepoint Disruption (2021)"
+      ],
+      "confidence": "High",
+      "rationale": "Matched 5 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.",
+      "evidence_references": [
+        "COVID Supply Chain Disruption (2020) - Historical Outcomes Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database",
+        "Maritime Chokepoint Disruption (2021) - Historical Outcomes Database",
+        "Red Sea Shipping Disruption (2023) - Historical Outcomes Database",
+        "Semiconductor Shortage (2021) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "lesson": "Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.",
+      "supporting_cases": [
+        "Inflation Reduction Act Clean Energy Incentives (2022)"
+      ],
+      "confidence": "Low",
+      "rationale": "Matched 1 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.",
+      "evidence_references": [
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "lesson": "Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.",
+      "supporting_cases": [
+        "Inflation Reduction Act Clean Energy Incentives (2022)"
+      ],
+      "confidence": "Low",
+      "rationale": "Matched 1 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.",
+      "evidence_references": [
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "lesson": "Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.",
+      "supporting_cases": [
+        "Red Sea Shipping Disruption (2023)"
+      ],
+      "confidence": "Low",
+      "rationale": "Matched 1 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.",
+      "evidence_references": [
+        "Red Sea Shipping Disruption (2023) - Historical Outcomes Database"
+      ]
+    }
+  ],
+  "evidence_credibility": {
+    "evidence_summary": "5 historical outcomes were retrieved. 2 are high confidence and 3 are medium confidence. Source URLs are not fabricated; source status is reported separately. 4 rule-based strategic lesson(s) were generated from those outcomes.",
+    "confidence_distribution": {
+      "High": 2,
+      "Medium": 3
+    },
+    "source_status_distribution": {
+      "source pending; educational summary": 5
+    },
+    "key_limitations": [
+      "Historical outcomes are simplified educational summaries.",
+      "Confidence reflects internal evidence coding, not real-world predictive accuracy.",
+      "Lessons are pattern-based and should be reviewed by a human analyst.",
+      "Source URLs are not fabricated; missing source links remain marked as source pending."
+    ],
+    "reviewer_note": "Use these outcomes and lessons as decision-support context. They do not prove factual, legal, geopolitical, financial, or predictive accuracy."
+  },
+  "current_context": [
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "industry": "Energy",
+      "scenario_type": "Supply Chain Disruption",
+      "context_summary": "Energy supply chains can be exposed to shipping chokepoints, equipment delays, and regional security conditions.",
+      "why_it_matters": "Disruption can affect delivery timing, maintenance planning, and contingency sourcing.",
+      "stakeholders": "Utilities; producers; shippers; equipment suppliers; customers",
+      "monitoring_considerations": "Route availability; equipment lead times; regional security updates; inventory levels",
+      "similarity_reason": "industry match: energy; scenario match: Supply Chain Disruption; keyword overlap: affect, chain, contingency, customer",
+      "source_file": "energy_context.md",
+      "evidence_trace": "Energy Context KB: EN-003 (energy_context.md)"
+    },
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "industry": "Semiconductors",
+      "scenario_type": "Supply Chain Disruption",
+      "context_summary": "Semiconductor production relies on specialized materials, equipment, and fabrication capacity that can be difficult to replace quickly.",
+      "why_it_matters": "Concentrated inputs can create operational exposure when disruptions occur.",
+      "stakeholders": "Foundries; materials suppliers; device makers; automotive and electronics customers",
+      "monitoring_considerations": "Supplier concentration; lead times; inventory disclosures; qualification cycles",
+      "similarity_reason": "scenario match: Supply Chain Disruption; keyword overlap: customer, customers, production, supplier",
+      "source_file": "semiconductor_context.md",
+      "evidence_trace": "Semiconductors Context KB: SC-003 (semiconductor_context.md)"
+    },
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "industry": "Supply Chain",
+      "scenario_type": "Supply Chain Disruption",
+      "context_summary": "Logistics disruptions can affect routing, lead times, inventory planning, and customer commitments.",
+      "why_it_matters": "Operational teams may need to update contingency plans and supplier communication.",
+      "stakeholders": "Logistics providers; manufacturers; retailers; customers; port operators",
+      "monitoring_considerations": "Route changes; freight timing; port congestion; supplier delivery updates",
+      "similarity_reason": "scenario match: Supply Chain Disruption; keyword overlap: affect, contingency, customer, customers",
+      "source_file": "supply_chain_context.md",
+      "evidence_trace": "Supply Chain Context KB: SP-001 (supply_chain_context.md)"
+    }
+  ],
+  "implications": [
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "observed_similarities": [
+        "The issue may resemble COVID Supply Chain Disruption (2020), Red Sea Shipping Disruption (2023) because the retrieved cases share characteristics with the supply chain disruption scenario frame.",
+        "The current context findings from Energy, Semiconductors, Supply Chain share characteristics with the extracted industries and policy terms."
+      ],
+      "observed_differences": [
+        "The source document differs from historical analogues because current actors, implementation details, and timing are document-specific.",
+        "The retrieved context differs from historical cases because it describes standing monitoring considerations rather than a completed event."
+      ],
+      "business_considerations": [
+        "The issue may indicate changing constraints for automotive, shipping, energy and requires monitoring of stakeholder exposure.",
+        "The supply chain disruption frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.",
+        "Historical and context evidence should be used to structure diligence, not to imply an outcome."
+      ],
+      "operational_considerations": [
+        "Operational teams may need to monitor counterparties, implementation timelines, documentation requirements, and contingency plans.",
+        "The issue could affect supplier continuity, licensing workflows, routing choices, or internal escalation paths depending on the scenario."
+      ],
+      "geopolitical_considerations": [
+        "The issue could affect cross-border coordination involving relevant jurisdictions.",
+        "Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions."
+      ],
+      "strategic_questions": [
+        "Which stakeholders are most exposed to this issue?",
+        "What facts would change the current scenario classification?",
+        "Which historical analogue is structurally closest, and where does the comparison differ from current context?",
+        "Which current-context findings require source verification before executive discussion?",
+        "What decisions require more source verification before executive action?"
+      ],
+      "evidence_trace": [
+        "COVID Supply Chain Disruption (2020) - Historical Database",
+        "Red Sea Shipping Disruption (2023) - Historical Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+        "Energy Context KB: EN-003 (energy_context.md)",
+        "Semiconductors Context KB: SC-003 (semiconductor_context.md)",
+        "Supply Chain Context KB: SP-001 (supply_chain_context.md)"
+      ]
+    }
+  ],
+  "response_playbooks": [
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "pattern_name": "Monitoring and contingency planning",
+      "observed_historical_choices": [
+        "Organizations reviewed counterparties, suppliers, and implementation details.",
+        "Teams created monitoring routines around policy updates and operational constraints."
+      ],
+      "observed_outcomes": [
+        "Observed outcomes varied across cases and should not be treated as predictive.",
+        "Relevant analogues include COVID Supply Chain Disruption, Red Sea Shipping Disruption, Inflation Reduction Act Clean Energy Incentives."
+      ],
+      "business_lessons": [
+        "Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.",
+        "Cross-functional review can help separate compliance, operational, and strategic questions."
+      ],
+      "cross_domain_lessons": [
+        "Mechanisms such as Operational Resilience, Security Escalation, Information Uncertainty can appear across policy, security, and business domains.",
+        "Historical response patterns are most useful when paired with current context and source verification."
+      ],
+      "evidence_references": [
+        "COVID Supply Chain Disruption (2020) - Historical Database",
+        "Red Sea Shipping Disruption (2023) - Historical Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+        "Operational Resilience (Mechanism Framework)",
+        "Security Escalation (Mechanism Framework)",
+        "Information Uncertainty (Mechanism Framework)"
+      ],
+      "source_title": "Response Playbook",
+      "source_type": "Deterministic response pattern",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Pattern derived from retrieved analogues and mechanisms; review before executive use."
+    }
+  ],
+  "lenses": [
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "lens": "Economics",
+      "hypothesis": "One possible interpretation is that the supply chain disruption event reflects resource allocation constraints linked to Operational Resilience, Security Escalation.",
+      "supporting_observations": [
+        "The issue references automotive, shipping, energy and operating constraints.",
+        "Historical analogues such as COVID Supply Chain Disruption, Red Sea Shipping Disruption show comparable economic adjustment patterns."
+      ],
+      "limitations": [
+        "The document does not quantify cost, demand, or capacity effects."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "COVID Supply Chain Disruption (2020) - Historical Database",
+        "Red Sea Shipping Disruption (2023) - Historical Database",
+        "Energy Context KB: EN-003 (energy_context.md)",
+        "Semiconductors Context KB: SC-003 (semiconductor_context.md)",
+        "Operational Resilience (Mechanism Framework)",
+        "Security Escalation (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "lens": "Political Economy",
+      "hypothesis": "One possible interpretation is that public authority and business incentives are interacting through Operational Resilience, Security Escalation.",
+      "supporting_observations": [
+        "The scenario classification is Supply Chain Disruption.",
+        "Current context from Energy, Semiconductors highlights stakeholders and monitoring considerations."
+      ],
+      "limitations": [
+        "The balance between public policy goals and firm-level incentives requires more source detail."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "COVID Supply Chain Disruption (2020) - Historical Database",
+        "Red Sea Shipping Disruption (2023) - Historical Database",
+        "Energy Context KB: EN-003 (energy_context.md)",
+        "Semiconductors Context KB: SC-003 (semiconductor_context.md)",
+        "Operational Resilience (Mechanism Framework)",
+        "Security Escalation (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "lens": "International Relations",
+      "hypothesis": "One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.",
+      "supporting_observations": [
+        "Detected regions include no explicit region in the source document.",
+        "Mechanisms such as Operational Resilience, Security Escalation can appear in geopolitical or cross-border settings."
+      ],
+      "limitations": [
+        "The source does not establish intent by governments or counterparties."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "COVID Supply Chain Disruption (2020) - Historical Database",
+        "Red Sea Shipping Disruption (2023) - Historical Database",
+        "Energy Context KB: EN-003 (energy_context.md)",
+        "Semiconductors Context KB: SC-003 (semiconductor_context.md)",
+        "Operational Resilience (Mechanism Framework)",
+        "Security Escalation (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "lens": "Legislative / Regulatory",
+      "hypothesis": "One possible interpretation is that implementation rules and compliance obligations are central to the event.",
+      "supporting_observations": [
+        "Detected policy terms include limited explicit policy terms.",
+        "The evidence trace includes source document signals and retrieved context records."
+      ],
+      "limitations": [
+        "Primary legal text or agency guidance would be needed for a complete regulatory reading."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "COVID Supply Chain Disruption (2020) - Historical Database",
+        "Red Sea Shipping Disruption (2023) - Historical Database",
+        "Energy Context KB: EN-003 (energy_context.md)",
+        "Semiconductors Context KB: SC-003 (semiconductor_context.md)",
+        "Operational Resilience (Mechanism Framework)",
+        "Security Escalation (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "lens": "Business Strategy",
+      "hypothesis": "One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.",
+      "supporting_observations": [
+        "The issue mentions actors such as executives, suppliers, customers.",
+        "The brief combines analogue patterns with current context monitoring considerations."
+      ],
+      "limitations": [
+        "The source does not contain internal priorities, customer-level exposure, or implementation plans."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "COVID Supply Chain Disruption (2020) - Historical Database",
+        "Red Sea Shipping Disruption (2023) - Historical Database",
+        "Energy Context KB: EN-003 (energy_context.md)",
+        "Semiconductors Context KB: SC-003 (semiconductor_context.md)",
+        "Operational Resilience (Mechanism Framework)",
+        "Security Escalation (Mechanism Framework)"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "lens": "Economics",
+      "supporting_evidence": [
+        "The issue references automotive, shipping, energy and operating constraints.",
+        "Historical analogues such as COVID Supply Chain Disruption, Red Sea Shipping Disruption show comparable economic adjustment patterns."
+      ],
+      "weakening_evidence": [
+        "The document does not quantify cost, demand, or capacity effects."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "lens": "Political Economy",
+      "supporting_evidence": [
+        "The scenario classification is Supply Chain Disruption.",
+        "Current context from Energy, Semiconductors highlights stakeholders and monitoring considerations."
+      ],
+      "weakening_evidence": [
+        "The balance between public policy goals and firm-level incentives requires more source detail."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "lens": "International Relations",
+      "supporting_evidence": [
+        "Detected regions include no explicit region in the source document.",
+        "Mechanisms such as Operational Resilience, Security Escalation can appear in geopolitical or cross-border settings."
+      ],
+      "weakening_evidence": [
+        "The source does not establish intent by governments or counterparties."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "lens": "Legislative / Regulatory",
+      "supporting_evidence": [
+        "Detected policy terms include limited explicit policy terms.",
+        "The evidence trace includes source document signals and retrieved context records."
+      ],
+      "weakening_evidence": [
+        "Primary legal text or agency guidance would be needed for a complete regulatory reading."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Geopolitical Escalation Supply Chain Demo Case",
+      "lens": "Business Strategy",
+      "supporting_evidence": [
+        "The issue mentions actors such as executives, suppliers, customers.",
+        "The brief combines analogue patterns with current context monitoring considerations."
+      ],
+      "weakening_evidence": [
+        "The source does not contain internal priorities, customer-level exposure, or implementation plans."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    }
+  ],
+  "agent_trace": {
+    "document_type": "Operational Risk Note",
+    "scenario_type": "Supply Chain Disruption",
+    "selected_tools": [
+      "IssueExtractor",
+      "ScenarioClassifier",
+      "HistoricalRetriever",
+      "ContextRetriever",
+      "ImplicationAnalyzer",
+      "BriefGenerator"
+    ],
+    "skipped_tools": [],
+    "trace": [
+      {
+        "step": 1,
+        "event": "Scenario detected",
+        "detail": "Supply Chain Disruption"
+      },
+      {
+        "step": 2,
+        "event": "Document type detected",
+        "detail": "Operational Risk Note"
+      },
+      {
+        "step": 3,
+        "event": "Tool selected",
+        "detail": "IssueExtractor: Every route starts by converting source text into structured issue fields."
+      },
+      {
+        "step": 4,
+        "event": "Tool selected",
+        "detail": "ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted."
+      },
+      {
+        "step": 5,
+        "event": "Tool selected",
+        "detail": "HistoricalRetriever: Supply Chain Disruption benefits from comparison against historical precedents."
+      },
+      {
+        "step": 6,
+        "event": "Tool selected",
+        "detail": "ContextRetriever: Supply Chain Disruption usually benefits from domain context and monitoring considerations."
+      },
+      {
+        "step": 7,
+        "event": "Tool selected",
+        "detail": "ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations."
+      },
+      {
+        "step": 8,
+        "event": "Tool selected",
+        "detail": "BriefGenerator: The final deliverable is an executive intelligence brief."
+      }
+    ],
+    "reasoning_record": [
+      {
+        "tool": "IssueExtractor",
+        "decision": "Selected",
+        "why": "Every route starts by converting source text into structured issue fields.",
+        "expected_contribution": "Core issue, actors, industries, policy terms, and document type."
+      },
+      {
+        "tool": "ScenarioClassifier",
+        "decision": "Selected",
+        "why": "Scenario classification is required before retrieval decisions can be interpreted.",
+        "expected_contribution": "Primary scenario and matched keyword evidence."
+      },
+      {
+        "tool": "HistoricalRetriever",
+        "decision": "Selected",
+        "why": "Supply Chain Disruption benefits from comparison against historical precedents.",
+        "expected_contribution": "Top analogue cases and similarity reasons from the historical database."
+      },
+      {
+        "tool": "ContextRetriever",
+        "decision": "Selected",
+        "why": "Supply Chain Disruption usually benefits from domain context and monitoring considerations.",
+        "expected_contribution": "Adds current context from the local knowledge base."
+      },
+      {
+        "tool": "ImplicationAnalyzer",
+        "decision": "Selected",
+        "why": "Selected retrieval outputs need to be synthesized into analyst-facing considerations.",
+        "expected_contribution": "Similarities, differences, business considerations, operational considerations, geopolitical considerations, and questions."
+      },
+      {
+        "tool": "BriefGenerator",
+        "decision": "Selected",
+        "why": "The final deliverable is an executive intelligence brief.",
+        "expected_contribution": "Markdown brief with evidence sources, trace, and analysis path."
+      }
+    ],
+    "reasoning_stages": [
+      "Current event context extraction",
+      "Historical analogue retrieval",
+      "Historical outcome retrieval",
+      "Strategic lesson generation",
+      "Evidence credibility assessment",
+      "Response playbook retrieval",
+      "Executive brief generation"
+    ]
+  },
+  "evaluation_metadata": {
+    "framework": "V5 deterministic benchmark framework",
+    "note": "Run artifacts are generated by the local deterministic pipeline; they are not real-world accuracy claims."
+  },
+  "metadata": {
+    "run_id": "run_20260623_027",
+    "created_at": "2026-06-23T16:12:08",
+    "language": "en",
+    "output_mode": "analyst",
+    "question_id": "meaning",
+    "question_text": "What does this issue mean?",
+    "status": "complete",
+    "artifact_paths": {
+      "input": "outputs/runs/run_20260623_027/input.txt",
+      "analysis": "outputs/runs/run_20260623_027/analysis.json",
+      "brief_markdown": "outputs/runs/run_20260623_027/brief.md",
+      "brief_text": "outputs/runs/run_20260623_027/brief.txt",
+      "agent_trace": "outputs/runs/run_20260623_027/agent_trace.json",
+      "metadata": "outputs/runs/run_20260623_027/metadata.json"
+    }
+  }
+}

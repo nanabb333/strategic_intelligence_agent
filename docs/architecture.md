@@ -3,22 +3,14 @@
 ## High-Level Design
 
 Strategic Intelligence Agent is organized as a deterministic, tool-selecting
-agent. V3 keeps the existing modular tools but adds an Agent Router that decides
-which tools should run for a given document.
-V4 adds an intelligence reasoning layer that interprets the same event through
-multiple analytic lenses.
-V4.5 adds a bilingual non-AI user layer with guided questions and deterministic
-output adaptation.
-V5 adds an evaluation layer that benchmarks the existing workflow without
-changing the analytical pipeline.
-V6 adds a local FastAPI application layer that lets the dashboard call the real
-Python pipeline and save run artifacts.
-V7 adds historical outcome retrieval and strategic lesson generation after
-historical analogue retrieval.
+strategic intelligence workflow. The architecture emphasizes current-event
+framing, traceable retrieval, historical analogue reasoning, historical outcome
+patterns, strategic lessons, and evidence-aware executive communication.
 
 ```text
 Input Document
   -> language / guided question / output mode selection
+  -> event_context
   -> document_loader
   -> agent_router
   -> tool_registry
@@ -46,6 +38,8 @@ knowledge_base/                Curated historical analogues.
 knowledge_base/historical_outcomes.csv Curated historical outcome records.
 knowledge_base/current_context/ Local current-context knowledge base files.
 examples/                      Example inputs, runs, and generated artifacts.
+demo_cases/                    Fictional educational current-event demo inputs.
+demo_case_outputs/             Generated artifacts for reviewer-facing demo cases.
 evaluation/                    Benchmark cases, generated results, and evaluation summary.
 outputs/                       Generated briefs and intermediate workflow outputs.
 outputs/runs/                  Local app run folders and downloadable artifacts.
@@ -60,6 +54,7 @@ src/                           Application source code.
 | `agent_router.py` | Analyze document metadata and select tools for the route. |
 | `tool_registry.py` | Register available deterministic tools for future extensibility. |
 | `document_loader.py` | Load and normalize source documents. |
+| `event_context.py` | Extract deterministic current-event context before historical comparison. |
 | `issue_extractor.py` | Extract core issue, actors, regions, industries, policy terms, companies, document type, and uncertainties. |
 | `scenario_classifier.py` | Classify issues into deterministic scenario categories using keyword matches. |
 | `historical_retriever.py` | Retrieve top historical analogues from `knowledge_base/historical_analogues.csv`. |
@@ -75,6 +70,25 @@ src/                           Application source code.
 | `output_adapter.py` | Adapt generated briefs into beginner, analyst, and executive formats with deterministic localization framing. |
 | `evaluator.py` | Run benchmark cases and calculate scenario, mechanism, lens, response, and overall scores. |
 | `run_agent.py` | Orchestrate the end-to-end workflow. |
+
+## Current Event Context Layer
+
+The current-event layer extracts event type, primary actor, secondary actor,
+affected sectors, affected regions, policy domain, strategic significance,
+summary, confidence, and limitations from the submitted document. It runs
+before issue extraction and scenario classification so reviewers can see what
+kind of current event is being analyzed before historical analogues are used.
+
+This layer is deterministic. It does not use live web search, external news
+APIs, vector retrieval, or LLM calls. Its confidence label describes internal
+classification support, not real-world accuracy.
+
+## Demo Case Library
+
+The repository includes a reviewer-facing demo library in `demo_cases/`,
+`demo_case_outputs/`, and `docs/demo_case_library.md`. The demo cases show the
+same architecture operating across export controls, industrial policy, supply
+chain disruption, financial earnings risk, and digital market regulation.
 
 ## V6 Local App Layer
 

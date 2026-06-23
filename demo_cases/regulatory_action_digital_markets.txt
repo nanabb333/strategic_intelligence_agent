@@ -1,0 +1,9 @@
+Regulatory Action Digital Markets Demo Case
+
+A fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks. The rules require clearer data governance practices, limits on self-preferencing, faster complaint handling for business users, and reporting on platform access decisions. Regulators say the goal is to improve market fairness and reduce gatekeeper control over digital commerce.
+
+Platform operators, software developers, advertisers, and marketplace sellers begin assessing how the rules could affect product design, data access, compliance operations, and partner relationships. Some firms are concerned about implementation timelines and documentation requirements. Others see the rules as an opportunity to renegotiate access terms or improve transparency around platform decisions.
+
+The strategic issue is broader than a legal compliance checklist. Digital market regulation can change the relationship between platform owners and business users, alter internal product governance, and create new reporting expectations. Companies affected by the rules may need to coordinate legal, product, data, engineering, and commercial teams so that policy obligations are reflected in operating processes.
+
+This demo case is fictional and educational. It is designed to test whether the Strategic Intelligence Agent can classify the event as regulatory action, identify market access and compliance mechanisms, retrieve historical analogues involving digital regulation or competition policy, and generate strategic lessons without giving legal advice or predicting regulatory outcomes.

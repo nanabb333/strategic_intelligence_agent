@@ -1,6 +1,7 @@
 """Executive brief generation for Strategic Intelligence Agent."""
 
 from context_retriever import CurrentContext
+from event_context import EventContext
 from historical_retriever import HistoricalAnalogue
 from implication_analyzer import ImplicationAnalysis
 from issue_extractor import ExtractedIssue
@@ -29,6 +30,26 @@ def _format_distribution(distribution: dict[str, int]) -> str:
     return ", ".join(f"{key}: {value}" for key, value in sorted(distribution.items()))
 
 
+def _format_event_context(event_context: EventContext | None) -> list[str]:
+    if not event_context:
+        return ["- No current-event context was extracted."]
+    lines = [
+        f"- **Event type:** {event_context.event_type}",
+        f"- **Primary actor:** {event_context.primary_actor}",
+        f"- **Secondary actor:** {event_context.secondary_actor}",
+        f"- **Affected sectors:** {', '.join(event_context.affected_sectors) or 'Not specified'}",
+        f"- **Affected regions:** {', '.join(event_context.affected_regions) or 'Not specified'}",
+        f"- **Policy domain:** {event_context.policy_domain}",
+        f"- **Strategic significance:** {event_context.strategic_significance}",
+        f"- **Event summary:** {event_context.event_summary}",
+        f"- **Confidence:** {event_context.confidence}",
+        "- **Evidence trace:** Source Document + deterministic current-event rules",
+    ]
+    if event_context.context_limitations:
+        lines.append("- **Limitations:** " + " ".join(event_context.context_limitations))
+    return lines
+
+
 def generate_brief(
     issues: list[ExtractedIssue],
     classifications: list[ScenarioClassification],
@@ -43,6 +64,7 @@ def generate_brief(
     strategic_lessons=None,
     evidence_credibility=None,
     response_patterns=None,
+    event_context: EventContext | None = None,
 ) -> str:
     """Generate a Markdown executive intelligence brief."""
     classification_by_issue = {item.issue_title: item for item in classifications}
@@ -124,6 +146,14 @@ def generate_brief(
                 f"**Summary:** {issue.summary}",
                 "",
                 "**Evidence trace:** Source Document",
+                "",
+                "## Current Event Context",
+                "",
+            ]
+        )
+        lines.extend(_format_event_context(event_context))
+        lines.extend(
+            [
                 "",
                 "## Scenario Classification",
                 "",

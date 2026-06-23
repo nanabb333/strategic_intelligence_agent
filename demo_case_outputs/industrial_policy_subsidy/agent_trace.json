@@ -1,0 +1,102 @@
+{
+  "document_type": "Policy / Regulatory Text",
+  "scenario_type": "Industrial Policy",
+  "selected_tools": [
+    "IssueExtractor",
+    "ScenarioClassifier",
+    "HistoricalRetriever",
+    "ContextRetriever",
+    "ImplicationAnalyzer",
+    "BriefGenerator"
+  ],
+  "skipped_tools": [],
+  "trace": [
+    {
+      "step": 1,
+      "event": "Scenario detected",
+      "detail": "Industrial Policy"
+    },
+    {
+      "step": 2,
+      "event": "Document type detected",
+      "detail": "Policy / Regulatory Text"
+    },
+    {
+      "step": 3,
+      "event": "Tool selected",
+      "detail": "IssueExtractor: Every route starts by converting source text into structured issue fields."
+    },
+    {
+      "step": 4,
+      "event": "Tool selected",
+      "detail": "ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted."
+    },
+    {
+      "step": 5,
+      "event": "Tool selected",
+      "detail": "HistoricalRetriever: Industrial Policy benefits from comparison against historical precedents."
+    },
+    {
+      "step": 6,
+      "event": "Tool selected",
+      "detail": "ContextRetriever: Industrial Policy usually benefits from domain context and monitoring considerations."
+    },
+    {
+      "step": 7,
+      "event": "Tool selected",
+      "detail": "ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations."
+    },
+    {
+      "step": 8,
+      "event": "Tool selected",
+      "detail": "BriefGenerator: The final deliverable is an executive intelligence brief."
+    }
+  ],
+  "reasoning_record": [
+    {
+      "tool": "IssueExtractor",
+      "decision": "Selected",
+      "why": "Every route starts by converting source text into structured issue fields.",
+      "expected_contribution": "Core issue, actors, industries, policy terms, and document type."
+    },
+    {
+      "tool": "ScenarioClassifier",
+      "decision": "Selected",
+      "why": "Scenario classification is required before retrieval decisions can be interpreted.",
+      "expected_contribution": "Primary scenario and matched keyword evidence."
+    },
+    {
+      "tool": "HistoricalRetriever",
+      "decision": "Selected",
+      "why": "Industrial Policy benefits from comparison against historical precedents.",
+      "expected_contribution": "Top analogue cases and similarity reasons from the historical database."
+    },
+    {
+      "tool": "ContextRetriever",
+      "decision": "Selected",
+      "why": "Industrial Policy usually benefits from domain context and monitoring considerations.",
+      "expected_contribution": "Adds current context from the local knowledge base."
+    },
+    {
+      "tool": "ImplicationAnalyzer",
+      "decision": "Selected",
+      "why": "Selected retrieval outputs need to be synthesized into analyst-facing considerations.",
+      "expected_contribution": "Similarities, differences, business considerations, operational considerations, geopolitical considerations, and questions."
+    },
+    {
+      "tool": "BriefGenerator",
+      "decision": "Selected",
+      "why": "The final deliverable is an executive intelligence brief.",
+      "expected_contribution": "Markdown brief with evidence sources, trace, and analysis path."
+    }
+  ],
+  "reasoning_stages": [
+    "Current event context extraction",
+    "Historical analogue retrieval",
+    "Historical outcome retrieval",
+    "Strategic lesson generation",
+    "Evidence credibility assessment",
+    "Response playbook retrieval",
+    "Executive brief generation"
+  ]
+}

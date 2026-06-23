@@ -1,0 +1,793 @@
+{
+  "issue": {
+    "title": "Industrial Policy Subsidy Demo Case",
+    "summary": "A fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production. The program includes grants for new manufacturing facilities, tax credits for qualified capital investment, and workforce funding for technical training. Officials describe the initiative as a way to strengthen domestic production capacity, reduce strategic dependency, and attract private investment into priority sectors.\n\nManufacturers, util...",
+    "core_issue": "A fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production.",
+    "actors": [
+      "government",
+      "executives",
+      "suppliers",
+      "firms",
+      "companies"
+    ],
+    "countries_or_regions": [],
+    "industries": [
+      "semiconductor",
+      "manufacturing",
+      "technology",
+      "battery"
+    ],
+    "policy_terms": [
+      "subsidy",
+      "subsidies",
+      "industrial policy",
+      "compliance"
+    ],
+    "companies": [],
+    "document_type_guess": "Policy / Regulatory Text",
+    "uncertainties": [],
+    "evidence": [
+      "A fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production. The program includes grants for new manufacturing facilities, tax credits for qualified capital investment, and workforce funding for technical training. Officials describe the initiative as a way to strengthen domestic production capacity, reduce strategic dependency, and attract private investment into priority sectors.\n\nManufacturers, util..."
+    ]
+  },
+  "event_context": {
+    "event_type": "Industrial Policy",
+    "primary_actor": "Government regulators",
+    "secondary_actor": "Corporate executives",
+    "affected_sectors": [
+      "Semiconductors",
+      "Banking / Financial Services",
+      "Supply Chain / Logistics",
+      "Clean Technology",
+      "Manufacturing",
+      "Technology"
+    ],
+    "affected_regions": [
+      "Region not specified"
+    ],
+    "policy_domain": "Industrial strategy",
+    "strategic_significance": "This industrial policy context matters because it may affect Semiconductors, Banking / Financial Services, Supply Chain / Logistics through industrial strategy considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.",
+    "event_summary": "Industrial Policy Subsidy Demo Case\n\nA fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production. The program includes grants for new manufacturing facilities, tax credits for qualified capital investment, and workforce funding for technical training.",
+    "confidence": "High",
+    "context_limitations": [
+      "Current-event context is extracted from the submitted document only.",
+      "No live web retrieval, external news API, or source verification is performed.",
+      "Actor, sector, and region labels use deterministic keyword rules and may miss nuance."
+    ]
+  },
+  "scenario": {
+    "issue_title": "Industrial Policy Subsidy Demo Case",
+    "primary_scenario": "Industrial Policy",
+    "matched_keywords": [
+      "industrial policy",
+      "subsidy",
+      "subsidies"
+    ],
+    "confidence_label": "High"
+  },
+  "mechanisms": [
+    {
+      "mechanism_id": "M-006",
+      "mechanism_name": "Industrial Subsidy",
+      "description": "Government incentives that shape investment production or supply location",
+      "related_scenarios": "Industrial Policy; Strategic Investment",
+      "typical_actors": "governments; manufacturers; suppliers",
+      "historical_examples": "CHIPS Act; Inflation Reduction Act",
+      "possible_observations": "tax credits; grants; eligibility rules; domestic content",
+      "detection_reason": "scenario match: Industrial Policy; observation overlap: credits, domestic, government, grants; actor overlap: suppliers",
+      "evidence_references": [
+        "Source Document",
+        "Industrial Subsidy (Mechanism Framework)"
+      ],
+      "source_title": "Industrial Subsidy",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
+    {
+      "mechanism_id": "M-015",
+      "mechanism_name": "Policy Signaling",
+      "description": "Government action used to signal strategic priorities or boundaries",
+      "related_scenarios": "Industrial Policy; Trade Policy; Military / Security Shock",
+      "typical_actors": "governments; regulators; firms",
+      "historical_examples": "CHIPS Act; Taiwan Strait Exercises",
+      "possible_observations": "public guidance; funding priorities; security messaging",
+      "detection_reason": "scenario match: Industrial Policy; observation overlap: funding, government, strategic; actor overlap: firms",
+      "evidence_references": [
+        "Source Document",
+        "Policy Signaling (Mechanism Framework)"
+      ],
+      "source_title": "Policy Signaling",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
+    {
+      "mechanism_id": "M-002",
+      "mechanism_name": "Strategic Dependency",
+      "description": "Exposure created by reliance on concentrated suppliers or jurisdictions",
+      "related_scenarios": "Supply Chain Disruption; Industrial Policy; Export Controls",
+      "typical_actors": "manufacturers; suppliers; governments",
+      "historical_examples": "COVID Supply Chain Disruption; CHIPS Act",
+      "possible_observations": "supplier concentration; critical inputs; geographic dependency",
+      "detection_reason": "scenario match: Industrial Policy; observation overlap: dependency, suppliers; actor overlap: suppliers",
+      "evidence_references": [
+        "Source Document",
+        "Strategic Dependency (Mechanism Framework)"
+      ],
+      "source_title": "Strategic Dependency",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
+    {
+      "mechanism_id": "M-018",
+      "mechanism_name": "Legislative Implementation Gap",
+      "description": "Difference between enacted policy and operational implementation",
+      "related_scenarios": "Industrial Policy; Regulatory Action; Trade Policy",
+      "typical_actors": "lawmakers; agencies; firms",
+      "historical_examples": "CHIPS Act; IRA implementation",
+      "possible_observations": "eligibility rules; agency guidance; compliance deadlines",
+      "detection_reason": "scenario match: Industrial Policy; observation overlap: compliance, policy; actor overlap: firms",
+      "evidence_references": [
+        "Source Document",
+        "Legislative Implementation Gap (Mechanism Framework)"
+      ],
+      "source_title": "Legislative Implementation Gap",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    }
+  ],
+  "analogues": [
+    {
+      "case_title": "CHIPS and Science Act",
+      "year": "2022",
+      "scenario_type": "Industrial Policy",
+      "similarity_reason": "scenario match on Industrial Policy; keyword overlap: capacity, capital, domestic, industrial; industry overlap: manufacturing, technology; actor overlap: firms, government",
+      "business_relevance": "Shows how public incentives can shape capital planning and site selection.",
+      "geopolitical_relevance": "Reflects strategic concern about supply resilience and technology leadership.",
+      "caution_note": "Historical analogues support comparison, not prediction.",
+      "source": "Public-history example; concise summary only.",
+      "evidence_trace": "CHIPS and Science Act (2022) - Historical Database",
+      "source_title": "CHIPS and Science Act",
+      "source_type": "Historical analogue summary",
+      "source_date": "2022",
+      "source_url": "source pending",
+      "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
+    },
+    {
+      "case_title": "Inflation Reduction Act Clean Energy Incentives",
+      "year": "2022",
+      "scenario_type": "Industrial Policy",
+      "similarity_reason": "scenario match on Industrial Policy; keyword overlap: battery, capacity, capital, domestic; industry overlap: manufacturing; actor overlap: firms, government, suppliers",
+      "business_relevance": "Shows how incentives can alter capital allocation and supplier location decisions.",
+      "geopolitical_relevance": "Reflects strategic competition around clean energy production capacity.",
+      "caution_note": "Historical analogues support comparison, not prediction.",
+      "source": "Public-history example; concise summary only.",
+      "evidence_trace": "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+      "source_title": "Inflation Reduction Act Clean Energy Incentives",
+      "source_type": "Historical analogue summary",
+      "source_date": "2022",
+      "source_url": "source pending",
+      "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
+    },
+    {
+      "case_title": "Japan-Korea Semiconductor Materials Dispute",
+      "year": "2019",
+      "scenario_type": "Trade Policy",
+      "similarity_reason": "keyword overlap: manufacturing, policy, semiconductor; industry overlap: technology; actor overlap: government, suppliers",
+      "business_relevance": "Shows how trade restrictions can affect specialized upstream inputs.",
+      "geopolitical_relevance": "Highlights bilateral tensions affecting advanced manufacturing.",
+      "caution_note": "Historical analogues support comparison, not prediction.",
+      "source": "Public-history example; concise summary only.",
+      "evidence_trace": "Japan-Korea Semiconductor Materials Dispute (2019) - Historical Database",
+      "source_title": "Japan-Korea Semiconductor Materials Dispute",
+      "source_type": "Historical analogue summary",
+      "source_date": "2019",
+      "source_url": "source pending",
+      "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
+    }
+  ],
+  "historical_outcomes": [
+    {
+      "case_id": "HO-006",
+      "case_name": "CHIPS and Science Act",
+      "event_family": "Industrial Policy",
+      "year": "2022",
+      "actor": "U.S. government; semiconductor firms",
+      "sector": "Semiconductors",
+      "observed_outcome": "Public incentives reshaped capacity planning and domestic manufacturing discussions.",
+      "strategic_response": "Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.",
+      "time_horizon": "Long-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Industrial Policy",
+      "evidence_references": [
+        "CHIPS and Science Act (2022) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-007",
+      "case_name": "Inflation Reduction Act Clean Energy Incentives",
+      "event_family": "Industrial Policy",
+      "year": "2022",
+      "actor": "U.S. government; energy firms; automakers",
+      "sector": "Energy and Manufacturing",
+      "observed_outcome": "Industrial incentives affected domestic content planning and clean-energy supply-chain strategy.",
+      "strategic_response": "Firms reviewed tax credit eligibility, supplier location, and compliance documentation.",
+      "time_horizon": "Long-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Industrial Policy",
+      "evidence_references": [
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-003",
+      "case_name": "Japan-Korea Materials Dispute",
+      "event_family": "Trade Policy",
+      "year": "2019",
+      "actor": "Japan; South Korea; materials suppliers",
+      "sector": "Semiconductors",
+      "observed_outcome": "Input-specific trade controls exposed dependence on specialized upstream suppliers.",
+      "strategic_response": "Firms examined alternate sources, inventory buffers, and supplier qualification timelines.",
+      "time_horizon": "Medium-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "event-family match: Trade Policy",
+      "evidence_references": [
+        "Japan-Korea Materials Dispute (2019) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-010",
+      "case_name": "Brexit Supply Chain Uncertainty",
+      "event_family": "Trade Policy",
+      "year": "2016",
+      "actor": "UK government; EU; manufacturers",
+      "sector": "Manufacturing and Retail",
+      "observed_outcome": "Customs and regulatory uncertainty complicated cross-border operating models.",
+      "strategic_response": "Companies prepared documentation, adjusted logistics plans, and monitored transition rules.",
+      "time_horizon": "Long-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "event-family match: Trade Policy",
+      "evidence_references": [
+        "Brexit Supply Chain Uncertainty (2016) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-018",
+      "case_name": "Strategic Battery Supply Policy",
+      "event_family": "Industrial Policy",
+      "year": "2021",
+      "actor": "Governments; automakers; battery suppliers",
+      "sector": "Batteries and Automotive",
+      "observed_outcome": "Policy support increased attention to domestic battery inputs and supply security.",
+      "strategic_response": "Firms evaluated supplier geography, qualification timelines, and incentive eligibility.",
+      "time_horizon": "Long-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "event-family match: Industrial Policy",
+      "evidence_references": [
+        "Strategic Battery Supply Policy (2021) - Historical Outcomes Database"
+      ]
+    }
+  ],
+  "strategic_lessons": [
+    {
+      "lesson": "Supply chain diversification frequently appears after export-control or disruption shocks.",
+      "supporting_cases": [
+        "CHIPS and Science Act (2022)",
+        "Inflation Reduction Act Clean Energy Incentives (2022)",
+        "Japan-Korea Materials Dispute (2019)",
+        "Strategic Battery Supply Policy (2021)"
+      ],
+      "confidence": "High",
+      "rationale": "Matched 4 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.",
+      "evidence_references": [
+        "CHIPS and Science Act (2022) - Historical Outcomes Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database",
+        "Japan-Korea Materials Dispute (2019) - Historical Outcomes Database",
+        "Strategic Battery Supply Policy (2021) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "lesson": "Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.",
+      "supporting_cases": [
+        "Inflation Reduction Act Clean Energy Incentives (2022)",
+        "Brexit Supply Chain Uncertainty (2016)"
+      ],
+      "confidence": "Medium",
+      "rationale": "Matched 2 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.",
+      "evidence_references": [
+        "Brexit Supply Chain Uncertainty (2016) - Historical Outcomes Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "lesson": "Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.",
+      "supporting_cases": [
+        "CHIPS and Science Act (2022)",
+        "Inflation Reduction Act Clean Energy Incentives (2022)",
+        "Strategic Battery Supply Policy (2021)"
+      ],
+      "confidence": "High",
+      "rationale": "Matched 3 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.",
+      "evidence_references": [
+        "CHIPS and Science Act (2022) - Historical Outcomes Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database",
+        "Strategic Battery Supply Policy (2021) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "lesson": "Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.",
+      "supporting_cases": [
+        "Strategic Battery Supply Policy (2021)"
+      ],
+      "confidence": "Low",
+      "rationale": "Matched 1 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.",
+      "evidence_references": [
+        "Strategic Battery Supply Policy (2021) - Historical Outcomes Database"
+      ]
+    }
+  ],
+  "evidence_credibility": {
+    "evidence_summary": "5 historical outcomes were retrieved. 5 are medium confidence. Source URLs are not fabricated; source status is reported separately. 4 rule-based strategic lesson(s) were generated from those outcomes.",
+    "confidence_distribution": {
+      "Medium": 5
+    },
+    "source_status_distribution": {
+      "source pending; educational summary": 5
+    },
+    "key_limitations": [
+      "Historical outcomes are simplified educational summaries.",
+      "Confidence reflects internal evidence coding, not real-world predictive accuracy.",
+      "Lessons are pattern-based and should be reviewed by a human analyst.",
+      "Source URLs are not fabricated; missing source links remain marked as source pending."
+    ],
+    "reviewer_note": "Use these outcomes and lessons as decision-support context. They do not prove factual, legal, geopolitical, financial, or predictive accuracy."
+  },
+  "current_context": [
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "industry": "Semiconductors",
+      "scenario_type": "Industrial Policy",
+      "context_summary": "Governments use subsidies, tax credits, and research programs to support domestic semiconductor capacity.",
+      "why_it_matters": "Incentives can shape site selection, partnership choices, and capital allocation.",
+      "stakeholders": "Manufacturers; governments; equipment suppliers; local communities",
+      "monitoring_considerations": "Funding awards; eligibility rules; construction timelines; workforce constraints",
+      "similarity_reason": "industry match: semiconductor; scenario match: Industrial Policy; keyword overlap: capacity, capital, credit, credits",
+      "source_file": "semiconductor_context.md",
+      "evidence_trace": "Semiconductors Context KB: SC-002 (semiconductor_context.md)"
+    },
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "industry": "Energy",
+      "scenario_type": "Industrial Policy",
+      "context_summary": "Clean energy incentives can influence battery, solar, hydrogen, and grid-related investment decisions.",
+      "why_it_matters": "Incentives may affect manufacturing location, supplier strategy, and project economics.",
+      "stakeholders": "Energy developers; manufacturers; utilities; governments; suppliers",
+      "monitoring_considerations": "Tax-credit rules; project announcements; grid constraints; supplier capacity",
+      "similarity_reason": "scenario match: Industrial Policy; keyword overlap: battery, capacity, economic, government",
+      "source_file": "energy_context.md",
+      "evidence_trace": "Energy Context KB: EN-002 (energy_context.md)"
+    },
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "industry": "Trade Policy",
+      "scenario_type": "Industrial Policy",
+      "context_summary": "Industrial policy can combine incentives, procurement rules, and domestic-content requirements.",
+      "why_it_matters": "Firms may need to assess eligibility, supply chain configuration, and partnership requirements.",
+      "stakeholders": "Governments; manufacturers; suppliers; customers; local workforces",
+      "monitoring_considerations": "Eligibility criteria; award announcements; domestic-content rules; implementation guidance",
+      "similarity_reason": "scenario match: Industrial Policy; keyword overlap: firm, firms, government, industrial",
+      "source_file": "trade_policy_context.md",
+      "evidence_trace": "Trade Policy Context KB: TP-004 (trade_policy_context.md)"
+    }
+  ],
+  "implications": [
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "observed_similarities": [
+        "The issue may resemble CHIPS and Science Act (2022), Inflation Reduction Act Clean Energy Incentives (2022) because the retrieved cases share characteristics with the industrial policy scenario frame.",
+        "The current context findings from Energy, Semiconductors, Trade Policy share characteristics with the extracted industries and policy terms."
+      ],
+      "observed_differences": [
+        "The source document differs from historical analogues because current actors, implementation details, and timing are document-specific.",
+        "The retrieved context differs from historical cases because it describes standing monitoring considerations rather than a completed event."
+      ],
+      "business_considerations": [
+        "The issue may indicate changing constraints for semiconductor, manufacturing, technology and requires monitoring of stakeholder exposure.",
+        "The industrial policy frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.",
+        "Historical and context evidence should be used to structure diligence, not to imply an outcome."
+      ],
+      "operational_considerations": [
+        "Operational teams may need to monitor counterparties, implementation timelines, documentation requirements, and contingency plans.",
+        "The issue could affect supplier continuity, licensing workflows, routing choices, or internal escalation paths depending on the scenario."
+      ],
+      "geopolitical_considerations": [
+        "The issue could affect cross-border coordination involving relevant jurisdictions.",
+        "Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions."
+      ],
+      "strategic_questions": [
+        "Which stakeholders are most exposed to this issue?",
+        "What facts would change the current scenario classification?",
+        "Which historical analogue is structurally closest, and where does the comparison differ from current context?",
+        "Which current-context findings require source verification before executive discussion?",
+        "What decisions require more source verification before executive action?"
+      ],
+      "evidence_trace": [
+        "CHIPS and Science Act (2022) - Historical Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+        "Japan-Korea Semiconductor Materials Dispute (2019) - Historical Database",
+        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
+        "Energy Context KB: EN-002 (energy_context.md)",
+        "Trade Policy Context KB: TP-004 (trade_policy_context.md)"
+      ]
+    }
+  ],
+  "response_playbooks": [
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "pattern_name": "Monitoring and contingency planning",
+      "observed_historical_choices": [
+        "Organizations reviewed counterparties, suppliers, and implementation details.",
+        "Teams created monitoring routines around policy updates and operational constraints."
+      ],
+      "observed_outcomes": [
+        "Observed outcomes varied across cases and should not be treated as predictive.",
+        "Relevant analogues include CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives, Japan-Korea Semiconductor Materials Dispute."
+      ],
+      "business_lessons": [
+        "Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.",
+        "Cross-functional review can help separate compliance, operational, and strategic questions."
+      ],
+      "cross_domain_lessons": [
+        "Mechanisms such as Industrial Subsidy, Policy Signaling, Strategic Dependency can appear across policy, security, and business domains.",
+        "Historical response patterns are most useful when paired with current context and source verification."
+      ],
+      "evidence_references": [
+        "CHIPS and Science Act (2022) - Historical Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+        "Japan-Korea Semiconductor Materials Dispute (2019) - Historical Database",
+        "Industrial Subsidy (Mechanism Framework)",
+        "Policy Signaling (Mechanism Framework)",
+        "Strategic Dependency (Mechanism Framework)"
+      ],
+      "source_title": "Response Playbook",
+      "source_type": "Deterministic response pattern",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Pattern derived from retrieved analogues and mechanisms; review before executive use."
+    }
+  ],
+  "lenses": [
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "lens": "Economics",
+      "hypothesis": "One possible interpretation is that the industrial policy event reflects resource allocation constraints linked to Industrial Subsidy, Policy Signaling.",
+      "supporting_observations": [
+        "The issue references semiconductor, manufacturing, technology and operating constraints.",
+        "Historical analogues such as CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives show comparable economic adjustment patterns."
+      ],
+      "limitations": [
+        "The document does not quantify cost, demand, or capacity effects."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "CHIPS and Science Act (2022) - Historical Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
+        "Energy Context KB: EN-002 (energy_context.md)",
+        "Industrial Subsidy (Mechanism Framework)",
+        "Policy Signaling (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "lens": "Political Economy",
+      "hypothesis": "One possible interpretation is that public authority and business incentives are interacting through Industrial Subsidy, Policy Signaling.",
+      "supporting_observations": [
+        "The scenario classification is Industrial Policy.",
+        "Current context from Semiconductors, Energy highlights stakeholders and monitoring considerations."
+      ],
+      "limitations": [
+        "The balance between public policy goals and firm-level incentives requires more source detail."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "CHIPS and Science Act (2022) - Historical Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
+        "Energy Context KB: EN-002 (energy_context.md)",
+        "Industrial Subsidy (Mechanism Framework)",
+        "Policy Signaling (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "lens": "International Relations",
+      "hypothesis": "One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.",
+      "supporting_observations": [
+        "Detected regions include no explicit region in the source document.",
+        "Mechanisms such as Industrial Subsidy, Policy Signaling can appear in geopolitical or cross-border settings."
+      ],
+      "limitations": [
+        "The source does not establish intent by governments or counterparties."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "CHIPS and Science Act (2022) - Historical Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
+        "Energy Context KB: EN-002 (energy_context.md)",
+        "Industrial Subsidy (Mechanism Framework)",
+        "Policy Signaling (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "lens": "Legislative / Regulatory",
+      "hypothesis": "One possible interpretation is that implementation rules and compliance obligations are central to the event.",
+      "supporting_observations": [
+        "Detected policy terms include subsidy, subsidies, industrial policy, compliance.",
+        "The evidence trace includes source document signals and retrieved context records."
+      ],
+      "limitations": [
+        "Primary legal text or agency guidance would be needed for a complete regulatory reading."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "CHIPS and Science Act (2022) - Historical Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
+        "Energy Context KB: EN-002 (energy_context.md)",
+        "Industrial Subsidy (Mechanism Framework)",
+        "Policy Signaling (Mechanism Framework)"
+      ]
+    },
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "lens": "Business Strategy",
+      "hypothesis": "One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.",
+      "supporting_observations": [
+        "The issue mentions actors such as government, executives, suppliers.",
+        "The brief combines analogue patterns with current context monitoring considerations."
+      ],
+      "limitations": [
+        "The source does not contain internal priorities, customer-level exposure, or implementation plans."
+      ],
+      "evidence_references": [
+        "Source Document",
+        "CHIPS and Science Act (2022) - Historical Database",
+        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
+        "Energy Context KB: EN-002 (energy_context.md)",
+        "Industrial Subsidy (Mechanism Framework)",
+        "Policy Signaling (Mechanism Framework)"
+      ]
+    }
+  ],
+  "evidence": [
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "lens": "Economics",
+      "supporting_evidence": [
+        "The issue references semiconductor, manufacturing, technology and operating constraints.",
+        "Historical analogues such as CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives show comparable economic adjustment patterns."
+      ],
+      "weakening_evidence": [
+        "The document does not quantify cost, demand, or capacity effects."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "lens": "Political Economy",
+      "supporting_evidence": [
+        "The scenario classification is Industrial Policy.",
+        "Current context from Semiconductors, Energy highlights stakeholders and monitoring considerations."
+      ],
+      "weakening_evidence": [
+        "The balance between public policy goals and firm-level incentives requires more source detail."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "lens": "International Relations",
+      "supporting_evidence": [
+        "Detected regions include no explicit region in the source document.",
+        "Mechanisms such as Industrial Subsidy, Policy Signaling can appear in geopolitical or cross-border settings."
+      ],
+      "weakening_evidence": [
+        "The source does not establish intent by governments or counterparties."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "lens": "Legislative / Regulatory",
+      "supporting_evidence": [
+        "Detected policy terms include subsidy, subsidies, industrial policy, compliance.",
+        "The evidence trace includes source document signals and retrieved context records."
+      ],
+      "weakening_evidence": [
+        "Primary legal text or agency guidance would be needed for a complete regulatory reading."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    },
+    {
+      "issue_title": "Industrial Policy Subsidy Demo Case",
+      "lens": "Business Strategy",
+      "supporting_evidence": [
+        "The issue mentions actors such as government, executives, suppliers.",
+        "The brief combines analogue patterns with current context monitoring considerations."
+      ],
+      "weakening_evidence": [
+        "The source does not contain internal priorities, customer-level exposure, or implementation plans."
+      ],
+      "missing_evidence": [
+        "Primary-source confirmation of implementation details.",
+        "Stakeholder-specific exposure data.",
+        "Updated source material that confirms whether conditions have changed."
+      ],
+      "confidence_language": "Substantial"
+    }
+  ],
+  "agent_trace": {
+    "document_type": "Policy / Regulatory Text",
+    "scenario_type": "Industrial Policy",
+    "selected_tools": [
+      "IssueExtractor",
+      "ScenarioClassifier",
+      "HistoricalRetriever",
+      "ContextRetriever",
+      "ImplicationAnalyzer",
+      "BriefGenerator"
+    ],
+    "skipped_tools": [],
+    "trace": [
+      {
+        "step": 1,
+        "event": "Scenario detected",
+        "detail": "Industrial Policy"
+      },
+      {
+        "step": 2,
+        "event": "Document type detected",
+        "detail": "Policy / Regulatory Text"
+      },
+      {
+        "step": 3,
+        "event": "Tool selected",
+        "detail": "IssueExtractor: Every route starts by converting source text into structured issue fields."
+      },
+      {
+        "step": 4,
+        "event": "Tool selected",
+        "detail": "ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted."
+      },
+      {
+        "step": 5,
+        "event": "Tool selected",
+        "detail": "HistoricalRetriever: Industrial Policy benefits from comparison against historical precedents."
+      },
+      {
+        "step": 6,
+        "event": "Tool selected",
+        "detail": "ContextRetriever: Industrial Policy usually benefits from domain context and monitoring considerations."
+      },
+      {
+        "step": 7,
+        "event": "Tool selected",
+        "detail": "ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations."
+      },
+      {
+        "step": 8,
+        "event": "Tool selected",
+        "detail": "BriefGenerator: The final deliverable is an executive intelligence brief."
+      }
+    ],
+    "reasoning_record": [
+      {
+        "tool": "IssueExtractor",
+        "decision": "Selected",
+        "why": "Every route starts by converting source text into structured issue fields.",
+        "expected_contribution": "Core issue, actors, industries, policy terms, and document type."
+      },
+      {
+        "tool": "ScenarioClassifier",
+        "decision": "Selected",
+        "why": "Scenario classification is required before retrieval decisions can be interpreted.",
+        "expected_contribution": "Primary scenario and matched keyword evidence."
+      },
+      {
+        "tool": "HistoricalRetriever",
+        "decision": "Selected",
+        "why": "Industrial Policy benefits from comparison against historical precedents.",
+        "expected_contribution": "Top analogue cases and similarity reasons from the historical database."
+      },
+      {
+        "tool": "ContextRetriever",
+        "decision": "Selected",
+        "why": "Industrial Policy usually benefits from domain context and monitoring considerations.",
+        "expected_contribution": "Adds current context from the local knowledge base."
+      },
+      {
+        "tool": "ImplicationAnalyzer",
+        "decision": "Selected",
+        "why": "Selected retrieval outputs need to be synthesized into analyst-facing considerations.",
+        "expected_contribution": "Similarities, differences, business considerations, operational considerations, geopolitical considerations, and questions."
+      },
+      {
+        "tool": "BriefGenerator",
+        "decision": "Selected",
+        "why": "The final deliverable is an executive intelligence brief.",
+        "expected_contribution": "Markdown brief with evidence sources, trace, and analysis path."
+      }
+    ],
+    "reasoning_stages": [
+      "Current event context extraction",
+      "Historical analogue retrieval",
+      "Historical outcome retrieval",
+      "Strategic lesson generation",
+      "Evidence credibility assessment",
+      "Response playbook retrieval",
+      "Executive brief generation"
+    ]
+  },
+  "evaluation_metadata": {
+    "framework": "V5 deterministic benchmark framework",
+    "note": "Run artifacts are generated by the local deterministic pipeline; they are not real-world accuracy claims."
+  },
+  "metadata": {
+    "run_id": "run_20260623_028",
+    "created_at": "2026-06-23T16:12:08",
+    "language": "en",
+    "output_mode": "analyst",
+    "question_id": "meaning",
+    "question_text": "What does this issue mean?",
+    "status": "complete",
+    "artifact_paths": {
+      "input": "outputs/runs/run_20260623_028/input.txt",
+      "analysis": "outputs/runs/run_20260623_028/analysis.json",
+      "brief_markdown": "outputs/runs/run_20260623_028/brief.md",
+      "brief_text": "outputs/runs/run_20260623_028/brief.txt",
+      "agent_trace": "outputs/runs/run_20260623_028/agent_trace.json",
+      "metadata": "outputs/runs/run_20260623_028/metadata.json"
+    }
+  }
+}

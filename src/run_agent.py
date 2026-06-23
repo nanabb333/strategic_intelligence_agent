@@ -7,6 +7,7 @@ from brief_generator import generate_brief
 from document_loader import load_document
 from evidence_assessor import assess_evidence
 from evidence_credibility import assess_evidence_credibility
+from event_context import extract_event_context
 from mechanism_detector import detect_mechanisms
 from multi_lens_analyzer import analyze_lenses
 from outcome_retriever import retrieve_historical_outcomes
@@ -21,6 +22,7 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
     registry = build_default_registry()
     route = route_document(document_text, registry)
 
+    event_context = extract_event_context(document_text)
     issues = registry["IssueExtractor"].callable(document_text)
     classifications = registry["ScenarioClassifier"].callable(issues)
     analogues = registry["HistoricalRetriever"].callable(issues, classifications)
@@ -51,6 +53,7 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
         strategic_lessons=strategic_lessons,
         evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
+        event_context=event_context,
     )
 
     destination = Path(output_path)

@@ -1,0 +1,9 @@
+Industrial Policy Subsidy Demo Case
+
+A fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production. The program includes grants for new manufacturing facilities, tax credits for qualified capital investment, and workforce funding for technical training. Officials describe the initiative as a way to strengthen domestic production capacity, reduce strategic dependency, and attract private investment into priority sectors.
+
+Manufacturers, utilities, equipment suppliers, and regional development agencies begin reviewing eligibility rules. Some firms already have planned facilities and are evaluating whether the subsidy changes project timing or supplier selection. Others are concerned that domestic-content requirements, reporting obligations, and audit rules could raise administrative complexity. Executives want to understand whether the program is mainly an opportunity for capital planning, a compliance challenge, or a signal of broader industrial strategy.
+
+The strategic issue is not simply that public funding is available. Subsidies can reshape competitive behavior by changing the economics of facility location, supplier qualification, and long-term production commitments. They can also create coordination problems when companies must align investment decisions with policy timelines, workforce availability, and regional infrastructure readiness.
+
+This demo case is fictional and educational. It is designed to test whether the Strategic Intelligence Agent can classify the event as industrial policy, identify subsidy and strategic dependency mechanisms, retrieve historical cases involving public industrial support, and generate lessons about governance, compliance, and investment sequencing without making forecasts or investment recommendations.

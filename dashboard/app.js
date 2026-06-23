@@ -17,6 +17,7 @@ const localeText = {
     runAnalysis: "Analyze",
     exportMarkdown: "Download Markdown",
     exportTxt: "Download TXT",
+    currentEventContext: "Current Event Context",
     documentSummary: "Document Summary",
     scenarioClassification: "Scenario Classification",
     historicalAnalogues: "Historical Analogues",
@@ -50,6 +51,7 @@ const localeText = {
     runAnalysis: "分析",
     exportMarkdown: "下载 Markdown",
     exportTxt: "下载 TXT",
+    currentEventContext: "当前事件背景",
     documentSummary: "文档摘要",
     scenarioClassification: "情境分类",
     historicalAnalogues: "历史相似案例",
@@ -83,6 +85,7 @@ const localeText = {
     runAnalysis: "分析",
     exportMarkdown: "下載 Markdown",
     exportTxt: "下載 TXT",
+    currentEventContext: "當前事件背景",
     documentSummary: "文件摘要",
     scenarioClassification: "情境分類",
     historicalAnalogues: "歷史相似案例",
@@ -244,6 +247,7 @@ function renderRun(run) {
   const metadata = run.metadata;
   const issue = analysis.issue || {};
   const scenario = analysis.scenario || {};
+  renderEventContext(analysis.event_context || {});
   document.getElementById("run-note").textContent = `Saved run: ${metadata.run_id}. Artifacts are stored under outputs/runs/${metadata.run_id}/.`;
   document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(issue.summary || issue.core_issue || "No summary returned.")}</p><p><span class="evidence">Source: Input Document</span></p>`;
   document.getElementById("classification-section").innerHTML = `<ul><li>Primary scenario: ${escapeHtml(scenario.primary_scenario || "Other")}</li><li>Matched keywords: ${escapeHtml((scenario.matched_keywords || []).join(", ") || "None")}</li><li>Confidence label: ${escapeHtml(scenario.confidence_label || "Not available")}</li></ul><p><span class="evidence">Source: ScenarioClassifier</span></p>`;
@@ -260,6 +264,30 @@ function renderRun(run) {
   renderTrace(analysis.agent_trace || {});
   document.getElementById("path-section").innerHTML = '<ul><li>Dashboard called FastAPI.</li><li>FastAPI executed the Python pipeline.</li><li>Run artifacts were saved under outputs/runs/.</li></ul><p><span class="evidence">Source: Local App</span></p>';
   document.getElementById("brief-section").textContent = run.brief_markdown || "";
+}
+
+function renderEventContext(item) {
+  const section = document.getElementById("event-context-section");
+  if (!item.event_type) {
+    section.innerHTML = '<div class="empty">No current event context returned for this run.</div>';
+    return;
+  }
+  section.innerHTML = `
+    <div class="context-grid">
+      <div><strong>Event type</strong><span>${escapeHtml(item.event_type)}</span></div>
+      <div><strong>Primary actor</strong><span>${escapeHtml(item.primary_actor)}</span></div>
+      <div><strong>Secondary actor</strong><span>${escapeHtml(item.secondary_actor)}</span></div>
+      <div><strong>Affected sectors</strong><span>${escapeHtml((item.affected_sectors || []).join(", ") || "Not specified")}</span></div>
+      <div><strong>Affected regions</strong><span>${escapeHtml((item.affected_regions || []).join(", ") || "Not specified")}</span></div>
+      <div><strong>Policy domain</strong><span>${escapeHtml(item.policy_domain)}</span></div>
+      <div><strong>Confidence</strong><span>${escapeHtml(item.confidence)}</span></div>
+    </div>
+    <p>${escapeHtml(item.strategic_significance || "")}</p>
+    <p><strong>Event summary:</strong> ${escapeHtml(item.event_summary || "")}</p>
+    <h3>Limitations</h3>
+    <ul>${(item.context_limitations || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
+    <p><span class="evidence">Source: Input Document + deterministic event-context rules</span></p>
+  `;
 }
 
 function renderEvidenceCredibility(item) {

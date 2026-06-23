@@ -263,6 +263,31 @@ summary::-webkit-details-marker {
   padding-left: 20px;
 }
 
+.context-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 10px;
+  margin: 4px 0 12px;
+}
+
+.context-grid div {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fbfcff;
+  padding: 10px 12px;
+}
+
+.context-grid strong,
+.context-grid span {
+  display: block;
+}
+
+.context-grid strong {
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 4px;
+}
+
 .finding {
   border-left: 3px solid var(--accent);
   background: #fbfcff;

@@ -4,6 +4,32 @@ A local strategic intelligence decision-support application that turns documents
 
 ![Strategic Intelligence Agent workbench](docs/screenshots/dashboard_workbench.svg)
 
+## Demo Case Library
+
+Reviewers can inspect five fictional educational cases that show the product working across realistic strategic intelligence scenarios:
+
+- Semiconductor export controls affecting advanced chip supply chains and market access.
+- Industrial policy subsidies for domestic battery, semiconductor, or clean-tech production.
+- Geopolitical escalation affecting shipping routes and supply chain planning.
+- Financial earnings pressure linked to geopolitical exposure and sanctions compliance costs.
+- Digital market regulation affecting platforms, data governance, and market access.
+
+Start here: [docs/demo_case_library.md](docs/demo_case_library.md)
+
+Each case includes an input file in `demo_cases/`, generated artifacts in `demo_case_outputs/`, and a walkthrough in `docs/demo_case_walkthroughs/`.
+
+## Current Event Intelligence Layer
+
+The system does not just summarize an input document. It first identifies the current-event context:
+
+- what kind of event this is
+- who is involved
+- what sectors and regions are affected
+- what policy or strategic domain it belongs to
+- why it matters strategically
+
+Then it connects that context to mechanisms, historical analogues, historical outcomes, strategic lessons, and evidence credibility. The layer is deterministic and local: it does not use live web search, external news APIs, RAG, or LLM calls.
+
 ## Example Analysis
 
 **Sample input document**

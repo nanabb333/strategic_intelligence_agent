@@ -1,0 +1,9 @@
+Semiconductor Export Controls Demo Case
+
+A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The government says the rules are intended to limit access to sensitive technology by restricted end users while preserving licensed trade for low-risk commercial customers. Several semiconductor manufacturers, equipment suppliers, and cloud infrastructure firms begin internal reviews of customer exposure, product classifications, and licensing requirements.
+
+Executives at affected firms are not treating the announcement as a single legal update. They are asking strategy, compliance, sales, and supply chain teams to map which products may require licenses, which customers may need enhanced screening, and which suppliers could face delivery delays. A few customers in Asia and the Middle East request clarification about whether existing orders can continue under prior authorizations.
+
+The issue is strategically important because advanced chip supply chains depend on specialized equipment, cross-border technical support, and market access for high-value customers. Even when shipments are not fully blocked, licensing uncertainty can change sales timing, customer planning, and supplier qualification. The affected companies also need to explain the issue to boards and senior executives without presenting it as a forecast about revenue, market share, or geopolitical outcomes.
+
+This demo case is fictional and educational. It is designed to test whether the Strategic Intelligence Agent can identify the event as export controls, detect technology containment and market access mechanisms, retrieve historical analogue patterns, connect those analogues to observed historical outcomes, and produce strategic lessons with an evidence credibility note.

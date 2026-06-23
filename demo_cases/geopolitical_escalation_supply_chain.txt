@@ -1,0 +1,9 @@
+Geopolitical Escalation Supply Chain Demo Case
+
+A fictional regional security update reports rising geopolitical tension near a major maritime corridor used by container ships, energy cargoes, and industrial components. Several shipping firms say they are reviewing routing options, insurance coverage, crew safety procedures, and contingency plans for customers with time-sensitive deliveries. Manufacturers that depend on imported components are asking logistics teams to estimate where delays could affect production schedules.
+
+The update does not say that shipping lanes are closed. Instead, it describes uncertainty around route reliability, insurance pricing, port congestion, and the cost of rerouting cargo. Retailers, automotive suppliers, and energy buyers are concerned that even partial disruption could create planning challenges if transit times become less predictable. Executives want a structured briefing that separates confirmed operational changes from issues that still require monitoring.
+
+The strategic issue is important because supply chains often absorb geopolitical shocks unevenly. Some firms may have alternate routes, safety stock, or diversified suppliers, while others depend on specific ports, carriers, or just-in-time delivery windows. A short security event can therefore become a broader operational planning question involving logistics exposure, customer communication, and supplier resilience.
+
+This demo case is fictional and educational. It is designed to test whether the Strategic Intelligence Agent can identify a geopolitical escalation and supply chain disruption, detect mechanisms such as routing uncertainty and supply chain reconfiguration, retrieve historical analogue patterns, and generate decision-support questions without predicting whether the situation will worsen.

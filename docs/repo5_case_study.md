@@ -18,6 +18,7 @@ The vision is a local application that converts a document into a structured int
 
 ```text
 Document
+-> Current Event Context
 -> Issue Extraction
 -> Scenario Classification
 -> Mechanism Detection
@@ -31,6 +32,8 @@ Document
 
 ## 5. What the Agent Does
 
+- Extracts current-event context such as event type, actors, sectors, regions,
+  policy domain, strategic significance, and limitations.
 - Extracts the core issue and entities from pasted or uploaded text.
 - Classifies the scenario using deterministic rules.
 - Retrieves historical analogues from local knowledge bases.
@@ -73,8 +76,16 @@ This makes the system more honest: source URLs are not fabricated, confidence is
 2. The user pastes a policy or business document.
 3. The user selects a guided question such as "What does this issue mean?"
 4. The system runs the deterministic pipeline.
-5. The dashboard displays scenario, mechanisms, analogues, outcomes, lessons, and evidence credibility.
+5. The dashboard displays current-event context, scenario, mechanisms, analogues, outcomes, lessons, and evidence credibility.
 6. The user downloads the executive brief or JSON artifact.
+
+## Demo Case Library
+
+The repository includes five fictional educational demo cases covering
+semiconductor export controls, industrial policy subsidies, geopolitical supply
+chain disruption, financial earnings risk, and digital market regulation. The
+demo library is documented in [demo_case_library.md](demo_case_library.md) and
+includes generated artifacts in `demo_case_outputs/`.
 
 ## 11. Business Analytics Relevance
 
@@ -91,6 +102,7 @@ The project demonstrates business analytics product thinking:
 The project demonstrates strategic intelligence concepts:
 
 - Historical analogue reasoning.
+- Current-event context framing.
 - Political economy mechanisms.
 - Geopolitical and regulatory scenario framing.
 - Evidence credibility and limitations.
@@ -99,6 +111,8 @@ The project demonstrates strategic intelligence concepts:
 ## 13. Limitations
 
 - Historical outcomes are simplified educational summaries.
+- Current-event context is extracted from submitted text only and is not live
+  source verification.
 - Some source status values remain `source pending`.
 - The system uses deterministic rules and local CSV/Markdown knowledge bases.
 - It does not evaluate live source truth.

@@ -31,6 +31,7 @@ const localeText = {
     interpretations: "Interpretations",
     historicalResponses: "Historical Responses",
     evidenceAssessment: "Evidence Assessment",
+    evidenceCredibility: "Evidence Credibility",
     evaluation: "Evaluation",
     executiveBrief: "Executive Brief",
   },
@@ -63,6 +64,7 @@ const localeText = {
     interpretations: "多种解释",
     historicalResponses: "历史应对模式",
     evidenceAssessment: "证据评估",
+    evidenceCredibility: "证据可信度",
     evaluation: "评估",
     executiveBrief: "高管简报",
   },
@@ -95,6 +97,7 @@ const localeText = {
     interpretations: "多種解釋",
     historicalResponses: "歷史應對模式",
     evidenceAssessment: "證據評估",
+    evidenceCredibility: "證據可信度",
     evaluation: "評估",
     executiveBrief: "高階主管簡報",
   },
@@ -252,10 +255,38 @@ function renderRun(run) {
   renderCards("interpretations-section", analysis.lenses || [], (item) => `<h3>${escapeHtml(item.lens)}</h3><p>${escapeHtml(item.hypothesis || "")}</p><p><span class="evidence">Source: Multi-Lens Analysis</span></p>`);
   renderCards("responses-section", analysis.response_playbooks || [], (item) => `<h3>${escapeHtml(item.pattern_name)}</h3><p>${escapeHtml((item.observed_historical_choices || []).join(" "))}</p><p>${sourceMeta(item)}</p>`);
   renderCards("evidence-assessment-section", analysis.evidence || [], (item) => `<h3>${escapeHtml(item.lens)} (${escapeHtml(item.confidence_language)})</h3><p>${escapeHtml((item.missing_evidence || []).join(" "))}</p><p><span class="evidence">Source: Evidence Assessor</span></p>`);
+  renderEvidenceCredibility(analysis.evidence_credibility || {});
   renderImplications(analysis.implications || []);
   renderTrace(analysis.agent_trace || {});
   document.getElementById("path-section").innerHTML = '<ul><li>Dashboard called FastAPI.</li><li>FastAPI executed the Python pipeline.</li><li>Run artifacts were saved under outputs/runs/.</li></ul><p><span class="evidence">Source: Local App</span></p>';
   document.getElementById("brief-section").textContent = run.brief_markdown || "";
+}
+
+function renderEvidenceCredibility(item) {
+  const section = document.getElementById("evidence-credibility-section");
+  if (!item.evidence_summary) {
+    section.innerHTML = '<div class="empty">No evidence credibility note returned for this run.</div>';
+    return;
+  }
+  section.innerHTML = `
+    <p>${escapeHtml(item.evidence_summary)}</p>
+    <h3>Confidence distribution</h3>
+    ${renderDistribution(item.confidence_distribution || {})}
+    <h3>Source status distribution</h3>
+    ${renderDistribution(item.source_status_distribution || {})}
+    <h3>Key limitations</h3>
+    <ul>${(item.key_limitations || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
+    <p><span class="evidence">Reviewer note</span></p>
+    <p>${escapeHtml(item.reviewer_note || "")}</p>
+  `;
+}
+
+function renderDistribution(distribution) {
+  const entries = Object.entries(distribution);
+  if (!entries.length) {
+    return '<p>None reported.</p>';
+  }
+  return `<ul>${entries.map(([key, value]) => `<li>${escapeHtml(key)}: ${escapeHtml(value)}</li>`).join("")}</ul>`;
 }
 
 function renderImplications(items) {

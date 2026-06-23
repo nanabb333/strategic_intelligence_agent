@@ -23,6 +23,12 @@ def _article_for(value: str) -> str:
     return "an" if value[:1].lower() in {"a", "e", "i", "o", "u"} else "a"
 
 
+def _format_distribution(distribution: dict[str, int]) -> str:
+    if not distribution:
+        return "None"
+    return ", ".join(f"{key}: {value}" for key, value in sorted(distribution.items()))
+
+
 def generate_brief(
     issues: list[ExtractedIssue],
     classifications: list[ScenarioClassification],
@@ -35,6 +41,7 @@ def generate_brief(
     evidence_assessments=None,
     historical_outcomes=None,
     strategic_lessons=None,
+    evidence_credibility=None,
     response_patterns=None,
 ) -> str:
     """Generate a Markdown executive intelligence brief."""
@@ -54,6 +61,7 @@ def generate_brief(
         issue_assessments = (evidence_assessments or {}).get(issue.title, [])
         issue_historical_outcomes = (historical_outcomes or {}).get(issue.title, [])
         issue_strategic_lessons = (strategic_lessons or {}).get(issue.title, [])
+        issue_evidence_credibility = (evidence_credibility or {}).get(issue.title)
         issue_response_patterns = (response_patterns or {}).get(issue.title, [])
 
         lines.extend(
@@ -200,6 +208,23 @@ def generate_brief(
                 )
         else:
             lines.append("- No recurring strategic lessons generated.")
+
+        lines.extend(["## Evidence Credibility Note", ""])
+        if issue_evidence_credibility:
+            lines.extend(
+                [
+                    f"- **Evidence summary:** {issue_evidence_credibility.evidence_summary}",
+                    f"- **Confidence distribution:** {_format_distribution(issue_evidence_credibility.confidence_distribution)}",
+                    f"- **Source status distribution:** {_format_distribution(issue_evidence_credibility.source_status_distribution)}",
+                    f"- **Reviewer note:** {issue_evidence_credibility.reviewer_note}",
+                    "",
+                    "**Key limitations:**",
+                ]
+            )
+            lines.extend(_bullet_list(issue_evidence_credibility.key_limitations, "No credibility limitations listed."))
+            lines.append("")
+        else:
+            lines.extend(["- No evidence credibility assessment generated.", ""])
 
         lines.extend(
             [

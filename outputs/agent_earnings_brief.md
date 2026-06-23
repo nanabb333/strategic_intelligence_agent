@@ -205,6 +205,19 @@ Analysts need an executive brief that compares the disclosure with historical co
 - **Confidence:** Medium
 - **Rationale:** Matched 2 retrieved outcome case(s) with rule keywords: uncertainty, visibility, monitoring, communication.
 
+## Evidence Credibility Note
+
+- **Evidence summary:** 5 historical outcomes were retrieved. 2 are high confidence and 3 are medium confidence. Source URLs are not fabricated; source status is reported separately. 4 rule-based strategic lesson(s) were generated from those outcomes.
+- **Confidence distribution:** High: 2, Medium: 3
+- **Source status distribution:** source pending; educational summary: 5
+- **Reviewer note:** Use these outcomes and lessons as decision-support context. They do not prove factual, legal, geopolitical, financial, or predictive accuracy.
+
+**Key limitations:**
+- Historical outcomes are simplified educational summaries.
+- Confidence reflects internal evidence coding, not real-world predictive accuracy.
+- Lessons are pattern-based and should be reviewed by a human analyst.
+- Source URLs are not fabricated; missing source links remain marked as source pending.
+
 ## Decision Considerations
 
 - Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.

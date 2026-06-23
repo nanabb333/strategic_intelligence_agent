@@ -6,6 +6,7 @@ from agent_router import route_document
 from brief_generator import generate_brief
 from document_loader import load_document
 from evidence_assessor import assess_evidence
+from evidence_credibility import assess_evidence_credibility
 from mechanism_detector import detect_mechanisms
 from multi_lens_analyzer import analyze_lenses
 from outcome_retriever import retrieve_historical_outcomes
@@ -34,6 +35,7 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
     evidence_assessments = assess_evidence(interpretations)
     historical_outcomes = retrieve_historical_outcomes(analogues)
     strategic_lessons = generate_strategic_lessons(historical_outcomes)
+    evidence_credibility = assess_evidence_credibility(historical_outcomes, strategic_lessons)
     response_patterns = retrieve_response_patterns(analogues, mechanisms)
     brief = registry["BriefGenerator"].callable(
         issues,
@@ -47,6 +49,7 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
         evidence_assessments=evidence_assessments,
         historical_outcomes=historical_outcomes,
         strategic_lessons=strategic_lessons,
+        evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
     )
 

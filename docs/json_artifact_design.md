@@ -11,6 +11,7 @@ mechanisms
 analogues
 historical_outcomes
 strategic_lessons
+evidence_credibility
 current_context
 implications
 response_playbooks
@@ -29,6 +30,7 @@ metadata
 - `analogues`: retrieved historical analogues.
 - `historical_outcomes`: observed outcomes and responses tied to retrieved analogues.
 - `strategic_lessons`: rule-based recurring lessons generated from retrieved outcomes.
+- `evidence_credibility`: confidence distribution, source status distribution, limitations, and reviewer note.
 - `current_context`: local context KB results.
 - `implications`: synthesis from analogues and context.
 - `response_playbooks`: observed historical response patterns.

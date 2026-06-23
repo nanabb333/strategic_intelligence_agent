@@ -25,6 +25,7 @@ from agent_router import route_document  # noqa: E402
 from brief_generator import generate_brief  # noqa: E402
 from context_retriever import retrieve_current_context  # noqa: E402
 from evidence_assessor import assess_evidence  # noqa: E402
+from evidence_credibility import assess_evidence_credibility  # noqa: E402
 from historical_retriever import retrieve_historical_analogues  # noqa: E402
 from implication_analyzer import analyze_implications  # noqa: E402
 from issue_extractor import extract_issues  # noqa: E402
@@ -94,9 +95,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     if not text:
         raise HTTPException(status_code=400, detail="Text is required.")
 
-    run_id = _next_run_id()
-    run_dir = RUNS_DIR / run_id
-    run_dir.mkdir(parents=True, exist_ok=False)
+    run_id, run_dir = _create_run_dir()
 
     registry = build_default_registry()
     route = route_document(text, registry)
@@ -114,6 +113,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     evidence_assessments = assess_evidence(interpretations)
     historical_outcomes = retrieve_historical_outcomes(analogues)
     strategic_lessons = generate_strategic_lessons(historical_outcomes)
+    evidence_credibility = assess_evidence_credibility(historical_outcomes, strategic_lessons)
     response_patterns = retrieve_response_patterns(analogues, mechanisms)
     base_brief = generate_brief(
         issues,
@@ -127,6 +127,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         evidence_assessments=evidence_assessments,
         historical_outcomes=historical_outcomes,
         strategic_lessons=strategic_lessons,
+        evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
     )
     brief_markdown = adapt_output(base_brief, mode=request.output_mode, language=request.language)
@@ -160,6 +161,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         evidence_assessments=evidence_assessments,
         historical_outcomes=historical_outcomes,
         strategic_lessons=strategic_lessons,
+        evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
         route=route,
         metadata=metadata,
@@ -173,6 +175,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
             "Historical analogue retrieval",
             "Historical outcome retrieval",
             "Strategic lesson generation",
+            "Evidence credibility assessment",
             "Response playbook retrieval",
             "Executive brief generation",
         ],
@@ -238,9 +241,26 @@ def download_run_artifact(run_id: str, artifact: str) -> FileResponse:
 def _next_run_id() -> str:
     RUNS_DIR.mkdir(parents=True, exist_ok=True)
     date_part = datetime.now().strftime("%Y%m%d")
-    existing = sorted(RUNS_DIR.glob(f"run_{date_part}_*"))
-    next_index = len(existing) + 1
-    return f"run_{date_part}_{next_index:03d}"
+    existing = {path.name for path in RUNS_DIR.glob(f"run_{date_part}_*")}
+    next_index = 1
+    while True:
+        candidate = f"run_{date_part}_{next_index:03d}"
+        if candidate not in existing and not (RUNS_DIR / candidate).exists():
+            return candidate
+        next_index += 1
+
+
+def _create_run_dir() -> tuple[str, Path]:
+    """Create a unique run directory, retrying if concurrent requests collide."""
+    for _ in range(100):
+        run_id = _next_run_id()
+        run_dir = RUNS_DIR / run_id
+        try:
+            run_dir.mkdir(parents=True, exist_ok=False)
+            return run_id, run_dir
+        except FileExistsError:
+            continue
+    raise HTTPException(status_code=500, detail="Could not allocate a run folder.")
 
 
 def _run_dir_or_404(run_id: str) -> Path:
@@ -262,6 +282,7 @@ def _build_analysis_artifact(**items: Any) -> dict[str, Any]:
         "analogues": _serializable(items["analogues"].get(issue_title, [])),
         "historical_outcomes": _serializable(items["historical_outcomes"].get(issue_title, [])),
         "strategic_lessons": _serializable(items["strategic_lessons"].get(issue_title, [])),
+        "evidence_credibility": _serializable(items["evidence_credibility"].get(issue_title, {})),
         "current_context": _serializable(items["contexts"].get(issue_title, [])),
         "implications": _serializable(items["analyses"]),
         "response_playbooks": _serializable(items["response_patterns"].get(issue_title, [])),
@@ -278,6 +299,7 @@ def _build_analysis_artifact(**items: Any) -> dict[str, Any]:
                 "Historical analogue retrieval",
                 "Historical outcome retrieval",
                 "Strategic lesson generation",
+                "Evidence credibility assessment",
                 "Response playbook retrieval",
                 "Executive brief generation",
             ],

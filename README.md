@@ -12,7 +12,7 @@ An analyst workbench that converts documents, articles, policy texts, and earnin
 - **Architecture:** See [`docs/architecture_diagram.md`](docs/architecture_diagram.md), [`docs/system_architecture.md`](docs/system_architecture.md), and [`docs/agent_router_design.md`](docs/agent_router_design.md).
 - **Non-AI user guide:** See [`docs/non_ai_user_guide.md`](docs/non_ai_user_guide.md), [`docs/non_ai_user_guide_zh_CN.md`](docs/non_ai_user_guide_zh_CN.md), and [`docs/non_ai_user_guide_zh_TW.md`](docs/non_ai_user_guide_zh_TW.md).
 - **Evaluation:** See [`evaluation/evaluation_summary.md`](evaluation/evaluation_summary.md), [`evaluation/benchmark_results.csv`](evaluation/benchmark_results.csv), and [`docs/evaluation_framework.md`](docs/evaluation_framework.md).
-- **Case study:** See [`docs/portfolio_case_study.md`](docs/portfolio_case_study.md).
+- **Case study:** See [`docs/repo5_case_study.md`](docs/repo5_case_study.md) and [`docs/portfolio_case_study.md`](docs/portfolio_case_study.md).
 - **Resume bullets:** See [`docs/resume_bullets.md`](docs/resume_bullets.md).
 
 ## Project Overview
@@ -22,6 +22,7 @@ Strategic Intelligence Agent is a portfolio-grade decision-support product for s
 V2 added a local Analyst Workbench in `dashboard/`. V3 added an Agent Router and Tool Registry so the system can decide which tools to execute instead of always running a fixed sequence. V4 adds a multi-lens reasoning framework that surfaces competing interpretations, mechanisms, evidence support, and response patterns. V4.5 adds a bilingual non-AI user layer with guided questions and beginner, analyst, and executive output modes. V5 adds a benchmark evaluation framework for measuring scenario, mechanism, lens, and response retrieval coverage.
 V6 turns the dashboard into a usable local app backed by FastAPI. The browser now calls the real Python pipeline, saves run artifacts, and supports Markdown, TXT, and JSON downloads.
 V7 adds a historical outcome and strategic lessons layer so analogues connect to observed consequences, strategic responses, recurring lessons, and decision considerations.
+V7.5 adds an evidence credibility layer that reports confidence distribution, source status, limitations, and reviewer notes.
 
 ## Quick Start
 
@@ -70,6 +71,14 @@ This is not:
 - A forecasting system.
 - Investment advice.
 - A source of trading recommendations, price targets, expected returns, or portfolio allocation guidance.
+
+## Evidence & Limitations
+
+The project is a local strategic intelligence decision-support application. It uses a deterministic pipeline, local knowledge bases, historical analogues, historical outcomes, strategic lessons, and evidence credibility summaries.
+
+Historical outcome records are simplified educational summaries. Source URLs are not fabricated; missing links remain marked as `source pending` or described through source status fields. Confidence labels reflect internal evidence coding for this portfolio project, not real-world predictive accuracy.
+
+Outputs are decision-support artifacts. They are not forecasts, legal advice, investment advice, or substitutes for human expert review.
 
 ## Architecture
 
@@ -279,6 +288,7 @@ Supporting docs:
 - [docs/interview_story.md](docs/interview_story.md)
 - [docs/resume_bullets.md](docs/resume_bullets.md)
 - [docs/portfolio_case_study.md](docs/portfolio_case_study.md)
+- [docs/repo5_case_study.md](docs/repo5_case_study.md)
 - [docs/intelligence_reasoning_framework.md](docs/intelligence_reasoning_framework.md)
 - [docs/multi_lens_analysis_design.md](docs/multi_lens_analysis_design.md)
 - [docs/evidence_assessment_design.md](docs/evidence_assessment_design.md)

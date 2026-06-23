@@ -50,7 +50,7 @@ def validate_outcome_database() -> None:
         rows = list(reader)
     if len(rows) < 20:
         raise AssertionError("Expected at least 20 historical outcome records.")
-    if set(reader.fieldnames or []) != REQUIRED_OUTCOME_COLUMNS:
+    if not REQUIRED_OUTCOME_COLUMNS.issubset(set(reader.fieldnames or [])):
         raise AssertionError("Historical outcome columns do not match V7 schema.")
     required_families = {"Export Controls", "Sanctions", "Industrial Policy", "Supply Chain Disruption", "Technology Competition", "Geopolitical Escalation"}
     present_families = {row["event_family"] for row in rows}

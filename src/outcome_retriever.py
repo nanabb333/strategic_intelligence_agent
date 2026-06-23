@@ -24,6 +24,7 @@ class HistoricalOutcome:
     time_horizon: str
     confidence: str
     source_status: str
+    evidence_note: str
     retrieval_reason: str
     evidence_references: list[str]
 
@@ -78,6 +79,7 @@ def retrieve_historical_outcomes(
                     time_horizon=record["time_horizon"],
                     confidence=record["confidence"],
                     source_status=record["source_status"],
+                    evidence_note=record.get("evidence_note", "Evidence note pending."),
                     retrieval_reason="; ".join(reasons) if reasons else "general outcome relevance",
                     evidence_references=[
                         f"{record['case_name']} ({record['year']}) - Historical Outcomes Database",

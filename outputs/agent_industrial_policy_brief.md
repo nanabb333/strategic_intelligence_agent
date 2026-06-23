@@ -205,6 +205,19 @@ Decision-makers need to monitor eligibility requirements, construction milestone
 - **Confidence:** Low
 - **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.
 
+## Evidence Credibility Note
+
+- **Evidence summary:** 5 historical outcomes were retrieved. 5 are medium confidence. Source URLs are not fabricated; source status is reported separately. 4 rule-based strategic lesson(s) were generated from those outcomes.
+- **Confidence distribution:** Medium: 5
+- **Source status distribution:** source pending; educational summary: 5
+- **Reviewer note:** Use these outcomes and lessons as decision-support context. They do not prove factual, legal, geopolitical, financial, or predictive accuracy.
+
+**Key limitations:**
+- Historical outcomes are simplified educational summaries.
+- Confidence reflects internal evidence coding, not real-world predictive accuracy.
+- Lessons are pattern-based and should be reviewed by a human analyst.
+- Source URLs are not fabricated; missing source links remain marked as source pending.
+
 ## Decision Considerations
 
 - Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.

@@ -2,6 +2,8 @@
 
 V5 adds a credibility layer for Strategic Intelligence Agent. It measures the existing deterministic workflow without adding analytical features, external APIs, forecasts, probabilities, or advice.
 
+The benchmark cases are compact synthetic / curated test cases. Scores measure internal deterministic benchmark performance only. They are intended to test system consistency, coverage, and regression behavior. They do not represent real-world accuracy.
+
 ## Why Evaluation Matters
 
 Strategic intelligence tools need reviewable claims. Evaluation helps show:
@@ -57,6 +59,14 @@ Overall Benchmark Score is the average of scenario accuracy, mechanism accuracy,
 - `evaluation/evaluation_summary.md`
 - `src/evaluator.py`
 - `scripts/validate_v50.py`
+
+## What the Evaluation Does Not Prove
+
+- It does not prove factual correctness of all generated outputs.
+- It does not prove legal, financial, or geopolitical accuracy.
+- It does not replace human expert review.
+- It does not evaluate live web retrieval.
+- It does not evaluate LLM reasoning quality.
 
 ## Current Limitations
 

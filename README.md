@@ -112,7 +112,9 @@ See [docs/business_analytics_relevance.md](docs/business_analytics_relevance.md)
 
 ## Evaluation
 
-V5 adds a benchmark-driven credibility layer. The goal is measurement, not new analysis features. The benchmark evaluates the existing deterministic pipeline against 20 curated cases covering export controls, industrial policy, supply chain disruption, banking stress, earnings announcements, trade policy, sanctions, technology competition, and regulatory change.
+V5 adds a benchmark-driven credibility layer. The goal is measurement, not new analysis features. The benchmark evaluates the existing deterministic pipeline against compact synthetic / curated test cases covering export controls, industrial policy, supply chain disruption, banking stress, earnings announcements, trade policy, sanctions, technology competition, regulatory change, and deliberate challenge cases.
+
+The scores measure internal deterministic benchmark performance. They test consistency, coverage, and regression behavior. They do not represent real-world accuracy.
 
 Current generated metrics are written to [`evaluation/benchmark_results.csv`](evaluation/benchmark_results.csv) and summarized in [`evaluation/evaluation_summary.md`](evaluation/evaluation_summary.md):
 
@@ -122,7 +124,15 @@ Current generated metrics are written to [`evaluation/benchmark_results.csv`](ev
 - Response Retrieval Coverage
 - Overall Benchmark Score
 
-The methodology is documented in [`docs/evaluation_framework.md`](docs/evaluation_framework.md) and [`docs/benchmark_design.md`](docs/benchmark_design.md). The benchmark is intentionally modest: cases are compact synthetic test cases, mechanism scoring is expected-name coverage, and the metrics are evaluation aids rather than claims of real-world accuracy.
+The methodology is documented in [`docs/evaluation_framework.md`](docs/evaluation_framework.md), [`docs/benchmark_design.md`](docs/benchmark_design.md), and [`docs/evaluation_limitations.md`](docs/evaluation_limitations.md). The benchmark is intentionally modest: cases are compact synthetic test cases, mechanism scoring is expected-name coverage, and the metrics are evaluation aids rather than claims of factual, legal, financial, geopolitical, live-retrieval, or LLM reasoning accuracy.
+
+### What the Evaluation Does Not Prove
+
+- It does not prove factual correctness of all generated outputs.
+- It does not prove legal, financial, or geopolitical accuracy.
+- It does not replace human expert review.
+- It does not evaluate live web retrieval.
+- It does not evaluate LLM reasoning quality.
 
 ## What This Demonstrates
 
@@ -228,6 +238,7 @@ Supporting docs:
 - [docs/guided_question_design.md](docs/guided_question_design.md)
 - [docs/evaluation_framework.md](docs/evaluation_framework.md)
 - [docs/benchmark_design.md](docs/benchmark_design.md)
+- [docs/evaluation_limitations.md](docs/evaluation_limitations.md)
 
 ## Future Roadmap
 

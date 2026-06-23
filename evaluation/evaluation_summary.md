@@ -4,6 +4,8 @@
 
 V5 adds a deterministic benchmark framework for measuring credibility of the existing Strategic Intelligence Agent pipeline. It does not add new analytical features, forecasting, LLM APIs, or investment advice.
 
+These benchmark scores measure internal deterministic benchmark performance only. The cases are compact synthetic / curated test cases intended to test consistency, coverage, and regression behavior. They do not represent real-world accuracy.
+
 ## Methodology
 
 - Each benchmark case defines expected scenario, mechanisms, lenses, and response categories.
@@ -13,25 +15,34 @@ V5 adds a deterministic benchmark framework for measuring credibility of the exi
 
 ## Benchmark Cases
 
-- Total cases: 20
-- Earnings / Corporate Disclosure: 3
+- Total cases: 25
+- Earnings / Corporate Disclosure: 4
 - Export Controls: 3
 - Industrial Policy: 2
 - Military / Security Shock: 1
+- Other: 2
 - Regulatory Action: 3
 - Sanctions: 2
 - Strategic Investment: 1
-- Supply Chain Disruption: 3
-- Trade Policy: 2
+- Supply Chain Disruption: 4
+- Trade Policy: 3
 
 ## Results
 
-- Scenario Accuracy: 1.0
-- Mechanism Accuracy: 0.85
+- Scenario Accuracy: 0.88
+- Mechanism Accuracy: 0.72
 - Lens Coverage Rate: 1.0
 - Response Retrieval Coverage: 1.0
-- Overall Benchmark Score: 0.963
+- Overall Benchmark Score: 0.9
 - Detailed results: `evaluation/benchmark_results.csv`
+
+## What the Evaluation Does Not Prove
+
+- It does not prove factual correctness of all generated outputs.
+- It does not prove legal, financial, or geopolitical accuracy.
+- It does not replace human expert review.
+- It does not evaluate live web retrieval.
+- It does not evaluate LLM reasoning quality.
 
 ## Strengths
 
@@ -42,6 +53,7 @@ V5 adds a deterministic benchmark framework for measuring credibility of the exi
 ## Limitations
 
 - Benchmark documents are compact synthetic cases derived from the benchmark metadata.
+- Scores measure internal deterministic benchmark performance, not real-world accuracy.
 - Mechanism scoring measures expected-name coverage, not deeper semantic correctness.
 - Response playbook retrieval currently exposes a narrow deterministic response pattern.
 - Metrics are evaluation aids, not claims of real-world accuracy.

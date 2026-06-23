@@ -4,6 +4,15 @@ An analyst workbench that converts documents, articles, policy texts, and earnin
 
 ![Strategic Intelligence Agent workbench](docs/screenshots/dashboard_workbench.svg)
 
+## 90-Second Review
+
+- **Purpose:** Turn unstructured strategic source material into executive intelligence briefs.
+- **Demo:** Open [`dashboard/index.html`](dashboard/index.html) locally.
+- **Sample briefs:** Review [`outputs/chips_act_brief.md`](outputs/chips_act_brief.md), [`outputs/banking_earnings_brief.md`](outputs/banking_earnings_brief.md), and [`demo_outputs/red_sea_shipping_brief.md`](demo_outputs/red_sea_shipping_brief.md).
+- **Architecture:** See [`docs/architecture_diagram.md`](docs/architecture_diagram.md) and [`docs/system_architecture.md`](docs/system_architecture.md).
+- **Case study:** See [`docs/portfolio_case_study.md`](docs/portfolio_case_study.md).
+- **Resume bullets:** See [`docs/resume_bullets.md`](docs/resume_bullets.md).
+
 ## Project Overview
 
 Strategic Intelligence Agent is a portfolio-grade decision-support product for strategic intelligence and business analytics. It combines deterministic issue extraction, scenario classification, historical analogue retrieval, current context retrieval, implication analysis, evidence traceability, and executive brief generation.
@@ -65,6 +74,15 @@ Analysts often lose time turning messy source material into executive-ready inte
 
 See [docs/business_analytics_relevance.md](docs/business_analytics_relevance.md).
 
+## What This Demonstrates
+
+- LLM-ready agent architecture without depending on paid APIs.
+- Information extraction from unstructured documents.
+- Retrieval from historical and current-context knowledge bases.
+- Evidence-aware synthesis and executive communication.
+- A usable dashboard for analyst workflow review.
+- Product thinking around scope, non-goals, validation, and portfolio presentation.
+
 ## Repository Structure
 
 ```text
@@ -82,7 +100,7 @@ legacy/financial_rubric_agent/ Preserved earlier project history.
 
 ## Run The Workbench
 
-Open this file in a browser:
+Open this file in a browser from the repository root:
 
 ```text
 dashboard/index.html
@@ -153,4 +171,3 @@ Supporting docs:
 - Browser exports download files; the validation script writes repository export artifacts into `outputs/`.
 - No live web retrieval is performed.
 - No forecasts, probabilities, investment advice, or trading recommendations are generated.
-

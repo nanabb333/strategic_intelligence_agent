@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760">
+  <rect width="1200" height="760" fill="#f6f7f9"/>
+  <rect x="24" y="24" width="378" height="712" rx="8" fill="#ffffff" stroke="#d8dee8"/>
+  <rect x="426" y="24" width="750" height="712" rx="8" fill="#ffffff" stroke="#d8dee8"/>
+  <text x="48" y="62" font-family="Arial" font-size="13" font-weight="700" fill="#1f5eff">ANALYST WORKBENCH</text>
+  <text x="48" y="96" font-family="Arial" font-size="28" font-weight="700" fill="#17202a">Strategic Intelligence Agent</text>
+  <rect x="48" y="130" width="330" height="380" rx="8" fill="#fbfcff" stroke="#d8dee8"/>
+  <text x="66" y="160" font-family="Arial" font-size="15" fill="#657282">Paste document text or upload a .md/.txt file.</text>
+  <text x="66" y="198" font-family="Arial" font-size="14" fill="#17202a">The CHIPS Act continues to shape semiconductor</text>
+  <text x="66" y="222" font-family="Arial" font-size="14" fill="#17202a">manufacturing strategy as executives evaluate...</text>
+  <rect x="48" y="536" width="150" height="42" rx="8" fill="#ffffff" stroke="#d8dee8"/>
+  <text x="73" y="562" font-family="Arial" font-size="14" font-weight="700" fill="#17202a">Upload .md/.txt</text>
+  <rect x="228" y="536" width="150" height="42" rx="8" fill="#1f5eff"/>
+  <text x="260" y="562" font-family="Arial" font-size="14" font-weight="700" fill="#ffffff">Run Analysis</text>
+  <rect x="48" y="600" width="150" height="42" rx="8" fill="#ffffff" stroke="#d8dee8"/>
+  <text x="70" y="626" font-family="Arial" font-size="14" font-weight="700" fill="#17202a">Export Markdown</text>
+  <rect x="214" y="600" width="120" height="42" rx="8" fill="#ffffff" stroke="#d8dee8"/>
+  <text x="242" y="626" font-family="Arial" font-size="14" font-weight="700" fill="#17202a">Export TXT</text>
+  <text x="456" y="64" font-family="Arial" font-size="18" font-weight="700" fill="#17202a">Document Summary</text>
+  <rect x="990" y="43" width="150" height="28" rx="14" fill="#eaf0ff"/>
+  <text x="1015" y="62" font-family="Arial" font-size="12" font-weight="700" fill="#1241b2">Input Document</text>
+  <line x1="426" y1="88" x2="1176" y2="88" stroke="#d8dee8"/>
+  <text x="456" y="128" font-family="Arial" font-size="14" fill="#17202a">The document describes an Industrial Policy issue involving semiconductors...</text>
+  <text x="456" y="188" font-family="Arial" font-size="18" font-weight="700" fill="#17202a">Scenario Classification</text>
+  <rect x="964" y="167" width="176" height="28" rx="14" fill="#eaf0ff"/>
+  <text x="984" y="186" font-family="Arial" font-size="12" font-weight="700" fill="#1241b2">Input Document</text>
+  <line x1="426" y1="212" x2="1176" y2="212" stroke="#d8dee8"/>
+  <text x="456" y="252" font-family="Arial" font-size="14" fill="#17202a">Primary scenario: Industrial Policy | Confidence: Medium</text>
+  <text x="456" y="318" font-family="Arial" font-size="18" font-weight="700" fill="#17202a">Historical Analogues</text>
+  <rect x="944" y="297" width="196" height="28" rx="14" fill="#eaf0ff"/>
+  <text x="963" y="316" font-family="Arial" font-size="12" font-weight="700" fill="#1241b2">Historical Database</text>
+  <line x1="426" y1="342" x2="1176" y2="342" stroke="#d8dee8"/>
+  <text x="456" y="382" font-family="Arial" font-size="14" fill="#17202a">CHIPS and Science Act | Huawei Entity List | Inflation Reduction Act</text>
+  <text x="456" y="448" font-family="Arial" font-size="18" font-weight="700" fill="#17202a">Executive Brief</text>
+  <rect x="992" y="427" width="148" height="28" rx="14" fill="#eaf0ff"/>
+  <text x="1018" y="446" font-family="Arial" font-size="12" font-weight="700" fill="#1241b2">All Evidence</text>
+  <rect x="456" y="480" width="660" height="190" rx="8" fill="#0f1720"/>
+  <text x="480" y="520" font-family="Arial" font-size="14" fill="#f7fafc"># Executive Intelligence Brief</text>
+  <text x="480" y="552" font-family="Arial" font-size="14" fill="#f7fafc">## Executive Summary</text>
+  <text x="480" y="584" font-family="Arial" font-size="14" fill="#f7fafc">Evidence Trace: Source Document + Historical Database + Context KB</text>
+</svg>

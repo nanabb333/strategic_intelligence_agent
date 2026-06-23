@@ -1,185 +1,156 @@
 # Strategic Intelligence Agent
 
-An agentic decision-support workflow that converts documents, articles, policy texts, and earnings excerpts into structured executive intelligence briefs.
+An analyst workbench that converts documents, articles, policy texts, and earnings excerpts into structured executive intelligence briefs.
+
+![Strategic Intelligence Agent workbench](docs/screenshots/dashboard_workbench.svg)
 
 ## Project Overview
 
-Strategic Intelligence Agent is a V1.0 portfolio project that demonstrates how a modular agent workflow can support analyst productivity. It takes source text, extracts strategic issues, classifies the scenario, retrieves historical analogues, retrieves current context from a local knowledge base, synthesizes similarities and differences, and generates a concise executive intelligence brief.
+Strategic Intelligence Agent is a portfolio-grade decision-support product for strategic intelligence and business analytics. It combines deterministic issue extraction, scenario classification, historical analogue retrieval, current context retrieval, implication analysis, evidence traceability, and executive brief generation.
 
-The project evolved from an earlier `financial_rubric_agent`. That older logic is preserved under `legacy/financial_rubric_agent/` for project history, but the active V1.0 workflow lives in `src/`.
-
-## Business Problem
-
-Executives and analysts often need to turn messy source material into decision-ready intelligence quickly. Source documents can include policy announcements, market commentary, company disclosures, earnings excerpts, or operational memos. The challenge is not simply summarization; the useful output should identify issues, frame the scenario, surface analogues, add current context, separate similarities from differences, and produce a brief that supports discussion.
-
-Strategic Intelligence Agent is designed to make that workflow repeatable, inspectable, and evidence-aware.
+V2 adds a local Analyst Workbench in `dashboard/` so reviewers can paste source text, upload Markdown or text files, inspect collapsible analysis sections, review source evidence, and export an executive brief.
 
 ## What This Is / Is Not
 
 This is:
 
-- An analyst productivity tool.
-- A strategic decision-support workflow.
-- A modular agent architecture for structured intelligence briefs.
-- A portfolio demonstration of retrieval, workflow orchestration, and business analytics.
+- A decision-support workflow.
+- A strategic intelligence workbench.
+- An analyst productivity product.
+- A business analytics portfolio project.
+- A demonstration of agent-style workflow orchestration.
 
 This is not:
 
-- A trading advisor.
+- A trading platform.
 - A forecasting system.
-- An investment recommendation system.
-- A source of buy, sell, hold, timing, or portfolio allocation advice.
+- Investment advice.
+- A source of trading recommendations, price targets, expected returns, or portfolio allocation guidance.
 
-## Agent Workflow
+## Architecture
 
 ```text
-Document
+Input Document
 -> Issue Extraction
 -> Scenario Classification
 -> Historical Analogue Retrieval
 -> Current Context Retrieval
--> Intelligence Synthesis
--> Executive Intelligence Brief
+-> Implication Analysis
+-> Executive Brief
+-> Analyst Workbench Display / Export
 ```
 
-The V1.0 implementation is deterministic and uses only local files plus the Python standard library. It does not use paid APIs or LLM calls.
+See [docs/architecture_diagram.md](docs/architecture_diagram.md) and [docs/system_architecture.md](docs/system_architecture.md) for more detail.
+
+## Workflow
+
+1. The analyst pastes or uploads a document.
+2. The system extracts issue fields such as actors, industries, policy terms, and document type.
+3. The scenario classifier assigns a deterministic scenario label.
+4. The historical retriever finds relevant analogue cases.
+5. The context retriever finds domain context from local knowledge-base files.
+6. The synthesis layer separates observed similarities, differences, business considerations, operational considerations, geopolitical considerations, and strategic questions.
+7. The workbench displays collapsible sections with evidence labels.
+8. The executive brief can be exported as Markdown or TXT.
+
+## Business Value
+
+Analysts often lose time turning messy source material into executive-ready intelligence. This project demonstrates how an analytics product can make that process repeatable:
+
+- Information extraction structures unstructured text.
+- Retrieval adds historical and current context.
+- Evidence traceability makes output reviewable.
+- Workflow design turns a one-off analysis task into a repeatable product.
+- Executive brief generation creates a usable decision-support artifact.
+
+See [docs/business_analytics_relevance.md](docs/business_analytics_relevance.md).
 
 ## Repository Structure
 
 ```text
-docs/                          Project documentation and portfolio narrative.
-data/                          Local input data and future fixtures.
-examples/                      Example source documents.
-knowledge_base/                Curated historical analogue records.
-knowledge_base/current_context/ Local current-context KB files by domain.
-legacy/financial_rubric_agent/ Preserved prior project code and historical reports.
+dashboard/                     Local browser analyst workbench.
+docs/                          Portfolio, architecture, product, and interview docs.
+examples/                      Source examples and demo inputs.
+knowledge_base/                Historical analogue records.
+knowledge_base/current_context/ Local context KB files by domain.
 outputs/                       Generated executive intelligence briefs.
+demo_outputs/                  Generated portfolio demo briefs.
 scripts/                       Validation scripts.
-src/                           Active V1.0 agent workflow modules.
+src/                           Deterministic analysis pipeline.
+legacy/financial_rubric_agent/ Preserved earlier project history.
 ```
 
-Key active modules:
+## Run The Workbench
 
-| File | Purpose |
-| --- | --- |
-| `src/document_loader.py` | Loads plain text and Markdown documents. |
-| `src/issue_extractor.py` | Extracts core issue, actors, regions, industries, policy terms, companies, and document type. |
-| `src/scenario_classifier.py` | Classifies issues using deterministic keyword matching. |
-| `src/historical_retriever.py` | Retrieves top historical analogues from `knowledge_base/historical_analogues.csv`. |
-| `src/context_retriever.py` | Retrieves current context from local Markdown context KB files. |
-| `src/implication_analyzer.py` | Combines historical analogues and current context into similarities, differences, considerations, and questions. |
-| `src/brief_generator.py` | Generates the Markdown executive intelligence brief with evidence traces. |
-| `src/run_agent.py` | Orchestrates the full workflow. |
-
-## V0.5 Capabilities
-
-- Added `knowledge_base/historical_analogues.csv` with public-history analogue cases.
-- Extracted structured fields from source documents using deterministic keyword and pattern matching.
-- Classified scenarios into categories such as Export Controls, Industrial Policy, Sanctions, Supply Chain Disruption, Regulatory Action, Military / Security Shock, Earnings / Corporate Disclosure, Strategic Investment, Trade Policy, and Other.
-- Retrieved the top three historical analogues using scenario match, keyword overlap, industry overlap, and actor overlap.
-- Generated upgraded executive briefs and validation coverage.
-
-## V1.0 Capabilities
-
-- Adds deterministic current-context retrieval from `knowledge_base/current_context/`.
-- Adds 20 context entries across semiconductors, banking, supply chain, energy, trade policy, export controls, industrial policy, and sanctions.
-- Combines historical analogues with current context in an intelligence synthesis layer.
-- Generates observed similarities, observed differences, business considerations, operational considerations, geopolitical considerations, and strategic questions.
-- Adds evidence traceability for source document findings, historical analogue records, and current context records.
-- Upgrades the executive brief format for portfolio-ready decision-support output.
-- Adds `scripts/validate_v10.py` for context retrieval, analogue retrieval, output generation, evidence trace, and forbidden language checks.
-
-## Historical Analogue Retrieval
-
-The historical retriever is intentionally simple and inspectable:
-
-1. Load cases from `knowledge_base/historical_analogues.csv`.
-2. Score each case against the extracted issue and scenario classification.
-3. Add points for matching scenario type, overlapping keywords, overlapping industries, and overlapping actors.
-4. Return the top three cases with a similarity reason, caution note, and evidence trace.
-
-Historical analogues are used for comparison and structured reasoning only. They are not forecasts.
-
-## Current Context Retrieval
-
-Historical analogues alone are useful but incomplete. A past case can show structural similarity, while current context explains standing constraints, stakeholders, and monitoring considerations relevant to the present issue.
-
-The V1.0 context retriever:
-
-1. Identifies extracted industries and scenario classification.
-2. Loads Markdown entries from `knowledge_base/current_context/`.
-3. Scores entries using industry match, scenario match, and keyword overlap.
-4. Returns top context findings with evidence traces.
-
-This improves decision support because the brief can compare what the issue may resemble with what currently requires monitoring.
-
-## Sample Run
-
-```bash
-python3 src/run_agent.py examples/chips_act_example.md --output outputs/chips_act_brief.md
-```
-
-Expected result:
+Open this file in a browser:
 
 ```text
-Wrote executive brief to outputs/chips_act_brief.md
+dashboard/index.html
 ```
 
-## Example Commands
+The dashboard is static and local. It supports paste input, `.md` and `.txt` uploads, collapsible results, evidence labels, and Markdown/TXT export.
+
+## Run The Pipeline
 
 ```bash
 python3 src/run_agent.py examples/chips_act_example.md --output outputs/chips_act_brief.md
 python3 src/run_agent.py examples/banking_earnings_example.md --output outputs/banking_earnings_brief.md
 python3 src/run_agent.py examples/red_sea_shipping_example.md --output outputs/red_sea_shipping_brief.md
-python3 scripts/validate_v10.py
 ```
 
-Sample outputs:
+## Demo Outputs
 
-- `outputs/chips_act_brief.md`
-- `outputs/banking_earnings_brief.md`
-- `outputs/red_sea_shipping_brief.md`
-- `outputs/export_controls_brief.md`
-- `outputs/earnings_disclosure_brief.md`
-- `outputs/supply_chain_brief.md`
+V2 demo inputs live in `examples/demo_inputs/`. Validation generates matching briefs in `demo_outputs/`:
 
-## Limitations
+- `demo_outputs/semiconductor_policy_brief.md`
+- `demo_outputs/bank_earnings_brief.md`
+- `demo_outputs/supply_chain_disruption_brief.md`
+- `demo_outputs/red_sea_shipping_brief.md`
 
-- V1.0 is deterministic and keyword-based.
-- It does not call LLMs or paid APIs.
-- It does not perform live web retrieval.
-- It does not generate forecasts or probabilities.
-- It does not provide trading advice or investment recommendations.
-- Historical and context records are concise local examples and should be checked against primary sources for production use.
+## Validation
+
+```bash
+python3 -m compileall src
+python3 scripts/validate_v05.py
+python3 scripts/validate_v10.py
+python3 scripts/validate_v20.py
+```
+
+The V2 validator checks that the dashboard loads, outputs generate, exports are written to `outputs/`, and evidence traces exist.
 
 ## Portfolio Value
 
 This project demonstrates:
 
+- AI product architecture without overclaiming model intelligence.
 - Agent workflow decomposition.
-- Deterministic retrieval over local knowledge bases.
-- Evidence-aware synthesis.
-- Structured document analysis.
-- Strategic and business analytics framing.
-- Executive-facing brief generation.
-- Responsible AI positioning with clear non-advisory boundaries.
+- Deterministic retrieval and synthesis.
+- Business analytics product thinking.
+- Evidence-aware executive communication.
+- Frontend product packaging for a GitHub portfolio.
 
-The repository is intentionally designed to be easy for reviewers to scan: documentation explains the product direction, `src/` shows the workflow implementation, and `legacy/` preserves the project evolution.
+Supporting docs:
 
-## Roadmap
+- [docs/product_walkthrough.md](docs/product_walkthrough.md)
+- [docs/product_requirements.md](docs/product_requirements.md)
+- [docs/interview_story.md](docs/interview_story.md)
+- [docs/resume_bullets.md](docs/resume_bullets.md)
+- [docs/portfolio_case_study.md](docs/portfolio_case_study.md)
 
-### V1.0
-
-- Add deterministic current context retrieval.
-- Add evidence traceability.
-- Add intelligence synthesis across analogues and context.
-- Add V1.0 validation and portfolio case study documentation.
-
-### V2.0
+## Future Roadmap
 
 - Add optional LLM provider support behind the existing deterministic interfaces.
-- Add richer context records with source URLs and dates.
+- Add richer source metadata with dates and URLs.
 - Add structured JSON intermediate artifacts.
-- Add tests for scoring and retrieval edge cases.
-- Add a lightweight UI for portfolio demos.
+- Add tests for retrieval scoring edge cases.
+- Add a lightweight local server for direct dashboard-to-`outputs/` saving.
+- Add user-selectable knowledge-base filters and evidence review controls.
+
+## Limitations
+
+- V2 remains deterministic and keyword-based.
+- The dashboard is a local static interface.
+- Browser exports download files; the validation script writes repository export artifacts into `outputs/`.
+- No live web retrieval is performed.
+- No forecasts, probabilities, investment advice, or trading recommendations are generated.
 

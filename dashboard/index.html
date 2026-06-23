@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Strategic Intelligence Agent Workbench</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="workbench">
+      <section class="input-panel" aria-labelledby="app-title">
+        <div class="brand-row">
+          <div>
+            <p class="eyebrow">Analyst Workbench</p>
+            <h1 id="app-title">Strategic Intelligence Agent</h1>
+          </div>
+          <span class="status-pill">V2 local demo</span>
+        </div>
+
+        <label for="document-input">Document text</label>
+        <textarea id="document-input" spellcheck="true">The CHIPS Act continues to shape semiconductor manufacturing strategy as executives evaluate domestic fabrication capacity, supplier qualification, and government incentive requirements. The issue involves industrial policy, strategic investment, workforce constraints, and semiconductor supply chain resilience.</textarea>
+
+        <div class="control-row">
+          <label class="file-control" for="file-input">
+            Upload .md/.txt
+            <input id="file-input" type="file" accept=".md,.markdown,.txt,text/markdown,text/plain">
+          </label>
+          <button id="analyze-button" type="button">Run Analysis</button>
+        </div>
+
+        <div class="export-row" aria-label="Export executive brief">
+          <button id="export-md" type="button">Export Markdown</button>
+          <button id="export-txt" type="button">Export TXT</button>
+        </div>
+
+        <p class="note">Exports download locally. For repository demos, save exported files into <code>outputs/</code>.</p>
+      </section>
+
+      <section class="results-panel" aria-live="polite">
+        <details open>
+          <summary>Document Summary <span data-source="Input Document">Input Document</span></summary>
+          <div id="summary-section" class="section-body"></div>
+        </details>
+
+        <details open>
+          <summary>Scenario Classification <span data-source="Input Document">Input Document</span></summary>
+          <div id="classification-section" class="section-body"></div>
+        </details>
+
+        <details>
+          <summary>Historical Analogues <span data-source="Historical Database">Historical Database</span></summary>
+          <div id="analogues-section" class="section-body"></div>
+        </details>
+
+        <details>
+          <summary>Current Context <span data-source="Context Knowledge Base">Context Knowledge Base</span></summary>
+          <div id="context-section" class="section-body"></div>
+        </details>
+
+        <details>
+          <summary>Implications <span data-source="Synthesis">Synthesis</span></summary>
+          <div id="implications-section" class="section-body"></div>
+        </details>
+
+        <details>
+          <summary>Executive Brief <span data-source="All Evidence">All Evidence</span></summary>
+          <pre id="brief-section" class="brief-output"></pre>
+        </details>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

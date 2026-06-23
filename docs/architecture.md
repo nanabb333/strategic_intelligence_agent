@@ -2,19 +2,17 @@
 
 ## High-Level Design
 
-Strategic Intelligence Agent is organized as a deterministic, modular pipeline.
-Each module has a narrow responsibility and passes structured data to the next
-stage.
+Strategic Intelligence Agent is organized as a deterministic, tool-selecting
+agent. V3 keeps the existing modular tools but adds an Agent Router that decides
+which tools should run for a given document.
 
 ```text
 Input Document
   -> document_loader
-  -> issue_extractor
-  -> scenario_classifier
-  -> historical_retriever
-  -> context_retriever
-  -> implication_analyzer
-  -> brief_generator
+  -> agent_router
+  -> tool_registry
+  -> selected tools
+  -> result synthesis
   -> outputs/
 ```
 
@@ -35,6 +33,8 @@ src/                           Application source code.
 
 | Module | Responsibility |
 | --- | --- |
+| `agent_router.py` | Analyze document metadata and select tools for the route. |
+| `tool_registry.py` | Register available deterministic tools for future extensibility. |
 | `document_loader.py` | Load and normalize source documents. |
 | `issue_extractor.py` | Extract core issue, actors, regions, industries, policy terms, companies, document type, and uncertainties. |
 | `scenario_classifier.py` | Classify issues into deterministic scenario categories using keyword matches. |
@@ -43,6 +43,28 @@ src/                           Application source code.
 | `implication_analyzer.py` | Combine historical analogues and current context into similarities, differences, considerations, and questions. |
 | `brief_generator.py` | Produce the final executive intelligence brief with evidence traces. |
 | `run_agent.py` | Orchestrate the end-to-end workflow. |
+
+## V3 Agent Router
+
+V2 always ran a mostly fixed sequence. V3 introduces deterministic tool
+selection:
+
+1. The router inspects document type, scenario type, industries, actors, and
+   keywords.
+2. The registry exposes available tools.
+3. The router selects or skips tools and records why.
+4. The runner executes selected tools in route order.
+5. The brief includes Agent Execution Trace, Tool Decisions, Evidence Sources,
+   and Analysis Path.
+
+Example routing:
+
+- Export Controls: run issue extraction, classification, historical retrieval,
+  context retrieval, implication analysis, and brief generation.
+- Corporate Earnings: run issue extraction, classification, historical
+  retrieval, implication analysis, and brief generation; skip context retrieval
+  when policy or operational context is not relevant.
+- Supply Chain Disruption: run the full route including context retrieval.
 
 ## V1.0 Intelligence Layer
 
@@ -69,6 +91,8 @@ V1.0 uses explicit source origins:
 - Source Document.
 - Historical Database.
 - Current Context KB.
+- Agent Router.
+- Tool Registry.
 
 The goal is not formal citation management. The goal is to make the reasoning
 path visible enough for an analyst to review what came from the input document,
@@ -82,4 +106,3 @@ what came from historical analogues, and what came from current context records.
 - Make each workflow stage testable independently.
 - Treat historical analogues as comparison aids, not predictions.
 - Treat current context as monitoring support, not live fact retrieval.
-

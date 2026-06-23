@@ -4,23 +4,23 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Executive Summary
 
-- The document describes an Earnings / Corporate Disclosure issue involving AI, cloud, technology.
+- The document describes an Export Controls issue involving semiconductor, chips, AI.
 - Historical analogues and current context are used for comparison and decision support, not prediction.
 - Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
 
 ## Agent Execution Trace
 
-- **Document type detected:** Earnings / Corporate Disclosure
-- **Scenario detected:** Earnings / Corporate Disclosure
-- **Selected tools:** IssueExtractor, ScenarioClassifier, HistoricalRetriever, ImplicationAnalyzer, BriefGenerator
-- **Skipped tools:** ContextRetriever
+- **Document type detected:** Policy / Regulatory Text
+- **Scenario detected:** Export Controls
+- **Selected tools:** IssueExtractor, ScenarioClassifier, HistoricalRetriever, ContextRetriever, ImplicationAnalyzer, BriefGenerator
+- **Skipped tools:** None
 
-1. **Scenario detected:** Earnings / Corporate Disclosure
-2. **Document type detected:** Earnings / Corporate Disclosure
+1. **Scenario detected:** Export Controls
+2. **Document type detected:** Policy / Regulatory Text
 3. **Tool selected:** IssueExtractor: Every route starts by converting source text into structured issue fields.
 4. **Tool selected:** ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted.
-5. **Tool selected:** HistoricalRetriever: Earnings / Corporate Disclosure benefits from comparison against historical precedents.
-6. **Tool skipped:** ContextRetriever: Corporate disclosure detected without strong policy, supply chain, sanctions, or regulatory context terms.
+5. **Tool selected:** HistoricalRetriever: Export Controls benefits from comparison against historical precedents.
+6. **Tool selected:** ContextRetriever: Export Controls usually benefits from domain context and monitoring considerations.
 7. **Tool selected:** ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations.
 8. **Tool selected:** BriefGenerator: The final deliverable is an executive intelligence brief.
 
@@ -41,14 +41,14 @@ This output is for decision-support and analyst productivity only. It does not p
 ### HistoricalRetriever
 
 - **Decision:** Selected
-- **Why:** Earnings / Corporate Disclosure benefits from comparison against historical precedents.
+- **Why:** Export Controls benefits from comparison against historical precedents.
 - **Expected contribution:** Top analogue cases and similarity reasons from the historical database.
 
 ### ContextRetriever
 
-- **Decision:** Skipped
-- **Why:** Corporate disclosure detected without strong policy, supply chain, sanctions, or regulatory context terms.
-- **Expected contribution:** Context retrieval is skipped to keep the route focused on disclosure interpretation.
+- **Decision:** Selected
+- **Why:** Export Controls usually benefits from domain context and monitoring considerations.
+- **Expected contribution:** Adds current context from the local knowledge base.
 
 ### ImplicationAnalyzer
 
@@ -71,57 +71,57 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Key Issue
 
-**Title:** Cloud Infrastructure Earnings Disclosure
+**Title:** Agent Route Export Controls
 
-**Core issue:** A major technology company disclosed in its quarterly earnings commentary that cloud infrastructure demand remains strong, but management noted rising capital expenditure, constrained AI accelerator supply, and uncertainty around data center deployment timelines.
+**Core issue:** The United States expanded export controls affecting advanced AI chips, semiconductor equipment, and cloud access for selected China-linked entities.
 
-**Summary:** A major technology company disclosed in its quarterly earnings commentary that cloud infrastructure demand remains strong, but management noted rising capital expenditure, constrained AI accelerator supply, and uncertainty around data center deployment timelines.
+**Summary:** The United States expanded export controls affecting advanced AI chips, semiconductor equipment, and cloud access for selected China-linked entities. Executives are reviewing supplier exposure, licensing requirements, customer commitments, and compliance workflows.
 
-The disclosure raises questions about supplier concentration, margin pressure, customer demand visibility, and how executives should communicate infrastructure constraints.
+The issue involves export control policy, semiconductor supply chains, allied coordination, and operational monitoring requirements.
 
 **Evidence trace:** Source Document
 
 ## Scenario Classification
 
-- **Primary scenario:** Earnings / Corporate Disclosure
-- **Matched keywords:** earnings, quarter, margin, disclosure
+- **Primary scenario:** Export Controls
+- **Matched keywords:** export control, export controls, licensing
 - **Classification confidence:** High
 - **Evidence trace:** Source Document + deterministic keyword classifier
 - **Note:** Confidence describes classification quality only; it is not a forecast.
 
 ## Extracted Entities
 
-- **Document type guess:** Earnings / Corporate Disclosure (Evidence trace: Source Document)
-- **Actors:** executives, management (Evidence trace: Source Document)
-- **Countries / regions:** None detected (Evidence trace: Source Document)
-- **Industries:** AI, cloud, technology (Evidence trace: Source Document)
-- **Policy terms:** None detected (Evidence trace: Source Document)
+- **Document type guess:** Policy / Regulatory Text (Evidence trace: Source Document)
+- **Actors:** executives (Evidence trace: Source Document)
+- **Countries / regions:** United States, China (Evidence trace: Source Document)
+- **Industries:** semiconductor, chips, AI, cloud (Evidence trace: Source Document)
+- **Policy terms:** export control, export controls, licensing, compliance (Evidence trace: Source Document)
 - **Companies:** None detected (Evidence trace: Source Document)
 
 ## Historical Analogues
 
-### Major Earnings Guidance Withdrawal During COVID (2020)
-
-- **Scenario type:** Earnings / Corporate Disclosure
-- **Similarity reason:** scenario match on Earnings / Corporate Disclosure; keyword overlap: commentary, communicate, demand, disclosure; industry overlap: technology; actor overlap: executives
-- **Business relevance:** Shows how disclosures can communicate operating uncertainty and planning limits.
-- **Geopolitical relevance:** Connects corporate communication with macro and policy disruption.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
-
 ### Huawei Entity List (2019)
 
 - **Scenario type:** Export Controls
-- **Similarity reason:** keyword overlap: around, how, supplier, supply; industry overlap: technology
+- **Similarity reason:** scenario match on Export Controls; keyword overlap: access, advanced, chains, compliance
 - **Business relevance:** Shows how export controls can alter supplier access and compliance workflows.
 - **Geopolitical relevance:** Illustrates technology competition between the United States and China.
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** Huawei Entity List (2019) - Historical Database
 
+### ASML Export Controls (2023)
+
+- **Scenario type:** Export Controls
+- **Similarity reason:** scenario match on Export Controls; keyword overlap: access, advanced, allied, controls
+- **Business relevance:** Highlights exposure to licensing rules for critical production tools.
+- **Geopolitical relevance:** Shows allied coordination around sensitive technology controls.
+- **Caution note:** Historical analogues support comparison, not prediction.
+- **Source origin:** ASML Export Controls (2023) - Historical Database
+
 ### CHIPS and Science Act (2022)
 
 - **Scenario type:** Industrial Policy
-- **Similarity reason:** keyword overlap: around, capital, how, supply; industry overlap: technology
+- **Similarity reason:** keyword overlap: chips, expanded, policy, semiconductor
 - **Business relevance:** Shows how public incentives can shape capital planning and site selection.
 - **Geopolitical relevance:** Reflects strategic concern about supply resilience and technology leadership.
 - **Caution note:** Historical analogues support comparison, not prediction.
@@ -129,14 +129,38 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 
 ## Current Context
 
-- ContextRetriever was skipped or no current-context findings were returned for this route.
-- **Source origin:** Agent Router
+### Semiconductors - Export Controls
+
+- **Context summary:** Advanced chip and semiconductor equipment supply chains depend on cross-border licensing, specialized suppliers, and government controls.
+- **Why it matters:** Controls can affect access to inputs, customer eligibility, and compliance review timelines.
+- **Stakeholders:** Chip designers; equipment vendors; foundries; cloud providers; regulators
+- **Monitoring considerations:** Licensing updates; allied coordination; supplier disclosures; compliance guidance
+- **Retrieval reason:** industry match: semiconductor; scenario match: Export Controls; keyword overlap: acces, access, advanced, allied
+- **Source origin:** Semiconductors Context KB: SC-001 (semiconductor_context.md)
+
+### Supply Chain - Export Controls
+
+- **Context summary:** Export controls can restrict shipment of sensitive goods, software, or technology to certain end users.
+- **Why it matters:** Companies may need to screen counterparties and assess license requirements before fulfillment.
+- **Stakeholders:** Exporters; freight forwarders; compliance teams; customers; regulators
+- **Monitoring considerations:** Restricted party lists; product classifications; license applications; end-use statements
+- **Retrieval reason:** scenario match: Export Controls; keyword overlap: compliance, control, controls, customer
+- **Source origin:** Supply Chain Context KB: SP-004 (supply_chain_context.md)
+
+### Trade Policy - Export Controls
+
+- **Context summary:** Export-control policy can link national security priorities with commercial technology transfer restrictions.
+- **Why it matters:** Business teams may need to align sales, compliance, and product-classification processes.
+- **Stakeholders:** Regulators; exporters; technology firms; legal teams; customers
+- **Monitoring considerations:** Control lists; licensing policy; allied alignment; enforcement examples
+- **Retrieval reason:** scenario match: Export Controls; keyword overlap: allied, compliance, control, customer
+- **Source origin:** Trade Policy Context KB: TP-002 (trade_policy_context.md)
 
 ## Similarities and Differences
 
 ### Observed Similarities
-- The issue may resemble Major Earnings Guidance Withdrawal During COVID (2020), Huawei Entity List (2019) because the retrieved cases share characteristics with the earnings / corporate disclosure scenario frame.
-- The current context findings from the retrieved context set share characteristics with the extracted industries and policy terms.
+- The issue may resemble Huawei Entity List (2019), ASML Export Controls (2023) because the retrieved cases share characteristics with the export controls scenario frame.
+- The current context findings from Semiconductors, Supply Chain, Trade Policy share characteristics with the extracted industries and policy terms.
 
 ### Observed Differences
 - The source document differs from historical analogues because current actors, implementation details, and timing are document-specific.
@@ -144,8 +168,8 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 
 ## Business Considerations
 
-- The issue may indicate changing constraints for AI, cloud, technology and requires monitoring of stakeholder exposure.
-- The earnings / corporate disclosure frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
+- The issue may indicate changing constraints for semiconductor, chips, AI and requires monitoring of stakeholder exposure.
+- The export controls frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
 - Historical and context evidence should be used to structure diligence, not to imply an outcome.
 
 ## Operational Considerations
@@ -155,7 +179,7 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 
 ## Geopolitical Considerations
 
-- The issue could affect cross-border coordination involving relevant jurisdictions.
+- The issue could affect cross-border coordination involving United States, China.
 - Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions.
 
 ## Strategic Questions
@@ -183,16 +207,19 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 
 ### Evidence Trace
 
+- ASML Export Controls (2023) - Historical Database
 - Agent Router: deterministic tool selection trace
 - CHIPS and Science Act (2022) - Historical Database
 - Huawei Entity List (2019) - Historical Database
-- Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
+- Semiconductors Context KB: SC-001 (semiconductor_context.md)
 - Source Document
+- Supply Chain Context KB: SP-004 (supply_chain_context.md)
 - Tool Registry: registered deterministic analysis tools
+- Trade Policy Context KB: TP-002 (trade_policy_context.md)
 
 ## Evidence Sources
 
 - **Input Document:** issue fields, scenario keywords, and extracted entities.
 - **Historical Database:** retrieved analogue cases and similarity reasons.
-- **Context Knowledge Base:** not used for this route because ContextRetriever was skipped or returned no findings.
+- **Context Knowledge Base:** selected current-context findings when the router selected ContextRetriever.
 - **Agent Router:** selected and skipped tool decisions.

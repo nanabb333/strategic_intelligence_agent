@@ -8,6 +8,67 @@ This output is for decision-support and analyst productivity only. It does not p
 - Historical analogues and current context are used for comparison and decision support, not prediction.
 - Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
 
+## Agent Execution Trace
+
+- **Document type detected:** Earnings / Corporate Disclosure
+- **Scenario detected:** Earnings / Corporate Disclosure
+- **Selected tools:** IssueExtractor, ScenarioClassifier, HistoricalRetriever, ImplicationAnalyzer, BriefGenerator
+- **Skipped tools:** ContextRetriever
+
+1. **Scenario detected:** Earnings / Corporate Disclosure
+2. **Document type detected:** Earnings / Corporate Disclosure
+3. **Tool selected:** IssueExtractor: Every route starts by converting source text into structured issue fields.
+4. **Tool selected:** ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted.
+5. **Tool selected:** HistoricalRetriever: Earnings / Corporate Disclosure benefits from comparison against historical precedents.
+6. **Tool skipped:** ContextRetriever: No strong context retrieval trigger detected.
+7. **Tool selected:** ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations.
+8. **Tool selected:** BriefGenerator: The final deliverable is an executive intelligence brief.
+
+## Tool Decisions
+
+### IssueExtractor
+
+- **Decision:** Selected
+- **Why:** Every route starts by converting source text into structured issue fields.
+- **Expected contribution:** Core issue, actors, industries, policy terms, and document type.
+
+### ScenarioClassifier
+
+- **Decision:** Selected
+- **Why:** Scenario classification is required before retrieval decisions can be interpreted.
+- **Expected contribution:** Primary scenario and matched keyword evidence.
+
+### HistoricalRetriever
+
+- **Decision:** Selected
+- **Why:** Earnings / Corporate Disclosure benefits from comparison against historical precedents.
+- **Expected contribution:** Top analogue cases and similarity reasons from the historical database.
+
+### ContextRetriever
+
+- **Decision:** Skipped
+- **Why:** No strong context retrieval trigger detected.
+- **Expected contribution:** Avoids adding weak context findings.
+
+### ImplicationAnalyzer
+
+- **Decision:** Selected
+- **Why:** Selected retrieval outputs need to be synthesized into analyst-facing considerations.
+- **Expected contribution:** Similarities, differences, business considerations, operational considerations, geopolitical considerations, and questions.
+
+### BriefGenerator
+
+- **Decision:** Selected
+- **Why:** The final deliverable is an executive intelligence brief.
+- **Expected contribution:** Markdown brief with evidence sources, trace, and analysis path.
+
+## Analysis Path
+
+- Agent Router reviewed document type, scenario, industries, actors, and keywords.
+- Tool Registry provided available deterministic tools.
+- Selected tools executed in route order.
+- Result synthesis generated the executive brief with evidence sources.
+
 ## Key Issue
 
 **Title:** Regional Bank Earnings and Deposit Commentary
@@ -68,38 +129,14 @@ The disclosure raises questions about stakeholder communication, operational con
 
 ## Current Context
 
-### Banking - Earnings / Corporate Disclosure
-
-- **Context summary:** Bank earnings disclosures often discuss deposit trends, loan growth, credit quality, net interest income, and capital levels.
-- **Why it matters:** These disclosures help analysts frame operating conditions and management priorities.
-- **Stakeholders:** Bank executives; depositors; regulators; borrowers; analysts
-- **Monitoring considerations:** Deposit flows; credit loss provisions; capital ratios; management commentary
-- **Retrieval reason:** scenario match: Earnings / Corporate Disclosure; keyword overlap: bank, capital, commentary, credit
-- **Source origin:** Banking Context KB: BK-001 (banking_context.md)
-
-### Banking - Regulatory Action
-
-- **Context summary:** Banking regulation can affect capital planning, liquidity management, risk controls, and reporting obligations.
-- **Why it matters:** Regulatory requirements can change operating flexibility and compliance workload.
-- **Stakeholders:** Banks; regulators; boards; risk officers; customers
-- **Monitoring considerations:** Rule proposals; supervisory guidance; stress-test results; enforcement actions
-- **Retrieval reason:** keyword overlap: bank, banking, capital, control
-- **Source origin:** Banking Context KB: BK-002 (banking_context.md)
-
-### Banking - Sanctions
-
-- **Context summary:** Banks often implement sanctions screening, transaction monitoring, and customer due diligence controls.
-- **Why it matters:** Sanctions changes can affect payment flows, counterparty relationships, and operational risk controls.
-- **Stakeholders:** Compliance teams; correspondent banks; regulators; corporate customers
-- **Monitoring considerations:** Sanctions lists; payment exceptions; correspondent relationships; compliance updates
-- **Retrieval reason:** keyword overlap: bank, control, controls, monitoring
-- **Source origin:** Banking Context KB: BK-003 (banking_context.md)
+- ContextRetriever was skipped or no current-context findings were returned for this route.
+- **Source origin:** Agent Router
 
 ## Similarities and Differences
 
 ### Observed Similarities
 - The issue may resemble Major Earnings Guidance Withdrawal During COVID (2020), CHIPS and Science Act (2022) because the retrieved cases share characteristics with the earnings / corporate disclosure scenario frame.
-- The current context findings from Banking share characteristics with the extracted industries and policy terms.
+- The current context findings from the retrieved context set share characteristics with the extracted industries and policy terms.
 
 ### Observed Differences
 - The source document differs from historical analogues because current actors, implementation details, and timing are document-specific.
@@ -131,13 +168,14 @@ The disclosure raises questions about stakeholder communication, operational con
 
 ## Analyst Notes
 
+- V3 uses an Agent Router to select tools before execution.
 - Current context retrieval uses local Markdown knowledge-base entries.
 - Historical analogues support structured comparison, not prediction.
 - The synthesis uses phrases such as may resemble, shares characteristics with, differs from, and requires monitoring by design.
 
 ## Limitations
 
-- V1.0 uses deterministic keyword and overlap matching.
+- V3.0 uses deterministic routing, keyword matching, and overlap matching.
 - It does not call paid APIs or LLM services.
 - It does not generate forecasts or probabilities.
 - It does not provide trading advice or investment recommendations.
@@ -145,10 +183,16 @@ The disclosure raises questions about stakeholder communication, operational con
 
 ### Evidence Trace
 
-- Banking Context KB: BK-001 (banking_context.md)
-- Banking Context KB: BK-002 (banking_context.md)
-- Banking Context KB: BK-003 (banking_context.md)
+- Agent Router: deterministic tool selection trace
 - CHIPS and Science Act (2022) - Historical Database
 - Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
 - Source Document
 - Taiwan Strait Military Exercises (2022) - Historical Database
+- Tool Registry: registered deterministic analysis tools
+
+## Evidence Sources
+
+- **Input Document:** issue fields, scenario keywords, and extracted entities.
+- **Historical Database:** retrieved analogue cases and similarity reasons.
+- **Context Knowledge Base:** not used for this route because ContextRetriever was skipped or returned no findings.
+- **Agent Router:** selected and skipped tool decisions.

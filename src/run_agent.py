@@ -2,24 +2,35 @@
 
 from pathlib import Path
 
+from agent_router import route_document
 from brief_generator import generate_brief
-from context_retriever import retrieve_current_context
 from document_loader import load_document
-from historical_retriever import retrieve_historical_analogues
-from implication_analyzer import analyze_implications
-from issue_extractor import extract_issues
-from scenario_classifier import classify_scenarios
+from tool_registry import build_default_registry
 
 
 def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.md") -> Path:
-    """Run the full V1.0 workflow and write a Markdown brief."""
+    """Run the V3 routed agent workflow and write a Markdown brief."""
     document_text = load_document(input_path)
-    issues = extract_issues(document_text)
-    classifications = classify_scenarios(issues)
-    analogues = retrieve_historical_analogues(issues, classifications)
-    contexts = retrieve_current_context(issues, classifications)
-    analyses = analyze_implications(issues, classifications, analogues, contexts)
-    brief = generate_brief(issues, classifications, analogues, contexts, analyses)
+    registry = build_default_registry()
+    route = route_document(document_text, registry)
+
+    issues = registry["IssueExtractor"].callable(document_text)
+    classifications = registry["ScenarioClassifier"].callable(issues)
+    analogues = registry["HistoricalRetriever"].callable(issues, classifications)
+    contexts = (
+        registry["ContextRetriever"].callable(issues, classifications)
+        if "ContextRetriever" in route.selected_tools
+        else {issue.title: [] for issue in issues}
+    )
+    analyses = registry["ImplicationAnalyzer"].callable(issues, classifications, analogues, contexts)
+    brief = registry["BriefGenerator"].callable(
+        issues,
+        classifications,
+        analogues,
+        contexts,
+        analyses,
+        agent_route=route,
+    )
 
     destination = Path(output_path)
     destination.parent.mkdir(parents=True, exist_ok=True)

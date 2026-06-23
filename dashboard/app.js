@@ -67,9 +67,42 @@ function retrieveContext(text) {
   return (matches.length ? matches : contextFindings).slice(0, 3);
 }
 
-function buildBrief(text, classification, entities, analogues, contexts) {
+function routeTools(text, classification, entities) {
+  const selected = ["IssueExtractor", "ScenarioClassifier", "HistoricalRetriever"];
+  const skipped = [];
+  const isEarningsOnly = classification.scenario === "Earnings / Corporate Disclosure"
+    && !["regulatory", "compliance", "supply chain", "export control", "sanctions"].some((keyword) => textIncludes(text, keyword));
+
+  if (isEarningsOnly) {
+    skipped.push("ContextRetriever");
+  } else {
+    selected.push("ContextRetriever");
+  }
+  selected.push("ImplicationAnalyzer", "BriefGenerator");
+
+  const trace = [
+    `Scenario detected: ${classification.scenario}`,
+    `Document signals: ${entities.industries.join(", ") || "general strategic note"}`,
+    "Tool selected: IssueExtractor because source text must be structured.",
+    "Tool selected: ScenarioClassifier because retrieval needs a scenario frame.",
+    "Tool selected: HistoricalRetriever because analogues support comparison.",
+    skipped.includes("ContextRetriever")
+      ? "Tool skipped: ContextRetriever because the route is focused on corporate disclosure interpretation."
+      : "Tool selected: ContextRetriever because domain context is relevant.",
+    "Tool selected: ImplicationAnalyzer because selected evidence must be synthesized.",
+    "Tool selected: BriefGenerator because the deliverable is an executive brief.",
+  ];
+
+  const decisions = selected.map((tool) => ({ tool, decision: "Selected" }))
+    .concat(skipped.map((tool) => ({ tool, decision: "Skipped" })));
+  return { selected, skipped, trace, decisions };
+}
+
+function buildBrief(text, classification, entities, analogues, contexts, route) {
   const analogueLines = analogues.map((item) => `- ${item.title}: ${item.relevance} (Source: ${item.source})`).join("\n");
   const contextLines = contexts.map((item) => `- ${item.industry}: ${item.text} (Source: ${item.source})`).join("\n");
+  const traceLines = route.trace.map((item, index) => `${index + 1}. ${item}`).join("\n");
+  const decisionLines = route.decisions.map((item) => `- ${item.tool}: ${item.decision}`).join("\n");
   return `# Executive Intelligence Brief
 
 This output is for decision-support and analyst productivity only. It does not provide forecasts, probabilities, trading advice, or investment recommendations.
@@ -79,6 +112,20 @@ This output is for decision-support and analyst productivity only. It does not p
 - The document describes a ${classification.scenario} issue.
 - Historical analogues and current context are used for comparison, not prediction.
 - Evidence references identify source origins.
+
+## Agent Execution Trace
+
+${traceLines}
+
+## Tool Decisions
+
+${decisionLines}
+
+## Analysis Path
+
+- Agent Router reviewed document type, scenario, industries, actors, and keywords.
+- Tool Registry exposed available analysis tools.
+- Selected tools executed before result synthesis.
 
 ## Key Issue
 
@@ -124,6 +171,8 @@ ${contextLines}
 - Source: Input Document
 - Source: Historical Database
 - Source: Context Knowledge Base
+- Source: Agent Router
+- Source: Tool Registry
 `;
 }
 
@@ -149,15 +198,19 @@ function runAnalysis() {
   }
   const classification = classifyScenario(text);
   const entities = extractEntities(text);
+  const route = routeTools(text, classification, entities);
   const analogues = retrieveAnalogues(classification);
-  const contexts = retrieveContext(text);
-  currentBrief = buildBrief(text, classification, entities, analogues, contexts);
+  const contexts = route.selected.includes("ContextRetriever") ? retrieveContext(text) : [];
+  currentBrief = buildBrief(text, classification, entities, analogues, contexts, route);
 
   document.getElementById("summary-section").innerHTML = `<p>${summarizeDocument(text)}</p><p><span class="evidence">Source: Input Document</span></p>`;
   document.getElementById("classification-section").innerHTML = `<ul><li>Primary scenario: ${classification.scenario}</li><li>Matched keywords: ${classification.matches.join(", ") || "None"}</li><li>Confidence: ${classification.confidence}</li></ul><p><span class="evidence">Source: Input Document</span></p>`;
   renderFindingList(document.getElementById("analogues-section"), analogues, (item) => `<h3>${item.title}</h3><p>${item.relevance}</p><span class="evidence">Source: ${item.source}</span>`);
   renderFindingList(document.getElementById("context-section"), contexts, (item) => `<h3>${item.industry}</h3><p>${item.text}</p><span class="evidence">Source: ${item.source}</span>`);
   document.getElementById("implications-section").innerHTML = `<ul><li>The issue may resemble selected historical cases, but differences in current actors and timing require monitoring.</li><li>Current context adds stakeholder and operating constraints that historical analogues alone cannot provide.</li></ul><p><span class="evidence">Source: Synthesis from all evidence</span></p>`;
+  document.getElementById("tools-section").innerHTML = `<p><strong>Selected:</strong> ${route.selected.join(", ")}</p><p><strong>Skipped:</strong> ${route.skipped.join(", ") || "None"}</p><p><span class="evidence">Source: Agent Router</span></p>`;
+  document.getElementById("trace-section").innerHTML = `<ol>${route.trace.map((item) => `<li>${item}</li>`).join("")}</ol><p><span class="evidence">Source: Agent Router</span></p>`;
+  document.getElementById("path-section").innerHTML = `<ul><li>Agent Router evaluated the document and selected tools.</li><li>Tool Registry exposed available tools.</li><li>Selected tools produced evidence and synthesis.</li></ul><p><span class="evidence">Source: Tool Registry</span></p>`;
   document.getElementById("brief-section").textContent = currentBrief;
 }
 

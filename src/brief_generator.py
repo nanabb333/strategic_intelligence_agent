@@ -29,6 +29,7 @@ def generate_brief(
     analogues: dict[str, list[HistoricalAnalogue]],
     contexts: dict[str, list[CurrentContext]],
     analyses: list[ImplicationAnalysis],
+    agent_route=None,
 ) -> str:
     """Generate a Markdown executive intelligence brief."""
     classification_by_issue = {item.issue_title: item for item in classifications}
@@ -51,6 +52,49 @@ def generate_brief(
                 "- Historical analogues and current context are used for comparison and decision support, not prediction.",
                 "- Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.",
                 "",
+            ]
+        )
+
+        if agent_route:
+            lines.extend(
+                [
+                    "## Agent Execution Trace",
+                    "",
+                    f"- **Document type detected:** {agent_route.document_type}",
+                    f"- **Scenario detected:** {agent_route.scenario_type}",
+                    f"- **Selected tools:** {', '.join(agent_route.selected_tools) or 'None'}",
+                    f"- **Skipped tools:** {', '.join(agent_route.skipped_tools) or 'None'}",
+                    "",
+                ]
+            )
+            for step in agent_route.trace:
+                lines.append(f"{step.step}. **{step.event}:** {step.detail}")
+            lines.extend(["", "## Tool Decisions", ""])
+            for decision in agent_route.reasoning_record:
+                lines.extend(
+                    [
+                        f"### {decision.tool}",
+                        "",
+                        f"- **Decision:** {decision.decision}",
+                        f"- **Why:** {decision.why}",
+                        f"- **Expected contribution:** {decision.expected_contribution}",
+                        "",
+                    ]
+                )
+            lines.extend(
+                [
+                    "## Analysis Path",
+                    "",
+                    "- Agent Router reviewed document type, scenario, industries, actors, and keywords.",
+                    "- Tool Registry provided available deterministic tools.",
+                    "- Selected tools executed in route order.",
+                    "- Result synthesis generated the executive brief with evidence sources.",
+                    "",
+                ]
+            )
+
+        lines.extend(
+            [
                 "## Key Issue",
                 "",
                 f"**Title:** {issue.title}",
@@ -110,6 +154,14 @@ def generate_brief(
             )
 
         lines.extend(["## Current Context", ""])
+        if not issue_contexts:
+            lines.extend(
+                [
+                    "- ContextRetriever was skipped or no current-context findings were returned for this route.",
+                    "- **Source origin:** Agent Router",
+                    "",
+                ]
+            )
         for context in issue_contexts:
             lines.extend(
                 [
@@ -164,13 +216,14 @@ def generate_brief(
                 "",
                 "## Analyst Notes",
                 "",
+                "- V3 uses an Agent Router to select tools before execution.",
                 "- Current context retrieval uses local Markdown knowledge-base entries.",
                 "- Historical analogues support structured comparison, not prediction.",
                 "- The synthesis uses phrases such as may resemble, shares characteristics with, differs from, and requires monitoring by design.",
                 "",
                 "## Limitations",
                 "",
-                "- V1.0 uses deterministic keyword and overlap matching.",
+                "- V3.0 uses deterministic routing, keyword matching, and overlap matching.",
                 "- It does not call paid APIs or LLM services.",
                 "- It does not generate forecasts or probabilities.",
                 "- It does not provide trading advice or investment recommendations.",
@@ -182,10 +235,31 @@ def generate_brief(
         )
         evidence_items = ["Source Document"] + [item.evidence_trace for item in issue_analogues]
         evidence_items += [item.evidence_trace for item in issue_contexts]
+        if agent_route:
+            evidence_items.append("Agent Router: deterministic tool selection trace")
+            evidence_items.append("Tool Registry: registered deterministic analysis tools")
         if analysis:
             evidence_items += analysis.evidence_trace
         for evidence in sorted(set(evidence_items)):
             lines.append(f"- {evidence}")
         lines.append("")
+
+        if agent_route:
+            context_source_line = (
+                "- **Context Knowledge Base:** selected current-context findings when the router selected ContextRetriever."
+                if issue_contexts
+                else "- **Context Knowledge Base:** not used for this route because ContextRetriever was skipped or returned no findings."
+            )
+            lines.extend(
+                [
+                    "## Evidence Sources",
+                    "",
+                    "- **Input Document:** issue fields, scenario keywords, and extracted entities.",
+                    "- **Historical Database:** retrieved analogue cases and similarity reasons.",
+                    context_source_line,
+                    "- **Agent Router:** selected and skipped tool decisions.",
+                    "",
+                ]
+            )
 
     return "\n".join(lines).strip() + "\n"

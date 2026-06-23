@@ -3,12 +3,14 @@
 ```mermaid
 flowchart TD
     A["Input Document"] --> B["Issue Extraction"]
-    B --> C["Scenario Classification"]
-    C --> D["Historical Retrieval"]
-    C --> E["Context Retrieval"]
-    D --> F["Implication Analysis"]
+    B --> R["Agent Router"]
+    R --> T["Tool Registry"]
+    T --> C["Scenario Classification"]
+    T --> D["Historical Retrieval"]
+    T --> E["Context Retrieval (selected or skipped)"]
+    C --> F["Implication Analysis"]
+    D --> F
     E --> F
-    F --> G["Executive Brief"]
+    F --> G["Executive Brief + Agent Trace"]
     G --> H["Dashboard Display / Export"]
 ```
-

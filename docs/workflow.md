@@ -4,11 +4,10 @@
 
 ```text
 Document
--> Issue Extraction
--> Scenario Classification
--> Historical Analogue Retrieval
--> Current Context Retrieval
--> Intelligence Synthesis
+-> Agent Router
+-> Tool Selection
+-> Tool Execution
+-> Result Synthesis
 -> Executive Intelligence Brief
 ```
 
@@ -20,7 +19,27 @@ The agent accepts source material such as reports, policy documents, news
 briefs, transcripts, filings, memos, or pasted text. The loader normalizes the
 content into a consistent text representation.
 
-### 2. Issue Extraction
+### 2. Agent Router
+
+The router inspects document type, scenario type, industries, actors, and
+keywords. It creates an Agent Trace and a reasoning record before selected tools
+execute.
+
+### 3. Tool Selection
+
+The router selects from the Tool Registry:
+
+- IssueExtractor.
+- ScenarioClassifier.
+- HistoricalRetriever.
+- ContextRetriever.
+- ImplicationAnalyzer.
+- BriefGenerator.
+
+ContextRetriever can be skipped for routes where current context is not likely
+to add value, such as a narrow corporate earnings disclosure.
+
+### 4. Issue Extraction
 
 The extractor identifies:
 
@@ -34,7 +53,7 @@ The extractor identifies:
 - Uncertainties.
 - Evidence snippets.
 
-### 3. Scenario Classification
+### 5. Scenario Classification
 
 The classifier assigns the issue to strategic categories such as:
 
@@ -52,7 +71,7 @@ The classifier assigns the issue to strategic categories such as:
 Classification uses deterministic keyword matching. The confidence label
 describes classification quality only; it is not a forecast probability.
 
-### 4. Historical Analogue Retrieval
+### 6. Historical Analogue Retrieval
 
 The retriever searches curated examples for structurally similar events. The
 goal is not prediction; the goal is to support better reasoning by comparison.
@@ -65,7 +84,7 @@ using:
 - Industry overlap.
 - Actor overlap.
 
-### 5. Current Context Retrieval
+### 7. Current Context Retrieval
 
 The context retriever loads local Markdown files from
 `knowledge_base/current_context/` and scores entries using:
@@ -79,7 +98,7 @@ resemble, but not which current stakeholders, constraints, and monitoring
 considerations are relevant. The context layer improves decision support by
 adding present-domain framing without making forecasts.
 
-### 6. Intelligence Synthesis
+### 8. Intelligence Synthesis
 
 The analyzer combines historical analogues and current context into:
 
@@ -94,7 +113,7 @@ The language avoids forecasts, probabilities, and investment recommendations.
 It uses phrasing such as "may resemble", "shares characteristics with",
 "differs from", and "requires monitoring".
 
-### 7. Executive Brief Generation
+### 9. Executive Brief Generation
 
 The generator writes a concise brief with these sections:
 
@@ -111,6 +130,9 @@ The generator writes a concise brief with these sections:
 - Strategic Questions.
 - Analyst Notes.
 - Limitations.
+- Agent Execution Trace.
+- Tool Decisions.
+- Evidence Sources.
+- Analysis Path.
 
 Each brief includes an evidence trace section showing source origins.
-

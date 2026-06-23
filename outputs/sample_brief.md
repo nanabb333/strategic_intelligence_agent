@@ -8,6 +8,67 @@ This output is for decision-support and analyst productivity only. It does not p
 - Historical analogues and current context are used for comparison and decision support, not prediction.
 - Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
 
+## Agent Execution Trace
+
+- **Document type detected:** Operational Risk Note
+- **Scenario detected:** Export Controls
+- **Selected tools:** IssueExtractor, ScenarioClassifier, HistoricalRetriever, ContextRetriever, ImplicationAnalyzer, BriefGenerator
+- **Skipped tools:** None
+
+1. **Scenario detected:** Export Controls
+2. **Document type detected:** Operational Risk Note
+3. **Tool selected:** IssueExtractor: Every route starts by converting source text into structured issue fields.
+4. **Tool selected:** ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted.
+5. **Tool selected:** HistoricalRetriever: Export Controls benefits from comparison against historical precedents.
+6. **Tool selected:** ContextRetriever: Export Controls usually benefits from domain context and monitoring considerations.
+7. **Tool selected:** ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations.
+8. **Tool selected:** BriefGenerator: The final deliverable is an executive intelligence brief.
+
+## Tool Decisions
+
+### IssueExtractor
+
+- **Decision:** Selected
+- **Why:** Every route starts by converting source text into structured issue fields.
+- **Expected contribution:** Core issue, actors, industries, policy terms, and document type.
+
+### ScenarioClassifier
+
+- **Decision:** Selected
+- **Why:** Scenario classification is required before retrieval decisions can be interpreted.
+- **Expected contribution:** Primary scenario and matched keyword evidence.
+
+### HistoricalRetriever
+
+- **Decision:** Selected
+- **Why:** Export Controls benefits from comparison against historical precedents.
+- **Expected contribution:** Top analogue cases and similarity reasons from the historical database.
+
+### ContextRetriever
+
+- **Decision:** Selected
+- **Why:** Export Controls usually benefits from domain context and monitoring considerations.
+- **Expected contribution:** Adds current context from the local knowledge base.
+
+### ImplicationAnalyzer
+
+- **Decision:** Selected
+- **Why:** Selected retrieval outputs need to be synthesized into analyst-facing considerations.
+- **Expected contribution:** Similarities, differences, business considerations, operational considerations, geopolitical considerations, and questions.
+
+### BriefGenerator
+
+- **Decision:** Selected
+- **Why:** The final deliverable is an executive intelligence brief.
+- **Expected contribution:** Markdown brief with evidence sources, trace, and analysis path.
+
+## Analysis Path
+
+- Agent Router reviewed document type, scenario, industries, actors, and keywords.
+- Tool Registry provided available deterministic tools.
+- Selected tools executed in route order.
+- Result synthesis generated the executive brief with evidence sources.
+
 ## Key Issue
 
 **Title:** Semiconductor Export Controls and Supply Chain Exposure
@@ -137,13 +198,14 @@ exemptions, and likely responses from affected firms and governments.
 
 ## Analyst Notes
 
+- V3 uses an Agent Router to select tools before execution.
 - Current context retrieval uses local Markdown knowledge-base entries.
 - Historical analogues support structured comparison, not prediction.
 - The synthesis uses phrases such as may resemble, shares characteristics with, differs from, and requires monitoring by design.
 
 ## Limitations
 
-- V1.0 uses deterministic keyword and overlap matching.
+- V3.0 uses deterministic routing, keyword matching, and overlap matching.
 - It does not call paid APIs or LLM services.
 - It does not generate forecasts or probabilities.
 - It does not provide trading advice or investment recommendations.
@@ -152,9 +214,18 @@ exemptions, and likely responses from affected firms and governments.
 ### Evidence Trace
 
 - ASML Export Controls (2023) - Historical Database
+- Agent Router: deterministic tool selection trace
 - CHIPS and Science Act (2022) - Historical Database
 - Huawei Entity List (2019) - Historical Database
 - Semiconductors Context KB: SC-001 (semiconductor_context.md)
 - Source Document
 - Supply Chain Context KB: SP-004 (supply_chain_context.md)
+- Tool Registry: registered deterministic analysis tools
 - Trade Policy Context KB: TP-002 (trade_policy_context.md)
+
+## Evidence Sources
+
+- **Input Document:** issue fields, scenario keywords, and extracted entities.
+- **Historical Database:** retrieved analogue cases and similarity reasons.
+- **Context Knowledge Base:** selected current-context findings when the router selected ContextRetriever.
+- **Agent Router:** selected and skipped tool decisions.

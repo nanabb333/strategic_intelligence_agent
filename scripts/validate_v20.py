@@ -79,7 +79,8 @@ def validate_evidence_and_language(paths: list[Path]) -> None:
             raise AssertionError(f"Evidence trace missing from {path.relative_to(ROOT)}")
         if "Historical Database" not in text:
             raise AssertionError(f"Historical evidence missing from {path.relative_to(ROOT)}")
-        if "Context KB" not in text and "Context Knowledge Base" not in text:
+        context_was_skipped = "ContextRetriever" in text and "Skipped" in text
+        if "Context KB" not in text and "Context Knowledge Base" not in text and not context_was_skipped:
             raise AssertionError(f"Context evidence missing from {path.relative_to(ROOT)}")
         lowered = text.lower()
         for phrase in FORBIDDEN_PHRASES:
@@ -105,4 +106,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-

@@ -4,7 +4,7 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Executive Summary
 
-- The document describes an Earnings / Corporate Disclosure issue involving strategic operations.
+- The document describes an Earnings / Corporate Disclosure issue involving software.
 - Historical analogues and current context are used for comparison and decision support, not prediction.
 - Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
 
@@ -20,7 +20,7 @@ This output is for decision-support and analyst productivity only. It does not p
 3. **Tool selected:** IssueExtractor: Every route starts by converting source text into structured issue fields.
 4. **Tool selected:** ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted.
 5. **Tool selected:** HistoricalRetriever: Earnings / Corporate Disclosure benefits from comparison against historical precedents.
-6. **Tool skipped:** ContextRetriever: No strong context retrieval trigger detected.
+6. **Tool skipped:** ContextRetriever: Corporate disclosure detected without strong policy, supply chain, sanctions, or regulatory context terms.
 7. **Tool selected:** ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations.
 8. **Tool selected:** BriefGenerator: The final deliverable is an executive intelligence brief.
 
@@ -47,8 +47,8 @@ This output is for decision-support and analyst productivity only. It does not p
 ### ContextRetriever
 
 - **Decision:** Skipped
-- **Why:** No strong context retrieval trigger detected.
-- **Expected contribution:** Avoids adding weak context findings.
+- **Why:** Corporate disclosure detected without strong policy, supply chain, sanctions, or regulatory context terms.
+- **Expected contribution:** Context retrieval is skipped to keep the route focused on disclosure interpretation.
 
 ### ImplicationAnalyzer
 
@@ -71,20 +71,20 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Key Issue
 
-**Title:** Bank Earnings Case
+**Title:** Agent Route Corporate Earnings
 
-**Core issue:** A regional bank reported that deposit costs remain elevated and loan demand is moderating.
+**Core issue:** A software company reported quarterly earnings with slower revenue growth, margin pressure, and management commentary about customer demand visibility.
 
-**Summary:** A regional bank reported that deposit costs remain elevated and loan demand is moderating. Management discussed liquidity planning, credit quality monitoring, and regulatory engagement in the quarterly earnings disclosure.
+**Summary:** A software company reported quarterly earnings with slower revenue growth, margin pressure, and management commentary about customer demand visibility. The disclosure focuses on corporate performance, operating narrative, and executive communication.
 
-Analysts need to separate business performance, stakeholder communication, and supervisory context before briefing executives.
+Analysts need an executive brief that compares the disclosure with historical corporate communication cases without adding unrelated policy context.
 
 **Evidence trace:** Source Document
 
 ## Scenario Classification
 
 - **Primary scenario:** Earnings / Corporate Disclosure
-- **Matched keywords:** earnings, quarter, disclosure
+- **Matched keywords:** earnings, quarter, margin, revenue, disclosure
 - **Classification confidence:** High
 - **Evidence trace:** Source Document + deterministic keyword classifier
 - **Note:** Confidence describes classification quality only; it is not a forecast.
@@ -92,10 +92,10 @@ Analysts need to separate business performance, stakeholder communication, and s
 ## Extracted Entities
 
 - **Document type guess:** Earnings / Corporate Disclosure (Evidence trace: Source Document)
-- **Actors:** executives, management (Evidence trace: Source Document)
+- **Actors:** management (Evidence trace: Source Document)
 - **Countries / regions:** None detected (Evidence trace: Source Document)
-- **Industries:** None detected (Evidence trace: Source Document)
-- **Policy terms:** regulatory (Evidence trace: Source Document)
+- **Industries:** software (Evidence trace: Source Document)
+- **Policy terms:** None detected (Evidence trace: Source Document)
 - **Companies:** None detected (Evidence trace: Source Document)
 
 ## Historical Analogues
@@ -103,29 +103,29 @@ Analysts need to separate business performance, stakeholder communication, and s
 ### Major Earnings Guidance Withdrawal During COVID (2020)
 
 - **Scenario type:** Earnings / Corporate Disclosure
-- **Similarity reason:** scenario match on Earnings / Corporate Disclosure; keyword overlap: communication, demand, disclosure, earnings; actor overlap: executives
+- **Similarity reason:** scenario match on Earnings / Corporate Disclosure; keyword overlap: commentary, communication, corporate, demand
 - **Business relevance:** Shows how disclosures can communicate operating uncertainty and planning limits.
 - **Geopolitical relevance:** Connects corporate communication with macro and policy disruption.
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
 
-### Red Sea Shipping Disruption (2023)
+### CHIPS and Science Act (2022)
+
+- **Scenario type:** Industrial Policy
+- **Similarity reason:** keyword overlap: cases, policy
+- **Business relevance:** Shows how public incentives can shape capital planning and site selection.
+- **Geopolitical relevance:** Reflects strategic concern about supply resilience and technology leadership.
+- **Caution note:** Historical analogues support comparison, not prediction.
+- **Source origin:** CHIPS and Science Act (2022) - Historical Database
+
+### COVID Supply Chain Disruption (2020)
 
 - **Scenario type:** Supply Chain Disruption
-- **Similarity reason:** keyword overlap: costs, planning, regional
-- **Business relevance:** Shows how route disruption can affect delivery timing and logistics costs.
-- **Geopolitical relevance:** Links regional security conditions with global trade flows.
+- **Similarity reason:** keyword overlap: demand, policy
+- **Business relevance:** Shows how operational shocks can expose supplier concentration and inventory assumptions.
+- **Geopolitical relevance:** Demonstrates how public health policy can affect cross-border operations.
 - **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Red Sea Shipping Disruption (2023) - Historical Database
-
-### Taiwan Strait Military Exercises (2022)
-
-- **Scenario type:** Military / Security Shock
-- **Similarity reason:** keyword overlap: planning, regional
-- **Business relevance:** Shows how security shocks can affect continuity planning and supplier concentration review.
-- **Geopolitical relevance:** Highlights strategic sensitivity of Taiwan and regional deterrence dynamics.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Taiwan Strait Military Exercises (2022) - Historical Database
+- **Source origin:** COVID Supply Chain Disruption (2020) - Historical Database
 
 ## Current Context
 
@@ -135,7 +135,7 @@ Analysts need to separate business performance, stakeholder communication, and s
 ## Similarities and Differences
 
 ### Observed Similarities
-- The issue may resemble Major Earnings Guidance Withdrawal During COVID (2020), Red Sea Shipping Disruption (2023) because the retrieved cases share characteristics with the earnings / corporate disclosure scenario frame.
+- The issue may resemble Major Earnings Guidance Withdrawal During COVID (2020), CHIPS and Science Act (2022) because the retrieved cases share characteristics with the earnings / corporate disclosure scenario frame.
 - The current context findings from the retrieved context set share characteristics with the extracted industries and policy terms.
 
 ### Observed Differences
@@ -144,7 +144,7 @@ Analysts need to separate business performance, stakeholder communication, and s
 
 ## Business Considerations
 
-- The issue may indicate changing constraints for affected business operations and requires monitoring of stakeholder exposure.
+- The issue may indicate changing constraints for software and requires monitoring of stakeholder exposure.
 - The earnings / corporate disclosure frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
 - Historical and context evidence should be used to structure diligence, not to imply an outcome.
 
@@ -184,10 +184,10 @@ Analysts need to separate business performance, stakeholder communication, and s
 ### Evidence Trace
 
 - Agent Router: deterministic tool selection trace
+- CHIPS and Science Act (2022) - Historical Database
+- COVID Supply Chain Disruption (2020) - Historical Database
 - Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
-- Red Sea Shipping Disruption (2023) - Historical Database
 - Source Document
-- Taiwan Strait Military Exercises (2022) - Historical Database
 - Tool Registry: registered deterministic analysis tools
 
 ## Evidence Sources

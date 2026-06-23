@@ -1,14 +1,107 @@
 # Strategic Intelligence Agent
 
-A local strategic intelligence decision-support application that turns documents, articles, policy texts, earnings excerpts, and operational updates into structured executive intelligence briefs.
+A local strategic intelligence decision-support application that turns documents, policy texts, articles, earnings excerpts, and operational updates into structured executive intelligence briefs.
 
 ![Strategic Intelligence Agent workbench](docs/screenshots/dashboard_workbench.svg)
 
-## What This Project Is
+## Example Analysis
 
-Strategic Intelligence Agent is a portfolio-grade AI product architecture project focused on analyst productivity, business analytics, and strategic intelligence workflows.
+**Sample input document**
 
-The application helps a user move from unstructured text to a reviewable intelligence artifact:
+```text
+The government announced new export controls affecting advanced semiconductor manufacturing equipment and high-performance AI chips. Several chipmakers and equipment suppliers said they are reviewing licensing requirements and customer exposure. The measures may limit access to advanced-node production tools for firms tied to restricted end users. Executives are preparing internal briefings on supply chain exposure, compliance burden, and market access implications.
+```
+
+**What the system identifies**
+
+| Field | Example system output |
+| --- | --- |
+| Event type | Export control policy update |
+| Key actors | Government regulators, semiconductor manufacturers, equipment suppliers, restricted end users |
+| Affected sector | Semiconductors and advanced chip supply chains |
+| Scenario category | Export Controls |
+| Mechanisms | Technology Containment, Market Access Restriction, Compliance Burden, Supply Chain Reconfiguration |
+| Historical analogues | Prior semiconductor equipment controls, entity-list restrictions, industrial policy responses |
+| Historical outcomes | Licensing reviews, supplier exposure mapping, customer segmentation, compliance process expansion |
+| Strategic lessons | Export-control shocks often require entity screening, supplier review, customer-risk mapping, and management reporting routines |
+| Evidence credibility note | Based on local curated historical summaries; source status and confidence labels are reported separately; findings require human review |
+
+This example is intentionally practical: the app does not merely restate the document. It classifies the strategic issue, connects it to mechanisms and historical patterns, and produces a reviewable brief.
+
+## Sample Output Preview
+
+The example below is an illustrative preview of the local deterministic workflow output. It is not a forecast, investment recommendation, legal opinion, or claim of future accuracy.
+
+```text
+Current Event Context:
+New semiconductor export controls appear to affect advanced chip supply chains,
+equipment access, licensing exposure, and customer review processes.
+
+Scenario:
+Export Controls
+
+Mechanisms:
+- Technology Containment
+- Market Access Restriction
+- Compliance Burden
+- Supply Chain Reconfiguration
+
+Historical Analogues:
+- Semiconductor equipment export-control episodes
+- Entity-list restrictions affecting technology suppliers
+- Industrial policy responses around strategic chip capacity
+
+Historical Outcomes:
+- Firms reviewed customer exposure and licensing obligations.
+- Suppliers adjusted compliance screening and reporting workflows.
+- Some organizations reassessed geographic concentration and critical dependencies.
+
+Strategic Lessons:
+- Supply chain mapping frequently appears after export-control shocks.
+- Compliance operations become part of strategic planning, not only legal review.
+- Historical analogues are useful for framing questions, not predicting outcomes.
+
+Decision Considerations:
+- Which products, customers, or suppliers require review?
+- Which internal teams need a shared view of exposure?
+- What evidence is strong enough for executive discussion, and what remains uncertain?
+
+Evidence Credibility:
+Historical outcomes are simplified educational summaries from a local knowledge base.
+Confidence labels reflect internal evidence coding, not real-world predictive accuracy.
+Source URLs are not fabricated; unavailable sources remain marked as pending.
+```
+
+## Why This Matters
+
+Strategic analysis is often blocked by messy source material. A policy note, earnings excerpt, or disruption update may contain useful signals, but analysts still need to identify the issue type, assess operating mechanisms, compare similar cases, and communicate implications clearly.
+
+Strategic Intelligence Agent turns that workflow into a repeatable local product:
+
+- It accepts pasted text or uploaded `.md` / `.txt` files.
+- It structures the issue, actors, sector, and scenario.
+- It retrieves local historical analogues and simplified historical outcomes.
+- It surfaces mechanisms and strategic lessons without making predictions.
+- It creates Markdown, TXT, and JSON artifacts for review.
+- It reports evidence limitations instead of hiding uncertainty.
+
+## Why This Is Not Just a Summarizer
+
+A generic summarizer tells the user what the document says. Strategic Intelligence Agent helps the user understand what kind of strategic issue the document represents and how to reason about it.
+
+| Generic Summarizer | Strategic Intelligence Agent |
+| --- | --- |
+| Condenses the source text | Extracts the issue, actors, sector, and scenario |
+| Produces a shorter version of the document | Classifies the strategic situation |
+| Usually stays inside the document | Connects the issue to local historical analogues |
+| May miss operating mechanisms | Detects mechanisms such as export controls, sanctions, compliance burden, or supply chain reconfiguration |
+| Does not explain historical patterns | Retrieves simplified observed outcomes from comparable cases |
+| Rarely states evidence limits clearly | Reports confidence distribution, source status, and limitations |
+| Produces prose | Produces a brief plus structured JSON artifacts for further analysis |
+
+## What The System Does
+
+The workflow moves from unstructured input to a reviewable intelligence artifact:
 
 ```text
 Document
@@ -23,47 +116,77 @@ Document
 -> Downloadable Artifacts
 ```
 
-It runs locally through a FastAPI backend and browser dashboard. The system uses deterministic Python modules and local knowledge bases; it does not depend on live web search, cloud deployment, or paid LLM APIs.
+Core analytical components:
 
-## Why It Matters
+- **Issue extraction:** Converts source text into structured fields.
+- **Scenario classification:** Frames the document as export controls, sanctions, supply chain disruption, industrial policy, regulatory action, earnings disclosure, or another strategic scenario.
+- **Mechanism detection:** Identifies recurring mechanisms such as technology containment, strategic dependency, compliance burden, market access restriction, and supply chain reconfiguration.
+- **Historical analogue retrieval:** Finds structurally similar historical cases from local curated records.
+- **Historical outcome retrieval:** Connects analogues to simplified observed outcomes and strategic responses.
+- **Strategic lesson generation:** Uses rule-based logic to surface recurring lessons across outcomes.
+- **Multi-lens analysis:** Reviews the issue through economics, political economy, international relations, regulatory, and business strategy lenses.
+- **Evidence credibility:** Reports confidence distribution, source status distribution, limitations, and reviewer notes.
 
-Strategic analysis is often blocked by messy source material. Analysts need to identify the issue, classify the scenario, compare it with historical patterns, understand what happened in similar cases, and communicate implications clearly.
+## Product Features
 
-This project demonstrates how an AI-style workflow can become a usable product:
+- Local FastAPI backend.
+- Browser dashboard for non-technical users.
+- Paste-input and file-upload workflows.
+- Guided questions for common analyst tasks.
+- Beginner, analyst, and executive output modes.
+- Bilingual UX support.
+- Run history saved under `outputs/runs/`.
+- Markdown, TXT, and JSON downloads.
+- Deterministic local knowledge bases for context, mechanisms, analogues, outcomes, and playbooks.
+- Validation scripts for targeted regression checks.
 
-- It structures unstructured source text.
-- It retrieves historical analogues and simplified historical outcomes.
-- It surfaces mechanisms and multi-lens interpretations.
-- It generates strategic lessons without making predictions.
-- It creates Markdown, TXT, and JSON artifacts for review.
-- It reports evidence credibility and limitations instead of hiding uncertainty.
+## What Users Can Do With The Output
 
-## Who It Is For
+Users can use the generated artifacts to:
 
-The target user is a non-technical analyst, strategy student, business analytics candidate, policy researcher, or portfolio reviewer who wants a guided local tool rather than a prompt-writing exercise.
+- Prepare an executive briefing.
+- Compare a current issue with historical analogues.
+- Identify strategic mechanisms behind a policy, market, or operational event.
+- Structure risk and strategy discussions.
+- Generate decision-support notes for analyst review.
+- Export JSON artifacts for further analysis or portfolio demonstration.
+- Preserve a run history with input text, metadata, trace, brief, and structured analysis.
 
-The dashboard is designed so a user can:
+The output is designed to support thinking and communication. It does not replace human judgment.
 
-1. Open the browser.
-2. Paste text or upload a `.md` / `.txt` file.
-3. Choose a guided question.
-4. Click Analyze.
-5. Download Markdown, TXT, or JSON results.
+## Demo Preview
 
-## What Problem It Solves
+The repository includes a dashboard preview:
 
-The project addresses a practical analyst workflow problem: turning long or ambiguous strategic source material into a structured, evidence-aware brief.
+- [Dashboard screenshot](docs/screenshots/dashboard_workbench.svg)
 
-It is useful for reviewing:
+To try the local app, start the FastAPI server and open the dashboard at:
 
-- Export control updates.
-- Industrial policy texts.
-- Sanctions or trade policy excerpts.
-- Supply chain disruption notes.
-- Earnings announcements with strategic uncertainty.
-- Geopolitical or regulatory operating-risk summaries.
+```text
+http://127.0.0.1:8000/dashboard/
+```
 
-## Local App Usage
+Additional screenshots can be added after running the local app with representative cases.
+
+## Evidence & Limitations
+
+This project is a decision-support workflow, not a prediction system.
+
+It is not:
+
+- A trading system.
+- A forecasting system.
+- Investment advice.
+- Legal advice.
+- A geopolitical prediction engine.
+- A live web-monitoring product.
+- A production SaaS deployment.
+
+Historical outcome records are simplified educational summaries. Source URLs are not fabricated; unavailable URLs remain marked through source status fields such as `source pending`. Confidence labels reflect internal evidence coding for this portfolio project, not real-world predictive accuracy.
+
+The system does not prove factual correctness, legal accuracy, financial accuracy, geopolitical accuracy, or future outcomes. Human expert review is required before executive use.
+
+## How To Run Locally
 
 Install dependencies:
 
@@ -94,103 +217,6 @@ Each analysis creates a local run folder under `outputs/runs/` containing:
 
 See [docs/local_app_setup.md](docs/local_app_setup.md), [docs/run_management_design.md](docs/run_management_design.md), and [docs/json_artifact_design.md](docs/json_artifact_design.md).
 
-## Example Use Case
-
-A user pastes a short article about new semiconductor export controls.
-
-The system can:
-
-- Extract the policy issue and relevant industry terms.
-- Classify the scenario as export controls.
-- Detect mechanisms such as technology containment and compliance burden.
-- Retrieve historical analogues such as prior entity-list or equipment-control cases.
-- Retrieve simplified historical outcomes from related cases.
-- Generate strategic lessons about supplier review, licensing exposure, and monitoring routines.
-- Provide an evidence credibility note explaining confidence distribution, source status, and limitations.
-- Produce an executive brief for review.
-
-## Strategic Intelligence Framework
-
-The project is organized around decision support, not prediction.
-
-Core analytical components:
-
-- **Issue extraction:** Converts source text into structured fields.
-- **Scenario classification:** Frames the document as export controls, sanctions, supply chain disruption, industrial policy, regulatory action, earnings disclosure, or another scenario.
-- **Mechanism detection:** Identifies recurring mechanisms such as technology containment, strategic dependency, compliance burden, market access restriction, and supply chain reconfiguration.
-- **Historical analogue retrieval:** Finds structurally similar historical cases from local curated records.
-- **Historical outcome retrieval:** Connects analogues to simplified observed outcomes and strategic responses.
-- **Strategic lesson generation:** Uses rule-based logic to surface recurring lessons across outcomes.
-- **Multi-lens analysis:** Reviews the issue through economics, political economy, international relations, regulatory, and business strategy lenses.
-- **Evidence credibility:** Reports confidence distribution, source status distribution, limitations, and reviewer notes.
-
-## What This Is Not
-
-This project is not:
-
-- A trading system.
-- A forecasting system.
-- Investment advice.
-- Legal advice.
-- A geopolitical prediction engine.
-- A live web-monitoring product.
-- A production SaaS deployment.
-
-Outputs are decision-support artifacts for analyst review.
-
-## Evidence & Limitations
-
-The system is intentionally transparent about uncertainty.
-
-Historical outcome records are simplified educational summaries. Source URLs are not fabricated; unavailable URLs remain marked through source status fields such as `source pending`. Confidence labels reflect internal evidence coding for this portfolio project, not real-world predictive accuracy.
-
-The evidence credibility layer reports:
-
-- Evidence summary.
-- Confidence distribution.
-- Source status distribution.
-- Key limitations.
-- Reviewer note.
-
-The system does not prove factual correctness, legal accuracy, financial accuracy, geopolitical accuracy, or future outcomes. Human expert review is required before executive use.
-
-## Business Analytics Relevance
-
-This project demonstrates business analytics product thinking:
-
-- Structured extraction from unstructured information.
-- Deterministic retrieval and scoring.
-- Workflow orchestration across modular tools.
-- Local artifact generation for review and reuse.
-- Validation scripts and benchmark-oriented credibility checks.
-- Product UX for non-technical users.
-
-See [docs/business_analytics_relevance.md](docs/business_analytics_relevance.md).
-
-## Portfolio Positioning
-
-This repository is strongest as a demonstration of AI product architecture and applied analytics judgment.
-
-It shows:
-
-- Agent-style workflow orchestration without unnecessary autonomy.
-- Tool selection and traceability.
-- Local FastAPI productization.
-- Bilingual guided UX.
-- Historical analogue and outcome reasoning.
-- Evidence credibility and limitations.
-- Portfolio-safe scope control.
-
-Primary portfolio docs:
-
-- [docs/repo5_case_study.md](docs/repo5_case_study.md)
-- [docs/product_walkthrough.md](docs/product_walkthrough.md)
-- [docs/product_requirements.md](docs/product_requirements.md)
-- [docs/interview_story.md](docs/interview_story.md)
-- [docs/resume_bullets.md](docs/resume_bullets.md)
-- [docs/evaluation_framework.md](docs/evaluation_framework.md)
-- [docs/evaluation_limitations.md](docs/evaluation_limitations.md)
-
 ## Repository Structure
 
 ```text
@@ -206,32 +232,44 @@ evaluation/                    Benchmark cases, generated results, and evaluatio
 legacy/financial_rubric_agent/ Preserved earlier project history.
 ```
 
-## Validation
+## Portfolio Positioning
 
-For current work, use targeted validation:
+This repository is strongest as a demonstration of AI product architecture, business analytics workflow design, and strategic intelligence judgment.
+
+It shows:
+
+- Agent-style workflow orchestration without unnecessary autonomy.
+- Deterministic tool use and traceability.
+- Local FastAPI productization.
+- Bilingual guided UX for non-technical users.
+- Historical analogue and outcome reasoning.
+- Evidence credibility and limitation reporting.
+- Scope control around non-forecasting decision support.
+
+Primary portfolio docs:
+
+- [docs/repo5_case_study.md](docs/repo5_case_study.md)
+- [docs/product_walkthrough.md](docs/product_walkthrough.md)
+- [docs/product_requirements.md](docs/product_requirements.md)
+- [docs/interview_story.md](docs/interview_story.md)
+- [docs/resume_bullets.md](docs/resume_bullets.md)
+- [docs/evaluation_framework.md](docs/evaluation_framework.md)
+- [docs/evaluation_limitations.md](docs/evaluation_limitations.md)
+- [docs/business_analytics_relevance.md](docs/business_analytics_relevance.md)
+
+## Project Status
+
+The current project is a local usable application with a deterministic document-to-brief pipeline, dashboard, run history, downloadable artifacts, historical outcomes, strategic lessons, and evidence credibility reporting.
+
+Current targeted validation:
 
 ```bash
 python3 -m compileall src
-python3 scripts/validate_v75.py
-```
-
-When a V8 validator exists, use:
-
-```bash
-python3 scripts/validate_v80.py
 ```
 
 Older validators are retained for regression checks, but they should only be run when older-version files are directly modified, targeted validation fails, or a regression is suspected.
 
-## Short Milestone Summary
-
-- Deterministic document-to-brief pipeline.
-- Historical analogue, current-context, mechanism, and multi-lens reasoning.
-- Local FastAPI app with dashboard, run history, and downloadable artifacts.
-- Historical outcomes and strategic lessons.
-- Evidence credibility and portfolio case study.
-
-## Remaining Limitations
+Remaining limitations:
 
 - Deterministic keyword and rule-based methods can miss nuance.
 - Historical outcomes are simplified summaries, not source-grounded claims.

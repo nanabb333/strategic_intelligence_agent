@@ -9,6 +9,8 @@ V4 adds an intelligence reasoning layer that interprets the same event through
 multiple analytic lenses.
 V4.5 adds a bilingual non-AI user layer with guided questions and deterministic
 output adaptation.
+V5 adds an evaluation layer that benchmarks the existing workflow without
+changing the analytical pipeline.
 
 ```text
 Input Document
@@ -22,6 +24,8 @@ Input Document
   -> evidence_assessor
   -> output_adapter
   -> outputs/
+  -> evaluator
+  -> evaluation/
 ```
 
 ## Directory Layout
@@ -32,6 +36,7 @@ data/                          Local input data, sample source material, and fix
 knowledge_base/                Curated historical analogues.
 knowledge_base/current_context/ Local current-context knowledge base files.
 examples/                      Example inputs, runs, and generated artifacts.
+evaluation/                    Benchmark cases, generated results, and evaluation summary.
 outputs/                       Generated briefs and intermediate workflow outputs.
 scripts/                       Validation and utility scripts.
 src/                           Application source code.
@@ -55,7 +60,19 @@ src/                           Application source code.
 | `evidence_assessor.py` | Assess supporting, weakening, and missing evidence with qualitative labels. |
 | `response_playbook_retriever.py` | Retrieve observed historical choices, outcomes, and cross-domain lessons. |
 | `output_adapter.py` | Adapt generated briefs into beginner, analyst, and executive formats with deterministic localization framing. |
+| `evaluator.py` | Run benchmark cases and calculate scenario, mechanism, lens, response, and overall scores. |
 | `run_agent.py` | Orchestrate the end-to-end workflow. |
+
+## V5 Evaluation Layer
+
+V5 measures the existing pipeline rather than adding analytical features:
+
+1. Benchmark cases define expected scenarios, mechanisms, lenses, and response
+   categories.
+2. The evaluator runs the existing deterministic modules.
+3. Results are written to `evaluation/benchmark_results.csv`.
+4. Aggregate metrics are summarized in `evaluation/evaluation_summary.md`.
+5. The dashboard displays the latest benchmark results and known limitations.
 
 ## V4.5 Non-AI User Layer
 

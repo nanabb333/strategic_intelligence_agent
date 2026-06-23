@@ -11,6 +11,7 @@ An analyst workbench that converts documents, articles, policy texts, and earnin
 - **Sample briefs:** Review [`outputs/chips_act_brief.md`](outputs/chips_act_brief.md), [`outputs/banking_earnings_brief.md`](outputs/banking_earnings_brief.md), [`outputs/beginner_export_controls_zh_TW.md`](outputs/beginner_export_controls_zh_TW.md), and [`demo_outputs/red_sea_shipping_brief.md`](demo_outputs/red_sea_shipping_brief.md).
 - **Architecture:** See [`docs/architecture_diagram.md`](docs/architecture_diagram.md), [`docs/system_architecture.md`](docs/system_architecture.md), and [`docs/agent_router_design.md`](docs/agent_router_design.md).
 - **Non-AI user guide:** See [`docs/non_ai_user_guide.md`](docs/non_ai_user_guide.md), [`docs/non_ai_user_guide_zh_CN.md`](docs/non_ai_user_guide_zh_CN.md), and [`docs/non_ai_user_guide_zh_TW.md`](docs/non_ai_user_guide_zh_TW.md).
+- **Evaluation:** See [`evaluation/evaluation_summary.md`](evaluation/evaluation_summary.md), [`evaluation/benchmark_results.csv`](evaluation/benchmark_results.csv), and [`docs/evaluation_framework.md`](docs/evaluation_framework.md).
 - **Case study:** See [`docs/portfolio_case_study.md`](docs/portfolio_case_study.md).
 - **Resume bullets:** See [`docs/resume_bullets.md`](docs/resume_bullets.md).
 
@@ -18,7 +19,7 @@ An analyst workbench that converts documents, articles, policy texts, and earnin
 
 Strategic Intelligence Agent is a portfolio-grade decision-support product for strategic intelligence and business analytics. It combines deterministic issue extraction, scenario classification, historical analogue retrieval, current context retrieval, implication analysis, evidence traceability, executive brief generation, and tool-selecting agent routing.
 
-V2 added a local Analyst Workbench in `dashboard/`. V3 added an Agent Router and Tool Registry so the system can decide which tools to execute instead of always running a fixed sequence. V4 adds a multi-lens reasoning framework that surfaces competing interpretations, mechanisms, evidence support, and response patterns. V4.5 adds a bilingual non-AI user layer with guided questions and beginner, analyst, and executive output modes.
+V2 added a local Analyst Workbench in `dashboard/`. V3 added an Agent Router and Tool Registry so the system can decide which tools to execute instead of always running a fixed sequence. V4 adds a multi-lens reasoning framework that surfaces competing interpretations, mechanisms, evidence support, and response patterns. V4.5 adds a bilingual non-AI user layer with guided questions and beginner, analyst, and executive output modes. V5 adds a benchmark evaluation framework for measuring scenario, mechanism, lens, and response retrieval coverage.
 
 ## What This Is / Is Not
 
@@ -75,6 +76,7 @@ V0.1 Deterministic Workflow
   -> V3.0 Agent Router and Tool Selection
   -> V4.0 Intelligence Reasoning Framework
   -> V4.5 Bilingual Non-AI User Layer
+  -> V5.0 Evaluation and Credibility Framework
 ```
 
 - **V0.1:** deterministic document-to-brief skeleton.
@@ -84,6 +86,7 @@ V0.1 Deterministic Workflow
 - **V3.0:** agent router, tool registry, selected/skipped tools, execution trace, and reasoning record.
 - **V4.0:** mechanism detection, multi-lens analysis, evidence assessment, historical response patterns, and monitoring considerations.
 - **V4.5:** language selector, guided question buttons, beginner/analyst/executive modes, and localized user guides.
+- **V5.0:** benchmark dataset, evaluator, generated metrics, evaluation report, and dashboard evaluation section.
 
 ## Designed for Non-AI Users
 
@@ -107,6 +110,20 @@ Analysts often lose time turning messy source material into executive-ready inte
 
 See [docs/business_analytics_relevance.md](docs/business_analytics_relevance.md).
 
+## Evaluation
+
+V5 adds a benchmark-driven credibility layer. The goal is measurement, not new analysis features. The benchmark evaluates the existing deterministic pipeline against 20 curated cases covering export controls, industrial policy, supply chain disruption, banking stress, earnings announcements, trade policy, sanctions, technology competition, and regulatory change.
+
+Current generated metrics are written to [`evaluation/benchmark_results.csv`](evaluation/benchmark_results.csv) and summarized in [`evaluation/evaluation_summary.md`](evaluation/evaluation_summary.md):
+
+- Scenario Accuracy
+- Mechanism Accuracy
+- Lens Coverage Rate
+- Response Retrieval Coverage
+- Overall Benchmark Score
+
+The methodology is documented in [`docs/evaluation_framework.md`](docs/evaluation_framework.md) and [`docs/benchmark_design.md`](docs/benchmark_design.md). The benchmark is intentionally modest: cases are compact synthetic test cases, mechanism scoring is expected-name coverage, and the metrics are evaluation aids rather than claims of real-world accuracy.
+
 ## What This Demonstrates
 
 - LLM-ready agent architecture without depending on paid APIs.
@@ -127,6 +144,7 @@ examples/                      Source examples and demo inputs.
 locales/                       English, Simplified Chinese, and Traditional Chinese UI text.
 knowledge_base/                Historical analogue records.
 knowledge_base/current_context/ Local context KB files by domain.
+evaluation/                    Benchmark cases, generated results, and evaluation summary.
 outputs/                       Generated executive intelligence briefs.
 demo_outputs/                  Generated portfolio demo briefs.
 scripts/                       Validation scripts.
@@ -174,12 +192,14 @@ python3 scripts/validate_v20.py
 python3 scripts/validate_v30.py
 python3 scripts/validate_v41.py
 python3 scripts/validate_v45.py
+python3 scripts/validate_v50.py
 ```
 
 The V2 validator checks that the dashboard loads, outputs generate, exports are written to `outputs/`, and evidence traces exist.
 The V3 validator checks routing, tool selection, execution trace, reasoning record, and routed outputs.
 The V4.1 validator checks lens analysis, evidence assessment, mechanisms, response patterns, generated outputs, and non-advisory language.
 The V4.5 validator checks localization files, guided questions, dashboard controls, non-AI user guides, generated beginner outputs, and forbidden advice language.
+The V5.0 validator checks benchmark data, generated metrics, evaluation reporting, dashboard evaluation display, and evaluation docs.
 
 ## Portfolio Value
 
@@ -206,6 +226,8 @@ Supporting docs:
 - [docs/v45_non_ai_user_layer.md](docs/v45_non_ai_user_layer.md)
 - [docs/localization_design.md](docs/localization_design.md)
 - [docs/guided_question_design.md](docs/guided_question_design.md)
+- [docs/evaluation_framework.md](docs/evaluation_framework.md)
+- [docs/benchmark_design.md](docs/benchmark_design.md)
 
 ## Future Roadmap
 
@@ -216,6 +238,7 @@ Supporting docs:
 - Add a lightweight local server for direct dashboard-to-`outputs/` saving.
 - Add user-selectable knowledge-base filters and evidence review controls.
 - Add richer localization coverage for every generated evidence line.
+- Add longer benchmark documents and human review notes for evaluation cases.
 
 ## Limitations
 
@@ -224,4 +247,5 @@ Supporting docs:
 - Browser exports download files; the validation script writes repository export artifacts into `outputs/`.
 - No live web retrieval is performed.
 - Localization is template-based and does not use an external translation API.
+- Benchmark metrics are based on compact deterministic cases and should not be treated as real-world accuracy claims.
 - No forecasts, probabilities, investment advice, or trading recommendations are generated.

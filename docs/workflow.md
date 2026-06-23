@@ -11,6 +11,7 @@ Document
 -> Result Synthesis
 -> Multi-Lens Reasoning
 -> Executive Intelligence Brief
+-> Evaluation Reporting
 ```
 
 ## Stage Details
@@ -178,3 +179,11 @@ V4.5 can adapt generated briefs into beginner, analyst, or executive format.
 The adapter uses deterministic templates and localized framing. It does not use
 external translation APIs and does not alter the project guardrails against
 forecasts, probabilities, or investment advice.
+
+### 13. Evaluation Reporting
+
+V5 evaluates the existing pipeline against benchmark cases. It calculates
+scenario accuracy, mechanism accuracy, lens coverage rate, response retrieval
+coverage, and an overall benchmark score. Evaluation artifacts are stored in
+`evaluation/` and are used for credibility reporting rather than new analytical
+claims.

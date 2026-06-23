@@ -182,6 +182,202 @@ Executives need a decision-support brief that compares the disruption with histo
 - The issue could affect cross-border coordination involving Red Sea.
 - Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions.
 
+## Mechanisms Detected
+
+### Supply Chain Reconfiguration
+
+- **Description:** Operational shifts in sourcing routes suppliers or inventory strategy
+- **Detection reason:** scenario match: Supply Chain Disruption; observation overlap: inventory, rerouting, routes; actor overlap: firms
+- **Possible observations:** rerouting; alternate suppliers; inventory buffers; qualification cycles
+- **Evidence references:** Source Document, Supply Chain Reconfiguration (Mechanism Framework)
+
+### Security Escalation
+
+- **Description:** Heightened security conditions that affect operations or cross-border flows
+- **Detection reason:** scenario match: Supply Chain Disruption; observation overlap: affect, insurance, security, terms
+- **Possible observations:** military activity; route changes; advisories; insurance terms
+- **Evidence references:** Source Document, Security Escalation (Mechanism Framework)
+
+### Information Uncertainty
+
+- **Description:** Limited visibility that complicates interpretation and executive communication
+- **Detection reason:** scenario match: Supply Chain Disruption; observation overlap: that; actor overlap: executives
+- **Possible observations:** uncertain demand; unclear timelines; missing source details
+- **Evidence references:** Source Document, Information Uncertainty (Mechanism Framework)
+
+### Operational Resilience
+
+- **Description:** Organizational ability to adapt workflows sourcing or controls
+- **Detection reason:** scenario match: Supply Chain Disruption; observation overlap: routes; actor overlap: executives
+- **Possible observations:** contingency plans; alternate routes; monitoring routines
+- **Evidence references:** Source Document, Operational Resilience (Mechanism Framework)
+
+## Competing Interpretations
+
+### Economics
+
+- **Hypothesis:** One possible interpretation is that the supply chain disruption event reflects resource allocation constraints linked to Supply Chain Reconfiguration, Security Escalation.
+- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Security Escalation (Mechanism Framework), Source Document, Supply Chain Context KB: SP-001 (supply_chain_context.md), Supply Chain Reconfiguration (Mechanism Framework)
+
+### Political Economy
+
+- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Supply Chain Reconfiguration, Security Escalation.
+- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Security Escalation (Mechanism Framework), Source Document, Supply Chain Context KB: SP-001 (supply_chain_context.md), Supply Chain Reconfiguration (Mechanism Framework)
+
+### International Relations
+
+- **Hypothesis:** One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.
+- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Security Escalation (Mechanism Framework), Source Document, Supply Chain Context KB: SP-001 (supply_chain_context.md), Supply Chain Reconfiguration (Mechanism Framework)
+
+### Legislative / Regulatory
+
+- **Hypothesis:** One possible interpretation is that implementation rules and compliance obligations are central to the event.
+- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Security Escalation (Mechanism Framework), Source Document, Supply Chain Context KB: SP-001 (supply_chain_context.md), Supply Chain Reconfiguration (Mechanism Framework)
+
+### Business Strategy
+
+- **Hypothesis:** One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.
+- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Security Escalation (Mechanism Framework), Source Document, Supply Chain Context KB: SP-001 (supply_chain_context.md), Supply Chain Reconfiguration (Mechanism Framework)
+
+## Multi-Lens Analysis
+
+### Economics
+
+**Supporting observations:**
+- The issue references shipping, energy and operating constraints.
+- Historical analogues such as Red Sea Shipping Disruption, COVID Supply Chain Disruption show comparable economic adjustment patterns.
+
+**Limitations:**
+- The document does not quantify cost, demand, or capacity effects.
+
+### Political Economy
+
+**Supporting observations:**
+- The scenario classification is Supply Chain Disruption.
+- Current context from Energy, Supply Chain highlights stakeholders and monitoring considerations.
+
+**Limitations:**
+- The balance between public policy goals and firm-level incentives requires more source detail.
+
+### International Relations
+
+**Supporting observations:**
+- Detected regions include Red Sea.
+- Mechanisms such as Supply Chain Reconfiguration, Security Escalation can appear in geopolitical or cross-border settings.
+
+**Limitations:**
+- The source does not establish intent by governments or counterparties.
+
+### Legislative / Regulatory
+
+**Supporting observations:**
+- Detected policy terms include limited explicit policy terms.
+- The evidence trace includes source document signals and retrieved context records.
+
+**Limitations:**
+- Primary legal text or agency guidance would be needed for a complete regulatory reading.
+
+### Business Strategy
+
+**Supporting observations:**
+- The issue mentions actors such as executives, firms.
+- The brief combines analogue patterns with current context monitoring considerations.
+
+**Limitations:**
+- The source does not contain internal priorities, customer-level exposure, or implementation plans.
+
+## Supporting Evidence
+
+### Economics (Substantial)
+- The issue references shipping, energy and operating constraints.
+- Historical analogues such as Red Sea Shipping Disruption, COVID Supply Chain Disruption show comparable economic adjustment patterns.
+
+### Political Economy (Substantial)
+- The scenario classification is Supply Chain Disruption.
+- Current context from Energy, Supply Chain highlights stakeholders and monitoring considerations.
+
+### International Relations (Substantial)
+- Detected regions include Red Sea.
+- Mechanisms such as Supply Chain Reconfiguration, Security Escalation can appear in geopolitical or cross-border settings.
+
+### Legislative / Regulatory (Substantial)
+- Detected policy terms include limited explicit policy terms.
+- The evidence trace includes source document signals and retrieved context records.
+
+### Business Strategy (Substantial)
+- The issue mentions actors such as executives, firms.
+- The brief combines analogue patterns with current context monitoring considerations.
+
+## Weakening Evidence
+
+### Economics
+- The document does not quantify cost, demand, or capacity effects.
+
+### Political Economy
+- The balance between public policy goals and firm-level incentives requires more source detail.
+
+### International Relations
+- The source does not establish intent by governments or counterparties.
+
+### Legislative / Regulatory
+- Primary legal text or agency guidance would be needed for a complete regulatory reading.
+
+### Business Strategy
+- The source does not contain internal priorities, customer-level exposure, or implementation plans.
+
+## Missing Evidence
+
+### Economics
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Political Economy
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### International Relations
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Legislative / Regulatory
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Business Strategy
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+## Historical Response Patterns
+
+### Monitoring and contingency planning
+
+**Observed Historical Choices:**
+- Organizations reviewed counterparties, suppliers, and implementation details.
+- Teams created monitoring routines around policy updates and operational constraints.
+
+**Observed Outcomes:**
+- Observed outcomes varied across cases and should not be treated as predictive.
+- Relevant analogues include Red Sea Shipping Disruption, COVID Supply Chain Disruption, Taiwan Strait Military Exercises.
+
+**Business Lessons:**
+- Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.
+- Cross-functional review can help separate compliance, operational, and strategic questions.
+
+## Cross-Domain Lessons
+
+- Mechanisms such as Supply Chain Reconfiguration, Security Escalation, Information Uncertainty can appear across policy, security, and business domains.
+- Historical response patterns are most useful when paired with current context and source verification.
+
+## Monitoring Considerations
+
+- Decision-makers may wish to monitor source updates, implementation details, stakeholder responses, and evidence gaps.
+- Decision-makers may wish to monitor whether new evidence strengthens or weakens each interpretation.
+
 ## Strategic Questions
 
 - Which stakeholders are most exposed to this issue?
@@ -211,9 +407,13 @@ Executives need a decision-support brief that compares the disruption with histo
 - COVID Supply Chain Disruption (2020) - Historical Database
 - Energy Context KB: EN-001 (energy_context.md)
 - Energy Context KB: EN-003 (energy_context.md)
+- Information Uncertainty (Mechanism Framework)
+- Operational Resilience (Mechanism Framework)
 - Red Sea Shipping Disruption (2023) - Historical Database
+- Security Escalation (Mechanism Framework)
 - Source Document
 - Supply Chain Context KB: SP-001 (supply_chain_context.md)
+- Supply Chain Reconfiguration (Mechanism Framework)
 - Taiwan Strait Military Exercises (2022) - Historical Database
 - Tool Registry: registered deterministic analysis tools
 

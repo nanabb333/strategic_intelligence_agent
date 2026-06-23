@@ -8,6 +8,7 @@ Document
 -> Tool Selection
 -> Tool Execution
 -> Result Synthesis
+-> Multi-Lens Reasoning
 -> Executive Intelligence Brief
 ```
 
@@ -113,7 +114,21 @@ The language avoids forecasts, probabilities, and investment recommendations.
 It uses phrasing such as "may resemble", "shares characteristics with",
 "differs from", and "requires monitoring".
 
-### 9. Executive Brief Generation
+### 9. Multi-Lens Reasoning
+
+V4 adds competing interpretations of the same event:
+
+- Economics.
+- Political Economy.
+- International Relations.
+- Legislative / Regulatory.
+- Business Strategy.
+
+Each lens includes a hypothesis, supporting observations, limitations, and
+evidence references. Evidence support is labeled Limited, Moderate, or
+Substantial without using probability language.
+
+### 10. Executive Brief Generation
 
 The generator writes a concise brief with these sections:
 
@@ -134,5 +149,13 @@ The generator writes a concise brief with these sections:
 - Tool Decisions.
 - Evidence Sources.
 - Analysis Path.
+- Competing Interpretations.
+- Multi-Lens Analysis.
+- Supporting Evidence.
+- Weakening Evidence.
+- Missing Evidence.
+- Historical Response Patterns.
+- Cross-Domain Lessons.
+- Monitoring Considerations.
 
 Each brief includes an evidence trace section showing source origins.

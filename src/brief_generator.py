@@ -30,6 +30,10 @@ def generate_brief(
     contexts: dict[str, list[CurrentContext]],
     analyses: list[ImplicationAnalysis],
     agent_route=None,
+    mechanisms=None,
+    interpretations=None,
+    evidence_assessments=None,
+    response_patterns=None,
 ) -> str:
     """Generate a Markdown executive intelligence brief."""
     classification_by_issue = {item.issue_title: item for item in classifications}
@@ -43,6 +47,10 @@ def generate_brief(
         analysis = analysis_by_issue.get(issue.title)
         issue_analogues = analogues.get(issue.title, [])
         issue_contexts = contexts.get(issue.title, [])
+        issue_mechanisms = (mechanisms or {}).get(issue.title, [])
+        issue_interpretations = (interpretations or {}).get(issue.title, [])
+        issue_assessments = (evidence_assessments or {}).get(issue.title, [])
+        issue_response_patterns = (response_patterns or {}).get(issue.title, [])
 
         lines.extend(
             [
@@ -205,6 +213,99 @@ def generate_brief(
         else:
             lines.append("- No geopolitical considerations generated.")
 
+        lines.extend(["", "## Mechanisms Detected", ""])
+        if issue_mechanisms:
+            for mechanism in issue_mechanisms:
+                lines.extend(
+                    [
+                        f"### {mechanism.mechanism_name}",
+                        "",
+                        f"- **Description:** {mechanism.description}",
+                        f"- **Detection reason:** {mechanism.detection_reason}",
+                        f"- **Possible observations:** {mechanism.possible_observations}",
+                        f"- **Evidence references:** {', '.join(mechanism.evidence_references)}",
+                        "",
+                    ]
+                )
+        else:
+            lines.append("- No mechanisms detected.")
+
+        lines.extend(["## Competing Interpretations", ""])
+        if issue_interpretations:
+            for interpretation in issue_interpretations:
+                lines.extend(
+                    [
+                        f"### {interpretation.lens}",
+                        "",
+                        f"- **Hypothesis:** {interpretation.hypothesis}",
+                        f"- **Evidence references:** {', '.join(sorted(set(interpretation.evidence_references)))}",
+                        "",
+                    ]
+                )
+        else:
+            lines.append("- No competing interpretations generated.")
+
+        lines.extend(["## Multi-Lens Analysis", ""])
+        if issue_interpretations:
+            for interpretation in issue_interpretations:
+                lines.extend([f"### {interpretation.lens}", "", "**Supporting observations:**"])
+                lines.extend(_bullet_list(interpretation.supporting_observations, "No supporting observations generated."))
+                lines.append("")
+                lines.append("**Limitations:**")
+                lines.extend(_bullet_list(interpretation.limitations, "No limitations generated."))
+                lines.append("")
+        else:
+            lines.append("- No lens analysis generated.")
+
+        lines.extend(["## Supporting Evidence", ""])
+        if issue_assessments:
+            for assessment in issue_assessments:
+                lines.append(f"### {assessment.lens} ({assessment.confidence_language})")
+                lines.extend(_bullet_list(assessment.supporting_evidence, "No supporting evidence listed."))
+                lines.append("")
+        else:
+            lines.append("- No evidence assessment generated.")
+
+        lines.extend(["## Weakening Evidence", ""])
+        if issue_assessments:
+            for assessment in issue_assessments:
+                lines.append(f"### {assessment.lens}")
+                lines.extend(_bullet_list(assessment.weakening_evidence, "No weakening evidence listed."))
+                lines.append("")
+        else:
+            lines.append("- No weakening evidence generated.")
+
+        lines.extend(["## Missing Evidence", ""])
+        if issue_assessments:
+            for assessment in issue_assessments:
+                lines.append(f"### {assessment.lens}")
+                lines.extend(_bullet_list(assessment.missing_evidence, "No missing evidence listed."))
+                lines.append("")
+        else:
+            lines.append("- No missing evidence generated.")
+
+        lines.extend(["## Historical Response Patterns", ""])
+        if issue_response_patterns:
+            for pattern in issue_response_patterns:
+                lines.extend([f"### {pattern.pattern_name}", "", "**Observed Historical Choices:**"])
+                lines.extend(_bullet_list(pattern.observed_historical_choices, "No historical choices listed."))
+                lines.append("")
+                lines.append("**Observed Outcomes:**")
+                lines.extend(_bullet_list(pattern.observed_outcomes, "No observed outcomes listed."))
+                lines.append("")
+                lines.append("**Business Lessons:**")
+                lines.extend(_bullet_list(pattern.business_lessons, "No business lessons listed."))
+                lines.append("")
+            lines.extend(["## Cross-Domain Lessons", ""])
+            for pattern in issue_response_patterns:
+                lines.extend(_bullet_list(pattern.cross_domain_lessons, "No cross-domain lessons listed."))
+        else:
+            lines.append("- No response patterns generated.")
+
+        lines.extend(["", "## Monitoring Considerations", ""])
+        lines.append("- Decision-makers may wish to monitor source updates, implementation details, stakeholder responses, and evidence gaps.")
+        lines.append("- Decision-makers may wish to monitor whether new evidence strengthens or weakens each interpretation.")
+
         lines.extend(["", "## Strategic Questions", ""])
         if analysis:
             lines.extend(_bullet_list(analysis.strategic_questions, "No strategic questions generated."))
@@ -235,6 +336,12 @@ def generate_brief(
         )
         evidence_items = ["Source Document"] + [item.evidence_trace for item in issue_analogues]
         evidence_items += [item.evidence_trace for item in issue_contexts]
+        for mechanism in issue_mechanisms:
+            evidence_items += mechanism.evidence_references
+        for interpretation in issue_interpretations:
+            evidence_items += interpretation.evidence_references
+        for pattern in issue_response_patterns:
+            evidence_items += pattern.evidence_references
         if agent_route:
             evidence_items.append("Agent Router: deterministic tool selection trace")
             evidence_items.append("Tool Registry: registered deterministic analysis tools")

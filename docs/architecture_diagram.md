@@ -11,6 +11,8 @@ flowchart TD
     C --> F["Implication Analysis"]
     D --> F
     E --> F
-    F --> G["Executive Brief + Agent Trace"]
+    F --> I["Multi-Lens Reasoning"]
+    I --> J["Evidence Assessment"]
+    J --> G["Executive Brief + Agent Trace"]
     G --> H["Dashboard Display / Export"]
 ```

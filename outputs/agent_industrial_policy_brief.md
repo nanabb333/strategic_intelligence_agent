@@ -182,6 +182,202 @@ Decision-makers need to monitor eligibility requirements, construction milestone
 - The issue could affect cross-border coordination involving relevant jurisdictions.
 - Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions.
 
+## Mechanisms Detected
+
+### Industrial Subsidy
+
+- **Description:** Government incentives that shape investment production or supply location
+- **Detection reason:** scenario match: Industrial Policy; observation overlap: domestic, eligibility, government, incentives
+- **Possible observations:** tax credits; grants; eligibility rules; domestic content
+- **Evidence references:** Source Document, Industrial Subsidy (Mechanism Framework)
+
+### Alliance Coordination
+
+- **Description:** Policy alignment or divergence among allied governments
+- **Detection reason:** scenario match: Industrial Policy; observation overlap: implementation, policy, rules
+- **Possible observations:** joint statements; aligned rules; implementation differences
+- **Evidence references:** Source Document, Alliance Coordination (Mechanism Framework)
+
+### Policy Signaling
+
+- **Description:** Government action used to signal strategic priorities or boundaries
+- **Detection reason:** scenario match: Industrial Policy; observation overlap: government, guidance, strategic
+- **Possible observations:** public guidance; funding priorities; security messaging
+- **Evidence references:** Source Document, Policy Signaling (Mechanism Framework)
+
+### Legislative Implementation Gap
+
+- **Description:** Difference between enacted policy and operational implementation
+- **Detection reason:** scenario match: Industrial Policy; observation overlap: agency, eligibility, guidance, implementation
+- **Possible observations:** eligibility rules; agency guidance; compliance deadlines
+- **Evidence references:** Source Document, Legislative Implementation Gap (Mechanism Framework)
+
+## Competing Interpretations
+
+### Economics
+
+- **Hypothesis:** One possible interpretation is that the industrial policy event reflects resource allocation constraints linked to Industrial Subsidy, Alliance Coordination.
+- **Evidence references:** Alliance Coordination (Mechanism Framework), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-002 (energy_context.md), Industrial Subsidy (Mechanism Framework), Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database, Semiconductors Context KB: SC-002 (semiconductor_context.md), Source Document
+
+### Political Economy
+
+- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Industrial Subsidy, Alliance Coordination.
+- **Evidence references:** Alliance Coordination (Mechanism Framework), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-002 (energy_context.md), Industrial Subsidy (Mechanism Framework), Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database, Semiconductors Context KB: SC-002 (semiconductor_context.md), Source Document
+
+### International Relations
+
+- **Hypothesis:** One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.
+- **Evidence references:** Alliance Coordination (Mechanism Framework), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-002 (energy_context.md), Industrial Subsidy (Mechanism Framework), Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database, Semiconductors Context KB: SC-002 (semiconductor_context.md), Source Document
+
+### Legislative / Regulatory
+
+- **Hypothesis:** One possible interpretation is that implementation rules and compliance obligations are central to the event.
+- **Evidence references:** Alliance Coordination (Mechanism Framework), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-002 (energy_context.md), Industrial Subsidy (Mechanism Framework), Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database, Semiconductors Context KB: SC-002 (semiconductor_context.md), Source Document
+
+### Business Strategy
+
+- **Hypothesis:** One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.
+- **Evidence references:** Alliance Coordination (Mechanism Framework), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-002 (energy_context.md), Industrial Subsidy (Mechanism Framework), Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database, Semiconductors Context KB: SC-002 (semiconductor_context.md), Source Document
+
+## Multi-Lens Analysis
+
+### Economics
+
+**Supporting observations:**
+- The issue references semiconductor, chips, manufacturing and operating constraints.
+- Historical analogues such as CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives show comparable economic adjustment patterns.
+
+**Limitations:**
+- The document does not quantify cost, demand, or capacity effects.
+
+### Political Economy
+
+**Supporting observations:**
+- The scenario classification is Industrial Policy.
+- Current context from Semiconductors, Energy highlights stakeholders and monitoring considerations.
+
+**Limitations:**
+- The balance between public policy goals and firm-level incentives requires more source detail.
+
+### International Relations
+
+**Supporting observations:**
+- Detected regions include no explicit region in the source document.
+- Mechanisms such as Industrial Subsidy, Alliance Coordination can appear in geopolitical or cross-border settings.
+
+**Limitations:**
+- The source does not establish intent by governments or counterparties.
+
+### Legislative / Regulatory
+
+**Supporting observations:**
+- Detected policy terms include subsidies, industrial policy, CHIPS Act.
+- The evidence trace includes source document signals and retrieved context records.
+
+**Limitations:**
+- Primary legal text or agency guidance would be needed for a complete regulatory reading.
+
+### Business Strategy
+
+**Supporting observations:**
+- The issue mentions actors such as government, executives.
+- The brief combines analogue patterns with current context monitoring considerations.
+
+**Limitations:**
+- The source does not contain internal priorities, customer-level exposure, or implementation plans.
+
+## Supporting Evidence
+
+### Economics (Substantial)
+- The issue references semiconductor, chips, manufacturing and operating constraints.
+- Historical analogues such as CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives show comparable economic adjustment patterns.
+
+### Political Economy (Substantial)
+- The scenario classification is Industrial Policy.
+- Current context from Semiconductors, Energy highlights stakeholders and monitoring considerations.
+
+### International Relations (Substantial)
+- Detected regions include no explicit region in the source document.
+- Mechanisms such as Industrial Subsidy, Alliance Coordination can appear in geopolitical or cross-border settings.
+
+### Legislative / Regulatory (Substantial)
+- Detected policy terms include subsidies, industrial policy, CHIPS Act.
+- The evidence trace includes source document signals and retrieved context records.
+
+### Business Strategy (Substantial)
+- The issue mentions actors such as government, executives.
+- The brief combines analogue patterns with current context monitoring considerations.
+
+## Weakening Evidence
+
+### Economics
+- The document does not quantify cost, demand, or capacity effects.
+
+### Political Economy
+- The balance between public policy goals and firm-level incentives requires more source detail.
+
+### International Relations
+- The source does not establish intent by governments or counterparties.
+
+### Legislative / Regulatory
+- Primary legal text or agency guidance would be needed for a complete regulatory reading.
+
+### Business Strategy
+- The source does not contain internal priorities, customer-level exposure, or implementation plans.
+
+## Missing Evidence
+
+### Economics
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Political Economy
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### International Relations
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Legislative / Regulatory
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Business Strategy
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+## Historical Response Patterns
+
+### Monitoring and contingency planning
+
+**Observed Historical Choices:**
+- Organizations reviewed counterparties, suppliers, and implementation details.
+- Teams created monitoring routines around policy updates and operational constraints.
+
+**Observed Outcomes:**
+- Observed outcomes varied across cases and should not be treated as predictive.
+- Relevant analogues include CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives, ASML Export Controls.
+
+**Business Lessons:**
+- Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.
+- Cross-functional review can help separate compliance, operational, and strategic questions.
+
+## Cross-Domain Lessons
+
+- Mechanisms such as Industrial Subsidy, Alliance Coordination, Policy Signaling can appear across policy, security, and business domains.
+- Historical response patterns are most useful when paired with current context and source verification.
+
+## Monitoring Considerations
+
+- Decision-makers may wish to monitor source updates, implementation details, stakeholder responses, and evidence gaps.
+- Decision-makers may wish to monitor whether new evidence strengthens or weakens each interpretation.
+
 ## Strategic Questions
 
 - Which stakeholders are most exposed to this issue?
@@ -209,9 +405,13 @@ Decision-makers need to monitor eligibility requirements, construction milestone
 
 - ASML Export Controls (2023) - Historical Database
 - Agent Router: deterministic tool selection trace
+- Alliance Coordination (Mechanism Framework)
 - CHIPS and Science Act (2022) - Historical Database
 - Energy Context KB: EN-002 (energy_context.md)
+- Industrial Subsidy (Mechanism Framework)
 - Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database
+- Legislative Implementation Gap (Mechanism Framework)
+- Policy Signaling (Mechanism Framework)
 - Semiconductors Context KB: SC-002 (semiconductor_context.md)
 - Source Document
 - Tool Registry: registered deterministic analysis tools

@@ -17,7 +17,7 @@ An analyst workbench that converts documents, articles, policy texts, and earnin
 
 Strategic Intelligence Agent is a portfolio-grade decision-support product for strategic intelligence and business analytics. It combines deterministic issue extraction, scenario classification, historical analogue retrieval, current context retrieval, implication analysis, evidence traceability, executive brief generation, and V3 tool-selecting agent routing.
 
-V2 added a local Analyst Workbench in `dashboard/`. V3 adds an Agent Router and Tool Registry so the system can decide which tools to execute instead of always running a fixed sequence.
+V2 added a local Analyst Workbench in `dashboard/`. V3 added an Agent Router and Tool Registry so the system can decide which tools to execute instead of always running a fixed sequence. V4 adds a multi-lens reasoning framework that surfaces competing interpretations, mechanisms, evidence support, and response patterns.
 
 ## What This Is / Is Not
 
@@ -44,6 +44,7 @@ Input Document
 -> Tool Selection
 -> Tool Execution
 -> Result Synthesis
+-> Multi-Lens Reasoning
 -> Executive Intelligence Brief
 -> Analyst Workbench Display / Export
 ```
@@ -69,6 +70,7 @@ V0.1 Deterministic Workflow
   -> V1.0 Context Layer
   -> V2.0 Analyst Workbench
   -> V3.0 Agent Router and Tool Selection
+  -> V4.0 Intelligence Reasoning Framework
 ```
 
 - **V0.1:** deterministic document-to-brief skeleton.
@@ -76,6 +78,7 @@ V0.1 Deterministic Workflow
 - **V1.0:** current context retrieval and evidence traceability.
 - **V2.0:** local analyst workbench UI.
 - **V3.0:** agent router, tool registry, selected/skipped tools, execution trace, and reasoning record.
+- **V4.0:** mechanism detection, multi-lens analysis, evidence assessment, historical response patterns, and monitoring considerations.
 
 ## Business Value
 
@@ -93,6 +96,7 @@ See [docs/business_analytics_relevance.md](docs/business_analytics_relevance.md)
 
 - LLM-ready agent architecture without depending on paid APIs.
 - Tool-selecting agent orchestration.
+- Multi-lens reasoning and evidence assessment.
 - Information extraction from unstructured documents.
 - Retrieval from historical and current-context knowledge bases.
 - Evidence-aware synthesis and executive communication.
@@ -132,6 +136,7 @@ python3 src/run_agent.py examples/banking_earnings_example.md --output outputs/b
 python3 src/run_agent.py examples/red_sea_shipping_example.md --output outputs/red_sea_shipping_brief.md
 python3 src/run_agent.py examples/agent_export_controls.md --output outputs/agent_export_controls_brief.md
 python3 src/run_agent.py examples/agent_earnings.md --output outputs/agent_earnings_brief.md
+python3 src/run_agent.py examples/v4_export_controls_reasoning.md --output outputs/v4_export_controls_reasoning_brief.md
 ```
 
 ## Demo Outputs
@@ -151,10 +156,12 @@ python3 scripts/validate_v05.py
 python3 scripts/validate_v10.py
 python3 scripts/validate_v20.py
 python3 scripts/validate_v30.py
+python3 scripts/validate_v41.py
 ```
 
 The V2 validator checks that the dashboard loads, outputs generate, exports are written to `outputs/`, and evidence traces exist.
 The V3 validator checks routing, tool selection, execution trace, reasoning record, and routed outputs.
+The V4.1 validator checks lens analysis, evidence assessment, mechanisms, response patterns, generated outputs, and non-advisory language.
 
 ## Portfolio Value
 
@@ -175,6 +182,9 @@ Supporting docs:
 - [docs/interview_story.md](docs/interview_story.md)
 - [docs/resume_bullets.md](docs/resume_bullets.md)
 - [docs/portfolio_case_study.md](docs/portfolio_case_study.md)
+- [docs/intelligence_reasoning_framework.md](docs/intelligence_reasoning_framework.md)
+- [docs/multi_lens_analysis_design.md](docs/multi_lens_analysis_design.md)
+- [docs/evidence_assessment_design.md](docs/evidence_assessment_design.md)
 
 ## Future Roadmap
 

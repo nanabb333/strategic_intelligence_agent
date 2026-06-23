@@ -5,6 +5,8 @@
 Strategic Intelligence Agent is organized as a deterministic, tool-selecting
 agent. V3 keeps the existing modular tools but adds an Agent Router that decides
 which tools should run for a given document.
+V4 adds an intelligence reasoning layer that interprets the same event through
+multiple analytic lenses.
 
 ```text
 Input Document
@@ -13,6 +15,8 @@ Input Document
   -> tool_registry
   -> selected tools
   -> result synthesis
+  -> multi_lens_analyzer
+  -> evidence_assessor
   -> outputs/
 ```
 
@@ -42,7 +46,23 @@ src/                           Application source code.
 | `context_retriever.py` | Retrieve top current-context findings from local Markdown KB files. |
 | `implication_analyzer.py` | Combine historical analogues and current context into similarities, differences, considerations, and questions. |
 | `brief_generator.py` | Produce the final executive intelligence brief with evidence traces. |
+| `mechanism_detector.py` | Map scenarios and issue metadata to strategic mechanisms. |
+| `multi_lens_analyzer.py` | Generate competing interpretations across analytic lenses. |
+| `evidence_assessor.py` | Assess supporting, weakening, and missing evidence with qualitative labels. |
+| `response_playbook_retriever.py` | Retrieve observed historical choices, outcomes, and cross-domain lessons. |
 | `run_agent.py` | Orchestrate the end-to-end workflow. |
+
+## V4 Intelligence Reasoning Layer
+
+V4 adds reasoning artifacts after retrieval:
+
+1. Mechanisms are detected from scenario and issue metadata.
+2. The event is interpreted through economics, political economy,
+   international relations, legislative / regulatory, and business strategy
+   lenses.
+3. Evidence support is assessed as Limited, Moderate, or Substantial.
+4. Historical response patterns and cross-domain lessons are added.
+5. Monitoring considerations are presented without advice language.
 
 ## V3 Agent Router
 

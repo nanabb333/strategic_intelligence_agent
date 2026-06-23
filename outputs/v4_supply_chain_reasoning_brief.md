@@ -4,7 +4,7 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Executive Summary
 
-- The document describes a Supply Chain Disruption issue involving shipping, logistics.
+- The document describes a Supply Chain Disruption issue involving logistics.
 - Historical analogues and current context are used for comparison and decision support, not prediction.
 - Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
 
@@ -71,20 +71,20 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Key Issue
 
-**Title:** Agent Route Supply Chain Disruption
+**Title:** V4 Supply Chain Reasoning
 
-**Core issue:** Manufacturers are reviewing supplier commitments after logistics delays affected delivery schedules for components moving between Asia, Europe, and North America.
+**Core issue:** Manufacturers are reviewing supplier commitments and inventory buffers after logistics delays affected delivery schedules across Asia, Europe, and North America.
 
-**Summary:** Manufacturers are reviewing supplier commitments after logistics delays affected delivery schedules for components moving between Asia, Europe, and North America. Procurement teams are assessing inventory buffers, alternate shipping routes, and customer communication.
+**Summary:** Manufacturers are reviewing supplier commitments and inventory buffers after logistics delays affected delivery schedules across Asia, Europe, and North America. Procurement teams are evaluating alternate routes and customer communication.
 
-The issue involves supply chain disruption, supplier concentration, and operational monitoring.
+The event could be interpreted through supply chain reconfiguration, chokepoint exposure, operational resilience, and input cost pressure mechanisms.
 
 **Evidence trace:** Source Document
 
 ## Scenario Classification
 
 - **Primary scenario:** Supply Chain Disruption
-- **Matched keywords:** supply chain, supplier, shipping, logistics, disruption
+- **Matched keywords:** supply chain, supplier, logistics
 - **Classification confidence:** High
 - **Evidence trace:** Source Document + deterministic keyword classifier
 - **Note:** Confidence describes classification quality only; it is not a forecast.
@@ -94,38 +94,38 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 - **Document type guess:** Operational Risk Note (Evidence trace: Source Document)
 - **Actors:** None detected (Evidence trace: Source Document)
 - **Countries / regions:** None detected (Evidence trace: Source Document)
-- **Industries:** shipping, logistics (Evidence trace: Source Document)
+- **Industries:** logistics (Evidence trace: Source Document)
 - **Policy terms:** None detected (Evidence trace: Source Document)
 - **Companies:** None detected (Evidence trace: Source Document)
 
 ## Historical Analogues
 
-### Red Sea Shipping Disruption (2023)
-
-- **Scenario type:** Supply Chain Disruption
-- **Similarity reason:** scenario match on Supply Chain Disruption; keyword overlap: affected, delivery, disruption, inventory; industry overlap: logistics, shipping
-- **Business relevance:** Shows how route disruption can affect delivery timing and logistics costs.
-- **Geopolitical relevance:** Links regional security conditions with global trade flows.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Red Sea Shipping Disruption (2023) - Historical Database
-
 ### COVID Supply Chain Disruption (2020)
 
 - **Scenario type:** Supply Chain Disruption
-- **Similarity reason:** scenario match on Supply Chain Disruption; keyword overlap: affected, chain, concentration, disruption; industry overlap: logistics
+- **Similarity reason:** scenario match on Supply Chain Disruption; keyword overlap: affected, chain, inventory, logistics; industry overlap: logistics
 - **Business relevance:** Shows how operational shocks can expose supplier concentration and inventory assumptions.
 - **Geopolitical relevance:** Demonstrates how public health policy can affect cross-border operations.
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** COVID Supply Chain Disruption (2020) - Historical Database
 
-### Taiwan Strait Military Exercises (2022)
+### Red Sea Shipping Disruption (2023)
 
-- **Scenario type:** Military / Security Shock
-- **Similarity reason:** keyword overlap: concentration, routes, shipping, supplier; industry overlap: shipping
-- **Business relevance:** Shows how security shocks can affect continuity planning and supplier concentration review.
-- **Geopolitical relevance:** Highlights strategic sensitivity of Taiwan and regional deterrence dynamics.
+- **Scenario type:** Supply Chain Disruption
+- **Similarity reason:** scenario match on Supply Chain Disruption; keyword overlap: affected, delivery, inventory, logistics; industry overlap: logistics
+- **Business relevance:** Shows how route disruption can affect delivery timing and logistics costs.
+- **Geopolitical relevance:** Links regional security conditions with global trade flows.
 - **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Taiwan Strait Military Exercises (2022) - Historical Database
+- **Source origin:** Red Sea Shipping Disruption (2023) - Historical Database
+
+### Huawei Entity List (2019)
+
+- **Scenario type:** Export Controls
+- **Similarity reason:** keyword overlap: affected, exposure, supplier, supply
+- **Business relevance:** Shows how export controls can alter supplier access and compliance workflows.
+- **Geopolitical relevance:** Illustrates technology competition between the United States and China.
+- **Caution note:** Historical analogues support comparison, not prediction.
+- **Source origin:** Huawei Entity List (2019) - Historical Database
 
 ## Current Context
 
@@ -135,7 +135,7 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 - **Why it matters:** Disruption can affect delivery timing, maintenance planning, and contingency sourcing.
 - **Stakeholders:** Utilities; producers; shippers; equipment suppliers; customers
 - **Monitoring considerations:** Route availability; equipment lead times; regional security updates; inventory levels
-- **Retrieval reason:** scenario match: Supply Chain Disruption; keyword overlap: chain, customer, delay, delays
+- **Retrieval reason:** scenario match: Supply Chain Disruption; keyword overlap: chain, chokepoint, customer, delay
 - **Source origin:** Energy Context KB: EN-003 (energy_context.md)
 
 ### Semiconductors - Supply Chain Disruption
@@ -144,7 +144,7 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 - **Why it matters:** Concentrated inputs can create operational exposure when disruptions occur.
 - **Stakeholders:** Foundries; materials suppliers; device makers; automotive and electronics customers
 - **Monitoring considerations:** Supplier concentration; lead times; inventory disclosures; qualification cycles
-- **Retrieval reason:** scenario match: Supply Chain Disruption; keyword overlap: concentration, customer, disruption, inventory
+- **Retrieval reason:** scenario match: Supply Chain Disruption; keyword overlap: customer, exposure, input, inventory
 - **Source origin:** Semiconductors Context KB: SC-003 (semiconductor_context.md)
 
 ### Supply Chain - Supply Chain Disruption
@@ -159,7 +159,7 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 ## Similarities and Differences
 
 ### Observed Similarities
-- The issue may resemble Red Sea Shipping Disruption (2023), COVID Supply Chain Disruption (2020) because the retrieved cases share characteristics with the supply chain disruption scenario frame.
+- The issue may resemble COVID Supply Chain Disruption (2020), Red Sea Shipping Disruption (2023) because the retrieved cases share characteristics with the supply chain disruption scenario frame.
 - The current context findings from Energy, Semiconductors, Supply Chain share characteristics with the extracted industries and policy terms.
 
 ### Observed Differences
@@ -168,7 +168,7 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 
 ## Business Considerations
 
-- The issue may indicate changing constraints for shipping, logistics and requires monitoring of stakeholder exposure.
+- The issue may indicate changing constraints for logistics and requires monitoring of stakeholder exposure.
 - The supply chain disruption frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
 - Historical and context evidence should be used to structure diligence, not to imply an outcome.
 
@@ -191,61 +191,61 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 - **Possible observations:** rerouting; alternate suppliers; inventory buffers; qualification cycles
 - **Evidence references:** Source Document, Supply Chain Reconfiguration (Mechanism Framework)
 
-### Chokepoint Exposure
-
-- **Description:** Dependence on narrow routes facilities technologies or inputs
-- **Detection reason:** scenario match: Supply Chain Disruption; observation overlap: concentration, delays, route, routes
-- **Possible observations:** route concentration; specialized equipment; port delays
-- **Evidence references:** Source Document, Chokepoint Exposure (Mechanism Framework)
-
-### Operational Resilience
-
-- **Description:** Organizational ability to adapt workflows sourcing or controls
-- **Detection reason:** scenario match: Supply Chain Disruption; observation overlap: alternate, monitoring, routes
-- **Possible observations:** contingency plans; alternate routes; monitoring routines
-- **Evidence references:** Source Document, Operational Resilience (Mechanism Framework)
-
 ### Strategic Dependency
 
 - **Description:** Exposure created by reliance on concentrated suppliers or jurisdictions
-- **Detection reason:** scenario match: Supply Chain Disruption; observation overlap: concentration, supplier
+- **Detection reason:** scenario match: Supply Chain Disruption; observation overlap: exposure, supplier
 - **Possible observations:** supplier concentration; critical inputs; geographic dependency
 - **Evidence references:** Source Document, Strategic Dependency (Mechanism Framework)
+
+### Demand Shock
+
+- **Description:** Change in customer demand visibility or order patterns
+- **Detection reason:** scenario match: Supply Chain Disruption; observation overlap: customer, delays
+- **Possible observations:** order delays; revenue commentary; demand visibility
+- **Evidence references:** Source Document, Demand Shock (Mechanism Framework)
+
+### Chokepoint Exposure
+
+- **Description:** Dependence on narrow routes facilities technologies or inputs
+- **Detection reason:** scenario match: Supply Chain Disruption; observation overlap: delays, routes
+- **Possible observations:** route concentration; specialized equipment; port delays
+- **Evidence references:** Source Document, Chokepoint Exposure (Mechanism Framework)
 
 ## Competing Interpretations
 
 ### Economics
 
-- **Hypothesis:** One possible interpretation is that the supply chain disruption event reflects resource allocation constraints linked to Supply Chain Reconfiguration, Chokepoint Exposure.
-- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Chokepoint Exposure (Mechanism Framework), Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Semiconductors Context KB: SC-003 (semiconductor_context.md), Source Document, Supply Chain Reconfiguration (Mechanism Framework)
+- **Hypothesis:** One possible interpretation is that the supply chain disruption event reflects resource allocation constraints linked to Supply Chain Reconfiguration, Strategic Dependency.
+- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Semiconductors Context KB: SC-003 (semiconductor_context.md), Source Document, Strategic Dependency (Mechanism Framework), Supply Chain Reconfiguration (Mechanism Framework)
 
 ### Political Economy
 
-- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Supply Chain Reconfiguration, Chokepoint Exposure.
-- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Chokepoint Exposure (Mechanism Framework), Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Semiconductors Context KB: SC-003 (semiconductor_context.md), Source Document, Supply Chain Reconfiguration (Mechanism Framework)
+- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Supply Chain Reconfiguration, Strategic Dependency.
+- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Semiconductors Context KB: SC-003 (semiconductor_context.md), Source Document, Strategic Dependency (Mechanism Framework), Supply Chain Reconfiguration (Mechanism Framework)
 
 ### International Relations
 
 - **Hypothesis:** One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.
-- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Chokepoint Exposure (Mechanism Framework), Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Semiconductors Context KB: SC-003 (semiconductor_context.md), Source Document, Supply Chain Reconfiguration (Mechanism Framework)
+- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Semiconductors Context KB: SC-003 (semiconductor_context.md), Source Document, Strategic Dependency (Mechanism Framework), Supply Chain Reconfiguration (Mechanism Framework)
 
 ### Legislative / Regulatory
 
 - **Hypothesis:** One possible interpretation is that implementation rules and compliance obligations are central to the event.
-- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Chokepoint Exposure (Mechanism Framework), Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Semiconductors Context KB: SC-003 (semiconductor_context.md), Source Document, Supply Chain Reconfiguration (Mechanism Framework)
+- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Semiconductors Context KB: SC-003 (semiconductor_context.md), Source Document, Strategic Dependency (Mechanism Framework), Supply Chain Reconfiguration (Mechanism Framework)
 
 ### Business Strategy
 
 - **Hypothesis:** One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.
-- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Chokepoint Exposure (Mechanism Framework), Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Semiconductors Context KB: SC-003 (semiconductor_context.md), Source Document, Supply Chain Reconfiguration (Mechanism Framework)
+- **Evidence references:** COVID Supply Chain Disruption (2020) - Historical Database, Energy Context KB: EN-003 (energy_context.md), Red Sea Shipping Disruption (2023) - Historical Database, Semiconductors Context KB: SC-003 (semiconductor_context.md), Source Document, Strategic Dependency (Mechanism Framework), Supply Chain Reconfiguration (Mechanism Framework)
 
 ## Multi-Lens Analysis
 
 ### Economics
 
 **Supporting observations:**
-- The issue references shipping, logistics and operating constraints.
-- Historical analogues such as Red Sea Shipping Disruption, COVID Supply Chain Disruption show comparable economic adjustment patterns.
+- The issue references logistics and operating constraints.
+- Historical analogues such as COVID Supply Chain Disruption, Red Sea Shipping Disruption show comparable economic adjustment patterns.
 
 **Limitations:**
 - The document does not quantify cost, demand, or capacity effects.
@@ -263,7 +263,7 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 
 **Supporting observations:**
 - Detected regions include no explicit region in the source document.
-- Mechanisms such as Supply Chain Reconfiguration, Chokepoint Exposure can appear in geopolitical or cross-border settings.
+- Mechanisms such as Supply Chain Reconfiguration, Strategic Dependency can appear in geopolitical or cross-border settings.
 
 **Limitations:**
 - The source does not establish intent by governments or counterparties.
@@ -289,8 +289,8 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 ## Supporting Evidence
 
 ### Economics (Substantial)
-- The issue references shipping, logistics and operating constraints.
-- Historical analogues such as Red Sea Shipping Disruption, COVID Supply Chain Disruption show comparable economic adjustment patterns.
+- The issue references logistics and operating constraints.
+- Historical analogues such as COVID Supply Chain Disruption, Red Sea Shipping Disruption show comparable economic adjustment patterns.
 
 ### Political Economy (Substantial)
 - The scenario classification is Supply Chain Disruption.
@@ -298,7 +298,7 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 
 ### International Relations (Substantial)
 - Detected regions include no explicit region in the source document.
-- Mechanisms such as Supply Chain Reconfiguration, Chokepoint Exposure can appear in geopolitical or cross-border settings.
+- Mechanisms such as Supply Chain Reconfiguration, Strategic Dependency can appear in geopolitical or cross-border settings.
 
 ### Legislative / Regulatory (Substantial)
 - Detected policy terms include limited explicit policy terms.
@@ -362,7 +362,7 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 
 **Observed Outcomes:**
 - Observed outcomes varied across cases and should not be treated as predictive.
-- Relevant analogues include Red Sea Shipping Disruption, COVID Supply Chain Disruption, Taiwan Strait Military Exercises.
+- Relevant analogues include COVID Supply Chain Disruption, Red Sea Shipping Disruption, Huawei Entity List.
 
 **Business Lessons:**
 - Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.
@@ -370,7 +370,7 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 
 ## Cross-Domain Lessons
 
-- Mechanisms such as Supply Chain Reconfiguration, Chokepoint Exposure, Operational Resilience can appear across policy, security, and business domains.
+- Mechanisms such as Supply Chain Reconfiguration, Strategic Dependency, Demand Shock can appear across policy, security, and business domains.
 - Historical response patterns are most useful when paired with current context and source verification.
 
 ## Monitoring Considerations
@@ -406,15 +406,15 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 - Agent Router: deterministic tool selection trace
 - COVID Supply Chain Disruption (2020) - Historical Database
 - Chokepoint Exposure (Mechanism Framework)
+- Demand Shock (Mechanism Framework)
 - Energy Context KB: EN-003 (energy_context.md)
-- Operational Resilience (Mechanism Framework)
+- Huawei Entity List (2019) - Historical Database
 - Red Sea Shipping Disruption (2023) - Historical Database
 - Semiconductors Context KB: SC-003 (semiconductor_context.md)
 - Source Document
 - Strategic Dependency (Mechanism Framework)
 - Supply Chain Context KB: SP-001 (supply_chain_context.md)
 - Supply Chain Reconfiguration (Mechanism Framework)
-- Taiwan Strait Military Exercises (2022) - Historical Database
 - Tool Registry: registered deterministic analysis tools
 
 ## Evidence Sources

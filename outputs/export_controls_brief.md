@@ -182,6 +182,202 @@ Key uncertainties include allied coordination, implementation timing, company-le
 - The issue could affect cross-border coordination involving United States, China.
 - Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions.
 
+## Mechanisms Detected
+
+### Technology Containment
+
+- **Description:** Restrictions or controls that limit access to sensitive technologies
+- **Detection reason:** scenario match: Export Controls; observation overlap: access, cloud, controls, equipment; actor overlap: firms, suppliers
+- **Possible observations:** licenses; entity lists; restricted equipment; cloud access limits
+- **Evidence references:** Source Document, Technology Containment (Mechanism Framework)
+
+### Operational Resilience
+
+- **Description:** Organizational ability to adapt workflows sourcing or controls
+- **Detection reason:** scenario match: Export Controls; observation overlap: controls, workflows; actor overlap: executives, suppliers
+- **Possible observations:** contingency plans; alternate routes; monitoring routines
+- **Evidence references:** Source Document, Operational Resilience (Mechanism Framework)
+
+### Counterparty Risk
+
+- **Description:** Exposure arising from customers suppliers banks or partners
+- **Detection reason:** scenario match: Export Controls; observation overlap: customers, suppliers; actor overlap: customers, suppliers
+- **Possible observations:** screening alerts; payment exceptions; contract reviews
+- **Evidence references:** Source Document, Counterparty Risk (Mechanism Framework)
+
+### Strategic Dependency
+
+- **Description:** Exposure created by reliance on concentrated suppliers or jurisdictions
+- **Detection reason:** scenario match: Export Controls; observation overlap: inputs, suppliers; actor overlap: suppliers
+- **Possible observations:** supplier concentration; critical inputs; geographic dependency
+- **Evidence references:** Source Document, Strategic Dependency (Mechanism Framework)
+
+## Competing Interpretations
+
+### Economics
+
+- **Hypothesis:** One possible interpretation is that the export controls event reflects resource allocation constraints linked to Technology Containment, Operational Resilience.
+- **Evidence references:** ASML Export Controls (2023) - Historical Database, Huawei Entity List (2019) - Historical Database, Operational Resilience (Mechanism Framework), Semiconductors Context KB: SC-001 (semiconductor_context.md), Source Document, Supply Chain Context KB: SP-004 (supply_chain_context.md), Technology Containment (Mechanism Framework)
+
+### Political Economy
+
+- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Technology Containment, Operational Resilience.
+- **Evidence references:** ASML Export Controls (2023) - Historical Database, Huawei Entity List (2019) - Historical Database, Operational Resilience (Mechanism Framework), Semiconductors Context KB: SC-001 (semiconductor_context.md), Source Document, Supply Chain Context KB: SP-004 (supply_chain_context.md), Technology Containment (Mechanism Framework)
+
+### International Relations
+
+- **Hypothesis:** One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.
+- **Evidence references:** ASML Export Controls (2023) - Historical Database, Huawei Entity List (2019) - Historical Database, Operational Resilience (Mechanism Framework), Semiconductors Context KB: SC-001 (semiconductor_context.md), Source Document, Supply Chain Context KB: SP-004 (supply_chain_context.md), Technology Containment (Mechanism Framework)
+
+### Legislative / Regulatory
+
+- **Hypothesis:** One possible interpretation is that implementation rules and compliance obligations are central to the event.
+- **Evidence references:** ASML Export Controls (2023) - Historical Database, Huawei Entity List (2019) - Historical Database, Operational Resilience (Mechanism Framework), Semiconductors Context KB: SC-001 (semiconductor_context.md), Source Document, Supply Chain Context KB: SP-004 (supply_chain_context.md), Technology Containment (Mechanism Framework)
+
+### Business Strategy
+
+- **Hypothesis:** One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.
+- **Evidence references:** ASML Export Controls (2023) - Historical Database, Huawei Entity List (2019) - Historical Database, Operational Resilience (Mechanism Framework), Semiconductors Context KB: SC-001 (semiconductor_context.md), Source Document, Supply Chain Context KB: SP-004 (supply_chain_context.md), Technology Containment (Mechanism Framework)
+
+## Multi-Lens Analysis
+
+### Economics
+
+**Supporting observations:**
+- The issue references semiconductor, chip, chips and operating constraints.
+- Historical analogues such as Huawei Entity List, ASML Export Controls show comparable economic adjustment patterns.
+
+**Limitations:**
+- The document does not quantify cost, demand, or capacity effects.
+
+### Political Economy
+
+**Supporting observations:**
+- The scenario classification is Export Controls.
+- Current context from Semiconductors, Supply Chain highlights stakeholders and monitoring considerations.
+
+**Limitations:**
+- The balance between public policy goals and firm-level incentives requires more source detail.
+
+### International Relations
+
+**Supporting observations:**
+- Detected regions include United States, China.
+- Mechanisms such as Technology Containment, Operational Resilience can appear in geopolitical or cross-border settings.
+
+**Limitations:**
+- The source does not establish intent by governments or counterparties.
+
+### Legislative / Regulatory
+
+**Supporting observations:**
+- Detected policy terms include export controls, licensing, compliance.
+- The evidence trace includes source document signals and retrieved context records.
+
+**Limitations:**
+- Primary legal text or agency guidance would be needed for a complete regulatory reading.
+
+### Business Strategy
+
+**Supporting observations:**
+- The issue mentions actors such as executives, suppliers, customers.
+- The brief combines analogue patterns with current context monitoring considerations.
+
+**Limitations:**
+- The source does not contain internal priorities, customer-level exposure, or implementation plans.
+
+## Supporting Evidence
+
+### Economics (Substantial)
+- The issue references semiconductor, chip, chips and operating constraints.
+- Historical analogues such as Huawei Entity List, ASML Export Controls show comparable economic adjustment patterns.
+
+### Political Economy (Substantial)
+- The scenario classification is Export Controls.
+- Current context from Semiconductors, Supply Chain highlights stakeholders and monitoring considerations.
+
+### International Relations (Substantial)
+- Detected regions include United States, China.
+- Mechanisms such as Technology Containment, Operational Resilience can appear in geopolitical or cross-border settings.
+
+### Legislative / Regulatory (Substantial)
+- Detected policy terms include export controls, licensing, compliance.
+- The evidence trace includes source document signals and retrieved context records.
+
+### Business Strategy (Substantial)
+- The issue mentions actors such as executives, suppliers, customers.
+- The brief combines analogue patterns with current context monitoring considerations.
+
+## Weakening Evidence
+
+### Economics
+- The document does not quantify cost, demand, or capacity effects.
+
+### Political Economy
+- The balance between public policy goals and firm-level incentives requires more source detail.
+
+### International Relations
+- The source does not establish intent by governments or counterparties.
+
+### Legislative / Regulatory
+- Primary legal text or agency guidance would be needed for a complete regulatory reading.
+
+### Business Strategy
+- The source does not contain internal priorities, customer-level exposure, or implementation plans.
+
+## Missing Evidence
+
+### Economics
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Political Economy
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### International Relations
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Legislative / Regulatory
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Business Strategy
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+## Historical Response Patterns
+
+### Monitoring and contingency planning
+
+**Observed Historical Choices:**
+- Organizations reviewed counterparties, suppliers, and implementation details.
+- Teams created monitoring routines around policy updates and operational constraints.
+
+**Observed Outcomes:**
+- Observed outcomes varied across cases and should not be treated as predictive.
+- Relevant analogues include Huawei Entity List, ASML Export Controls, COVID Supply Chain Disruption.
+
+**Business Lessons:**
+- Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.
+- Cross-functional review can help separate compliance, operational, and strategic questions.
+
+## Cross-Domain Lessons
+
+- Mechanisms such as Technology Containment, Operational Resilience, Counterparty Risk can appear across policy, security, and business domains.
+- Historical response patterns are most useful when paired with current context and source verification.
+
+## Monitoring Considerations
+
+- Decision-makers may wish to monitor source updates, implementation details, stakeholder responses, and evidence gaps.
+- Decision-makers may wish to monitor whether new evidence strengthens or weakens each interpretation.
+
 ## Strategic Questions
 
 - Which stakeholders are most exposed to this issue?
@@ -210,10 +406,14 @@ Key uncertainties include allied coordination, implementation timing, company-le
 - ASML Export Controls (2023) - Historical Database
 - Agent Router: deterministic tool selection trace
 - COVID Supply Chain Disruption (2020) - Historical Database
+- Counterparty Risk (Mechanism Framework)
 - Huawei Entity List (2019) - Historical Database
+- Operational Resilience (Mechanism Framework)
 - Semiconductors Context KB: SC-001 (semiconductor_context.md)
 - Source Document
+- Strategic Dependency (Mechanism Framework)
 - Supply Chain Context KB: SP-004 (supply_chain_context.md)
+- Technology Containment (Mechanism Framework)
 - Tool Registry: registered deterministic analysis tools
 - Trade Policy Context KB: TP-002 (trade_policy_context.md)
 

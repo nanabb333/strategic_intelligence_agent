@@ -27,6 +27,15 @@ const contextFindings = [
   { industry: "Energy", source: "Context Knowledge Base", keywords: ["energy", "oil", "gas", "battery", "grid"], text: "Energy context can involve sanctions, industrial incentives, shipping chokepoints, permitting, and equipment lead times." },
 ];
 
+const mechanisms = [
+  { name: "Technology Containment", keywords: ["export control", "chips", "semiconductor", "cloud"], observation: "sensitive technology access is being limited or reviewed" },
+  { name: "Strategic Dependency", keywords: ["supplier", "semiconductor", "supply chain", "fabrication"], observation: "operating exposure depends on concentrated suppliers or jurisdictions" },
+  { name: "Supply Chain Reconfiguration", keywords: ["supply chain", "shipping", "logistics", "rerouting"], observation: "routes, suppliers, or inventory planning may need review" },
+  { name: "Capital Constraint", keywords: ["earnings", "margin", "deposit", "liquidity", "capital"], observation: "financial or operating flexibility is constrained" },
+  { name: "Industrial Subsidy", keywords: ["chips act", "subsidy", "incentive", "domestic manufacturing"], observation: "public incentives shape business decisions" },
+  { name: "Regulatory Shock", keywords: ["regulatory", "compliance", "rule", "enforcement"], observation: "compliance obligations or oversight are changing" },
+];
+
 let currentBrief = "";
 
 function textIncludes(text, keyword) {
@@ -67,6 +76,31 @@ function retrieveContext(text) {
   return (matches.length ? matches : contextFindings).slice(0, 3);
 }
 
+function detectMechanisms(text) {
+  const matches = mechanisms.filter((item) => item.keywords.some((keyword) => textIncludes(text, keyword)));
+  return (matches.length ? matches : mechanisms.slice(0, 2)).slice(0, 4);
+}
+
+function buildInterpretations(classification, detectedMechanisms) {
+  const mechanismText = detectedMechanisms.map((item) => item.name).join(", ") || "detected mechanisms";
+  return [
+    { lens: "Economics", hypothesis: `One possible interpretation is that the ${classification.scenario} issue reflects resource allocation constraints linked to ${mechanismText}.` },
+    { lens: "Political Economy", hypothesis: `One possible interpretation is that public authority and business incentives are interacting through ${mechanismText}.` },
+    { lens: "International Relations", hypothesis: "One possible interpretation is that cross-border strategic positioning is part of the event context." },
+    { lens: "Legislative / Regulatory", hypothesis: "One possible interpretation is that implementation rules and compliance obligations are central to the event." },
+    { lens: "Business Strategy", hypothesis: "One possible interpretation is that executives face a resilience and positioning question." },
+  ];
+}
+
+function buildEvidenceAssessment(interpretations) {
+  return interpretations.map((item) => ({
+    lens: item.lens,
+    confidence: "Moderate",
+    supporting: "Source document, retrieved analogues, and context records provide partial support.",
+    missing: "Primary-source details and stakeholder-specific exposure remain missing.",
+  }));
+}
+
 function routeTools(text, classification, entities) {
   const selected = ["IssueExtractor", "ScenarioClassifier", "HistoricalRetriever"];
   const skipped = [];
@@ -98,11 +132,14 @@ function routeTools(text, classification, entities) {
   return { selected, skipped, trace, decisions };
 }
 
-function buildBrief(text, classification, entities, analogues, contexts, route) {
+function buildBrief(text, classification, entities, analogues, contexts, route, detectedMechanisms, interpretations, assessments) {
   const analogueLines = analogues.map((item) => `- ${item.title}: ${item.relevance} (Source: ${item.source})`).join("\n");
   const contextLines = contexts.map((item) => `- ${item.industry}: ${item.text} (Source: ${item.source})`).join("\n");
   const traceLines = route.trace.map((item, index) => `${index + 1}. ${item}`).join("\n");
   const decisionLines = route.decisions.map((item) => `- ${item.tool}: ${item.decision}`).join("\n");
+  const mechanismLines = detectedMechanisms.map((item) => `- ${item.name}: ${item.observation}`).join("\n");
+  const interpretationLines = interpretations.map((item) => `- ${item.lens}: ${item.hypothesis}`).join("\n");
+  const assessmentLines = assessments.map((item) => `- ${item.lens}: ${item.confidence}. ${item.supporting}`).join("\n");
   return `# Executive Intelligence Brief
 
 This output is for decision-support and analyst productivity only. It does not provide forecasts, probabilities, trading advice, or investment recommendations.
@@ -160,6 +197,27 @@ ${contextLines}
 - Current context requires monitoring of stakeholders, operational constraints, and source updates.
 - Analysts should separate observed facts from interpretation.
 
+## Competing Interpretations
+
+${interpretationLines}
+
+## Mechanisms Detected
+
+${mechanismLines}
+
+## Evidence Assessment
+
+${assessmentLines}
+
+## Historical Response Patterns
+
+- Organizations have historically reviewed counterparties, suppliers, compliance obligations, and implementation details.
+- Observed outcomes varied across cases and are not predictive.
+
+## Monitoring Considerations
+
+- Decision-makers may wish to monitor source updates, implementation details, stakeholder responses, and evidence gaps.
+
 ## Strategic Questions
 
 - Which stakeholders are most exposed?
@@ -201,7 +259,10 @@ function runAnalysis() {
   const route = routeTools(text, classification, entities);
   const analogues = retrieveAnalogues(classification);
   const contexts = route.selected.includes("ContextRetriever") ? retrieveContext(text) : [];
-  currentBrief = buildBrief(text, classification, entities, analogues, contexts, route);
+  const detectedMechanisms = detectMechanisms(text);
+  const interpretations = buildInterpretations(classification, detectedMechanisms);
+  const assessments = buildEvidenceAssessment(interpretations);
+  currentBrief = buildBrief(text, classification, entities, analogues, contexts, route, detectedMechanisms, interpretations, assessments);
 
   document.getElementById("summary-section").innerHTML = `<p>${summarizeDocument(text)}</p><p><span class="evidence">Source: Input Document</span></p>`;
   document.getElementById("classification-section").innerHTML = `<ul><li>Primary scenario: ${classification.scenario}</li><li>Matched keywords: ${classification.matches.join(", ") || "None"}</li><li>Confidence: ${classification.confidence}</li></ul><p><span class="evidence">Source: Input Document</span></p>`;
@@ -211,6 +272,10 @@ function runAnalysis() {
   document.getElementById("tools-section").innerHTML = `<p><strong>Selected:</strong> ${route.selected.join(", ")}</p><p><strong>Skipped:</strong> ${route.skipped.join(", ") || "None"}</p><p><span class="evidence">Source: Agent Router</span></p>`;
   document.getElementById("trace-section").innerHTML = `<ol>${route.trace.map((item) => `<li>${item}</li>`).join("")}</ol><p><span class="evidence">Source: Agent Router</span></p>`;
   document.getElementById("path-section").innerHTML = `<ul><li>Agent Router evaluated the document and selected tools.</li><li>Tool Registry exposed available tools.</li><li>Selected tools produced evidence and synthesis.</li></ul><p><span class="evidence">Source: Tool Registry</span></p>`;
+  renderFindingList(document.getElementById("mechanisms-section"), detectedMechanisms, (item) => `<h3>${item.name}</h3><p>${item.observation}</p><span class="evidence">Source: Mechanism Framework</span>`);
+  renderFindingList(document.getElementById("interpretations-section"), interpretations, (item) => `<h3>${item.lens}</h3><p>${item.hypothesis}</p><span class="evidence">Source: Multi-Lens Analysis</span>`);
+  renderFindingList(document.getElementById("responses-section"), [{ title: "Monitoring and contingency planning", text: "Observed historical choices include reviewing counterparties, suppliers, compliance obligations, and implementation details." }], (item) => `<h3>${item.title}</h3><p>${item.text}</p><span class="evidence">Source: Response Patterns</span>`);
+  renderFindingList(document.getElementById("evidence-assessment-section"), assessments, (item) => `<h3>${item.lens}</h3><p>${item.confidence}: ${item.supporting}</p><p>Missing evidence: ${item.missing}</p><span class="evidence">Source: Evidence Assessor</span>`);
   document.getElementById("brief-section").textContent = currentBrief;
 }
 

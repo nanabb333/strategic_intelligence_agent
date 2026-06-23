@@ -4,7 +4,7 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Executive Summary
 
-- The document describes an Earnings / Corporate Disclosure issue involving software.
+- The document describes an Earnings / Corporate Disclosure issue involving strategic operations.
 - Historical analogues and current context are used for comparison and decision support, not prediction.
 - Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
 
@@ -20,7 +20,7 @@ This output is for decision-support and analyst productivity only. It does not p
 3. **Tool selected:** IssueExtractor: Every route starts by converting source text into structured issue fields.
 4. **Tool selected:** ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted.
 5. **Tool selected:** HistoricalRetriever: Earnings / Corporate Disclosure benefits from comparison against historical precedents.
-6. **Tool skipped:** ContextRetriever: Corporate disclosure detected without strong policy, supply chain, sanctions, or regulatory context terms.
+6. **Tool skipped:** ContextRetriever: No strong context retrieval trigger detected.
 7. **Tool selected:** ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations.
 8. **Tool selected:** BriefGenerator: The final deliverable is an executive intelligence brief.
 
@@ -47,8 +47,8 @@ This output is for decision-support and analyst productivity only. It does not p
 ### ContextRetriever
 
 - **Decision:** Skipped
-- **Why:** Corporate disclosure detected without strong policy, supply chain, sanctions, or regulatory context terms.
-- **Expected contribution:** Context retrieval is skipped to keep the route focused on disclosure interpretation.
+- **Why:** No strong context retrieval trigger detected.
+- **Expected contribution:** Avoids adding weak context findings.
 
 ### ImplicationAnalyzer
 
@@ -71,20 +71,20 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Key Issue
 
-**Title:** Agent Route Corporate Earnings
+**Title:** V4 Banking Reasoning
 
-**Core issue:** A software company reported quarterly earnings with slower revenue growth, margin pressure, and management commentary about customer demand visibility.
+**Core issue:** A regional bank disclosed elevated deposit costs, slower loan growth, liquidity planning, and credit quality monitoring in quarterly earnings.
 
-**Summary:** A software company reported quarterly earnings with slower revenue growth, margin pressure, and management commentary about customer demand visibility. The disclosure focuses on corporate performance, operating narrative, and executive communication.
+**Summary:** A regional bank disclosed elevated deposit costs, slower loan growth, liquidity planning, and credit quality monitoring in quarterly earnings. Management also referenced regulatory engagement and stakeholder communication.
 
-Analysts need an executive brief that compares the disclosure with historical corporate communication cases without adding unrelated policy context.
+The event could be interpreted through capital constraint, financial intermediation stress, information uncertainty, and regulatory shock mechanisms.
 
 **Evidence trace:** Source Document
 
 ## Scenario Classification
 
 - **Primary scenario:** Earnings / Corporate Disclosure
-- **Matched keywords:** earnings, quarter, margin, revenue, disclosure
+- **Matched keywords:** earnings, quarter, disclosure
 - **Classification confidence:** High
 - **Evidence trace:** Source Document + deterministic keyword classifier
 - **Note:** Confidence describes classification quality only; it is not a forecast.
@@ -94,8 +94,8 @@ Analysts need an executive brief that compares the disclosure with historical co
 - **Document type guess:** Earnings / Corporate Disclosure (Evidence trace: Source Document)
 - **Actors:** management (Evidence trace: Source Document)
 - **Countries / regions:** None detected (Evidence trace: Source Document)
-- **Industries:** software (Evidence trace: Source Document)
-- **Policy terms:** None detected (Evidence trace: Source Document)
+- **Industries:** None detected (Evidence trace: Source Document)
+- **Policy terms:** regulatory (Evidence trace: Source Document)
 - **Companies:** None detected (Evidence trace: Source Document)
 
 ## Historical Analogues
@@ -103,29 +103,29 @@ Analysts need an executive brief that compares the disclosure with historical co
 ### Major Earnings Guidance Withdrawal During COVID (2020)
 
 - **Scenario type:** Earnings / Corporate Disclosure
-- **Similarity reason:** scenario match on Earnings / Corporate Disclosure; keyword overlap: commentary, communication, corporate, demand
+- **Similarity reason:** scenario match on Earnings / Corporate Disclosure; keyword overlap: communication, disclosure, earnings, management
 - **Business relevance:** Shows how disclosures can communicate operating uncertainty and planning limits.
 - **Geopolitical relevance:** Connects corporate communication with macro and policy disruption.
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
 
-### CHIPS and Science Act (2022)
+### Brexit Supply Chain Uncertainty (2016)
 
-- **Scenario type:** Industrial Policy
-- **Similarity reason:** keyword overlap: cases, policy
-- **Business relevance:** Shows how public incentives can shape capital planning and site selection.
-- **Geopolitical relevance:** Reflects strategic concern about supply resilience and technology leadership.
+- **Scenario type:** Trade Policy
+- **Similarity reason:** keyword overlap: planning, regional, uncertainty
+- **Business relevance:**  rules
+- **Geopolitical relevance:**  and cross-border operating models.
 - **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** CHIPS and Science Act (2022) - Historical Database
+- **Source origin:** Brexit Supply Chain Uncertainty (2016) - Historical Database
 
-### COVID Supply Chain Disruption (2020)
+### Red Sea Shipping Disruption (2023)
 
 - **Scenario type:** Supply Chain Disruption
-- **Similarity reason:** keyword overlap: demand, policy
-- **Business relevance:** Shows how operational shocks can expose supplier concentration and inventory assumptions.
-- **Geopolitical relevance:** Demonstrates how public health policy can affect cross-border operations.
+- **Similarity reason:** keyword overlap: costs, planning, regional, through
+- **Business relevance:** Shows how route disruption can affect delivery timing and logistics costs.
+- **Geopolitical relevance:** Links regional security conditions with global trade flows.
 - **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** COVID Supply Chain Disruption (2020) - Historical Database
+- **Source origin:** Red Sea Shipping Disruption (2023) - Historical Database
 
 ## Current Context
 
@@ -135,7 +135,7 @@ Analysts need an executive brief that compares the disclosure with historical co
 ## Similarities and Differences
 
 ### Observed Similarities
-- The issue may resemble Major Earnings Guidance Withdrawal During COVID (2020), CHIPS and Science Act (2022) because the retrieved cases share characteristics with the earnings / corporate disclosure scenario frame.
+- The issue may resemble Major Earnings Guidance Withdrawal During COVID (2020), Brexit Supply Chain Uncertainty (2016) because the retrieved cases share characteristics with the earnings / corporate disclosure scenario frame.
 - The current context findings from the retrieved context set share characteristics with the extracted industries and policy terms.
 
 ### Observed Differences
@@ -144,7 +144,7 @@ Analysts need an executive brief that compares the disclosure with historical co
 
 ## Business Considerations
 
-- The issue may indicate changing constraints for software and requires monitoring of stakeholder exposure.
+- The issue may indicate changing constraints for affected business operations and requires monitoring of stakeholder exposure.
 - The earnings / corporate disclosure frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
 - Historical and context evidence should be used to structure diligence, not to imply an outcome.
 
@@ -163,65 +163,65 @@ Analysts need an executive brief that compares the disclosure with historical co
 ### Capital Constraint
 
 - **Description:** Limits on investment or operating flexibility caused by funding costs margins or liquidity
-- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: commentary, margin, operating, pressure
+- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: costs, liquidity, planning
 - **Possible observations:** margin pressure; capex commentary; liquidity planning
 - **Evidence references:** Source Document, Capital Constraint (Mechanism Framework)
 
-### Information Uncertainty
+### Financial Intermediation Stress
 
-- **Description:** Limited visibility that complicates interpretation and executive communication
-- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: communication, demand, executive, that
-- **Possible observations:** uncertain demand; unclear timelines; missing source details
-- **Evidence references:** Source Document, Information Uncertainty (Mechanism Framework)
-
-### Demand Shock
-
-- **Description:** Change in customer demand visibility or order patterns
-- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: commentary, customer, demand, revenue
-- **Possible observations:** order delays; revenue commentary; demand visibility
-- **Evidence references:** Source Document, Demand Shock (Mechanism Framework)
+- **Description:** Pressure on deposits liquidity credit or banking controls
+- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: banking, costs, credit, deposit
+- **Possible observations:** deposit costs; liquidity planning; credit provisions
+- **Evidence references:** Source Document, Financial Intermediation Stress (Mechanism Framework)
 
 ### Input Cost Pressure
 
 - **Description:** Cost pressure from freight inputs capital or compliance
-- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: commentary, margin, pressure
+- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: capital, costs
 - **Possible observations:** freight costs; margin pressure; pricing commentary
 - **Evidence references:** Source Document, Input Cost Pressure (Mechanism Framework)
+
+### Information Uncertainty
+
+- **Description:** Limited visibility that complicates interpretation and executive communication
+- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: communication
+- **Possible observations:** uncertain demand; unclear timelines; missing source details
+- **Evidence references:** Source Document, Information Uncertainty (Mechanism Framework)
 
 ## Competing Interpretations
 
 ### Economics
 
-- **Hypothesis:** One possible interpretation is that the earnings / corporate disclosure event reflects resource allocation constraints linked to Capital Constraint, Information Uncertainty.
-- **Evidence references:** CHIPS and Science Act (2022) - Historical Database, Capital Constraint (Mechanism Framework), Information Uncertainty (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
+- **Hypothesis:** One possible interpretation is that the earnings / corporate disclosure event reflects resource allocation constraints linked to Capital Constraint, Financial Intermediation Stress.
+- **Evidence references:** Brexit Supply Chain Uncertainty (2016) - Historical Database, Capital Constraint (Mechanism Framework), Financial Intermediation Stress (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
 
 ### Political Economy
 
-- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Capital Constraint, Information Uncertainty.
-- **Evidence references:** CHIPS and Science Act (2022) - Historical Database, Capital Constraint (Mechanism Framework), Information Uncertainty (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
+- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Capital Constraint, Financial Intermediation Stress.
+- **Evidence references:** Brexit Supply Chain Uncertainty (2016) - Historical Database, Capital Constraint (Mechanism Framework), Financial Intermediation Stress (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
 
 ### International Relations
 
 - **Hypothesis:** One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.
-- **Evidence references:** CHIPS and Science Act (2022) - Historical Database, Capital Constraint (Mechanism Framework), Information Uncertainty (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
+- **Evidence references:** Brexit Supply Chain Uncertainty (2016) - Historical Database, Capital Constraint (Mechanism Framework), Financial Intermediation Stress (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
 
 ### Legislative / Regulatory
 
 - **Hypothesis:** One possible interpretation is that implementation rules and compliance obligations are central to the event.
-- **Evidence references:** CHIPS and Science Act (2022) - Historical Database, Capital Constraint (Mechanism Framework), Information Uncertainty (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
+- **Evidence references:** Brexit Supply Chain Uncertainty (2016) - Historical Database, Capital Constraint (Mechanism Framework), Financial Intermediation Stress (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
 
 ### Business Strategy
 
 - **Hypothesis:** One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.
-- **Evidence references:** CHIPS and Science Act (2022) - Historical Database, Capital Constraint (Mechanism Framework), Information Uncertainty (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
+- **Evidence references:** Brexit Supply Chain Uncertainty (2016) - Historical Database, Capital Constraint (Mechanism Framework), Financial Intermediation Stress (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
 
 ## Multi-Lens Analysis
 
 ### Economics
 
 **Supporting observations:**
-- The issue references software and operating constraints.
-- Historical analogues such as Major Earnings Guidance Withdrawal During COVID, CHIPS and Science Act show comparable economic adjustment patterns.
+- The issue references business operations and operating constraints.
+- Historical analogues such as Major Earnings Guidance Withdrawal During COVID, Brexit Supply Chain Uncertainty show comparable economic adjustment patterns.
 
 **Limitations:**
 - The document does not quantify cost, demand, or capacity effects.
@@ -239,7 +239,7 @@ Analysts need an executive brief that compares the disclosure with historical co
 
 **Supporting observations:**
 - Detected regions include no explicit region in the source document.
-- Mechanisms such as Capital Constraint, Information Uncertainty can appear in geopolitical or cross-border settings.
+- Mechanisms such as Capital Constraint, Financial Intermediation Stress can appear in geopolitical or cross-border settings.
 
 **Limitations:**
 - The source does not establish intent by governments or counterparties.
@@ -247,7 +247,7 @@ Analysts need an executive brief that compares the disclosure with historical co
 ### Legislative / Regulatory
 
 **Supporting observations:**
-- Detected policy terms include limited explicit policy terms.
+- Detected policy terms include regulatory.
 - The evidence trace includes source document signals and retrieved context records.
 
 **Limitations:**
@@ -265,8 +265,8 @@ Analysts need an executive brief that compares the disclosure with historical co
 ## Supporting Evidence
 
 ### Economics (Substantial)
-- The issue references software and operating constraints.
-- Historical analogues such as Major Earnings Guidance Withdrawal During COVID, CHIPS and Science Act show comparable economic adjustment patterns.
+- The issue references business operations and operating constraints.
+- Historical analogues such as Major Earnings Guidance Withdrawal During COVID, Brexit Supply Chain Uncertainty show comparable economic adjustment patterns.
 
 ### Political Economy (Substantial)
 - The scenario classification is Earnings / Corporate Disclosure.
@@ -274,10 +274,10 @@ Analysts need an executive brief that compares the disclosure with historical co
 
 ### International Relations (Substantial)
 - Detected regions include no explicit region in the source document.
-- Mechanisms such as Capital Constraint, Information Uncertainty can appear in geopolitical or cross-border settings.
+- Mechanisms such as Capital Constraint, Financial Intermediation Stress can appear in geopolitical or cross-border settings.
 
 ### Legislative / Regulatory (Substantial)
-- Detected policy terms include limited explicit policy terms.
+- Detected policy terms include regulatory.
 - The evidence trace includes source document signals and retrieved context records.
 
 ### Business Strategy (Substantial)
@@ -338,7 +338,7 @@ Analysts need an executive brief that compares the disclosure with historical co
 
 **Observed Outcomes:**
 - Observed outcomes varied across cases and should not be treated as predictive.
-- Relevant analogues include Major Earnings Guidance Withdrawal During COVID, CHIPS and Science Act, COVID Supply Chain Disruption.
+- Relevant analogues include Major Earnings Guidance Withdrawal During COVID, Brexit Supply Chain Uncertainty, Red Sea Shipping Disruption.
 
 **Business Lessons:**
 - Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.
@@ -346,7 +346,7 @@ Analysts need an executive brief that compares the disclosure with historical co
 
 ## Cross-Domain Lessons
 
-- Mechanisms such as Capital Constraint, Information Uncertainty, Demand Shock can appear across policy, security, and business domains.
+- Mechanisms such as Capital Constraint, Financial Intermediation Stress, Input Cost Pressure can appear across policy, security, and business domains.
 - Historical response patterns are most useful when paired with current context and source verification.
 
 ## Monitoring Considerations
@@ -380,13 +380,13 @@ Analysts need an executive brief that compares the disclosure with historical co
 ### Evidence Trace
 
 - Agent Router: deterministic tool selection trace
-- CHIPS and Science Act (2022) - Historical Database
-- COVID Supply Chain Disruption (2020) - Historical Database
+- Brexit Supply Chain Uncertainty (2016) - Historical Database
 - Capital Constraint (Mechanism Framework)
-- Demand Shock (Mechanism Framework)
+- Financial Intermediation Stress (Mechanism Framework)
 - Information Uncertainty (Mechanism Framework)
 - Input Cost Pressure (Mechanism Framework)
 - Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
+- Red Sea Shipping Disruption (2023) - Historical Database
 - Source Document
 - Tool Registry: registered deterministic analysis tools
 

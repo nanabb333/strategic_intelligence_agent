@@ -4,23 +4,23 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Executive Summary
 
-- The document describes a Regulatory Action issue involving semiconductor, chip, chips.
+- The document describes an Industrial Policy issue involving semiconductor, manufacturing.
 - Historical analogues and current context are used for comparison and decision support, not prediction.
 - Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
 
 ## Agent Execution Trace
 
 - **Document type detected:** Policy / Regulatory Text
-- **Scenario detected:** Regulatory Action
+- **Scenario detected:** Industrial Policy
 - **Selected tools:** IssueExtractor, ScenarioClassifier, HistoricalRetriever, ContextRetriever, ImplicationAnalyzer, BriefGenerator
 - **Skipped tools:** None
 
-1. **Scenario detected:** Regulatory Action
+1. **Scenario detected:** Industrial Policy
 2. **Document type detected:** Policy / Regulatory Text
 3. **Tool selected:** IssueExtractor: Every route starts by converting source text into structured issue fields.
 4. **Tool selected:** ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted.
-5. **Tool selected:** HistoricalRetriever: Regulatory Action benefits from comparison against historical precedents.
-6. **Tool selected:** ContextRetriever: Regulatory Action usually benefits from domain context and monitoring considerations.
+5. **Tool selected:** HistoricalRetriever: Industrial Policy benefits from comparison against historical precedents.
+6. **Tool selected:** ContextRetriever: Industrial Policy usually benefits from domain context and monitoring considerations.
 7. **Tool selected:** ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations.
 8. **Tool selected:** BriefGenerator: The final deliverable is an executive intelligence brief.
 
@@ -41,13 +41,13 @@ This output is for decision-support and analyst productivity only. It does not p
 ### HistoricalRetriever
 
 - **Decision:** Selected
-- **Why:** Regulatory Action benefits from comparison against historical precedents.
+- **Why:** Industrial Policy benefits from comparison against historical precedents.
 - **Expected contribution:** Top analogue cases and similarity reasons from the historical database.
 
 ### ContextRetriever
 
 - **Decision:** Selected
-- **Why:** Regulatory Action usually benefits from domain context and monitoring considerations.
+- **Why:** Industrial Policy usually benefits from domain context and monitoring considerations.
 - **Expected contribution:** Adds current context from the local knowledge base.
 
 ### ImplicationAnalyzer
@@ -71,20 +71,20 @@ This output is for decision-support and analyst productivity only. It does not p
 
 ## Key Issue
 
-**Title:** Semiconductor Policy Case
+**Title:** V4 Industrial Policy Reasoning
 
-**Core issue:** The CHIPS Act and related export control rules are shaping semiconductor manufacturing strategy.
+**Core issue:** Government incentives, subsidies, and domestic manufacturing rules are shaping semiconductor fabrication strategy.
 
-**Summary:** The CHIPS Act and related export control rules are shaping semiconductor manufacturing strategy. Executives are evaluating domestic fabrication incentives, equipment access, supplier qualification, and compliance obligations for advanced AI chip supply chains.
+**Summary:** Government incentives, subsidies, and domestic manufacturing rules are shaping semiconductor fabrication strategy. Executives are evaluating capacity, workforce constraints, equipment access, qualification requirements, and agency guidance.
 
-The decision context requires monitoring government funding rules, allied export-control alignment, construction milestones, and supplier readiness.
+The event could be interpreted through industrial subsidy, legislative implementation gap, strategic dependency, and policy signaling mechanisms.
 
 **Evidence trace:** Source Document
 
 ## Scenario Classification
 
-- **Primary scenario:** Regulatory Action
-- **Matched keywords:** regulatory, compliance, rule
+- **Primary scenario:** Industrial Policy
+- **Matched keywords:** industrial policy, subsidy, subsidies, domestic manufacturing
 - **Classification confidence:** High
 - **Evidence trace:** Source Document + deterministic keyword classifier
 - **Note:** Confidence describes classification quality only; it is not a forecast.
@@ -94,25 +94,16 @@ The decision context requires monitoring government funding rules, allied export
 - **Document type guess:** Policy / Regulatory Text (Evidence trace: Source Document)
 - **Actors:** government, executives (Evidence trace: Source Document)
 - **Countries / regions:** None detected (Evidence trace: Source Document)
-- **Industries:** semiconductor, chip, chips, AI, manufacturing (Evidence trace: Source Document)
-- **Policy terms:** export control, compliance, CHIPS Act (Evidence trace: Source Document)
+- **Industries:** semiconductor, manufacturing (Evidence trace: Source Document)
+- **Policy terms:** subsidy, subsidies, industrial policy (Evidence trace: Source Document)
 - **Companies:** None detected (Evidence trace: Source Document)
 
 ## Historical Analogues
 
-### GDPR Implementation (2018)
-
-- **Scenario type:** Regulatory Action
-- **Similarity reason:** scenario match on Regulatory Action; keyword overlap: compliance, readiness, regulatory, rules
-- **Business relevance:** Shows how regulation can require governance, documentation, and process changes.
-- **Geopolitical relevance:** Illustrates regulatory power shaping global business practices.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** GDPR Implementation (2018) - Historical Database
-
 ### CHIPS and Science Act (2022)
 
 - **Scenario type:** Industrial Policy
-- **Similarity reason:** keyword overlap: act, chips, domestic, incentives; industry overlap: manufacturing; actor overlap: government
+- **Similarity reason:** scenario match on Industrial Policy; keyword overlap: capacity, domestic, incentives, industrial; industry overlap: manufacturing; actor overlap: government
 - **Business relevance:** Shows how public incentives can shape capital planning and site selection.
 - **Geopolitical relevance:** Reflects strategic concern about supply resilience and technology leadership.
 - **Caution note:** Historical analogues support comparison, not prediction.
@@ -121,46 +112,55 @@ The decision context requires monitoring government funding rules, allied export
 ### Inflation Reduction Act Clean Energy Incentives (2022)
 
 - **Scenario type:** Industrial Policy
-- **Similarity reason:** keyword overlap: act, chains, domestic, incentives; industry overlap: manufacturing; actor overlap: government
+- **Similarity reason:** scenario match on Industrial Policy; keyword overlap: capacity, domestic, incentives, industrial; industry overlap: manufacturing; actor overlap: government
 - **Business relevance:** Shows how incentives can alter capital allocation and supplier location decisions.
 - **Geopolitical relevance:** Reflects strategic competition around clean energy production capacity.
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database
 
+### ASML Export Controls (2023)
+
+- **Scenario type:** Export Controls
+- **Similarity reason:** keyword overlap: access, capacity, constraints, equipment; actor overlap: government
+- **Business relevance:** Highlights exposure to licensing rules for critical production tools.
+- **Geopolitical relevance:** Shows allied coordination around sensitive technology controls.
+- **Caution note:** Historical analogues support comparison, not prediction.
+- **Source origin:** ASML Export Controls (2023) - Historical Database
+
 ## Current Context
 
-### Banking - Regulatory Action
+### Semiconductors - Industrial Policy
 
-- **Context summary:** Banking regulation can affect capital planning, liquidity management, risk controls, and reporting obligations.
-- **Why it matters:** Regulatory requirements can change operating flexibility and compliance workload.
-- **Stakeholders:** Banks; regulators; boards; risk officers; customers
-- **Monitoring considerations:** Rule proposals; supervisory guidance; stress-test results; enforcement actions
-- **Retrieval reason:** scenario match: Regulatory Action; keyword overlap: compliance, control, obligation, obligations
-- **Source origin:** Banking Context KB: BK-002 (banking_context.md)
+- **Context summary:** Governments use subsidies, tax credits, and research programs to support domestic semiconductor capacity.
+- **Why it matters:** Incentives can shape site selection, partnership choices, and capital allocation.
+- **Stakeholders:** Manufacturers; governments; equipment suppliers; local communities
+- **Monitoring considerations:** Funding awards; eligibility rules; construction timelines; workforce constraints
+- **Retrieval reason:** industry match: semiconductor; scenario match: Industrial Policy; keyword overlap: capacity, constraint, constraints, domestic
+- **Source origin:** Semiconductors Context KB: SC-002 (semiconductor_context.md)
 
-### Energy - Regulatory Action
+### Energy - Industrial Policy
 
-- **Context summary:** Energy regulation can affect permitting, emissions compliance, grid access, and reporting obligations.
-- **Why it matters:** Regulatory changes can alter project timelines and operational controls.
-- **Stakeholders:** Regulators; utilities; project developers; communities; customers
-- **Monitoring considerations:** Permit decisions; compliance deadlines; agency guidance; public filings
-- **Retrieval reason:** scenario match: Regulatory Action; keyword overlap: acces, access, compliance, control
-- **Source origin:** Energy Context KB: EN-004 (energy_context.md)
+- **Context summary:** Clean energy incentives can influence battery, solar, hydrogen, and grid-related investment decisions.
+- **Why it matters:** Incentives may affect manufacturing location, supplier strategy, and project economics.
+- **Stakeholders:** Energy developers; manufacturers; utilities; governments; suppliers
+- **Monitoring considerations:** Tax-credit rules; project announcements; grid constraints; supplier capacity
+- **Retrieval reason:** scenario match: Industrial Policy; keyword overlap: capacity, constraint, constraints, government
+- **Source origin:** Energy Context KB: EN-002 (energy_context.md)
 
-### Semiconductors - Export Controls
+### Trade Policy - Industrial Policy
 
-- **Context summary:** Advanced chip and semiconductor equipment supply chains depend on cross-border licensing, specialized suppliers, and government controls.
-- **Why it matters:** Controls can affect access to inputs, customer eligibility, and compliance review timelines.
-- **Stakeholders:** Chip designers; equipment vendors; foundries; cloud providers; regulators
-- **Monitoring considerations:** Licensing updates; allied coordination; supplier disclosures; compliance guidance
-- **Retrieval reason:** industry match: semiconductor; keyword overlap: acces, access, advanced, allied
-- **Source origin:** Semiconductors Context KB: SC-001 (semiconductor_context.md)
+- **Context summary:** Industrial policy can combine incentives, procurement rules, and domestic-content requirements.
+- **Why it matters:** Firms may need to assess eligibility, supply chain configuration, and partnership requirements.
+- **Stakeholders:** Governments; manufacturers; suppliers; customers; local workforces
+- **Monitoring considerations:** Eligibility criteria; award announcements; domestic-content rules; implementation guidance
+- **Retrieval reason:** scenario match: Industrial Policy; keyword overlap: government, guidance, implementation, incentive
+- **Source origin:** Trade Policy Context KB: TP-004 (trade_policy_context.md)
 
 ## Similarities and Differences
 
 ### Observed Similarities
-- The issue may resemble GDPR Implementation (2018), CHIPS and Science Act (2022) because the retrieved cases share characteristics with the regulatory action scenario frame.
-- The current context findings from Banking, Energy, Semiconductors share characteristics with the extracted industries and policy terms.
+- The issue may resemble CHIPS and Science Act (2022), Inflation Reduction Act Clean Energy Incentives (2022) because the retrieved cases share characteristics with the industrial policy scenario frame.
+- The current context findings from Energy, Semiconductors, Trade Policy share characteristics with the extracted industries and policy terms.
 
 ### Observed Differences
 - The source document differs from historical analogues because current actors, implementation details, and timing are document-specific.
@@ -168,8 +168,8 @@ The decision context requires monitoring government funding rules, allied export
 
 ## Business Considerations
 
-- The issue may indicate changing constraints for semiconductor, chip, chips and requires monitoring of stakeholder exposure.
-- The regulatory action frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
+- The issue may indicate changing constraints for semiconductor, manufacturing and requires monitoring of stakeholder exposure.
+- The industrial policy frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
 - Historical and context evidence should be used to structure diligence, not to imply an outcome.
 
 ## Operational Considerations
@@ -184,68 +184,68 @@ The decision context requires monitoring government funding rules, allied export
 
 ## Mechanisms Detected
 
-### Regulatory Shock
+### Industrial Subsidy
 
-- **Description:** Sudden or material change in compliance obligations
-- **Detection reason:** scenario match: Regulatory Action; observation overlap: compliance, obligations, rules
-- **Possible observations:** new rules; enforcement; reporting obligations
-- **Evidence references:** Source Document, Regulatory Shock (Mechanism Framework)
+- **Description:** Government incentives that shape investment production or supply location
+- **Detection reason:** scenario match: Industrial Policy; observation overlap: domestic, government, incentives, rules
+- **Possible observations:** tax credits; grants; eligibility rules; domestic content
+- **Evidence references:** Source Document, Industrial Subsidy (Mechanism Framework)
+
+### Alliance Coordination
+
+- **Description:** Policy alignment or divergence among allied governments
+- **Detection reason:** scenario match: Industrial Policy; observation overlap: implementation, policy, rules
+- **Possible observations:** joint statements; aligned rules; implementation differences
+- **Evidence references:** Source Document, Alliance Coordination (Mechanism Framework)
+
+### Policy Signaling
+
+- **Description:** Government action used to signal strategic priorities or boundaries
+- **Detection reason:** scenario match: Industrial Policy; observation overlap: government, guidance, strategic
+- **Possible observations:** public guidance; funding priorities; security messaging
+- **Evidence references:** Source Document, Policy Signaling (Mechanism Framework)
 
 ### Legislative Implementation Gap
 
 - **Description:** Difference between enacted policy and operational implementation
-- **Detection reason:** scenario match: Regulatory Action; observation overlap: compliance, policy, rules
+- **Detection reason:** scenario match: Industrial Policy; observation overlap: agency, guidance, implementation, policy
 - **Possible observations:** eligibility rules; agency guidance; compliance deadlines
 - **Evidence references:** Source Document, Legislative Implementation Gap (Mechanism Framework)
-
-### Reputational Sensitivity
-
-- **Description:** Stakeholder perception risk linked to public policy security or compliance issues
-- **Detection reason:** scenario match: Regulatory Action; observation overlap: compliance, policy; actor overlap: executives
-- **Possible observations:** public statements; stakeholder concern; disclosure language
-- **Evidence references:** Source Document, Reputational Sensitivity (Mechanism Framework)
-
-### Operational Resilience
-
-- **Description:** Organizational ability to adapt workflows sourcing or controls
-- **Detection reason:** scenario match: Regulatory Action; observation overlap: monitoring; actor overlap: executives
-- **Possible observations:** contingency plans; alternate routes; monitoring routines
-- **Evidence references:** Source Document, Operational Resilience (Mechanism Framework)
 
 ## Competing Interpretations
 
 ### Economics
 
-- **Hypothesis:** One possible interpretation is that the regulatory action event reflects resource allocation constraints linked to Regulatory Shock, Legislative Implementation Gap.
-- **Evidence references:** Banking Context KB: BK-002 (banking_context.md), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-004 (energy_context.md), GDPR Implementation (2018) - Historical Database, Legislative Implementation Gap (Mechanism Framework), Regulatory Shock (Mechanism Framework), Source Document
+- **Hypothesis:** One possible interpretation is that the industrial policy event reflects resource allocation constraints linked to Industrial Subsidy, Alliance Coordination.
+- **Evidence references:** Alliance Coordination (Mechanism Framework), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-002 (energy_context.md), Industrial Subsidy (Mechanism Framework), Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database, Semiconductors Context KB: SC-002 (semiconductor_context.md), Source Document
 
 ### Political Economy
 
-- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Regulatory Shock, Legislative Implementation Gap.
-- **Evidence references:** Banking Context KB: BK-002 (banking_context.md), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-004 (energy_context.md), GDPR Implementation (2018) - Historical Database, Legislative Implementation Gap (Mechanism Framework), Regulatory Shock (Mechanism Framework), Source Document
+- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Industrial Subsidy, Alliance Coordination.
+- **Evidence references:** Alliance Coordination (Mechanism Framework), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-002 (energy_context.md), Industrial Subsidy (Mechanism Framework), Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database, Semiconductors Context KB: SC-002 (semiconductor_context.md), Source Document
 
 ### International Relations
 
 - **Hypothesis:** One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.
-- **Evidence references:** Banking Context KB: BK-002 (banking_context.md), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-004 (energy_context.md), GDPR Implementation (2018) - Historical Database, Legislative Implementation Gap (Mechanism Framework), Regulatory Shock (Mechanism Framework), Source Document
+- **Evidence references:** Alliance Coordination (Mechanism Framework), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-002 (energy_context.md), Industrial Subsidy (Mechanism Framework), Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database, Semiconductors Context KB: SC-002 (semiconductor_context.md), Source Document
 
 ### Legislative / Regulatory
 
 - **Hypothesis:** One possible interpretation is that implementation rules and compliance obligations are central to the event.
-- **Evidence references:** Banking Context KB: BK-002 (banking_context.md), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-004 (energy_context.md), GDPR Implementation (2018) - Historical Database, Legislative Implementation Gap (Mechanism Framework), Regulatory Shock (Mechanism Framework), Source Document
+- **Evidence references:** Alliance Coordination (Mechanism Framework), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-002 (energy_context.md), Industrial Subsidy (Mechanism Framework), Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database, Semiconductors Context KB: SC-002 (semiconductor_context.md), Source Document
 
 ### Business Strategy
 
 - **Hypothesis:** One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.
-- **Evidence references:** Banking Context KB: BK-002 (banking_context.md), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-004 (energy_context.md), GDPR Implementation (2018) - Historical Database, Legislative Implementation Gap (Mechanism Framework), Regulatory Shock (Mechanism Framework), Source Document
+- **Evidence references:** Alliance Coordination (Mechanism Framework), CHIPS and Science Act (2022) - Historical Database, Energy Context KB: EN-002 (energy_context.md), Industrial Subsidy (Mechanism Framework), Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database, Semiconductors Context KB: SC-002 (semiconductor_context.md), Source Document
 
 ## Multi-Lens Analysis
 
 ### Economics
 
 **Supporting observations:**
-- The issue references semiconductor, chip, chips and operating constraints.
-- Historical analogues such as GDPR Implementation, CHIPS and Science Act show comparable economic adjustment patterns.
+- The issue references semiconductor, manufacturing and operating constraints.
+- Historical analogues such as CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives show comparable economic adjustment patterns.
 
 **Limitations:**
 - The document does not quantify cost, demand, or capacity effects.
@@ -253,8 +253,8 @@ The decision context requires monitoring government funding rules, allied export
 ### Political Economy
 
 **Supporting observations:**
-- The scenario classification is Regulatory Action.
-- Current context from Banking, Energy highlights stakeholders and monitoring considerations.
+- The scenario classification is Industrial Policy.
+- Current context from Semiconductors, Energy highlights stakeholders and monitoring considerations.
 
 **Limitations:**
 - The balance between public policy goals and firm-level incentives requires more source detail.
@@ -263,7 +263,7 @@ The decision context requires monitoring government funding rules, allied export
 
 **Supporting observations:**
 - Detected regions include no explicit region in the source document.
-- Mechanisms such as Regulatory Shock, Legislative Implementation Gap can appear in geopolitical or cross-border settings.
+- Mechanisms such as Industrial Subsidy, Alliance Coordination can appear in geopolitical or cross-border settings.
 
 **Limitations:**
 - The source does not establish intent by governments or counterparties.
@@ -271,7 +271,7 @@ The decision context requires monitoring government funding rules, allied export
 ### Legislative / Regulatory
 
 **Supporting observations:**
-- Detected policy terms include export control, compliance, CHIPS Act.
+- Detected policy terms include subsidy, subsidies, industrial policy.
 - The evidence trace includes source document signals and retrieved context records.
 
 **Limitations:**
@@ -289,19 +289,19 @@ The decision context requires monitoring government funding rules, allied export
 ## Supporting Evidence
 
 ### Economics (Substantial)
-- The issue references semiconductor, chip, chips and operating constraints.
-- Historical analogues such as GDPR Implementation, CHIPS and Science Act show comparable economic adjustment patterns.
+- The issue references semiconductor, manufacturing and operating constraints.
+- Historical analogues such as CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives show comparable economic adjustment patterns.
 
 ### Political Economy (Substantial)
-- The scenario classification is Regulatory Action.
-- Current context from Banking, Energy highlights stakeholders and monitoring considerations.
+- The scenario classification is Industrial Policy.
+- Current context from Semiconductors, Energy highlights stakeholders and monitoring considerations.
 
 ### International Relations (Substantial)
 - Detected regions include no explicit region in the source document.
-- Mechanisms such as Regulatory Shock, Legislative Implementation Gap can appear in geopolitical or cross-border settings.
+- Mechanisms such as Industrial Subsidy, Alliance Coordination can appear in geopolitical or cross-border settings.
 
 ### Legislative / Regulatory (Substantial)
-- Detected policy terms include export control, compliance, CHIPS Act.
+- Detected policy terms include subsidy, subsidies, industrial policy.
 - The evidence trace includes source document signals and retrieved context records.
 
 ### Business Strategy (Substantial)
@@ -362,7 +362,7 @@ The decision context requires monitoring government funding rules, allied export
 
 **Observed Outcomes:**
 - Observed outcomes varied across cases and should not be treated as predictive.
-- Relevant analogues include GDPR Implementation, CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives.
+- Relevant analogues include CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives, ASML Export Controls.
 
 **Business Lessons:**
 - Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.
@@ -370,7 +370,7 @@ The decision context requires monitoring government funding rules, allied export
 
 ## Cross-Domain Lessons
 
-- Mechanisms such as Regulatory Shock, Legislative Implementation Gap, Reputational Sensitivity can appear across policy, security, and business domains.
+- Mechanisms such as Industrial Subsidy, Alliance Coordination, Policy Signaling can appear across policy, security, and business domains.
 - Historical response patterns are most useful when paired with current context and source verification.
 
 ## Monitoring Considerations
@@ -403,19 +403,19 @@ The decision context requires monitoring government funding rules, allied export
 
 ### Evidence Trace
 
+- ASML Export Controls (2023) - Historical Database
 - Agent Router: deterministic tool selection trace
-- Banking Context KB: BK-002 (banking_context.md)
+- Alliance Coordination (Mechanism Framework)
 - CHIPS and Science Act (2022) - Historical Database
-- Energy Context KB: EN-004 (energy_context.md)
-- GDPR Implementation (2018) - Historical Database
+- Energy Context KB: EN-002 (energy_context.md)
+- Industrial Subsidy (Mechanism Framework)
 - Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database
 - Legislative Implementation Gap (Mechanism Framework)
-- Operational Resilience (Mechanism Framework)
-- Regulatory Shock (Mechanism Framework)
-- Reputational Sensitivity (Mechanism Framework)
-- Semiconductors Context KB: SC-001 (semiconductor_context.md)
+- Policy Signaling (Mechanism Framework)
+- Semiconductors Context KB: SC-002 (semiconductor_context.md)
 - Source Document
 - Tool Registry: registered deterministic analysis tools
+- Trade Policy Context KB: TP-004 (trade_policy_context.md)
 
 ## Evidence Sources
 

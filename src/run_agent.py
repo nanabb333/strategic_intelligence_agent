@@ -5,6 +5,10 @@ from pathlib import Path
 from agent_router import route_document
 from brief_generator import generate_brief
 from document_loader import load_document
+from evidence_assessor import assess_evidence
+from mechanism_detector import detect_mechanisms
+from multi_lens_analyzer import analyze_lenses
+from response_playbook_retriever import retrieve_response_patterns
 from tool_registry import build_default_registry
 
 
@@ -23,6 +27,10 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
         else {issue.title: [] for issue in issues}
     )
     analyses = registry["ImplicationAnalyzer"].callable(issues, classifications, analogues, contexts)
+    mechanisms = detect_mechanisms(issues, classifications)
+    interpretations = analyze_lenses(issues, classifications, mechanisms, analogues, contexts)
+    evidence_assessments = assess_evidence(interpretations)
+    response_patterns = retrieve_response_patterns(analogues, mechanisms)
     brief = registry["BriefGenerator"].callable(
         issues,
         classifications,
@@ -30,6 +38,10 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
         contexts,
         analyses,
         agent_route=route,
+        mechanisms=mechanisms,
+        interpretations=interpretations,
+        evidence_assessments=evidence_assessments,
+        response_patterns=response_patterns,
     )
 
     destination = Path(output_path)

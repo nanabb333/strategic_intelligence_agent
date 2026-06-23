@@ -158,6 +158,202 @@ The disclosure raises questions about stakeholder communication, operational con
 - The issue could affect cross-border coordination involving relevant jurisdictions.
 - Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions.
 
+## Mechanisms Detected
+
+### Capital Constraint
+
+- **Description:** Limits on investment or operating flexibility caused by funding costs margins or liquidity
+- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: commentary, costs, liquidity, planning; actor overlap: executives
+- **Possible observations:** margin pressure; capex commentary; liquidity planning
+- **Evidence references:** Source Document, Capital Constraint (Mechanism Framework)
+
+### Information Uncertainty
+
+- **Description:** Limited visibility that complicates interpretation and executive communication
+- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: communication, that; actor overlap: executives
+- **Possible observations:** uncertain demand; unclear timelines; missing source details
+- **Evidence references:** Source Document, Information Uncertainty (Mechanism Framework)
+
+### Financial Intermediation Stress
+
+- **Description:** Pressure on deposits liquidity credit or banking controls
+- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: banking, controls, costs, credit
+- **Possible observations:** deposit costs; liquidity planning; credit provisions
+- **Evidence references:** Source Document, Financial Intermediation Stress (Mechanism Framework)
+
+### Reputational Sensitivity
+
+- **Description:** Stakeholder perception risk linked to public policy security or compliance issues
+- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: disclosure, stakeholder; actor overlap: executives
+- **Possible observations:** public statements; stakeholder concern; disclosure language
+- **Evidence references:** Source Document, Reputational Sensitivity (Mechanism Framework)
+
+## Competing Interpretations
+
+### Economics
+
+- **Hypothesis:** One possible interpretation is that the earnings / corporate disclosure event reflects resource allocation constraints linked to Capital Constraint, Information Uncertainty.
+- **Evidence references:** CHIPS and Science Act (2022) - Historical Database, Capital Constraint (Mechanism Framework), Information Uncertainty (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
+
+### Political Economy
+
+- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Capital Constraint, Information Uncertainty.
+- **Evidence references:** CHIPS and Science Act (2022) - Historical Database, Capital Constraint (Mechanism Framework), Information Uncertainty (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
+
+### International Relations
+
+- **Hypothesis:** One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.
+- **Evidence references:** CHIPS and Science Act (2022) - Historical Database, Capital Constraint (Mechanism Framework), Information Uncertainty (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
+
+### Legislative / Regulatory
+
+- **Hypothesis:** One possible interpretation is that implementation rules and compliance obligations are central to the event.
+- **Evidence references:** CHIPS and Science Act (2022) - Historical Database, Capital Constraint (Mechanism Framework), Information Uncertainty (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
+
+### Business Strategy
+
+- **Hypothesis:** One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.
+- **Evidence references:** CHIPS and Science Act (2022) - Historical Database, Capital Constraint (Mechanism Framework), Information Uncertainty (Mechanism Framework), Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Source Document
+
+## Multi-Lens Analysis
+
+### Economics
+
+**Supporting observations:**
+- The issue references business operations and operating constraints.
+- Historical analogues such as Major Earnings Guidance Withdrawal During COVID, CHIPS and Science Act show comparable economic adjustment patterns.
+
+**Limitations:**
+- The document does not quantify cost, demand, or capacity effects.
+
+### Political Economy
+
+**Supporting observations:**
+- The scenario classification is Earnings / Corporate Disclosure.
+- Current context from retrieved context entries highlights stakeholders and monitoring considerations.
+
+**Limitations:**
+- The balance between public policy goals and firm-level incentives requires more source detail.
+
+### International Relations
+
+**Supporting observations:**
+- Detected regions include no explicit region in the source document.
+- Mechanisms such as Capital Constraint, Information Uncertainty can appear in geopolitical or cross-border settings.
+
+**Limitations:**
+- The source does not establish intent by governments or counterparties.
+
+### Legislative / Regulatory
+
+**Supporting observations:**
+- Detected policy terms include regulatory.
+- The evidence trace includes source document signals and retrieved context records.
+
+**Limitations:**
+- Primary legal text or agency guidance would be needed for a complete regulatory reading.
+
+### Business Strategy
+
+**Supporting observations:**
+- The issue mentions actors such as executives, management.
+- The brief combines analogue patterns with current context monitoring considerations.
+
+**Limitations:**
+- The source does not contain internal priorities, customer-level exposure, or implementation plans.
+
+## Supporting Evidence
+
+### Economics (Substantial)
+- The issue references business operations and operating constraints.
+- Historical analogues such as Major Earnings Guidance Withdrawal During COVID, CHIPS and Science Act show comparable economic adjustment patterns.
+
+### Political Economy (Substantial)
+- The scenario classification is Earnings / Corporate Disclosure.
+- Current context from retrieved context entries highlights stakeholders and monitoring considerations.
+
+### International Relations (Substantial)
+- Detected regions include no explicit region in the source document.
+- Mechanisms such as Capital Constraint, Information Uncertainty can appear in geopolitical or cross-border settings.
+
+### Legislative / Regulatory (Substantial)
+- Detected policy terms include regulatory.
+- The evidence trace includes source document signals and retrieved context records.
+
+### Business Strategy (Substantial)
+- The issue mentions actors such as executives, management.
+- The brief combines analogue patterns with current context monitoring considerations.
+
+## Weakening Evidence
+
+### Economics
+- The document does not quantify cost, demand, or capacity effects.
+
+### Political Economy
+- The balance between public policy goals and firm-level incentives requires more source detail.
+
+### International Relations
+- The source does not establish intent by governments or counterparties.
+
+### Legislative / Regulatory
+- Primary legal text or agency guidance would be needed for a complete regulatory reading.
+
+### Business Strategy
+- The source does not contain internal priorities, customer-level exposure, or implementation plans.
+
+## Missing Evidence
+
+### Economics
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Political Economy
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### International Relations
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Legislative / Regulatory
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+### Business Strategy
+- Primary-source confirmation of implementation details.
+- Stakeholder-specific exposure data.
+- Updated source material that confirms whether conditions have changed.
+
+## Historical Response Patterns
+
+### Monitoring and contingency planning
+
+**Observed Historical Choices:**
+- Organizations reviewed counterparties, suppliers, and implementation details.
+- Teams created monitoring routines around policy updates and operational constraints.
+
+**Observed Outcomes:**
+- Observed outcomes varied across cases and should not be treated as predictive.
+- Relevant analogues include Major Earnings Guidance Withdrawal During COVID, CHIPS and Science Act, Taiwan Strait Military Exercises.
+
+**Business Lessons:**
+- Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.
+- Cross-functional review can help separate compliance, operational, and strategic questions.
+
+## Cross-Domain Lessons
+
+- Mechanisms such as Capital Constraint, Information Uncertainty, Financial Intermediation Stress can appear across policy, security, and business domains.
+- Historical response patterns are most useful when paired with current context and source verification.
+
+## Monitoring Considerations
+
+- Decision-makers may wish to monitor source updates, implementation details, stakeholder responses, and evidence gaps.
+- Decision-makers may wish to monitor whether new evidence strengthens or weakens each interpretation.
+
 ## Strategic Questions
 
 - Which stakeholders are most exposed to this issue?
@@ -185,7 +381,11 @@ The disclosure raises questions about stakeholder communication, operational con
 
 - Agent Router: deterministic tool selection trace
 - CHIPS and Science Act (2022) - Historical Database
+- Capital Constraint (Mechanism Framework)
+- Financial Intermediation Stress (Mechanism Framework)
+- Information Uncertainty (Mechanism Framework)
 - Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
+- Reputational Sensitivity (Mechanism Framework)
 - Source Document
 - Taiwan Strait Military Exercises (2022) - Historical Database
 - Tool Registry: registered deterministic analysis tools

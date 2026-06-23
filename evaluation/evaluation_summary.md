@@ -31,7 +31,7 @@ V5 adds a deterministic benchmark framework for measuring credibility of the exi
 - Lens Coverage Rate: 1.0
 - Response Retrieval Coverage: 1.0
 - Overall Benchmark Score: 0.963
-- Detailed results: `/Users/NaNabb/Documents/strategic_intelligence_agent/evaluation/benchmark_results.csv`
+- Detailed results: `evaluation/benchmark_results.csv`
 
 ## Strengths
 

@@ -226,6 +226,7 @@ def write_summary(
 ) -> None:
     """Write a Markdown benchmark report from generated results."""
     metrics = metric_summary(results)
+    result_display_path = _display_path(results_path)
     scenario_counts: dict[str, int] = {}
     for case in cases:
         scenario_counts[case["expected_scenario"]] = scenario_counts.get(case["expected_scenario"], 0) + 1
@@ -273,7 +274,7 @@ def write_summary(
             f"- Lens Coverage Rate: {metrics['lens_coverage_rate']}",
             f"- Response Retrieval Coverage: {metrics['response_retrieval_coverage']}",
             f"- Overall Benchmark Score: {metrics['overall_benchmark_score']}",
-            f"- Detailed results: `{Path(results_path).as_posix()}`",
+            f"- Detailed results: `{result_display_path}`",
             "",
             "## Strengths",
             "",
@@ -294,6 +295,15 @@ def write_summary(
         ]
     )
     Path(path).write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+def _display_path(path: str | Path) -> str:
+    """Return a stable repository-relative path when possible."""
+    candidate = Path(path)
+    try:
+        return candidate.resolve().relative_to(Path.cwd().resolve()).as_posix()
+    except ValueError:
+        return candidate.as_posix()
 
 
 def main() -> None:

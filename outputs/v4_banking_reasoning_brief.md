@@ -127,6 +127,90 @@ The event could be interpreted through capital constraint, financial intermediat
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** Red Sea Shipping Disruption (2023) - Historical Database
 
+## Historical Outcomes
+
+### Red Sea Shipping Disruption (2023)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Security risks disrupted routing, transit times, insurance terms, and delivery planning.
+- **Strategic response:** Firms evaluated rerouting, customer communication, freight costs, and contingency planning.
+- **Time horizon:** Short-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Supply Chain Disruption
+
+### Brexit Supply Chain Uncertainty (2016)
+
+- **Event family:** Trade Policy
+- **Observed outcome:** Customs and regulatory uncertainty complicated cross-border operating models.
+- **Strategic response:** Companies prepared documentation, adjusted logistics plans, and monitored transition rules.
+- **Time horizon:** Long-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Trade Policy
+
+### Japan-Korea Materials Dispute (2019)
+
+- **Event family:** Trade Policy
+- **Observed outcome:** Input-specific trade controls exposed dependence on specialized upstream suppliers.
+- **Strategic response:** Firms examined alternate sources, inventory buffers, and supplier qualification timelines.
+- **Time horizon:** Medium-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Trade Policy
+
+### COVID Supply Chain Disruption (2020)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions.
+- **Strategic response:** Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.
+- **Time horizon:** Short-to-medium-term
+- **Confidence:** High
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Supply Chain Disruption
+
+### Major Earnings Guidance Withdrawals During COVID (2020)
+
+- **Event family:** Earnings / Corporate Disclosure
+- **Observed outcome:** Firms withdrew or revised guidance amid limited demand and operational visibility.
+- **Strategic response:** Management teams emphasized uncertainty, liquidity monitoring, and scenario communication.
+- **Time horizon:** Short-term
+- **Confidence:** High
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Earnings / Corporate Disclosure
+
+## Strategic Lessons
+
+### Supply chain diversification frequently appears after export-control or disruption shocks.
+
+- **Supporting cases:** Red Sea Shipping Disruption (2023), Japan-Korea Materials Dispute (2019), COVID Supply Chain Disruption (2020)
+- **Confidence:** High
+- **Rationale:** Matched 3 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.
+
+### Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.
+
+- **Supporting cases:** Brexit Supply Chain Uncertainty (2016)
+- **Confidence:** Low
+- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.
+
+### Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.
+
+- **Supporting cases:** Red Sea Shipping Disruption (2023)
+- **Confidence:** Low
+- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.
+
+### Periods of uncertainty often increase the value of executive communication and monitoring routines.
+
+- **Supporting cases:** Red Sea Shipping Disruption (2023), Brexit Supply Chain Uncertainty (2016), COVID Supply Chain Disruption (2020), Major Earnings Guidance Withdrawals During COVID (2020)
+- **Confidence:** High
+- **Rationale:** Matched 4 retrieved outcome case(s) with rule keywords: uncertainty, visibility, monitoring, communication.
+
+## Decision Considerations
+
+- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.
+- Decision-makers may wish to separate recurring historical lessons from case-specific facts.
+- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.
+
 ## Current Context
 
 - ContextRetriever was skipped or no current-context findings were returned for this route.
@@ -381,12 +465,17 @@ The event could be interpreted through capital constraint, financial intermediat
 
 - Agent Router: deterministic tool selection trace
 - Brexit Supply Chain Uncertainty (2016) - Historical Database
+- Brexit Supply Chain Uncertainty (2016) - Historical Outcomes Database
+- COVID Supply Chain Disruption (2020) - Historical Outcomes Database
 - Capital Constraint (Mechanism Framework)
 - Financial Intermediation Stress (Mechanism Framework)
 - Information Uncertainty (Mechanism Framework)
 - Input Cost Pressure (Mechanism Framework)
+- Japan-Korea Materials Dispute (2019) - Historical Outcomes Database
 - Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
+- Major Earnings Guidance Withdrawals During COVID (2020) - Historical Outcomes Database
 - Red Sea Shipping Disruption (2023) - Historical Database
+- Red Sea Shipping Disruption (2023) - Historical Outcomes Database
 - Source Document
 - Tool Registry: registered deterministic analysis tools
 

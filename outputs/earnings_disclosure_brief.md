@@ -127,6 +127,90 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** CHIPS and Science Act (2022) - Historical Database
 
+## Historical Outcomes
+
+### Huawei Entity List (2019)
+
+- **Event family:** Export Controls
+- **Observed outcome:** Restricted access to selected technology inputs changed supplier screening and product planning.
+- **Strategic response:** Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
+- **Time horizon:** Medium-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Export Controls
+
+### CHIPS and Science Act (2022)
+
+- **Event family:** Industrial Policy
+- **Observed outcome:** Public incentives reshaped capacity planning and domestic manufacturing discussions.
+- **Strategic response:** Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.
+- **Time horizon:** Long-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Industrial Policy
+
+### ASML Export Controls (2023)
+
+- **Event family:** Export Controls
+- **Observed outcome:** Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.
+- **Strategic response:** Companies monitored license rules, tool availability, and jurisdictional alignment.
+- **Time horizon:** Medium-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Export Controls
+
+### Inflation Reduction Act Clean Energy Incentives (2022)
+
+- **Event family:** Industrial Policy
+- **Observed outcome:** Industrial incentives affected domestic content planning and clean-energy supply-chain strategy.
+- **Strategic response:** Firms reviewed tax credit eligibility, supplier location, and compliance documentation.
+- **Time horizon:** Long-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Industrial Policy
+
+### Major Earnings Guidance Withdrawals During COVID (2020)
+
+- **Event family:** Earnings / Corporate Disclosure
+- **Observed outcome:** Firms withdrew or revised guidance amid limited demand and operational visibility.
+- **Strategic response:** Management teams emphasized uncertainty, liquidity monitoring, and scenario communication.
+- **Time horizon:** Short-term
+- **Confidence:** High
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Earnings / Corporate Disclosure
+
+## Strategic Lessons
+
+### Supply chain diversification frequently appears after export-control or disruption shocks.
+
+- **Supporting cases:** Huawei Entity List (2019), CHIPS and Science Act (2022), ASML Export Controls (2023), Inflation Reduction Act Clean Energy Incentives (2022)
+- **Confidence:** High
+- **Rationale:** Matched 4 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.
+
+### Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.
+
+- **Supporting cases:** Huawei Entity List (2019), ASML Export Controls (2023), Inflation Reduction Act Clean Energy Incentives (2022)
+- **Confidence:** High
+- **Rationale:** Matched 3 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.
+
+### Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.
+
+- **Supporting cases:** Huawei Entity List (2019), CHIPS and Science Act (2022), Inflation Reduction Act Clean Energy Incentives (2022)
+- **Confidence:** High
+- **Rationale:** Matched 3 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.
+
+### Periods of uncertainty often increase the value of executive communication and monitoring routines.
+
+- **Supporting cases:** Major Earnings Guidance Withdrawals During COVID (2020)
+- **Confidence:** Low
+- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: uncertainty, visibility, monitoring, communication.
+
+## Decision Considerations
+
+- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.
+- Decision-makers may wish to separate recurring historical lessons from case-specific facts.
+- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.
+
 ## Current Context
 
 - ContextRetriever was skipped or no current-context findings were returned for this route.
@@ -379,14 +463,19 @@ The disclosure raises questions about supplier concentration, margin pressure, c
 
 ### Evidence Trace
 
+- ASML Export Controls (2023) - Historical Outcomes Database
 - Agent Router: deterministic tool selection trace
 - CHIPS and Science Act (2022) - Historical Database
+- CHIPS and Science Act (2022) - Historical Outcomes Database
 - Capital Constraint (Mechanism Framework)
 - Demand Shock (Mechanism Framework)
 - Huawei Entity List (2019) - Historical Database
+- Huawei Entity List (2019) - Historical Outcomes Database
+- Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database
 - Information Uncertainty (Mechanism Framework)
 - Input Cost Pressure (Mechanism Framework)
 - Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
+- Major Earnings Guidance Withdrawals During COVID (2020) - Historical Outcomes Database
 - Source Document
 - Tool Registry: registered deterministic analysis tools
 

@@ -9,6 +9,8 @@ Document
 -> Tool Selection
 -> Tool Execution
 -> Result Synthesis
+-> Historical Outcomes
+-> Strategic Lessons
 -> Multi-Lens Reasoning
 -> Executive Intelligence Brief
 -> Evaluation Reporting
@@ -113,7 +115,20 @@ resemble, but not which current stakeholders, constraints, and monitoring
 considerations are relevant. The context layer improves decision support by
 adding present-domain framing without making forecasts.
 
-### 9. Intelligence Synthesis
+### 9. Historical Outcome Retrieval
+
+V7 retrieves observed historical outcomes linked to the retrieved analogue
+cases. Outcomes include observed consequence, strategic response, time horizon,
+confidence, and source status. The layer supports learning from past cases
+without implying that outcomes will repeat.
+
+### 10. Strategic Lesson Generation
+
+The strategic lesson generator groups retrieved outcomes into recurring lessons
+using rule-based keyword groups. Each lesson lists supporting cases, confidence,
+rationale, and evidence references.
+
+### 11. Intelligence Synthesis
 
 The analyzer combines historical analogues and current context into:
 
@@ -128,7 +143,7 @@ The language avoids forecasts, probabilities, and investment recommendations.
 It uses phrasing such as "may resemble", "shares characteristics with",
 "differs from", and "requires monitoring".
 
-### 10. Multi-Lens Reasoning
+### 12. Multi-Lens Reasoning
 
 V4 adds competing interpretations of the same event:
 
@@ -142,7 +157,7 @@ Each lens includes a hypothesis, supporting observations, limitations, and
 evidence references. Evidence support is labeled Limited, Moderate, or
 Substantial without using probability language.
 
-### 11. Executive Brief Generation
+### 13. Executive Brief Generation
 
 The generator writes a concise brief with these sections:
 
@@ -151,6 +166,9 @@ The generator writes a concise brief with these sections:
 - Scenario Classification.
 - Extracted Entities.
 - Historical Analogues.
+- Historical Outcomes.
+- Strategic Lessons.
+- Decision Considerations.
 - Current Context.
 - Similarities and Differences.
 - Business Considerations.
@@ -174,14 +192,14 @@ The generator writes a concise brief with these sections:
 
 Each brief includes an evidence trace section showing source origins.
 
-### 12. Output Adaptation
+### 14. Output Adaptation
 
 V4.5 can adapt generated briefs into beginner, analyst, or executive format.
 The adapter uses deterministic templates and localized framing. It does not use
 external translation APIs and does not alter the project guardrails against
 forecasts, probabilities, or investment advice.
 
-### 13. Evaluation Reporting
+### 15. Evaluation Reporting
 
 V5 evaluates the existing pipeline against benchmark cases. It calculates
 scenario accuracy, mechanism accuracy, lens coverage rate, response retrieval
@@ -189,7 +207,7 @@ coverage, and an overall benchmark score. Evaluation artifacts are stored in
 `evaluation/` and are used for credibility reporting rather than new analytical
 claims.
 
-### 14. Local App Storage
+### 16. Local App Storage
 
 V6 routes dashboard requests through FastAPI. Each analysis creates a run folder
 under `outputs/runs/` containing the input text, structured JSON analysis,

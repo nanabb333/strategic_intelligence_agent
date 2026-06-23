@@ -13,6 +13,8 @@ V5 adds an evaluation layer that benchmarks the existing workflow without
 changing the analytical pipeline.
 V6 adds a local FastAPI application layer that lets the dashboard call the real
 Python pipeline and save run artifacts.
+V7 adds historical outcome retrieval and strategic lesson generation after
+historical analogue retrieval.
 
 ```text
 Input Document
@@ -21,9 +23,12 @@ Input Document
   -> agent_router
   -> tool_registry
   -> selected tools
+  -> outcome_retriever
+  -> strategic_lessons
   -> result synthesis
   -> multi_lens_analyzer
   -> evidence_assessor
+  -> brief_generator
   -> output_adapter
   -> outputs/
   -> evaluator
@@ -38,6 +43,7 @@ Input Document
 docs/                          Project documentation and portfolio narrative.
 data/                          Local input data, sample source material, and fixtures.
 knowledge_base/                Curated historical analogues.
+knowledge_base/historical_outcomes.csv Curated historical outcome records.
 knowledge_base/current_context/ Local current-context knowledge base files.
 examples/                      Example inputs, runs, and generated artifacts.
 evaluation/                    Benchmark cases, generated results, and evaluation summary.
@@ -64,6 +70,8 @@ src/                           Application source code.
 | `multi_lens_analyzer.py` | Generate competing interpretations across analytic lenses. |
 | `evidence_assessor.py` | Assess supporting, weakening, and missing evidence with qualitative labels. |
 | `response_playbook_retriever.py` | Retrieve observed historical choices, outcomes, and cross-domain lessons. |
+| `outcome_retriever.py` | Retrieve observed historical outcomes from retrieved analogue cases. |
+| `strategic_lessons.py` | Generate rule-based recurring lessons from retrieved outcomes. |
 | `output_adapter.py` | Adapt generated briefs into beginner, analyst, and executive formats with deterministic localization framing. |
 | `evaluator.py` | Run benchmark cases and calculate scenario, mechanism, lens, response, and overall scores. |
 | `run_agent.py` | Orchestrate the end-to-end workflow. |
@@ -79,6 +87,17 @@ V6 adds `app.py`, a local-only FastAPI backend:
    `metadata.json`, and `input.txt` are saved.
 5. `GET /runs` and `GET /run/{run_id}` support history and retrieval.
 6. Download endpoints serve Markdown, TXT, and JSON artifacts.
+
+## V7 Historical Outcomes Layer
+
+V7 extends analogue analysis without adding new agents or live retrieval:
+
+1. `historical_outcomes.csv` stores simplified outcome and response records.
+2. `outcome_retriever.py` maps retrieved analogues to outcome records.
+3. `strategic_lessons.py` groups recurring lessons across retrieved outcomes.
+4. The executive brief includes Historical Outcomes, Strategic Lessons, and
+   Decision Considerations.
+5. `analysis.json` includes `historical_outcomes` and `strategic_lessons`.
 
 ## V5 Evaluation Layer
 

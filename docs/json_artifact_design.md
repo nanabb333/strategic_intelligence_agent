@@ -9,6 +9,8 @@ issue
 scenario
 mechanisms
 analogues
+historical_outcomes
+strategic_lessons
 current_context
 implications
 response_playbooks
@@ -25,6 +27,8 @@ metadata
 - `scenario`: deterministic scenario classification.
 - `mechanisms`: detected strategic mechanisms.
 - `analogues`: retrieved historical analogues.
+- `historical_outcomes`: observed outcomes and responses tied to retrieved analogues.
+- `strategic_lessons`: rule-based recurring lessons generated from retrieved outcomes.
 - `current_context`: local context KB results.
 - `implications`: synthesis from analogues and context.
 - `response_playbooks`: observed historical response patterns.

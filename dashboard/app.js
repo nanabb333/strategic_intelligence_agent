@@ -20,6 +20,8 @@ const localeText = {
     documentSummary: "Document Summary",
     scenarioClassification: "Scenario Classification",
     historicalAnalogues: "Historical Analogues",
+    historicalOutcomes: "Historical Outcomes",
+    strategicLessons: "Strategic Lessons",
     currentContext: "Current Context",
     implications: "Implications",
     selectedTools: "Selected Tools",
@@ -50,6 +52,8 @@ const localeText = {
     documentSummary: "文档摘要",
     scenarioClassification: "情境分类",
     historicalAnalogues: "历史相似案例",
+    historicalOutcomes: "历史结果",
+    strategicLessons: "战略经验",
     currentContext: "当前背景",
     implications: "影响分析",
     selectedTools: "已选择工具",
@@ -80,6 +84,8 @@ const localeText = {
     documentSummary: "文件摘要",
     scenarioClassification: "情境分類",
     historicalAnalogues: "歷史相似案例",
+    historicalOutcomes: "歷史結果",
+    strategicLessons: "策略經驗",
     currentContext: "當前背景",
     implications: "影響分析",
     selectedTools: "已選工具",
@@ -239,6 +245,8 @@ function renderRun(run) {
   document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(issue.summary || issue.core_issue || "No summary returned.")}</p><p><span class="evidence">Source: Input Document</span></p>`;
   document.getElementById("classification-section").innerHTML = `<ul><li>Primary scenario: ${escapeHtml(scenario.primary_scenario || "Other")}</li><li>Matched keywords: ${escapeHtml((scenario.matched_keywords || []).join(", ") || "None")}</li><li>Confidence label: ${escapeHtml(scenario.confidence_label || "Not available")}</li></ul><p><span class="evidence">Source: ScenarioClassifier</span></p>`;
   renderCards("analogues-section", analysis.analogues || [], (item) => `<h3>${escapeHtml(item.case_title)}</h3><p>${escapeHtml(item.similarity_reason || "")}</p><p>${sourceMeta(item)}</p>`);
+  renderCards("outcomes-section", analysis.historical_outcomes || [], (item) => `<h3>${escapeHtml(item.case_name)} (${escapeHtml(item.year)})</h3><p>${escapeHtml(item.observed_outcome || "")}</p><p><strong>Strategic response:</strong> ${escapeHtml(item.strategic_response || "")}</p><p><span class="evidence">Confidence: ${escapeHtml(item.confidence || "Not stated")}</span> <span class="evidence">Source: ${escapeHtml(item.source_status || "source pending")}</span></p>`);
+  renderCards("lessons-section", analysis.strategic_lessons || [], (item) => `<h3>${escapeHtml(item.lesson)}</h3><p><strong>Supporting cases:</strong> ${escapeHtml((item.supporting_cases || []).join(", "))}</p><p>${escapeHtml(item.rationale || "")}</p><p><span class="evidence">Confidence: ${escapeHtml(item.confidence || "Low")}</span></p>`);
   renderCards("context-section", analysis.current_context || [], (item) => `<h3>${escapeHtml(item.industry)} - ${escapeHtml(item.scenario_type)}</h3><p>${escapeHtml(item.context_summary || "")}</p><p><span class="evidence">Source: ${escapeHtml(item.evidence_trace || "Context Knowledge Base")}</span></p>`);
   renderCards("mechanisms-section", analysis.mechanisms || [], (item) => `<h3>${escapeHtml(item.mechanism_name)}</h3><p>${escapeHtml(item.description || "")}</p><p>${sourceMeta(item)}</p>`);
   renderCards("interpretations-section", analysis.lenses || [], (item) => `<h3>${escapeHtml(item.lens)}</h3><p>${escapeHtml(item.hypothesis || "")}</p><p><span class="evidence">Source: Multi-Lens Analysis</span></p>`);

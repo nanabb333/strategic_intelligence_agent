@@ -127,6 +127,90 @@ Analysts need an executive brief that compares the disclosure with historical co
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** COVID Supply Chain Disruption (2020) - Historical Database
 
+## Historical Outcomes
+
+### COVID Supply Chain Disruption (2020)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions.
+- **Strategic response:** Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.
+- **Time horizon:** Short-to-medium-term
+- **Confidence:** High
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Supply Chain Disruption; event-family/title overlap
+
+### CHIPS and Science Act (2022)
+
+- **Event family:** Industrial Policy
+- **Observed outcome:** Public incentives reshaped capacity planning and domestic manufacturing discussions.
+- **Strategic response:** Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.
+- **Time horizon:** Long-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Industrial Policy
+
+### Red Sea Shipping Disruption (2023)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Security risks disrupted routing, transit times, insurance terms, and delivery planning.
+- **Strategic response:** Firms evaluated rerouting, customer communication, freight costs, and contingency planning.
+- **Time horizon:** Short-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Supply Chain Disruption; event-family/title overlap
+
+### Semiconductor Shortage (2021)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Chip shortages delayed production and exposed supplier concentration in critical components.
+- **Strategic response:** Firms reviewed allocation processes, supplier relationships, and design flexibility.
+- **Time horizon:** Medium-term
+- **Confidence:** High
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Supply Chain Disruption; event-family/title overlap
+
+### Maritime Chokepoint Disruption (2021)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Route concentration created delivery delays and highlighted chokepoint exposure.
+- **Strategic response:** Companies reviewed alternative routes, inventory buffers, and customer updates.
+- **Time horizon:** Short-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Supply Chain Disruption; event-family/title overlap
+
+## Strategic Lessons
+
+### Supply chain diversification frequently appears after export-control or disruption shocks.
+
+- **Supporting cases:** COVID Supply Chain Disruption (2020), CHIPS and Science Act (2022), Red Sea Shipping Disruption (2023), Semiconductor Shortage (2021), Maritime Chokepoint Disruption (2021)
+- **Confidence:** High
+- **Rationale:** Matched 5 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.
+
+### Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.
+
+- **Supporting cases:** CHIPS and Science Act (2022)
+- **Confidence:** Low
+- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.
+
+### Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.
+
+- **Supporting cases:** Red Sea Shipping Disruption (2023)
+- **Confidence:** Low
+- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.
+
+### Periods of uncertainty often increase the value of executive communication and monitoring routines.
+
+- **Supporting cases:** COVID Supply Chain Disruption (2020), Red Sea Shipping Disruption (2023)
+- **Confidence:** Medium
+- **Rationale:** Matched 2 retrieved outcome case(s) with rule keywords: uncertainty, visibility, monitoring, communication.
+
+## Decision Considerations
+
+- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.
+- Decision-makers may wish to separate recurring historical lessons from case-specific facts.
+- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.
+
 ## Current Context
 
 - ContextRetriever was skipped or no current-context findings were returned for this route.
@@ -381,12 +465,17 @@ Analysts need an executive brief that compares the disclosure with historical co
 
 - Agent Router: deterministic tool selection trace
 - CHIPS and Science Act (2022) - Historical Database
+- CHIPS and Science Act (2022) - Historical Outcomes Database
 - COVID Supply Chain Disruption (2020) - Historical Database
+- COVID Supply Chain Disruption (2020) - Historical Outcomes Database
 - Capital Constraint (Mechanism Framework)
 - Demand Shock (Mechanism Framework)
 - Information Uncertainty (Mechanism Framework)
 - Input Cost Pressure (Mechanism Framework)
 - Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
+- Maritime Chokepoint Disruption (2021) - Historical Outcomes Database
+- Red Sea Shipping Disruption (2023) - Historical Outcomes Database
+- Semiconductor Shortage (2021) - Historical Outcomes Database
 - Source Document
 - Tool Registry: registered deterministic analysis tools
 

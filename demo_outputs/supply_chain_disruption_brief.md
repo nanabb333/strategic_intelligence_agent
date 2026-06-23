@@ -127,6 +127,90 @@ The issue raises questions about operational resilience, supplier concentration,
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** Huawei Entity List (2019) - Historical Database
 
+## Historical Outcomes
+
+### COVID Supply Chain Disruption (2020)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions.
+- **Strategic response:** Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.
+- **Time horizon:** Short-to-medium-term
+- **Confidence:** High
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Supply Chain Disruption; event-family/title overlap
+
+### Red Sea Shipping Disruption (2023)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Security risks disrupted routing, transit times, insurance terms, and delivery planning.
+- **Strategic response:** Firms evaluated rerouting, customer communication, freight costs, and contingency planning.
+- **Time horizon:** Short-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Supply Chain Disruption; event-family/title overlap
+
+### Huawei Entity List (2019)
+
+- **Event family:** Export Controls
+- **Observed outcome:** Restricted access to selected technology inputs changed supplier screening and product planning.
+- **Strategic response:** Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
+- **Time horizon:** Medium-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Export Controls
+
+### Semiconductor Shortage (2021)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Chip shortages delayed production and exposed supplier concentration in critical components.
+- **Strategic response:** Firms reviewed allocation processes, supplier relationships, and design flexibility.
+- **Time horizon:** Medium-term
+- **Confidence:** High
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Supply Chain Disruption; event-family/title overlap
+
+### Maritime Chokepoint Disruption (2021)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Route concentration created delivery delays and highlighted chokepoint exposure.
+- **Strategic response:** Companies reviewed alternative routes, inventory buffers, and customer updates.
+- **Time horizon:** Short-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Supply Chain Disruption; event-family/title overlap
+
+## Strategic Lessons
+
+### Supply chain diversification frequently appears after export-control or disruption shocks.
+
+- **Supporting cases:** COVID Supply Chain Disruption (2020), Red Sea Shipping Disruption (2023), Huawei Entity List (2019), Semiconductor Shortage (2021), Maritime Chokepoint Disruption (2021)
+- **Confidence:** High
+- **Rationale:** Matched 5 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.
+
+### Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.
+
+- **Supporting cases:** Huawei Entity List (2019)
+- **Confidence:** Low
+- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.
+
+### Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.
+
+- **Supporting cases:** Huawei Entity List (2019)
+- **Confidence:** Low
+- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.
+
+### Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.
+
+- **Supporting cases:** Red Sea Shipping Disruption (2023)
+- **Confidence:** Low
+- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.
+
+## Decision Considerations
+
+- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.
+- Decision-makers may wish to separate recurring historical lessons from case-specific facts.
+- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.
+
 ## Current Context
 
 ### Energy - Supply Chain Disruption
@@ -405,11 +489,16 @@ The issue raises questions about operational resilience, supplier concentration,
 
 - Agent Router: deterministic tool selection trace
 - COVID Supply Chain Disruption (2020) - Historical Database
+- COVID Supply Chain Disruption (2020) - Historical Outcomes Database
 - Chokepoint Exposure (Mechanism Framework)
 - Energy Context KB: EN-003 (energy_context.md)
 - Huawei Entity List (2019) - Historical Database
+- Huawei Entity List (2019) - Historical Outcomes Database
+- Maritime Chokepoint Disruption (2021) - Historical Outcomes Database
 - Operational Resilience (Mechanism Framework)
 - Red Sea Shipping Disruption (2023) - Historical Database
+- Red Sea Shipping Disruption (2023) - Historical Outcomes Database
+- Semiconductor Shortage (2021) - Historical Outcomes Database
 - Semiconductors Context KB: SC-003 (semiconductor_context.md)
 - Source Document
 - Strategic Dependency (Mechanism Framework)

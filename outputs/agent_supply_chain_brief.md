@@ -127,6 +127,84 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** Taiwan Strait Military Exercises (2022) - Historical Database
 
+## Historical Outcomes
+
+### COVID Supply Chain Disruption (2020)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions.
+- **Strategic response:** Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.
+- **Time horizon:** Short-to-medium-term
+- **Confidence:** High
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Supply Chain Disruption; event-family/title overlap
+
+### Red Sea Shipping Disruption (2023)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Security risks disrupted routing, transit times, insurance terms, and delivery planning.
+- **Strategic response:** Firms evaluated rerouting, customer communication, freight costs, and contingency planning.
+- **Time horizon:** Short-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Supply Chain Disruption; event-family/title overlap
+
+### Taiwan Strait Military Exercises (2022)
+
+- **Event family:** Geopolitical Escalation
+- **Observed outcome:** Security concerns highlighted exposure to critical routes and concentrated semiconductor capacity.
+- **Strategic response:** Organizations reviewed continuity plans, supplier geography, and escalation monitoring.
+- **Time horizon:** Short-to-medium-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue
+
+### Semiconductor Shortage (2021)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Chip shortages delayed production and exposed supplier concentration in critical components.
+- **Strategic response:** Firms reviewed allocation processes, supplier relationships, and design flexibility.
+- **Time horizon:** Medium-term
+- **Confidence:** High
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Supply Chain Disruption; event-family/title overlap
+
+### Maritime Chokepoint Disruption (2021)
+
+- **Event family:** Supply Chain Disruption
+- **Observed outcome:** Route concentration created delivery delays and highlighted chokepoint exposure.
+- **Strategic response:** Companies reviewed alternative routes, inventory buffers, and customer updates.
+- **Time horizon:** Short-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Supply Chain Disruption; event-family/title overlap
+
+## Strategic Lessons
+
+### Supply chain diversification frequently appears after export-control or disruption shocks.
+
+- **Supporting cases:** COVID Supply Chain Disruption (2020), Red Sea Shipping Disruption (2023), Taiwan Strait Military Exercises (2022), Semiconductor Shortage (2021), Maritime Chokepoint Disruption (2021)
+- **Confidence:** High
+- **Rationale:** Matched 5 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.
+
+### Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.
+
+- **Supporting cases:** Red Sea Shipping Disruption (2023), Taiwan Strait Military Exercises (2022)
+- **Confidence:** Medium
+- **Rationale:** Matched 2 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.
+
+### Periods of uncertainty often increase the value of executive communication and monitoring routines.
+
+- **Supporting cases:** COVID Supply Chain Disruption (2020), Red Sea Shipping Disruption (2023), Taiwan Strait Military Exercises (2022)
+- **Confidence:** High
+- **Rationale:** Matched 3 retrieved outcome case(s) with rule keywords: uncertainty, visibility, monitoring, communication.
+
+## Decision Considerations
+
+- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.
+- Decision-makers may wish to separate recurring historical lessons from case-specific facts.
+- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.
+
 ## Current Context
 
 ### Energy - Supply Chain Disruption
@@ -405,16 +483,21 @@ The issue involves supply chain disruption, supplier concentration, and operatio
 
 - Agent Router: deterministic tool selection trace
 - COVID Supply Chain Disruption (2020) - Historical Database
+- COVID Supply Chain Disruption (2020) - Historical Outcomes Database
 - Chokepoint Exposure (Mechanism Framework)
 - Energy Context KB: EN-003 (energy_context.md)
+- Maritime Chokepoint Disruption (2021) - Historical Outcomes Database
 - Operational Resilience (Mechanism Framework)
 - Red Sea Shipping Disruption (2023) - Historical Database
+- Red Sea Shipping Disruption (2023) - Historical Outcomes Database
+- Semiconductor Shortage (2021) - Historical Outcomes Database
 - Semiconductors Context KB: SC-003 (semiconductor_context.md)
 - Source Document
 - Strategic Dependency (Mechanism Framework)
 - Supply Chain Context KB: SP-001 (supply_chain_context.md)
 - Supply Chain Reconfiguration (Mechanism Framework)
 - Taiwan Strait Military Exercises (2022) - Historical Database
+- Taiwan Strait Military Exercises (2022) - Historical Outcomes Database
 - Tool Registry: registered deterministic analysis tools
 
 ## Evidence Sources

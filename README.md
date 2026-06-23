@@ -21,6 +21,7 @@ Strategic Intelligence Agent is a portfolio-grade decision-support product for s
 
 V2 added a local Analyst Workbench in `dashboard/`. V3 added an Agent Router and Tool Registry so the system can decide which tools to execute instead of always running a fixed sequence. V4 adds a multi-lens reasoning framework that surfaces competing interpretations, mechanisms, evidence support, and response patterns. V4.5 adds a bilingual non-AI user layer with guided questions and beginner, analyst, and executive output modes. V5 adds a benchmark evaluation framework for measuring scenario, mechanism, lens, and response retrieval coverage.
 V6 turns the dashboard into a usable local app backed by FastAPI. The browser now calls the real Python pipeline, saves run artifacts, and supports Markdown, TXT, and JSON downloads.
+V7 adds a historical outcome and strategic lessons layer so analogues connect to observed consequences, strategic responses, recurring lessons, and decision considerations.
 
 ## Quick Start
 
@@ -110,6 +111,7 @@ V0.1 Deterministic Workflow
   -> V4.5 Bilingual Non-AI User Layer
   -> V5.0 Evaluation and Credibility Framework
   -> V6.0 Usable Local Application
+  -> V7.0 Historical Outcomes and Strategic Lessons
 ```
 
 - **V0.1:** deterministic document-to-brief skeleton.
@@ -121,6 +123,7 @@ V0.1 Deterministic Workflow
 - **V4.5:** language selector, guided question buttons, beginner/analyst/executive modes, and localized user guides.
 - **V5.0:** benchmark dataset, evaluator, generated metrics, evaluation report, and dashboard evaluation section.
 - **V6.0:** FastAPI backend, real pipeline integration, run history, structured JSON artifacts, and Markdown/TXT/JSON downloads.
+- **V7.0:** historical outcome retrieval, strategic lesson generation, outcome-aware JSON artifacts, and upgraded executive briefs.
 
 ## Designed for Non-AI Users
 
@@ -173,6 +176,7 @@ The methodology is documented in [`docs/evaluation_framework.md`](docs/evaluatio
 - LLM-ready agent architecture without depending on paid APIs.
 - Tool-selecting agent orchestration.
 - Multi-lens reasoning and evidence assessment.
+- Historical outcome analysis and strategic lessons.
 - Information extraction from unstructured documents.
 - Retrieval from historical and current-context knowledge bases.
 - Evidence-aware synthesis and executive communication.
@@ -188,6 +192,7 @@ examples/                      Source examples and demo inputs.
 locales/                       English, Simplified Chinese, and Traditional Chinese UI text.
 knowledge_base/                Historical analogue records.
 knowledge_base/current_context/ Local context KB files by domain.
+knowledge_base/historical_outcomes.csv Curated historical outcome records.
 evaluation/                    Benchmark cases, generated results, and evaluation summary.
 outputs/                       Generated executive intelligence briefs.
 demo_outputs/                  Generated portfolio demo briefs.
@@ -244,6 +249,7 @@ python3 scripts/validate_v41.py
 python3 scripts/validate_v45.py
 python3 scripts/validate_v50.py
 python3 scripts/validate_v60.py
+python3 scripts/validate_v70.py
 ```
 
 The V2 validator checks that the dashboard loads, outputs generate, exports are written to `outputs/`, and evidence traces exist.
@@ -252,6 +258,7 @@ The V4.1 validator checks lens analysis, evidence assessment, mechanisms, respon
 The V4.5 validator checks localization files, guided questions, dashboard controls, non-AI user guides, generated beginner outputs, and forbidden advice language.
 The V5.0 validator checks benchmark data, generated metrics, evaluation reporting, dashboard evaluation display, and evaluation docs.
 The V6.0 validator checks FastAPI health, dashboard API wiring, run folder creation, JSON artifacts, downloads, and run history.
+The V7.0 validator checks outcome retrieval, strategic lesson generation, JSON artifact expansion, dashboard compatibility, and upgraded brief sections.
 
 ## Portfolio Value
 
@@ -284,6 +291,8 @@ Supporting docs:
 - [docs/local_app_setup.md](docs/local_app_setup.md)
 - [docs/run_management_design.md](docs/run_management_design.md)
 - [docs/json_artifact_design.md](docs/json_artifact_design.md)
+- [docs/v70_historical_outcomes.md](docs/v70_historical_outcomes.md)
+- [docs/strategic_lessons_framework.md](docs/strategic_lessons_framework.md)
 
 ## Future Roadmap
 
@@ -296,6 +305,7 @@ Supporting docs:
 - Add richer localization coverage for every generated evidence line.
 - Add longer benchmark documents and human review notes for evaluation cases.
 - Add authentication or desktop packaging if the local app is ever moved beyond single-user local execution.
+- Add source-grounded citations for historical outcome records where primary sources are available.
 
 ## Limitations
 
@@ -306,4 +316,5 @@ Supporting docs:
 - Localization is template-based and does not use an external translation API.
 - Benchmark metrics are based on compact deterministic cases and should not be treated as real-world accuracy claims.
 - V6 is intended for local single-user execution, not hosted production deployment.
+- Historical outcomes are simplified educational summaries and do not imply repeatable future outcomes.
 - No forecasts, probabilities, investment advice, or trading recommendations are generated.

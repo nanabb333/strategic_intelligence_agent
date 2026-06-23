@@ -127,6 +127,90 @@ The event could be interpreted through industrial subsidy, legislative implement
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** ASML Export Controls (2023) - Historical Database
 
+## Historical Outcomes
+
+### ASML Export Controls (2023)
+
+- **Event family:** Export Controls
+- **Observed outcome:** Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.
+- **Strategic response:** Companies monitored license rules, tool availability, and jurisdictional alignment.
+- **Time horizon:** Medium-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Export Controls; event-family/title overlap
+
+### CHIPS and Science Act (2022)
+
+- **Event family:** Industrial Policy
+- **Observed outcome:** Public incentives reshaped capacity planning and domestic manufacturing discussions.
+- **Strategic response:** Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.
+- **Time horizon:** Long-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Industrial Policy
+
+### Inflation Reduction Act Clean Energy Incentives (2022)
+
+- **Event family:** Industrial Policy
+- **Observed outcome:** Industrial incentives affected domestic content planning and clean-energy supply-chain strategy.
+- **Strategic response:** Firms reviewed tax credit eligibility, supplier location, and compliance documentation.
+- **Time horizon:** Long-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Industrial Policy
+
+### Huawei Entity List (2019)
+
+- **Event family:** Export Controls
+- **Observed outcome:** Restricted access to selected technology inputs changed supplier screening and product planning.
+- **Strategic response:** Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
+- **Time horizon:** Medium-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Export Controls; event-family/title overlap
+
+### Entity List Expansion (2020)
+
+- **Event family:** Export Controls
+- **Observed outcome:** Expanded restrictions increased screening burden and uncertainty for technology transactions.
+- **Strategic response:** Companies strengthened restricted-party checks and licensing escalation paths.
+- **Time horizon:** Short-to-medium-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Export Controls; event-family/title overlap
+
+## Strategic Lessons
+
+### Supply chain diversification frequently appears after export-control or disruption shocks.
+
+- **Supporting cases:** ASML Export Controls (2023), CHIPS and Science Act (2022), Inflation Reduction Act Clean Energy Incentives (2022), Huawei Entity List (2019), Entity List Expansion (2020)
+- **Confidence:** High
+- **Rationale:** Matched 5 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.
+
+### Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.
+
+- **Supporting cases:** ASML Export Controls (2023), Inflation Reduction Act Clean Energy Incentives (2022), Huawei Entity List (2019), Entity List Expansion (2020)
+- **Confidence:** High
+- **Rationale:** Matched 4 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.
+
+### Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.
+
+- **Supporting cases:** CHIPS and Science Act (2022), Inflation Reduction Act Clean Energy Incentives (2022), Huawei Entity List (2019)
+- **Confidence:** High
+- **Rationale:** Matched 3 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.
+
+### Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.
+
+- **Supporting cases:** Entity List Expansion (2020)
+- **Confidence:** Low
+- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.
+
+## Decision Considerations
+
+- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.
+- Decision-makers may wish to separate recurring historical lessons from case-specific facts.
+- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.
+
 ## Current Context
 
 ### Semiconductors - Industrial Policy
@@ -404,12 +488,17 @@ The event could be interpreted through industrial subsidy, legislative implement
 ### Evidence Trace
 
 - ASML Export Controls (2023) - Historical Database
+- ASML Export Controls (2023) - Historical Outcomes Database
 - Agent Router: deterministic tool selection trace
 - Alliance Coordination (Mechanism Framework)
 - CHIPS and Science Act (2022) - Historical Database
+- CHIPS and Science Act (2022) - Historical Outcomes Database
 - Energy Context KB: EN-002 (energy_context.md)
+- Entity List Expansion (2020) - Historical Outcomes Database
+- Huawei Entity List (2019) - Historical Outcomes Database
 - Industrial Subsidy (Mechanism Framework)
 - Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database
+- Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database
 - Legislative Implementation Gap (Mechanism Framework)
 - Policy Signaling (Mechanism Framework)
 - Semiconductors Context KB: SC-002 (semiconductor_context.md)

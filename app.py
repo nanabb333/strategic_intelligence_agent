@@ -1,4 +1,4 @@
-"""Local FastAPI application for Strategic Intelligence Agent V6."""
+"""Local FastAPI application for Strategic Intelligence Agent."""
 
 from __future__ import annotations
 
@@ -31,8 +31,10 @@ from issue_extractor import extract_issues  # noqa: E402
 from mechanism_detector import detect_mechanisms  # noqa: E402
 from multi_lens_analyzer import analyze_lenses  # noqa: E402
 from output_adapter import adapt_output  # noqa: E402
+from outcome_retriever import retrieve_historical_outcomes  # noqa: E402
 from response_playbook_retriever import retrieve_response_patterns  # noqa: E402
 from scenario_classifier import classify_scenarios  # noqa: E402
+from strategic_lessons import generate_strategic_lessons  # noqa: E402
 from tool_registry import build_default_registry  # noqa: E402
 
 
@@ -63,7 +65,7 @@ class AnalyzeResponse(BaseModel):
 
 app = FastAPI(
     title="Strategic Intelligence Agent Local App",
-    version="6.0",
+    version="7.0",
     description="Local-only API for running the Strategic Intelligence Agent pipeline.",
 )
 
@@ -82,7 +84,7 @@ app.mount("/runs", StaticFiles(directory=RUNS_DIR, html=False), name="runs")
 @app.get("/health")
 def health() -> dict[str, str]:
     """Return local app health."""
-    return {"status": "ok", "app": "Strategic Intelligence Agent", "version": "6.0"}
+    return {"status": "ok", "app": "Strategic Intelligence Agent", "version": "7.0"}
 
 
 @app.post("/analyze", response_model=AnalyzeResponse)
@@ -110,6 +112,8 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     mechanisms = detect_mechanisms(issues, classifications)
     interpretations = analyze_lenses(issues, classifications, mechanisms, analogues, contexts)
     evidence_assessments = assess_evidence(interpretations)
+    historical_outcomes = retrieve_historical_outcomes(analogues)
+    strategic_lessons = generate_strategic_lessons(historical_outcomes)
     response_patterns = retrieve_response_patterns(analogues, mechanisms)
     base_brief = generate_brief(
         issues,
@@ -121,6 +125,8 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         mechanisms=mechanisms,
         interpretations=interpretations,
         evidence_assessments=evidence_assessments,
+        historical_outcomes=historical_outcomes,
+        strategic_lessons=strategic_lessons,
         response_patterns=response_patterns,
     )
     brief_markdown = adapt_output(base_brief, mode=request.output_mode, language=request.language)
@@ -152,6 +158,8 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         mechanisms=mechanisms,
         interpretations=interpretations,
         evidence_assessments=evidence_assessments,
+        historical_outcomes=historical_outcomes,
+        strategic_lessons=strategic_lessons,
         response_patterns=response_patterns,
         route=route,
         metadata=metadata,
@@ -161,6 +169,13 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         "skipped_tools": route.skipped_tools,
         "trace": _serializable(route.trace),
         "reasoning_record": _serializable(route.reasoning_record),
+        "reasoning_stages": [
+            "Historical analogue retrieval",
+            "Historical outcome retrieval",
+            "Strategic lesson generation",
+            "Response playbook retrieval",
+            "Executive brief generation",
+        ],
     }
 
     (run_dir / "input.txt").write_text(text, encoding="utf-8")
@@ -245,6 +260,8 @@ def _build_analysis_artifact(**items: Any) -> dict[str, Any]:
         "scenario": _serializable(classifications[0]) if classifications else {},
         "mechanisms": _serializable(items["mechanisms"].get(issue_title, [])),
         "analogues": _serializable(items["analogues"].get(issue_title, [])),
+        "historical_outcomes": _serializable(items["historical_outcomes"].get(issue_title, [])),
+        "strategic_lessons": _serializable(items["strategic_lessons"].get(issue_title, [])),
         "current_context": _serializable(items["contexts"].get(issue_title, [])),
         "implications": _serializable(items["analyses"]),
         "response_playbooks": _serializable(items["response_patterns"].get(issue_title, [])),
@@ -257,6 +274,13 @@ def _build_analysis_artifact(**items: Any) -> dict[str, Any]:
             "skipped_tools": route.skipped_tools,
             "trace": _serializable(route.trace),
             "reasoning_record": _serializable(route.reasoning_record),
+            "reasoning_stages": [
+                "Historical analogue retrieval",
+                "Historical outcome retrieval",
+                "Strategic lesson generation",
+                "Response playbook retrieval",
+                "Executive brief generation",
+            ],
         },
         "evaluation_metadata": {
             "framework": "V5 deterministic benchmark framework",

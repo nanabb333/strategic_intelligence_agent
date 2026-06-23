@@ -127,6 +127,90 @@ The disclosure raises questions about stakeholder communication, operational con
 - **Caution note:** Historical analogues support comparison, not prediction.
 - **Source origin:** Taiwan Strait Military Exercises (2022) - Historical Database
 
+## Historical Outcomes
+
+### CHIPS and Science Act (2022)
+
+- **Event family:** Industrial Policy
+- **Observed outcome:** Public incentives reshaped capacity planning and domestic manufacturing discussions.
+- **Strategic response:** Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.
+- **Time horizon:** Long-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Industrial Policy
+
+### Taiwan Strait Military Exercises (2022)
+
+- **Event family:** Geopolitical Escalation
+- **Observed outcome:** Security concerns highlighted exposure to critical routes and concentrated semiconductor capacity.
+- **Strategic response:** Organizations reviewed continuity plans, supplier geography, and escalation monitoring.
+- **Time horizon:** Short-to-medium-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** case-name match with retrieved analogue
+
+### Inflation Reduction Act Clean Energy Incentives (2022)
+
+- **Event family:** Industrial Policy
+- **Observed outcome:** Industrial incentives affected domestic content planning and clean-energy supply-chain strategy.
+- **Strategic response:** Firms reviewed tax credit eligibility, supplier location, and compliance documentation.
+- **Time horizon:** Long-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Industrial Policy
+
+### Major Earnings Guidance Withdrawals During COVID (2020)
+
+- **Event family:** Earnings / Corporate Disclosure
+- **Observed outcome:** Firms withdrew or revised guidance amid limited demand and operational visibility.
+- **Strategic response:** Management teams emphasized uncertainty, liquidity monitoring, and scenario communication.
+- **Time horizon:** Short-term
+- **Confidence:** High
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Earnings / Corporate Disclosure
+
+### Strategic Battery Supply Policy (2021)
+
+- **Event family:** Industrial Policy
+- **Observed outcome:** Policy support increased attention to domestic battery inputs and supply security.
+- **Strategic response:** Firms evaluated supplier geography, qualification timelines, and incentive eligibility.
+- **Time horizon:** Long-term
+- **Confidence:** Medium
+- **Source status:** source pending; educational summary
+- **Retrieval reason:** event-family match: Industrial Policy
+
+## Strategic Lessons
+
+### Supply chain diversification frequently appears after export-control or disruption shocks.
+
+- **Supporting cases:** CHIPS and Science Act (2022), Taiwan Strait Military Exercises (2022), Inflation Reduction Act Clean Energy Incentives (2022), Strategic Battery Supply Policy (2021)
+- **Confidence:** High
+- **Rationale:** Matched 4 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.
+
+### Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.
+
+- **Supporting cases:** Inflation Reduction Act Clean Energy Incentives (2022)
+- **Confidence:** Low
+- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.
+
+### Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.
+
+- **Supporting cases:** CHIPS and Science Act (2022), Inflation Reduction Act Clean Energy Incentives (2022), Strategic Battery Supply Policy (2021)
+- **Confidence:** High
+- **Rationale:** Matched 3 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.
+
+### Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.
+
+- **Supporting cases:** Taiwan Strait Military Exercises (2022), Strategic Battery Supply Policy (2021)
+- **Confidence:** Medium
+- **Rationale:** Matched 2 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.
+
+## Decision Considerations
+
+- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.
+- Decision-makers may wish to separate recurring historical lessons from case-specific facts.
+- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.
+
 ## Current Context
 
 - ContextRetriever was skipped or no current-context findings were returned for this route.
@@ -381,13 +465,18 @@ The disclosure raises questions about stakeholder communication, operational con
 
 - Agent Router: deterministic tool selection trace
 - CHIPS and Science Act (2022) - Historical Database
+- CHIPS and Science Act (2022) - Historical Outcomes Database
 - Capital Constraint (Mechanism Framework)
 - Financial Intermediation Stress (Mechanism Framework)
+- Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database
 - Information Uncertainty (Mechanism Framework)
 - Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
+- Major Earnings Guidance Withdrawals During COVID (2020) - Historical Outcomes Database
 - Reputational Sensitivity (Mechanism Framework)
 - Source Document
+- Strategic Battery Supply Policy (2021) - Historical Outcomes Database
 - Taiwan Strait Military Exercises (2022) - Historical Database
+- Taiwan Strait Military Exercises (2022) - Historical Outcomes Database
 - Tool Registry: registered deterministic analysis tools
 
 ## Evidence Sources

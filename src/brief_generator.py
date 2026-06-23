@@ -33,6 +33,8 @@ def generate_brief(
     mechanisms=None,
     interpretations=None,
     evidence_assessments=None,
+    historical_outcomes=None,
+    strategic_lessons=None,
     response_patterns=None,
 ) -> str:
     """Generate a Markdown executive intelligence brief."""
@@ -50,6 +52,8 @@ def generate_brief(
         issue_mechanisms = (mechanisms or {}).get(issue.title, [])
         issue_interpretations = (interpretations or {}).get(issue.title, [])
         issue_assessments = (evidence_assessments or {}).get(issue.title, [])
+        issue_historical_outcomes = (historical_outcomes or {}).get(issue.title, [])
+        issue_strategic_lessons = (strategic_lessons or {}).get(issue.title, [])
         issue_response_patterns = (response_patterns or {}).get(issue.title, [])
 
         lines.extend(
@@ -160,6 +164,53 @@ def generate_brief(
                     "",
                 ]
             )
+
+        lines.extend(["## Historical Outcomes", ""])
+        if issue_historical_outcomes:
+            for outcome in issue_historical_outcomes:
+                lines.extend(
+                    [
+                        f"### {outcome.case_name} ({outcome.year})",
+                        "",
+                        f"- **Event family:** {outcome.event_family}",
+                        f"- **Observed outcome:** {outcome.observed_outcome}",
+                        f"- **Strategic response:** {outcome.strategic_response}",
+                        f"- **Time horizon:** {outcome.time_horizon}",
+                        f"- **Confidence:** {outcome.confidence}",
+                        f"- **Source status:** {outcome.source_status}",
+                        f"- **Retrieval reason:** {outcome.retrieval_reason}",
+                        "",
+                    ]
+                )
+        else:
+            lines.append("- No historical outcomes retrieved.")
+
+        lines.extend(["## Strategic Lessons", ""])
+        if issue_strategic_lessons:
+            for lesson in issue_strategic_lessons:
+                lines.extend(
+                    [
+                        f"### {lesson.lesson}",
+                        "",
+                        f"- **Supporting cases:** {', '.join(lesson.supporting_cases)}",
+                        f"- **Confidence:** {lesson.confidence}",
+                        f"- **Rationale:** {lesson.rationale}",
+                        "",
+                    ]
+                )
+        else:
+            lines.append("- No recurring strategic lessons generated.")
+
+        lines.extend(
+            [
+                "## Decision Considerations",
+                "",
+                "- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.",
+                "- Decision-makers may wish to separate recurring historical lessons from case-specific facts.",
+                "- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.",
+                "",
+            ]
+        )
 
         lines.extend(["## Current Context", ""])
         if not issue_contexts:
@@ -342,6 +393,10 @@ def generate_brief(
             evidence_items += interpretation.evidence_references
         for pattern in issue_response_patterns:
             evidence_items += pattern.evidence_references
+        for outcome in issue_historical_outcomes:
+            evidence_items += outcome.evidence_references
+        for lesson in issue_strategic_lessons:
+            evidence_items += lesson.evidence_references
         if agent_route:
             evidence_items.append("Agent Router: deterministic tool selection trace")
             evidence_items.append("Tool Registry: registered deterministic analysis tools")

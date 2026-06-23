@@ -17,6 +17,11 @@ class ResponsePattern:
     business_lessons: list[str] = field(default_factory=list)
     cross_domain_lessons: list[str] = field(default_factory=list)
     evidence_references: list[str] = field(default_factory=list)
+    source_title: str = "Response Playbook"
+    source_type: str = "Deterministic response pattern"
+    source_date: str = "source pending"
+    source_url: str = "source pending"
+    confidence_note: str = "Pattern derived from retrieved analogues and mechanisms; review before executive use."
 
 
 def retrieve_response_patterns(
@@ -55,4 +60,3 @@ def retrieve_response_patterns(
             )
         ]
     return results
-

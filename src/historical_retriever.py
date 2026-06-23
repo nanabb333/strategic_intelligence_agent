@@ -22,6 +22,11 @@ class HistoricalAnalogue:
     caution_note: str
     source: str | None = None
     evidence_trace: str = ""
+    source_title: str = "source pending"
+    source_type: str = "source pending"
+    source_date: str = "source pending"
+    source_url: str = "source pending"
+    confidence_note: str = "source pending"
 
     @property
     def title(self) -> str:
@@ -150,6 +155,11 @@ def retrieve_historical_analogues(
                 caution_note="Historical analogues support comparison, not prediction.",
                 source=case["source_note"],
                 evidence_trace=f"{case['case_title']} ({case['year']}) - Historical Database",
+                source_title=case.get("source_title", "source pending"),
+                source_type=case.get("source_type", "source pending"),
+                source_date=case.get("source_date", "source pending"),
+                source_url=case.get("source_url", "source pending"),
+                confidence_note=case.get("confidence_note", "source pending"),
             )
             for _, reasons, case in top_cases
         ]

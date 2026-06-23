@@ -22,6 +22,11 @@ class Mechanism:
     possible_observations: str
     detection_reason: str
     evidence_references: list[str]
+    source_title: str = "source pending"
+    source_type: str = "source pending"
+    source_date: str = "source pending"
+    source_url: str = "source pending"
+    confidence_note: str = "source pending"
 
 
 def _tokens(value: str) -> set[str]:
@@ -93,9 +98,13 @@ def detect_mechanisms(
                 possible_observations=record["possible_observations"],
                 detection_reason="; ".join(reasons) if reasons else "general mechanism relevance",
                 evidence_references=["Source Document", f"{record['mechanism_name']} (Mechanism Framework)"],
+                source_title=record.get("source_title", "source pending"),
+                source_type=record.get("source_type", "source pending"),
+                source_date=record.get("source_date", "source pending"),
+                source_url=record.get("source_url", "source pending"),
+                confidence_note=record.get("confidence_note", "source pending"),
             )
             for _, record, reasons in top_records
         ]
 
     return results
-

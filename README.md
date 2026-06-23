@@ -20,6 +20,38 @@ An analyst workbench that converts documents, articles, policy texts, and earnin
 Strategic Intelligence Agent is a portfolio-grade decision-support product for strategic intelligence and business analytics. It combines deterministic issue extraction, scenario classification, historical analogue retrieval, current context retrieval, implication analysis, evidence traceability, executive brief generation, and tool-selecting agent routing.
 
 V2 added a local Analyst Workbench in `dashboard/`. V3 added an Agent Router and Tool Registry so the system can decide which tools to execute instead of always running a fixed sequence. V4 adds a multi-lens reasoning framework that surfaces competing interpretations, mechanisms, evidence support, and response patterns. V4.5 adds a bilingual non-AI user layer with guided questions and beginner, analyst, and executive output modes. V5 adds a benchmark evaluation framework for measuring scenario, mechanism, lens, and response retrieval coverage.
+V6 turns the dashboard into a usable local app backed by FastAPI. The browser now calls the real Python pipeline, saves run artifacts, and supports Markdown, TXT, and JSON downloads.
+
+## Quick Start
+
+Install dependencies:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+Run the local server:
+
+```bash
+python3 -m uvicorn app:app --reload
+```
+
+Open the dashboard:
+
+```text
+http://127.0.0.1:8000/dashboard/
+```
+
+Analyze a document:
+
+1. Choose a language.
+2. Paste text or upload a `.md` / `.txt` file.
+3. Choose a guided question.
+4. Choose beginner, analyst, or executive output mode.
+5. Click Analyze.
+6. Download Markdown, TXT, or JSON results.
+
+Runs are saved locally under `outputs/runs/`. See [docs/local_app_setup.md](docs/local_app_setup.md), [docs/run_management_design.md](docs/run_management_design.md), and [docs/json_artifact_design.md](docs/json_artifact_design.md).
 
 ## What This Is / Is Not
 
@@ -77,6 +109,7 @@ V0.1 Deterministic Workflow
   -> V4.0 Intelligence Reasoning Framework
   -> V4.5 Bilingual Non-AI User Layer
   -> V5.0 Evaluation and Credibility Framework
+  -> V6.0 Usable Local Application
 ```
 
 - **V0.1:** deterministic document-to-brief skeleton.
@@ -87,6 +120,7 @@ V0.1 Deterministic Workflow
 - **V4.0:** mechanism detection, multi-lens analysis, evidence assessment, historical response patterns, and monitoring considerations.
 - **V4.5:** language selector, guided question buttons, beginner/analyst/executive modes, and localized user guides.
 - **V5.0:** benchmark dataset, evaluator, generated metrics, evaluation report, and dashboard evaluation section.
+- **V6.0:** FastAPI backend, real pipeline integration, run history, structured JSON artifacts, and Markdown/TXT/JSON downloads.
 
 ## Designed for Non-AI Users
 
@@ -164,13 +198,19 @@ legacy/financial_rubric_agent/ Preserved earlier project history.
 
 ## Run The Workbench
 
-Open this file in a browser from the repository root:
+Start the FastAPI server:
 
-```text
-dashboard/index.html
+```bash
+python3 -m uvicorn app:app --reload
 ```
 
-The dashboard is static and local. It supports language selection, guided question buttons, output mode selection, paste input, `.md` and `.txt` uploads, collapsible results, evidence labels, and Markdown/TXT export.
+Open the local app:
+
+```text
+http://127.0.0.1:8000/dashboard/
+```
+
+The dashboard supports language selection, guided question buttons, output mode selection, paste input, `.md` and `.txt` uploads, real backend analysis, run history, evidence labels, and Markdown/TXT/JSON download.
 
 ## Run The Pipeline
 
@@ -203,6 +243,7 @@ python3 scripts/validate_v30.py
 python3 scripts/validate_v41.py
 python3 scripts/validate_v45.py
 python3 scripts/validate_v50.py
+python3 scripts/validate_v60.py
 ```
 
 The V2 validator checks that the dashboard loads, outputs generate, exports are written to `outputs/`, and evidence traces exist.
@@ -210,6 +251,7 @@ The V3 validator checks routing, tool selection, execution trace, reasoning reco
 The V4.1 validator checks lens analysis, evidence assessment, mechanisms, response patterns, generated outputs, and non-advisory language.
 The V4.5 validator checks localization files, guided questions, dashboard controls, non-AI user guides, generated beginner outputs, and forbidden advice language.
 The V5.0 validator checks benchmark data, generated metrics, evaluation reporting, dashboard evaluation display, and evaluation docs.
+The V6.0 validator checks FastAPI health, dashboard API wiring, run folder creation, JSON artifacts, downloads, and run history.
 
 ## Portfolio Value
 
@@ -239,6 +281,9 @@ Supporting docs:
 - [docs/evaluation_framework.md](docs/evaluation_framework.md)
 - [docs/benchmark_design.md](docs/benchmark_design.md)
 - [docs/evaluation_limitations.md](docs/evaluation_limitations.md)
+- [docs/local_app_setup.md](docs/local_app_setup.md)
+- [docs/run_management_design.md](docs/run_management_design.md)
+- [docs/json_artifact_design.md](docs/json_artifact_design.md)
 
 ## Future Roadmap
 
@@ -250,13 +295,15 @@ Supporting docs:
 - Add user-selectable knowledge-base filters and evidence review controls.
 - Add richer localization coverage for every generated evidence line.
 - Add longer benchmark documents and human review notes for evaluation cases.
+- Add authentication or desktop packaging if the local app is ever moved beyond single-user local execution.
 
 ## Limitations
 
 - V4.5 remains deterministic and keyword-based.
 - The dashboard is a local static interface.
-- Browser exports download files; the validation script writes repository export artifacts into `outputs/`.
+- Browser downloads are served by the local FastAPI app after each run.
 - No live web retrieval is performed.
 - Localization is template-based and does not use an external translation API.
 - Benchmark metrics are based on compact deterministic cases and should not be treated as real-world accuracy claims.
+- V6 is intended for local single-user execution, not hosted production deployment.
 - No forecasts, probabilities, investment advice, or trading recommendations are generated.

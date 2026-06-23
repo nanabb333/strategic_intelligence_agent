@@ -11,6 +11,8 @@ V4.5 adds a bilingual non-AI user layer with guided questions and deterministic
 output adaptation.
 V5 adds an evaluation layer that benchmarks the existing workflow without
 changing the analytical pipeline.
+V6 adds a local FastAPI application layer that lets the dashboard call the real
+Python pipeline and save run artifacts.
 
 ```text
 Input Document
@@ -26,6 +28,8 @@ Input Document
   -> outputs/
   -> evaluator
   -> evaluation/
+  -> FastAPI app
+  -> outputs/runs/
 ```
 
 ## Directory Layout
@@ -38,6 +42,7 @@ knowledge_base/current_context/ Local current-context knowledge base files.
 examples/                      Example inputs, runs, and generated artifacts.
 evaluation/                    Benchmark cases, generated results, and evaluation summary.
 outputs/                       Generated briefs and intermediate workflow outputs.
+outputs/runs/                  Local app run folders and downloadable artifacts.
 scripts/                       Validation and utility scripts.
 src/                           Application source code.
 ```
@@ -62,6 +67,18 @@ src/                           Application source code.
 | `output_adapter.py` | Adapt generated briefs into beginner, analyst, and executive formats with deterministic localization framing. |
 | `evaluator.py` | Run benchmark cases and calculate scenario, mechanism, lens, response, and overall scores. |
 | `run_agent.py` | Orchestrate the end-to-end workflow. |
+
+## V6 Local App Layer
+
+V6 adds `app.py`, a local-only FastAPI backend:
+
+1. `POST /analyze` receives dashboard text and user selections.
+2. The backend runs the existing deterministic pipeline.
+3. A unique run folder is created under `outputs/runs/`.
+4. `analysis.json`, `brief.md`, `brief.txt`, `agent_trace.json`,
+   `metadata.json`, and `input.txt` are saved.
+5. `GET /runs` and `GET /run/{run_id}` support history and retrieval.
+6. Download endpoints serve Markdown, TXT, and JSON artifacts.
 
 ## V5 Evaluation Layer
 

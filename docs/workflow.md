@@ -12,6 +12,7 @@ Document
 -> Multi-Lens Reasoning
 -> Executive Intelligence Brief
 -> Evaluation Reporting
+-> Local Run Storage / Downloads
 ```
 
 ## Stage Details
@@ -187,3 +188,11 @@ scenario accuracy, mechanism accuracy, lens coverage rate, response retrieval
 coverage, and an overall benchmark score. Evaluation artifacts are stored in
 `evaluation/` and are used for credibility reporting rather than new analytical
 claims.
+
+### 14. Local App Storage
+
+V6 routes dashboard requests through FastAPI. Each analysis creates a run folder
+under `outputs/runs/` containing the input text, structured JSON analysis,
+Markdown brief, TXT brief, agent trace, and metadata. The dashboard history
+panel retrieves saved runs through the API and download buttons use server
+download endpoints.

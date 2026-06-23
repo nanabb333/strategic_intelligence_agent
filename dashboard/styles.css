@@ -84,6 +84,11 @@ summary span[data-source],
   padding: 4px 8px;
 }
 
+.status-pill.offline {
+  background: var(--warn-soft);
+  color: #8a5a00;
+}
+
 label {
   font-size: 13px;
   font-weight: 700;
@@ -162,6 +167,11 @@ button:hover,
   border-color: var(--accent);
 }
 
+button:disabled {
+  cursor: wait;
+  opacity: 0.65;
+}
+
 #analyze-button {
   background: var(--accent);
   border-color: var(--accent);
@@ -180,6 +190,34 @@ button:hover,
   margin: 0;
   color: var(--muted);
   font-size: 13px;
+}
+
+.history-panel {
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+}
+
+.history-panel h2 {
+  margin: 0 0 8px;
+  font-size: 15px;
+}
+
+.history-list {
+  display: grid;
+  gap: 8px;
+}
+
+.history-item {
+  display: grid;
+  gap: 2px;
+  text-align: left;
+  padding: 9px 10px;
+}
+
+.history-item span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .results-panel {

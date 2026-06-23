@@ -14,10 +14,10 @@
             <p class="eyebrow" data-i18n="workbenchLabel">Analyst Workbench</p>
             <h1 id="app-title" data-i18n="appTitle">Strategic Intelligence Agent</h1>
           </div>
-          <span class="status-pill">V4.5 local demo</span>
+          <span id="api-status" class="status-pill">Checking server</span>
         </div>
 
-        <p id="helper-text" class="helper-text">No prompt writing needed. Choose a question and paste your text.</p>
+        <p id="helper-text" class="helper-text">No prompt writing needed. Step 1 choose a language. Step 2 paste text or upload a file. Step 3 choose a question. Step 4 choose an output mode. Step 5 click Analyze. Step 6 download results.</p>
 
         <div class="selector-grid" aria-label="Guided analysis controls">
           <label for="language-select" data-i18n="languageLabel">Language</label>
@@ -54,9 +54,15 @@
         <div class="export-row" aria-label="Export executive brief">
           <button id="export-md" type="button" data-i18n="exportMarkdown">Export Markdown</button>
           <button id="export-txt" type="button" data-i18n="exportTxt">Export TXT</button>
+          <button id="export-json" type="button">Download JSON</button>
         </div>
 
-        <p class="note" data-i18n="exportNote">Exports download locally. For repository demos, save exported files into outputs/.</p>
+        <p id="run-note" class="note" data-i18n="exportNote">Results are saved locally by the FastAPI app under outputs/runs/.</p>
+
+        <section class="history-panel" aria-labelledby="history-title">
+          <h2 id="history-title">Run History</h2>
+          <div id="history-list" class="history-list"></div>
+        </section>
       </section>
 
       <section class="results-panel" aria-live="polite">

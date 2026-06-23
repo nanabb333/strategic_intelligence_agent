@@ -11,94 +11,117 @@
       <section class="input-panel" aria-labelledby="app-title">
         <div class="brand-row">
           <div>
-            <p class="eyebrow">Analyst Workbench</p>
-            <h1 id="app-title">Strategic Intelligence Agent</h1>
+            <p class="eyebrow" data-i18n="workbenchLabel">Analyst Workbench</p>
+            <h1 id="app-title" data-i18n="appTitle">Strategic Intelligence Agent</h1>
           </div>
-          <span class="status-pill">V2 local demo</span>
+          <span class="status-pill">V4.5 local demo</span>
         </div>
 
-        <label for="document-input">Document text</label>
+        <p id="helper-text" class="helper-text">No prompt writing needed. Choose a question and paste your text.</p>
+
+        <div class="selector-grid" aria-label="Guided analysis controls">
+          <label for="language-select" data-i18n="languageLabel">Language</label>
+          <select id="language-select">
+            <option value="en">English</option>
+            <option value="zh-CN">简体中文</option>
+            <option value="zh-TW">繁體中文</option>
+          </select>
+
+          <label for="question-select" data-i18n="questionTypeLabel">Question type</label>
+          <select id="question-select"></select>
+
+          <label for="mode-select" data-i18n="outputModeLabel">Output mode</label>
+          <select id="mode-select">
+            <option value="beginner" data-i18n="beginnerMode">Beginner</option>
+            <option value="analyst" selected data-i18n="analystMode">Analyst</option>
+            <option value="executive" data-i18n="executiveMode">Executive</option>
+          </select>
+        </div>
+
+        <div id="guided-question-buttons" class="guided-buttons" aria-label="Guided question buttons"></div>
+
+        <label for="document-input" data-i18n="documentTextLabel">Document text</label>
         <textarea id="document-input" spellcheck="true">The CHIPS Act continues to shape semiconductor manufacturing strategy as executives evaluate domestic fabrication capacity, supplier qualification, and government incentive requirements. The issue involves industrial policy, strategic investment, workforce constraints, and semiconductor supply chain resilience.</textarea>
 
         <div class="control-row">
           <label class="file-control" for="file-input">
-            Upload .md/.txt
+            <span data-i18n="uploadInstructions">Upload .md/.txt</span>
             <input id="file-input" type="file" accept=".md,.markdown,.txt,text/markdown,text/plain">
           </label>
-          <button id="analyze-button" type="button">Run Analysis</button>
+          <button id="analyze-button" type="button" data-i18n="runAnalysis">Run Analysis</button>
         </div>
 
         <div class="export-row" aria-label="Export executive brief">
-          <button id="export-md" type="button">Export Markdown</button>
-          <button id="export-txt" type="button">Export TXT</button>
+          <button id="export-md" type="button" data-i18n="exportMarkdown">Export Markdown</button>
+          <button id="export-txt" type="button" data-i18n="exportTxt">Export TXT</button>
         </div>
 
-        <p class="note">Exports download locally. For repository demos, save exported files into <code>outputs/</code>.</p>
+        <p class="note" data-i18n="exportNote">Exports download locally. For repository demos, save exported files into outputs/.</p>
       </section>
 
       <section class="results-panel" aria-live="polite">
         <details open>
-          <summary>Document Summary <span data-source="Input Document">Input Document</span></summary>
+          <summary><span data-i18n="documentSummary">Document Summary</span> <span data-source="Input Document">Input Document</span></summary>
           <div id="summary-section" class="section-body"></div>
         </details>
 
         <details open>
-          <summary>Scenario Classification <span data-source="Input Document">Input Document</span></summary>
+          <summary><span data-i18n="scenarioClassification">Scenario Classification</span> <span data-source="Input Document">Input Document</span></summary>
           <div id="classification-section" class="section-body"></div>
         </details>
 
         <details>
-          <summary>Historical Analogues <span data-source="Historical Database">Historical Database</span></summary>
+          <summary><span data-i18n="historicalAnalogues">Historical Analogues</span> <span data-source="Historical Database">Historical Database</span></summary>
           <div id="analogues-section" class="section-body"></div>
         </details>
 
         <details>
-          <summary>Current Context <span data-source="Context Knowledge Base">Context Knowledge Base</span></summary>
+          <summary><span data-i18n="currentContext">Current Context</span> <span data-source="Context Knowledge Base">Context Knowledge Base</span></summary>
           <div id="context-section" class="section-body"></div>
         </details>
 
         <details>
-          <summary>Implications <span data-source="Synthesis">Synthesis</span></summary>
+          <summary><span data-i18n="implications">Implications</span> <span data-source="Synthesis">Synthesis</span></summary>
           <div id="implications-section" class="section-body"></div>
         </details>
 
         <details open>
-          <summary>Selected Tools <span data-source="Agent Router">Agent Router</span></summary>
+          <summary><span data-i18n="selectedTools">Selected Tools</span> <span data-source="Agent Router">Agent Router</span></summary>
           <div id="tools-section" class="section-body"></div>
         </details>
 
         <details>
-          <summary>Execution Trace <span data-source="Agent Router">Agent Router</span></summary>
+          <summary><span data-i18n="executionTrace">Execution Trace</span> <span data-source="Agent Router">Agent Router</span></summary>
           <div id="trace-section" class="section-body"></div>
         </details>
 
         <details>
-          <summary>Analysis Path <span data-source="Tool Registry">Tool Registry</span></summary>
+          <summary><span data-i18n="analysisPath">Analysis Path</span> <span data-source="Tool Registry">Tool Registry</span></summary>
           <div id="path-section" class="section-body"></div>
         </details>
 
         <details>
-          <summary>Mechanisms <span data-source="Mechanism Framework">Mechanism Framework</span></summary>
+          <summary><span data-i18n="mechanisms">Mechanisms</span> <span data-source="Mechanism Framework">Mechanism Framework</span></summary>
           <div id="mechanisms-section" class="section-body"></div>
         </details>
 
         <details>
-          <summary>Interpretations <span data-source="Multi-Lens Analysis">Multi-Lens Analysis</span></summary>
+          <summary><span data-i18n="interpretations">Interpretations</span> <span data-source="Multi-Lens Analysis">Multi-Lens Analysis</span></summary>
           <div id="interpretations-section" class="section-body"></div>
         </details>
 
         <details>
-          <summary>Historical Responses <span data-source="Response Patterns">Response Patterns</span></summary>
+          <summary><span data-i18n="historicalResponses">Historical Responses</span> <span data-source="Response Patterns">Response Patterns</span></summary>
           <div id="responses-section" class="section-body"></div>
         </details>
 
         <details>
-          <summary>Evidence Assessment <span data-source="Evidence Assessor">Evidence Assessor</span></summary>
+          <summary><span data-i18n="evidenceAssessment">Evidence Assessment</span> <span data-source="Evidence Assessor">Evidence Assessor</span></summary>
           <div id="evidence-assessment-section" class="section-body"></div>
         </details>
 
         <details>
-          <summary>Executive Brief <span data-source="All Evidence">All Evidence</span></summary>
+          <summary><span data-i18n="executiveBrief">Executive Brief</span> <span data-source="All Evidence">All Evidence</span></summary>
           <pre id="brief-section" class="brief-output"></pre>
         </details>
       </section>

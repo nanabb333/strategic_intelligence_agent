@@ -4,6 +4,7 @@
 
 ```text
 Document
+-> Language / Guided Question / Output Mode
 -> Agent Router
 -> Tool Selection
 -> Tool Execution
@@ -20,13 +21,24 @@ The agent accepts source material such as reports, policy documents, news
 briefs, transcripts, filings, memos, or pasted text. The loader normalizes the
 content into a consistent text representation.
 
-### 2. Agent Router
+### 2. Non-AI User Controls
+
+V4.5 adds a simple product layer before analysis:
+
+- Language: English, Simplified Chinese, or Traditional Chinese.
+- Guided question: one of eight business-facing questions.
+- Output mode: beginner, analyst, or executive.
+
+The controls reduce prompt-writing burden while preserving the same underlying
+analysis pipeline.
+
+### 3. Agent Router
 
 The router inspects document type, scenario type, industries, actors, and
 keywords. It creates an Agent Trace and a reasoning record before selected tools
 execute.
 
-### 3. Tool Selection
+### 4. Tool Selection
 
 The router selects from the Tool Registry:
 
@@ -40,7 +52,7 @@ The router selects from the Tool Registry:
 ContextRetriever can be skipped for routes where current context is not likely
 to add value, such as a narrow corporate earnings disclosure.
 
-### 4. Issue Extraction
+### 5. Issue Extraction
 
 The extractor identifies:
 
@@ -54,7 +66,7 @@ The extractor identifies:
 - Uncertainties.
 - Evidence snippets.
 
-### 5. Scenario Classification
+### 6. Scenario Classification
 
 The classifier assigns the issue to strategic categories such as:
 
@@ -72,7 +84,7 @@ The classifier assigns the issue to strategic categories such as:
 Classification uses deterministic keyword matching. The confidence label
 describes classification quality only; it is not a forecast probability.
 
-### 6. Historical Analogue Retrieval
+### 7. Historical Analogue Retrieval
 
 The retriever searches curated examples for structurally similar events. The
 goal is not prediction; the goal is to support better reasoning by comparison.
@@ -85,7 +97,7 @@ using:
 - Industry overlap.
 - Actor overlap.
 
-### 7. Current Context Retrieval
+### 8. Current Context Retrieval
 
 The context retriever loads local Markdown files from
 `knowledge_base/current_context/` and scores entries using:
@@ -99,7 +111,7 @@ resemble, but not which current stakeholders, constraints, and monitoring
 considerations are relevant. The context layer improves decision support by
 adding present-domain framing without making forecasts.
 
-### 8. Intelligence Synthesis
+### 9. Intelligence Synthesis
 
 The analyzer combines historical analogues and current context into:
 
@@ -114,7 +126,7 @@ The language avoids forecasts, probabilities, and investment recommendations.
 It uses phrasing such as "may resemble", "shares characteristics with",
 "differs from", and "requires monitoring".
 
-### 9. Multi-Lens Reasoning
+### 10. Multi-Lens Reasoning
 
 V4 adds competing interpretations of the same event:
 
@@ -128,7 +140,7 @@ Each lens includes a hypothesis, supporting observations, limitations, and
 evidence references. Evidence support is labeled Limited, Moderate, or
 Substantial without using probability language.
 
-### 10. Executive Brief Generation
+### 11. Executive Brief Generation
 
 The generator writes a concise brief with these sections:
 
@@ -159,3 +171,10 @@ The generator writes a concise brief with these sections:
 - Monitoring Considerations.
 
 Each brief includes an evidence trace section showing source origins.
+
+### 12. Output Adaptation
+
+V4.5 can adapt generated briefs into beginner, analyst, or executive format.
+The adapter uses deterministic templates and localized framing. It does not use
+external translation APIs and does not alter the project guardrails against
+forecasts, probabilities, or investment advice.

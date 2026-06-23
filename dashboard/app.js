@@ -1,3 +1,159 @@
+const localeText = {
+  en: {
+    appTitle: "Strategic Intelligence Agent",
+    workbenchLabel: "Analyst Workbench",
+    uploadInstructions: "Upload .md/.txt",
+    pasteInstructions: "Paste document text",
+    helperText: "No prompt writing needed. Choose a question and paste your text.",
+    documentTextLabel: "Document text",
+    questionTypeLabel: "Question type",
+    outputModeLabel: "Output mode",
+    languageLabel: "Language",
+    beginnerMode: "Beginner",
+    analystMode: "Analyst",
+    executiveMode: "Executive",
+    runAnalysis: "Run Analysis",
+    exportMarkdown: "Export Markdown",
+    exportTxt: "Export TXT",
+    exportNote: "Exports download locally. For repository demos, save exported files into outputs/.",
+    documentSummary: "Document Summary",
+    scenarioClassification: "Scenario Classification",
+    historicalAnalogues: "Historical Analogues",
+    currentContext: "Current Context",
+    implications: "Implications",
+    mechanisms: "Mechanisms",
+    interpretations: "Interpretations",
+    historicalResponses: "Historical Responses",
+    evidenceAssessment: "Evidence Assessment",
+    executiveBrief: "Executive Brief",
+    limitations: "Limitations",
+    selectedTools: "Selected Tools",
+    executionTrace: "Execution Trace",
+    analysisPath: "Analysis Path",
+    disclaimer: "Decision-support only. No forecasts, probabilities, trading advice, or investment recommendations.",
+    errorEmptyInput: "Paste or upload a document to analyze.",
+  },
+  "zh-CN": {
+    appTitle: "战略情报代理",
+    workbenchLabel: "分析工作台",
+    uploadInstructions: "上传 .md/.txt",
+    pasteInstructions: "粘贴文档文本",
+    helperText: "不用会写提示词。选择一个问题，然后贴上文字。",
+    documentTextLabel: "文档文本",
+    questionTypeLabel: "问题类型",
+    outputModeLabel: "输出模式",
+    languageLabel: "语言",
+    beginnerMode: "入门",
+    analystMode: "分析师",
+    executiveMode: "高管",
+    runAnalysis: "开始分析",
+    exportMarkdown: "导出 Markdown",
+    exportTxt: "导出 TXT",
+    exportNote: "导出文件会下载到本地。用于仓库演示时，可保存到 outputs/。",
+    documentSummary: "文档摘要",
+    scenarioClassification: "情境分类",
+    historicalAnalogues: "历史类比",
+    currentContext: "当前背景",
+    implications: "影响分析",
+    mechanisms: "机制",
+    interpretations: "多种解释",
+    historicalResponses: "历史应对模式",
+    evidenceAssessment: "证据评估",
+    executiveBrief: "高管情报简报",
+    limitations: "限制",
+    selectedTools: "已选择工具",
+    executionTrace: "执行轨迹",
+    analysisPath: "分析路径",
+    disclaimer: "仅用于决策支持。不提供预测、概率、交易建议或投资建议。",
+    errorEmptyInput: "请粘贴或上传需要分析的文档。",
+  },
+  "zh-TW": {
+    appTitle: "策略情報代理",
+    workbenchLabel: "分析工作台",
+    uploadInstructions: "上傳 .md/.txt",
+    pasteInstructions: "貼上文件文字",
+    helperText: "不用會寫提示詞。選擇一個問題，然後貼上文字。",
+    documentTextLabel: "文件文字",
+    questionTypeLabel: "問題類型",
+    outputModeLabel: "輸出模式",
+    languageLabel: "語言",
+    beginnerMode: "入門",
+    analystMode: "分析師",
+    executiveMode: "高階主管",
+    runAnalysis: "開始分析",
+    exportMarkdown: "匯出 Markdown",
+    exportTxt: "匯出 TXT",
+    exportNote: "匯出檔案會下載到本機。用於儲存庫展示時，可保存到 outputs/。",
+    documentSummary: "文件摘要",
+    scenarioClassification: "情境分類",
+    historicalAnalogues: "歷史類比",
+    currentContext: "當前背景",
+    implications: "影響分析",
+    mechanisms: "機制",
+    interpretations: "多種解釋",
+    historicalResponses: "歷史應對模式",
+    evidenceAssessment: "證據評估",
+    executiveBrief: "高階主管情報簡報",
+    limitations: "限制",
+    selectedTools: "已選工具",
+    executionTrace: "執行軌跡",
+    analysisPath: "分析路徑",
+    disclaimer: "僅用於決策支援。不提供預測、機率、交易建議或投資建議。",
+    errorEmptyInput: "請貼上或上傳需要分析的文件。",
+  },
+};
+
+const guidedQuestions = [
+  {
+    id: "meaning",
+    en: "What does this issue mean?",
+    "zh-CN": "这件事是什么意思？",
+    "zh-TW": "這件事是什麼意思？",
+  },
+  {
+    id: "analogues",
+    en: "What past events does this resemble?",
+    "zh-CN": "这和过去哪些事件相似？",
+    "zh-TW": "這和過去哪些事件相似？",
+  },
+  {
+    id: "mechanisms",
+    en: "What mechanisms may be operating?",
+    "zh-CN": "可能有哪些机制在发挥作用？",
+    "zh-TW": "可能有哪些機制在發揮作用？",
+  },
+  {
+    id: "responses",
+    en: "What have actors done in similar situations?",
+    "zh-CN": "历史上相关参与者采取过哪些做法？",
+    "zh-TW": "歷史上相關參與者採取過哪些做法？",
+  },
+  {
+    id: "affected",
+    en: "Who may be affected?",
+    "zh-CN": "哪些主体可能受到影响？",
+    "zh-TW": "哪些主體可能受到影響？",
+  },
+  {
+    id: "monitor",
+    en: "What should I monitor next?",
+    "zh-CN": "我应该关注哪些后续变化？",
+    "zh-TW": "我應該關注哪些後續變化？",
+  },
+  {
+    id: "interpretations",
+    en: "What are competing interpretations?",
+    "zh-CN": "有哪些不同解释？",
+    "zh-TW": "有哪些不同解釋？",
+  },
+  {
+    id: "limitations",
+    en: "What is missing from the evidence?",
+    "zh-CN": "证据中还缺少什么？",
+    "zh-TW": "證據中還缺少什麼？",
+  },
+];
+
 const scenarioRules = {
   "Export Controls": ["export control", "entity list", "license", "licensing", "restricted access"],
   "Industrial Policy": ["chips act", "industrial policy", "subsidy", "domestic manufacturing", "incentive"],
@@ -37,9 +193,52 @@ const mechanisms = [
 ];
 
 let currentBrief = "";
+let currentLanguage = "en";
+let currentMode = "analyst";
+let currentQuestion = guidedQuestions[0];
 
 function textIncludes(text, keyword) {
   return text.toLowerCase().includes(keyword.toLowerCase());
+}
+
+function t(key) {
+  return localeText[currentLanguage][key] || localeText.en[key] || key;
+}
+
+function populateGuidedQuestions() {
+  const select = document.getElementById("question-select");
+  const buttons = document.getElementById("guided-question-buttons");
+  select.innerHTML = "";
+  buttons.innerHTML = "";
+
+  guidedQuestions.forEach((question) => {
+    const option = document.createElement("option");
+    option.value = question.id;
+    option.textContent = question[currentLanguage];
+    select.appendChild(option);
+
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = question.id === currentQuestion.id ? "guided-button active" : "guided-button";
+    button.textContent = question[currentLanguage];
+    button.addEventListener("click", () => {
+      currentQuestion = question;
+      select.value = question.id;
+      populateGuidedQuestions();
+      runAnalysis();
+    });
+    buttons.appendChild(button);
+  });
+  select.value = currentQuestion.id;
+}
+
+function applyLocale() {
+  document.documentElement.lang = currentLanguage;
+  document.querySelectorAll("[data-i18n]").forEach((node) => {
+    node.textContent = t(node.dataset.i18n);
+  });
+  document.getElementById("helper-text").textContent = t("helperText");
+  populateGuidedQuestions();
 }
 
 function classifyScenario(text) {
@@ -142,7 +341,14 @@ function buildBrief(text, classification, entities, analogues, contexts, route, 
   const assessmentLines = assessments.map((item) => `- ${item.lens}: ${item.confidence}. ${item.supporting}`).join("\n");
   return `# Executive Intelligence Brief
 
-This output is for decision-support and analyst productivity only. It does not provide forecasts, probabilities, trading advice, or investment recommendations.
+${t("disclaimer")}
+
+## Guided Question
+
+- Question: ${currentQuestion[currentLanguage]}
+- Output mode: ${currentMode}
+- Language: ${currentLanguage}
+- Source: User selection
 
 ## Executive Summary
 
@@ -195,7 +401,7 @@ ${contextLines}
 
 - The issue may resemble selected historical cases while differing in current actors, timing, and implementation details.
 - Current context requires monitoring of stakeholders, operational constraints, and source updates.
-- Analysts should separate observed facts from interpretation.
+- Analysts may separate observed facts from interpretation.
 
 ## Competing Interpretations
 
@@ -234,6 +440,35 @@ ${assessmentLines}
 `;
 }
 
+function adaptDashboardOutput(markdownText) {
+  if (currentMode === "analyst") {
+    return markdownText;
+  }
+  const bulletLines = markdownText
+    .split("\n")
+    .filter((line) => line.trim().startsWith("- "))
+    .slice(0, currentMode === "beginner" ? 8 : 12)
+    .join("\n");
+  const title = currentMode === "beginner" ? t("documentSummary") : t("executiveBrief");
+  return `# ${title}
+
+${t("disclaimer")}
+
+## ${t("questionTypeLabel")}
+
+- ${currentQuestion[currentLanguage]}
+
+## ${t("currentContext")}
+
+${bulletLines}
+
+## ${t("limitations")}
+
+- This localized display is deterministic and template-based.
+- Source: Output Adapter
+`;
+}
+
 function renderFindingList(element, items, renderItem) {
   element.innerHTML = "";
   if (!items.length) {
@@ -250,8 +485,9 @@ function renderFindingList(element, items, renderItem) {
 
 function runAnalysis() {
   const text = document.getElementById("document-input").value.trim();
+  currentMode = document.getElementById("mode-select").value;
   if (!text) {
-    document.getElementById("summary-section").innerHTML = '<div class="empty">Paste or upload a document to analyze.</div>';
+    document.getElementById("summary-section").innerHTML = `<div class="empty">${t("errorEmptyInput")}</div>`;
     return;
   }
   const classification = classifyScenario(text);
@@ -262,9 +498,10 @@ function runAnalysis() {
   const detectedMechanisms = detectMechanisms(text);
   const interpretations = buildInterpretations(classification, detectedMechanisms);
   const assessments = buildEvidenceAssessment(interpretations);
-  currentBrief = buildBrief(text, classification, entities, analogues, contexts, route, detectedMechanisms, interpretations, assessments);
+  const fullBrief = buildBrief(text, classification, entities, analogues, contexts, route, detectedMechanisms, interpretations, assessments);
+  currentBrief = adaptDashboardOutput(fullBrief);
 
-  document.getElementById("summary-section").innerHTML = `<p>${summarizeDocument(text)}</p><p><span class="evidence">Source: Input Document</span></p>`;
+  document.getElementById("summary-section").innerHTML = `<p>${summarizeDocument(text)}</p><p><strong>${t("questionTypeLabel")}:</strong> ${currentQuestion[currentLanguage]}</p><p><span class="evidence">Source: Input Document</span></p>`;
   document.getElementById("classification-section").innerHTML = `<ul><li>Primary scenario: ${classification.scenario}</li><li>Matched keywords: ${classification.matches.join(", ") || "None"}</li><li>Confidence: ${classification.confidence}</li></ul><p><span class="evidence">Source: Input Document</span></p>`;
   renderFindingList(document.getElementById("analogues-section"), analogues, (item) => `<h3>${item.title}</h3><p>${item.relevance}</p><span class="evidence">Source: ${item.source}</span>`);
   renderFindingList(document.getElementById("context-section"), contexts, (item) => `<h3>${item.industry}</h3><p>${item.text}</p><span class="evidence">Source: ${item.source}</span>`);
@@ -288,10 +525,27 @@ function exportBrief(format) {
   const blob = new Blob([content], { type });
   const link = document.createElement("a");
   link.href = URL.createObjectURL(blob);
-  link.download = `strategic_intelligence_brief.${format}`;
+  link.download = `strategic_intelligence_brief_${currentLanguage}_${currentMode}.${format}`;
   link.click();
   URL.revokeObjectURL(link.href);
 }
+
+document.getElementById("language-select").addEventListener("change", (event) => {
+  currentLanguage = event.target.value;
+  applyLocale();
+  runAnalysis();
+});
+
+document.getElementById("question-select").addEventListener("change", (event) => {
+  currentQuestion = guidedQuestions.find((question) => question.id === event.target.value) || guidedQuestions[0];
+  populateGuidedQuestions();
+  runAnalysis();
+});
+
+document.getElementById("mode-select").addEventListener("change", (event) => {
+  currentMode = event.target.value;
+  runAnalysis();
+});
 
 document.getElementById("file-input").addEventListener("change", async (event) => {
   const file = event.target.files[0];
@@ -304,4 +558,5 @@ document.getElementById("analyze-button").addEventListener("click", runAnalysis)
 document.getElementById("export-md").addEventListener("click", () => exportBrief("md"));
 document.getElementById("export-txt").addEventListener("click", () => exportBrief("txt"));
 
+applyLocale();
 runAnalysis();

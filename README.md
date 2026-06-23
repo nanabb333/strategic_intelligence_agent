@@ -6,18 +6,19 @@ An analyst workbench that converts documents, articles, policy texts, and earnin
 
 ## 90-Second Review
 
-- **Purpose:** Turn unstructured strategic source material into executive intelligence briefs.
+- **Purpose:** Turn unstructured strategic source material into executive intelligence briefs without requiring users to write prompts.
 - **Demo:** Open [`dashboard/index.html`](dashboard/index.html) locally.
-- **Sample briefs:** Review [`outputs/chips_act_brief.md`](outputs/chips_act_brief.md), [`outputs/banking_earnings_brief.md`](outputs/banking_earnings_brief.md), and [`demo_outputs/red_sea_shipping_brief.md`](demo_outputs/red_sea_shipping_brief.md).
+- **Sample briefs:** Review [`outputs/chips_act_brief.md`](outputs/chips_act_brief.md), [`outputs/banking_earnings_brief.md`](outputs/banking_earnings_brief.md), [`outputs/beginner_export_controls_zh_TW.md`](outputs/beginner_export_controls_zh_TW.md), and [`demo_outputs/red_sea_shipping_brief.md`](demo_outputs/red_sea_shipping_brief.md).
 - **Architecture:** See [`docs/architecture_diagram.md`](docs/architecture_diagram.md), [`docs/system_architecture.md`](docs/system_architecture.md), and [`docs/agent_router_design.md`](docs/agent_router_design.md).
+- **Non-AI user guide:** See [`docs/non_ai_user_guide.md`](docs/non_ai_user_guide.md), [`docs/non_ai_user_guide_zh_CN.md`](docs/non_ai_user_guide_zh_CN.md), and [`docs/non_ai_user_guide_zh_TW.md`](docs/non_ai_user_guide_zh_TW.md).
 - **Case study:** See [`docs/portfolio_case_study.md`](docs/portfolio_case_study.md).
 - **Resume bullets:** See [`docs/resume_bullets.md`](docs/resume_bullets.md).
 
 ## Project Overview
 
-Strategic Intelligence Agent is a portfolio-grade decision-support product for strategic intelligence and business analytics. It combines deterministic issue extraction, scenario classification, historical analogue retrieval, current context retrieval, implication analysis, evidence traceability, executive brief generation, and V3 tool-selecting agent routing.
+Strategic Intelligence Agent is a portfolio-grade decision-support product for strategic intelligence and business analytics. It combines deterministic issue extraction, scenario classification, historical analogue retrieval, current context retrieval, implication analysis, evidence traceability, executive brief generation, and tool-selecting agent routing.
 
-V2 added a local Analyst Workbench in `dashboard/`. V3 added an Agent Router and Tool Registry so the system can decide which tools to execute instead of always running a fixed sequence. V4 adds a multi-lens reasoning framework that surfaces competing interpretations, mechanisms, evidence support, and response patterns.
+V2 added a local Analyst Workbench in `dashboard/`. V3 added an Agent Router and Tool Registry so the system can decide which tools to execute instead of always running a fixed sequence. V4 adds a multi-lens reasoning framework that surfaces competing interpretations, mechanisms, evidence support, and response patterns. V4.5 adds a bilingual non-AI user layer with guided questions and beginner, analyst, and executive output modes.
 
 ## What This Is / Is Not
 
@@ -54,13 +55,15 @@ See [docs/architecture_diagram.md](docs/architecture_diagram.md) and [docs/syste
 ## Workflow
 
 1. The analyst pastes or uploads a document.
-2. The system extracts issue fields such as actors, industries, policy terms, and document type.
-3. The Agent Router evaluates document type, scenario, industries, actors, and keywords.
-4. The Tool Registry exposes available tools.
-5. The router selects or skips tools and records why.
-6. Selected tools execute and synthesize results.
-7. The workbench displays collapsible sections with evidence labels and execution trace.
-8. The executive brief can be exported as Markdown or TXT.
+2. The user selects English, Simplified Chinese, or Traditional Chinese.
+3. The user chooses a guided question and output mode.
+4. The system extracts issue fields such as actors, industries, policy terms, and document type.
+5. The Agent Router evaluates document type, scenario, industries, actors, and keywords.
+6. The Tool Registry exposes available tools.
+7. The router selects or skips tools and records why.
+8. Selected tools execute and synthesize results.
+9. The workbench displays collapsible sections with evidence labels and execution trace.
+10. The executive brief can be exported as Markdown or TXT.
 
 ## Evolution of the System
 
@@ -71,6 +74,7 @@ V0.1 Deterministic Workflow
   -> V2.0 Analyst Workbench
   -> V3.0 Agent Router and Tool Selection
   -> V4.0 Intelligence Reasoning Framework
+  -> V4.5 Bilingual Non-AI User Layer
 ```
 
 - **V0.1:** deterministic document-to-brief skeleton.
@@ -79,6 +83,17 @@ V0.1 Deterministic Workflow
 - **V2.0:** local analyst workbench UI.
 - **V3.0:** agent router, tool registry, selected/skipped tools, execution trace, and reasoning record.
 - **V4.0:** mechanism detection, multi-lens analysis, evidence assessment, historical response patterns, and monitoring considerations.
+- **V4.5:** language selector, guided question buttons, beginner/analyst/executive modes, and localized user guides.
+
+## Designed for Non-AI Users
+
+V4.5 makes the workbench usable without prompt engineering. Users do not need to know how to write an AI prompt. They choose a guided question, paste or upload text, select an output mode, and review structured evidence-backed sections.
+
+- **Guided buttons:** Eight repeatable business questions are mapped to internal analysis goals in [`knowledge_base/guided_questions.csv`](knowledge_base/guided_questions.csv).
+- **Bilingual interface:** English, Simplified Chinese, and Traditional Chinese labels live in [`locales/`](locales/).
+- **Output modes:** Beginner, Analyst, and Executive modes are implemented in [`src/output_adapter.py`](src/output_adapter.py).
+- **User guides:** [`docs/non_ai_user_guide.md`](docs/non_ai_user_guide.md), [`docs/non_ai_user_guide_zh_CN.md`](docs/non_ai_user_guide_zh_CN.md), and [`docs/non_ai_user_guide_zh_TW.md`](docs/non_ai_user_guide_zh_TW.md).
+- **Beginner examples:** [`examples/non_ai_user_examples/`](examples/non_ai_user_examples/) with generated outputs in [`outputs/`](outputs/).
 
 ## Business Value
 
@@ -109,6 +124,7 @@ See [docs/business_analytics_relevance.md](docs/business_analytics_relevance.md)
 dashboard/                     Local browser analyst workbench.
 docs/                          Portfolio, architecture, product, and interview docs.
 examples/                      Source examples and demo inputs.
+locales/                       English, Simplified Chinese, and Traditional Chinese UI text.
 knowledge_base/                Historical analogue records.
 knowledge_base/current_context/ Local context KB files by domain.
 outputs/                       Generated executive intelligence briefs.
@@ -126,7 +142,7 @@ Open this file in a browser from the repository root:
 dashboard/index.html
 ```
 
-The dashboard is static and local. It supports paste input, `.md` and `.txt` uploads, collapsible results, evidence labels, and Markdown/TXT export.
+The dashboard is static and local. It supports language selection, guided question buttons, output mode selection, paste input, `.md` and `.txt` uploads, collapsible results, evidence labels, and Markdown/TXT export.
 
 ## Run The Pipeline
 
@@ -157,11 +173,13 @@ python3 scripts/validate_v10.py
 python3 scripts/validate_v20.py
 python3 scripts/validate_v30.py
 python3 scripts/validate_v41.py
+python3 scripts/validate_v45.py
 ```
 
 The V2 validator checks that the dashboard loads, outputs generate, exports are written to `outputs/`, and evidence traces exist.
 The V3 validator checks routing, tool selection, execution trace, reasoning record, and routed outputs.
 The V4.1 validator checks lens analysis, evidence assessment, mechanisms, response patterns, generated outputs, and non-advisory language.
+The V4.5 validator checks localization files, guided questions, dashboard controls, non-AI user guides, generated beginner outputs, and forbidden advice language.
 
 ## Portfolio Value
 
@@ -185,6 +203,9 @@ Supporting docs:
 - [docs/intelligence_reasoning_framework.md](docs/intelligence_reasoning_framework.md)
 - [docs/multi_lens_analysis_design.md](docs/multi_lens_analysis_design.md)
 - [docs/evidence_assessment_design.md](docs/evidence_assessment_design.md)
+- [docs/v45_non_ai_user_layer.md](docs/v45_non_ai_user_layer.md)
+- [docs/localization_design.md](docs/localization_design.md)
+- [docs/guided_question_design.md](docs/guided_question_design.md)
 
 ## Future Roadmap
 
@@ -194,11 +215,13 @@ Supporting docs:
 - Add tests for retrieval scoring edge cases.
 - Add a lightweight local server for direct dashboard-to-`outputs/` saving.
 - Add user-selectable knowledge-base filters and evidence review controls.
+- Add richer localization coverage for every generated evidence line.
 
 ## Limitations
 
-- V2 remains deterministic and keyword-based.
+- V4.5 remains deterministic and keyword-based.
 - The dashboard is a local static interface.
 - Browser exports download files; the validation script writes repository export artifacts into `outputs/`.
 - No live web retrieval is performed.
+- Localization is template-based and does not use an external translation API.
 - No forecasts, probabilities, investment advice, or trading recommendations are generated.

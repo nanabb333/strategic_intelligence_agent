@@ -7,9 +7,12 @@ agent. V3 keeps the existing modular tools but adds an Agent Router that decides
 which tools should run for a given document.
 V4 adds an intelligence reasoning layer that interprets the same event through
 multiple analytic lenses.
+V4.5 adds a bilingual non-AI user layer with guided questions and deterministic
+output adaptation.
 
 ```text
 Input Document
+  -> language / guided question / output mode selection
   -> document_loader
   -> agent_router
   -> tool_registry
@@ -17,6 +20,7 @@ Input Document
   -> result synthesis
   -> multi_lens_analyzer
   -> evidence_assessor
+  -> output_adapter
   -> outputs/
 ```
 
@@ -50,7 +54,19 @@ src/                           Application source code.
 | `multi_lens_analyzer.py` | Generate competing interpretations across analytic lenses. |
 | `evidence_assessor.py` | Assess supporting, weakening, and missing evidence with qualitative labels. |
 | `response_playbook_retriever.py` | Retrieve observed historical choices, outcomes, and cross-domain lessons. |
+| `output_adapter.py` | Adapt generated briefs into beginner, analyst, and executive formats with deterministic localization framing. |
 | `run_agent.py` | Orchestrate the end-to-end workflow. |
+
+## V4.5 Non-AI User Layer
+
+V4.5 adds product controls around the existing pipeline:
+
+1. Users select English, Simplified Chinese, or Traditional Chinese.
+2. Users choose a guided question instead of writing a prompt.
+3. Users choose beginner, analyst, or executive output mode.
+4. The dashboard keeps source labels visible while presenting localized UI text.
+5. The output adapter generates deterministic localized framing without using
+   external translation APIs.
 
 ## V4 Intelligence Reasoning Layer
 

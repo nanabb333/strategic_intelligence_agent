@@ -72,7 +72,7 @@ h1 {
 }
 
 .status-pill,
-summary span,
+summary span[data-source],
 .evidence {
   display: inline-flex;
   align-items: center;
@@ -87,6 +87,52 @@ summary span,
 label {
   font-size: 13px;
   font-weight: 700;
+}
+
+select {
+  width: 100%;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #fff;
+  color: var(--ink);
+  font: 14px/1.4 inherit;
+  padding: 9px 10px;
+}
+
+.helper-text {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  color: #1241b2;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.45;
+  padding: 10px 12px;
+}
+
+.selector-grid {
+  display: grid;
+  grid-template-columns: minmax(92px, auto) minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+}
+
+.guided-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.guided-button {
+  padding: 8px 10px;
+  font-size: 13px;
+}
+
+.guided-button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
 }
 
 textarea {

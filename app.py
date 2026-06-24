@@ -31,6 +31,7 @@ from context_retriever import retrieve_current_context  # noqa: E402
 from evidence_assessor import assess_evidence  # noqa: E402
 from evidence_credibility import assess_evidence_credibility  # noqa: E402
 from event_context import extract_event_context  # noqa: E402
+from event_understanding import detect_event_understanding  # noqa: E402
 from historical_retriever import retrieve_historical_analogues  # noqa: E402
 from implication_analyzer import analyze_implications  # noqa: E402
 from issue_extractor import extract_issues  # noqa: E402
@@ -86,7 +87,7 @@ class AnalyzeResponse(BaseModel):
 
 app = FastAPI(
     title="Strategic Intelligence Agent Local App",
-    version="9.5",
+    version="12.0",
     description="Local-only API for running the Strategic Intelligence Agent pipeline.",
 )
 
@@ -105,7 +106,7 @@ app.mount("/runs", StaticFiles(directory=RUNS_DIR, html=False), name="runs")
 @app.get("/health")
 def health() -> dict[str, str]:
     """Return local app health."""
-    return {"status": "ok", "app": "Strategic Intelligence Agent", "version": "9.5"}
+    return {"status": "ok", "app": "Strategic Intelligence Agent", "version": "12.0"}
 
 
 @app.post("/extract-file")
@@ -143,7 +144,8 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     if not text:
         if source_url:
             text = _fetch_url_text(source_url)
-        raise HTTPException(status_code=400, detail="Text is required.")
+        else:
+            raise HTTPException(status_code=400, detail="Text is required.")
 
     run_id, run_dir = _create_run_dir()
 
@@ -151,6 +153,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     route = route_document(text, registry)
     question_route = route_question(request.question_text)
     event_context = extract_event_context(text)
+    event_understanding = detect_event_understanding(text, request.question_text)
     issues = extract_issues(text)
     classifications = classify_scenarios(issues)
     analogues = retrieve_historical_analogues(issues, classifications)
@@ -165,7 +168,12 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     evidence_assessments = assess_evidence(interpretations)
     historical_outcomes = retrieve_historical_outcomes(analogues)
     strategic_lessons = generate_strategic_lessons(historical_outcomes)
-    strategic_assessments = generate_strategic_assessments(issues, classifications, historical_outcomes)
+    strategic_assessments = generate_strategic_assessments(
+        issues,
+        classifications,
+        historical_outcomes,
+        event_understanding=event_understanding,
+    )
     evidence_credibility = assess_evidence_credibility(historical_outcomes, strategic_lessons)
     response_patterns = retrieve_response_patterns(analogues, mechanisms)
     base_brief = generate_brief(
@@ -184,6 +192,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
         event_context=event_context,
+        event_understanding=event_understanding,
         source_url=source_url,
     )
     brief_markdown = adapt_output(base_brief, mode=request.output_mode, language=request.language)
@@ -227,6 +236,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
         event_context=event_context,
+        event_understanding=event_understanding,
         question_route=question_route,
         localized_question_route=localized_question_route(question_route, request.language),
         source_url=source_url,
@@ -244,6 +254,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         "reasoning_record": _serializable(route.reasoning_record),
         "reasoning_stages": [
             "Current event context extraction",
+            "Event-family understanding",
             "Historical analogue retrieval",
             "Historical outcome retrieval",
             "Strategic assessment generation",
@@ -419,6 +430,7 @@ def _build_analysis_artifact(**items: Any) -> dict[str, Any]:
         "uploaded_filename": items["uploaded_filename"],
         "file_type": items["file_type"],
         "event_context": _serializable(items["event_context"]),
+        "event_understanding": _serializable(items["event_understanding"]),
         "question_route": _serializable(items["localized_question_route"]),
         "scenario": _serializable(classifications[0]) if classifications else {},
         "mechanisms": _serializable(items["mechanisms"].get(issue_title, [])),
@@ -441,6 +453,7 @@ def _build_analysis_artifact(**items: Any) -> dict[str, Any]:
             "reasoning_record": _serializable(route.reasoning_record),
             "reasoning_stages": [
                 "Current event context extraction",
+                "Event-family understanding",
                 "Historical analogue retrieval",
                 "Historical outcome retrieval",
                 "Strategic assessment generation",

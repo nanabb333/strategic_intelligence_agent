@@ -17,7 +17,7 @@
           <span id="api-status" class="status-pill">Checking server</span>
         </div>
 
-        <p id="helper-text" class="helper-text">Paste a document, ask a plain-language question, and click Analyze. The app will produce an executive brief first, with methods and trace details below.</p>
+        <p id="helper-text" class="helper-text">Ask a question, paste an article, include a URL, or upload a file. The app returns a strategic brief first, with technical details hidden unless you choose Analyst or Executive mode.</p>
 
         <div class="selector-grid" aria-label="Language and output controls">
           <label for="language-select" data-i18n="languageLabel">Language</label>
@@ -35,46 +35,22 @@
           </select>
         </div>
 
-        <section class="workflow-step" data-legacy-validation="Paste Document">
-          <h2><span data-i18n="stepOne">STEP 1</span> <span data-i18n="askQuestionStep">Ask a Question</span></h2>
-          <label for="question-input" data-i18n="questionInputLabel">Ask a Question</label>
-          <textarea id="question-input" class="question-input" spellcheck="true" data-i18n-placeholder="questionPlaceholder" placeholder="What does this issue mean? What historical events resemble this? How have organizations responded in similar situations? What should I monitor next?"></textarea>
-        </section>
+        <section class="assistant-composer">
+          <label for="assistant-input" class="input-label" data-i18n="assistantInputLabel">Ask anything or paste source material</label>
+          <textarea id="assistant-input" class="document-dropzone assistant-input" spellcheck="true" data-i18n-placeholder="assistantPlaceholder" placeholder="What does this event mean?
+Which historical cases are most similar?
+How did organizations respond?
+What should I monitor over the next 90 days?
 
-        <section class="workflow-step">
-          <h2><span data-i18n="stepTwo">STEP 2</span> <span data-i18n="chooseInputStep">Upload File / Paste Article / Analyze Link</span></h2>
-          <div class="input-mode-block">
-            <p class="input-mode-title" data-i18n="inputModeLabel">Input Mode</p>
-            <div class="input-mode-tabs" role="tablist" aria-label="Input modes">
-              <button class="input-mode active" type="button" data-mode="paste" data-i18n="pasteTextMode">Paste Text</button>
-              <button class="input-mode" type="button" data-mode="upload" data-i18n="uploadFileMode">Upload File</button>
-              <button class="input-mode" type="button" data-mode="link" data-i18n="pasteLinkMode">Analyze Link</button>
-            </div>
-          </div>
-
-          <section id="paste-panel" class="input-mode-panel active">
-            <label for="document-input" class="input-label" data-i18n="documentTextLabel">Paste document or article here</label>
-            <textarea id="document-input" class="document-dropzone" spellcheck="true" data-i18n-placeholder="documentPlaceholder" placeholder="Paste an article, policy excerpt, earnings note, regulatory update, or supply chain memo here.">The CHIPS Act continues to shape semiconductor manufacturing strategy as executives evaluate domestic fabrication capacity, supplier qualification, and government incentive requirements. The issue involves industrial policy, strategic investment, workforce constraints, and semiconductor supply chain resilience.</textarea>
-          </section>
-
-          <section id="upload-panel" class="input-mode-panel">
-            <label class="file-control upload-box" for="file-input">
+Paste an article, policy excerpt, earnings note, URL, or operational update here.">New semiconductor export controls affect advanced chip supply chains and market access. Equipment suppliers are reviewing licensing requirements, customer eligibility, and compliance documentation. Executives want to understand similar historical cases, observed outcomes, and what to monitor next.</textarea>
+          <div class="assistant-actions">
+            <label class="file-control upload-box compact-upload" for="file-input">
               <span data-i18n="uploadInstructions">Upload .txt / .md / .markdown / .pdf</span>
               <strong id="uploaded-file-name" data-i18n="noFileSelected">No file selected</strong>
               <input id="file-input" type="file" accept=".md,.markdown,.txt,.pdf,text/markdown,text/plain,application/pdf">
             </label>
-            <p class="note" data-i18n="pdfLimitNote">PDF support works for text-based PDFs only. Scanned image PDFs are not supported.</p>
-          </section>
-
-          <section id="link-panel" class="input-mode-panel">
-            <label for="source-url-input" class="input-label" data-i18n="sourceUrlLabel">Paste source link</label>
-            <input id="source-url-input" class="link-input" type="url" data-i18n-placeholder="sourceUrlPlaceholder" placeholder="https://example.com/source-document">
-            <p class="note" data-i18n="linkModeNote">The app will try to fetch readable webpage text. If it cannot, paste the article text or upload a file.</p>
-          </section>
-        </section>
-
-        <section class="workflow-step action-step">
-          <h2><span data-i18n="stepThree">STEP 3</span> <span data-i18n="analyzeStep">Analyze</span></h2>
+            <p class="note" data-i18n="urlModeNote">Paste a full webpage URL in the box to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.</p>
+          </div>
           <button id="analyze-button" type="button" data-i18n="runAnalysis">Run Analysis</button>
         </section>
 
@@ -138,7 +114,7 @@
           <div id="evidence-assessment-section" class="section-body"></div>
         </details>
 
-        <details id="transparency-tab" class="beginner-only" open>
+        <details id="transparency-tab" class="internal-detail">
           <summary><span data-i18n="analysisTransparency">Analysis Transparency</span></summary>
           <div id="transparency-section" class="section-body">
             <p data-i18n="transparencyNote">This system uses a rules-based workflow to connect the input document with historical cases, common mechanisms, and strategic lessons. A human analyst should review the result.</p>

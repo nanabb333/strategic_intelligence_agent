@@ -8,6 +8,7 @@ from document_loader import load_document
 from evidence_assessor import assess_evidence
 from evidence_credibility import assess_evidence_credibility
 from event_context import extract_event_context
+from event_understanding import detect_event_understanding
 from mechanism_detector import detect_mechanisms
 from multi_lens_analyzer import analyze_lenses
 from outcome_retriever import retrieve_historical_outcomes
@@ -24,6 +25,7 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
     route = route_document(document_text, registry)
 
     event_context = extract_event_context(document_text)
+    event_understanding = detect_event_understanding(document_text)
     issues = registry["IssueExtractor"].callable(document_text)
     classifications = registry["ScenarioClassifier"].callable(issues)
     analogues = registry["HistoricalRetriever"].callable(issues, classifications)
@@ -38,7 +40,12 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
     evidence_assessments = assess_evidence(interpretations)
     historical_outcomes = retrieve_historical_outcomes(analogues)
     strategic_lessons = generate_strategic_lessons(historical_outcomes)
-    strategic_assessments = generate_strategic_assessments(issues, classifications, historical_outcomes)
+    strategic_assessments = generate_strategic_assessments(
+        issues,
+        classifications,
+        historical_outcomes,
+        event_understanding=event_understanding,
+    )
     evidence_credibility = assess_evidence_credibility(historical_outcomes, strategic_lessons)
     response_patterns = retrieve_response_patterns(analogues, mechanisms)
     brief = registry["BriefGenerator"].callable(
@@ -57,6 +64,7 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
         evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
         event_context=event_context,
+        event_understanding=event_understanding,
         source_url=source_url,
     )
 

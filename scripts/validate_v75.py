@@ -99,17 +99,19 @@ def validate_brief_section() -> None:
     output_path = Path("/private/tmp/strategic_intelligence_agent_v75_brief.md")
     run_agent(ROOT / "examples/chips_act_example.md", output_path)
     text = output_path.read_text(encoding="utf-8")
-    if "## Evidence Credibility Note" not in text:
-        raise AssertionError("Brief missing Evidence Credibility Note section.")
-    if "Source URLs are not fabricated" not in text:
-        raise AssertionError("Brief missing source URL transparency note.")
+    if "## Evidence Used" not in text:
+        raise AssertionError("Brief missing Evidence Used section.")
+    if "Local historical outcome records" not in text:
+        raise AssertionError("Brief missing historical outcome evidence note.")
+    if "## Limitations" not in text:
+        raise AssertionError("Brief missing final limitations section.")
 
 
 def validate_dashboard_and_docs() -> None:
     html = (ROOT / "dashboard/index.html").read_text(encoding="utf-8")
     js = (ROOT / "dashboard/app.js").read_text(encoding="utf-8")
-    if "Evidence Credibility" not in html or "evidence-credibility-section" not in html:
-        raise AssertionError("Dashboard missing Evidence Credibility section.")
+    if "Evidence Review" not in html or "evidence-credibility-section" not in html:
+        raise AssertionError("Dashboard missing Evidence Review / credibility target section.")
     if "renderEvidenceCredibility" not in js or "source_status_distribution" not in js:
         raise AssertionError("Dashboard JS missing Evidence Credibility rendering.")
     if not (ROOT / "docs/repo5_case_study.md").exists():

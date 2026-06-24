@@ -3,9 +3,10 @@
 ## Target Workflow
 
 ```text
-Document
--> Language / Guided Question / Output Mode
+Question, pasted document, uploaded file, or user-provided URL
+-> Language / Output Mode
 -> Current Event Context
+-> Event Understanding
 -> Agent Router
 -> Tool Selection
 -> Tool Execution
@@ -20,18 +21,22 @@ Document
 
 ## Stage Details
 
-### 1. Document Loading
+### 1. Assistant Input
 
-The agent accepts source material such as reports, policy documents, news
-briefs, transcripts, filings, memos, or pasted text. The loader normalizes the
-content into a consistent text representation.
+The app starts with one assistant-style input area. A user can ask a question,
+paste an article, paste a policy excerpt, include a readable webpage URL, or
+upload a `.txt`, `.md`, `.markdown`, or text-based `.pdf` file.
+
+If a user provides only a question, the system answers from local historical
+cases and knowledge-base records. If a user provides content, the system uses
+that content plus local historical cases. If URL extraction fails, the backend
+returns a clear error and does not generate filler.
 
 ### 2. Non-AI User Controls
 
-V4.5 adds a simple product layer before analysis:
+The product controls are intentionally minimal:
 
 - Language: English, Simplified Chinese, or Traditional Chinese.
-- Guided question: one of eight business-facing questions.
 - Output mode: beginner, analyst, or executive.
 
 The controls reduce prompt-writing burden while preserving the same underlying
@@ -48,13 +53,29 @@ analyzed before the workflow retrieves historical analogues and outcomes. It
 uses deterministic keyword rules and does not perform live web search or source
 verification.
 
-### 4. Agent Router
+### 4. Event Understanding
+
+The event-understanding layer maps the input to a practical event family before
+historical comparison:
+
+- Layoff -> Corporate Restructuring.
+- Earnings Miss -> Earnings Shock.
+- Export Controls -> Trade Restriction.
+- Sanctions -> Economic Coercion.
+- New Bank Product -> Financial Product Risk.
+- Industrial Subsidy -> State Support.
+- Supply Chain Disruption -> Supply Chain Disruption.
+
+This prevents weak comparisons such as treating a corporate layoff as directly
+comparable to export controls unless the input source gives a clear reason.
+
+### 5. Agent Router
 
 The router inspects document type, scenario type, industries, actors, and
 keywords. It creates an Agent Trace and a reasoning record before selected tools
 execute.
 
-### 5. Tool Selection
+### 6. Tool Selection
 
 The router selects from the Tool Registry:
 
@@ -68,7 +89,7 @@ The router selects from the Tool Registry:
 ContextRetriever can be skipped for routes where current context is not likely
 to add value, such as a narrow corporate earnings disclosure.
 
-### 6. Issue Extraction
+### 7. Issue Extraction
 
 The extractor identifies:
 
@@ -82,7 +103,7 @@ The extractor identifies:
 - Uncertainties.
 - Evidence snippets.
 
-### 7. Scenario Classification
+### 8. Scenario Classification
 
 The classifier assigns the issue to strategic categories such as:
 
@@ -100,7 +121,7 @@ The classifier assigns the issue to strategic categories such as:
 Classification uses deterministic keyword matching. The confidence label
 describes classification quality only; it is not a forecast probability.
 
-### 8. Historical Analogue Retrieval
+### 9. Historical Analogue Retrieval
 
 The retriever searches curated examples for structurally similar events. The
 goal is not prediction; the goal is to support better reasoning by comparison.
@@ -113,7 +134,7 @@ using:
 - Industry overlap.
 - Actor overlap.
 
-### 9. Current Context Retrieval
+### 10. Current Context Retrieval
 
 The context retriever loads local Markdown files from
 `knowledge_base/current_context/` and scores entries using:
@@ -127,20 +148,20 @@ resemble, but not which current stakeholders, constraints, and monitoring
 considerations are relevant. The context layer improves decision support by
 adding present-domain framing without making forecasts.
 
-### 10. Historical Outcome Retrieval
+### 11. Historical Outcome Retrieval
 
 V7 retrieves observed historical outcomes linked to the retrieved analogue
 cases. Outcomes include observed consequence, strategic response, time horizon,
 confidence, and source status. The layer supports learning from past cases
 without implying that outcomes will repeat.
 
-### 11. Strategic Lesson Generation
+### 12. Strategic Lesson Generation
 
 The strategic lesson generator groups retrieved outcomes into recurring lessons
 using rule-based keyword groups. Each lesson lists supporting cases, confidence,
 rationale, and evidence references.
 
-### 12. Intelligence Synthesis
+### 13. Intelligence Synthesis
 
 The analyzer combines historical analogues and current context into:
 
@@ -155,7 +176,7 @@ The language avoids forecasts, probabilities, and investment recommendations.
 It uses phrasing such as "may resemble", "shares characteristics with",
 "differs from", and "requires monitoring".
 
-### 13. Multi-Lens Reasoning
+### 14. Multi-Lens Reasoning
 
 V4 adds competing interpretations of the same event:
 
@@ -169,7 +190,7 @@ Each lens includes a hypothesis, supporting observations, limitations, and
 evidence references. Evidence support is labeled Limited, Moderate, or
 Substantial without using probability language.
 
-### 14. Executive Brief Generation
+### 15. Executive Brief Generation
 
 The generator writes a concise brief with these sections:
 

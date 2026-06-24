@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Strategic Intelligence Agent V12 assistant workbench preview</title>
+  <desc id="desc">A local dashboard with one assistant-style input box, upload option, analyze button, run history, and an executive brief result panel.</desc>
+  <rect width="1200" height="760" fill="#F7F4FF"/>
+  <rect x="24" y="24" width="420" height="712" rx="8" fill="#FFFFFF" stroke="#DDD6F7"/>
+  <rect x="464" y="24" width="712" height="712" rx="8" fill="#FFFFFF" stroke="#DDD6F7"/>
+  <text x="48" y="60" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#7C6AA6">LOCAL INTELLIGENCE APP</text>
+  <text x="48" y="92" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="700" fill="#17202a">Ask about an event</text>
+  <rect x="322" y="48" width="94" height="26" rx="13" fill="#EFEAFB"/>
+  <text x="337" y="66" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#7C6AA6">Connected</text>
+  <rect x="48" y="116" width="368" height="58" rx="8" fill="#EFEAFB" stroke="#DDD6F7"/>
+  <text x="64" y="140" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#7C6AA6">Ask a question, paste an article, include a URL,</text>
+  <text x="64" y="160" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="700" fill="#7C6AA6">or upload a file. The brief comes first.</text>
+  <text x="48" y="208" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#17202a">Language</text>
+  <rect x="132" y="190" width="284" height="38" rx="8" fill="#FFFFFF" stroke="#DDD6F7"/>
+  <text x="150" y="214" font-family="Inter, Arial, sans-serif" font-size="14" fill="#17202a">English</text>
+  <text x="48" y="258" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#17202a">Output mode</text>
+  <rect x="132" y="240" width="284" height="38" rx="8" fill="#FFFFFF" stroke="#DDD6F7"/>
+  <text x="150" y="264" font-family="Inter, Arial, sans-serif" font-size="14" fill="#17202a">Beginner</text>
+  <text x="48" y="306" font-family="Inter, Arial, sans-serif" font-size="15" font-weight="700" fill="#7C6AA6">Ask anything or paste source material</text>
+  <rect x="48" y="320" width="368" height="248" rx="8" fill="#FBFCFF" stroke="#B9C6DC" stroke-width="2"/>
+  <text x="68" y="352" font-family="Menlo, Consolas, monospace" font-size="14" fill="#657282">What does this event mean?</text>
+  <text x="68" y="378" font-family="Menlo, Consolas, monospace" font-size="14" fill="#657282">Which historical cases are most similar?</text>
+  <text x="68" y="404" font-family="Menlo, Consolas, monospace" font-size="14" fill="#657282">How did organizations respond?</text>
+  <text x="68" y="430" font-family="Menlo, Consolas, monospace" font-size="14" fill="#657282">What should I monitor over 90 days?</text>
+  <line x1="68" y1="456" x2="396" y2="456" stroke="#DDD6F7"/>
+  <text x="68" y="486" font-family="Menlo, Consolas, monospace" font-size="14" fill="#17202a">New semiconductor export controls affect</text>
+  <text x="68" y="512" font-family="Menlo, Consolas, monospace" font-size="14" fill="#17202a">advanced chip supply chains and market access.</text>
+  <rect x="48" y="584" width="368" height="48" rx="8" fill="#FFFFFF" stroke="#DDD6F7"/>
+  <text x="68" y="614" font-family="Inter, Arial, sans-serif" font-size="13" font-weight="700" fill="#17202a">Upload .txt / .md / .markdown / .pdf</text>
+  <rect x="48" y="648" width="368" height="48" rx="8" fill="#B8A7E8"/>
+  <text x="196" y="678" font-family="Inter, Arial, sans-serif" font-size="16" font-weight="700" fill="#17202a">Analyze</text>
+  <text x="496" y="66" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#17202a">Executive Brief</text>
+  <rect x="496" y="92" width="648" height="612" rx="8" fill="#FBFCFF" stroke="#DDD6F7"/>
+  <text x="528" y="132" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#17202a">What This Means</text>
+  <text x="528" y="164" font-family="Inter, Arial, sans-serif" font-size="14" fill="#17202a">The event is treated as a trade restriction affecting advanced chip</text>
+  <text x="528" y="188" font-family="Inter, Arial, sans-serif" font-size="14" fill="#17202a">supply chains, licensing exposure, and market access decisions.</text>
+  <text x="528" y="232" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#17202a">Similar Cases</text>
+  <text x="528" y="264" font-family="Inter, Arial, sans-serif" font-size="14" fill="#17202a">ASML Export Controls, Huawei Entity List, Advanced Computing Controls</text>
+  <text x="528" y="308" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#17202a">Market Expectations vs Outcomes</text>
+  <text x="528" y="340" font-family="Inter, Arial, sans-serif" font-size="14" fill="#17202a">The local dataset distinguishes expected licensing disruption from observed</text>
+  <text x="528" y="364" font-family="Inter, Arial, sans-serif" font-size="14" fill="#17202a">follow-on compliance, customer screening, and supplier review work.</text>
+  <text x="528" y="408" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="700" fill="#17202a">What To Watch Next</text>
+  <text x="528" y="440" font-family="Inter, Arial, sans-serif" font-size="14" fill="#17202a">Investor: guidance, margin exposure, customer concentration.</text>
+  <text x="528" y="464" font-family="Inter, Arial, sans-serif" font-size="14" fill="#17202a">Corporate Strategy: eligibility, supplier mapping, decision memos.</text>
+  <text x="528" y="488" font-family="Inter, Arial, sans-serif" font-size="14" fill="#17202a">Supply Chain: alternate suppliers, qualification timing, inventory coverage.</text>
+  <text x="528" y="512" font-family="Inter, Arial, sans-serif" font-size="14" fill="#17202a">Policy: implementation guidance, exemptions, enforcement posture.</text>
+  <rect x="528" y="552" width="204" height="32" rx="16" fill="#EFEAFB"/>
+  <text x="548" y="573" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#7C6AA6">Download Markdown</text>
+  <rect x="748" y="552" width="126" height="32" rx="16" fill="#EFEAFB"/>
+  <text x="774" y="573" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#7C6AA6">Download TXT</text>
+  <rect x="890" y="552" width="132" height="32" rx="16" fill="#EFEAFB"/>
+  <text x="916" y="573" font-family="Inter, Arial, sans-serif" font-size="12" font-weight="700" fill="#7C6AA6">Download JSON</text>
+</svg>

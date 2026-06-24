@@ -1,8 +1,45 @@
 # Strategic Intelligence Agent
 
-A local strategic intelligence decision-support application that turns documents, policy texts, articles, earnings excerpts, and operational updates into structured executive intelligence briefs.
+A local **Strategic Intelligence Assistant** that helps users ask plain-language questions about business, policy, market-access, supply-chain, and geopolitical events, then turns source material into structured decision-support briefs.
 
-![Strategic Intelligence Agent workbench](docs/screenshots/dashboard_workbench.svg)
+![Strategic Intelligence Agent workbench](docs/screenshots/v12_assistant_workbench.svg)
+
+## Normal User Vision
+
+The intended product path is:
+
+```text
+Download -> Open App -> Ask Question
+```
+
+A non-technical user should be able to open the local app, type a question or paste source material, click Analyze, and download Markdown, TXT, or JSON results. The current repository still runs as a developer-started local FastAPI app, but the product direction is a normal-user desktop experience rather than a notebook, prompt demo, or engineering-only workflow.
+
+## What A User Can Ask
+
+The dashboard is built around one ChatGPT-style input area. A user can:
+
+- Ask a question with no article attached: “What should I monitor over the next 90 days?”
+- Paste an article, policy excerpt, earnings note, supply-chain update, or internal memo.
+- Paste a readable webpage URL and let the local backend attempt text extraction.
+- Upload `.txt`, `.md`, `.markdown`, or text-based `.pdf` files.
+
+If URL extraction fails, the app stops and asks for pasted text or a file. It does not generate filler from an unreadable link.
+
+## What Every Output Answers
+
+Every useful brief is organized around practical strategic questions:
+
+- What happened?
+- Why does it matter?
+- What similar cases existed?
+- What did organizations do?
+- What happened afterwards?
+- What did markets or users appear to expect?
+- What actually happened in comparable historical cases?
+- What can be learned?
+- What should the user monitor next?
+
+The default output does not lead with mechanisms, agent routing, political-economy labels, or evidence machinery. Those details remain available for analyst review, but Beginner Mode keeps the product focused on plain-language decision support.
 
 ## Product Improvements From Real User Testing
 
@@ -20,18 +57,19 @@ The current product direction is shaped by real usability feedback:
 
 - **Larger knowledge base:** more historical outcome cases make analogue and outcome retrieval feel less thin during portfolio demos.
 - **Fuller localization:** major knowledge-base labels such as Strategic Dependency, Supply Chain Reconfiguration, Industrial Subsidy, and Alliance Coordination are localized for Chinese modes.
-- **Simplified workflow:** the dashboard now follows a clear Step 1 / Step 2 / Step 3 flow: paste document, ask a question, analyze.
+- **Simplified workflow:** the dashboard now uses one assistant-style input area for questions, pasted documents, URLs, and uploaded files.
 - **Value-first output design:** results prioritize a direct answer, similar cases, what happened then, how organizations responded, what happened after, market expectations vs actual outcomes, what to watch next, evidence used, and limitations.
 
 The product remains local and deterministic. These changes improve usability and credibility without adding live web search, RAG, autonomous agents, forecasting, legal advice, or investment advice.
 
-## Supported Input Modes
+## Supported Inputs
 
-The local app supports three clear input modes:
+The local app supports four input patterns through one input area:
 
-- **Paste Text:** paste a document, article, policy excerpt, earnings note, or memo.
-- **Upload File:** upload `.txt`, `.md`, `.markdown`, or text-based `.pdf` files.
-- **Analyze Link:** paste a webpage URL and the local app will try to fetch readable article text for analysis.
+- **Question-only:** ask from the local knowledge base and historical cases.
+- **Pasted source:** paste a document, article, policy excerpt, earnings note, or memo.
+- **Uploaded file:** upload `.txt`, `.md`, `.markdown`, or text-based `.pdf` files.
+- **URL included:** paste a webpage URL and the local app will try to fetch readable article text for analysis.
 
 PDF support uses local text extraction and does not perform OCR. Scanned image PDFs are not supported.
 
@@ -51,17 +89,19 @@ Start here: [docs/demo_case_library.md](docs/demo_case_library.md)
 
 Each case includes an input file in `demo_cases/`, generated artifacts in `demo_case_outputs/`, and a walkthrough in `docs/demo_case_walkthroughs/`.
 
-## Current Event Intelligence Layer
+## Event Understanding Layer
 
-The system does not just summarize an input document. It first identifies the current-event context:
+The system does not just summarize an input document. It first identifies the event family so comparisons stay relevant:
 
-- what kind of event this is
-- who is involved
-- what sectors and regions are affected
-- what policy or strategic domain it belongs to
-- why it matters strategically
+- Layoff -> Corporate Restructuring
+- Earnings Miss -> Earnings Shock
+- Export Controls -> Trade Restriction
+- Sanctions -> Economic Coercion
+- New Bank Product -> Financial Product Risk
+- Industrial Subsidy -> State Support
+- Supply Chain Disruption -> Supply Chain Disruption
 
-Then it connects that context to mechanisms, historical analogues, historical outcomes, strategic lessons, and evidence credibility. The layer is deterministic and local: it does not use live web search, external news APIs, RAG, or LLM calls.
+This prevents weak comparisons such as treating a semiconductor export-control case as directly comparable to a corporate layoff unless the input text clearly explains the link. The layer is deterministic and local: it does not use live web search, external news APIs, RAG, or LLM calls.
 
 ## Example Analysis
 
@@ -235,30 +275,28 @@ It is not:
 - Investment advice.
 - Legal advice.
 - A geopolitical prediction engine.
-- A live web-monitoring product.
+- A live web-search or monitoring product.
 - A production SaaS deployment.
 
 Historical outcome records are simplified educational summaries. Source URLs are not fabricated; unavailable URLs remain marked through source status fields such as `source pending`. Confidence labels reflect internal evidence coding for this portfolio project, not real-world predictive accuracy.
 
 The system does not prove factual correctness, legal accuracy, financial accuracy, geopolitical accuracy, or future outcomes. Human expert review is required before executive use.
 
-## Desktop App Readiness
+## Local App Readiness
 
-The intended normal-user product path is:
+The intended normal-user product path remains:
 
 ```text
-Download
--> Double click
--> Use in a local desktop app
+Download -> Open App -> Ask Question
 ```
 
 That desktop wrapper is not built yet. The current repository is a working local product demo and portfolio implementation, but it still requires a developer-style setup to run the FastAPI server.
 
-**For Normal Users**
+**Normal User Vision**
 
 - Planned experience: no Python, Git, VS Code, terminal commands, or local server setup.
 - Current limitation: the no-code desktop app packaging is not implemented yet.
-- Product goal: paste or upload a document, ask a question, click Analyze, and download results.
+- Product goal: type a question, paste content or URL, upload a file if needed, click Analyze, and download results.
 
 **V12 Desktop App Roadmap**
 
@@ -363,6 +401,6 @@ Remaining limitations:
 - Deterministic keyword and rule-based methods can miss nuance.
 - Historical outcomes are simplified summaries, not source-grounded claims.
 - The app is local and single-user.
-- No live web retrieval is performed.
+- No live web search, external news monitoring, or source-grounded web research is performed. URL mode only attempts to fetch readable text from a user-provided page.
 - No RAG infrastructure or LLM reasoning benchmark is included.
 - No forecasts, probabilities, investment advice, legal advice, or trading recommendations are generated.

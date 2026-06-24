@@ -42,7 +42,10 @@ def validate_dashboard_and_readme() -> None:
     require("event-context-section" in index, "Dashboard missing event-context-section target.")
     require("renderEventContext" in app_js, "Dashboard JS missing event context renderer.")
     require("docs/demo_case_library.md" in readme, "README missing demo case library link.")
-    require("## Current Event Intelligence Layer" in readme, "README missing Current Event Intelligence Layer section.")
+    require(
+        "## Event Understanding Layer" in readme or "## Current Event Intelligence Layer" in readme,
+        "README missing current-event or event-understanding layer section.",
+    )
     version_mentions = len(re.findall(r"\bV\d+(?:\.\d+)?\b", readme))
     require(version_mentions <= 3, "README appears too version-history heavy.")
 

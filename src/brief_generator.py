@@ -2,6 +2,7 @@
 
 from context_retriever import CurrentContext
 from event_context import EventContext
+from event_understanding import EventUnderstanding
 from historical_retriever import HistoricalAnalogue
 from implication_analyzer import ImplicationAnalysis
 from issue_extractor import ExtractedIssue
@@ -50,6 +51,14 @@ def _format_event_context(event_context: EventContext | None) -> list[str]:
     return lines
 
 
+def _filter_outcomes_for_event(outcomes, event_understanding: EventUnderstanding | None):
+    if not event_understanding or not event_understanding.relevant_families:
+        return outcomes
+    relevant = {family.lower() for family in event_understanding.relevant_families}
+    filtered = [outcome for outcome in outcomes if outcome.event_family.lower() in relevant]
+    return filtered if filtered else outcomes[:2]
+
+
 def generate_brief(
     issues: list[ExtractedIssue],
     classifications: list[ScenarioClassification],
@@ -66,6 +75,7 @@ def generate_brief(
     evidence_credibility=None,
     response_patterns=None,
     event_context: EventContext | None = None,
+    event_understanding: EventUnderstanding | None = None,
     source_url: str = "",
 ) -> str:
     """Generate a Markdown executive intelligence brief."""
@@ -90,7 +100,7 @@ def generate_brief(
         issue_response_patterns = (response_patterns or {}).get(issue.title, [])
 
         if issue_strategic_assessment:
-            similar_cases = issue_historical_outcomes[:5]
+            similar_cases = _filter_outcomes_for_event(issue_historical_outcomes, event_understanding)[:5]
             dominant_outcome = (
                 f"{issue_strategic_assessment.outcome_distribution[0].outcome_type} appeared most often in the retrieved local cases "
                 f"({issue_strategic_assessment.outcome_distribution[0].frequency_percent}% of retrieved cases)."
@@ -101,6 +111,10 @@ def generate_brief(
                 [
                     "## Direct Answer",
                     "",
+                    f"- **What happened:** {issue_strategic_assessment.event_type or 'A strategic event was submitted for analysis.'}",
+                    f"- **Why it matters:** This may affect exposure mapping, operating routines, stakeholder communication, and management decisions in {', '.join(issue.industries[:2]) or 'the affected sector'}.",
+                    f"- **Relevant event family:** {issue_strategic_assessment.event_family or scenario}",
+                    f"- **Comparison guardrail:** {issue_strategic_assessment.comparison_guardrail or 'Use historical cases only as comparison context, not as a prediction.'}",
                     f"- {issue_strategic_assessment.direct_answer}",
                     "",
                     "## Similar Cases",
@@ -162,10 +176,21 @@ def generate_brief(
                 ]
             )
             lines.extend(_bullet_list(issue_strategic_assessment.strategic_watchlist, "No monitoring recommendations generated."))
+            monitoring = issue_strategic_assessment.role_based_monitoring
+            for role, items in [
+                ("Investor", monitoring.investor_view),
+                ("Corporate Strategy", monitoring.corporate_strategy_view),
+                ("Supply Chain", monitoring.supply_chain_view),
+                ("Policy", monitoring.policy_view),
+            ]:
+                lines.extend(["", f"### {role}", ""])
+                lines.extend(_bullet_list(items, f"No {role.lower()} monitoring notes generated."))
             lines.extend(["", "## Evidence Used", ""])
             lines.append("- Input document or question text.")
             lines.append("- Local historical analogue records.")
             lines.append("- Local historical outcome records.")
+            if event_understanding:
+                lines.append("- Deterministic event-family understanding rules.")
             if source_url:
                 lines.append(f"- Source URL: {source_url}")
             lines.append("")

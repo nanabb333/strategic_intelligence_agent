@@ -4,7 +4,9 @@ const localeText = {
   en: {
     appTitle: "Analyze a document or current event",
     workbenchLabel: "Local Intelligence App",
-    helperText: "Paste a document, ask a plain-language question, and click Analyze. The app shows the executive brief first, with methods and trace details below.",
+    helperText: "Ask a question, paste an article, include a URL, or upload a file. The app shows the strategic brief first and keeps internal methods hidden unless you choose Analyst or Executive mode.",
+    assistantInputLabel: "Ask anything or paste source material",
+    assistantPlaceholder: "What does this event mean?\nWhich historical cases are most similar?\nHow did organizations respond?\nWhat should I monitor over the next 90 days?\n\nPaste an article, policy excerpt, earnings note, URL, or operational update here.",
     documentTextLabel: "Paste document or article here",
     questionInputLabel: "Ask a Question",
     questionPlaceholder: "What does this issue mean? What historical events resemble this? How have organizations responded in similar situations? What should I monitor next?",
@@ -24,6 +26,7 @@ const localeText = {
     sourceUrlLabel: "Paste source link",
     sourceUrlPlaceholder: "https://example.com/source-document",
     linkModeNote: "The app will try to fetch readable webpage text. If it cannot, paste the article text or upload a file.",
+    urlModeNote: "Paste a full webpage URL in the box to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.",
     stepOne: "STEP 1",
     stepTwo: "STEP 2",
     stepThree: "STEP 3",
@@ -98,7 +101,9 @@ const localeText = {
   "zh-CN": {
     appTitle: "分析文档或当前事件",
     workbenchLabel: "本地情报应用",
-    helperText: "粘贴文档，输入一个自然语言问题，然后点击分析。应用会先显示高管简报，方法和执行轨迹放在后面。",
+    helperText: "输入问题、粘贴文章、包含网址或上传文件。应用会先显示战略简报，内部方法默认隐藏。",
+    assistantInputLabel: "提问或粘贴来源材料",
+    assistantPlaceholder: "这件事是什么意思？\n哪些历史案例最相似？\n组织当时如何应对？\n接下来 90 天应该关注什么？\n\n在这里粘贴文章、政策摘录、财报说明、网址或运营更新。",
     documentTextLabel: "在这里粘贴文档或文章",
     questionInputLabel: "提问",
     questionPlaceholder: "这件事是什么意思？这和哪些历史事件相似？类似情况下组织如何应对？接下来应关注什么？",
@@ -118,6 +123,7 @@ const localeText = {
     sourceUrlLabel: "粘贴来源链接",
     sourceUrlPlaceholder: "https://example.com/source-document",
     linkModeNote: "应用会尝试读取网页正文；如果无法读取，请粘贴文章文本或上传文件。",
+    urlModeNote: "在输入框中粘贴完整网页链接即可尝试读取正文。如果读取失败，应用会停止并要求粘贴文本或上传文件。",
     stepOne: "步骤 1",
     stepTwo: "步骤 2",
     stepThree: "步骤 3",
@@ -192,7 +198,9 @@ const localeText = {
   "zh-TW": {
     appTitle: "分析文件或當前事件",
     workbenchLabel: "本地情報應用",
-    helperText: "貼上文件，輸入自然語言問題，然後點擊分析。應用會先顯示高階主管簡報，方法與執行軌跡放在後面。",
+    helperText: "輸入問題、貼上文章、包含網址或上傳檔案。應用會先顯示策略簡報，內部方法預設隱藏。",
+    assistantInputLabel: "提問或貼上來源材料",
+    assistantPlaceholder: "這件事是什麼意思？\n哪些歷史案例最相似？\n組織當時如何應對？\n接下來 90 天應該關注什麼？\n\n在這裡貼上文章、政策摘錄、財報說明、網址或營運更新。",
     documentTextLabel: "在這裡貼上文件或文章",
     questionInputLabel: "提問",
     questionPlaceholder: "這件事是什麼意思？這和哪些歷史事件相似？類似情況下組織如何應對？接下來應關注什麼？",
@@ -212,6 +220,7 @@ const localeText = {
     sourceUrlLabel: "貼上來源連結",
     sourceUrlPlaceholder: "https://example.com/source-document",
     linkModeNote: "應用會嘗試讀取網頁正文；如果無法讀取，請貼上文章文字或上傳檔案。",
+    urlModeNote: "在輸入框中貼上完整網頁連結即可嘗試讀取正文。如果讀取失敗，應用會停止並要求貼上文字或上傳檔案。",
     stepOne: "步驟 1",
     stepTwo: "步驟 2",
     stepThree: "步驟 3",
@@ -409,13 +418,13 @@ async function checkHealth() {
 }
 
 async function analyzeDocument() {
-  const text = document.getElementById("document-input").value.trim();
-  const sourceUrl = document.getElementById("source-url-input").value.trim();
-  if (!text && !sourceUrl) {
+  const assistantValue = document.getElementById("assistant-input").value.trim();
+  const parsedInput = parseAssistantInput(assistantValue);
+  if (!parsedInput.text && !parsedInput.sourceUrl) {
     setEmpty("summary-section", t("pasteFirst"));
     return;
   }
-  const questionText = document.getElementById("question-input").value.trim() || t("questionPlaceholder");
+  const questionText = parsedInput.questionText || t("assistantPlaceholder").split("\n")[0];
   const button = document.getElementById("analyze-button");
   button.disabled = true;
   button.textContent = t("analyzing");
@@ -424,13 +433,13 @@ async function analyzeDocument() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        text,
+        text: parsedInput.text,
         language: currentLanguage,
         output_mode: currentOutputMode(),
         question_id: "freeform",
         question_text: questionText,
-        source_url: sourceUrl,
-        input_mode: currentInputMode,
+        source_url: parsedInput.sourceUrl,
+        input_mode: parsedInput.inputMode,
         uploaded_filename: uploadedFilename,
         file_type: uploadedFileType,
       }),
@@ -448,6 +457,27 @@ async function analyzeDocument() {
     button.disabled = false;
     button.textContent = t("runAnalysis");
   }
+}
+
+function parseAssistantInput(value) {
+  const urlMatch = value.match(/https?:\/\/[^\s)]+/i);
+  const sourceUrl = urlMatch ? urlMatch[0].replace(/[.,;]+$/, "") : "";
+  const withoutUrl = sourceUrl ? value.replace(sourceUrl, "").trim() : value;
+  const isQuestionOnly = withoutUrl.length < 260 && /(\?|what|which|how|why|monitor|compare|meaning|mean)/i.test(withoutUrl);
+  if (sourceUrl && withoutUrl.length < 80) {
+    return {
+      text: "",
+      sourceUrl,
+      questionText: withoutUrl || "What does this event mean?",
+      inputMode: "assistant_url",
+    };
+  }
+  return {
+    text: withoutUrl || value,
+    sourceUrl,
+    questionText: isQuestionOnly ? withoutUrl : "What does this event mean? Which historical cases are most similar? What should I monitor next?",
+    inputMode: uploadedFilename ? "assistant_upload" : sourceUrl ? "assistant_text_with_url" : isQuestionOnly ? "assistant_question" : "assistant_text",
+  };
 }
 
 async function loadHistory() {
@@ -807,17 +837,17 @@ document.getElementById("file-input").addEventListener("change", async (event) =
   if (!file) return;
   await extractUploadedFile(file);
 });
-const documentInput = document.getElementById("document-input");
-documentInput.addEventListener("dragover", (event) => {
+const assistantInput = document.getElementById("assistant-input");
+assistantInput.addEventListener("dragover", (event) => {
   event.preventDefault();
-  documentInput.classList.add("drag-active");
+  assistantInput.classList.add("drag-active");
 });
-documentInput.addEventListener("dragleave", () => {
-  documentInput.classList.remove("drag-active");
+assistantInput.addEventListener("dragleave", () => {
+  assistantInput.classList.remove("drag-active");
 });
-documentInput.addEventListener("drop", async (event) => {
+assistantInput.addEventListener("drop", async (event) => {
   event.preventDefault();
-  documentInput.classList.remove("drag-active");
+  assistantInput.classList.remove("drag-active");
   const file = event.dataTransfer.files[0];
   if (file && supportedFile(file.name)) {
     await extractUploadedFile(file);
@@ -870,8 +900,8 @@ async function extractUploadedFile(file) {
     return;
   }
   const payload = await response.json();
-  documentInput.value = payload.text || "";
-  setInputMode("paste");
+  assistantInput.value = payload.text || "";
+  currentInputMode = "assistant_upload";
 }
 
 function fileToBase64(file) {

@@ -10,6 +10,7 @@ from __future__ import annotations
 from collections import Counter, defaultdict
 from dataclasses import dataclass, field
 
+from event_understanding import EventUnderstanding
 from issue_extractor import ExtractedIssue
 from outcome_retriever import HistoricalOutcome
 from scenario_classifier import ScenarioClassification
@@ -54,6 +55,7 @@ class RoleBasedMonitoring:
     investor_view: list[str] = field(default_factory=list)
     corporate_strategy_view: list[str] = field(default_factory=list)
     supply_chain_view: list[str] = field(default_factory=list)
+    policy_view: list[str] = field(default_factory=list)
 
 
 @dataclass
@@ -61,6 +63,9 @@ class StrategicAssessment:
     """Top-level V11 strategic assessment."""
 
     direct_answer: str
+    event_type: str = ""
+    event_family: str = ""
+    comparison_guardrail: str = ""
     historical_patterns: list[HistoricalPattern] = field(default_factory=list)
     outcome_distribution: list[OutcomeDistributionItem] = field(default_factory=list)
     expectation_vs_reality: list[ExpectationGap] = field(default_factory=list)
@@ -136,6 +141,7 @@ def generate_strategic_assessments(
     issues: list[ExtractedIssue],
     classifications: list[ScenarioClassification],
     historical_outcomes: dict[str, list[HistoricalOutcome]],
+    event_understanding: EventUnderstanding | None = None,
 ) -> dict[str, StrategicAssessment]:
     """Generate V11 strategic assessments for each issue."""
     classification_by_issue = {item.issue_title: item for item in classifications}
@@ -143,9 +149,12 @@ def generate_strategic_assessments(
     for issue in issues:
         classification = classification_by_issue.get(issue.title)
         scenario = classification.primary_scenario if classification else "Other"
-        outcomes = historical_outcomes.get(issue.title, [])
+        outcomes = _filter_relevant_outcomes(historical_outcomes.get(issue.title, []), event_understanding)
         results[issue.title] = StrategicAssessment(
-            direct_answer=_direct_answer(issue, scenario, outcomes),
+            direct_answer=_direct_answer(issue, scenario, outcomes, event_understanding),
+            event_type=event_understanding.event_type if event_understanding else "",
+            event_family=event_understanding.event_family if event_understanding else "",
+            comparison_guardrail=event_understanding.comparison_guardrail if event_understanding else "",
             historical_patterns=_historical_patterns(outcomes),
             outcome_distribution=_outcome_distribution(outcomes),
             expectation_vs_reality=_expectation_gaps(outcomes),
@@ -163,21 +172,44 @@ def generate_strategic_assessments(
     return results
 
 
-def _direct_answer(issue: ExtractedIssue, scenario: str, outcomes: list[HistoricalOutcome]) -> str:
+def _filter_relevant_outcomes(
+    outcomes: list[HistoricalOutcome],
+    event_understanding: EventUnderstanding | None,
+) -> list[HistoricalOutcome]:
+    """Keep historical outcomes aligned to the detected event family."""
+    if not event_understanding or not event_understanding.relevant_families:
+        return outcomes
+    relevant = {family.lower() for family in event_understanding.relevant_families}
+    filtered = [outcome for outcome in outcomes if outcome.event_family.lower() in relevant]
+    return filtered if filtered else outcomes[:2]
+
+
+def _direct_answer(
+    issue: ExtractedIssue,
+    scenario: str,
+    outcomes: list[HistoricalOutcome],
+    event_understanding: EventUnderstanding | None,
+) -> str:
     sector = ", ".join(issue.industries[:2]) or "the affected sector"
+    event_type = event_understanding.event_type if event_understanding else f"{scenario} issue"
+    guardrail = (
+        f" The comparison guardrail is: {event_understanding.comparison_guardrail}"
+        if event_understanding and event_understanding.comparison_guardrail
+        else ""
+    )
     if not outcomes:
         return (
-            f"The key pattern is that this appears to be a {scenario} issue affecting {sector}. "
+            f"The key pattern is that this appears to be a {event_type} affecting {sector}. "
             "The main risk is unmanaged exposure: teams should map affected suppliers, customers, regions, and workflows, "
-            "then monitor implementation details before drawing conclusions."
+            f"then monitor implementation details before drawing conclusions.{guardrail}"
         )
     top_patterns = _historical_patterns(outcomes)[:2]
     pattern_text = "; ".join(item.pattern.lower() for item in top_patterns) or "reviewed exposure and monitoring routines"
     return (
-        f"The strongest historical similarity is a {scenario} issue affecting {sector}. Across similar historical cases, organizations most often "
+        f"The strongest historical similarity is a {event_type} affecting {sector}. Across relevant historical cases, organizations most often "
         f"{pattern_text}. The key pattern is that operational adaptation usually follows the first policy or market shock. "
         "The main risk is assuming the headline event is the whole story; the most important uncertainty is how rules, customers, "
-        "suppliers, and management responses change after implementation. The next signal to watch is concrete exposure mapping or policy guidance."
+        f"suppliers, and management responses change after implementation. The next signal to watch is concrete exposure mapping or policy guidance.{guardrail}"
     )
 
 
@@ -295,5 +327,10 @@ def _role_based_monitoring() -> RoleBasedMonitoring:
             "Monitor inventory coverage, logistics routes, alternative suppliers, and qualification timelines.",
             "Check whether single-source inputs or chokepoints require contingency planning.",
             "Track customer communication needs if delivery timing or input availability changes.",
+        ],
+        policy_view=[
+            "Monitor implementation guidance, enforcement posture, exemptions, and timing.",
+            "Separate announced policy intent from operational rules that organizations can actually follow.",
+            "Track whether agencies, regulators, or counterpart governments clarify scope or eligibility.",
         ],
     )

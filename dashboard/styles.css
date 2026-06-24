@@ -231,7 +231,7 @@ select {
 
 textarea {
   width: 100%;
-  min-height: 420px;
+  min-height: 360px;
   resize: vertical;
   border: 2px solid #b9c6dc;
   border-radius: var(--radius);
@@ -254,10 +254,31 @@ textarea {
 
 .document-dropzone:focus,
 .document-dropzone.drag-active,
-.question-input:focus {
+.question-input:focus,
+.assistant-input:focus {
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(184, 167, 232, 0.14);
   outline: none;
+}
+
+.assistant-composer {
+  display: grid;
+  gap: 10px;
+}
+
+.assistant-input {
+  min-height: 430px;
+  font: 14px/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.assistant-actions {
+  display: grid;
+  gap: 8px;
+}
+
+.compact-upload {
+  min-height: auto;
+  padding: 10px 12px;
 }
 
 .document-dropzone.drag-active {

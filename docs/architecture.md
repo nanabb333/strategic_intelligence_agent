@@ -8,9 +8,11 @@ framing, traceable retrieval, historical analogue reasoning, historical outcome
 patterns, strategic lessons, and evidence-aware executive communication.
 
 ```text
-Input Document
-  -> language / guided question / output mode selection
+Single assistant input
+  -> pasted text / uploaded file / user-provided URL / question-only request
+  -> language / output mode selection
   -> event_context
+  -> event_understanding
   -> document_loader
   -> agent_router
   -> tool_registry
@@ -55,6 +57,7 @@ src/                           Application source code.
 | `tool_registry.py` | Register available deterministic tools for future extensibility. |
 | `document_loader.py` | Load and normalize source documents. |
 | `event_context.py` | Extract deterministic current-event context before historical comparison. |
+| `event_understanding.py` | Identify product-facing event families and comparison guardrails before historical outcome interpretation. |
 | `issue_extractor.py` | Extract core issue, actors, regions, industries, policy terms, companies, document type, and uncertainties. |
 | `scenario_classifier.py` | Classify issues into deterministic scenario categories using keyword matches. |
 | `historical_retriever.py` | Retrieve top historical analogues from `knowledge_base/historical_analogues.csv`. |
@@ -82,6 +85,17 @@ kind of current event is being analyzed before historical analogues are used.
 This layer is deterministic. It does not use live web search, external news
 APIs, vector retrieval, or LLM calls. Its confidence label describes internal
 classification support, not real-world accuracy.
+
+## V12 Product Rebuild Layer
+
+V12 rebuilds the user entry point around a single assistant-style input area:
+
+1. Users ask a question, paste source text, include a URL, or upload a file.
+2. The backend uses the real deterministic pipeline rather than dashboard-only demo logic.
+3. `event_understanding.py` maps the input to a product-facing event family such as Corporate Restructuring, Trade Restriction, Financial Product Risk, State Support, or Supply Chain Disruption.
+4. The strategic assessment uses the event family as a comparison guardrail so irrelevant historical cases are not promoted without a clear rationale.
+5. The default brief answers practical questions first: what happened, why it matters, similar cases, responses, outcomes, market expectations versus outcomes, lessons, and what to monitor next.
+6. Method-heavy sections remain available for analyst review but are not the default beginner experience.
 
 ## Demo Case Library
 

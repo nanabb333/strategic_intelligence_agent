@@ -41,4 +41,4 @@ http://127.0.0.1:8000/dashboard/
 
 ## Local-Only Scope
 
-The server is intended for local execution. It does not add live web retrieval, LLM APIs, forecasting, investment advice, or trading recommendations.
+The server is intended for local execution. It can attempt to fetch readable text from a user-provided URL, but it does not add live web search, external monitoring, LLM APIs, forecasting, investment advice, or trading recommendations.

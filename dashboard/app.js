@@ -3,7 +3,7 @@ const sourceLabels = ["Historical Database", "Context Knowledge Base", "Input Do
 
 const localeText = {
   en: {
-    appTitle: "Strategic Intelligence Agent",
+    appTitle: "Analyze a document or current event",
     workbenchLabel: "Local Intelligence App",
     helperText: "Paste a document, ask a plain-language question, and click Analyze. The app shows the executive brief first, with methods and trace details below.",
     documentTextLabel: "Paste document or article here",
@@ -15,7 +15,16 @@ const localeText = {
     beginnerMode: "Beginner",
     analystMode: "Analyst",
     executiveMode: "Executive",
-    uploadInstructions: "Upload .md/.txt",
+    inputModeLabel: "Input Mode",
+    pasteTextMode: "Paste Text",
+    uploadFileMode: "Upload File",
+    pasteLinkMode: "Paste Link",
+    uploadInstructions: "Upload .txt / .md / .markdown / .pdf",
+    noFileSelected: "No file selected",
+    pdfLimitNote: "PDF support works for text-based PDFs only. Scanned image PDFs are not supported.",
+    sourceUrlLabel: "Paste source link",
+    sourceUrlPlaceholder: "https://example.com/source-document",
+    linkModeNote: "Live web retrieval is not enabled. Links are stored as source metadata.",
     runAnalysis: "Analyze",
     exportMarkdown: "Download Markdown",
     exportTxt: "Download TXT",
@@ -59,7 +68,7 @@ const localeText = {
     reviewerNote: "Reviewer note",
   },
   "zh-CN": {
-    appTitle: "战略情报助手",
+    appTitle: "分析文档或当前事件",
     workbenchLabel: "本地情报应用",
     helperText: "粘贴文档，输入一个自然语言问题，然后点击分析。应用会先显示高管简报，方法和执行轨迹放在后面。",
     documentTextLabel: "在这里粘贴文档或文章",
@@ -71,7 +80,16 @@ const localeText = {
     beginnerMode: "入门",
     analystMode: "分析师",
     executiveMode: "高管",
-    uploadInstructions: "上传 .md/.txt",
+    inputModeLabel: "输入模式",
+    pasteTextMode: "粘贴文本",
+    uploadFileMode: "上传文件",
+    pasteLinkMode: "粘贴链接",
+    uploadInstructions: "上传 .txt / .md / .markdown / .pdf",
+    noFileSelected: "未选择文件",
+    pdfLimitNote: "PDF 支持仅适用于文本型 PDF；暂不支持扫描图片 PDF。",
+    sourceUrlLabel: "粘贴来源链接",
+    sourceUrlPlaceholder: "https://example.com/source-document",
+    linkModeNote: "未启用实时网页检索；链接仅保存为来源元数据。",
     runAnalysis: "分析",
     exportMarkdown: "下载 Markdown",
     exportTxt: "下载 TXT",
@@ -115,7 +133,7 @@ const localeText = {
     reviewerNote: "审阅说明",
   },
   "zh-TW": {
-    appTitle: "戰略情報助手",
+    appTitle: "分析文件或當前事件",
     workbenchLabel: "本地情報應用",
     helperText: "貼上文件，輸入自然語言問題，然後點擊分析。應用會先顯示高階主管簡報，方法與執行軌跡放在後面。",
     documentTextLabel: "在這裡貼上文件或文章",
@@ -127,7 +145,16 @@ const localeText = {
     beginnerMode: "入門",
     analystMode: "分析師",
     executiveMode: "高階主管",
-    uploadInstructions: "上傳 .md/.txt",
+    inputModeLabel: "輸入模式",
+    pasteTextMode: "貼上文字",
+    uploadFileMode: "上傳檔案",
+    pasteLinkMode: "貼上連結",
+    uploadInstructions: "上傳 .txt / .md / .markdown / .pdf",
+    noFileSelected: "未選擇檔案",
+    pdfLimitNote: "PDF 支援僅適用於文字型 PDF；暫不支援掃描圖片 PDF。",
+    sourceUrlLabel: "貼上來源連結",
+    sourceUrlPlaceholder: "https://example.com/source-document",
+    linkModeNote: "未啟用即時網頁檢索；連結僅保存為來源元資料。",
     runAnalysis: "分析",
     exportMarkdown: "下載 Markdown",
     exportTxt: "下載 TXT",
@@ -174,6 +201,9 @@ const localeText = {
 
 let currentLanguage = "en";
 let currentRun = null;
+let currentInputMode = "paste";
+let uploadedFilename = "";
+let uploadedFileType = "text";
 
 function t(key) {
   return localeText[currentLanguage][key] || localeText.en[key] || key;
@@ -205,7 +235,8 @@ async function checkHealth() {
 
 async function analyzeDocument() {
   const text = document.getElementById("document-input").value.trim();
-  if (!text) {
+  const sourceUrl = document.getElementById("source-url-input").value.trim();
+  if (!text && !sourceUrl) {
     setEmpty("summary-section", "Paste text or upload a file first.");
     return;
   }
@@ -223,6 +254,10 @@ async function analyzeDocument() {
         output_mode: document.getElementById("mode-select").value,
         question_id: "freeform",
         question_text: questionText,
+        source_url: sourceUrl,
+        input_mode: currentInputMode,
+        uploaded_filename: uploadedFilename,
+        file_type: uploadedFileType,
       }),
     });
     if (!response.ok) {
@@ -281,7 +316,13 @@ function renderRun(run) {
   const scenario = analysis.scenario || {};
   renderEventContext(analysis.event_context || {});
   document.getElementById("run-note").textContent = `Saved run: ${metadata.run_id}. Artifacts are stored under outputs/runs/${metadata.run_id}/.`;
-  document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(issue.summary || issue.core_issue || "No summary returned.")}</p><p><span class="evidence">${t("source")}: Input Document</span></p>`;
+  if (analysis.message && analysis.source_url) {
+    document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(analysis.message)}</p><p><span class="evidence">${t("source")}: ${escapeHtml(analysis.source_url)}</span></p>`;
+    document.getElementById("brief-section").textContent = run.brief_markdown || "";
+    return;
+  }
+  const sourceLink = analysis.source_url ? `<p><span class="evidence">${t("source")}: ${escapeHtml(analysis.source_url)}</span></p>` : "";
+  document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(issue.summary || issue.core_issue || "No summary returned.")}</p><p><span class="evidence">${t("source")}: Input Document</span></p>${sourceLink}`;
   document.getElementById("classification-section").innerHTML = `<ul><li>${t("primaryScenario")}: ${escapeHtml(scenario.primary_scenario || "Other")}</li><li>${t("matchedKeywords")}: ${escapeHtml((scenario.matched_keywords || []).join(", ") || "None")}</li><li>${t("confidenceLabel")}: ${escapeHtml(scenario.confidence_label || "Not available")}</li></ul><p><span class="evidence">${t("source")}: ScenarioClassifier</span></p>`;
   renderCards("analogues-section", analysis.analogues || [], (item) => `<h3>${escapeHtml(item.case_title)}</h3><p>${escapeHtml(item.similarity_reason || "")}</p><p>${sourceMeta(item)}</p>`);
   renderCards("outcomes-section", analysis.historical_outcomes || [], (item) => `<h3>${escapeHtml(item.case_name)} (${escapeHtml(item.year)})</h3><p>${escapeHtml(item.observed_outcome || "")}</p><p><strong>${t("strategicResponse")}:</strong> ${escapeHtml(item.strategic_response || "")}</p><p><span class="evidence">${t("confidence")}: ${escapeHtml(item.confidence || "Not stated")}</span> <span class="evidence">${t("source")}: ${escapeHtml(item.source_status || "source pending")}</span></p>`);
@@ -428,7 +469,7 @@ document.getElementById("language-select").addEventListener("change", (event) =>
 document.getElementById("file-input").addEventListener("change", async (event) => {
   const file = event.target.files[0];
   if (!file) return;
-  document.getElementById("document-input").value = await file.text();
+  await extractUploadedFile(file);
 });
 const documentInput = document.getElementById("document-input");
 documentInput.addEventListener("dragover", (event) => {
@@ -442,9 +483,12 @@ documentInput.addEventListener("drop", async (event) => {
   event.preventDefault();
   documentInput.classList.remove("drag-active");
   const file = event.dataTransfer.files[0];
-  if (file && (file.name.endsWith(".txt") || file.name.endsWith(".md") || file.name.endsWith(".markdown"))) {
-    documentInput.value = await file.text();
+  if (file && supportedFile(file.name)) {
+    await extractUploadedFile(file);
   }
+});
+document.querySelectorAll(".input-mode").forEach((button) => {
+  button.addEventListener("click", () => setInputMode(button.dataset.mode));
 });
 document.getElementById("analyze-button").addEventListener("click", analyzeDocument);
 document.getElementById("export-md").addEventListener("click", () => downloadArtifact("markdown"));
@@ -454,3 +498,54 @@ document.getElementById("export-json").addEventListener("click", () => downloadA
 applyLocale();
 checkHealth();
 loadHistory();
+
+function setInputMode(mode) {
+  currentInputMode = mode;
+  document.querySelectorAll(".input-mode").forEach((button) => {
+    button.classList.toggle("active", button.dataset.mode === mode);
+  });
+  document.querySelectorAll(".input-mode-panel").forEach((panel) => {
+    panel.classList.remove("active");
+  });
+  document.getElementById(`${mode}-panel`).classList.add("active");
+}
+
+function supportedFile(filename) {
+  return [".txt", ".md", ".markdown", ".pdf"].some((suffix) => filename.toLowerCase().endsWith(suffix));
+}
+
+async function extractUploadedFile(file) {
+  if (!supportedFile(file.name)) {
+    setEmpty("summary-section", "Unsupported file type. Use .txt, .md, .markdown, or .pdf.");
+    return;
+  }
+  uploadedFilename = file.name;
+  uploadedFileType = file.name.split(".").pop().toLowerCase();
+  document.getElementById("uploaded-file-name").textContent = file.name;
+  const contentBase64 = await fileToBase64(file);
+  const response = await fetch(`${API_BASE}/extract-file`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ filename: file.name, content_base64: contentBase64 }),
+  });
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({}));
+    setEmpty("summary-section", error.detail || "Could not extract uploaded file.");
+    return;
+  }
+  const payload = await response.json();
+  documentInput.value = payload.text || "";
+  setInputMode("paste");
+}
+
+function fileToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = String(reader.result || "");
+      resolve(result.includes(",") ? result.split(",")[1] : result);
+    };
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}

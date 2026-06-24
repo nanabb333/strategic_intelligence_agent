@@ -30,6 +30,33 @@ TEXT = {
     },
 }
 
+QUESTION_INTENT_LABELS = {
+    "en": {
+        "Historical Comparison": "Historical Comparison",
+        "Decision Support": "Decision Support",
+        "Evidence Review": "Evidence Review",
+        "Mechanism Analysis": "Mechanism Analysis",
+        "Implication Analysis": "Implication Analysis",
+        "Source Link Only": "Source Link Only",
+    },
+    "zh-CN": {
+        "Historical Comparison": "历史比较",
+        "Decision Support": "决策支持",
+        "Evidence Review": "证据审查",
+        "Mechanism Analysis": "机制分析",
+        "Implication Analysis": "影响分析",
+        "Source Link Only": "仅保存来源链接",
+    },
+    "zh-TW": {
+        "Historical Comparison": "歷史比較",
+        "Decision Support": "決策支持",
+        "Evidence Review": "證據審查",
+        "Mechanism Analysis": "機制分析",
+        "Implication Analysis": "影響分析",
+        "Source Link Only": "僅保存來源連結",
+    },
+}
+
 
 BRIEF_REPLACEMENTS = {
     "zh-CN": {
@@ -95,6 +122,52 @@ BRIEF_REPLACEMENTS = {
         "**Source status distribution:**": "**来源状态分布：**",
         "**Reviewer note:**": "**审阅说明：**",
         "**Key limitations:**": "**主要局限性：**",
+        "**Source Link:**": "**来源链接：**",
+        "**Source Link note:**": "**来源链接说明：**",
+        "# Source Link Captured": "# 已保存来源链接",
+        "Link captured as source metadata. Please paste the document text or upload a file for analysis. Live web retrieval is not enabled in this local version.": "链接已保存为来源元数据。请粘贴文档文本或上传文件后再进行分析。本地版本未启用实时网页检索。",
+        "Source Link": "来源链接",
+        "Captured as source metadata. Live web retrieval is not enabled.": "已作为来源元数据保存。本地版本未启用实时网页检索。",
+        "Supply chain diversification frequently appears after export-control or disruption shocks.": "在出口管制或供应链冲击之后，供应链多元化经常成为组织关注的战略经验。",
+        "Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.": "在制裁、出口管制或监管变化之后，合规和筛查流程通常会扩展。",
+        "Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.": "产业政策事件通常需要持续关注资格条件、本地含量要求和实施细节。",
+        "Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.": "地缘政治升级案例通常会促使组织审查连续性计划和风险集中度。",
+        "Periods of uncertainty often increase the value of executive communication and monitoring routines.": "不确定时期通常会提高高管沟通和监测机制的价值。",
+        "Historical outcomes are simplified educational summaries.": "历史结果是简化的教育性摘要。",
+        "Confidence reflects internal evidence coding, not real-world predictive accuracy.": "置信标签反映内部证据编码，不代表现实世界预测准确性。",
+        "Lessons are pattern-based and should be reviewed by a human analyst.": "战略经验基于模式归纳，应由人工分析师复核。",
+        "Source URLs are not fabricated; missing source links remain marked as source pending.": "系统不会伪造来源链接；缺失链接会继续标记为 source pending。",
+        "Use these outcomes and lessons as decision-support context. They do not prove factual, legal, geopolitical, financial, or predictive accuracy.": "这些结果和经验仅作为决策支持背景，不证明事实、法律、地缘政治、金融或预测准确性。",
+        "Current-event context is extracted from the submitted document only.": "当前事件背景仅从用户提交的文档中提取。",
+        "No live web retrieval, external news API, or source verification is performed.": "系统不会执行实时网页检索、外部新闻 API 调用或来源核验。",
+        "Actor, sector, and region labels use deterministic keyword rules and may miss nuance.": "参与者、行业和地区标签使用确定性关键词规则，可能遗漏细微差别。",
+        "This output is for decision-support and analyst productivity only. It does not provide forecasts, probabilities, trading advice, or investment recommendations.": "本输出仅用于决策支持和分析师效率提升；不提供预测、概率、交易建议或投资建议。",
+        "Historical analogues and current context are used for comparison and decision support, not prediction.": "历史相似案例和当前背景用于比较和决策支持，而不是预测。",
+        "Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.": "证据追踪会说明每项发现来自输入文档、历史数据库还是当前背景知识库。",
+        "Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.": "决策者可在行动前将当前议题细节与检索到的历史结果进行比较。",
+        "Decision-makers may wish to separate recurring historical lessons from case-specific facts.": "决策者可区分反复出现的历史经验与个案特定事实。",
+        "Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.": "历史结果和经验支持结构化讨论；它们不意味着预测、法律结论或投资建议。",
+        "This ": "该",
+        " context matters because it may affect ": "背景很重要，因为它可能影响",
+        " through ": "，涉及",
+        " considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.": "相关考虑。该层会在系统检索相似案例、历史结果和战略经验之前，先界定输入描述的事件类型。",
+        "Matched ": "匹配到",
+        " retrieved outcome case(s) with rule keywords:": "个检索到的历史结果案例；规则关键词：",
+        "Export Controls": "出口管制",
+        "Sanctions": "制裁",
+        "Industrial Policy": "产业政策",
+        "Regulatory Action": "监管行动",
+        "Geopolitical Escalation": "地缘政治升级",
+        "Supply Chain Disruption": "供应链中断",
+        "Technology Competition": "技术竞争",
+        "Financial / Earnings Risk": "金融 / 财报风险",
+        "Market Access Restriction": "市场准入限制",
+        "Semiconductors": "半导体",
+        "Supply Chain / Logistics": "供应链 / 物流",
+        "Manufacturing": "制造业",
+        "Technology": "技术",
+        "General business operations": "一般商业运营",
+        "Region not specified": "未指定地区",
         "High": "高",
         "Medium": "中等",
         "Low": "低",
@@ -167,6 +240,52 @@ BRIEF_REPLACEMENTS = {
         "**Source status distribution:**": "**來源狀態分布：**",
         "**Reviewer note:**": "**審閱說明：**",
         "**Key limitations:**": "**主要限制：**",
+        "**Source Link:**": "**來源連結：**",
+        "**Source Link note:**": "**來源連結說明：**",
+        "# Source Link Captured": "# 已保存來源連結",
+        "Link captured as source metadata. Please paste the document text or upload a file for analysis. Live web retrieval is not enabled in this local version.": "連結已保存為來源元資料。請貼上文件文字或上傳檔案後再進行分析。本地版本未啟用即時網頁檢索。",
+        "Source Link": "來源連結",
+        "Captured as source metadata. Live web retrieval is not enabled.": "已作為來源元資料保存。本地版本未啟用即時網頁檢索。",
+        "Supply chain diversification frequently appears after export-control or disruption shocks.": "在出口管制或供應鏈衝擊之後，供應鏈多元化經常成為組織關注的策略經驗。",
+        "Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.": "在制裁、出口管制或監管變化之後，合規和篩查流程通常會擴展。",
+        "Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.": "產業政策事件通常需要持續關注資格條件、本地含量要求和實施細節。",
+        "Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.": "地緣政治升級案例通常會促使組織檢視連續性計畫和風險集中度。",
+        "Periods of uncertainty often increase the value of executive communication and monitoring routines.": "不確定時期通常會提高高階主管溝通和監測機制的價值。",
+        "Historical outcomes are simplified educational summaries.": "歷史結果是簡化的教育性摘要。",
+        "Confidence reflects internal evidence coding, not real-world predictive accuracy.": "信心標籤反映內部證據編碼，不代表現實世界預測準確性。",
+        "Lessons are pattern-based and should be reviewed by a human analyst.": "策略經驗基於模式歸納，應由人工分析師複核。",
+        "Source URLs are not fabricated; missing source links remain marked as source pending.": "系統不會偽造來源連結；缺失連結會繼續標記為 source pending。",
+        "Use these outcomes and lessons as decision-support context. They do not prove factual, legal, geopolitical, financial, or predictive accuracy.": "這些結果和經驗僅作為決策支持背景，不證明事實、法律、地緣政治、金融或預測準確性。",
+        "Current-event context is extracted from the submitted document only.": "當前事件背景僅從使用者提交的文件中擷取。",
+        "No live web retrieval, external news API, or source verification is performed.": "系統不會執行即時網頁檢索、外部新聞 API 呼叫或來源核驗。",
+        "Actor, sector, and region labels use deterministic keyword rules and may miss nuance.": "參與者、產業和地區標籤使用確定性關鍵字規則，可能遺漏細微差別。",
+        "This output is for decision-support and analyst productivity only. It does not provide forecasts, probabilities, trading advice, or investment recommendations.": "本輸出僅用於決策支持和分析師效率提升；不提供預測、機率、交易建議或投資建議。",
+        "Historical analogues and current context are used for comparison and decision support, not prediction.": "歷史相似案例和當前背景用於比較和決策支持，而不是預測。",
+        "Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.": "證據追蹤會說明每項發現來自輸入文件、歷史資料庫還是當前背景知識庫。",
+        "Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.": "決策者可在行動前將當前議題細節與檢索到的歷史結果進行比較。",
+        "Decision-makers may wish to separate recurring historical lessons from case-specific facts.": "決策者可區分反覆出現的歷史經驗與個案特定事實。",
+        "Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.": "歷史結果和經驗支持結構化討論；它們不意味著預測、法律結論或投資建議。",
+        "This ": "該",
+        " context matters because it may affect ": "背景很重要，因為它可能影響",
+        " through ": "，涉及",
+        " considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.": "相關考量。該層會在系統檢索相似案例、歷史結果和策略經驗之前，先界定輸入描述的事件類型。",
+        "Matched ": "匹配到",
+        " retrieved outcome case(s) with rule keywords:": "個檢索到的歷史結果案例；規則關鍵字：",
+        "Export Controls": "出口管制",
+        "Sanctions": "制裁",
+        "Industrial Policy": "產業政策",
+        "Regulatory Action": "監管行動",
+        "Geopolitical Escalation": "地緣政治升級",
+        "Supply Chain Disruption": "供應鏈中斷",
+        "Technology Competition": "技術競爭",
+        "Financial / Earnings Risk": "金融 / 財報風險",
+        "Market Access Restriction": "市場准入限制",
+        "Semiconductors": "半導體",
+        "Supply Chain / Logistics": "供應鏈 / 物流",
+        "Manufacturing": "製造業",
+        "Technology": "技術",
+        "General business operations": "一般商業營運",
+        "Region not specified": "未指定地區",
         "High": "高（繁體）",
         "Medium": "中等（繁體）",
         "Low": "低（繁體）",
@@ -193,3 +312,27 @@ def translate_text(text: str, language: str) -> str:
 def label(key: str, language: str) -> str:
     """Return a localized short label."""
     return TEXT.get(language, TEXT["en"]).get(key, TEXT["en"].get(key, key))
+
+
+def localized_question_intent(intent: str, language: str) -> str:
+    """Return localized question intent labels."""
+    return QUESTION_INTENT_LABELS.get(language, QUESTION_INTENT_LABELS["en"]).get(intent, intent)
+
+
+def localized_question_route(route, language: str) -> dict[str, object]:
+    """Serialize a question route with localized labels and notes."""
+    intent = getattr(route, "intent", "")
+    if language == "zh-CN":
+        note = "问题意图使用确定性关键词规则分类；未使用 LLM 路由。"
+    elif language == "zh-TW":
+        note = "問題意圖使用確定性關鍵字規則分類；未使用 LLM 路由。"
+    else:
+        note = getattr(route, "routing_note", "")
+    return {
+        "question_text": getattr(route, "question_text", ""),
+        "intent": intent,
+        "intent_label": localized_question_intent(intent, language),
+        "matched_keywords": getattr(route, "matched_keywords", []),
+        "response_focus": getattr(route, "response_focus", []),
+        "routing_note": note,
+    }

@@ -16,7 +16,7 @@ from strategic_lessons import generate_strategic_lessons
 from tool_registry import build_default_registry
 
 
-def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.md") -> Path:
+def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.md", source_url: str = "") -> Path:
     """Run the V3 routed agent workflow and write a Markdown brief."""
     document_text = load_document(input_path)
     registry = build_default_registry()
@@ -54,6 +54,7 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
         evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
         event_context=event_context,
+        source_url=source_url,
     )
 
     destination = Path(output_path)
@@ -72,7 +73,12 @@ if __name__ == "__main__":
         default="outputs/brief.md",
         help="Path where the generated Markdown brief should be written.",
     )
+    parser.add_argument(
+        "--source-url",
+        default="",
+        help="Optional source URL to include as metadata in the generated brief.",
+    )
     args = parser.parse_args()
 
-    result_path = run_agent(args.input_path, args.output)
+    result_path = run_agent(args.input_path, args.output, source_url=args.source_url)
     print(f"Wrote executive brief to {result_path}")

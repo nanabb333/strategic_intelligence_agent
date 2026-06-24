@@ -104,6 +104,15 @@ select {
   padding: 9px 10px;
 }
 
+.link-input {
+  width: 100%;
+  border: 2px solid #b9c6dc;
+  border-radius: var(--radius);
+  color: var(--ink);
+  font: 14px/1.4 inherit;
+  padding: 11px 12px;
+}
+
 .helper-text {
   margin: 0;
   border: 1px solid var(--line);
@@ -126,6 +135,39 @@ select {
 .guided-buttons {
   display: flex;
   flex-wrap: wrap;
+  gap: 8px;
+}
+
+.input-mode-block {
+  display: grid;
+  gap: 8px;
+}
+
+.input-mode-title {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.input-mode-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+.input-mode.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+}
+
+.input-mode-panel {
+  display: none;
+}
+
+.input-mode-panel.active {
+  display: grid;
   gap: 8px;
 }
 
@@ -204,6 +246,19 @@ button:disabled {
 
 .file-control input {
   display: none;
+}
+
+.upload-box {
+  display: grid;
+  gap: 6px;
+  justify-items: start;
+  min-height: 110px;
+  padding: 18px;
+}
+
+.upload-box strong {
+  color: var(--muted);
+  font-size: 13px;
 }
 
 .export-row {

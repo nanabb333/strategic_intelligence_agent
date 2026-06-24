@@ -12,7 +12,7 @@
         <div class="brand-row">
           <div>
             <p class="eyebrow" data-i18n="workbenchLabel">Analyst Workbench</p>
-            <h1 id="app-title" data-i18n="appTitle">Strategic Intelligence Agent</h1>
+            <h1 id="app-title" data-i18n="appTitle">Analyze a document or current event</h1>
           </div>
           <span id="api-status" class="status-pill">Checking server</span>
         </div>
@@ -38,14 +38,36 @@
         <label for="question-input" data-i18n="questionInputLabel">Ask a Question</label>
         <textarea id="question-input" class="question-input" spellcheck="true" data-i18n-placeholder="questionPlaceholder" placeholder="What does this issue mean? What historical events resemble this? How have organizations responded in similar situations? What should I monitor next?"></textarea>
 
-        <label for="document-input" class="input-label" data-i18n="documentTextLabel">Paste document or article here</label>
-        <textarea id="document-input" class="document-dropzone" spellcheck="true" data-i18n-placeholder="documentPlaceholder" placeholder="Paste an article, policy excerpt, earnings note, regulatory update, or supply chain memo here. You can also drag and drop a .txt or .md file into this box.">The CHIPS Act continues to shape semiconductor manufacturing strategy as executives evaluate domestic fabrication capacity, supplier qualification, and government incentive requirements. The issue involves industrial policy, strategic investment, workforce constraints, and semiconductor supply chain resilience.</textarea>
+        <div class="input-mode-block">
+          <p class="input-mode-title" data-i18n="inputModeLabel">Input Mode</p>
+          <div class="input-mode-tabs" role="tablist" aria-label="Input modes">
+            <button class="input-mode active" type="button" data-mode="paste" data-i18n="pasteTextMode">Paste Text</button>
+            <button class="input-mode" type="button" data-mode="upload" data-i18n="uploadFileMode">Upload File</button>
+            <button class="input-mode" type="button" data-mode="link" data-i18n="pasteLinkMode">Paste Link</button>
+          </div>
+        </div>
+
+        <section id="paste-panel" class="input-mode-panel active">
+          <label for="document-input" class="input-label" data-i18n="documentTextLabel">Paste document or article here</label>
+          <textarea id="document-input" class="document-dropzone" spellcheck="true" data-i18n-placeholder="documentPlaceholder" placeholder="Paste an article, policy excerpt, earnings note, regulatory update, or supply chain memo here.">The CHIPS Act continues to shape semiconductor manufacturing strategy as executives evaluate domestic fabrication capacity, supplier qualification, and government incentive requirements. The issue involves industrial policy, strategic investment, workforce constraints, and semiconductor supply chain resilience.</textarea>
+        </section>
+
+        <section id="upload-panel" class="input-mode-panel">
+          <label class="file-control upload-box" for="file-input">
+            <span data-i18n="uploadInstructions">Upload .txt / .md / .markdown / .pdf</span>
+            <strong id="uploaded-file-name" data-i18n="noFileSelected">No file selected</strong>
+            <input id="file-input" type="file" accept=".md,.markdown,.txt,.pdf,text/markdown,text/plain,application/pdf">
+          </label>
+          <p class="note" data-i18n="pdfLimitNote">PDF support works for text-based PDFs only. Scanned image PDFs are not supported.</p>
+        </section>
+
+        <section id="link-panel" class="input-mode-panel">
+          <label for="source-url-input" class="input-label" data-i18n="sourceUrlLabel">Paste source link</label>
+          <input id="source-url-input" class="link-input" type="url" data-i18n-placeholder="sourceUrlPlaceholder" placeholder="https://example.com/source-document">
+          <p class="note" data-i18n="linkModeNote">Live web retrieval is not enabled. Links are stored as source metadata.</p>
+        </section>
 
         <div class="control-row">
-          <label class="file-control" for="file-input">
-            <span data-i18n="uploadInstructions">Upload .md/.txt</span>
-            <input id="file-input" type="file" accept=".md,.markdown,.txt,text/markdown,text/plain">
-          </label>
           <button id="analyze-button" type="button" data-i18n="runAnalysis">Run Analysis</button>
         </div>
 

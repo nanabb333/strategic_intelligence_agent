@@ -12,7 +12,19 @@ Recent user testing showed that the project needed more practical depth and a si
 - **Localization:** output localization is centralized in `src/localization.py` so section headings, evidence labels, confidence labels, and recurring dashboard/result labels are more consistently rendered in English, Simplified Chinese, and Traditional Chinese.
 - **Free-form questions:** the old artificial question-type dropdown is replaced with an “Ask a Question” box, routed deterministically by `src/question_router.py`.
 - **UX simplification:** the dashboard now shows the executive brief and strategic lessons before methodology-heavy sections.
-- **Input clarity:** the paste area is larger, visually emphasized, labeled clearly, and supports simple drag-and-drop for `.txt` and `.md` files.
+- **Input clarity:** the paste area is larger, visually emphasized, labeled clearly, and supports upload or drag-and-drop for `.txt`, `.md`, `.markdown`, and text-based `.pdf` files.
+
+## Supported Input Modes
+
+The local app supports three clear input modes:
+
+- **Paste Text:** paste a document, article, policy excerpt, earnings note, or memo.
+- **Upload File:** upload `.txt`, `.md`, `.markdown`, or text-based `.pdf` files.
+- **Paste Link:** paste a source URL, article link, policy link, or filing link as source metadata.
+
+PDF support uses local text extraction and does not perform OCR. Scanned image PDFs are not supported.
+
+Live web retrieval is not enabled. If a user pastes only a link, the app stores the link as metadata and asks the user to paste document text or upload a file for analysis.
 
 ## Demo Case Library
 

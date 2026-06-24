@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import base64
 import sys
 from dataclasses import asdict, is_dataclass
 from datetime import datetime
@@ -32,6 +33,7 @@ from implication_analyzer import analyze_implications  # noqa: E402
 from issue_extractor import extract_issues  # noqa: E402
 from mechanism_detector import detect_mechanisms  # noqa: E402
 from multi_lens_analyzer import analyze_lenses  # noqa: E402
+from localization import localized_question_intent, localized_question_route, translate_text  # noqa: E402
 from output_adapter import adapt_output  # noqa: E402
 from outcome_retriever import retrieve_historical_outcomes  # noqa: E402
 from question_router import route_question  # noqa: E402
@@ -48,11 +50,22 @@ RUNS_DIR.mkdir(parents=True, exist_ok=True)
 class AnalyzeRequest(BaseModel):
     """Request payload for local analysis."""
 
-    text: str = Field(..., min_length=1)
+    text: str = ""
     language: str = "en"
     output_mode: str = "analyst"
     question_id: str = "meaning"
     question_text: str = "What does this issue mean?"
+    source_url: str = ""
+    input_mode: str = "paste_text"
+    uploaded_filename: str = ""
+    file_type: str = "text"
+
+
+class ExtractFileRequest(BaseModel):
+    """Request payload for local file text extraction."""
+
+    filename: str
+    content_base64: str
 
 
 class AnalyzeResponse(BaseModel):
@@ -68,7 +81,7 @@ class AnalyzeResponse(BaseModel):
 
 app = FastAPI(
     title="Strategic Intelligence Agent Local App",
-    version="9.0",
+    version="9.5",
     description="Local-only API for running the Strategic Intelligence Agent pipeline.",
 )
 
@@ -87,14 +100,44 @@ app.mount("/runs", StaticFiles(directory=RUNS_DIR, html=False), name="runs")
 @app.get("/health")
 def health() -> dict[str, str]:
     """Return local app health."""
-    return {"status": "ok", "app": "Strategic Intelligence Agent", "version": "9.0"}
+    return {"status": "ok", "app": "Strategic Intelligence Agent", "version": "9.5"}
+
+
+@app.post("/extract-file")
+def extract_file(request: ExtractFileRequest) -> dict[str, str]:
+    """Extract text from a local uploaded text, Markdown, or text-based PDF file."""
+    filename = request.filename.strip()
+    suffix = Path(filename).suffix.lower()
+    try:
+        raw = base64.b64decode(request.content_base64)
+    except Exception as exc:
+        raise HTTPException(status_code=400, detail="Could not decode uploaded file.") from exc
+
+    if suffix in {".txt", ".md", ".markdown"}:
+        return {
+            "filename": filename,
+            "file_type": suffix.lstrip("."),
+            "text": raw.decode("utf-8", errors="replace"),
+            "limitation": "",
+        }
+    if suffix == ".pdf":
+        return {
+            "filename": filename,
+            "file_type": "pdf",
+            "text": _extract_pdf_text(raw),
+            "limitation": "PDF support works for text-based PDFs only. Scanned image PDFs are not supported.",
+        }
+    raise HTTPException(status_code=400, detail="Unsupported file type. Use .txt, .md, .markdown, or .pdf.")
 
 
 @app.post("/analyze", response_model=AnalyzeResponse)
 def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     """Run the real Python pipeline and persist run artifacts."""
     text = request.text.strip()
+    source_url = request.source_url.strip()
     if not text:
+        if source_url:
+            return _create_link_only_run(request, source_url)
         raise HTTPException(status_code=400, detail="Text is required.")
 
     run_id, run_dir = _create_run_dir()
@@ -134,6 +177,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
         event_context=event_context,
+        source_url=source_url,
     )
     brief_markdown = adapt_output(base_brief, mode=request.output_mode, language=request.language)
     brief_text = _markdown_to_text(brief_markdown)
@@ -146,6 +190,11 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         "question_id": request.question_id,
         "question_text": question_route.question_text,
         "question_intent": question_route.intent,
+        "question_intent_label": localized_question_intent(question_route.intent, request.language),
+        "source_url": source_url,
+        "input_mode": request.input_mode,
+        "uploaded_filename": request.uploaded_filename,
+        "file_type": request.file_type,
         "status": "complete",
         "artifact_paths": {
             "input": f"outputs/runs/{run_id}/input.txt",
@@ -171,6 +220,11 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         response_patterns=response_patterns,
         event_context=event_context,
         question_route=question_route,
+        localized_question_route=localized_question_route(question_route, request.language),
+        source_url=source_url,
+        input_mode=request.input_mode,
+        uploaded_filename=request.uploaded_filename,
+        file_type=request.file_type,
         route=route,
         metadata=metadata,
     )
@@ -272,6 +326,74 @@ def _create_run_dir() -> tuple[str, Path]:
     raise HTTPException(status_code=500, detail="Could not allocate a run folder.")
 
 
+def _create_link_only_run(request: AnalyzeRequest, source_url: str) -> AnalyzeResponse:
+    run_id, run_dir = _create_run_dir()
+    message = (
+        "Link captured as source metadata. Please paste the document text or upload a file for analysis. "
+        "Live web retrieval is not enabled in this local version."
+    )
+    metadata = {
+        "run_id": run_id,
+        "created_at": datetime.now().isoformat(timespec="seconds"),
+        "language": request.language,
+        "output_mode": request.output_mode,
+        "question_id": request.question_id,
+        "question_text": request.question_text,
+        "question_intent": "Source Link Only",
+        "question_intent_label": localized_question_intent("Source Link Only", request.language),
+        "source_url": source_url,
+        "input_mode": request.input_mode or "paste_link",
+        "uploaded_filename": request.uploaded_filename,
+        "file_type": request.file_type or "url",
+        "status": "link_only",
+        "artifact_paths": {
+            "input": f"outputs/runs/{run_id}/input.txt",
+            "analysis": f"outputs/runs/{run_id}/analysis.json",
+            "brief_markdown": f"outputs/runs/{run_id}/brief.md",
+            "brief_text": f"outputs/runs/{run_id}/brief.txt",
+            "agent_trace": f"outputs/runs/{run_id}/agent_trace.json",
+            "metadata": f"outputs/runs/{run_id}/metadata.json",
+        },
+    }
+    analysis = {
+        "source_url": source_url,
+        "question_route": {
+            "question_text": request.question_text,
+            "intent": "Source Link Only",
+            "intent_label": localized_question_intent("Source Link Only", request.language),
+            "routing_note": "Live web retrieval is not enabled in this local version.",
+        },
+        "input_mode": metadata["input_mode"],
+        "uploaded_filename": metadata["uploaded_filename"],
+        "file_type": metadata["file_type"],
+        "message": message,
+        "metadata": metadata,
+    }
+    agent_trace = {
+        "selected_tools": [],
+        "skipped_tools": ["IssueExtractor", "ScenarioClassifier", "HistoricalRetriever", "BriefGenerator"],
+        "trace": [{"event": "Source link captured", "detail": "No live web retrieval is enabled."}],
+        "reasoning_record": [],
+        "reasoning_stages": ["Source metadata capture"],
+    }
+    brief_markdown = translate_text(f"# Source Link Captured\n\n- **Source Link:** {source_url}\n- {message}\n", request.language)
+    brief_text = _markdown_to_text(brief_markdown)
+    (run_dir / "input.txt").write_text("", encoding="utf-8")
+    _write_json(run_dir / "analysis.json", analysis)
+    (run_dir / "brief.md").write_text(brief_markdown, encoding="utf-8")
+    (run_dir / "brief.txt").write_text(brief_text, encoding="utf-8")
+    _write_json(run_dir / "agent_trace.json", agent_trace)
+    _write_json(run_dir / "metadata.json", metadata)
+    return AnalyzeResponse(
+        run_id=run_id,
+        metadata=metadata,
+        analysis=analysis,
+        brief_markdown=brief_markdown,
+        brief_text=brief_text,
+        downloads=_download_links(run_id),
+    )
+
+
 def _run_dir_or_404(run_id: str) -> Path:
     run_dir = RUNS_DIR / run_id
     if not run_dir.exists() or not run_dir.is_dir():
@@ -286,8 +408,12 @@ def _build_analysis_artifact(**items: Any) -> dict[str, Any]:
     issue_title = issues[0].title if issues else "Untitled issue"
     return {
         "issue": _serializable(issues[0]) if issues else {},
+        "source_url": items["source_url"],
+        "input_mode": items["input_mode"],
+        "uploaded_filename": items["uploaded_filename"],
+        "file_type": items["file_type"],
         "event_context": _serializable(items["event_context"]),
-        "question_route": _serializable(items["question_route"]),
+        "question_route": _serializable(items["localized_question_route"]),
         "scenario": _serializable(classifications[0]) if classifications else {},
         "mechanisms": _serializable(items["mechanisms"].get(issue_title, [])),
         "analogues": _serializable(items["analogues"].get(issue_title, [])),
@@ -357,3 +483,30 @@ def _download_links(run_id: str) -> dict[str, str]:
         "txt": f"/run/{run_id}/download/txt",
         "json": f"/run/{run_id}/download/json",
     }
+
+
+def _extract_pdf_text(raw: bytes) -> str:
+    """Extract text from a text-based PDF. OCR is intentionally unsupported."""
+    try:
+        from pypdf import PdfReader
+    except ImportError as exc:
+        raise HTTPException(
+            status_code=500,
+            detail="PDF extraction requires pypdf. Install dependencies with python3 -m pip install -r requirements.txt.",
+        ) from exc
+
+    temp_path = ROOT / "outputs" / "_uploaded_temp.pdf"
+    try:
+        temp_path.write_bytes(raw)
+        reader = PdfReader(str(temp_path))
+        text_parts = [(page.extract_text() or "") for page in reader.pages]
+    finally:
+        if temp_path.exists():
+            temp_path.unlink()
+    extracted = "\n\n".join(part.strip() for part in text_parts if part.strip()).strip()
+    if not extracted:
+        raise HTTPException(
+            status_code=400,
+            detail="No extractable text found. PDF support works for text-based PDFs only; scanned image PDFs are not supported.",
+        )
+    return extracted

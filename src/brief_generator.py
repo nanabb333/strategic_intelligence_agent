@@ -65,6 +65,7 @@ def generate_brief(
     evidence_credibility=None,
     response_patterns=None,
     event_context: EventContext | None = None,
+    source_url: str = "",
 ) -> str:
     """Generate a Markdown executive intelligence brief."""
     classification_by_issue = {item.issue_title: item for item in classifications}
@@ -152,6 +153,8 @@ def generate_brief(
             ]
         )
         lines.extend(_format_event_context(event_context))
+        if source_url:
+            lines.extend(["", f"- **Source Link:** {source_url}", "- **Source Link note:** Captured as source metadata. Live web retrieval is not enabled."])
         lines.extend(
             [
                 "",

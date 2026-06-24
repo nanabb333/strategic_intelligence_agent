@@ -19,57 +19,71 @@
 
         <p id="helper-text" class="helper-text">Paste a document, ask a plain-language question, and click Analyze. The app will produce an executive brief first, with methods and trace details below.</p>
 
-        <div class="selector-grid" aria-label="Guided analysis controls">
+        <div class="selector-grid compact" aria-label="Language control">
           <label for="language-select" data-i18n="languageLabel">Language</label>
           <select id="language-select">
             <option value="en">English</option>
             <option value="zh-CN">简体中文</option>
             <option value="zh-TW">繁體中文</option>
           </select>
-
-          <label for="mode-select" data-i18n="outputModeLabel">Output mode</label>
-          <select id="mode-select">
-            <option value="beginner" data-i18n="beginnerMode">Beginner</option>
-            <option value="analyst" selected data-i18n="analystMode">Analyst</option>
-            <option value="executive" data-i18n="executiveMode">Executive</option>
-          </select>
         </div>
 
-        <label for="question-input" data-i18n="questionInputLabel">Ask a Question</label>
-        <textarea id="question-input" class="question-input" spellcheck="true" data-i18n-placeholder="questionPlaceholder" placeholder="What does this issue mean? What historical events resemble this? How have organizations responded in similar situations? What should I monitor next?"></textarea>
-
-        <div class="input-mode-block">
-          <p class="input-mode-title" data-i18n="inputModeLabel">Input Mode</p>
-          <div class="input-mode-tabs" role="tablist" aria-label="Input modes">
-            <button class="input-mode active" type="button" data-mode="paste" data-i18n="pasteTextMode">Paste Text</button>
-            <button class="input-mode" type="button" data-mode="upload" data-i18n="uploadFileMode">Upload File</button>
-            <button class="input-mode" type="button" data-mode="link" data-i18n="pasteLinkMode">Paste Link</button>
-          </div>
-        </div>
-
-        <section id="paste-panel" class="input-mode-panel active">
+        <section class="workflow-step">
+          <h2><span data-i18n="stepOne">STEP 1</span> <span data-i18n="pasteDocumentStep">Paste Document</span></h2>
           <label for="document-input" class="input-label" data-i18n="documentTextLabel">Paste document or article here</label>
           <textarea id="document-input" class="document-dropzone" spellcheck="true" data-i18n-placeholder="documentPlaceholder" placeholder="Paste an article, policy excerpt, earnings note, regulatory update, or supply chain memo here.">The CHIPS Act continues to shape semiconductor manufacturing strategy as executives evaluate domestic fabrication capacity, supplier qualification, and government incentive requirements. The issue involves industrial policy, strategic investment, workforce constraints, and semiconductor supply chain resilience.</textarea>
         </section>
 
-        <section id="upload-panel" class="input-mode-panel">
-          <label class="file-control upload-box" for="file-input">
-            <span data-i18n="uploadInstructions">Upload .txt / .md / .markdown / .pdf</span>
-            <strong id="uploaded-file-name" data-i18n="noFileSelected">No file selected</strong>
-            <input id="file-input" type="file" accept=".md,.markdown,.txt,.pdf,text/markdown,text/plain,application/pdf">
-          </label>
-          <p class="note" data-i18n="pdfLimitNote">PDF support works for text-based PDFs only. Scanned image PDFs are not supported.</p>
+        <section class="workflow-step">
+          <h2><span data-i18n="stepTwo">STEP 2</span> <span data-i18n="askQuestionStep">Ask a Question</span></h2>
+          <label for="question-input" data-i18n="questionInputLabel">Ask a Question</label>
+          <textarea id="question-input" class="question-input" spellcheck="true" data-i18n-placeholder="questionPlaceholder" placeholder="What does this issue mean? What historical events resemble this? How have organizations responded in similar situations? What should I monitor next?"></textarea>
         </section>
 
-        <section id="link-panel" class="input-mode-panel">
-          <label for="source-url-input" class="input-label" data-i18n="sourceUrlLabel">Paste source link</label>
-          <input id="source-url-input" class="link-input" type="url" data-i18n-placeholder="sourceUrlPlaceholder" placeholder="https://example.com/source-document">
-          <p class="note" data-i18n="linkModeNote">Live web retrieval is not enabled. Links are stored as source metadata.</p>
-        </section>
-
-        <div class="control-row">
+        <section class="workflow-step action-step">
+          <h2><span data-i18n="stepThree">STEP 3</span> <span data-i18n="analyzeStep">Analyze</span></h2>
           <button id="analyze-button" type="button" data-i18n="runAnalysis">Run Analysis</button>
-        </div>
+        </section>
+
+        <details class="advanced-settings">
+          <summary data-i18n="advancedSettings">Advanced settings and input options</summary>
+          <div class="advanced-body">
+            <label for="mode-select" data-i18n="outputModeLabel">Output mode</label>
+            <select id="mode-select">
+              <option value="beginner" data-i18n="beginnerMode">Beginner</option>
+              <option value="analyst" selected data-i18n="analystMode">Analyst</option>
+              <option value="executive" data-i18n="executiveMode">Executive</option>
+            </select>
+
+            <div class="input-mode-block">
+              <p class="input-mode-title" data-i18n="inputModeLabel">Input Mode</p>
+              <div class="input-mode-tabs" role="tablist" aria-label="Input modes">
+                <button class="input-mode active" type="button" data-mode="paste" data-i18n="pasteTextMode">Paste Text</button>
+                <button class="input-mode" type="button" data-mode="upload" data-i18n="uploadFileMode">Upload File</button>
+                <button class="input-mode" type="button" data-mode="link" data-i18n="pasteLinkMode">Paste Link</button>
+              </div>
+            </div>
+
+            <section id="paste-panel" class="input-mode-panel active">
+              <p class="note" data-i18n="pasteModeNote">Paste mode uses the main document box above.</p>
+            </section>
+
+            <section id="upload-panel" class="input-mode-panel">
+              <label class="file-control upload-box" for="file-input">
+                <span data-i18n="uploadInstructions">Upload .txt / .md / .markdown / .pdf</span>
+                <strong id="uploaded-file-name" data-i18n="noFileSelected">No file selected</strong>
+                <input id="file-input" type="file" accept=".md,.markdown,.txt,.pdf,text/markdown,text/plain,application/pdf">
+              </label>
+              <p class="note" data-i18n="pdfLimitNote">PDF support works for text-based PDFs only. Scanned image PDFs are not supported.</p>
+            </section>
+
+            <section id="link-panel" class="input-mode-panel">
+              <label for="source-url-input" class="input-label" data-i18n="sourceUrlLabel">Paste source link</label>
+              <input id="source-url-input" class="link-input" type="url" data-i18n-placeholder="sourceUrlPlaceholder" placeholder="https://example.com/source-document">
+              <p class="note" data-i18n="linkModeNote">Live web retrieval is not enabled. Links are stored as source metadata.</p>
+            </section>
+          </div>
+        </details>
 
         <div class="export-row" aria-label="Export executive brief">
           <button id="export-md" type="button" data-i18n="exportMarkdown">Export Markdown</button>
@@ -113,6 +127,24 @@
           <div id="event-context-section" class="section-body"></div>
         </details>
 
+        <details>
+          <summary><span data-i18n="mechanisms">Mechanisms</span> <span data-source="Mechanism Framework">Mechanism Framework</span></summary>
+          <div id="mechanisms-section" class="section-body"></div>
+        </details>
+
+        <details>
+          <summary><span data-i18n="evidenceReview">Evidence Review</span> <span data-source="Evidence Review">Evidence Review</span></summary>
+          <div id="evidence-credibility-section" class="section-body"></div>
+          <div id="evidence-assessment-section" class="section-body"></div>
+        </details>
+
+        <details>
+          <summary><span data-i18n="executionTrace">Execution Trace</span> <span data-source="Agent Router">Agent Router</span></summary>
+          <div id="trace-section" class="section-body"></div>
+        </details>
+
+        <div class="section-divider" data-i18n="methodDetails">Method Details</div>
+
         <details open>
           <summary><span data-i18n="documentSummary">Document Summary</span> <span data-source="Input Document">Input Document</span></summary>
           <div id="summary-section" class="section-body"></div>
@@ -134,23 +166,13 @@
         </details>
 
         <details>
-          <summary><span data-i18n="selectedTools">Selected Tools</span> <span data-source="Agent Router">Agent Router</span></summary>
-          <div id="tools-section" class="section-body"></div>
-        </details>
-
-        <details>
-          <summary><span data-i18n="executionTrace">Execution Trace</span> <span data-source="Agent Router">Agent Router</span></summary>
-          <div id="trace-section" class="section-body"></div>
-        </details>
-
-        <details>
           <summary><span data-i18n="analysisPath">Analysis Path</span> <span data-source="Tool Registry">Tool Registry</span></summary>
           <div id="path-section" class="section-body"></div>
         </details>
 
         <details>
-          <summary><span data-i18n="mechanisms">Mechanisms</span> <span data-source="Mechanism Framework">Mechanism Framework</span></summary>
-          <div id="mechanisms-section" class="section-body"></div>
+          <summary><span data-i18n="selectedTools">Selected Tools</span> <span data-source="Agent Router">Agent Router</span></summary>
+          <div id="tools-section" class="section-body"></div>
         </details>
 
         <details>
@@ -162,18 +184,6 @@
           <summary><span data-i18n="historicalResponses">Historical Responses</span> <span data-source="Response Patterns">Response Patterns</span></summary>
           <div id="responses-section" class="section-body"></div>
         </details>
-
-        <details>
-          <summary><span data-i18n="evidenceAssessment">Evidence Assessment</span> <span data-source="Evidence Assessor">Evidence Assessor</span></summary>
-          <div id="evidence-assessment-section" class="section-body"></div>
-        </details>
-
-        <details>
-          <summary><span data-i18n="evidenceCredibility">Evidence Credibility</span> <span data-source="Evidence Credibility Layer">Evidence Credibility Layer</span></summary>
-          <div id="evidence-credibility-section" class="section-body"></div>
-        </details>
-
-        <div class="section-divider" data-i18n="executionTrace">Execution Trace</div>
 
         <details id="evaluation-tab">
           <summary><span data-i18n="evaluation">Evaluation</span> <span data-source="Benchmark Framework">Benchmark Framework</span></summary>

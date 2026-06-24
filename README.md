@@ -8,11 +8,22 @@ A local strategic intelligence decision-support application that turns documents
 
 Recent user testing showed that the project needed more practical depth and a simpler user experience. The current product upgrade responds to that feedback directly:
 
-- **Knowledge depth:** the historical outcome dataset expanded from 20 to 55 educational cases across export controls, sanctions, industrial policy, supply chain disruption, technology competition, regulatory action, geopolitical escalation, corporate response, and financial exposure.
+- **Knowledge depth:** the historical outcome dataset expanded from 20 to 105 educational cases across export controls, sanctions, industrial policy, supply chain disruption, technology competition, regulatory action, geopolitical escalation, corporate response, and financial exposure.
 - **Localization:** output localization is centralized in `src/localization.py` so section headings, evidence labels, confidence labels, and recurring dashboard/result labels are more consistently rendered in English, Simplified Chinese, and Traditional Chinese.
 - **Free-form questions:** the old artificial question-type dropdown is replaced with an “Ask a Question” box, routed deterministically by `src/question_router.py`.
 - **UX simplification:** the dashboard now shows the executive brief and strategic lessons before methodology-heavy sections.
 - **Input clarity:** the paste area is larger, visually emphasized, labeled clearly, and supports upload or drag-and-drop for `.txt`, `.md`, `.markdown`, and text-based `.pdf` files.
+
+## Product Evolution Through User Testing
+
+The current product direction is shaped by real usability feedback:
+
+- **Larger knowledge base:** more historical outcome cases make analogue and outcome retrieval feel less thin during portfolio demos.
+- **Fuller localization:** major knowledge-base labels such as Strategic Dependency, Supply Chain Reconfiguration, Industrial Subsidy, and Alliance Coordination are localized for Chinese modes.
+- **Simplified workflow:** the dashboard now follows a clear Step 1 / Step 2 / Step 3 flow: paste document, ask a question, analyze.
+- **Value-first output design:** results prioritize Executive Brief, Strategic Lessons, Historical Outcomes, Historical Analogues, Current Event Context, Mechanisms, Evidence Review, and Execution Trace.
+
+The product remains local and deterministic. These changes improve usability and credibility without adding live web search, RAG, autonomous agents, forecasting, legal advice, or investment advice.
 
 ## Supported Input Modes
 

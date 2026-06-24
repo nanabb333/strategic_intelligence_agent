@@ -31,6 +31,7 @@ from event_context import extract_event_context  # noqa: E402
 from historical_retriever import retrieve_historical_analogues  # noqa: E402
 from implication_analyzer import analyze_implications  # noqa: E402
 from issue_extractor import extract_issues  # noqa: E402
+from knowledge_localization import localize_analysis_payload  # noqa: E402
 from mechanism_detector import detect_mechanisms  # noqa: E402
 from multi_lens_analyzer import analyze_lenses  # noqa: E402
 from localization import localized_question_intent, localized_question_route, translate_text  # noqa: E402
@@ -228,6 +229,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         route=route,
         metadata=metadata,
     )
+    analysis = localize_analysis_payload(analysis, request.language)
     agent_trace = {
         "selected_tools": route.selected_tools,
         "skipped_tools": route.skipped_tools,

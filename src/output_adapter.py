@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from knowledge_localization import localize_knowledge_text
 from localization import translate_text
 
 
@@ -62,7 +63,7 @@ def adapt_output(markdown_text: str, mode: str = "analyst", language: str = "en"
     disclaimer = DISCLAIMERS[language]
     note = LANGUAGE_NOTES[language]
 
-    localized_markdown = translate_text(markdown_text.strip(), language)
+    localized_markdown = translate_text(localize_knowledge_text(markdown_text.strip(), language), language)
 
     if mode == "analyst":
         return f"# {title}\n\n{disclaimer}\n\n> {note}\n\n{localized_markdown}\n"

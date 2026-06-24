@@ -25,6 +25,14 @@ const localeText = {
     sourceUrlLabel: "Paste source link",
     sourceUrlPlaceholder: "https://example.com/source-document",
     linkModeNote: "Live web retrieval is not enabled. Links are stored as source metadata.",
+    stepOne: "STEP 1",
+    stepTwo: "STEP 2",
+    stepThree: "STEP 3",
+    pasteDocumentStep: "Paste Document",
+    askQuestionStep: "Ask a Question",
+    analyzeStep: "Analyze",
+    advancedSettings: "Advanced settings and input options",
+    pasteModeNote: "Paste mode uses the main document box above.",
     runAnalysis: "Analyze",
     exportMarkdown: "Download Markdown",
     exportTxt: "Download TXT",
@@ -43,10 +51,12 @@ const localeText = {
     interpretations: "Interpretations",
     historicalResponses: "Historical Responses",
     evidenceAssessment: "Evidence Assessment",
+    evidenceReview: "Evidence Review",
     evidenceCredibility: "Evidence Credibility",
     evaluation: "Evaluation",
     executiveBrief: "Executive Brief",
     detailedAnalysis: "Detailed Analysis",
+    methodDetails: "Method Details",
     primaryScenario: "Primary scenario",
     matchedKeywords: "Matched keywords",
     confidenceLabel: "Confidence label",
@@ -61,11 +71,16 @@ const localeText = {
     eventSummary: "Event summary",
     limitations: "Limitations",
     strategicResponse: "Strategic response",
-    supportingCases: "Supporting cases",
+    supportingCases: "Supporting historical cases",
     confidenceDistribution: "Confidence distribution",
     sourceStatusDistribution: "Source status distribution",
     keyLimitations: "Key limitations",
     reviewerNote: "Reviewer note",
+    lessonLabel: "Lesson",
+    whyItMatters: "Why it matters",
+    outcomeLabel: "Outcome",
+    observedPattern: "Observed pattern",
+    relevantCases: "Relevant cases",
   },
   "zh-CN": {
     appTitle: "分析文档或当前事件",
@@ -90,6 +105,14 @@ const localeText = {
     sourceUrlLabel: "粘贴来源链接",
     sourceUrlPlaceholder: "https://example.com/source-document",
     linkModeNote: "未启用实时网页检索；链接仅保存为来源元数据。",
+    stepOne: "步骤 1",
+    stepTwo: "步骤 2",
+    stepThree: "步骤 3",
+    pasteDocumentStep: "粘贴文档",
+    askQuestionStep: "提问",
+    analyzeStep: "分析",
+    advancedSettings: "高级设置和输入选项",
+    pasteModeNote: "粘贴模式使用上方主文档输入框。",
     runAnalysis: "分析",
     exportMarkdown: "下载 Markdown",
     exportTxt: "下载 TXT",
@@ -108,10 +131,12 @@ const localeText = {
     interpretations: "多种解释",
     historicalResponses: "历史应对模式",
     evidenceAssessment: "证据评估",
+    evidenceReview: "证据审查",
     evidenceCredibility: "证据可信度",
     evaluation: "评估",
     executiveBrief: "高管简报",
     detailedAnalysis: "详细分析",
+    methodDetails: "方法细节",
     primaryScenario: "主要情境",
     matchedKeywords: "匹配关键词",
     confidenceLabel: "置信标签",
@@ -126,11 +151,16 @@ const localeText = {
     eventSummary: "事件摘要",
     limitations: "局限性",
     strategicResponse: "战略应对",
-    supportingCases: "支持案例",
+    supportingCases: "支持历史案例",
     confidenceDistribution: "置信分布",
     sourceStatusDistribution: "来源状态分布",
     keyLimitations: "主要局限性",
     reviewerNote: "审阅说明",
+    lessonLabel: "经验",
+    whyItMatters: "为什么重要",
+    outcomeLabel: "结果",
+    observedPattern: "观察到的模式",
+    relevantCases: "相关案例",
   },
   "zh-TW": {
     appTitle: "分析文件或當前事件",
@@ -155,6 +185,14 @@ const localeText = {
     sourceUrlLabel: "貼上來源連結",
     sourceUrlPlaceholder: "https://example.com/source-document",
     linkModeNote: "未啟用即時網頁檢索；連結僅保存為來源元資料。",
+    stepOne: "步驟 1",
+    stepTwo: "步驟 2",
+    stepThree: "步驟 3",
+    pasteDocumentStep: "貼上文件",
+    askQuestionStep: "提問",
+    analyzeStep: "分析",
+    advancedSettings: "進階設定和輸入選項",
+    pasteModeNote: "貼上模式使用上方主文件輸入框。",
     runAnalysis: "分析",
     exportMarkdown: "下載 Markdown",
     exportTxt: "下載 TXT",
@@ -173,10 +211,12 @@ const localeText = {
     interpretations: "多種解釋",
     historicalResponses: "歷史應對模式",
     evidenceAssessment: "證據評估",
+    evidenceReview: "證據審查",
     evidenceCredibility: "證據可信度",
     evaluation: "評估",
     executiveBrief: "高階主管簡報",
     detailedAnalysis: "詳細分析",
+    methodDetails: "方法細節",
     primaryScenario: "主要情境",
     matchedKeywords: "匹配關鍵字",
     confidenceLabel: "信心標籤",
@@ -191,11 +231,16 @@ const localeText = {
     eventSummary: "事件摘要",
     limitations: "限制",
     strategicResponse: "策略應對",
-    supportingCases: "支持案例",
+    supportingCases: "支持歷史案例",
     confidenceDistribution: "信心分布",
     sourceStatusDistribution: "來源狀態分布",
     keyLimitations: "主要限制",
     reviewerNote: "審閱說明",
+    lessonLabel: "經驗",
+    whyItMatters: "為什麼重要",
+    outcomeLabel: "結果",
+    observedPattern: "觀察到的模式",
+    relevantCases: "相關案例",
   },
 };
 
@@ -325,8 +370,8 @@ function renderRun(run) {
   document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(issue.summary || issue.core_issue || "No summary returned.")}</p><p><span class="evidence">${t("source")}: Input Document</span></p>${sourceLink}`;
   document.getElementById("classification-section").innerHTML = `<ul><li>${t("primaryScenario")}: ${escapeHtml(scenario.primary_scenario || "Other")}</li><li>${t("matchedKeywords")}: ${escapeHtml((scenario.matched_keywords || []).join(", ") || "None")}</li><li>${t("confidenceLabel")}: ${escapeHtml(scenario.confidence_label || "Not available")}</li></ul><p><span class="evidence">${t("source")}: ScenarioClassifier</span></p>`;
   renderCards("analogues-section", analysis.analogues || [], (item) => `<h3>${escapeHtml(item.case_title)}</h3><p>${escapeHtml(item.similarity_reason || "")}</p><p>${sourceMeta(item)}</p>`);
-  renderCards("outcomes-section", analysis.historical_outcomes || [], (item) => `<h3>${escapeHtml(item.case_name)} (${escapeHtml(item.year)})</h3><p>${escapeHtml(item.observed_outcome || "")}</p><p><strong>${t("strategicResponse")}:</strong> ${escapeHtml(item.strategic_response || "")}</p><p><span class="evidence">${t("confidence")}: ${escapeHtml(item.confidence || "Not stated")}</span> <span class="evidence">${t("source")}: ${escapeHtml(item.source_status || "source pending")}</span></p>`);
-  renderCards("lessons-section", analysis.strategic_lessons || [], (item) => `<h3>${escapeHtml(item.lesson)}</h3><p><strong>${t("supportingCases")}:</strong> ${escapeHtml((item.supporting_cases || []).join(", "))}</p><p>${escapeHtml(item.rationale || "")}</p><p><span class="evidence">${t("confidence")}: ${escapeHtml(item.confidence || "Low")}</span></p>`);
+  renderCards("outcomes-section", analysis.historical_outcomes || [], renderOutcomeCard);
+  renderCards("lessons-section", analysis.strategic_lessons || [], renderLessonCard);
   renderCards("context-section", analysis.current_context || [], (item) => `<h3>${escapeHtml(item.industry)} - ${escapeHtml(item.scenario_type)}</h3><p>${escapeHtml(item.context_summary || "")}</p><p><span class="evidence">Source: ${escapeHtml(item.evidence_trace || "Context Knowledge Base")}</span></p>`);
   renderCards("mechanisms-section", analysis.mechanisms || [], (item) => `<h3>${escapeHtml(item.mechanism_name)}</h3><p>${escapeHtml(item.description || "")}</p><p>${sourceMeta(item)}</p>`);
   renderCards("interpretations-section", analysis.lenses || [], (item) => `<h3>${escapeHtml(item.lens)}</h3><p>${escapeHtml(item.hypothesis || "")}</p><p><span class="evidence">Source: Multi-Lens Analysis</span></p>`);
@@ -379,6 +424,27 @@ function renderEvidenceCredibility(item) {
     <ul>${(item.key_limitations || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
     <p><span class="evidence">${t("reviewerNote")}</span></p>
     <p>${escapeHtml(item.reviewer_note || "")}</p>
+  `;
+}
+
+function renderLessonCard(item) {
+  return `
+    <div class="card-kicker">${t("lessonLabel")}</div>
+    <h3>${escapeHtml(item.lesson)}</h3>
+    <p><strong>${t("whyItMatters")}:</strong> ${escapeHtml(item.rationale || "This lesson summarizes recurring patterns across retrieved historical outcomes.")}</p>
+    <p><strong>${t("supportingCases")}:</strong> ${escapeHtml((item.supporting_cases || []).join(", ") || "No supporting cases listed")}</p>
+    <p><span class="evidence">${t("confidence")}: ${escapeHtml(item.confidence || "Low")}</span></p>
+  `;
+}
+
+function renderOutcomeCard(item) {
+  return `
+    <div class="card-kicker">${t("outcomeLabel")}</div>
+    <h3>${escapeHtml(item.case_name)} (${escapeHtml(item.year)})</h3>
+    <p><strong>${t("observedPattern")}:</strong> ${escapeHtml(item.observed_outcome || "")}</p>
+    <p><strong>${t("relevantCases")}:</strong> ${escapeHtml(item.event_family || "")} / ${escapeHtml(item.sector || "")}</p>
+    <p><strong>${t("strategicResponse")}:</strong> ${escapeHtml(item.strategic_response || "")}</p>
+    <p><span class="evidence">${t("confidence")}: ${escapeHtml(item.confidence || "Not stated")}</span></p>
   `;
 }
 

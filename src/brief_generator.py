@@ -90,84 +90,89 @@ def generate_brief(
         issue_response_patterns = (response_patterns or {}).get(issue.title, [])
 
         if issue_strategic_assessment:
-            similar_cases = ", ".join(item.case_name for item in issue_historical_outcomes[:3]) or "No close historical cases retrieved"
-            happened_then = issue_historical_outcomes[0].observed_outcome if issue_historical_outcomes else "No observed historical outcome was retrieved."
-            response_then = issue_historical_outcomes[0].strategic_response if issue_historical_outcomes else "No historical response pattern was retrieved."
-            happened_after = (
-                f"{issue_strategic_assessment.outcome_distribution[0].outcome_type} was the most common retrieved outcome category "
+            similar_cases = issue_historical_outcomes[:5]
+            dominant_outcome = (
+                f"{issue_strategic_assessment.outcome_distribution[0].outcome_type} appeared most often in the retrieved local cases "
                 f"({issue_strategic_assessment.outcome_distribution[0].frequency_percent}% of retrieved cases)."
                 if issue_strategic_assessment.outcome_distribution
-                else "No outcome distribution was available."
+                else "The local dataset did not return enough cases to summarize a dominant outcome type."
             )
-            watch_now = " ".join(issue_strategic_assessment.strategic_watchlist[:2])
             lines.extend(
                 [
                     "## Direct Answer",
                     "",
-                    f"- **Similar cases:** {similar_cases}.",
-                    f"- **What happened then:** {happened_then}",
-                    f"- **How organizations responded:** {response_then}",
-                    f"- **What happened after:** {happened_after}",
-                    f"- **What to watch now:** {watch_now}",
-                    f"- **Assessment:** {issue_strategic_assessment.direct_answer}",
+                    f"- {issue_strategic_assessment.direct_answer}",
                     "",
-                    "## Historical Patterns",
+                    "## Similar Cases",
                     "",
                 ]
             )
-            if issue_strategic_assessment.historical_patterns:
-                for pattern in issue_strategic_assessment.historical_patterns:
-                    lines.extend(
-                        [
-                            f"- **{pattern.frequency_percent}%:** {pattern.pattern}",
-                            f"  - {pattern.interpretation}",
-                            f"  - Supporting cases: {', '.join(pattern.supporting_cases) or 'None listed'}",
-                        ]
-                    )
+            if similar_cases:
+                for outcome in similar_cases:
+                    lines.append(f"- **{outcome.case_name} ({outcome.year})** - {outcome.event_family}; {outcome.sector}.")
             else:
-                lines.append("- No cross-case patterns were available from retrieved outcomes.")
-            lines.extend(["", "## Historical Outcome Distribution", ""])
-            if issue_strategic_assessment.outcome_distribution:
-                for item in issue_strategic_assessment.outcome_distribution:
-                    lines.extend(
-                        [
-                            f"- **{item.outcome_type}: {item.frequency_percent}%** ({item.case_count} retrieved case(s))",
-                            f"  - {item.interpretation}",
-                        ]
-                    )
+                lines.append("- No close historical cases were retrieved from the local dataset.")
+
+            lines.extend(["", "## What Happened Then", ""])
+            if similar_cases:
+                for outcome in similar_cases[:3]:
+                    lines.append(f"- **{outcome.case_name}:** {outcome.observed_outcome}")
             else:
-                lines.append("- No outcome distribution was available from retrieved outcomes.")
-            lines.extend(["", "## Market Expectations vs Outcomes", ""])
+                lines.append("- No observed historical outcomes were available.")
+
+            lines.extend(["", "## How Organizations Responded", ""])
+            if similar_cases:
+                for outcome in similar_cases[:3]:
+                    lines.append(f"- **{outcome.case_name}:** {outcome.strategic_response}")
+            else:
+                lines.append("- No historical response pattern was available.")
+
+            lines.extend(["", "## What Happened After", ""])
+            lines.append(f"- {dominant_outcome}")
+            for item in issue_strategic_assessment.outcome_distribution[:3]:
+                lines.append(f"- **{item.outcome_type}:** {item.interpretation}")
+
+            lines.extend(["", "## Market Expectations vs Actual Outcomes", ""])
             if issue_strategic_assessment.expectation_vs_reality:
                 for gap in issue_strategic_assessment.expectation_vs_reality:
                     lines.extend(
                         [
                             f"### {gap.event}",
                             "",
-                            f"- **Mainstream expectation:** {gap.consensus_expectation}",
-                            f"- **Market / user behavior:** {gap.market_user_behavior}",
-                            f"- **Actual outcome:** {gap.observed_outcome}",
+                            f"- **Initial / mainstream expectation:** {gap.consensus_expectation}",
+                            f"- **Market or user behavior:** {gap.market_user_behavior}",
+                            f"- **Actual observed outcome:** {gap.observed_outcome}",
                             f"- **Expectation gap:** {gap.expectation_gap}",
-                            f"- **Strategic lesson:** {gap.strategic_lesson}",
+                            f"- **Lesson:** {gap.strategic_lesson}",
                             "",
                         ]
                     )
             else:
-                lines.append("- No expectation-gap comparison was available.")
-            lines.extend(["## Strategic Watchlist", ""])
-            lines.extend(_bullet_list(issue_strategic_assessment.strategic_watchlist, "No monitoring recommendations generated."))
-            lines.extend(["", "## Role-Based Monitoring", "", "### Investor View", ""])
-            lines.extend(_bullet_list(issue_strategic_assessment.role_based_monitoring.investor_view, "No investor monitoring priorities generated."))
-            lines.extend(["", "### Corporate Strategy View", ""])
+                lines.append("- Local dataset does not contain enough market-outcome evidence for this claim.")
+
+            lines.extend(["## What This Means Now", ""])
             lines.extend(
-                _bullet_list(
-                    issue_strategic_assessment.role_based_monitoring.corporate_strategy_view,
-                    "No corporate strategy monitoring priorities generated.",
-                )
+                [
+                    "- The key pattern is that the headline event usually becomes an operating question: who is exposed, which workflows change, and what management says next.",
+                    "- The main risk is mistaking early disruption language for the final outcome. Similar cases often involved adaptation, compliance work, and revised planning rather than one simple result.",
+                    "- The most important uncertainty is whether the event remains a manageable adjustment or signals deeper demand, margin, customer, or supply-chain weakness.",
+                    "",
+                    "## What To Watch Next",
+                    "",
+                ]
             )
-            lines.extend(["", "### Supply Chain View", ""])
-            lines.extend(_bullet_list(issue_strategic_assessment.role_based_monitoring.supply_chain_view, "No supply-chain monitoring priorities generated."))
+            lines.extend(_bullet_list(issue_strategic_assessment.strategic_watchlist, "No monitoring recommendations generated."))
+            lines.extend(["", "## Evidence Used", ""])
+            lines.append("- Input document or question text.")
+            lines.append("- Local historical analogue records.")
+            lines.append("- Local historical outcome records.")
+            if source_url:
+                lines.append(f"- Source URL: {source_url}")
             lines.append("")
+            lines.extend(["## Limitations", ""])
+            lines.extend(_bullet_list(issue_strategic_assessment.important_limitations, "No limitations generated."))
+            lines.append("")
+            continue
 
         lines.extend(
             [
@@ -235,7 +240,7 @@ def generate_brief(
         )
         lines.extend(_format_event_context(event_context))
         if source_url:
-            lines.extend(["", f"- **Source Link:** {source_url}", "- **Source Link note:** Captured as source metadata. Live web retrieval is not enabled."])
+            lines.extend(["", f"- **Source Link:** {source_url}", "- **Source Link note:** Webpage text was fetched when readable content was available."])
         lines.extend(
             [
                 "",

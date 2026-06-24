@@ -59,29 +59,29 @@ def validate_direct_answer_and_market_section() -> None:
     brief = payload["brief_markdown"]
     first_section = brief.find("## Direct Answer")
     require(first_section != -1, "Direct Answer section missing.")
-    require(first_section < brief.find("## Historical Patterns"), "Direct Answer is not the first substantive section.")
+    require(first_section < brief.find("## Similar Cases"), "Direct Answer is not the first substantive section.")
     for phrase in [
         "Similar cases",
-        "What happened then",
-        "How organizations responded",
-        "What happened after",
-        "What to watch now",
+        "What Happened Then",
+        "How Organizations Responded",
+        "What Happened After",
+        "What To Watch Next",
         "The key pattern is",
         "The main risk is",
         "The next signal to watch is",
     ]:
         require(phrase in brief, f"Direct answer missing practical phrase: {phrase}.")
     for phrase in [
-        "## Market Expectations vs Outcomes",
-        "Mainstream expectation",
-        "Market / user behavior",
-        "Actual outcome",
+        "## Market Expectations vs Actual Outcomes",
+        "Initial / mainstream expectation",
+        "Market or user behavior",
+        "Actual observed outcome",
         "Expectation gap",
         "Local dataset does not contain enough market-outcome evidence for this claim.",
     ]:
         require(phrase in brief, f"Market expectation section missing phrase: {phrase}.")
-    require(brief.count("## Important Limitations") == 1, "Important Limitations should appear exactly once.")
-    require(brief.rfind("## Important Limitations") > brief.find("## Market Expectations vs Outcomes"), "Limitations should appear after analysis sections.")
+    require(brief.count("## Limitations") == 1, "Limitations should appear exactly once.")
+    require(brief.rfind("## Limitations") > brief.find("## Market Expectations vs Actual Outcomes"), "Limitations should appear after analysis sections.")
     require(brief.count("investment advice") == 1, "Investment-advice disclaimer should appear only in final limitations.")
 
 
@@ -92,7 +92,7 @@ def validate_beginner_plain_language() -> None:
         "## What This Means",
         "## Why this matters",
         "## Similar Historical Cases",
-        "## Common responses",
+        "## Common Responses",
         "## What Happened After",
         "## What to monitor next",
         "## Important Limitations",
@@ -112,7 +112,7 @@ def validate_beginner_plain_language() -> None:
 
 def validate_chinese_localization() -> None:
     simplified = analyze("zh-CN", "analyst", "哪些历史事件相似？组织如何应对？")["brief_markdown"]
-    for phrase in ["直接回答", "历史规律", "历史结果分布", "预期与现实差距", "战略观察清单", "按角色观察重点", "限制说明"]:
+    for phrase in ["直接回答", "相似案例", "当时发生什么", "组织如何应对", "后来发生什么", "市场预期与实际结果", "这对现在代表什么", "接下来 30–90 天该看什么", "使用的证据", "限制说明"]:
         require(phrase in simplified, f"zh-CN analyst output missing label: {phrase}.")
     for english in ["Economics", "Political Economy", "International Relations", "Business Strategy", "Direct Answer", "Historical Patterns"]:
         require(english not in simplified, f"zh-CN output leaked English framework label: {english}.")

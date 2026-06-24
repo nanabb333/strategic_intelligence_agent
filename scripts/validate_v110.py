@@ -47,16 +47,19 @@ def validate_analyst_assessment() -> None:
     analysis = payload["analysis"]
     required_sections = [
         "## Direct Answer",
-        "## Historical Patterns",
-        "## Historical Outcome Distribution",
-        "## Market Expectations vs Outcomes",
-        "## Strategic Watchlist",
-        "## Role-Based Monitoring",
-        "## Important Limitations",
+        "## Similar Cases",
+        "## What Happened Then",
+        "## How Organizations Responded",
+        "## What Happened After",
+        "## Market Expectations vs Actual Outcomes",
+        "## What This Means Now",
+        "## What To Watch Next",
+        "## Evidence Used",
+        "## Limitations",
     ]
     for section in required_sections:
         require(section in brief, f"Analyst brief missing V11 section: {section}.")
-    require(brief.find("## Direct Answer") < brief.find("## Historical Analogues"), "Direct Answer does not appear before case listings.")
+    require(brief.find("## Direct Answer") < brief.find("## Evidence Used"), "Direct Answer does not appear before evidence.")
     require("strategic_assessment" in analysis, "analysis.json missing strategic_assessment.")
     assessment = analysis["strategic_assessment"]
     for key in [
@@ -79,7 +82,7 @@ def validate_beginner_assessment() -> None:
     for section in [
         "## What This Means",
         "## Similar Historical Cases",
-        "## Common responses",
+        "## Common Responses",
         "## What Happened After",
         "## What to monitor next",
         "## Important Limitations",

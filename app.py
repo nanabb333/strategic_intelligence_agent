@@ -7,8 +7,11 @@ import base64
 import sys
 from dataclasses import asdict, is_dataclass
 from datetime import datetime
+from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any
+from urllib.error import URLError
+from urllib.request import Request, urlopen
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
@@ -34,7 +37,7 @@ from issue_extractor import extract_issues  # noqa: E402
 from knowledge_localization import localize_analysis_payload  # noqa: E402
 from mechanism_detector import detect_mechanisms  # noqa: E402
 from multi_lens_analyzer import analyze_lenses  # noqa: E402
-from localization import localized_question_intent, localized_question_route, translate_text  # noqa: E402
+from localization import localized_question_intent, localized_question_route  # noqa: E402
 from output_adapter import adapt_output  # noqa: E402
 from outcome_retriever import retrieve_historical_outcomes  # noqa: E402
 from question_router import route_question  # noqa: E402
@@ -139,7 +142,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     source_url = request.source_url.strip()
     if not text:
         if source_url:
-            return _create_link_only_run(request, source_url)
+            text = _fetch_url_text(source_url)
         raise HTTPException(status_code=400, detail="Text is required.")
 
     run_id, run_dir = _create_run_dir()
@@ -333,72 +336,68 @@ def _create_run_dir() -> tuple[str, Path]:
     raise HTTPException(status_code=500, detail="Could not allocate a run folder.")
 
 
-def _create_link_only_run(request: AnalyzeRequest, source_url: str) -> AnalyzeResponse:
-    run_id, run_dir = _create_run_dir()
-    message = (
-        "Link captured as source metadata. Please paste the document text or upload a file for analysis. "
-        "Live web retrieval is not enabled in this local version."
-    )
-    metadata = {
-        "run_id": run_id,
-        "created_at": datetime.now().isoformat(timespec="seconds"),
-        "language": request.language,
-        "output_mode": request.output_mode,
-        "question_id": request.question_id,
-        "question_text": request.question_text,
-        "question_intent": "Source Link Only",
-        "question_intent_label": localized_question_intent("Source Link Only", request.language),
-        "source_url": source_url,
-        "input_mode": request.input_mode or "paste_link",
-        "uploaded_filename": request.uploaded_filename,
-        "file_type": request.file_type or "url",
-        "status": "link_only",
-        "artifact_paths": {
-            "input": f"outputs/runs/{run_id}/input.txt",
-            "analysis": f"outputs/runs/{run_id}/analysis.json",
-            "brief_markdown": f"outputs/runs/{run_id}/brief.md",
-            "brief_text": f"outputs/runs/{run_id}/brief.txt",
-            "agent_trace": f"outputs/runs/{run_id}/agent_trace.json",
-            "metadata": f"outputs/runs/{run_id}/metadata.json",
-        },
-    }
-    analysis = {
-        "source_url": source_url,
-        "question_route": {
-            "question_text": request.question_text,
-            "intent": "Source Link Only",
-            "intent_label": localized_question_intent("Source Link Only", request.language),
-            "routing_note": "Live web retrieval is not enabled in this local version.",
-        },
-        "input_mode": metadata["input_mode"],
-        "uploaded_filename": metadata["uploaded_filename"],
-        "file_type": metadata["file_type"],
-        "message": message,
-        "metadata": metadata,
-    }
-    agent_trace = {
-        "selected_tools": [],
-        "skipped_tools": ["IssueExtractor", "ScenarioClassifier", "HistoricalRetriever", "BriefGenerator"],
-        "trace": [{"event": "Source link captured", "detail": "No live web retrieval is enabled."}],
-        "reasoning_record": [],
-        "reasoning_stages": ["Source metadata capture"],
-    }
-    brief_markdown = translate_text(f"# Source Link Captured\n\n- **Source Link:** {source_url}\n- {message}\n", request.language)
-    brief_text = _markdown_to_text(brief_markdown)
-    (run_dir / "input.txt").write_text("", encoding="utf-8")
-    _write_json(run_dir / "analysis.json", analysis)
-    (run_dir / "brief.md").write_text(brief_markdown, encoding="utf-8")
-    (run_dir / "brief.txt").write_text(brief_text, encoding="utf-8")
-    _write_json(run_dir / "agent_trace.json", agent_trace)
-    _write_json(run_dir / "metadata.json", metadata)
-    return AnalyzeResponse(
-        run_id=run_id,
-        metadata=metadata,
-        analysis=analysis,
-        brief_markdown=brief_markdown,
-        brief_text=brief_text,
-        downloads=_download_links(run_id),
-    )
+class _ReadableHTMLParser(HTMLParser):
+    """Extract readable text from simple article pages."""
+
+    def __init__(self) -> None:
+        super().__init__()
+        self._skip_depth = 0
+        self._parts: list[str] = []
+
+    def handle_starttag(self, tag: str, attrs) -> None:
+        if tag in {"script", "style", "noscript", "svg"}:
+            self._skip_depth += 1
+
+    def handle_endtag(self, tag: str) -> None:
+        if tag in {"script", "style", "noscript", "svg"} and self._skip_depth:
+            self._skip_depth -= 1
+
+    def handle_data(self, data: str) -> None:
+        if self._skip_depth:
+            return
+        cleaned = " ".join(data.split())
+        if len(cleaned) >= 40:
+            self._parts.append(cleaned)
+
+    def text(self) -> str:
+        return "\n\n".join(self._parts)
+
+
+def _fetch_url_text(source_url: str) -> str:
+    """Fetch readable webpage text for Paste Link mode."""
+    if not source_url.startswith(("http://", "https://")):
+        raise HTTPException(
+            status_code=400,
+            detail="Please paste a full http:// or https:// URL, or paste the article text directly.",
+        )
+    request = Request(source_url, headers={"User-Agent": "StrategicIntelligenceAgent/LocalDemo"})
+    try:
+        with urlopen(request, timeout=12) as response:
+            content_type = response.headers.get("content-type", "")
+            raw = response.read(1_000_000)
+    except (URLError, TimeoutError, OSError) as exc:
+        raise HTTPException(
+            status_code=400,
+            detail=(
+                "Could not read webpage content from this link. Please paste the article text or upload a file. "
+                "This local app only analyzes a link when readable page text can be fetched."
+            ),
+        ) from exc
+    if "html" not in content_type and "text" not in content_type:
+        raise HTTPException(
+            status_code=400,
+            detail="This link does not look like a readable text page. Please paste article text or upload a file.",
+        )
+    html = raw.decode("utf-8", errors="replace")
+    parser = _ReadableHTMLParser()
+    parser.feed(html)
+    text = parser.text().strip()
+    if len(text) < 300:
+        raise HTTPException(
+            status_code=400,
+            detail="No readable article content was detected. Please paste article text or upload a file.",
+        )
+    return text
 
 
 def _run_dir_or_404(run_id: str) -> Path:

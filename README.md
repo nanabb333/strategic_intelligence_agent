@@ -21,7 +21,7 @@ The current product direction is shaped by real usability feedback:
 - **Larger knowledge base:** more historical outcome cases make analogue and outcome retrieval feel less thin during portfolio demos.
 - **Fuller localization:** major knowledge-base labels such as Strategic Dependency, Supply Chain Reconfiguration, Industrial Subsidy, and Alliance Coordination are localized for Chinese modes.
 - **Simplified workflow:** the dashboard now follows a clear Step 1 / Step 2 / Step 3 flow: paste document, ask a question, analyze.
-- **Value-first output design:** results prioritize Executive Brief, Strategic Lessons, Historical Outcomes, Historical Analogues, Current Event Context, Mechanisms, Evidence Review, and Execution Trace.
+- **Value-first output design:** results prioritize a direct answer, similar cases, what happened then, how organizations responded, what happened after, market expectations vs actual outcomes, what to watch next, evidence used, and limitations.
 
 The product remains local and deterministic. These changes improve usability and credibility without adding live web search, RAG, autonomous agents, forecasting, legal advice, or investment advice.
 
@@ -31,11 +31,11 @@ The local app supports three clear input modes:
 
 - **Paste Text:** paste a document, article, policy excerpt, earnings note, or memo.
 - **Upload File:** upload `.txt`, `.md`, `.markdown`, or text-based `.pdf` files.
-- **Paste Link:** paste a source URL, article link, policy link, or filing link as source metadata.
+- **Analyze Link:** paste a webpage URL and the local app will try to fetch readable article text for analysis.
 
 PDF support uses local text extraction and does not perform OCR. Scanned image PDFs are not supported.
 
-Live web retrieval is not enabled. If a user pastes only a link, the app stores the link as metadata and asks the user to paste document text or upload a file for analysis.
+Link analysis is intentionally plain: if the local app can read webpage text, it analyzes that text and preserves the source URL. If the page blocks access, returns too little readable text, or is not a text page, the app asks the user to paste article text or upload a file instead.
 
 ## Demo Case Library
 
@@ -163,16 +163,12 @@ A generic summarizer tells the user what the document says. Strategic Intelligen
 The workflow moves from unstructured input to a reviewable intelligence artifact:
 
 ```text
-Document
--> Current Event Context
--> Issue Extraction
--> Scenario Classification
--> Mechanism Detection
--> Historical Analogues
--> Historical Outcomes
--> Strategic Lessons
--> Evidence Credibility
--> Executive Brief
+Document or readable webpage
+-> Similar Case Retrieval
+-> Historical Outcome Review
+-> Market Expectations vs Actual Outcomes
+-> Direct Answer
+-> What To Watch Next
 -> Downloadable Artifacts
 ```
 
@@ -263,6 +259,15 @@ That desktop wrapper is not built yet. The current repository is a working local
 - Planned experience: no Python, Git, VS Code, terminal commands, or local server setup.
 - Current limitation: the no-code desktop app packaging is not implemented yet.
 - Product goal: paste or upload a document, ask a question, click Analyze, and download results.
+
+**V12 Desktop App Roadmap**
+
+- Mac `.app`
+- Windows `.exe`
+- Download -> double click -> use
+- No Python required
+- No Git required
+- No VS Code required
 
 **For Developers**
 

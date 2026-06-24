@@ -29,8 +29,8 @@
 
           <label for="mode-select" data-i18n="outputModeLabel">Output mode</label>
           <select id="mode-select">
-            <option value="beginner" data-i18n="beginnerMode">Beginner</option>
-            <option value="analyst" selected data-i18n="analystMode">Analyst</option>
+            <option value="beginner" selected data-i18n="beginnerMode">Beginner</option>
+            <option value="analyst" data-i18n="analystMode">Analyst</option>
             <option value="executive" data-i18n="executiveMode">Executive</option>
           </select>
         </div>
@@ -42,13 +42,13 @@
         </section>
 
         <section class="workflow-step">
-          <h2><span data-i18n="stepTwo">STEP 2</span> <span data-i18n="chooseInputStep">Upload File / Paste Article / Paste Link</span></h2>
+          <h2><span data-i18n="stepTwo">STEP 2</span> <span data-i18n="chooseInputStep">Upload File / Paste Article / Analyze Link</span></h2>
           <div class="input-mode-block">
             <p class="input-mode-title" data-i18n="inputModeLabel">Input Mode</p>
             <div class="input-mode-tabs" role="tablist" aria-label="Input modes">
               <button class="input-mode active" type="button" data-mode="paste" data-i18n="pasteTextMode">Paste Text</button>
               <button class="input-mode" type="button" data-mode="upload" data-i18n="uploadFileMode">Upload File</button>
-              <button class="input-mode" type="button" data-mode="link" data-i18n="pasteLinkMode">Paste Link</button>
+              <button class="input-mode" type="button" data-mode="link" data-i18n="pasteLinkMode">Analyze Link</button>
             </div>
           </div>
 
@@ -69,7 +69,7 @@
           <section id="link-panel" class="input-mode-panel">
             <label for="source-url-input" class="input-label" data-i18n="sourceUrlLabel">Paste source link</label>
             <input id="source-url-input" class="link-input" type="url" data-i18n-placeholder="sourceUrlPlaceholder" placeholder="https://example.com/source-document">
-            <p class="note" data-i18n="linkModeNote">Live web retrieval is not enabled. Links are stored as source metadata.</p>
+            <p class="note" data-i18n="linkModeNote">The app will try to fetch readable webpage text. If it cannot, paste the article text or upload a file.</p>
           </section>
         </section>
 
@@ -105,34 +105,34 @@
           <pre id="brief-section" class="brief-output"></pre>
         </details>
 
-        <details open>
+        <details open class="internal-detail">
           <summary><span data-i18n="strategicLessons">Strategic Lessons</span> <span data-source="Strategic Lessons Engine">Strategic Lessons Engine</span></summary>
           <div id="lessons-section" class="section-body"></div>
         </details>
 
-        <details>
+        <details class="internal-detail">
           <summary><span data-i18n="historicalOutcomes">Historical Outcomes</span> <span data-source="Historical Outcomes Database">Historical Outcomes Database</span></summary>
           <div id="outcomes-section" class="section-body"></div>
         </details>
 
-        <details>
+        <details class="internal-detail">
           <summary><span data-i18n="historicalAnalogues">Historical Analogues</span> <span data-source="Historical Database">Historical Database</span></summary>
           <div id="analogues-section" class="section-body"></div>
         </details>
 
-        <div class="section-divider" data-i18n="detailedAnalysis">Detailed Analysis</div>
+        <div class="section-divider internal-detail" data-i18n="detailedAnalysis">Detailed Analysis</div>
 
-        <details open>
+        <details open class="internal-detail">
           <summary><span data-i18n="currentEventContext">Current Event Context</span> <span data-source="Input Document">Input Document</span></summary>
           <div id="event-context-section" class="section-body"></div>
         </details>
 
-        <details>
+        <details class="internal-detail">
           <summary><span data-i18n="mechanisms">Mechanisms</span> <span data-source="Mechanism Framework">Mechanism Framework</span></summary>
           <div id="mechanisms-section" class="section-body"></div>
         </details>
 
-        <details>
+        <details class="internal-detail">
           <summary><span data-i18n="evidenceReview">Evidence Review</span> <span data-source="Evidence Review">Evidence Review</span></summary>
           <div id="evidence-credibility-section" class="section-body"></div>
           <div id="evidence-assessment-section" class="section-body"></div>

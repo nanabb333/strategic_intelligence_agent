@@ -4,6 +4,16 @@ A local strategic intelligence decision-support application that turns documents
 
 ![Strategic Intelligence Agent workbench](docs/screenshots/dashboard_workbench.svg)
 
+## Product Improvements From Real User Testing
+
+Recent user testing showed that the project needed more practical depth and a simpler user experience. The current product upgrade responds to that feedback directly:
+
+- **Knowledge depth:** the historical outcome dataset expanded from 20 to 55 educational cases across export controls, sanctions, industrial policy, supply chain disruption, technology competition, regulatory action, geopolitical escalation, corporate response, and financial exposure.
+- **Localization:** output localization is centralized in `src/localization.py` so section headings, evidence labels, confidence labels, and recurring dashboard/result labels are more consistently rendered in English, Simplified Chinese, and Traditional Chinese.
+- **Free-form questions:** the old artificial question-type dropdown is replaced with an “Ask a Question” box, routed deterministically by `src/question_router.py`.
+- **UX simplification:** the dashboard now shows the executive brief and strategic lessons before methodology-heavy sections.
+- **Input clarity:** the paste area is larger, visually emphasized, labeled clearly, and supports simple drag-and-drop for `.txt` and `.md` files.
+
 ## Demo Case Library
 
 Reviewers can inspect five fictional educational cases that show the product working across realistic strategic intelligence scenarios:
@@ -131,6 +141,7 @@ The workflow moves from unstructured input to a reviewable intelligence artifact
 
 ```text
 Document
+-> Current Event Context
 -> Issue Extraction
 -> Scenario Classification
 -> Mechanism Detection
@@ -158,9 +169,9 @@ Core analytical components:
 - Local FastAPI backend.
 - Browser dashboard for non-technical users.
 - Paste-input and file-upload workflows.
-- Guided questions for common analyst tasks.
+- Free-form analyst questions with deterministic intent routing.
 - Beginner, analyst, and executive output modes.
-- Bilingual UX support.
+- English, Simplified Chinese, and Traditional Chinese localization for key output structure and labels.
 - Run history saved under `outputs/runs/`.
 - Markdown, TXT, and JSON downloads.
 - Deterministic local knowledge bases for context, mechanisms, analogues, outcomes, and playbooks.

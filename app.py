@@ -34,6 +34,7 @@ from mechanism_detector import detect_mechanisms  # noqa: E402
 from multi_lens_analyzer import analyze_lenses  # noqa: E402
 from output_adapter import adapt_output  # noqa: E402
 from outcome_retriever import retrieve_historical_outcomes  # noqa: E402
+from question_router import route_question  # noqa: E402
 from response_playbook_retriever import retrieve_response_patterns  # noqa: E402
 from scenario_classifier import classify_scenarios  # noqa: E402
 from strategic_lessons import generate_strategic_lessons  # noqa: E402
@@ -67,7 +68,7 @@ class AnalyzeResponse(BaseModel):
 
 app = FastAPI(
     title="Strategic Intelligence Agent Local App",
-    version="8.0",
+    version="9.0",
     description="Local-only API for running the Strategic Intelligence Agent pipeline.",
 )
 
@@ -86,7 +87,7 @@ app.mount("/runs", StaticFiles(directory=RUNS_DIR, html=False), name="runs")
 @app.get("/health")
 def health() -> dict[str, str]:
     """Return local app health."""
-    return {"status": "ok", "app": "Strategic Intelligence Agent", "version": "8.0"}
+    return {"status": "ok", "app": "Strategic Intelligence Agent", "version": "9.0"}
 
 
 @app.post("/analyze", response_model=AnalyzeResponse)
@@ -100,6 +101,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
 
     registry = build_default_registry()
     route = route_document(text, registry)
+    question_route = route_question(request.question_text)
     event_context = extract_event_context(text)
     issues = extract_issues(text)
     classifications = classify_scenarios(issues)
@@ -142,7 +144,8 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         "language": request.language,
         "output_mode": request.output_mode,
         "question_id": request.question_id,
-        "question_text": request.question_text,
+        "question_text": question_route.question_text,
+        "question_intent": question_route.intent,
         "status": "complete",
         "artifact_paths": {
             "input": f"outputs/runs/{run_id}/input.txt",
@@ -167,6 +170,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
         event_context=event_context,
+        question_route=question_route,
         route=route,
         metadata=metadata,
     )
@@ -283,6 +287,7 @@ def _build_analysis_artifact(**items: Any) -> dict[str, Any]:
     return {
         "issue": _serializable(issues[0]) if issues else {},
         "event_context": _serializable(items["event_context"]),
+        "question_route": _serializable(items["question_route"]),
         "scenario": _serializable(classifications[0]) if classifications else {},
         "mechanisms": _serializable(items["mechanisms"].get(issue_title, [])),
         "analogues": _serializable(items["analogues"].get(issue_title, [])),

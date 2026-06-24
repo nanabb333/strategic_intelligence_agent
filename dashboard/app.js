@@ -5,9 +5,11 @@ const localeText = {
   en: {
     appTitle: "Strategic Intelligence Agent",
     workbenchLabel: "Local Intelligence App",
-    helperText: "No prompt writing needed. Step 1 choose a language. Step 2 paste text or upload a file. Step 3 choose a question. Step 4 choose an output mode. Step 5 click Analyze. Step 6 download results.",
-    documentTextLabel: "Document text",
-    questionTypeLabel: "Question type",
+    helperText: "Paste a document, ask a plain-language question, and click Analyze. The app shows the executive brief first, with methods and trace details below.",
+    documentTextLabel: "Paste document or article here",
+    questionInputLabel: "Ask a Question",
+    questionPlaceholder: "What does this issue mean? What historical events resemble this? How have organizations responded in similar situations? What should I monitor next?",
+    documentPlaceholder: "Paste an article, policy excerpt, earnings note, regulatory update, or supply chain memo here. You can also drag and drop a .txt or .md file into this box.",
     outputModeLabel: "Output mode",
     languageLabel: "Language",
     beginnerMode: "Beginner",
@@ -35,13 +37,35 @@ const localeText = {
     evidenceCredibility: "Evidence Credibility",
     evaluation: "Evaluation",
     executiveBrief: "Executive Brief",
+    detailedAnalysis: "Detailed Analysis",
+    primaryScenario: "Primary scenario",
+    matchedKeywords: "Matched keywords",
+    confidenceLabel: "Confidence label",
+    source: "Source",
+    eventType: "Event type",
+    primaryActor: "Primary actor",
+    secondaryActor: "Secondary actor",
+    affectedSectors: "Affected sectors",
+    affectedRegions: "Affected regions",
+    policyDomain: "Policy domain",
+    confidence: "Confidence",
+    eventSummary: "Event summary",
+    limitations: "Limitations",
+    strategicResponse: "Strategic response",
+    supportingCases: "Supporting cases",
+    confidenceDistribution: "Confidence distribution",
+    sourceStatusDistribution: "Source status distribution",
+    keyLimitations: "Key limitations",
+    reviewerNote: "Reviewer note",
   },
   "zh-CN": {
     appTitle: "战略情报助手",
     workbenchLabel: "本地情报应用",
-    helperText: "不用会写提示词。第一步选择语言。第二步粘贴文字或上传文件。第三步选择问题。第四步选择输出模式。第五步点击分析。第六步下载结果。",
-    documentTextLabel: "文档文本",
-    questionTypeLabel: "问题类型",
+    helperText: "粘贴文档，输入一个自然语言问题，然后点击分析。应用会先显示高管简报，方法和执行轨迹放在后面。",
+    documentTextLabel: "在这里粘贴文档或文章",
+    questionInputLabel: "提问",
+    questionPlaceholder: "这件事是什么意思？这和哪些历史事件相似？类似情况下组织如何应对？接下来应关注什么？",
+    documentPlaceholder: "在这里粘贴文章、政策摘录、财报说明、监管更新或供应链备忘录。也可以把 .txt 或 .md 文件拖放到此框。",
     outputModeLabel: "输出模式",
     languageLabel: "语言",
     beginnerMode: "入门",
@@ -69,13 +93,35 @@ const localeText = {
     evidenceCredibility: "证据可信度",
     evaluation: "评估",
     executiveBrief: "高管简报",
+    detailedAnalysis: "详细分析",
+    primaryScenario: "主要情境",
+    matchedKeywords: "匹配关键词",
+    confidenceLabel: "置信标签",
+    source: "来源",
+    eventType: "事件类型",
+    primaryActor: "主要参与者",
+    secondaryActor: "次要参与者",
+    affectedSectors: "受影响行业",
+    affectedRegions: "受影响地区",
+    policyDomain: "政策领域",
+    confidence: "置信标签",
+    eventSummary: "事件摘要",
+    limitations: "局限性",
+    strategicResponse: "战略应对",
+    supportingCases: "支持案例",
+    confidenceDistribution: "置信分布",
+    sourceStatusDistribution: "来源状态分布",
+    keyLimitations: "主要局限性",
+    reviewerNote: "审阅说明",
   },
   "zh-TW": {
     appTitle: "戰略情報助手",
     workbenchLabel: "本地情報應用",
-    helperText: "不用會寫提示詞。第一步選擇語言。第二步貼上文字或上傳檔案。第三步選擇問題。第四步選擇輸出模式。第五步點擊分析。第六步下載結果。",
-    documentTextLabel: "文件文字",
-    questionTypeLabel: "問題類型",
+    helperText: "貼上文件，輸入自然語言問題，然後點擊分析。應用會先顯示高階主管簡報，方法與執行軌跡放在後面。",
+    documentTextLabel: "在這裡貼上文件或文章",
+    questionInputLabel: "提問",
+    questionPlaceholder: "這件事是什麼意思？這和哪些歷史事件相似？類似情況下組織如何應對？接下來應關注什麼？",
+    documentPlaceholder: "在這裡貼上文章、政策摘錄、財報說明、監管更新或供應鏈備忘錄。也可以把 .txt 或 .md 檔案拖放到此框。",
     outputModeLabel: "輸出模式",
     languageLabel: "語言",
     beginnerMode: "入門",
@@ -103,22 +149,30 @@ const localeText = {
     evidenceCredibility: "證據可信度",
     evaluation: "評估",
     executiveBrief: "高階主管簡報",
+    detailedAnalysis: "詳細分析",
+    primaryScenario: "主要情境",
+    matchedKeywords: "匹配關鍵字",
+    confidenceLabel: "信心標籤",
+    source: "來源",
+    eventType: "事件類型",
+    primaryActor: "主要參與者",
+    secondaryActor: "次要參與者",
+    affectedSectors: "受影響產業",
+    affectedRegions: "受影響地區",
+    policyDomain: "政策領域",
+    confidence: "信心標籤",
+    eventSummary: "事件摘要",
+    limitations: "限制",
+    strategicResponse: "策略應對",
+    supportingCases: "支持案例",
+    confidenceDistribution: "信心分布",
+    sourceStatusDistribution: "來源狀態分布",
+    keyLimitations: "主要限制",
+    reviewerNote: "審閱說明",
   },
 };
 
-const guidedQuestions = [
-  { id: "meaning", en: "What does this issue mean?", "zh-CN": "这件事是什么意思？", "zh-TW": "這件事是什麼意思？" },
-  { id: "analogues", en: "What past events does this resemble?", "zh-CN": "这和过去哪些事件相似？", "zh-TW": "這和過去哪些事件相似？" },
-  { id: "mechanisms", en: "What mechanisms may be operating?", "zh-CN": "可能有哪些机制在发挥作用？", "zh-TW": "可能有哪些機制在發揮作用？" },
-  { id: "responses", en: "What have actors done in similar situations?", "zh-CN": "历史上相关参与者采取过哪些做法？", "zh-TW": "歷史上相關參與者採取過哪些做法？" },
-  { id: "affected", en: "Who may be affected?", "zh-CN": "哪些主体可能受到影响？", "zh-TW": "哪些主體可能受到影響？" },
-  { id: "monitor", en: "What should I monitor next?", "zh-CN": "我应该关注哪些后续变化？", "zh-TW": "我應該關注哪些後續變化？" },
-  { id: "interpretations", en: "What are competing interpretations?", "zh-CN": "有哪些不同解释？", "zh-TW": "有哪些不同解釋？" },
-  { id: "limitations", en: "What is missing from the evidence?", "zh-CN": "证据中还缺少什么？", "zh-TW": "證據中還缺少什麼？" },
-];
-
 let currentLanguage = "en";
-let currentQuestion = guidedQuestions[0];
 let currentRun = null;
 
 function t(key) {
@@ -130,33 +184,10 @@ function applyLocale() {
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     node.textContent = t(node.dataset.i18n);
   });
-  document.getElementById("helper-text").textContent = t("helperText");
-  populateQuestions();
-}
-
-function populateQuestions() {
-  const select = document.getElementById("question-select");
-  const buttons = document.getElementById("guided-question-buttons");
-  select.innerHTML = "";
-  buttons.innerHTML = "";
-  guidedQuestions.forEach((question) => {
-    const option = document.createElement("option");
-    option.value = question.id;
-    option.textContent = question[currentLanguage];
-    select.appendChild(option);
-
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = question.id === currentQuestion.id ? "guided-button active" : "guided-button";
-    button.textContent = question[currentLanguage];
-    button.addEventListener("click", () => {
-      currentQuestion = question;
-      select.value = question.id;
-      populateQuestions();
-    });
-    buttons.appendChild(button);
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
+    node.placeholder = t(node.dataset.i18nPlaceholder);
   });
-  select.value = currentQuestion.id;
+  document.getElementById("helper-text").textContent = t("helperText");
 }
 
 async function checkHealth() {
@@ -178,6 +209,7 @@ async function analyzeDocument() {
     setEmpty("summary-section", "Paste text or upload a file first.");
     return;
   }
+  const questionText = document.getElementById("question-input").value.trim() || t("questionPlaceholder");
   const button = document.getElementById("analyze-button");
   button.disabled = true;
   button.textContent = "Analyzing...";
@@ -189,8 +221,8 @@ async function analyzeDocument() {
         text,
         language: currentLanguage,
         output_mode: document.getElementById("mode-select").value,
-        question_id: currentQuestion.id,
-        question_text: currentQuestion[currentLanguage],
+        question_id: "freeform",
+        question_text: questionText,
       }),
     });
     if (!response.ok) {
@@ -249,11 +281,11 @@ function renderRun(run) {
   const scenario = analysis.scenario || {};
   renderEventContext(analysis.event_context || {});
   document.getElementById("run-note").textContent = `Saved run: ${metadata.run_id}. Artifacts are stored under outputs/runs/${metadata.run_id}/.`;
-  document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(issue.summary || issue.core_issue || "No summary returned.")}</p><p><span class="evidence">Source: Input Document</span></p>`;
-  document.getElementById("classification-section").innerHTML = `<ul><li>Primary scenario: ${escapeHtml(scenario.primary_scenario || "Other")}</li><li>Matched keywords: ${escapeHtml((scenario.matched_keywords || []).join(", ") || "None")}</li><li>Confidence label: ${escapeHtml(scenario.confidence_label || "Not available")}</li></ul><p><span class="evidence">Source: ScenarioClassifier</span></p>`;
+  document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(issue.summary || issue.core_issue || "No summary returned.")}</p><p><span class="evidence">${t("source")}: Input Document</span></p>`;
+  document.getElementById("classification-section").innerHTML = `<ul><li>${t("primaryScenario")}: ${escapeHtml(scenario.primary_scenario || "Other")}</li><li>${t("matchedKeywords")}: ${escapeHtml((scenario.matched_keywords || []).join(", ") || "None")}</li><li>${t("confidenceLabel")}: ${escapeHtml(scenario.confidence_label || "Not available")}</li></ul><p><span class="evidence">${t("source")}: ScenarioClassifier</span></p>`;
   renderCards("analogues-section", analysis.analogues || [], (item) => `<h3>${escapeHtml(item.case_title)}</h3><p>${escapeHtml(item.similarity_reason || "")}</p><p>${sourceMeta(item)}</p>`);
-  renderCards("outcomes-section", analysis.historical_outcomes || [], (item) => `<h3>${escapeHtml(item.case_name)} (${escapeHtml(item.year)})</h3><p>${escapeHtml(item.observed_outcome || "")}</p><p><strong>Strategic response:</strong> ${escapeHtml(item.strategic_response || "")}</p><p><span class="evidence">Confidence: ${escapeHtml(item.confidence || "Not stated")}</span> <span class="evidence">Source: ${escapeHtml(item.source_status || "source pending")}</span></p>`);
-  renderCards("lessons-section", analysis.strategic_lessons || [], (item) => `<h3>${escapeHtml(item.lesson)}</h3><p><strong>Supporting cases:</strong> ${escapeHtml((item.supporting_cases || []).join(", "))}</p><p>${escapeHtml(item.rationale || "")}</p><p><span class="evidence">Confidence: ${escapeHtml(item.confidence || "Low")}</span></p>`);
+  renderCards("outcomes-section", analysis.historical_outcomes || [], (item) => `<h3>${escapeHtml(item.case_name)} (${escapeHtml(item.year)})</h3><p>${escapeHtml(item.observed_outcome || "")}</p><p><strong>${t("strategicResponse")}:</strong> ${escapeHtml(item.strategic_response || "")}</p><p><span class="evidence">${t("confidence")}: ${escapeHtml(item.confidence || "Not stated")}</span> <span class="evidence">${t("source")}: ${escapeHtml(item.source_status || "source pending")}</span></p>`);
+  renderCards("lessons-section", analysis.strategic_lessons || [], (item) => `<h3>${escapeHtml(item.lesson)}</h3><p><strong>${t("supportingCases")}:</strong> ${escapeHtml((item.supporting_cases || []).join(", "))}</p><p>${escapeHtml(item.rationale || "")}</p><p><span class="evidence">${t("confidence")}: ${escapeHtml(item.confidence || "Low")}</span></p>`);
   renderCards("context-section", analysis.current_context || [], (item) => `<h3>${escapeHtml(item.industry)} - ${escapeHtml(item.scenario_type)}</h3><p>${escapeHtml(item.context_summary || "")}</p><p><span class="evidence">Source: ${escapeHtml(item.evidence_trace || "Context Knowledge Base")}</span></p>`);
   renderCards("mechanisms-section", analysis.mechanisms || [], (item) => `<h3>${escapeHtml(item.mechanism_name)}</h3><p>${escapeHtml(item.description || "")}</p><p>${sourceMeta(item)}</p>`);
   renderCards("interpretations-section", analysis.lenses || [], (item) => `<h3>${escapeHtml(item.lens)}</h3><p>${escapeHtml(item.hypothesis || "")}</p><p><span class="evidence">Source: Multi-Lens Analysis</span></p>`);
@@ -274,17 +306,17 @@ function renderEventContext(item) {
   }
   section.innerHTML = `
     <div class="context-grid">
-      <div><strong>Event type</strong><span>${escapeHtml(item.event_type)}</span></div>
-      <div><strong>Primary actor</strong><span>${escapeHtml(item.primary_actor)}</span></div>
-      <div><strong>Secondary actor</strong><span>${escapeHtml(item.secondary_actor)}</span></div>
-      <div><strong>Affected sectors</strong><span>${escapeHtml((item.affected_sectors || []).join(", ") || "Not specified")}</span></div>
-      <div><strong>Affected regions</strong><span>${escapeHtml((item.affected_regions || []).join(", ") || "Not specified")}</span></div>
-      <div><strong>Policy domain</strong><span>${escapeHtml(item.policy_domain)}</span></div>
-      <div><strong>Confidence</strong><span>${escapeHtml(item.confidence)}</span></div>
+      <div><strong>${t("eventType")}</strong><span>${escapeHtml(item.event_type)}</span></div>
+      <div><strong>${t("primaryActor")}</strong><span>${escapeHtml(item.primary_actor)}</span></div>
+      <div><strong>${t("secondaryActor")}</strong><span>${escapeHtml(item.secondary_actor)}</span></div>
+      <div><strong>${t("affectedSectors")}</strong><span>${escapeHtml((item.affected_sectors || []).join(", ") || "Not specified")}</span></div>
+      <div><strong>${t("affectedRegions")}</strong><span>${escapeHtml((item.affected_regions || []).join(", ") || "Not specified")}</span></div>
+      <div><strong>${t("policyDomain")}</strong><span>${escapeHtml(item.policy_domain)}</span></div>
+      <div><strong>${t("confidence")}</strong><span>${escapeHtml(item.confidence)}</span></div>
     </div>
     <p>${escapeHtml(item.strategic_significance || "")}</p>
-    <p><strong>Event summary:</strong> ${escapeHtml(item.event_summary || "")}</p>
-    <h3>Limitations</h3>
+    <p><strong>${t("eventSummary")}:</strong> ${escapeHtml(item.event_summary || "")}</p>
+    <h3>${t("limitations")}</h3>
     <ul>${(item.context_limitations || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
     <p><span class="evidence">Source: Input Document + deterministic event-context rules</span></p>
   `;
@@ -298,13 +330,13 @@ function renderEvidenceCredibility(item) {
   }
   section.innerHTML = `
     <p>${escapeHtml(item.evidence_summary)}</p>
-    <h3>Confidence distribution</h3>
+    <h3>${t("confidenceDistribution")}</h3>
     ${renderDistribution(item.confidence_distribution || {})}
-    <h3>Source status distribution</h3>
+    <h3>${t("sourceStatusDistribution")}</h3>
     ${renderDistribution(item.source_status_distribution || {})}
-    <h3>Key limitations</h3>
+    <h3>${t("keyLimitations")}</h3>
     <ul>${(item.key_limitations || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
-    <p><span class="evidence">Reviewer note</span></p>
+    <p><span class="evidence">${t("reviewerNote")}</span></p>
     <p>${escapeHtml(item.reviewer_note || "")}</p>
   `;
 }
@@ -393,14 +425,26 @@ document.getElementById("language-select").addEventListener("change", (event) =>
   currentLanguage = event.target.value;
   applyLocale();
 });
-document.getElementById("question-select").addEventListener("change", (event) => {
-  currentQuestion = guidedQuestions.find((question) => question.id === event.target.value) || guidedQuestions[0];
-  populateQuestions();
-});
 document.getElementById("file-input").addEventListener("change", async (event) => {
   const file = event.target.files[0];
   if (!file) return;
   document.getElementById("document-input").value = await file.text();
+});
+const documentInput = document.getElementById("document-input");
+documentInput.addEventListener("dragover", (event) => {
+  event.preventDefault();
+  documentInput.classList.add("drag-active");
+});
+documentInput.addEventListener("dragleave", () => {
+  documentInput.classList.remove("drag-active");
+});
+documentInput.addEventListener("drop", async (event) => {
+  event.preventDefault();
+  documentInput.classList.remove("drag-active");
+  const file = event.dataTransfer.files[0];
+  if (file && (file.name.endsWith(".txt") || file.name.endsWith(".md") || file.name.endsWith(".markdown"))) {
+    documentInput.value = await file.text();
+  }
 });
 document.getElementById("analyze-button").addEventListener("click", analyzeDocument);
 document.getElementById("export-md").addEventListener("click", () => downloadArtifact("markdown"));

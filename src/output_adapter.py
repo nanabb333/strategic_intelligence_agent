@@ -4,6 +4,8 @@ from __future__ import annotations
 
 from pathlib import Path
 
+from localization import translate_text
+
 
 SUPPORTED_MODES = {"beginner", "analyst", "executive"}
 SUPPORTED_LANGUAGES = {"en", "zh-CN", "zh-TW"}
@@ -60,11 +62,13 @@ def adapt_output(markdown_text: str, mode: str = "analyst", language: str = "en"
     disclaimer = DISCLAIMERS[language]
     note = LANGUAGE_NOTES[language]
 
+    localized_markdown = translate_text(markdown_text.strip(), language)
+
     if mode == "analyst":
-        return f"# {title}\n\n{disclaimer}\n\n> {note}\n\n{markdown_text.strip()}\n"
+        return f"# {title}\n\n{disclaimer}\n\n> {note}\n\n{localized_markdown}\n"
 
     line_limit = 8 if mode == "beginner" else 12
-    selected_lines = _extract_lines(markdown_text, line_limit)
+    selected_lines = _extract_lines(localized_markdown, line_limit)
     if not selected_lines:
         selected_lines = ["- No structured findings were generated."]
 
@@ -103,4 +107,3 @@ def adapt_file(input_path: str | Path, output_path: str | Path, mode: str, langu
     destination.parent.mkdir(parents=True, exist_ok=True)
     destination.write_text(adapt_output(source.read_text(encoding="utf-8"), mode, language), encoding="utf-8")
     return destination
-

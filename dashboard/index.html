@@ -17,7 +17,7 @@
           <span id="api-status" class="status-pill">Checking server</span>
         </div>
 
-        <p id="helper-text" class="helper-text">No prompt writing needed. Step 1 choose a language. Step 2 paste text or upload a file. Step 3 choose a question. Step 4 choose an output mode. Step 5 click Analyze. Step 6 download results.</p>
+        <p id="helper-text" class="helper-text">Paste a document, ask a plain-language question, and click Analyze. The app will produce an executive brief first, with methods and trace details below.</p>
 
         <div class="selector-grid" aria-label="Guided analysis controls">
           <label for="language-select" data-i18n="languageLabel">Language</label>
@@ -27,9 +27,6 @@
             <option value="zh-TW">繁體中文</option>
           </select>
 
-          <label for="question-select" data-i18n="questionTypeLabel">Question type</label>
-          <select id="question-select"></select>
-
           <label for="mode-select" data-i18n="outputModeLabel">Output mode</label>
           <select id="mode-select">
             <option value="beginner" data-i18n="beginnerMode">Beginner</option>
@@ -38,10 +35,11 @@
           </select>
         </div>
 
-        <div id="guided-question-buttons" class="guided-buttons" aria-label="Guided question buttons"></div>
+        <label for="question-input" data-i18n="questionInputLabel">Ask a Question</label>
+        <textarea id="question-input" class="question-input" spellcheck="true" data-i18n-placeholder="questionPlaceholder" placeholder="What does this issue mean? What historical events resemble this? How have organizations responded in similar situations? What should I monitor next?"></textarea>
 
-        <label for="document-input" data-i18n="documentTextLabel">Document text</label>
-        <textarea id="document-input" spellcheck="true">The CHIPS Act continues to shape semiconductor manufacturing strategy as executives evaluate domestic fabrication capacity, supplier qualification, and government incentive requirements. The issue involves industrial policy, strategic investment, workforce constraints, and semiconductor supply chain resilience.</textarea>
+        <label for="document-input" class="input-label" data-i18n="documentTextLabel">Paste document or article here</label>
+        <textarea id="document-input" class="document-dropzone" spellcheck="true" data-i18n-placeholder="documentPlaceholder" placeholder="Paste an article, policy excerpt, earnings note, regulatory update, or supply chain memo here. You can also drag and drop a .txt or .md file into this box.">The CHIPS Act continues to shape semiconductor manufacturing strategy as executives evaluate domestic fabrication capacity, supplier qualification, and government incentive requirements. The issue involves industrial policy, strategic investment, workforce constraints, and semiconductor supply chain resilience.</textarea>
 
         <div class="control-row">
           <label class="file-control" for="file-input">
@@ -67,6 +65,28 @@
 
       <section class="results-panel" aria-live="polite">
         <details open>
+          <summary><span data-i18n="executiveBrief">Executive Brief</span> <span data-source="All Evidence">All Evidence</span></summary>
+          <pre id="brief-section" class="brief-output"></pre>
+        </details>
+
+        <details open>
+          <summary><span data-i18n="strategicLessons">Strategic Lessons</span> <span data-source="Strategic Lessons Engine">Strategic Lessons Engine</span></summary>
+          <div id="lessons-section" class="section-body"></div>
+        </details>
+
+        <details>
+          <summary><span data-i18n="historicalOutcomes">Historical Outcomes</span> <span data-source="Historical Outcomes Database">Historical Outcomes Database</span></summary>
+          <div id="outcomes-section" class="section-body"></div>
+        </details>
+
+        <details>
+          <summary><span data-i18n="historicalAnalogues">Historical Analogues</span> <span data-source="Historical Database">Historical Database</span></summary>
+          <div id="analogues-section" class="section-body"></div>
+        </details>
+
+        <div class="section-divider" data-i18n="detailedAnalysis">Detailed Analysis</div>
+
+        <details open>
           <summary><span data-i18n="currentEventContext">Current Event Context</span> <span data-source="Input Document">Input Document</span></summary>
           <div id="event-context-section" class="section-body"></div>
         </details>
@@ -82,21 +102,6 @@
         </details>
 
         <details>
-          <summary><span data-i18n="historicalAnalogues">Historical Analogues</span> <span data-source="Historical Database">Historical Database</span></summary>
-          <div id="analogues-section" class="section-body"></div>
-        </details>
-
-        <details>
-          <summary><span data-i18n="historicalOutcomes">Historical Outcomes</span> <span data-source="Historical Outcomes Database">Historical Outcomes Database</span></summary>
-          <div id="outcomes-section" class="section-body"></div>
-        </details>
-
-        <details>
-          <summary><span data-i18n="strategicLessons">Strategic Lessons</span> <span data-source="Strategic Lessons Engine">Strategic Lessons Engine</span></summary>
-          <div id="lessons-section" class="section-body"></div>
-        </details>
-
-        <details>
           <summary><span data-i18n="currentContext">Current Context</span> <span data-source="Context Knowledge Base">Context Knowledge Base</span></summary>
           <div id="context-section" class="section-body"></div>
         </details>
@@ -106,7 +111,7 @@
           <div id="implications-section" class="section-body"></div>
         </details>
 
-        <details open>
+        <details>
           <summary><span data-i18n="selectedTools">Selected Tools</span> <span data-source="Agent Router">Agent Router</span></summary>
           <div id="tools-section" class="section-body"></div>
         </details>
@@ -146,6 +151,8 @@
           <div id="evidence-credibility-section" class="section-body"></div>
         </details>
 
+        <div class="section-divider" data-i18n="executionTrace">Execution Trace</div>
+
         <details id="evaluation-tab">
           <summary><span data-i18n="evaluation">Evaluation</span> <span data-source="Benchmark Framework">Benchmark Framework</span></summary>
           <div id="evaluation-section" class="section-body">
@@ -161,11 +168,6 @@
             <p><span class="evidence">Source: evaluation/benchmark_results.csv</span></p>
             <p>Known limitation: current benchmark cases are compact synthetic / curated cases and scores measure internal benchmark behavior, not real-world accuracy.</p>
           </div>
-        </details>
-
-        <details>
-          <summary><span data-i18n="executiveBrief">Executive Brief</span> <span data-source="All Evidence">All Evidence</span></summary>
-          <pre id="brief-section" class="brief-output"></pre>
         </details>
       </section>
     </main>

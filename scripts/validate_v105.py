@@ -91,9 +91,9 @@ def validate_dashboard_order_and_labels() -> None:
     for phrase in ["Source:", "ImplicationAnalyzer"]:
         require(phrase not in app_js, f"Dashboard renderer still contains hardcoded English label: {phrase}.")
 
-    for color in ["#8B5CF6", "#F3E8FF", "#EDE9FE", "#6D28D9"]:
+    for color in ["#A78BFA", "#EDE9FE", "#7C3AED"]:
         require(color in styles, f"Lavender theme missing color: {color}.")
-    for old_color in ["#1f5eff", "#1241b2"]:
+    for old_color in ["#1f5eff", "#1241b2", "#8B5CF6"]:
         require(old_color not in styles, f"Old blue theme color still present: {old_color}.")
 
 

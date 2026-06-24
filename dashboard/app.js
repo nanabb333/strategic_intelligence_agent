@@ -54,6 +54,8 @@ const localeText = {
     evidenceAssessment: "Evidence Assessment",
     evidenceReview: "Evidence Review",
     evidenceCredibility: "Evidence Credibility",
+    analysisTransparency: "Analysis Transparency",
+    transparencyNote: "This system uses a rules-based workflow to connect the input document with historical cases, common mechanisms, and strategic lessons. A human analyst should review the result.",
     evaluation: "Evaluation",
     executiveBrief: "Executive Brief",
     detailedAnalysis: "Detailed Analysis",
@@ -89,6 +91,9 @@ const localeText = {
     noFindings: "No findings returned for this run.",
     noContext: "No current event context returned for this run.",
     noImplications: "No implications returned.",
+    analyzing: "Analyzing...",
+    pasteFirst: "Paste text or upload a file first.",
+    downloadFirst: "Run an analysis before downloading.",
   },
   "zh-CN": {
     appTitle: "分析文档或当前事件",
@@ -143,6 +148,8 @@ const localeText = {
     evidenceAssessment: "证据评估",
     evidenceReview: "证据审查",
     evidenceCredibility: "证据可信度",
+    analysisTransparency: "分析透明度",
+    transparencyNote: "本系统使用规则式分析流程，将输入文件连接到历史案例、常见机制与战略经验。结果应由人工分析者复核。",
     evaluation: "评估",
     executiveBrief: "高管简报",
     detailedAnalysis: "详细分析",
@@ -178,6 +185,9 @@ const localeText = {
     noFindings: "本次运行未返回发现。",
     noContext: "本次运行未返回当前事件背景。",
     noImplications: "未返回影响分析。",
+    analyzing: "分析中...",
+    pasteFirst: "请先粘贴文本或上传文件。",
+    downloadFirst: "请先运行一次分析再下载。",
   },
   "zh-TW": {
     appTitle: "分析文件或當前事件",
@@ -232,6 +242,8 @@ const localeText = {
     evidenceAssessment: "證據評估",
     evidenceReview: "證據審查",
     evidenceCredibility: "證據可信度",
+    analysisTransparency: "分析透明度",
+    transparencyNote: "本系統使用規則式分析流程，將輸入文件連結到歷史案例、常見機制與策略經驗。結果應由人工分析者複核。",
     evaluation: "評估",
     executiveBrief: "高階主管簡報",
     detailedAnalysis: "詳細分析",
@@ -267,6 +279,9 @@ const localeText = {
     noFindings: "本次執行未返回發現。",
     noContext: "本次執行未返回當前事件背景。",
     noImplications: "未返回影響分析。",
+    analyzing: "分析中...",
+    pasteFirst: "請先貼上文字或上傳檔案。",
+    downloadFirst: "請先執行一次分析再下載。",
   },
 };
 
@@ -358,6 +373,26 @@ function applyLocale() {
     node.textContent = sourceLabel(node.dataset.source);
   });
   document.getElementById("helper-text").textContent = t("helperText");
+  applyOutputModeVisibility();
+}
+
+function currentOutputMode() {
+  return document.getElementById("mode-select").value;
+}
+
+function applyOutputModeVisibility() {
+  const beginner = currentOutputMode() === "beginner";
+  document.body.classList.toggle("beginner-mode", beginner);
+  document.body.classList.toggle("analyst-mode", !beginner);
+  document.querySelectorAll(".internal-detail").forEach((node) => {
+    node.hidden = beginner;
+    if (beginner && node.tagName.toLowerCase() === "details") {
+      node.open = false;
+    }
+  });
+  document.querySelectorAll(".beginner-only").forEach((node) => {
+    node.hidden = !beginner;
+  });
 }
 
 async function checkHealth() {
@@ -377,13 +412,13 @@ async function analyzeDocument() {
   const text = document.getElementById("document-input").value.trim();
   const sourceUrl = document.getElementById("source-url-input").value.trim();
   if (!text && !sourceUrl) {
-    setEmpty("summary-section", "Paste text or upload a file first.");
+    setEmpty("summary-section", t("pasteFirst"));
     return;
   }
   const questionText = document.getElementById("question-input").value.trim() || t("questionPlaceholder");
   const button = document.getElementById("analyze-button");
   button.disabled = true;
-  button.textContent = "Analyzing...";
+  button.textContent = t("analyzing");
   try {
     const response = await fetch(`${API_BASE}/analyze`, {
       method: "POST",
@@ -391,7 +426,7 @@ async function analyzeDocument() {
       body: JSON.stringify({
         text,
         language: currentLanguage,
-        output_mode: document.getElementById("mode-select").value,
+        output_mode: currentOutputMode(),
         question_id: "freeform",
         question_text: questionText,
         source_url: sourceUrl,
@@ -450,6 +485,7 @@ async function openRun(runId) {
 }
 
 function renderRun(run) {
+  applyOutputModeVisibility();
   const analysis = run.analysis;
   const metadata = run.metadata;
   const issue = analysis.issue || {};
@@ -736,7 +772,7 @@ function setEmpty(elementId, message) {
 
 function downloadArtifact(kind) {
   if (!currentRun) {
-    setEmpty("summary-section", "Run an analysis before downloading.");
+    setEmpty("summary-section", t("downloadFirst"));
     return;
   }
   const url = currentRun.downloads?.[kind];
@@ -765,6 +801,7 @@ document.getElementById("language-select").addEventListener("change", (event) =>
   currentLanguage = event.target.value;
   applyLocale();
 });
+document.getElementById("mode-select").addEventListener("change", applyOutputModeVisibility);
 document.getElementById("file-input").addEventListener("change", async (event) => {
   const file = event.target.files[0];
   if (!file) return;

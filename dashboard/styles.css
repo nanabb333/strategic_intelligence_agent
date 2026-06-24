@@ -1,13 +1,14 @@
 :root {
-  --bg: #fbfaff;
+  --bg: #F5F3FF;
   --panel: #ffffff;
   --ink: #17202a;
   --muted: #657282;
-  --line: #d8dee8;
-  --accent: #8B5CF6;
-  --accent-soft: #F3E8FF;
+  --line: #ddd6fe;
+  --accent: #A78BFA;
+  --accent-border: #C4B5FD;
+  --accent-soft: #EDE9FE;
   --highlight: #EDE9FE;
-  --accent-text: #6D28D9;
+  --accent-text: #7C3AED;
   --warn-soft: #fff7e6;
   --radius: 8px;
 }
@@ -84,6 +85,11 @@ summary span[data-source],
   font-size: 12px;
   font-weight: 650;
   padding: 4px 8px;
+}
+
+.beginner-mode summary span[data-source],
+.beginner-mode .evidence {
+  display: none;
 }
 
 .status-pill.offline {
@@ -199,8 +205,8 @@ select {
 
 .input-mode.active {
   background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+  border-color: var(--accent-border);
+  color: #24143f;
 }
 
 .input-mode-panel {
@@ -219,8 +225,8 @@ select {
 
 .guided-button.active {
   background: var(--accent);
-  border-color: var(--accent);
-  color: #fff;
+  border-color: var(--accent-border);
+  color: #24143f;
 }
 
 textarea {
@@ -250,7 +256,7 @@ textarea {
 .document-dropzone.drag-active,
 .question-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
+  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.16);
   outline: none;
 }
 
@@ -281,8 +287,8 @@ button:disabled {
 
 #analyze-button {
   background: var(--accent);
-  border-color: var(--accent);
-  color: white;
+  border-color: var(--accent-border);
+  color: #24143f;
 }
 
 .file-control input {

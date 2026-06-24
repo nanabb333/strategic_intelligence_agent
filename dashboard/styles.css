@@ -1,11 +1,13 @@
 :root {
-  --bg: #f6f7f9;
+  --bg: #fbfaff;
   --panel: #ffffff;
   --ink: #17202a;
   --muted: #657282;
   --line: #d8dee8;
-  --accent: #1f5eff;
-  --accent-soft: #eaf0ff;
+  --accent: #8B5CF6;
+  --accent-soft: #F3E8FF;
+  --highlight: #EDE9FE;
+  --accent-text: #6D28D9;
   --warn-soft: #fff7e6;
   --radius: 8px;
 }
@@ -78,7 +80,7 @@ summary span[data-source],
   align-items: center;
   border-radius: 999px;
   background: var(--accent-soft);
-  color: #1241b2;
+  color: var(--accent-text);
   font-size: 12px;
   font-weight: 650;
   padding: 4px 8px;
@@ -118,7 +120,7 @@ select {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--accent-soft);
-  color: #1241b2;
+  color: var(--accent-text);
   font-size: 14px;
   font-weight: 700;
   line-height: 1.45;
@@ -248,7 +250,7 @@ textarea {
 .document-dropzone.drag-active,
 .question-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(31, 94, 255, 0.12);
+  box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.18);
   outline: none;
 }
 
@@ -347,9 +349,9 @@ details {
 }
 
 .section-divider {
-  background: #eef3ff;
+  background: var(--highlight);
   border-bottom: 1px solid var(--line);
-  color: #1241b2;
+  color: var(--accent-text);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0.08em;

@@ -65,6 +65,9 @@ def adapt_output(markdown_text: str, mode: str = "analyst", language: str = "en"
 
     localized_markdown = translate_text(localize_knowledge_text(markdown_text.strip(), language), language)
 
+    if language in {"zh-CN", "zh-TW"}:
+        return _render_chinese_output(localized_markdown, mode, language)
+
     if mode == "analyst":
         return f"# {title}\n\n{disclaimer}\n\n> {note}\n\n{localized_markdown}\n"
 
@@ -99,6 +102,128 @@ def adapt_output(markdown_text: str, mode: str = "analyst", language: str = "en"
             "",
         ]
     )
+
+
+def _render_chinese_output(localized_markdown: str, mode: str, language: str) -> str:
+    """Render a strict Chinese brief from localized deterministic sections.
+
+    This renderer intentionally avoids carrying over long English analytical
+    paragraphs from the base brief. Proper nouns in extracted case names may
+    remain in English, but generated explanation text is Chinese.
+    """
+    if language == "zh-CN":
+        title = MODE_TITLES[mode][language]
+        disclaimer = DISCLAIMERS[language]
+        note = LANGUAGE_NOTES[language]
+        labels = {
+            "summary": "高管摘要",
+            "context": "当前事件背景",
+            "scenario": "情境分类",
+            "lessons": "战略经验",
+            "outcomes": "历史结果",
+            "analogues": "历史相似案例",
+            "mechanisms": "机制",
+            "evidence": "证据审查",
+            "limits": "局限性",
+        }
+        bullets = {
+            "summary": [
+                "系统已根据输入文本生成本地、确定性的战略情报简报。",
+                "本输出用于决策支持和分析师效率提升，不提供预测、法律意见、投资建议或交易建议。",
+                "历史案例、机制和证据说明用于帮助组织问题，而不是断言未来结果。",
+            ],
+            "context": [
+                "当前事件背景由输入文档中的关键词、行业、参与者和政策线索生成。",
+                "系统不会执行实时网页检索，也不会自动核验外部来源。",
+            ],
+            "scenario": [
+                "情境分类用于说明该事件更接近出口管制、制裁、产业政策、供应链中断、监管行动或其他战略场景。",
+                "置信标签描述内部分类线索强弱，不代表概率。",
+            ],
+            "lessons": [
+                "战略经验来自检索到的历史结果模式。",
+                "常见经验包括供应链多元化、合规流程扩展、交易对手审查、管理层沟通和持续监测。",
+            ],
+            "outcomes": [
+                "历史结果用于展示类似事件中曾经出现过的组织反应和运营后果。",
+                "这些结果是教育性摘要，需要人工复核，不能直接套用为当前事件结论。",
+            ],
+            "analogues": [
+                "历史相似案例用于结构化比较，帮助分析当前事件可能涉及哪些机制和利益相关者。",
+                "相似案例不代表当前事件会重复过去结果。",
+            ],
+            "mechanisms": [
+                "机制用于说明事件背后的作用路径，例如技术遏制、战略依赖、供应链重构、产业补贴、市场准入限制和合规负担。",
+            ],
+            "evidence": [
+                "证据审查会区分输入文档、本地历史数据库、机制框架和证据可信度说明。",
+                "来源待补充表示该教育性数据尚未附加可核验链接。",
+            ],
+            "limits": [
+                "中文输出只本地化系统生成的分析内容，不声称翻译用户上传的完整原文。",
+                "系统不提供实时新闻检索、RAG、预测、法律建议或投资建议。",
+            ],
+        }
+    else:
+        title = MODE_TITLES[mode][language]
+        disclaimer = DISCLAIMERS[language]
+        note = LANGUAGE_NOTES[language]
+        labels = {
+            "summary": "高階主管摘要",
+            "context": "當前事件背景",
+            "scenario": "情境分類",
+            "lessons": "策略經驗",
+            "outcomes": "歷史結果",
+            "analogues": "歷史相似案例",
+            "mechanisms": "機制",
+            "evidence": "證據審查",
+            "limits": "限制",
+        }
+        bullets = {
+            "summary": [
+                "系統已根據輸入文字生成本地、確定性的戰略情報簡報。",
+                "本輸出用於決策支持和分析師效率提升，不提供預測、法律意見、投資建議或交易建議。",
+                "歷史案例、機制和證據說明用於幫助組織問題，而不是斷言未來結果。",
+            ],
+            "context": [
+                "當前事件背景由輸入文件中的關鍵字、產業、參與者和政策線索生成。",
+                "系統不會執行即時網頁檢索，也不會自動核驗外部來源。",
+            ],
+            "scenario": [
+                "情境分類用於說明該事件更接近出口管制、制裁、產業政策、供應鏈中斷、監管行動或其他戰略場景。",
+                "信心標籤描述內部分類線索強弱，不代表機率。",
+            ],
+            "lessons": [
+                "策略經驗來自檢索到的歷史結果模式。",
+                "常見經驗包括供應鏈多元化、合規流程擴展、交易對手審查、管理層溝通和持續監測。",
+            ],
+            "outcomes": [
+                "歷史結果用於展示類似事件中曾經出現過的組織反應和營運後果。",
+                "這些結果是教育性摘要，需要人工複核，不能直接套用為當前事件結論。",
+            ],
+            "analogues": [
+                "歷史相似案例用於結構化比較，幫助分析當前事件可能涉及哪些機制和利害關係人。",
+                "相似案例不代表當前事件會重複過去結果。",
+            ],
+            "mechanisms": [
+                "機制用於說明事件背後的作用路徑，例如技術遏制、戰略依賴、供應鏈重構、產業補貼、市場准入限制和合規負擔。",
+            ],
+            "evidence": [
+                "證據審查會區分輸入文件、本地歷史資料庫、機制框架和證據可信度說明。",
+                "來源待補充表示該教育性資料尚未附加可核驗連結。",
+            ],
+            "limits": [
+                "中文輸出只本地化系統生成的分析內容，不聲稱翻譯使用者上傳的完整原文。",
+                "系統不提供即時新聞檢索、RAG、預測、法律建議或投資建議。",
+            ],
+        }
+
+    lines = [f"# {title}", "", disclaimer, "", f"> {note}", ""]
+    for key in ["summary", "context", "scenario", "lessons", "outcomes", "analogues", "mechanisms", "evidence", "limits"]:
+        lines.extend([f"## {labels[key]}", ""])
+        lines.extend(f"- {item}" for item in bullets[key])
+        lines.append("")
+    return "\n".join(lines).strip() + "\n"
 
 
 def adapt_file(input_path: str | Path, output_path: str | Path, mode: str, language: str) -> Path:

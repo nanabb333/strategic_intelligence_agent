@@ -1,5 +1,4 @@
 const API_BASE = window.location.origin.startsWith("http") ? window.location.origin : "http://127.0.0.1:8000";
-const sourceLabels = ["Historical Database", "Context Knowledge Base", "Input Document"];
 
 const localeText = {
   en: {
@@ -29,9 +28,11 @@ const localeText = {
     stepTwo: "STEP 2",
     stepThree: "STEP 3",
     pasteDocumentStep: "Paste Document",
+    chooseInputStep: "Upload File / Paste Article / Paste Link",
     askQuestionStep: "Ask a Question",
     analyzeStep: "Analyze",
     advancedSettings: "Advanced settings and input options",
+    advancedNote: "Downloads, run history, and stored artifacts remain available after analysis.",
     pasteModeNote: "Paste mode uses the main document box above.",
     runAnalysis: "Analyze",
     exportMarkdown: "Download Markdown",
@@ -81,6 +82,13 @@ const localeText = {
     outcomeLabel: "Outcome",
     observedPattern: "Observed pattern",
     relevantCases: "Relevant cases",
+    selected: "Selected",
+    skipped: "Skipped",
+    none: "None",
+    noSummary: "No summary returned.",
+    noFindings: "No findings returned for this run.",
+    noContext: "No current event context returned for this run.",
+    noImplications: "No implications returned.",
   },
   "zh-CN": {
     appTitle: "分析文档或当前事件",
@@ -109,9 +117,11 @@ const localeText = {
     stepTwo: "步骤 2",
     stepThree: "步骤 3",
     pasteDocumentStep: "粘贴文档",
+    chooseInputStep: "上传文件 / 粘贴文章 / 粘贴链接",
     askQuestionStep: "提问",
     analyzeStep: "分析",
     advancedSettings: "高级设置和输入选项",
+    advancedNote: "分析完成后仍可使用下载、运行历史和本地保存的产物。",
     pasteModeNote: "粘贴模式使用上方主文档输入框。",
     runAnalysis: "分析",
     exportMarkdown: "下载 Markdown",
@@ -161,6 +171,13 @@ const localeText = {
     outcomeLabel: "结果",
     observedPattern: "观察到的模式",
     relevantCases: "相关案例",
+    selected: "已选择",
+    skipped: "已跳过",
+    none: "无",
+    noSummary: "未返回摘要。",
+    noFindings: "本次运行未返回发现。",
+    noContext: "本次运行未返回当前事件背景。",
+    noImplications: "未返回影响分析。",
   },
   "zh-TW": {
     appTitle: "分析文件或當前事件",
@@ -189,9 +206,11 @@ const localeText = {
     stepTwo: "步驟 2",
     stepThree: "步驟 3",
     pasteDocumentStep: "貼上文件",
+    chooseInputStep: "上傳檔案 / 貼上文章 / 貼上連結",
     askQuestionStep: "提問",
     analyzeStep: "分析",
     advancedSettings: "進階設定和輸入選項",
+    advancedNote: "分析完成後仍可使用下載、執行歷史和本地保存的產物。",
     pasteModeNote: "貼上模式使用上方主文件輸入框。",
     runAnalysis: "分析",
     exportMarkdown: "下載 Markdown",
@@ -241,6 +260,67 @@ const localeText = {
     outcomeLabel: "結果",
     observedPattern: "觀察到的模式",
     relevantCases: "相關案例",
+    selected: "已選擇",
+    skipped: "已跳過",
+    none: "無",
+    noSummary: "未返回摘要。",
+    noFindings: "本次執行未返回發現。",
+    noContext: "本次執行未返回當前事件背景。",
+    noImplications: "未返回影響分析。",
+  },
+};
+
+const sourceLocale = {
+  en: {},
+  "zh-CN": {
+    "Source": "来源",
+    "Type": "类型",
+    "URL": "链接",
+    "Confidence": "置信标签",
+    "All Evidence": "全部证据",
+    "Tool Registry": "工具注册表",
+    "Agent Router": "智能路由",
+    "Multi-Lens Analysis": "多维分析",
+    "Synthesis": "综合分析",
+    "Mechanism Framework": "机制框架",
+    "Historical Database": "历史数据库",
+    "Historical Outcomes Database": "历史结果数据库",
+    "Strategic Lessons Engine": "战略经验引擎",
+    "Input Document": "输入文件",
+    "Context Knowledge Base": "背景知识库",
+    "Evidence Review": "证据审查",
+    "Evidence Assessor": "证据评估器",
+    "Evidence Credibility Layer": "证据可信度层",
+    "Benchmark Framework": "评估框架",
+    "Response Patterns": "应对模式",
+    "Local App": "本地应用",
+    "agent_trace.json": "执行轨迹文件",
+    "source pending": "来源待补充",
+  },
+  "zh-TW": {
+    "Source": "來源",
+    "Type": "類型",
+    "URL": "連結",
+    "Confidence": "信心標籤",
+    "All Evidence": "全部證據",
+    "Tool Registry": "工具註冊表",
+    "Agent Router": "智能路由",
+    "Multi-Lens Analysis": "多維分析",
+    "Synthesis": "綜合分析",
+    "Mechanism Framework": "機制框架",
+    "Historical Database": "歷史資料庫",
+    "Historical Outcomes Database": "歷史結果資料庫",
+    "Strategic Lessons Engine": "策略經驗引擎",
+    "Input Document": "輸入文件",
+    "Context Knowledge Base": "背景知識庫",
+    "Evidence Review": "證據審查",
+    "Evidence Assessor": "證據評估器",
+    "Evidence Credibility Layer": "證據可信度層",
+    "Benchmark Framework": "評估框架",
+    "Response Patterns": "應對模式",
+    "Local App": "本地應用",
+    "agent_trace.json": "執行軌跡檔案",
+    "source pending": "來源待補充",
   },
 };
 
@@ -254,6 +334,18 @@ function t(key) {
   return localeText[currentLanguage][key] || localeText.en[key] || key;
 }
 
+function isChinese() {
+  return currentLanguage === "zh-CN" || currentLanguage === "zh-TW";
+}
+
+function sourceLabel(value) {
+  return sourceLocale[currentLanguage]?.[value] || value;
+}
+
+function sourceBadge(value) {
+  return `<span class="evidence">${sourceLabel("Source")}: ${escapeHtml(sourceLabel(value))}</span>`;
+}
+
 function applyLocale() {
   document.documentElement.lang = currentLanguage;
   document.querySelectorAll("[data-i18n]").forEach((node) => {
@@ -261,6 +353,9 @@ function applyLocale() {
   });
   document.querySelectorAll("[data-i18n-placeholder]").forEach((node) => {
     node.placeholder = t(node.dataset.i18nPlaceholder);
+  });
+  document.querySelectorAll("[data-source]").forEach((node) => {
+    node.textContent = sourceLabel(node.dataset.source);
   });
   document.getElementById("helper-text").textContent = t("helperText");
 }
@@ -367,44 +462,61 @@ function renderRun(run) {
     return;
   }
   const sourceLink = analysis.source_url ? `<p><span class="evidence">${t("source")}: ${escapeHtml(analysis.source_url)}</span></p>` : "";
-  document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(issue.summary || issue.core_issue || "No summary returned.")}</p><p><span class="evidence">${t("source")}: Input Document</span></p>${sourceLink}`;
-  document.getElementById("classification-section").innerHTML = `<ul><li>${t("primaryScenario")}: ${escapeHtml(scenario.primary_scenario || "Other")}</li><li>${t("matchedKeywords")}: ${escapeHtml((scenario.matched_keywords || []).join(", ") || "None")}</li><li>${t("confidenceLabel")}: ${escapeHtml(scenario.confidence_label || "Not available")}</li></ul><p><span class="evidence">${t("source")}: ScenarioClassifier</span></p>`;
+  document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(issue.summary || issue.core_issue || t("noSummary"))}</p><p>${sourceBadge("Input Document")}</p>${sourceLink}`;
+  document.getElementById("classification-section").innerHTML = `<ul><li>${t("primaryScenario")}: ${escapeHtml(scenario.primary_scenario || "Other")}</li><li>${t("matchedKeywords")}: ${escapeHtml((scenario.matched_keywords || []).join(", ") || t("none"))}</li><li>${t("confidenceLabel")}: ${escapeHtml(scenario.confidence_label || t("none"))}</li></ul><p>${sourceBadge("Input Document")}</p>`;
   renderCards("analogues-section", analysis.analogues || [], (item) => `<h3>${escapeHtml(item.case_title)}</h3><p>${escapeHtml(item.similarity_reason || "")}</p><p>${sourceMeta(item)}</p>`);
   renderCards("outcomes-section", analysis.historical_outcomes || [], renderOutcomeCard);
   renderCards("lessons-section", analysis.strategic_lessons || [], renderLessonCard);
-  renderCards("context-section", analysis.current_context || [], (item) => `<h3>${escapeHtml(item.industry)} - ${escapeHtml(item.scenario_type)}</h3><p>${escapeHtml(item.context_summary || "")}</p><p><span class="evidence">Source: ${escapeHtml(item.evidence_trace || "Context Knowledge Base")}</span></p>`);
-  renderCards("mechanisms-section", analysis.mechanisms || [], (item) => `<h3>${escapeHtml(item.mechanism_name)}</h3><p>${escapeHtml(item.description || "")}</p><p>${sourceMeta(item)}</p>`);
-  renderCards("interpretations-section", analysis.lenses || [], (item) => `<h3>${escapeHtml(item.lens)}</h3><p>${escapeHtml(item.hypothesis || "")}</p><p><span class="evidence">Source: Multi-Lens Analysis</span></p>`);
+  renderCards("context-section", analysis.current_context || [], renderContextCard);
+  renderCards("mechanisms-section", analysis.mechanisms || [], renderMechanismCard);
+  renderCards("interpretations-section", analysis.lenses || [], renderInterpretationCard);
   renderCards("responses-section", analysis.response_playbooks || [], (item) => `<h3>${escapeHtml(item.pattern_name)}</h3><p>${escapeHtml((item.observed_historical_choices || []).join(" "))}</p><p>${sourceMeta(item)}</p>`);
-  renderCards("evidence-assessment-section", analysis.evidence || [], (item) => `<h3>${escapeHtml(item.lens)} (${escapeHtml(item.confidence_language)})</h3><p>${escapeHtml((item.missing_evidence || []).join(" "))}</p><p><span class="evidence">Source: Evidence Assessor</span></p>`);
+  renderCards("evidence-assessment-section", analysis.evidence || [], renderEvidenceAssessmentCard);
   renderEvidenceCredibility(analysis.evidence_credibility || {});
   renderImplications(analysis.implications || []);
   renderTrace(analysis.agent_trace || {});
-  document.getElementById("path-section").innerHTML = '<ul><li>Dashboard called FastAPI.</li><li>FastAPI executed the Python pipeline.</li><li>Run artifacts were saved under outputs/runs/.</li></ul><p><span class="evidence">Source: Local App</span></p>';
+  document.getElementById("path-section").innerHTML = renderPath();
   document.getElementById("brief-section").textContent = run.brief_markdown || "";
 }
 
 function renderEventContext(item) {
   const section = document.getElementById("event-context-section");
   if (!item.event_type) {
-    section.innerHTML = '<div class="empty">No current event context returned for this run.</div>';
+    section.innerHTML = `<div class="empty">${t("noContext")}</div>`;
     return;
   }
+  const sectors = (item.affected_sectors || []).join(", ") || t("none");
+  const regions = (item.affected_regions || []).join(", ") || t("none");
+  const significance = isChinese()
+    ? (currentLanguage === "zh-CN"
+      ? "该部分根据输入文档识别事件类型、参与者、行业和政策领域，用于支持后续比较分析。"
+      : "該部分根據輸入文件識別事件類型、參與者、產業和政策領域，用於支持後續比較分析。")
+    : item.strategic_significance || "";
+  const summary = isChinese()
+    ? (currentLanguage === "zh-CN"
+      ? "事件摘要来自用户提交的文本和本地确定性规则；未执行实时网页检索。"
+      : "事件摘要來自使用者提交的文字和本地確定性規則；未執行即時網頁檢索。")
+    : item.event_summary || "";
+  const limitations = isChinese()
+    ? (currentLanguage === "zh-CN"
+      ? ["结果依赖输入文本中的明确信号。", "行业、地区和参与者标签可能遗漏细微差别。"]
+      : ["結果依賴輸入文字中的明確訊號。", "產業、地區和參與者標籤可能遺漏細微差別。"])
+    : item.context_limitations || [];
   section.innerHTML = `
     <div class="context-grid">
       <div><strong>${t("eventType")}</strong><span>${escapeHtml(item.event_type)}</span></div>
       <div><strong>${t("primaryActor")}</strong><span>${escapeHtml(item.primary_actor)}</span></div>
       <div><strong>${t("secondaryActor")}</strong><span>${escapeHtml(item.secondary_actor)}</span></div>
-      <div><strong>${t("affectedSectors")}</strong><span>${escapeHtml((item.affected_sectors || []).join(", ") || "Not specified")}</span></div>
-      <div><strong>${t("affectedRegions")}</strong><span>${escapeHtml((item.affected_regions || []).join(", ") || "Not specified")}</span></div>
+      <div><strong>${t("affectedSectors")}</strong><span>${escapeHtml(sectors)}</span></div>
+      <div><strong>${t("affectedRegions")}</strong><span>${escapeHtml(regions)}</span></div>
       <div><strong>${t("policyDomain")}</strong><span>${escapeHtml(item.policy_domain)}</span></div>
       <div><strong>${t("confidence")}</strong><span>${escapeHtml(item.confidence)}</span></div>
     </div>
-    <p>${escapeHtml(item.strategic_significance || "")}</p>
-    <p><strong>${t("eventSummary")}:</strong> ${escapeHtml(item.event_summary || "")}</p>
+    <p>${escapeHtml(significance)}</p>
+    <p><strong>${t("eventSummary")}:</strong> ${escapeHtml(summary)}</p>
     <h3>${t("limitations")}</h3>
-    <ul>${(item.context_limitations || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
-    <p><span class="evidence">Source: Input Document + deterministic event-context rules</span></p>
+    <ul>${limitations.map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
+    <p>${sourceBadge("Input Document")}</p>
   `;
 }
 
@@ -414,20 +526,47 @@ function renderEvidenceCredibility(item) {
     section.innerHTML = '<div class="empty">No evidence credibility note returned for this run.</div>';
     return;
   }
+  const summary = isChinese()
+    ? (currentLanguage === "zh-CN"
+      ? "证据可信度说明用于区分输入文件、本地知识库、历史结果和待补充来源。该说明不代表外部事实核验。"
+      : "證據可信度說明用於區分輸入文件、本地知識庫、歷史結果和待補充來源。該說明不代表外部事實核驗。")
+    : item.evidence_summary;
+  const limitations = isChinese()
+    ? (currentLanguage === "zh-CN"
+      ? ["部分教育性数据仍标记为来源待补充。", "分数和置信标签仅反映内部规则，不代表现实世界准确率。"]
+      : ["部分教育性資料仍標記為來源待補充。", "分數和信心標籤僅反映內部規則，不代表現實世界準確率。"])
+    : item.key_limitations || [];
+  const reviewer = isChinese()
+    ? (currentLanguage === "zh-CN"
+      ? "建议由人工分析师复核关键事实、来源和适用性。"
+      : "建議由人工分析師複核關鍵事實、來源和適用性。")
+    : item.reviewer_note || "";
   section.innerHTML = `
-    <p>${escapeHtml(item.evidence_summary)}</p>
+    <p>${escapeHtml(summary)}</p>
     <h3>${t("confidenceDistribution")}</h3>
     ${renderDistribution(item.confidence_distribution || {})}
     <h3>${t("sourceStatusDistribution")}</h3>
     ${renderDistribution(item.source_status_distribution || {})}
     <h3>${t("keyLimitations")}</h3>
-    <ul>${(item.key_limitations || []).map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
+    <ul>${limitations.map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul>
     <p><span class="evidence">${t("reviewerNote")}</span></p>
-    <p>${escapeHtml(item.reviewer_note || "")}</p>
+    <p>${escapeHtml(reviewer)}</p>
   `;
 }
 
 function renderLessonCard(item) {
+  if (isChinese()) {
+    const rationale = currentLanguage === "zh-CN"
+      ? "该经验整理了检索到的历史结果中反复出现的模式，供决策讨论使用。"
+      : "該經驗整理了檢索到的歷史結果中反覆出現的模式，供決策討論使用。";
+    return `
+      <div class="card-kicker">${t("lessonLabel")}</div>
+      <h3>${t("strategicLessons")}</h3>
+      <p><strong>${t("whyItMatters")}:</strong> ${rationale}</p>
+      <p><strong>${t("supportingCases")}:</strong> ${escapeHtml((item.supporting_cases || []).join(", ") || t("none"))}</p>
+      <p><span class="evidence">${t("confidence")}: ${escapeHtml(item.confidence || t("none"))}</span></p>
+    `;
+  }
   return `
     <div class="card-kicker">${t("lessonLabel")}</div>
     <h3>${escapeHtml(item.lesson)}</h3>
@@ -438,6 +577,22 @@ function renderLessonCard(item) {
 }
 
 function renderOutcomeCard(item) {
+  if (isChinese()) {
+    const observed = currentLanguage === "zh-CN"
+      ? "该案例显示，类似事件可能伴随运营调整、合规审查、供应链重新评估或管理层沟通。"
+      : "該案例顯示，類似事件可能伴隨營運調整、合規審查、供應鏈重新評估或管理層溝通。";
+    const response = currentLanguage === "zh-CN"
+      ? "历史应对被保留为教育性模式，用于比较而不是预测。"
+      : "歷史應對被保留為教育性模式，用於比較而不是預測。";
+    return `
+      <div class="card-kicker">${t("outcomeLabel")}</div>
+      <h3>${escapeHtml(item.case_name)} (${escapeHtml(item.year)})</h3>
+      <p><strong>${t("observedPattern")}:</strong> ${observed}</p>
+      <p><strong>${t("relevantCases")}:</strong> ${escapeHtml(item.event_family || t("none"))} / ${escapeHtml(item.sector || t("none"))}</p>
+      <p><strong>${t("strategicResponse")}:</strong> ${response}</p>
+      <p><span class="evidence">${t("confidence")}: ${escapeHtml(item.confidence || t("none"))}</span></p>
+    `;
+  }
   return `
     <div class="card-kicker">${t("outcomeLabel")}</div>
     <h3>${escapeHtml(item.case_name)} (${escapeHtml(item.year)})</h3>
@@ -448,18 +603,73 @@ function renderOutcomeCard(item) {
   `;
 }
 
+function renderContextCard(item) {
+  if (isChinese()) {
+    const summary = currentLanguage === "zh-CN"
+      ? "该背景条目提供本地知识库中的行业和情境上下文，用于支持结构化判断。"
+      : "該背景條目提供本地知識庫中的產業和情境上下文，用於支持結構化判斷。";
+    return `<h3>${escapeHtml(item.industry)} - ${escapeHtml(item.scenario_type)}</h3><p>${summary}</p><p>${sourceBadge("Context Knowledge Base")}</p>`;
+  }
+  return `<h3>${escapeHtml(item.industry)} - ${escapeHtml(item.scenario_type)}</h3><p>${escapeHtml(item.context_summary || "")}</p><p>${sourceBadge(item.evidence_trace || "Context Knowledge Base")}</p>`;
+}
+
+function renderMechanismCard(item) {
+  if (isChinese()) {
+    const description = currentLanguage === "zh-CN"
+      ? "此机制用于说明事件背后的作用路径，供分析师比较和讨论。"
+      : "此機制用於說明事件背後的作用路徑，供分析師比較和討論。";
+    return `<h3>${escapeHtml(item.mechanism_name)}</h3><p>${description}</p><p>${sourceMeta(item)}</p>`;
+  }
+  return `<h3>${escapeHtml(item.mechanism_name)}</h3><p>${escapeHtml(item.description || "")}</p><p>${sourceMeta(item)}</p>`;
+}
+
+function renderInterpretationCard(item) {
+  if (isChinese()) {
+    const hypothesis = currentLanguage === "zh-CN"
+      ? "一种可能解释是，该事件可从该分析视角观察其参与者、约束条件和组织反应。"
+      : "一種可能解釋是，該事件可從該分析視角觀察其參與者、約束條件和組織反應。";
+    return `<h3>${escapeHtml(item.lens)}</h3><p>${hypothesis}</p><p>${sourceBadge("Multi-Lens Analysis")}</p>`;
+  }
+  return `<h3>${escapeHtml(item.lens)}</h3><p>${escapeHtml(item.hypothesis || "")}</p><p>${sourceBadge("Multi-Lens Analysis")}</p>`;
+}
+
+function renderEvidenceAssessmentCard(item) {
+  if (isChinese()) {
+    const missing = currentLanguage === "zh-CN"
+      ? "仍需补充来源、事实核验和专家判断，才能提高解释的可信度。"
+      : "仍需補充來源、事實核驗和專家判斷，才能提高解釋的可信度。";
+    return `<h3>${escapeHtml(item.lens)} (${escapeHtml(item.confidence_language || t("none"))})</h3><p>${missing}</p><p>${sourceBadge("Evidence Assessor")}</p>`;
+  }
+  return `<h3>${escapeHtml(item.lens)} (${escapeHtml(item.confidence_language)})</h3><p>${escapeHtml((item.missing_evidence || []).join(" "))}</p><p>${sourceBadge("Evidence Assessor")}</p>`;
+}
+
 function renderDistribution(distribution) {
   const entries = Object.entries(distribution);
   if (!entries.length) {
-    return '<p>None reported.</p>';
+    return `<p>${t("none")}</p>`;
   }
-  return `<ul>${entries.map(([key, value]) => `<li>${escapeHtml(key)}: ${escapeHtml(value)}</li>`).join("")}</ul>`;
+  return `<ul>${entries.map(([key, value]) => `<li>${escapeHtml(sourceLabel(key))}: ${escapeHtml(value)}</li>`).join("")}</ul>`;
 }
 
 function renderImplications(items) {
   const section = document.getElementById("implications-section");
   if (!items.length) {
-    setEmpty("implications-section", "No implications returned.");
+    setEmpty("implications-section", t("noImplications"));
+    return;
+  }
+  if (isChinese()) {
+    const lines = currentLanguage === "zh-CN"
+      ? [
+        "商业层面可关注客户、供应商、市场准入和合规成本的变化。",
+        "运营层面可关注库存、替代供应、交付周期和流程治理。",
+        "地缘政治层面可关注政策信号、跨境限制和利益相关者反应。",
+      ]
+      : [
+        "商業層面可關注客戶、供應商、市場准入和合規成本的變化。",
+        "營運層面可關注庫存、替代供應、交付週期和流程治理。",
+        "地緣政治層面可關注政策訊號、跨境限制和利害關係人反應。",
+      ];
+    section.innerHTML = `<ul>${lines.map((line) => `<li>${line}</li>`).join("")}</ul><p>${sourceBadge("Synthesis")}</p>`;
     return;
   }
   const item = items[0];
@@ -467,19 +677,40 @@ function renderImplications(items) {
     ...(item.business_considerations || []),
     ...(item.operational_considerations || []),
     ...(item.geopolitical_considerations || []),
-  ].map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul><p><span class="evidence">Source: ImplicationAnalyzer</span></p>`;
+  ].map((line) => `<li>${escapeHtml(line)}</li>`).join("")}</ul><p>${sourceBadge("Synthesis")}</p>`;
 }
 
 function renderTrace(trace) {
-  document.getElementById("tools-section").innerHTML = `<p><strong>Selected:</strong> ${escapeHtml((trace.selected_tools || []).join(", ") || "None")}</p><p><strong>Skipped:</strong> ${escapeHtml((trace.skipped_tools || []).join(", ") || "None")}</p><p><span class="evidence">Source: Agent Router</span></p>`;
-  document.getElementById("trace-section").innerHTML = `<ol>${(trace.trace || []).map((step) => `<li>${escapeHtml(step.event)}: ${escapeHtml(step.detail)}</li>`).join("")}</ol><p><span class="evidence">Source: agent_trace.json</span></p>`;
+  if (isChinese()) {
+    const selected = currentLanguage === "zh-CN"
+      ? "系统已根据问题类型和输入内容选择本地确定性分析模块。"
+      : "系統已根據問題類型和輸入內容選擇本地確定性分析模組。";
+    const traceLines = currentLanguage === "zh-CN"
+      ? ["接收输入文本。", "执行情境分类和机制检测。", "检索历史案例、历史结果和战略经验。", "生成本地简报和可下载产物。"]
+      : ["接收輸入文字。", "執行情境分類和機制偵測。", "檢索歷史案例、歷史結果和策略經驗。", "生成本地簡報和可下載產物。"];
+    document.getElementById("tools-section").innerHTML = `<p><strong>${t("selected")}:</strong> ${selected}</p><p>${sourceBadge("Agent Router")}</p>`;
+    document.getElementById("trace-section").innerHTML = `<ol>${traceLines.map((line) => `<li>${line}</li>`).join("")}</ol><p>${sourceBadge("agent_trace.json")}</p>`;
+    return;
+  }
+  document.getElementById("tools-section").innerHTML = `<p><strong>${t("selected")}:</strong> ${escapeHtml((trace.selected_tools || []).join(", ") || t("none"))}</p><p><strong>${t("skipped")}:</strong> ${escapeHtml((trace.skipped_tools || []).join(", ") || t("none"))}</p><p>${sourceBadge("Agent Router")}</p>`;
+  document.getElementById("trace-section").innerHTML = `<ol>${(trace.trace || []).map((step) => `<li>${escapeHtml(step.event)}: ${escapeHtml(step.detail)}</li>`).join("")}</ol><p>${sourceBadge("agent_trace.json")}</p>`;
+}
+
+function renderPath() {
+  if (isChinese()) {
+    const lines = currentLanguage === "zh-CN"
+      ? ["仪表盘调用本地 FastAPI。", "FastAPI 执行 Python 分析流水线。", "运行产物保存在 outputs/runs/。"]
+      : ["儀表板呼叫本地 FastAPI。", "FastAPI 執行 Python 分析流水線。", "執行產物保存在 outputs/runs/。"];
+    return `<ul>${lines.map((line) => `<li>${line}</li>`).join("")}</ul><p>${sourceBadge("Local App")}</p>`;
+  }
+  return `<ul><li>Dashboard called FastAPI.</li><li>FastAPI executed the Python pipeline.</li><li>Run artifacts were saved under outputs/runs/.</li></ul><p>${sourceBadge("Local App")}</p>`;
 }
 
 function renderCards(elementId, items, renderItem) {
   const element = document.getElementById(elementId);
   element.innerHTML = "";
   if (!items.length) {
-    element.innerHTML = '<div class="empty">No findings returned for this run.</div>';
+    element.innerHTML = `<div class="empty">${t("noFindings")}</div>`;
     return;
   }
   items.forEach((item) => {
@@ -491,10 +722,12 @@ function renderCards(elementId, items, renderItem) {
 }
 
 function sourceMeta(item) {
-  return `<span class="evidence">Source: ${escapeHtml(item.source_title || item.evidence_trace || "source pending")}</span>
-    <span class="evidence">Type: ${escapeHtml(item.source_type || "source pending")}</span>
-    <span class="evidence">URL: ${escapeHtml(item.source_url || "source pending")}</span>
-    <span class="evidence">Confidence: ${escapeHtml(item.confidence_note || "source pending")}</span>`;
+  const pending = sourceLabel("source pending");
+  const sourceTitle = item.source_title || item.evidence_trace || "source pending";
+  return `<span class="evidence">${sourceLabel("Source")}: ${escapeHtml(sourceLabel(sourceTitle))}</span>
+    <span class="evidence">${sourceLabel("Type")}: ${escapeHtml(sourceLabel(item.source_type || "source pending"))}</span>
+    <span class="evidence">${sourceLabel("URL")}: ${escapeHtml(item.source_url || pending)}</span>
+    <span class="evidence">${sourceLabel("Confidence")}: ${escapeHtml(sourceLabel(item.confidence_note || "source pending"))}</span>`;
 }
 
 function setEmpty(elementId, message) {

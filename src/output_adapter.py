@@ -114,7 +114,9 @@ def _render_beginner_output(language: str) -> str:
             [
                 "# 入门解释",
                 "",
-                DISCLAIMERS[language],
+                "## 直接回答",
+                "",
+                "- 这件事的重点不是预测结果，而是尽快确认哪些对象受影响、哪些流程需要调整、接下来应监测哪些信号。",
                 "",
                 "## 一句话解释",
                 "",
@@ -133,6 +135,18 @@ def _render_beginner_output(language: str) -> str:
                 "",
                 "- 类似事件通常会被拿来与出口管制、制裁、产业政策、供应链中断或监管变化进行比较。",
                 "- 历史案例只用于提供参考背景，不表示当前事件会重复过去结果。",
+                "",
+                "## 历史模式",
+                "",
+                "- 相似案例中常见模式包括供应商复核、合规文件增加、管理层沟通加强和执行细节监测。",
+                "",
+                "## 历史结果分布",
+                "",
+                "- 历史结果可大致分为适应调整、部分中断、严重影响或战略再评估；这些是本地案例库计数，不是概率。",
+                "",
+                "## 预期与现实",
+                "",
+                "- 历史案例中，外界常先关注标题事件，但实际影响往往出现在供应链、合规流程、客户沟通和执行细节中。",
                 "",
                 "## 常见应对方式",
                 "",
@@ -153,6 +167,12 @@ def _render_beginner_output(language: str) -> str:
                 "- 将当前问题与相似历史案例进行一页式比较。",
                 "- 准备一份内部讨论简报，明确已知事实、未知信息和需要跟进的问题。",
                 "",
+                "## 角色化监测重点",
+                "",
+                "- 投资者视角：关注收入暴露、利润率压力和管理层指引，但这不是投资建议。",
+                "- 企业战略视角：关注本地化要求、政策执行细节和供应商集中度。",
+                "- 供应链视角：关注库存、物流路线、替代供应商和资格认证周期。",
+                "",
                 "## 需要小心的地方",
                 "",
                 "- 本系统不进行实时网页检索，也不提供预测、法律意见、投资建议或交易建议。",
@@ -169,7 +189,9 @@ def _render_beginner_output(language: str) -> str:
             [
                 "# 入門解釋",
                 "",
-                DISCLAIMERS[language],
+                "## 直接回答",
+                "",
+                "- 這件事的重點不是預測結果，而是盡快確認哪些對象受影響、哪些流程需要調整、接下來應監測哪些訊號。",
                 "",
                 "## 一句話解釋",
                 "",
@@ -188,6 +210,18 @@ def _render_beginner_output(language: str) -> str:
                 "",
                 "- 類似事件通常會被拿來與出口管制、制裁、產業政策、供應鏈中斷或監管變化進行比較。",
                 "- 歷史案例只用於提供參考背景，不表示當前事件會重複過去結果。",
+                "",
+                "## 歷史模式",
+                "",
+                "- 相似案例中常見模式包括供應商複核、合規文件增加、管理層溝通加強和執行細節監測。",
+                "",
+                "## 歷史結果分布",
+                "",
+                "- 歷史結果可大致分為適應調整、部分中斷、嚴重影響或策略再評估；這些是本地案例庫計數，不是機率。",
+                "",
+                "## 預期與現實",
+                "",
+                "- 歷史案例中，外界常先關注標題事件，但實際影響往往出現在供應鏈、合規流程、客戶溝通和執行細節中。",
                 "",
                 "## 常見應對方式",
                 "",
@@ -208,6 +242,12 @@ def _render_beginner_output(language: str) -> str:
                 "- 將當前問題與相似歷史案例進行一頁式比較。",
                 "- 準備一份內部討論簡報，明確已知事實、未知資訊和需要跟進的問題。",
                 "",
+                "## 角色化監測重點",
+                "",
+                "- 投資者視角：關注收入暴露、利潤率壓力和管理層指引，但這不是投資建議。",
+                "- 企業策略視角：關注本地化要求、政策執行細節和供應商集中度。",
+                "- 供應鏈視角：關注庫存、物流路線、替代供應商和資格認證週期。",
+                "",
                 "## 需要小心的地方",
                 "",
                 "- 本系統不進行即時網頁檢索，也不提供預測、法律意見、投資建議或交易建議。",
@@ -224,7 +264,9 @@ def _render_beginner_output(language: str) -> str:
         [
             "# Beginner Explanation",
             "",
-            DISCLAIMERS[language],
+            "## Direct Answer",
+            "",
+            "- The key issue is not to predict the outcome; it is to identify who is exposed, what processes may need adjustment, and which signals to monitor next.",
             "",
             "## One-sentence explanation",
             "",
@@ -244,6 +286,18 @@ def _render_beginner_output(language: str) -> str:
             "- Similar issues are often compared with export controls, sanctions, industrial policy, supply chain disruption, or regulatory change.",
             "- Historical cases are context for comparison, not proof that the current event will repeat the past.",
             "",
+            "## Historical Patterns",
+            "",
+            "- Similar cases often show supplier review, more compliance documentation, clearer management communication, and closer monitoring of implementation details.",
+            "",
+            "## Historical Outcome Distribution",
+            "",
+            "- Historical outcomes can be grouped as adaptation, partial disruption, severe impact, or strategic reassessment. These are local case-library counts, not probabilities.",
+            "",
+            "## Expectation vs Reality",
+            "",
+            "- In historical cases, observers often focus on the headline event first, while practical impact appears later in supply chains, compliance processes, customer communication, and implementation details.",
+            "",
             "## Common responses",
             "",
             "- Organizations often review supply chains, update compliance processes, prepare internal briefs, monitor implementation details, and identify key dependencies.",
@@ -262,6 +316,12 @@ def _render_beginner_output(language: str) -> str:
             "- Monitor government implementation timelines, regulatory guidance, and industry responses.",
             "- Compare the issue with similar historical cases in a short one-page note.",
             "- Prepare a short internal briefing that separates known facts, unknowns, and follow-up questions.",
+            "",
+            "## Role-Based Monitoring",
+            "",
+            "- Investor view: monitor revenue exposure, margin pressure, and management guidance, but do not treat this as investment advice.",
+            "- Corporate strategy view: monitor localization requirements, policy implementation details, and supplier concentration.",
+            "- Supply chain view: monitor inventory, logistics routes, alternative suppliers, and qualification timelines.",
             "",
             "## Important limitations",
             "",
@@ -288,6 +348,12 @@ def _render_chinese_output(localized_markdown: str, mode: str, language: str) ->
         disclaimer = DISCLAIMERS[language]
         note = LANGUAGE_NOTES[language]
         labels = {
+            "direct": "直接回答",
+            "patterns": "历史模式",
+            "distribution": "历史结果分布",
+            "expectation": "预期与现实",
+            "watchlist": "战略观察清单",
+            "roles": "角色化监测重点",
             "summary": "高管摘要",
             "context": "当前事件背景",
             "scenario": "情境分类",
@@ -299,6 +365,30 @@ def _render_chinese_output(localized_markdown: str, mode: str, language: str) ->
             "limits": "局限性",
         }
         bullets = {
+            "direct": [
+                "该事件应被理解为一个需要梳理暴露度、比较历史案例并持续监测执行信号的战略问题。",
+                "系统的核心判断是：先确认谁受影响、哪些流程可能需要调整，再观察政策、供应链和管理层沟通的后续变化。",
+            ],
+            "patterns": [
+                "相似历史案例中，组织常见反应包括供应链多元化、合规流程扩展、内部沟通强化和关键依赖关系复核。",
+                "这些模式描述的是历史案例中的组织行为，不代表当前事件必然出现相同结果。",
+            ],
+            "distribution": [
+                "历史结果通常可分为适应调整、部分中断、严重影响或战略再评估。",
+                "这里的分布来自本地教育性案例库计数，不是现实世界概率。",
+            ],
+            "expectation": [
+                "历史案例显示，外部观察者常先关注标题事件，但实际影响经常出现在执行细节、合规流程和供应链调整中。",
+                "关键情报价值在于识别预期与现实之间的差距。",
+            ],
+            "watchlist": [
+                "接下来 30 到 90 天可关注监管细则、供应商公告、管理层指引、资本开支调整和客户沟通变化。",
+            ],
+            "roles": [
+                "投资者视角可监测收入暴露、利润率压力和管理层指引，但本系统不提供投资建议。",
+                "企业战略视角可监测本地化要求、政策执行细节和供应商集中度。",
+                "供应链视角可监测库存、物流路线、替代供应商和资格认证周期。",
+            ],
             "summary": [
                 "系统已根据输入文本生成本地、确定性的战略情报简报。",
                 "本输出用于决策支持和分析师效率提升，不提供预测、法律意见、投资建议或交易建议。",
@@ -341,6 +431,12 @@ def _render_chinese_output(localized_markdown: str, mode: str, language: str) ->
         disclaimer = DISCLAIMERS[language]
         note = LANGUAGE_NOTES[language]
         labels = {
+            "direct": "直接回答",
+            "patterns": "歷史模式",
+            "distribution": "歷史結果分布",
+            "expectation": "預期與現實",
+            "watchlist": "策略觀察清單",
+            "roles": "角色化監測重點",
             "summary": "高階主管摘要",
             "context": "當前事件背景",
             "scenario": "情境分類",
@@ -352,6 +448,30 @@ def _render_chinese_output(localized_markdown: str, mode: str, language: str) ->
             "limits": "限制",
         }
         bullets = {
+            "direct": [
+                "該事件應被理解為一個需要梳理暴露度、比較歷史案例並持續監測執行訊號的戰略問題。",
+                "系統的核心判斷是：先確認誰受影響、哪些流程可能需要調整，再觀察政策、供應鏈和管理層溝通的後續變化。",
+            ],
+            "patterns": [
+                "相似歷史案例中，組織常見反應包括供應鏈多元化、合規流程擴展、內部溝通強化和關鍵依賴關係複核。",
+                "這些模式描述的是歷史案例中的組織行為，不代表當前事件必然出現相同結果。",
+            ],
+            "distribution": [
+                "歷史結果通常可分為適應調整、部分中斷、嚴重影響或策略再評估。",
+                "這裡的分布來自本地教育性案例庫計數，不是現實世界機率。",
+            ],
+            "expectation": [
+                "歷史案例顯示，外部觀察者常先關注標題事件，但實際影響經常出現在執行細節、合規流程和供應鏈調整中。",
+                "關鍵情報價值在於識別預期與現實之間的差距。",
+            ],
+            "watchlist": [
+                "接下來 30 到 90 天可關注監管細則、供應商公告、管理層指引、資本開支調整和客戶溝通變化。",
+            ],
+            "roles": [
+                "投資者視角可監測收入暴露、利潤率壓力和管理層指引，但本系統不提供投資建議。",
+                "企業策略視角可監測本地化要求、政策執行細節和供應商集中度。",
+                "供應鏈視角可監測庫存、物流路線、替代供應商和資格認證週期。",
+            ],
             "summary": [
                 "系統已根據輸入文字生成本地、確定性的戰略情報簡報。",
                 "本輸出用於決策支持和分析師效率提升，不提供預測、法律意見、投資建議或交易建議。",
@@ -390,8 +510,24 @@ def _render_chinese_output(localized_markdown: str, mode: str, language: str) ->
             ],
         }
 
-    lines = [f"# {title}", "", disclaimer, "", f"> {note}", ""]
-    for key in ["summary", "context", "scenario", "lessons", "outcomes", "analogues", "mechanisms", "evidence", "limits"]:
+    lines = [f"# {title}", "", f"> {note}", ""]
+    for key in [
+        "direct",
+        "patterns",
+        "distribution",
+        "expectation",
+        "watchlist",
+        "roles",
+        "summary",
+        "context",
+        "scenario",
+        "lessons",
+        "outcomes",
+        "analogues",
+        "mechanisms",
+        "evidence",
+        "limits",
+    ]:
         lines.extend([f"## {labels[key]}", ""])
         lines.extend(f"- {item}" for item in bullets[key])
         lines.append("")

@@ -12,6 +12,7 @@ from mechanism_detector import detect_mechanisms
 from multi_lens_analyzer import analyze_lenses
 from outcome_retriever import retrieve_historical_outcomes
 from response_playbook_retriever import retrieve_response_patterns
+from strategic_assessment import generate_strategic_assessments
 from strategic_lessons import generate_strategic_lessons
 from tool_registry import build_default_registry
 
@@ -37,6 +38,7 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
     evidence_assessments = assess_evidence(interpretations)
     historical_outcomes = retrieve_historical_outcomes(analogues)
     strategic_lessons = generate_strategic_lessons(historical_outcomes)
+    strategic_assessments = generate_strategic_assessments(issues, classifications, historical_outcomes)
     evidence_credibility = assess_evidence_credibility(historical_outcomes, strategic_lessons)
     response_patterns = retrieve_response_patterns(analogues, mechanisms)
     brief = registry["BriefGenerator"].callable(
@@ -51,6 +53,7 @@ def run_agent(input_path: str | Path, output_path: str | Path = "outputs/brief.m
         evidence_assessments=evidence_assessments,
         historical_outcomes=historical_outcomes,
         strategic_lessons=strategic_lessons,
+        strategic_assessments=strategic_assessments,
         evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
         event_context=event_context,

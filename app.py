@@ -40,6 +40,7 @@ from outcome_retriever import retrieve_historical_outcomes  # noqa: E402
 from question_router import route_question  # noqa: E402
 from response_playbook_retriever import retrieve_response_patterns  # noqa: E402
 from scenario_classifier import classify_scenarios  # noqa: E402
+from strategic_assessment import generate_strategic_assessments  # noqa: E402
 from strategic_lessons import generate_strategic_lessons  # noqa: E402
 from tool_registry import build_default_registry  # noqa: E402
 
@@ -161,6 +162,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     evidence_assessments = assess_evidence(interpretations)
     historical_outcomes = retrieve_historical_outcomes(analogues)
     strategic_lessons = generate_strategic_lessons(historical_outcomes)
+    strategic_assessments = generate_strategic_assessments(issues, classifications, historical_outcomes)
     evidence_credibility = assess_evidence_credibility(historical_outcomes, strategic_lessons)
     response_patterns = retrieve_response_patterns(analogues, mechanisms)
     base_brief = generate_brief(
@@ -175,6 +177,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         evidence_assessments=evidence_assessments,
         historical_outcomes=historical_outcomes,
         strategic_lessons=strategic_lessons,
+        strategic_assessments=strategic_assessments,
         evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
         event_context=event_context,
@@ -217,6 +220,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         evidence_assessments=evidence_assessments,
         historical_outcomes=historical_outcomes,
         strategic_lessons=strategic_lessons,
+        strategic_assessments=strategic_assessments,
         evidence_credibility=evidence_credibility,
         response_patterns=response_patterns,
         event_context=event_context,
@@ -239,6 +243,7 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
             "Current event context extraction",
             "Historical analogue retrieval",
             "Historical outcome retrieval",
+            "Strategic assessment generation",
             "Strategic lesson generation",
             "Evidence credibility assessment",
             "Response playbook retrieval",
@@ -421,6 +426,7 @@ def _build_analysis_artifact(**items: Any) -> dict[str, Any]:
         "analogues": _serializable(items["analogues"].get(issue_title, [])),
         "historical_outcomes": _serializable(items["historical_outcomes"].get(issue_title, [])),
         "strategic_lessons": _serializable(items["strategic_lessons"].get(issue_title, [])),
+        "strategic_assessment": _serializable(items["strategic_assessments"].get(issue_title, {})),
         "evidence_credibility": _serializable(items["evidence_credibility"].get(issue_title, {})),
         "current_context": _serializable(items["contexts"].get(issue_title, [])),
         "implications": _serializable(items["analyses"]),
@@ -438,6 +444,7 @@ def _build_analysis_artifact(**items: Any) -> dict[str, Any]:
                 "Current event context extraction",
                 "Historical analogue retrieval",
                 "Historical outcome retrieval",
+                "Strategic assessment generation",
                 "Strategic lesson generation",
                 "Evidence credibility assessment",
                 "Response playbook retrieval",

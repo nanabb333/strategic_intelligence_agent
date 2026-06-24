@@ -62,6 +62,7 @@ def generate_brief(
     evidence_assessments=None,
     historical_outcomes=None,
     strategic_lessons=None,
+    strategic_assessments=None,
     evidence_credibility=None,
     response_patterns=None,
     event_context: EventContext | None = None,
@@ -71,7 +72,7 @@ def generate_brief(
     classification_by_issue = {item.issue_title: item for item in classifications}
     analysis_by_issue = {item.issue_title: item for item in analyses}
 
-    lines = ["# Executive Intelligence Brief", "", DISCLAIMER, ""]
+    lines = ["# Executive Intelligence Brief", ""]
 
     for issue in issues:
         classification = classification_by_issue.get(issue.title)
@@ -84,8 +85,75 @@ def generate_brief(
         issue_assessments = (evidence_assessments or {}).get(issue.title, [])
         issue_historical_outcomes = (historical_outcomes or {}).get(issue.title, [])
         issue_strategic_lessons = (strategic_lessons or {}).get(issue.title, [])
+        issue_strategic_assessment = (strategic_assessments or {}).get(issue.title)
         issue_evidence_credibility = (evidence_credibility or {}).get(issue.title)
         issue_response_patterns = (response_patterns or {}).get(issue.title, [])
+
+        if issue_strategic_assessment:
+            lines.extend(
+                [
+                    "## Direct Answer",
+                    "",
+                    f"- {issue_strategic_assessment.direct_answer}",
+                    "",
+                    "## Historical Patterns",
+                    "",
+                ]
+            )
+            if issue_strategic_assessment.historical_patterns:
+                for pattern in issue_strategic_assessment.historical_patterns:
+                    lines.extend(
+                        [
+                            f"- **{pattern.frequency_percent}%:** {pattern.pattern}",
+                            f"  - {pattern.interpretation}",
+                            f"  - Supporting cases: {', '.join(pattern.supporting_cases) or 'None listed'}",
+                        ]
+                    )
+            else:
+                lines.append("- No cross-case patterns were available from retrieved outcomes.")
+            lines.extend(["", "## Historical Outcome Distribution", ""])
+            if issue_strategic_assessment.outcome_distribution:
+                for item in issue_strategic_assessment.outcome_distribution:
+                    lines.extend(
+                        [
+                            f"- **{item.outcome_type}: {item.frequency_percent}%** ({item.case_count} retrieved case(s))",
+                            f"  - {item.interpretation}",
+                        ]
+                    )
+            else:
+                lines.append("- No outcome distribution was available from retrieved outcomes.")
+            lines.extend(["", "## Expectation vs Reality", ""])
+            if issue_strategic_assessment.expectation_vs_reality:
+                for gap in issue_strategic_assessment.expectation_vs_reality:
+                    lines.extend(
+                        [
+                            f"### {gap.event}",
+                            "",
+                            f"- **Consensus expectation:** {gap.consensus_expectation}",
+                            f"- **Observed outcome:** {gap.observed_outcome}",
+                            f"- **Expectation gap:** {gap.expectation_gap}",
+                            f"- **Strategic lesson:** {gap.strategic_lesson}",
+                            "",
+                        ]
+                    )
+            else:
+                lines.append("- No expectation-gap comparison was available.")
+            lines.extend(["## Strategic Watchlist", ""])
+            lines.extend(_bullet_list(issue_strategic_assessment.strategic_watchlist, "No monitoring recommendations generated."))
+            lines.extend(["", "## Role-Based Monitoring", "", "### Investor View", ""])
+            lines.extend(_bullet_list(issue_strategic_assessment.role_based_monitoring.investor_view, "No investor monitoring priorities generated."))
+            lines.extend(["", "### Corporate Strategy View", ""])
+            lines.extend(
+                _bullet_list(
+                    issue_strategic_assessment.role_based_monitoring.corporate_strategy_view,
+                    "No corporate strategy monitoring priorities generated.",
+                )
+            )
+            lines.extend(["", "### Supply Chain View", ""])
+            lines.extend(_bullet_list(issue_strategic_assessment.role_based_monitoring.supply_chain_view, "No supply-chain monitoring priorities generated."))
+            lines.extend(["", "## Important Limitations", ""])
+            lines.extend(_bullet_list(issue_strategic_assessment.important_limitations, "No limitations generated."))
+            lines.append("")
 
         lines.extend(
             [
@@ -430,14 +498,6 @@ def generate_brief(
                 "- Current context retrieval uses local Markdown knowledge-base entries.",
                 "- Historical analogues support structured comparison, not prediction.",
                 "- The synthesis uses phrases such as may resemble, shares characteristics with, differs from, and requires monitoring by design.",
-                "",
-                "## Limitations",
-                "",
-                "- V3.0 uses deterministic routing, keyword matching, and overlap matching.",
-                "- It does not call paid APIs or LLM services.",
-                "- It does not generate forecasts or probabilities.",
-                "- It does not provide trading advice or investment recommendations.",
-                "- Outputs should be reviewed against primary sources before executive use.",
                 "",
                 "### Evidence Trace",
                 "",

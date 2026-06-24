@@ -1,14 +1,14 @@
 :root {
-  --bg: #F5F3FF;
+  --bg: #F7F4FF;
   --panel: #ffffff;
   --ink: #17202a;
   --muted: #657282;
-  --line: #ddd6fe;
-  --accent: #A78BFA;
-  --accent-border: #C4B5FD;
-  --accent-soft: #EDE9FE;
-  --highlight: #EDE9FE;
-  --accent-text: #7C3AED;
+  --line: #DDD6F7;
+  --accent: #B8A7E8;
+  --accent-border: #DDD6F7;
+  --accent-soft: #EFEAFB;
+  --highlight: #EFEAFB;
+  --accent-text: #7C6AA6;
   --warn-soft: #fff7e6;
   --radius: 8px;
 }
@@ -206,7 +206,7 @@ select {
 .input-mode.active {
   background: var(--accent);
   border-color: var(--accent-border);
-  color: #24143f;
+  color: #17202a;
 }
 
 .input-mode-panel {
@@ -226,7 +226,7 @@ select {
 .guided-button.active {
   background: var(--accent);
   border-color: var(--accent-border);
-  color: #24143f;
+  color: #17202a;
 }
 
 textarea {
@@ -256,7 +256,7 @@ textarea {
 .document-dropzone.drag-active,
 .question-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(167, 139, 250, 0.16);
+  box-shadow: 0 0 0 3px rgba(184, 167, 232, 0.14);
   outline: none;
 }
 
@@ -288,7 +288,7 @@ button:disabled {
 #analyze-button {
   background: var(--accent);
   border-color: var(--accent-border);
-  color: #24143f;
+  color: #17202a;
 }
 
 .file-control input {

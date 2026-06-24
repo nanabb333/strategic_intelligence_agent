@@ -246,7 +246,31 @@ Historical outcome records are simplified educational summaries. Source URLs are
 
 The system does not prove factual correctness, legal accuracy, financial accuracy, geopolitical accuracy, or future outcomes. Human expert review is required before executive use.
 
-## How To Run Locally
+## Desktop App Readiness
+
+The intended normal-user product path is:
+
+```text
+Download
+-> Double click
+-> Use in a local desktop app
+```
+
+That desktop wrapper is not built yet. The current repository is a working local product demo and portfolio implementation, but it still requires a developer-style setup to run the FastAPI server.
+
+**For Normal Users**
+
+- Planned experience: no Python, Git, VS Code, terminal commands, or local server setup.
+- Current limitation: the no-code desktop app packaging is not implemented yet.
+- Product goal: paste or upload a document, ask a question, click Analyze, and download results.
+
+**For Developers**
+
+- Use Python, Git, and a local FastAPI server.
+- Run the dashboard locally for testing and portfolio review.
+- Inspect generated Markdown, TXT, and JSON artifacts under `outputs/runs/`.
+
+## Developer Setup
 
 Install dependencies:
 

@@ -41,6 +41,7 @@ class ExpectationGap:
 
     event: str
     consensus_expectation: str
+    market_user_behavior: str
     observed_outcome: str
     expectation_gap: str
     strategic_lesson: str
@@ -151,10 +152,12 @@ def generate_strategic_assessments(
             strategic_watchlist=_strategic_watchlist(scenario, issue),
             role_based_monitoring=_role_based_monitoring(),
             important_limitations=[
-                "Historical patterns describe retrieved educational cases; they are not forecasts.",
+                "Educational use only; this is a local decision-support demo, not a production advisory service.",
+                "This is not investment advice, trading advice, legal advice, or a forecast.",
+                "Human review is recommended before operational, legal, financial, or executive use.",
+                "Historical analogues help structure comparison but do not predict future outcomes.",
                 "Outcome frequencies are counts within the local curated dataset, not real-world probabilities.",
                 "The system does not use live web retrieval or source verification.",
-                "Human review is required before operational, legal, financial, or executive use.",
             ],
         )
     return results
@@ -164,14 +167,17 @@ def _direct_answer(issue: ExtractedIssue, scenario: str, outcomes: list[Historic
     sector = ", ".join(issue.industries[:2]) or "the affected sector"
     if not outcomes:
         return (
-            f"This appears to be a {scenario} issue affecting {sector}. The immediate value is to map exposure, "
-            "identify affected stakeholders, and monitor implementation details before drawing conclusions."
+            f"The key pattern is that this appears to be a {scenario} issue affecting {sector}. "
+            "The main risk is unmanaged exposure: teams should map affected suppliers, customers, regions, and workflows, "
+            "then monitor implementation details before drawing conclusions."
         )
     top_patterns = _historical_patterns(outcomes)[:2]
     pattern_text = "; ".join(item.pattern.lower() for item in top_patterns) or "reviewed exposure and monitoring routines"
     return (
-        f"This appears to be a {scenario} issue affecting {sector}. Across similar historical cases, organizations most often "
-        f"{pattern_text}. The practical next step is to identify exposure, compare similar cases, and monitor concrete implementation signals."
+        f"The strongest historical similarity is a {scenario} issue affecting {sector}. Across similar historical cases, organizations most often "
+        f"{pattern_text}. The key pattern is that operational adaptation usually follows the first policy or market shock. "
+        "The main risk is assuming the headline event is the whole story; the most important uncertainty is how rules, customers, "
+        "suppliers, and management responses change after implementation. The next signal to watch is concrete exposure mapping or policy guidance."
     )
 
 
@@ -251,6 +257,7 @@ def _expectation_gaps(outcomes: list[HistoricalOutcome]) -> list[ExpectationGap]
             ExpectationGap(
                 event=f"{outcome.case_name} ({outcome.year})",
                 consensus_expectation=expectation,
+                market_user_behavior="Local dataset does not contain enough market-outcome evidence for this claim.",
                 observed_outcome=outcome.observed_outcome,
                 expectation_gap=gap,
                 strategic_lesson=lesson,
@@ -277,7 +284,7 @@ def _role_based_monitoring() -> RoleBasedMonitoring:
         investor_view=[
             "Monitor revenue exposure, margin pressure, management guidance, and customer concentration commentary.",
             "Separate operational disruption signals from ordinary quarterly volatility.",
-            "Do not treat this output as investment advice or a buy/sell recommendation.",
+            "Watch whether management distinguishes temporary disruption from durable business-model exposure.",
         ],
         corporate_strategy_view=[
             "Monitor localization requirements, policy implementation details, supplier concentration, and eligibility rules.",

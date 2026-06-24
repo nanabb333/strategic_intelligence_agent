@@ -49,7 +49,7 @@ def validate_analyst_assessment() -> None:
         "## Direct Answer",
         "## Historical Patterns",
         "## Historical Outcome Distribution",
-        "## Expectation vs Reality",
+        "## Market Expectations vs Outcomes",
         "## Strategic Watchlist",
         "## Role-Based Monitoring",
         "## Important Limitations",
@@ -77,12 +77,12 @@ def validate_beginner_assessment() -> None:
     payload = analyze("en", "beginner")
     brief = payload["brief_markdown"]
     for section in [
-        "## Direct Answer",
-        "## Historical Patterns",
-        "## Historical Outcome Distribution",
-        "## Expectation vs Reality",
-        "## Role-Based Monitoring",
-        "## Important limitations",
+        "## What This Means",
+        "## Similar Historical Cases",
+        "## Common responses",
+        "## What Happened After",
+        "## What to monitor next",
+        "## Important Limitations",
     ]:
         require(section in brief, f"Beginner brief missing section: {section}.")
     for internal in ["Tool Registry", "Agent Router", "Mechanism Framework", "Benchmark results", "source pending"]:
@@ -93,7 +93,7 @@ def validate_beginner_assessment() -> None:
 def validate_chinese_assessment() -> None:
     payload = analyze("zh-TW", "beginner")
     brief = payload["brief_markdown"]
-    for phrase in ["直接回答", "歷史模式", "歷史結果分布", "預期與現實", "角色化監測重點", "需要小心的地方"]:
+    for phrase in ["這意味著什麼", "相似歷史案例", "常見應對方式", "後來通常發生什麼", "接下來可以關注什麼", "限制說明"]:
         require(phrase in brief, f"zh-TW beginner brief missing V11 phrase: {phrase}.")
     for english in [
         "Direct Answer",

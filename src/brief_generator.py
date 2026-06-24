@@ -90,11 +90,26 @@ def generate_brief(
         issue_response_patterns = (response_patterns or {}).get(issue.title, [])
 
         if issue_strategic_assessment:
+            similar_cases = ", ".join(item.case_name for item in issue_historical_outcomes[:3]) or "No close historical cases retrieved"
+            happened_then = issue_historical_outcomes[0].observed_outcome if issue_historical_outcomes else "No observed historical outcome was retrieved."
+            response_then = issue_historical_outcomes[0].strategic_response if issue_historical_outcomes else "No historical response pattern was retrieved."
+            happened_after = (
+                f"{issue_strategic_assessment.outcome_distribution[0].outcome_type} was the most common retrieved outcome category "
+                f"({issue_strategic_assessment.outcome_distribution[0].frequency_percent}% of retrieved cases)."
+                if issue_strategic_assessment.outcome_distribution
+                else "No outcome distribution was available."
+            )
+            watch_now = " ".join(issue_strategic_assessment.strategic_watchlist[:2])
             lines.extend(
                 [
                     "## Direct Answer",
                     "",
-                    f"- {issue_strategic_assessment.direct_answer}",
+                    f"- **Similar cases:** {similar_cases}.",
+                    f"- **What happened then:** {happened_then}",
+                    f"- **How organizations responded:** {response_then}",
+                    f"- **What happened after:** {happened_after}",
+                    f"- **What to watch now:** {watch_now}",
+                    f"- **Assessment:** {issue_strategic_assessment.direct_answer}",
                     "",
                     "## Historical Patterns",
                     "",
@@ -122,15 +137,16 @@ def generate_brief(
                     )
             else:
                 lines.append("- No outcome distribution was available from retrieved outcomes.")
-            lines.extend(["", "## Expectation vs Reality", ""])
+            lines.extend(["", "## Market Expectations vs Outcomes", ""])
             if issue_strategic_assessment.expectation_vs_reality:
                 for gap in issue_strategic_assessment.expectation_vs_reality:
                     lines.extend(
                         [
                             f"### {gap.event}",
                             "",
-                            f"- **Consensus expectation:** {gap.consensus_expectation}",
-                            f"- **Observed outcome:** {gap.observed_outcome}",
+                            f"- **Mainstream expectation:** {gap.consensus_expectation}",
+                            f"- **Market / user behavior:** {gap.market_user_behavior}",
+                            f"- **Actual outcome:** {gap.observed_outcome}",
                             f"- **Expectation gap:** {gap.expectation_gap}",
                             f"- **Strategic lesson:** {gap.strategic_lesson}",
                             "",
@@ -151,8 +167,6 @@ def generate_brief(
             )
             lines.extend(["", "### Supply Chain View", ""])
             lines.extend(_bullet_list(issue_strategic_assessment.role_based_monitoring.supply_chain_view, "No supply-chain monitoring priorities generated."))
-            lines.extend(["", "## Important Limitations", ""])
-            lines.extend(_bullet_list(issue_strategic_assessment.important_limitations, "No limitations generated."))
             lines.append("")
 
         lines.extend(
@@ -160,7 +174,6 @@ def generate_brief(
                 "## Executive Summary",
                 "",
                 f"- The document describes {_article_for(scenario)} {scenario} issue involving {', '.join(issue.industries[:3]) or 'strategic operations'}.",
-                "- Historical analogues and current context are used for comparison and decision support, not prediction.",
                 "- Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.",
                 "",
             ]
@@ -333,7 +346,6 @@ def generate_brief(
                 "",
                 "- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.",
                 "- Decision-makers may wish to separate recurring historical lessons from case-specific facts.",
-                "- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.",
                 "",
             ]
         )
@@ -496,7 +508,6 @@ def generate_brief(
                 "",
                 "- V3 uses an Agent Router to select tools before execution.",
                 "- Current context retrieval uses local Markdown knowledge-base entries.",
-                "- Historical analogues support structured comparison, not prediction.",
                 "- The synthesis uses phrases such as may resemble, shares characteristics with, differs from, and requires monitoring by design.",
                 "",
                 "### Evidence Trace",
@@ -541,5 +552,9 @@ def generate_brief(
                     "",
                 ]
             )
+        if issue_strategic_assessment:
+            lines.extend(["## Important Limitations", ""])
+            lines.extend(_bullet_list(issue_strategic_assessment.important_limitations, "No limitations generated."))
+            lines.append("")
 
     return "\n".join(lines).strip() + "\n"

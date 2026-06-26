@@ -8,6 +8,7 @@ from url_reader import fetch_url_text
 
 
 def prepare_analysis_input(*, text: str, source_url: str, question_text: str) -> dict[str, str]:
+    """Prepare source text and combined question/document text for analysis."""
     text = text.strip()
     source_url = source_url.strip()
 

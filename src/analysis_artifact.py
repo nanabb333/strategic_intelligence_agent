@@ -8,6 +8,7 @@ from serialization import serializable
 
 
 def build_analysis_artifact(**items: Any) -> dict[str, Any]:
+    """Build the JSON analysis artifact persisted for each run."""
     issues = items["issues"]
     classifications = items["classifications"]
     route = items["route"]

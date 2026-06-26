@@ -8,6 +8,7 @@ from serialization import serializable
 
 
 def build_agent_trace(route: Any) -> dict[str, Any]:
+    """Build the persisted agent trace artifact for a completed run."""
     return {
         "selected_tools": route.selected_tools,
         "skipped_tools": route.skipped_tools,

@@ -1,7 +1,15 @@
+"""PDF text extraction utilities."""
+
+from __future__ import annotations
+
 from pathlib import Path
 
 from fastapi import HTTPException
+
+
 ROOT = Path(__file__).resolve().parent.parent
+
+
 def extract_pdf_text(raw: bytes) -> str:
     """Extract text from a text-based PDF. OCR is intentionally unsupported."""
     try:

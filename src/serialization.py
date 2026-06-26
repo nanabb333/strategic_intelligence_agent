@@ -7,6 +7,7 @@ from typing import Any
 
 
 def serializable(value: Any) -> Any:
+    """Convert dataclasses, lists, and dictionaries into JSON-friendly objects."""
     if is_dataclass(value):
         return asdict(value)
     if isinstance(value, list):

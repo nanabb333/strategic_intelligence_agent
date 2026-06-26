@@ -20,6 +20,7 @@ def build_analysis_metadata(
     uploaded_filename: str,
     file_type: str,
 ) -> dict[str, Any]:
+    """Build persisted metadata for one analysis run."""
     return {
         "run_id": run_id,
         "created_at": datetime.now().isoformat(timespec="seconds"),

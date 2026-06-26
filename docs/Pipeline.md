@@ -2,6 +2,14 @@
 
 The analysis pipeline lives in `src/analysis_pipeline.py`.
 
+## Related Docs
+
+- [Documentation Index](DocumentationIndex.md)
+- [Product Overview](ProductOverview.md)
+- [Engineering Architecture](EngineeringArchitecture.md)
+- [Folder Structure](FolderStructure.md)
+- [Testing](Testing.md)
+
 ## Main Function
 
 ```python
@@ -57,6 +65,8 @@ Artifact Construction
   v
 Run Storage
 ```
+
+The pipeline is deterministic and local. It does not perform live web research, autonomous planning, or probability scoring.
 
 ## Outputs Written Per Run
 

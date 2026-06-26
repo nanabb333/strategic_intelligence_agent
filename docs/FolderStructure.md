@@ -2,6 +2,14 @@
 
 This document describes the current repository layout.
 
+## Related Docs
+
+- [Documentation Index](DocumentationIndex.md)
+- [Product Overview](ProductOverview.md)
+- [Engineering Architecture](EngineeringArchitecture.md)
+- [Analysis Pipeline](Pipeline.md)
+- [Testing](Testing.md)
+
 ```text
 .
 ├── app.py
@@ -60,3 +68,7 @@ Pytest suite for helper modules and FastAPI endpoint smoke tests.
 ### `.github/workflows/`
 
 Continuous integration workflow for compile and test validation.
+
+## Runtime Artifact Note
+
+Runtime analysis folders under `outputs/runs/` are intentionally ignored by git. They are local outputs created when a user runs an analysis through the dashboard or API.

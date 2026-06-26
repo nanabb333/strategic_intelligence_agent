@@ -7,205 +7,240 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <main class="workbench">
-      <section class="input-panel" aria-labelledby="app-title">
-        <div class="brand-row">
-          <div>
-            <p class="eyebrow" data-i18n="workbenchLabel">Decision Companion</p>
-            <h1 id="app-title" data-i18n="appTitle">Make sense of a strategic situation</h1>
-          </div>
+    <div class="product-shell">
+      <header class="shell-header" aria-labelledby="app-title">
+        <div class="shell-brand">
+          <p class="eyebrow" data-i18n="workbenchLabel">Decision Companion</p>
+          <h1 id="app-title" data-i18n="appTitle">Make sense of a strategic situation</h1>
+          <p id="helper-text" class="hero-copy">Ask a decision question and add source material. The app returns a decision brief first, then supporting evidence, analysis details, and downloadable artifacts.</p>
+        </div>
+        <div class="shell-status">
           <span id="api-status" class="status-pill">Checking server</span>
+          <span class="local-pill">Local FastAPI workspace</span>
         </div>
+      </header>
 
-        <p id="helper-text" class="helper-text">Ask a decision question and add source material. The app returns a decision brief first, then supporting evidence, analysis details, and downloadable artifacts.</p>
-
-        <ol class="decision-flow" aria-label="Decision workflow">
-          <li data-i18n="flowInput">1. Add situation</li>
-          <li data-i18n="flowEvidence">2. Review evidence</li>
-          <li data-i18n="flowDecision">3. Decide what to monitor</li>
-        </ol>
-
-        <section class="trust-note" aria-label="Trust and limitations">
-          <strong data-i18n="trustNoteTitle">Trust boundary</strong>
-          <p data-i18n="trustNoteBody">Local deterministic rules and curated knowledge files support the brief. Treat outputs as decision-support drafts for human review, not forecasts, legal advice, investment advice, or verified research.</p>
-        </section>
-
-        <div class="selector-grid" aria-label="Language and output controls">
-          <label for="language-select" data-i18n="languageLabel">Language</label>
-          <select id="language-select">
-            <option value="en">English</option>
-            <option value="zh-CN">简体中文</option>
-            <option value="zh-TW">繁體中文</option>
-          </select>
-
-          <label for="mode-select" data-i18n="outputModeLabel">Output mode</label>
-          <select id="mode-select">
-            <option value="beginner" selected data-i18n="beginnerMode">Beginner</option>
-            <option value="analyst" data-i18n="analystMode">Analyst</option>
-            <option value="executive" data-i18n="executiveMode">Executive</option>
-          </select>
-        </div>
-
-        <section class="assistant-composer">
-          <label for="assistant-input" class="input-label" data-i18n="assistantInputLabel">Decision question and source material</label>
-          <textarea id="assistant-input" class="document-dropzone assistant-input" spellcheck="true" data-i18n-placeholder="assistantPlaceholder" placeholder="What decision does this situation raise?
+      <main class="workbench">
+        <aside class="input-panel" aria-label="Decision workspace setup">
+          <section class="workspace-card">
+            <div class="workspace-card-header">
+              <span class="step-pill" data-i18n="stepOne">Step 1</span>
+              <h2 data-i18n="decisionGroup">Decision</h2>
+            </div>
+            <ol class="decision-flow" aria-label="Decision workflow">
+              <li data-i18n="flowInput">1. Add situation</li>
+              <li data-i18n="flowEvidence">2. Review evidence</li>
+              <li data-i18n="flowDecision">3. Decide what to monitor</li>
+            </ol>
+            <button id="analyze-button" type="button" data-i18n="runAnalysis">Build decision brief</button>
+            <label for="assistant-input" class="input-label" data-i18n="assistantInputLabel">Decision question and source material</label>
+            <textarea id="assistant-input" class="document-dropzone assistant-input" spellcheck="true" data-i18n-placeholder="assistantPlaceholder" placeholder="What decision does this situation raise?
 Which historical cases are most similar?
 What trade-offs should be considered?
 What evidence would change today's recommendation?
 
 Paste an article, policy excerpt, earnings note, URL, or operational update here.">New semiconductor export controls affect advanced chip supply chains and market access. Equipment suppliers are reviewing licensing requirements, customer eligibility, and compliance documentation. Executives want to understand similar historical cases, observed outcomes, and what to monitor next.</textarea>
-          <div class="assistant-actions">
-            <label class="file-control upload-box compact-upload" for="file-input">
-              <span data-i18n="uploadInstructions">Upload .txt / .md / .markdown / .pdf</span>
-              <strong id="uploaded-file-name" data-i18n="noFileSelected">No file selected</strong>
-              <input id="file-input" type="file" accept=".md,.markdown,.txt,.pdf,text/markdown,text/plain,application/pdf">
-            </label>
-            <p class="note" data-i18n="urlModeNote">Paste a full webpage URL in the box to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.</p>
+          </section>
+
+          <section class="workspace-card">
+            <div class="workspace-card-header">
+              <span class="step-pill" data-i18n="stepTwo">Step 2</span>
+              <h2 data-i18n="supportGroup">Supporting Material</h2>
+            </div>
+            <div class="assistant-actions">
+              <label class="file-control upload-box compact-upload" for="file-input">
+                <span data-i18n="uploadInstructions">Upload .txt / .md / .markdown / .pdf</span>
+                <strong id="uploaded-file-name" data-i18n="noFileSelected">No file selected</strong>
+                <input id="file-input" type="file" accept=".md,.markdown,.txt,.pdf,text/markdown,text/plain,application/pdf">
+              </label>
+              <p class="note" data-i18n="urlModeNote">Paste a full webpage URL in the box to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.</p>
+            </div>
+          </section>
+
+          <section class="workspace-card">
+            <div class="workspace-card-header">
+              <span class="step-pill" data-i18n="stepThree">Step 3</span>
+              <h2 data-i18n="settingsGroup">Brief Settings</h2>
+            </div>
+            <div class="selector-grid" aria-label="Language and output controls">
+              <label for="language-select" data-i18n="languageLabel">Language</label>
+              <select id="language-select">
+                <option value="en">English</option>
+                <option value="zh-CN">简体中文</option>
+                <option value="zh-TW">繁體中文</option>
+              </select>
+
+              <label for="mode-select" data-i18n="outputModeLabel">Output mode</label>
+              <select id="mode-select">
+                <option value="beginner" selected data-i18n="beginnerMode">Beginner</option>
+                <option value="analyst" data-i18n="analystMode">Analyst</option>
+                <option value="executive" data-i18n="executiveMode">Executive</option>
+              </select>
+            </div>
+          </section>
+
+          <section class="trust-note" aria-label="Trust and limitations">
+            <strong data-i18n="trustNoteTitle">Trust boundary</strong>
+            <p data-i18n="trustNoteBody">Local deterministic rules and curated knowledge files support the brief. Treat outputs as decision-support drafts for human review, not forecasts, legal advice, investment advice, or verified research.</p>
+          </section>
+
+          <details class="advanced-settings">
+            <summary data-i18n="advancedSettings">Advanced settings and input options</summary>
+            <div class="advanced-body">
+              <p class="note" data-i18n="advancedNote">Downloads, run history, and stored artifacts remain available after analysis.</p>
+            </div>
+          </details>
+
+          <section class="workspace-card compact-card">
+            <div class="workspace-card-header">
+              <span class="step-pill" data-i18n="artifactsGroup">Artifacts</span>
+              <h2 data-i18n="downloadsGroup">Downloads</h2>
+            </div>
+            <div class="export-row" aria-label="Export executive brief">
+              <button id="export-md" type="button" data-i18n="exportMarkdown">Export Markdown</button>
+              <button id="export-txt" type="button" data-i18n="exportTxt">Export TXT</button>
+              <button id="export-json" type="button">Download JSON</button>
+            </div>
+            <p id="run-note" class="note" data-i18n="exportNote">Results are saved locally by the FastAPI app under outputs/runs/.</p>
+          </section>
+
+          <section class="history-panel" aria-labelledby="history-title">
+            <h2 id="history-title" data-i18n="runHistory">Run History</h2>
+            <div id="history-list" class="history-list"></div>
+          </section>
+        </aside>
+
+        <section class="results-panel" aria-live="polite" aria-labelledby="results-title">
+          <header class="results-header">
+            <p class="eyebrow" data-i18n="resultsTitle">Decision workspace</p>
+            <h2 id="results-title" data-i18n="decisionBriefTitle">Decision Brief</h2>
+            <p data-i18n="resultsSubtitle">Start with the recommendation, then inspect supporting material and method details as needed.</p>
+          </header>
+
+          <div class="section-divider" data-i18n="decisionGroup">Decision</div>
+          <section class="result-card result-card-primary" aria-labelledby="decision-brief-title">
+            <div class="result-card-header">
+              <h3 id="decision-brief-title" data-i18n="executiveBrief">Executive Brief</h3>
+              <span data-source="All Evidence">All Evidence</span>
+            </div>
+            <div id="brief-section" class="brief-output"></div>
+          </section>
+
+          <div class="download-shelf" aria-label="Download generated artifacts">
+            <span>Downloads</span>
+            <button id="download-shelf-md" type="button">Markdown</button>
+            <button id="download-shelf-txt" type="button">TXT</button>
+            <button id="download-shelf-json" type="button">JSON</button>
           </div>
-          <button id="analyze-button" type="button" data-i18n="runAnalysis">Build decision brief</button>
+
+          <div class="section-divider internal-detail" data-i18n="supportGroup">Supporting material</div>
+          <details open class="internal-detail">
+            <summary><span data-i18n="strategicLessons">Strategic Lessons</span> <span data-source="Strategic Lessons Engine">Strategic Lessons Engine</span></summary>
+            <div id="lessons-section" class="section-body"></div>
+          </details>
+
+          <details class="internal-detail">
+            <summary><span data-i18n="historicalOutcomes">Historical Outcomes</span> <span data-source="Historical Outcomes Database">Historical Outcomes Database</span></summary>
+            <div id="outcomes-section" class="section-body"></div>
+          </details>
+
+          <details class="internal-detail">
+            <summary><span data-i18n="historicalAnalogues">Historical Analogues</span> <span data-source="Historical Database">Historical Database</span></summary>
+            <div id="analogues-section" class="section-body"></div>
+          </details>
+
+          <div class="section-divider internal-detail" data-i18n="analysisGroup">Analysis</div>
+
+          <details open class="internal-detail">
+            <summary><span data-i18n="currentEventContext">Current Event Context</span> <span data-source="Input Document">Input Document</span></summary>
+            <div id="event-context-section" class="section-body"></div>
+          </details>
+
+          <details class="internal-detail">
+            <summary><span data-i18n="mechanisms">Mechanisms</span> <span data-source="Mechanism Framework">Mechanism Framework</span></summary>
+            <div id="mechanisms-section" class="section-body"></div>
+          </details>
+
+          <details class="internal-detail">
+            <summary><span data-i18n="evidenceReview">Evidence Review</span> <span data-source="Evidence Review">Evidence Review</span></summary>
+            <div id="evidence-credibility-section" class="section-body"></div>
+            <div id="evidence-assessment-section" class="section-body"></div>
+          </details>
+
+          <details id="transparency-tab" class="internal-detail">
+            <summary><span data-i18n="analysisTransparency">Analysis Transparency</span></summary>
+            <div id="transparency-section" class="section-body">
+              <p data-i18n="transparencyNote">This system uses a rules-based workflow to connect the input document with historical cases, common mechanisms, and strategic lessons. A human analyst should review the result.</p>
+            </div>
+          </details>
+
+          <details class="internal-detail">
+            <summary><span data-i18n="executionTrace">Execution Trace</span> <span data-source="Agent Router">Agent Router</span></summary>
+            <div id="trace-section" class="section-body"></div>
+          </details>
+
+          <div class="section-divider internal-detail" data-i18n="methodsGroup">Method details</div>
+
+          <details open class="internal-detail">
+            <summary><span data-i18n="documentSummary">Document Summary</span> <span data-source="Input Document">Input Document</span></summary>
+            <div id="summary-section" class="section-body"></div>
+          </details>
+
+          <details open class="internal-detail">
+            <summary><span data-i18n="scenarioClassification">Scenario Classification</span> <span data-source="Input Document">Input Document</span></summary>
+            <div id="classification-section" class="section-body"></div>
+          </details>
+
+          <details class="internal-detail">
+            <summary><span data-i18n="currentContext">Current Context</span> <span data-source="Context Knowledge Base">Context Knowledge Base</span></summary>
+            <div id="context-section" class="section-body"></div>
+          </details>
+
+          <details class="internal-detail">
+            <summary><span data-i18n="implications">Implications</span> <span data-source="Synthesis">Synthesis</span></summary>
+            <div id="implications-section" class="section-body"></div>
+          </details>
+
+          <details class="internal-detail">
+            <summary><span data-i18n="analysisPath">Analysis Path</span> <span data-source="Tool Registry">Tool Registry</span></summary>
+            <div id="path-section" class="section-body"></div>
+          </details>
+
+          <details class="internal-detail">
+            <summary><span data-i18n="selectedTools">Selected Tools</span> <span data-source="Agent Router">Agent Router</span></summary>
+            <div id="tools-section" class="section-body"></div>
+          </details>
+
+          <details class="internal-detail">
+            <summary><span data-i18n="interpretations">Interpretations</span> <span data-source="Multi-Lens Analysis">Multi-Lens Analysis</span></summary>
+            <div id="interpretations-section" class="section-body"></div>
+          </details>
+
+          <details class="internal-detail">
+            <summary><span data-i18n="historicalResponses">Historical Responses</span> <span data-source="Response Patterns">Response Patterns</span></summary>
+            <div id="responses-section" class="section-body"></div>
+          </details>
+
+          <details id="evaluation-tab" class="internal-detail">
+            <summary><span data-i18n="evaluation">Evaluation</span> <span data-source="Benchmark Framework">Benchmark Framework</span></summary>
+            <div id="evaluation-section" class="section-body">
+              <h3>Internal benchmark snapshot</h3>
+              <p>These values come from compact synthetic / curated benchmark cases. They measure deterministic consistency and coverage inside this repository, not real-world accuracy.</p>
+              <ul>
+                <li>Benchmark cases: 25</li>
+                <li>Scenario Accuracy: 0.88</li>
+                <li>Mechanism Accuracy: 0.72</li>
+                <li>Lens Coverage Rate: 1.0</li>
+                <li>Response Retrieval Coverage: 1.0</li>
+                <li>Overall Benchmark Score: 0.9</li>
+              </ul>
+              <p><span class="evidence"><span data-i18n="source">Source</span>: evaluation/benchmark_results.csv</span></p>
+              <p>Known limitation: current benchmark cases do not prove factual correctness, legal accuracy, financial accuracy, geopolitical accuracy, or future outcomes.</p>
+            </div>
+          </details>
         </section>
-
-        <details class="advanced-settings">
-          <summary data-i18n="advancedSettings">Advanced settings and input options</summary>
-          <div class="advanced-body">
-            <p class="note" data-i18n="advancedNote">Downloads, run history, and stored artifacts remain available after analysis.</p>
-          </div>
-        </details>
-
-        <div class="export-row" aria-label="Export executive brief">
-          <button id="export-md" type="button" data-i18n="exportMarkdown">Export Markdown</button>
-          <button id="export-txt" type="button" data-i18n="exportTxt">Export TXT</button>
-          <button id="export-json" type="button">Download JSON</button>
-        </div>
-
-        <p id="run-note" class="note" data-i18n="exportNote">Results are saved locally by the FastAPI app under outputs/runs/.</p>
-
-        <section class="history-panel" aria-labelledby="history-title">
-          <h2 id="history-title">Run History</h2>
-          <div id="history-list" class="history-list"></div>
-        </section>
-      </section>
-
-      <section class="results-panel" aria-live="polite" aria-labelledby="results-title">
-        <header class="results-header">
-          <p class="eyebrow" data-i18n="resultsTitle">Decision workspace</p>
-          <h2 id="results-title" data-i18n="executiveBrief">Executive Brief</h2>
-          <p data-i18n="resultsSubtitle">Start with the recommendation, then inspect supporting material and method details as needed.</p>
-        </header>
-
-        <div class="section-divider" data-i18n="decisionGroup">Decision</div>
-        <details open>
-          <summary><span data-i18n="executiveBrief">Executive Brief</span> <span data-source="All Evidence">All Evidence</span></summary>
-          <div id="brief-section" class="brief-output"></div>
-        </details>
-
-        <div class="section-divider internal-detail" data-i18n="supportGroup">Supporting material</div>
-        <details open class="internal-detail">
-          <summary><span data-i18n="strategicLessons">Strategic Lessons</span> <span data-source="Strategic Lessons Engine">Strategic Lessons Engine</span></summary>
-          <div id="lessons-section" class="section-body"></div>
-        </details>
-
-        <details class="internal-detail">
-          <summary><span data-i18n="historicalOutcomes">Historical Outcomes</span> <span data-source="Historical Outcomes Database">Historical Outcomes Database</span></summary>
-          <div id="outcomes-section" class="section-body"></div>
-        </details>
-
-        <details class="internal-detail">
-          <summary><span data-i18n="historicalAnalogues">Historical Analogues</span> <span data-source="Historical Database">Historical Database</span></summary>
-          <div id="analogues-section" class="section-body"></div>
-        </details>
-
-        <div class="section-divider internal-detail" data-i18n="analysisGroup">Analysis</div>
-
-        <details open class="internal-detail">
-          <summary><span data-i18n="currentEventContext">Current Event Context</span> <span data-source="Input Document">Input Document</span></summary>
-          <div id="event-context-section" class="section-body"></div>
-        </details>
-
-        <details class="internal-detail">
-          <summary><span data-i18n="mechanisms">Mechanisms</span> <span data-source="Mechanism Framework">Mechanism Framework</span></summary>
-          <div id="mechanisms-section" class="section-body"></div>
-        </details>
-
-        <details class="internal-detail">
-          <summary><span data-i18n="evidenceReview">Evidence Review</span> <span data-source="Evidence Review">Evidence Review</span></summary>
-          <div id="evidence-credibility-section" class="section-body"></div>
-          <div id="evidence-assessment-section" class="section-body"></div>
-        </details>
-
-        <details id="transparency-tab" class="internal-detail">
-          <summary><span data-i18n="analysisTransparency">Analysis Transparency</span></summary>
-          <div id="transparency-section" class="section-body">
-            <p data-i18n="transparencyNote">This system uses a rules-based workflow to connect the input document with historical cases, common mechanisms, and strategic lessons. A human analyst should review the result.</p>
-          </div>
-        </details>
-
-        <details class="internal-detail">
-          <summary><span data-i18n="executionTrace">Execution Trace</span> <span data-source="Agent Router">Agent Router</span></summary>
-          <div id="trace-section" class="section-body"></div>
-        </details>
-
-        <div class="section-divider internal-detail" data-i18n="methodsGroup">Method details</div>
-
-        <details open class="internal-detail">
-          <summary><span data-i18n="documentSummary">Document Summary</span> <span data-source="Input Document">Input Document</span></summary>
-          <div id="summary-section" class="section-body"></div>
-        </details>
-
-        <details open class="internal-detail">
-          <summary><span data-i18n="scenarioClassification">Scenario Classification</span> <span data-source="Input Document">Input Document</span></summary>
-          <div id="classification-section" class="section-body"></div>
-        </details>
-
-        <details class="internal-detail">
-          <summary><span data-i18n="currentContext">Current Context</span> <span data-source="Context Knowledge Base">Context Knowledge Base</span></summary>
-          <div id="context-section" class="section-body"></div>
-        </details>
-
-        <details class="internal-detail">
-          <summary><span data-i18n="implications">Implications</span> <span data-source="Synthesis">Synthesis</span></summary>
-          <div id="implications-section" class="section-body"></div>
-        </details>
-
-        <details class="internal-detail">
-          <summary><span data-i18n="analysisPath">Analysis Path</span> <span data-source="Tool Registry">Tool Registry</span></summary>
-          <div id="path-section" class="section-body"></div>
-        </details>
-
-        <details class="internal-detail">
-          <summary><span data-i18n="selectedTools">Selected Tools</span> <span data-source="Agent Router">Agent Router</span></summary>
-          <div id="tools-section" class="section-body"></div>
-        </details>
-
-        <details class="internal-detail">
-          <summary><span data-i18n="interpretations">Interpretations</span> <span data-source="Multi-Lens Analysis">Multi-Lens Analysis</span></summary>
-          <div id="interpretations-section" class="section-body"></div>
-        </details>
-
-        <details class="internal-detail">
-          <summary><span data-i18n="historicalResponses">Historical Responses</span> <span data-source="Response Patterns">Response Patterns</span></summary>
-          <div id="responses-section" class="section-body"></div>
-        </details>
-
-        <details id="evaluation-tab" class="internal-detail">
-          <summary><span data-i18n="evaluation">Evaluation</span> <span data-source="Benchmark Framework">Benchmark Framework</span></summary>
-          <div id="evaluation-section" class="section-body">
-            <h3>Internal benchmark snapshot</h3>
-            <p>These values come from compact synthetic / curated benchmark cases. They measure deterministic consistency and coverage inside this repository, not real-world accuracy.</p>
-            <ul>
-              <li>Benchmark cases: 25</li>
-              <li>Scenario Accuracy: 0.88</li>
-              <li>Mechanism Accuracy: 0.72</li>
-              <li>Lens Coverage Rate: 1.0</li>
-              <li>Response Retrieval Coverage: 1.0</li>
-              <li>Overall Benchmark Score: 0.9</li>
-            </ul>
-            <p><span class="evidence"><span data-i18n="source">Source</span>: evaluation/benchmark_results.csv</span></p>
-            <p>Known limitation: current benchmark cases do not prove factual correctness, legal accuracy, financial accuracy, geopolitical accuracy, or future outcomes.</p>
-          </div>
-        </details>
-      </section>
-    </main>
+      </main>
+    </div>
 
     <script src="app.js"></script>
   </body>

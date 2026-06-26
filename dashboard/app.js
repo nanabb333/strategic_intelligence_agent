@@ -11,11 +11,23 @@ const localeText = {
     flowEvidence: "2. Review evidence",
     flowDecision: "3. Decide what to monitor",
     resultsTitle: "Decision workspace",
+    decisionBriefTitle: "Decision Brief",
     resultsSubtitle: "Start with the recommendation, then inspect supporting material and method details as needed.",
     decisionGroup: "Decision",
     supportGroup: "Supporting material",
     analysisGroup: "Analysis",
     methodsGroup: "Method details",
+    settingsGroup: "Brief settings",
+    artifactsGroup: "Artifacts",
+    downloadsGroup: "Downloads",
+    runHistory: "Run History",
+    emptyTitle: "Start with a situation",
+    emptyBody: "Paste a policy excerpt, earnings note, supply chain update, URL, or internal memo. Ask the decision question you want the brief to address.",
+    emptyDecision: "The decision brief will appear here first.",
+    emptyEvidence: "Supporting evidence, historical cases, and limitations appear after the first run.",
+    emptyDownloads: "Markdown, TXT, and JSON downloads become available after analysis.",
+    loadingTitle: "Building decision brief",
+    loadingBody: "Reviewing the input, matching local historical cases, and preparing downloadable artifacts.",
     assistantInputLabel: "Decision question and source material",
     assistantPlaceholder: "What decision does this situation raise?\nWhich historical cases are most similar?\nWhat trade-offs should be considered?\nWhat evidence would change today's recommendation?\n\nPaste an article, policy excerpt, earnings note, URL, or operational update here.",
     documentTextLabel: "Paste document or article here",
@@ -119,11 +131,23 @@ const localeText = {
     flowEvidence: "2. 查看证据",
     flowDecision: "3. 判断观察重点",
     resultsTitle: "决策工作区",
+    decisionBriefTitle: "决策简报",
     resultsSubtitle: "先看当前建议，再按需要查看支持材料和方法细节。",
     decisionGroup: "决策",
     supportGroup: "支持材料",
     analysisGroup: "分析",
     methodsGroup: "方法细节",
+    settingsGroup: "简报设置",
+    artifactsGroup: "产物",
+    downloadsGroup: "下载",
+    runHistory: "运行历史",
+    emptyTitle: "先添加一个情境",
+    emptyBody: "粘贴政策摘录、财报说明、供应链更新、网址或内部备忘录，并说明你希望简报回答的决策问题。",
+    emptyDecision: "决策简报会优先显示在这里。",
+    emptyEvidence: "首次运行后会显示支持证据、历史案例和局限性。",
+    emptyDownloads: "分析完成后可下载 Markdown、TXT 和 JSON。",
+    loadingTitle: "正在生成决策简报",
+    loadingBody: "正在读取输入、匹配本地历史案例，并准备可下载产物。",
     assistantInputLabel: "决策问题和来源材料",
     assistantPlaceholder: "这个情境提出了什么决策问题？\n哪些历史案例最相似？\n应考虑哪些取舍？\n哪些证据会改变今天的判断？\n\n在这里粘贴文章、政策摘录、财报说明、网址或运营更新。",
     documentTextLabel: "在这里粘贴文档或文章",
@@ -227,11 +251,23 @@ const localeText = {
     flowEvidence: "2. 查看證據",
     flowDecision: "3. 判斷觀察重點",
     resultsTitle: "決策工作區",
+    decisionBriefTitle: "決策簡報",
     resultsSubtitle: "先看目前建議，再按需要查看支持材料和方法細節。",
     decisionGroup: "決策",
     supportGroup: "支持材料",
     analysisGroup: "分析",
     methodsGroup: "方法細節",
+    settingsGroup: "簡報設定",
+    artifactsGroup: "產物",
+    downloadsGroup: "下載",
+    runHistory: "執行歷史",
+    emptyTitle: "先加入一個情境",
+    emptyBody: "貼上政策摘錄、財報說明、供應鏈更新、網址或內部備忘錄，並說明你希望簡報回答的決策問題。",
+    emptyDecision: "決策簡報會優先顯示在這裡。",
+    emptyEvidence: "首次執行後會顯示支持證據、歷史案例和限制。",
+    emptyDownloads: "分析完成後可下載 Markdown、TXT 和 JSON。",
+    loadingTitle: "正在產生決策簡報",
+    loadingBody: "正在讀取輸入、匹配本地歷史案例，並準備可下載產物。",
     assistantInputLabel: "決策問題和來源材料",
     assistantPlaceholder: "這個情境提出了什麼決策問題？\n哪些歷史案例最相似？\n應考慮哪些取捨？\n哪些證據會改變今天的判斷？\n\n在這裡貼上文章、政策摘錄、財報說明、網址或營運更新。",
     documentTextLabel: "在這裡貼上文件或文章",
@@ -416,6 +452,9 @@ function applyLocale() {
   });
   document.getElementById("helper-text").textContent = t("helperText");
   applyOutputModeVisibility();
+  if (!currentRun) {
+    renderEmptyWorkspace();
+  }
 }
 
 function currentOutputMode() {
@@ -461,6 +500,7 @@ async function analyzeDocument() {
   const button = document.getElementById("analyze-button");
   button.disabled = true;
   button.textContent = t("analyzing");
+  renderLoadingWorkspace();
   try {
     const response = await fetch(`${API_BASE}/analyze`, {
       method: "POST",
@@ -545,6 +585,33 @@ async function openRun(runId) {
   }
   currentRun = await response.json();
   renderRun(currentRun);
+}
+
+function renderEmptyWorkspace() {
+  document.getElementById("brief-section").innerHTML = `
+    <article class="empty-workspace">
+      <div class="empty-kicker">${escapeHtml(t("decisionGroup"))}</div>
+      <h3>${escapeHtml(t("emptyTitle"))}</h3>
+      <p>${escapeHtml(t("emptyBody"))}</p>
+      <div class="empty-grid">
+        <div><strong>${escapeHtml(t("emptyDecision"))}</strong></div>
+        <div><strong>${escapeHtml(t("emptyEvidence"))}</strong></div>
+        <div><strong>${escapeHtml(t("emptyDownloads"))}</strong></div>
+      </div>
+    </article>
+  `;
+}
+
+function renderLoadingWorkspace() {
+  document.getElementById("brief-section").innerHTML = `
+    <article class="loading-workspace" aria-live="polite">
+      <div class="loading-mark" aria-hidden="true"></div>
+      <div>
+        <h3>${escapeHtml(t("loadingTitle"))}</h3>
+        <p>${escapeHtml(t("loadingBody"))}</p>
+      </div>
+    </article>
+  `;
 }
 
 function renderRun(run) {
@@ -1016,6 +1083,9 @@ document.getElementById("analyze-button").addEventListener("click", analyzeDocum
 document.getElementById("export-md").addEventListener("click", () => downloadArtifact("markdown"));
 document.getElementById("export-txt").addEventListener("click", () => downloadArtifact("txt"));
 document.getElementById("export-json").addEventListener("click", () => downloadArtifact("json"));
+document.getElementById("download-shelf-md").addEventListener("click", () => downloadArtifact("markdown"));
+document.getElementById("download-shelf-txt").addEventListener("click", () => downloadArtifact("txt"));
+document.getElementById("download-shelf-json").addEventListener("click", () => downloadArtifact("json"));
 
 applyLocale();
 checkHealth();

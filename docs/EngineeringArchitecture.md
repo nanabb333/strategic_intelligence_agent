@@ -2,32 +2,44 @@
 
 This document describes the current local application architecture. It does not describe planned or imaginary infrastructure.
 
+## Related Docs
+
+- [Documentation Index](DocumentationIndex.md)
+- [Product Overview](ProductOverview.md)
+- [Analysis Pipeline](Pipeline.md)
+- [Folder Structure](FolderStructure.md)
+- [Testing](Testing.md)
+- [Portfolio Narrative](PortfolioNarrative.md)
+
 ## Runtime Shape
 
 ```text
+User Input
+  |
+  v
 Browser Dashboard
-        |
-        v
+  |
+  v
 FastAPI app.py
-        |
-        v
+  |
+  v
 Service Layer
 src/analysis_service.py
-        |
-        v
+  |
+  v
 Pipeline Orchestration
 src/analysis_pipeline.py
-        |
-        v
+  |
+  v
 Intelligence Modules
 issue extraction, scenario classification, retrieval, assessment, brief generation
-        |
-        v
+  |
+  v
 Artifact Generation
 analysis JSON, markdown brief, text brief, agent trace, metadata
-        |
-        v
-Run Storage
+  |
+  v
+Run Storage + Downloads
 outputs/runs/run_YYYYMMDD_NNN/
 ```
 

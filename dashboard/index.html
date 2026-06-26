@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Strategic Intelligence Agent Workbench</title>
+    <title>Strategic Intelligence Decision Companion</title>
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -11,13 +11,24 @@
       <section class="input-panel" aria-labelledby="app-title">
         <div class="brand-row">
           <div>
-            <p class="eyebrow" data-i18n="workbenchLabel">Analyst Workbench</p>
-            <h1 id="app-title" data-i18n="appTitle">Analyze a document or current event</h1>
+            <p class="eyebrow" data-i18n="workbenchLabel">Decision Companion</p>
+            <h1 id="app-title" data-i18n="appTitle">Make sense of a strategic situation</h1>
           </div>
           <span id="api-status" class="status-pill">Checking server</span>
         </div>
 
-        <p id="helper-text" class="helper-text">Ask a question, paste an article, include a URL, or upload a file. The app returns a strategic brief first, with technical details hidden unless you choose Analyst or Executive mode.</p>
+        <p id="helper-text" class="helper-text">Ask a decision question and add source material. The app returns a decision brief first, then supporting evidence, analysis details, and downloadable artifacts.</p>
+
+        <ol class="decision-flow" aria-label="Decision workflow">
+          <li data-i18n="flowInput">1. Add situation</li>
+          <li data-i18n="flowEvidence">2. Review evidence</li>
+          <li data-i18n="flowDecision">3. Decide what to monitor</li>
+        </ol>
+
+        <section class="trust-note" aria-label="Trust and limitations">
+          <strong data-i18n="trustNoteTitle">Trust boundary</strong>
+          <p data-i18n="trustNoteBody">Local deterministic rules and curated knowledge files support the brief. Treat outputs as decision-support drafts for human review, not forecasts, legal advice, investment advice, or verified research.</p>
+        </section>
 
         <div class="selector-grid" aria-label="Language and output controls">
           <label for="language-select" data-i18n="languageLabel">Language</label>
@@ -36,11 +47,11 @@
         </div>
 
         <section class="assistant-composer">
-          <label for="assistant-input" class="input-label" data-i18n="assistantInputLabel">Ask anything or paste source material</label>
-          <textarea id="assistant-input" class="document-dropzone assistant-input" spellcheck="true" data-i18n-placeholder="assistantPlaceholder" placeholder="What does this event mean?
+          <label for="assistant-input" class="input-label" data-i18n="assistantInputLabel">Decision question and source material</label>
+          <textarea id="assistant-input" class="document-dropzone assistant-input" spellcheck="true" data-i18n-placeholder="assistantPlaceholder" placeholder="What decision does this situation raise?
 Which historical cases are most similar?
-How did organizations respond?
-What should I monitor over the next 90 days?
+What trade-offs should be considered?
+What evidence would change today's recommendation?
 
 Paste an article, policy excerpt, earnings note, URL, or operational update here.">New semiconductor export controls affect advanced chip supply chains and market access. Equipment suppliers are reviewing licensing requirements, customer eligibility, and compliance documentation. Executives want to understand similar historical cases, observed outcomes, and what to monitor next.</textarea>
           <div class="assistant-actions">
@@ -51,7 +62,7 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
             </label>
             <p class="note" data-i18n="urlModeNote">Paste a full webpage URL in the box to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.</p>
           </div>
-          <button id="analyze-button" type="button" data-i18n="runAnalysis">Run Analysis</button>
+          <button id="analyze-button" type="button" data-i18n="runAnalysis">Build decision brief</button>
         </section>
 
         <details class="advanced-settings">
@@ -75,12 +86,20 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
         </section>
       </section>
 
-      <section class="results-panel" aria-live="polite">
+      <section class="results-panel" aria-live="polite" aria-labelledby="results-title">
+        <header class="results-header">
+          <p class="eyebrow" data-i18n="resultsTitle">Decision workspace</p>
+          <h2 id="results-title" data-i18n="executiveBrief">Executive Brief</h2>
+          <p data-i18n="resultsSubtitle">Start with the recommendation, then inspect supporting material and method details as needed.</p>
+        </header>
+
+        <div class="section-divider" data-i18n="decisionGroup">Decision</div>
         <details open>
           <summary><span data-i18n="executiveBrief">Executive Brief</span> <span data-source="All Evidence">All Evidence</span></summary>
           <div id="brief-section" class="brief-output"></div>
         </details>
 
+        <div class="section-divider internal-detail" data-i18n="supportGroup">Supporting material</div>
         <details open class="internal-detail">
           <summary><span data-i18n="strategicLessons">Strategic Lessons</span> <span data-source="Strategic Lessons Engine">Strategic Lessons Engine</span></summary>
           <div id="lessons-section" class="section-body"></div>
@@ -96,7 +115,7 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
           <div id="analogues-section" class="section-body"></div>
         </details>
 
-        <div class="section-divider internal-detail" data-i18n="detailedAnalysis">Detailed Analysis</div>
+        <div class="section-divider internal-detail" data-i18n="analysisGroup">Analysis</div>
 
         <details open class="internal-detail">
           <summary><span data-i18n="currentEventContext">Current Event Context</span> <span data-source="Input Document">Input Document</span></summary>
@@ -126,7 +145,7 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
           <div id="trace-section" class="section-body"></div>
         </details>
 
-        <div class="section-divider internal-detail" data-i18n="methodDetails">Method Details</div>
+        <div class="section-divider internal-detail" data-i18n="methodsGroup">Method details</div>
 
         <details open class="internal-detail">
           <summary><span data-i18n="documentSummary">Document Summary</span> <span data-source="Input Document">Input Document</span></summary>
@@ -171,7 +190,8 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
         <details id="evaluation-tab" class="internal-detail">
           <summary><span data-i18n="evaluation">Evaluation</span> <span data-source="Benchmark Framework">Benchmark Framework</span></summary>
           <div id="evaluation-section" class="section-body">
-            <h3>Benchmark results</h3>
+            <h3>Internal benchmark snapshot</h3>
+            <p>These values come from compact synthetic / curated benchmark cases. They measure deterministic consistency and coverage inside this repository, not real-world accuracy.</p>
             <ul>
               <li>Benchmark cases: 25</li>
               <li>Scenario Accuracy: 0.88</li>
@@ -181,7 +201,7 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
               <li>Overall Benchmark Score: 0.9</li>
             </ul>
             <p><span class="evidence"><span data-i18n="source">Source</span>: evaluation/benchmark_results.csv</span></p>
-            <p>Known limitation: current benchmark cases are compact synthetic / curated cases and scores measure internal benchmark behavior, not real-world accuracy.</p>
+            <p>Known limitation: current benchmark cases do not prove factual correctness, legal accuracy, financial accuracy, geopolitical accuracy, or future outcomes.</p>
           </div>
         </details>
       </section>

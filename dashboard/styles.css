@@ -1,18 +1,18 @@
 :root {
-  --bg: #f8fafc;
+  --bg: #f7f4ff;
   --panel: #ffffff;
-  --panel-soft: #fbfcfd;
-  --ink: #111827;
-  --muted: #6b7280;
-  --line: #e5e7eb;
-  --line-strong: #d1d5db;
-  --accent: #4f6ef7;
-  --accent-border: #b7c5ff;
-  --accent-soft: #eef4ff;
-  --highlight: #f3f6fa;
-  --accent-text: #3b55ca;
+  --panel-soft: #fbfaff;
+  --ink: #181827;
+  --muted: #686577;
+  --line: #e4def3;
+  --line-strong: #d4cbe8;
+  --accent: #8c7ac8;
+  --accent-border: #cfc5ee;
+  --accent-soft: #f0ecfb;
+  --highlight: #f4f1fb;
+  --accent-text: #67579d;
   --warn-soft: #fff7e6;
-  --success-soft: #eefaf4;
+  --success-soft: #eef8f2;
   --radius: 8px;
   --space-1: 4px;
   --space-2: 8px;
@@ -69,7 +69,7 @@ body {
   align-items: center;
   border: 1px solid var(--line);
   border-radius: 999px;
-  background: var(--panel);
+  background: rgba(255, 255, 255, 0.72);
   color: var(--muted);
   font-size: 12px;
   font-weight: 700;
@@ -397,7 +397,7 @@ textarea {
 .question-input:focus,
 .assistant-input:focus {
   border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(184, 167, 232, 0.14);
+  box-shadow: 0 0 0 3px rgba(140, 122, 200, 0.16);
   outline: none;
 }
 
@@ -455,7 +455,7 @@ button:focus-visible,
 .file-control:focus-within,
 select:focus-visible,
 summary:focus-visible {
-  outline: 3px solid rgba(47, 111, 237, 0.18);
+  outline: 3px solid rgba(140, 122, 200, 0.18);
   outline-offset: 2px;
 }
 
@@ -473,7 +473,7 @@ button:disabled {
 }
 
 #analyze-button:hover {
-  background: #275fd0;
+  background: #7765b6;
 }
 
 .file-control input {
@@ -775,7 +775,7 @@ summary::-webkit-details-marker {
   height: 12px;
   border-radius: 999px;
   background: var(--accent);
-  box-shadow: 0 0 0 6px rgba(47, 111, 237, 0.12);
+  box-shadow: 0 0 0 6px rgba(140, 122, 200, 0.14);
   flex: 0 0 auto;
 }
 

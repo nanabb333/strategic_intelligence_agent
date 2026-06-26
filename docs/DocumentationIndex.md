@@ -5,6 +5,7 @@ This index is the recommended starting point for reviewing the repository.
 ## Product Review
 
 - [README](../README.md): main landing page and quick start.
+- [Review Guide](ReviewGuide.md): recommended path for external reviewers.
 - [Product Overview](ProductOverview.md): product purpose, users, inputs, outputs, and limitations.
 - [Demo Scenarios](DemoScenarios.md): realistic local demo scenarios.
 - [Portfolio Narrative](PortfolioNarrative.md): how to present the project as a portfolio artifact.

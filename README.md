@@ -1,8 +1,14 @@
 # Strategic Intelligence Agent
 
-A local FastAPI intelligence app that turns documents, pasted text, uploaded files, and readable user-provided URLs into structured decision-support briefs with historical analogues, strategic lessons, evidence notes, and downloadable artifacts.
+A local FastAPI decision-support workspace that turns strategic source material into structured executive briefs with decision criteria, historical analogues, strategic lessons, evidence notes, and downloadable artifacts.
 
 ![Strategic Intelligence Agent workbench](docs/screenshots/v12_assistant_workbench.svg)
+
+## At A Glance
+
+Strategic Intelligence Agent helps analysts, product leaders, strategy teams, and portfolio reviewers make sense of business, policy, supply-chain, market-access, and geopolitical situations. A user can paste source text, upload a supported file, or provide a readable URL, then generate a local decision brief that separates the current issue, decision criteria, options, historical evidence, trade-offs, monitoring signals, and limitations.
+
+It is different from a generic summarizer because it does not only shorten the source. It structures the situation as a decision-support workflow and produces reviewable Markdown, TXT, JSON, trace, and metadata artifacts.
 
 ## Product Summary
 
@@ -123,6 +129,45 @@ python3 -m pytest
 ```
 
 GitHub Actions runs dependency installation, compile validation, Ruff, and pytest on push and pull request.
+
+## Demo Walkthrough
+
+**Decision question**
+
+```text
+What should management consider after new semiconductor export controls affect customer eligibility and advanced chip supply chains?
+```
+
+**Supporting material**
+
+```text
+New semiconductor export controls affect advanced chip supply chains and market access. Equipment suppliers are reviewing licensing requirements, customer eligibility, and compliance documentation. Executives want to understand similar historical cases, observed outcomes, and what to monitor next.
+```
+
+**Expected output**
+
+The local app produces a decision brief with:
+
+- Decision Snapshot
+- Decision Criteria
+- Decision Paths and Preferred Path
+- Trade-offs and assumptions
+- Historical evidence and analogues
+- Monitoring considerations
+- Evidence and limitation notes
+
+**Downloadable artifacts**
+
+Each run writes local artifacts under `outputs/runs/<run_id>/`:
+
+- `brief.md`
+- `brief.txt`
+- `analysis.json`
+- `agent_trace.json`
+- `metadata.json`
+- `input.txt`
+
+Start with [docs/ReviewGuide.md](docs/ReviewGuide.md) for a reviewer-friendly path through the repo.
 
 ## Example Analysis
 

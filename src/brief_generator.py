@@ -465,7 +465,7 @@ def _preferred_explanation(profile: dict[str, object], criteria: list[DecisionCr
     return [
         f"Top criteria driving the recommendation: {top_text}.",
         f"Why Option B ranks first: it performs best on the criteria that matter most for this decision, especially {top_text}, while preserving flexibility.",
-        f"Costs accepted: Option B requires monitoring, ownership, and delayed full protection rather than a one-step defensive move.",
+        "Costs accepted: Option B requires monitoring, ownership, and delayed full protection rather than a one-step defensive move.",
         f"Why Option A does not rank first: {option_a} keeps costs low, but it can leave the user underprepared on {top_text} if exposure grows.",
         f"Why Option C does not rank first: {option_c} offers more protection, but it can impose high opportunity cost before evidence on {top_text} is strong enough.",
         "What would change the ranking: stronger evidence that the high-importance criteria are either clearly immaterial or clearly severe.",
@@ -700,7 +700,7 @@ def generate_brief(
                             f"### {outcome.case_name} ({outcome.year})",
                             "",
                             f"- **Case:** {outcome.event_family}; {outcome.sector}.",
-                            f"- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.",
+                            "- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.",
                             "- **Key limitation:** The actor, sector exposure, rule detail, and timing may differ from the current case.",
                             f"- **Decision lesson:** {outcome.strategic_response}",
                             "- **Why this case does not fully apply:** Historical similarity supports comparison, not prediction; local exposure and execution constraints must be checked separately.",

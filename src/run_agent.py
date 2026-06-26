@@ -3,7 +3,6 @@
 from pathlib import Path
 
 from agent_router import route_document
-from brief_generator import generate_brief
 from document_loader import load_document
 from evidence_assessor import assess_evidence
 from evidence_credibility import assess_evidence_credibility

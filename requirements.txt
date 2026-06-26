@@ -5,3 +5,4 @@ pypdf>=4.0
 requests
 trafilatura
 pytest
+ruff

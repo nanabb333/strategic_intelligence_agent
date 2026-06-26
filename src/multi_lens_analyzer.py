@@ -79,7 +79,7 @@ def analyze_lenses(
             LensInterpretation(
                 issue_title=issue.title,
                 lens="International Relations",
-                hypothesis=f"One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.",
+                hypothesis="One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.",
                 supporting_observations=[
                     f"Detected regions include {', '.join(issue.countries_or_regions) or 'no explicit region in the source document'}.",
                     f"Mechanisms such as {mechanism_names} can appear in geopolitical or cross-border settings.",
@@ -90,7 +90,7 @@ def analyze_lenses(
             LensInterpretation(
                 issue_title=issue.title,
                 lens="Legislative / Regulatory",
-                hypothesis=f"One possible interpretation is that implementation rules and compliance obligations are central to the event.",
+                hypothesis="One possible interpretation is that implementation rules and compliance obligations are central to the event.",
                 supporting_observations=[
                     f"Detected policy terms include {', '.join(issue.policy_terms) or 'limited explicit policy terms'}.",
                     "The evidence trace includes source document signals and retrieved context records.",
@@ -101,7 +101,7 @@ def analyze_lenses(
             LensInterpretation(
                 issue_title=issue.title,
                 lens="Business Strategy",
-                hypothesis=f"One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.",
+                hypothesis="One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.",
                 supporting_observations=[
                     f"The issue mentions actors such as {', '.join(issue.actors[:3]) or 'business stakeholders'}.",
                     "The brief combines analogue patterns with current context monitoring considerations.",
@@ -112,4 +112,3 @@ def analyze_lenses(
         ]
 
     return results
-

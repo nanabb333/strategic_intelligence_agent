@@ -4,6 +4,15 @@ A local **Strategic Intelligence Assistant** that helps users ask plain-language
 
 ![Strategic Intelligence Agent workbench](docs/screenshots/v12_assistant_workbench.svg)
 
+## Engineering Documentation
+
+For reviewers interested in the software architecture:
+
+- [Engineering Architecture](docs/EngineeringArchitecture.md)
+- [Analysis Pipeline](docs/Pipeline.md)
+- [Testing](docs/Testing.md)
+- [Folder Structure](docs/FolderStructure.md)
+
 ## Normal User Vision
 
 The intended product path is:

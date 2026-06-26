@@ -3,7 +3,9 @@ __pycache__/
 *.pyc
 .DS_Store
 .env
+.pytest_cache/
 venv/
 .venv/
+.venv-1/
 outputs/*.tmp
 outputs/runs/run_*/

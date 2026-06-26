@@ -388,6 +388,14 @@ Open the dashboard:
 http://127.0.0.1:8000/dashboard/
 ```
 
+Run engineering checks:
+
+```bash
+python3 -m ruff check .
+python3 -m compileall app.py src tests
+python3 -m pytest
+```
+
 Each analysis creates a local run folder under `outputs/runs/` containing:
 
 - `input.txt`

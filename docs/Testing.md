@@ -8,6 +8,12 @@ The repository uses `pytest` for lightweight behavior-preserving tests.
 python3 -m pytest
 ```
 
+## Lint Check
+
+```bash
+python3 -m ruff check .
+```
+
 ## Compile Check
 
 ```bash
@@ -25,7 +31,9 @@ Current tests cover:
 - analysis artifact shape
 - FastAPI `/health`
 - FastAPI `/analyze`
+- FastAPI `/run/{run_id}`
 - markdown artifact download route
+- markdown, TXT, and JSON download routes
 
 The tests avoid:
 
@@ -41,5 +49,5 @@ This keeps tests stable while still protecting the public API shape and core art
 GitHub Actions runs the same basic checks on push and pull request:
 
 ```text
-install dependencies -> compile project -> run pytest
+install dependencies -> compile project -> run ruff -> run pytest
 ```

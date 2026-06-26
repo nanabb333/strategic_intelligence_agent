@@ -71,22 +71,44 @@ def validate_output_shape() -> None:
     )
     brief = payload["brief_markdown"]
     analysis = payload["analysis"]
+    required_order = [
+        "## Decision Snapshot",
+        "## Decision Question",
+        "## Decision Criteria",
+        "## Decision Paths",
+        "## Option Ranking",
+        "## Option Comparison",
+        "## Preferred Path",
+        "## Why This Reasoning Holds",
+        "## Action Timeline",
+        "## What to Monitor",
+        "## Historical Evidence",
+        "## Limitations",
+    ]
+    for section in required_order:
+        require(section in brief, f"Analyst brief missing decision-first section: {section}.")
+    positions = [brief.find(section) for section in required_order]
+    require(positions == sorted(positions), "Decision-first sections are not in required order.")
     for phrase in [
-        "**What happened:**",
-        "**Why it matters:**",
-        "## Similar Cases",
-        "## What Happened Then",
-        "## How Organizations Responded",
-        "## What Happened After",
+        "**Current Position:**",
+        "**Confidence:**",
+        "**Why:**",
+        "**Next 30-90 Days:**",
+        "### Option A",
+        "### Option B (Recommended)",
+        "### Option C",
+        "| Option | Risk Reduction | Opportunity Cost | Execution Difficulty | Reversibility | Robustness | Information Value |",
+        "**Option B currently ranks first**",
         "## Market Expectations vs Actual Outcomes",
-        "## What To Watch Next",
         "### Investor",
         "### Corporate Strategy",
         "### Supply Chain",
         "### Policy",
-        "## Limitations",
     ]:
         require(phrase in brief, f"Analyst brief missing V12 phrase: {phrase}.")
+    require(brief.find("## Decision Paths") < brief.find("## Historical Evidence"), "Options must be defined before historical cases.")
+    require(brief.find("## Action Timeline") < brief.find("## Historical Evidence"), "Actions must appear before historical evidence.")
+    require(brief.count("## Limitations") == 1, "Limitations should appear once.")
     for internal in ["## Mechanisms", "## Agent Execution Trace", "Political Economy"]:
         require(internal not in brief, f"Default brief leaked internal framework section: {internal}.")
     require("event_understanding" in analysis, "analysis.json missing event_understanding.")
@@ -100,13 +122,13 @@ def validate_beginner_shape() -> None:
         mode="beginner",
     )["brief_markdown"]
     required_sections = [
-        "## What This Means",
-        "## Why It Matters",
-        "## Similar Cases",
-        "## What Organizations Did",
-        "## What Happened Afterwards",
-        "## Market Expectations vs Outcomes",
-        "## What To Watch Next",
+        "## Decision Snapshot",
+        "## What this means",
+        "## Why it matters",
+        "## Your choices",
+        "## Best current path",
+        "## What to watch next",
+        "## What could change this answer",
         "## Limitations",
     ]
     for section in required_sections:

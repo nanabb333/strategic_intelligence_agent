@@ -53,9 +53,16 @@ EVENT_RULES = [
     {
         "event_type": "Bank product or customer-risk event",
         "event_family": "Financial Product Risk",
-        "keywords": ["high-yield product", "yield product", "structured product", "deposit product", "new bank product", "bank promotion", "wealth product"],
+        "keywords": ["high-yield product", "yield product", "structured product", "deposit product", "new bank product", "bank promotion", "wealth product", "insurance savings product", "usd-denominated insurance", "surrender costs", "fx exposure"],
         "families": ["Regulatory Action", "Financial / Earnings Geopolitical Exposure", "Corporate Strategic Response"],
         "guardrail": "Compare with banking supervision, customer-risk, liquidity-disclosure, and product-governance cases.",
+    },
+    {
+        "event_type": "Family asset allocation review",
+        "event_family": "Asset Allocation Review",
+        "keywords": ["asset allocation", "family assets", "taiwan real estate", "usd liquidity", "singapore assets", "future cash flow", "diversify"],
+        "families": ["Financial / Earnings Geopolitical Exposure", "Corporate Strategic Response", "Regulatory Action"],
+        "guardrail": "Compare with exposure-management and liquidity-planning cases only as decision-support context; do not treat this as investment advice.",
     },
     {
         "event_type": "Industrial subsidy or state-support event",

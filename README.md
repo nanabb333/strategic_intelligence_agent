@@ -132,43 +132,89 @@ This example is intentionally practical: the app does not merely restate the doc
 The example below is an illustrative preview of the local deterministic workflow output. It is not a forecast, investment recommendation, legal opinion, or claim of future accuracy.
 
 ```text
-Current Event Context:
-New semiconductor export controls appear to affect advanced chip supply chains,
-equipment access, licensing exposure, and customer review processes.
+Decision Snapshot:
+Current Position: Monitor closely and prepare staged response options
+Confidence: Medium
+Why: Historical cases suggest the first headline is rarely the full impact; the
+real risk usually appears through implementation details, exposure mapping,
+compliance burden, customer eligibility, margins, or management reaction.
+Next 30-90 Days: Track management guidance, supplier/customer exposure,
+implementation details, margin pressure, and whether the issue remains temporary
+or becomes structural.
 
-Scenario:
-Export Controls
+Decision Question:
+The key question is not only what happened, but whether this event creates a
+temporary adjustment problem or a deeper structural risk.
 
-Mechanisms:
-- Technology Containment
-- Market Access Restriction
-- Compliance Burden
-- Supply Chain Reconfiguration
+Decision Criteria:
+- Customer exposure — Importance: High. Restricted end-user exposure determines
+  whether market access is actually constrained.
+- Licensing uncertainty — Importance: High. Approval timing and denial patterns
+  determine whether the issue becomes an operating bottleneck.
+- Margin impact — Importance: High. Costs matter if they flow through to
+  revenue, pricing, or profitability.
+- Compliance burden — Importance: Medium. Documentation and staffing costs can
+  become durable operating work.
 
-Historical Analogues:
-- Semiconductor equipment export-control episodes
-- Entity-list restrictions affecting technology suppliers
-- Industrial policy responses around strategic chip capacity
+Decision Paths:
+- Option A: Wait for final rule detail before changing operations.
+  Criteria Fit: low disruption, but weak if customer exposure or licensing
+  uncertainty becomes binding.
+- Option B: Map exposure and prepare staged adjustments. Recommended.
+  Criteria Fit: strongest fit against customer exposure, licensing uncertainty,
+  and margin impact while preserving flexibility.
+- Option C: Immediately reduce exposed customers, suppliers, or product lines.
+  Criteria Fit: stronger protection, but higher execution cost if details remain
+  uncertain.
 
-Historical Outcomes:
-- Firms reviewed customer exposure and licensing obligations.
-- Suppliers adjusted compliance screening and reporting workflows.
-- Some organizations reassessed geographic concentration and critical dependencies.
+Option Ranking:
+1. Option B ranks first because the highest-importance criteria are customer
+   exposure, licensing uncertainty, and margin impact. It improves readiness
+   without creating the execution burden of Option C or the underpreparedness
+   of Option A.
+2. Option A ranks second because it has lower cost, but can leave the team
+   underprepared if exposure grows.
+3. Option C ranks third because it is protective but costly unless restrictions
+   are already binding.
 
-Strategic Lessons:
-- Supply chain mapping frequently appears after export-control shocks.
-- Compliance operations become part of strategic planning, not only legal review.
-- Historical analogues are useful for framing questions, not predicting outcomes.
+Preferred Path:
+Option B currently ranks first because it performs best on the criteria that
+matter most for this decision. The recommendation accepts monitoring and
+coordination costs, but avoids premature irreversible action.
 
-Decision Considerations:
-- Which products, customers, or suppliers require review?
-- Which internal teams need a shared view of exposure?
-- What evidence is strong enough for executive discussion, and what remains uncertain?
+Trade-offs:
+- Benefits gained: exposure mapping, readiness, and reversibility.
+- Costs accepted: monitoring cadence, internal ownership, and compliance review.
+- Opportunities sacrificed: the lowest-effort posture of Option A and the
+  maximum immediate protection of Option C.
+- Risks still unresolved: future rule details, license denials, customer
+  eligibility changes, and margin pressure.
 
-Evidence Credibility:
-Historical outcomes are simplified educational summaries from a local knowledge base.
-Confidence labels reflect internal evidence coding, not real-world predictive accuracy.
-Source URLs are not fabricated; unavailable sources remain marked as pending.
+What Could Change This Recommendation:
+- License denials become binding.
+- Customer eligibility materially worsens.
+- Margin damage becomes structural.
+- Management guidance shifts from temporary disruption to durable impairment.
+
+Historical Evidence:
+- Case: Prior semiconductor equipment controls.
+  Why it supports the recommendation: licensing and equipment access became
+  operational work, not only policy headlines.
+  Key limitation: current rule scope, actor exposure, and timing may differ.
+  Decision lesson: map exposure before making irreversible operating changes.
+
+What to Monitor:
+- Management guidance and operating commentary.
+- Supplier and customer exposure.
+- Implementation details, licensing rules, exemptions, or timelines.
+- Margin pressure, cost absorption, or working-capital strain.
+
+Action Timeline:
+- Immediate: review supplier exposure and list products/customers requiring
+  license or eligibility review.
+- Next 30 Days: track compliance costs and management commentary.
+- Next Quarter: reassess whether evidence still supports Option B or whether
+  Option A or Option C has become more appropriate.
 ```
 
 ## Why This Matters

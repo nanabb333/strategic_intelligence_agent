@@ -524,7 +524,7 @@ function renderRun(run) {
   document.getElementById("run-note").textContent = `Saved run: ${metadata.run_id}. Artifacts are stored under outputs/runs/${metadata.run_id}/.`;
   if (analysis.message && analysis.source_url) {
     document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(analysis.message)}</p><p><span class="evidence">${t("source")}: ${escapeHtml(analysis.source_url)}</span></p>`;
-    document.getElementById("brief-section").textContent = run.brief_markdown || "";
+    document.getElementById("brief-section").innerHTML = renderBriefCards(run.brief_markdown || "");
     return;
   }
   const sourceLink = analysis.source_url ? `<p><span class="evidence">${t("source")}: ${escapeHtml(analysis.source_url)}</span></p>` : "";
@@ -542,7 +542,130 @@ function renderRun(run) {
   renderImplications(analysis.implications || []);
   renderTrace(analysis.agent_trace || {});
   document.getElementById("path-section").innerHTML = renderPath();
-  document.getElementById("brief-section").textContent = run.brief_markdown || "";
+  document.getElementById("brief-section").innerHTML = renderBriefCards(run.brief_markdown || "");
+}
+
+function renderBriefCards(markdownText) {
+  const sections = markdownText
+    .replace(/^# .*\n+/, "")
+    .split(/\n(?=## )/g)
+    .map((section) => section.trim())
+    .filter(Boolean);
+
+  return sections.map((section) => {
+    const lines = section.split("\n").map((line) => line.trim()).filter(Boolean);
+    const title = lines[0].replace(/^#+\s*/, "");
+    const body = renderMarkdownLines(lines.slice(1));
+    const sectionClass = briefSectionClass(title);
+
+    return `
+      <article class="${sectionClass}">
+        <h3>${escapeHtml(title)}</h3>
+        ${body}
+      </article>
+    `;
+  }).join("");
+}
+
+function briefSectionClass(title) {
+  const classes = ["brief-card"];
+  const decisionTitles = ["Decision Snapshot", "决策快照", "決策快照"];
+  const criteriaTitles = ["Decision Criteria", "最重要的判断因素", "最重要的判斷因素"];
+  const choiceTitles = ["Decision Paths", "可行方案"];
+  const rankingTitles = ["Option Ranking", "方案排序"];
+  const preferredTitles = ["Preferred Path", "目前最佳方案"];
+  const assumptionTitles = ["Assumptions", "当前假设", "目前假設"];
+  const tradeoffTitles = ["Trade-offs", "取舍：得到什么、放弃什么、风险还在哪里", "取捨：得到什麼、放棄什麼、風險還在哪裡"];
+  const changeTitles = ["What Could Change This Recommendation", "哪些新证据会改变今天的判断", "哪些新證據會改變今天的判斷"];
+  const actionTitles = ["Action Timeline", "行动时间表", "行動時間表"];
+  const monitorTitles = ["What to Monitor", "后续观察重点", "後續觀察重點"];
+  const supportingTitles = [
+    "Historical Evidence",
+    "Market Expectations vs Actual Outcomes",
+    "Evidence Used",
+    "Limitations",
+    "历史证据",
+    "歷史證據",
+    "市场预期与实际结果",
+    "市場預期與實際結果",
+    "使用的证据",
+    "使用的證據",
+    "限制说明",
+    "限制說明",
+  ];
+  if (decisionTitles.includes(title)) classes.push("decision-card");
+  if (criteriaTitles.includes(title)) classes.push("criteria-card");
+  if (choiceTitles.includes(title)) classes.push("choices-card");
+  if (rankingTitles.includes(title)) classes.push("ranking-card");
+  if (preferredTitles.includes(title)) classes.push("recommended-card");
+  if (assumptionTitles.includes(title)) classes.push("assumption-card");
+  if (tradeoffTitles.includes(title)) classes.push("tradeoff-card");
+  if (changeTitles.includes(title)) classes.push("change-card");
+  if (actionTitles.includes(title)) classes.push("action-card");
+  if (monitorTitles.includes(title)) classes.push("monitor-card");
+  if (supportingTitles.includes(title)) {
+    classes.push("supporting-card");
+  }
+  return classes.join(" ");
+}
+
+function renderMarkdownLines(lines) {
+  let html = "";
+  let inList = false;
+  let inTable = false;
+  lines.forEach((line) => {
+    if (!line || /^---+$/.test(line)) return;
+    if (line.startsWith("|")) {
+      if (!inTable) {
+        html += "<table>";
+        inTable = true;
+      }
+      if (/^\|\s*-/.test(line)) return;
+      const cells = line.split("|").slice(1, -1).map((cell) => `<td>${formatInline(cell.trim())}</td>`).join("");
+      html += `<tr>${cells}</tr>`;
+      return;
+    }
+    if (inTable) {
+      html += "</table>";
+      inTable = false;
+    }
+    if (line.startsWith("- ")) {
+      if (!inList) {
+        html += "<ul>";
+        inList = true;
+      }
+      html += `<li>${formatInline(line.replace(/^- /, ""))}</li>`;
+      return;
+    }
+    if (inList) {
+      html += "</ul>";
+      inList = false;
+    }
+    if (line.startsWith("### ")) {
+      const heading = line.replace(/^### /, "");
+      const className = heading.includes("Recommended") ? ' class="recommended-option"' : "";
+      html += `<h4${className}>${formatInline(heading)}</h4>`;
+    } else {
+      html += `<p>${formatInline(line.replace(/^#+\s*/, ""))}</p>`;
+    }
+  });
+  if (inList) html += "</ul>";
+  if (inTable) html += "</table>";
+  return html;
+}
+
+function formatInline(value) {
+  return escapeHtml(value)
+    .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
+    .replace(/Importance: High/g, '<span class="importance high">Importance: High</span>')
+    .replace(/Importance: Medium/g, '<span class="importance medium">Importance: Medium</span>')
+    .replace(/Importance: Low/g, '<span class="importance low">Importance: Low</span>')
+    .replace(/重要性：高/g, '<span class="importance high">重要性：高</span>')
+    .replace(/重要性：中/g, '<span class="importance medium">重要性：中</span>')
+    .replace(/重要性：低/g, '<span class="importance low">重要性：低</span>')
+    .replace(/Criteria Fit/g, '<span class="criteria-fit-label">Criteria Fit</span>')
+    .replace(/与判断因素的符合程度/g, '<span class="criteria-fit-label">与判断因素的符合程度</span>')
+    .replace(/與判斷因素的符合程度/g, '<span class="criteria-fit-label">與判斷因素的符合程度</span>');
 }
 
 function renderEventContext(item) {

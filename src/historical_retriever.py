@@ -7,6 +7,7 @@ import re
 
 from issue_extractor import ExtractedIssue
 from scenario_classifier import ScenarioClassification
+from event_understanding import EventUnderstanding
 
 
 @dataclass
@@ -130,9 +131,18 @@ def retrieve_historical_analogues(
     issues: list[ExtractedIssue],
     classifications: list[ScenarioClassification],
     knowledge_base_path: str | Path = "knowledge_base/historical_analogues.csv",
+    event_understanding: EventUnderstanding | None = None,
 ) -> dict[str, list[HistoricalAnalogue]]:
     """Retrieve top historical analogues using deterministic overlap scoring."""
     cases = load_historical_analogues(knowledge_base_path)
+    if event_understanding and event_understanding.relevant_families:
+        allowed_families = set(event_understanding.relevant_families)
+        filtered_cases = [
+            case for case in cases
+            if case.get("scenario_type") in allowed_families
+        ]
+        if filtered_cases:
+            cases = filtered_cases
     issue_by_title = {issue.title: issue for issue in issues}
     results: dict[str, list[HistoricalAnalogue]] = {}
 

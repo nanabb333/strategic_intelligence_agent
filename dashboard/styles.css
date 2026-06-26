@@ -26,7 +26,7 @@ body {
 
 .workbench {
   display: grid;
-  grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+  grid-template-columns: minmax(340px, 420px) minmax(0, 1fr);
   gap: 16px;
   min-height: 100vh;
   padding: 16px;
@@ -368,11 +368,16 @@ button:disabled {
 }
 
 .results-panel {
-  overflow: hidden;
+  overflow: visible;
+  background: transparent;
+  border: 0;
 }
 
 details {
-  border-bottom: 1px solid var(--line);
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--panel);
 }
 
 .section-divider {
@@ -387,7 +392,7 @@ details {
 }
 
 details:last-child {
-  border-bottom: 0;
+  border-bottom: 1px solid var(--line);
 }
 
 summary {
@@ -468,14 +473,150 @@ summary::-webkit-details-marker {
 }
 
 .brief-output {
+  display: grid;
+  gap: 12px;
   margin: 0;
-  max-height: 520px;
-  overflow: auto;
-  white-space: pre-wrap;
-  background: #0f1720;
-  color: #f7fafc;
-  padding: 18px;
-  font: 13px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  overflow: visible;
+  background: transparent;
+  color: var(--ink);
+  padding: 8px 2px 18px;
+  font: 14px/1.55 inherit;
+}
+
+.brief-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: #ffffff;
+  padding: 16px 18px;
+  width: 100%;
+}
+
+.decision-card {
+  background: var(--accent-soft);
+  border-color: var(--accent-border);
+  border-left: 6px solid var(--accent-text);
+  box-shadow: 0 8px 24px rgba(124, 106, 166, 0.12);
+}
+
+.choices-card,
+.criteria-card,
+.ranking-card,
+.recommended-card,
+.assumption-card,
+.tradeoff-card,
+.change-card,
+.action-card,
+.monitor-card {
+  border-left: 4px solid var(--accent);
+}
+
+.criteria-card {
+  background: #ffffff;
+  border-left-color: var(--accent-text);
+}
+
+.criteria-card li {
+  padding: 6px 0;
+}
+
+.importance {
+  display: inline-block;
+  border-radius: 999px;
+  padding: 2px 8px;
+  margin-right: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.importance.high {
+  background: #efe8ff;
+  color: var(--accent-text);
+}
+
+.importance.medium {
+  background: #fff4d7;
+  color: #755000;
+}
+
+.importance.low {
+  background: #edf4ff;
+  color: #325b8a;
+}
+
+.criteria-fit-label {
+  color: var(--accent-text);
+  font-weight: 800;
+}
+
+.assumption-card,
+.tradeoff-card,
+.change-card {
+  background: #ffffff;
+}
+
+.change-card {
+  border-left-color: #8a5a00;
+}
+
+.supporting-card {
+  background: #fbfcff;
+  color: var(--muted);
+}
+
+.brief-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
+.brief-card h4 {
+  margin: 14px 0 8px;
+  border-top: 1px solid var(--line);
+  padding-top: 12px;
+  font-size: 14px;
+}
+
+.brief-card h4:first-of-type {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.recommended-option {
+  color: var(--accent-text);
+  font-size: 16px !important;
+}
+
+.brief-card p {
+  margin: 8px 0;
+}
+
+.brief-card ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+.brief-card li {
+  margin: 5px 0;
+}
+
+.brief-card table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+  font-size: 13px;
+  table-layout: fixed;
+}
+
+.brief-card td {
+  border: 1px solid var(--line);
+  padding: 7px 8px;
+  vertical-align: top;
+}
+
+.brief-card tr:first-child td {
+  background: var(--highlight);
+  color: var(--accent-text);
+  font-weight: 800;
 }
 
 .empty {

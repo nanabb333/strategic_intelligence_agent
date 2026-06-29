@@ -13,7 +13,7 @@ from brief_generator import generate_brief
 from context_retriever import retrieve_current_context
 from confidence_layer import assess_confidence, render_evidence_confidence_section
 from decision_case import build_decision_case
-from decision_quality_evaluator import evaluate_decision_quality
+from decision_quality_evaluator import evaluate_decision_quality, render_decision_quality_review
 from evidence_assessor import assess_evidence
 from evidence_credibility import assess_evidence_credibility
 from evidence_ledger import build_evidence_ledger
@@ -149,6 +149,12 @@ def execute_analysis_pipeline(
         confidence_assessment=confidence_assessment,
         brief_markdown=brief_markdown,
         language=language,
+    )
+    brief_markdown = (
+        brief_markdown.rstrip()
+        + "\n\n"
+        + render_decision_quality_review(decision_quality_evaluation)
+        + "\n"
     )
     brief_text = markdown_to_text(brief_markdown)
 

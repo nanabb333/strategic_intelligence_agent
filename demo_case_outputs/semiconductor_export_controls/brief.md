@@ -95,7 +95,7 @@ These are the dimensions driving today's decision:
 - Costs accepted: Option B requires monitoring, ownership, and delayed full protection rather than a one-step defensive move.
 - Why Option A does not rank first: Wait for final rule detail before changing operations keeps costs low, but it can leave the user underprepared on Customer exposure, Licensing uncertainty, Margin impact if exposure grows.
 - Why Option C does not rank first: Immediately reduce exposed customers, suppliers, or product lines offers more protection, but it can impose high opportunity cost before evidence on Customer exposure, Licensing uncertainty, Margin impact is strong enough.
-- What would change the ranking: stronger evidence that the high-importance criteria are either clearly immaterial or clearly severe.
+- What would change the ranking: stronger evidence that Customer exposure, Licensing uncertainty, Margin impact are either clearly immaterial or clearly severe.
 
 ## Why This Reasoning Holds
 
@@ -107,21 +107,29 @@ These are the dimensions driving today's decision:
 ## Assumptions
 
 - The rule details, customer eligibility, and license timing remain uncertain enough to make staged preparation more robust than immediate withdrawal.
-- The input text is directionally accurate enough for decision-support framing.
-- No immediate evidence shows that the highest-defensive option is already required.
+- The supplied source material is directionally accurate enough to frame the decision, but still requires human fact review before operational use.
+- The organization has enough time and management capacity to execute Map exposure and prepare staged adjustments before the issue becomes binding.
+- No immediate evidence shows that Immediately reduce exposed customers, suppliers, or product lines is already required.
 
 ## Trade-offs
 
-- Benefits gained: Map exposure and prepare staged adjustments creates information, preparation, and reversibility before irreversible action.
-- Costs accepted: the user must assign ownership, monitor signals, and maintain an update cadence.
-- Opportunities sacrificed: the user does not receive the full immediate protection of Immediately reduce exposed customers, suppliers, or product lines.
-- Risks still unresolved: future policy, cost, customer, liquidity, or operating signals may still move the decision toward a different path.
+- Benefits gained: Map exposure and prepare staged adjustments creates an exposure map, assigns ownership, and preserves reversibility while evidence on Customer exposure, Licensing uncertainty, Margin impact is still developing.
+- Costs accepted: the team must spend management attention now, maintain a review cadence, and tolerate partial exposure while the evidence matures.
+- Opportunities sacrificed: the user gives up the lowest-effort posture of Wait for final rule detail before changing operations and does not receive the full immediate protection of Immediately reduce exposed customers, suppliers, or product lines.
+- Risks still unresolved: new evidence on Customer exposure, Licensing uncertainty, Margin impact, implementation timing, cost, customer behavior, or operating constraints may still justify changing paths.
+
+## Failure Modes
+
+- The preferred path fails if the review cadence misses rapid deterioration in Customer exposure, Licensing uncertainty, Margin impact.
+- The recommendation is weaker if Map exposure and prepare staged adjustments creates process activity without producing a usable exposure map or decision owner.
+- Historical analogues may mislead if the current actor exposure, timing, or implementation details differ materially from retrieved cases.
+- Evidence remains insufficient if the supplied material does not confirm organization-specific exposure, costs, customer impact, or operational constraints.
 
 ## What Could Change This Recommendation
 
-- binding restrictions, license denials, severe customer loss, or management guidance showing structural revenue or margin damage.
-- Option A becomes more reasonable if exposure remains limited, reversible, and low-cost after review.
-- Option C becomes more reasonable if constraints become binding, costly, or difficult to reverse.
+- Binding restrictions, license denials, severe customer loss, or management guidance showing structural revenue or margin damage.
+- Move toward Option A (Wait for final rule detail before changing operations) if review shows limited exposure, low cost, high reversibility, and no deterioration in Customer exposure, Licensing uncertainty, Margin impact.
+- Move toward Option C (Immediately reduce exposed customers, suppliers, or product lines) if constraints become binding, costly, customer-facing, or difficult to reverse.
 
 ## Action Timeline
 
@@ -369,3 +377,56 @@ A fictional policy bulletin describes new export controls affecting advanced sem
 - Historical analogues help structure comparison but do not predict future outcomes.
 - Outcome frequencies are counts within the local curated dataset, not real-world probabilities.
 - The system does not use live web retrieval or source verification.
+
+## Decision Quality Review
+
+**Overall label:** Strong
+**Overall score:** 0.969
+
+This is a deterministic product-quality check. It is not a benchmark result, factual verification, or claim of real-world accuracy.
+
+### Direct answer quality
+
+- **Label:** Strong
+- **Rationale:** Checks whether the output frames a decision question, situation, recommendation, and criteria.
+
+### Historical analogue relevance
+
+- **Label:** Strong
+- **Rationale:** Checks whether analogues exist, appear in the evidence ledger, and include transferability limits.
+
+### Evidence use
+
+- **Label:** Strong
+- **Rationale:** Checks whether evidence items are reviewable and uncertainty remains visible.
+
+### Option clarity
+
+- **Label:** Strong
+- **Rationale:** Checks whether options are distinct and a preferred path is identified.
+
+### Risk identification
+
+- **Label:** Strong
+- **Rationale:** Checks whether risks, limitations, and unknowns are explicit.
+
+### Change trigger quality
+
+- **Label:** Strong
+- **Rationale:** Checks whether the recommendation includes observable change triggers and monitoring signals.
+
+### Localization quality
+
+- **Label:** Strong
+- **Rationale:** English output selected; localization transformation is not required.
+
+### Overconfidence control
+
+- **Label:** Adequate
+- **Rationale:** Checks for qualitative confidence, visible limitations, and absence of overconfident phrases.
+
+### Notes
+
+- Deterministic product-quality evaluation only.
+- Scores are internal review aids, not real-world accuracy claims.
+- No LLM evaluator, network access, or external benchmark is used.

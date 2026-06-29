@@ -2,17 +2,17 @@ const API_BASE = window.location.origin.startsWith("http") ? window.location.ori
 
 const localeText = {
   en: {
-    appTitle: "Make sense of a strategic situation",
+    appTitle: "Decide what to do next",
     workbenchLabel: "Decision Companion",
-    helperText: "Ask a decision question and add source material. The app returns a decision brief first, then supporting evidence, analysis details, and downloadable artifacts.",
+    helperText: "Turn source material into a recommendation, confidence view, evidence summary, and monitoring plan before reviewing method details.",
     trustNoteTitle: "Trust boundary",
     trustNoteBody: "Local deterministic rules and curated knowledge files support the brief. Treat outputs as decision-support drafts for human review, not forecasts, legal advice, investment advice, or verified research.",
-    flowInput: "1. Add situation",
+    flowInput: "1. Frame decision",
     flowEvidence: "2. Review evidence",
-    flowDecision: "3. Decide what to monitor",
-    resultsTitle: "Decision workspace",
-    decisionBriefTitle: "Decision Brief",
-    resultsSubtitle: "Start with the recommendation, then inspect supporting material and method details as needed.",
+    flowDecision: "3. Monitor change",
+    resultsTitle: "Decision review",
+    decisionBriefTitle: "Recommended Action",
+    resultsSubtitle: "Start with what to do, why, confidence, and what to monitor. Supporting evidence and method details stay available below.",
     decisionGroup: "Decision",
     supportGroup: "Supporting material",
     analysisGroup: "Analysis",
@@ -23,8 +23,8 @@ const localeText = {
     runHistory: "Run History",
     emptyTitle: "Start with a situation",
     emptyBody: "Paste a policy excerpt, earnings note, supply chain update, URL, or internal memo. Ask the decision question you want the brief to address.",
-    emptyDecision: "The decision brief will appear here first.",
-    emptyEvidence: "Supporting evidence, historical cases, and limitations appear after the first run.",
+    emptyDecision: "Recommendation, confidence, rationale, risks, and next monitoring window appear first.",
+    emptyEvidence: "Evidence summary, historical cases, and decision quality checks appear after the first run.",
     emptyDownloads: "Markdown, TXT, and JSON downloads become available after analysis.",
     loadingTitle: "Building decision brief",
     loadingBody: "Reviewing the input, matching local historical cases, and preparing downloadable artifacts.",
@@ -83,7 +83,7 @@ const localeText = {
     analysisTransparency: "Analysis Transparency",
     transparencyNote: "This system uses a rules-based workflow to connect the input document with historical cases, common mechanisms, and strategic lessons. A human analyst should review the result.",
     evaluation: "Evaluation",
-    executiveBrief: "Executive Brief",
+    executiveBrief: "Decision Snapshot",
     detailedAnalysis: "Detailed Analysis",
     methodDetails: "Method Details",
     primaryScenario: "Primary scenario",
@@ -642,20 +642,30 @@ function renderRun(run) {
   renderImplications(analysis.implications || []);
   renderTrace(analysis.agent_trace || {});
   document.getElementById("path-section").innerHTML = renderPath();
-  document.getElementById("brief-section").innerHTML = renderBriefCards(run.brief_markdown || "");
+  document.getElementById("brief-section").innerHTML = renderBriefCards(run.brief_markdown || "", analysis);
 }
 
-function renderBriefCards(markdownText) {
-  const sections = markdownText
+function parseBriefSections(markdownText) {
+  return markdownText
     .replace(/^# .*\n+/, "")
     .split(/\n(?=## )/g)
     .map((section) => section.trim())
-    .filter(Boolean);
+    .filter(Boolean)
+    .map((section) => {
+      const lines = section.split("\n").map((line) => line.trim()).filter(Boolean);
+      return {
+        title: lines[0].replace(/^#+\s*/, ""),
+        lines,
+      };
+    });
+}
 
-  return sections.map((section) => {
-    const lines = section.split("\n").map((line) => line.trim()).filter(Boolean);
-    const title = lines[0].replace(/^#+\s*/, "");
-    const body = renderMarkdownLines(lines.slice(1));
+function renderBriefCards(markdownText, analysis = {}) {
+  const sections = parseBriefSections(markdownText);
+  const overview = renderDecisionOverview(sections, analysis);
+
+  const cards = sections.filter(({ title }) => !["Decision Snapshot", "决策快照", "決策快照"].includes(title)).map(({ title, lines }) => {
+    const body = renderSectionBody(title, lines.slice(1));
     const sectionClass = briefSectionClass(title);
 
     return `
@@ -665,6 +675,247 @@ function renderBriefCards(markdownText) {
       </article>
     `;
   }).join("");
+
+  return `${overview}${cards}`;
+}
+
+function renderSectionBody(title, lines) {
+  if (["Evidence and Confidence", "证据与信心", "證據與信心"].includes(title)) {
+    return renderEvidenceConfidenceSection(lines);
+  }
+  return renderMarkdownLines(lines);
+}
+
+function renderEvidenceConfidenceSection(lines) {
+  const overviewLines = [];
+  const evidenceItems = [];
+  const subsections = [];
+  let currentItem = null;
+  let currentSubsection = null;
+
+  lines.forEach((line) => {
+    if (line === "### Evidence Ledger") {
+      currentSubsection = null;
+      return;
+    }
+    if (line.startsWith("### ")) {
+      if (currentItem) {
+        evidenceItems.push(currentItem);
+        currentItem = null;
+      }
+      currentSubsection = { title: line.replace(/^### /, ""), lines: [] };
+      subsections.push(currentSubsection);
+      return;
+    }
+    const itemMatch = line.match(/^- \*\*(E\d+)\s+\((.*?)\)\*\*/);
+    if (itemMatch) {
+      if (currentItem) evidenceItems.push(currentItem);
+      currentItem = {
+        id: itemMatch[1],
+        type: itemMatch[2],
+        attributes: [],
+      };
+      currentSubsection = null;
+      return;
+    }
+    if (currentItem) {
+      const attribute = line.match(/^- ([^:]+):\s*(.*)$/);
+      if (attribute) {
+        currentItem.attributes.push({ label: attribute[1], value: attribute[2] });
+      } else if (currentItem.attributes.length) {
+        const last = currentItem.attributes[currentItem.attributes.length - 1];
+        last.value = `${last.value}\n${line}`.trim();
+      }
+      return;
+    }
+    if (currentSubsection) {
+      currentSubsection.lines.push(line);
+      return;
+    }
+    overviewLines.push(line);
+  });
+  if (currentItem) evidenceItems.push(currentItem);
+
+  const overview = renderEvidenceOverview(overviewLines);
+  const ledger = evidenceItems.length ? `
+    <div class="evidence-ledger-grid">
+      ${evidenceItems.map(renderEvidenceLedgerItem).join("")}
+    </div>
+  ` : "";
+  const supporting = subsections.map((section) => `
+    <section class="evidence-subsection">
+      <h4>${escapeHtml(section.title)}</h4>
+      ${renderMarkdownLines(section.lines)}
+    </section>
+  `).join("");
+
+  return `
+    ${overview}
+    ${ledger}
+    ${supporting ? `<div class="evidence-subsection-grid">${supporting}</div>` : ""}
+  `;
+}
+
+function renderEvidenceOverview(lines) {
+  const values = lines
+    .map((line) => line.match(/^\*\*(.*?):\*\*\s*(.*)$/))
+    .filter(Boolean)
+    .map((match) => ({ label: match[1], value: match[2] }));
+  if (!values.length) return "";
+  return `
+    <div class="evidence-confidence-summary">
+      ${values.map((item) => `
+        <div>
+          <strong>${escapeHtml(item.label)}</strong>
+          <p>${formatInline(item.value)}</p>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderEvidenceLedgerItem(item) {
+  const relevance = item.attributes.find((attribute) => attribute.label === "Relevance");
+  const attributes = item.attributes.filter((attribute) => attribute.label !== "Relevance");
+  const relevanceText = relevance?.value || "";
+  return `
+    <article class="evidence-ledger-card">
+      <div class="evidence-ledger-header">
+        <span>${escapeHtml(item.id)}</span>
+        <strong>${escapeHtml(item.type)}</strong>
+      </div>
+      <div class="evidence-attribute-grid">
+        ${attributes.map((attribute) => `
+          <div class="evidence-attribute ${attribute.label.toLowerCase().replaceAll(" ", "-")}">
+            <strong>${escapeHtml(attribute.label)}</strong>
+            <p>${formatInline(attribute.value)}</p>
+          </div>
+        `).join("")}
+      </div>
+      ${relevanceText ? `<div class="evidence-meta-row">${renderEvidenceMeta(relevanceText)}</div>` : ""}
+    </article>
+  `;
+}
+
+function renderEvidenceMeta(value) {
+  return value.split(";").map((part) => {
+    const [label, ...rest] = part.split(":");
+    if (!rest.length) return `<span>${escapeHtml(part.trim())}</span>`;
+    return `<span><strong>${escapeHtml(label.trim())}</strong> ${escapeHtml(rest.join(":").trim())}</span>`;
+  }).join("");
+}
+
+function renderDecisionOverview(sections, analysis) {
+  const snapshot = briefSection(sections, ["Decision Snapshot", "决策快照", "決策快照"]);
+  if (!snapshot) return "";
+
+  const recommendation = sectionField(snapshot, ["Current Position", "当前判断", "目前判斷"]) || firstMeaningfulLine(snapshot);
+  const confidence = sectionField(snapshot, ["Confidence", "置信", "信心"]) || analysis.confidence_assessment?.confidence_level || "Not stated";
+  const why = sectionField(snapshot, ["Why", "原因"]) || "Review the full brief for rationale.";
+  const nextWindow = sectionField(snapshot, ["Next 30-90 Days", "未来 30-90 天", "未來 30-90 天"]) || firstBullet(briefSection(sections, ["What to Monitor", "后续观察重点", "後續觀察重點"]));
+  const topRisks = topRiskLines(sections);
+  const trustSignals = trustSignalItems(analysis);
+
+  return `
+    <article class="decision-overview">
+      <div class="overview-main">
+        <div class="overview-kicker">Recommended Action</div>
+        <h3>${formatInline(recommendation)}</h3>
+        <div class="overview-grid">
+          <div>
+            <strong>Confidence</strong>
+            <p>${formatInline(confidence)}</p>
+          </div>
+          <div>
+            <strong>Why this recommendation</strong>
+            <p>${formatInline(why)}</p>
+          </div>
+          <div>
+            <strong>Top Risks</strong>
+            ${renderCompactList(topRisks)}
+          </div>
+          <div>
+            <strong>Next 30-90 Days</strong>
+            <p>${formatInline(nextWindow || "Monitor new evidence that could change the recommendation.")}</p>
+          </div>
+        </div>
+      </div>
+      <div class="trust-strip" aria-label="Trust signals">
+        ${trustSignals.map((item) => `
+          <div>
+            <strong>${escapeHtml(item.label)}</strong>
+            <span>${escapeHtml(item.value)}</span>
+          </div>
+        `).join("")}
+      </div>
+    </article>
+  `;
+}
+
+function briefSection(sections, titles) {
+  return sections.find((section) => titles.includes(section.title));
+}
+
+function sectionField(section, labels) {
+  if (!section) return "";
+  for (const line of section.lines.slice(1)) {
+    const match = line.match(/^\*\*(.*?):\*\*\s*(.*)$/);
+    if (match && labels.includes(match[1].trim())) {
+      return match[2].trim();
+    }
+  }
+  return "";
+}
+
+function firstMeaningfulLine(section) {
+  if (!section) return "";
+  return section.lines.slice(1).find((line) => !line.startsWith("**")) || "";
+}
+
+function firstBullet(section) {
+  if (!section) return "";
+  const line = section.lines.slice(1).find((item) => item.startsWith("- "));
+  return line ? line.replace(/^- /, "") : "";
+}
+
+function topRiskLines(sections) {
+  const tradeoffs = briefSection(sections, ["Trade-offs", "取舍：得到什么、放弃什么、风险还在哪里", "取捨：得到什麼、放棄什麼、風險還在哪裡"]);
+  const change = briefSection(sections, ["What Could Change This Recommendation", "哪些新证据会改变今天的判断", "哪些新證據會改變今天的判斷"]);
+  const risks = [];
+  if (tradeoffs) {
+    tradeoffs.lines.slice(1).forEach((line) => {
+      if (/risk|风险|風險|wrong|改变|改變/i.test(line)) {
+        risks.push(line.replace(/^- /, "").replace(/^\*\*Risks still unresolved:\*\*\s*/, ""));
+      }
+    });
+  }
+  if (change && risks.length < 2) {
+    change.lines.slice(1).filter((line) => line.startsWith("- ")).slice(0, 2 - risks.length).forEach((line) => {
+      risks.push(line.replace(/^- /, ""));
+    });
+  }
+  return risks.slice(0, 2);
+}
+
+function renderCompactList(items) {
+  if (!items.length) {
+    return "<p>Review change triggers and evidence gaps below.</p>";
+  }
+  return `<ul>${items.map((item) => `<li>${formatInline(item)}</li>`).join("")}</ul>`;
+}
+
+function trustSignalItems(analysis) {
+  const evidenceCount = analysis.evidence_ledger?.items?.length || 0;
+  const analogueCount = analysis.analogues?.length || 0;
+  const qualityItems = analysis.decision_quality_evaluation?.dimensions || {};
+  const qualityCount = Object.keys(qualityItems).length || 8;
+  const confidenceLevel = analysis.confidence_assessment?.confidence_level || "Qualitative";
+  return [
+    { label: "Evidence Summary", value: evidenceCount ? `${evidenceCount} ledger items` : "Reviewable evidence ledger" },
+    { label: "Historical Analogues", value: analogueCount ? `${analogueCount} retrieved cases` : "Local analogue comparison" },
+    { label: "Confidence Assessment", value: confidenceLevel },
+    { label: "Decision Quality Check", value: `${qualityCount} deterministic checks` },
+  ];
 }
 
 function briefSectionClass(title) {
@@ -679,6 +930,7 @@ function briefSectionClass(title) {
   const changeTitles = ["What Could Change This Recommendation", "哪些新证据会改变今天的判断", "哪些新證據會改變今天的判斷"];
   const actionTitles = ["Action Timeline", "行动时间表", "行動時間表"];
   const monitorTitles = ["What to Monitor", "后续观察重点", "後續觀察重點"];
+  const qualityTitles = ["Decision Quality Review"];
   const supportingTitles = [
     "Historical Evidence",
     "Market Expectations vs Actual Outcomes",
@@ -703,6 +955,7 @@ function briefSectionClass(title) {
   if (changeTitles.includes(title)) classes.push("change-card");
   if (actionTitles.includes(title)) classes.push("action-card");
   if (monitorTitles.includes(title)) classes.push("monitor-card");
+  if (qualityTitles.includes(title)) classes.push("quality-card");
   if (supportingTitles.includes(title)) {
     classes.push("supporting-card");
   }

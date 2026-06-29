@@ -1,137 +1,159 @@
 # Strategic Intelligence Decision Companion
 
-A Decision Intelligence Platform for evidence-aware strategic decision support.
+An AI Decision Intelligence Platform that helps people structure complex strategic decisions, not just summarize information.
 
-- Structured decision reasoning
-- Historical analogue analysis
-- Evidence-aware recommendations
-- Qualitative confidence assessment
-- Deterministic decision quality evaluation
+Strategic decisions rarely fail because no one can generate text. They fail because evidence is incomplete, trade-offs are unclear, assumptions are hidden, and teams do not know what should change their view.
 
-## Why This Project Exists
+This project turns ambiguous source material into reviewable decision briefs with evidence, historical analogues, confidence, monitoring signals, and deterministic quality checks.
 
-Most AI systems are designed to answer questions. This platform is designed to structure complex decisions.
+## The Problem
 
-Strategic decisions often involve uncertain source material, incomplete evidence, trade-offs, historical context, and changing conditions. A useful decision-support system should not only summarize what was provided. It should clarify the decision, separate evidence from inference, surface assumptions, compare relevant historical analogues, identify monitoring signals, and make limitations visible.
+Modern AI systems are excellent at answering questions, summarizing documents, and generating fluent text. Those capabilities are useful, but they are not the same as decision support.
 
-Strategic Intelligence Decision Companion exists to make that workflow reviewable. It turns business, policy, supply-chain, market-access, and geopolitical source material into structured decision briefs that can be inspected by analysts, engineers, product leaders, and external reviewers.
+Strategic decisions require a different shape of reasoning. A product leader, analyst, or executive needs to know what decision is actually being made, which evidence matters, what trade-offs exist, how much uncertainty remains, whether historical cases are relevant, and what should be monitored next.
 
-The product does not predict the future. It supports human judgment by organizing evidence, reasoning, confidence, and evaluation in a repeatable local workflow.
+Strategic Intelligence Decision Companion was built to structure decision-making rather than generate answers. It separates evidence from inference, recommendations from facts, and confidence from certainty. The goal is not to predict outcomes. The goal is to make strategic reasoning explicit enough for human review.
 
-## Product Overview
+## Before And After
+
+| Traditional AI | Decision Companion |
+| --- | --- |
+| Summarizes source material | Structures a decision-support workflow |
+| Answers a question | Clarifies the decision being made |
+| Generates text | Builds a reviewable decision brief |
+| Produces a response | Produces evidence-aware recommendations |
+| Treats uncertainty as prose | Exposes assumptions, unknowns, and change triggers |
+| Ends at the answer | Adds monitoring signals and quality review |
+
+## Product Walkthrough
+
+A semiconductor manufacturer faces new export controls. Management needs to decide whether investment plans, customer exposure reviews, and supply-chain monitoring should change.
+
+The platform structures the situation as:
 
 ```text
-User Input
+Source Material
   |
   v
-Decision Intelligence Framework
+Decision Question
   |
   v
 Evidence
   |
   v
-Historical Knowledge
+Historical Analogues
   |
   v
-Reasoning
+Decision Brief
   |
   v
 Confidence
   |
   v
-Evaluation
+Monitoring Signals
   |
   v
-Decision Brief
+Decision Quality Review
 ```
 
-The output is a local decision brief with downloadable Markdown, TXT, JSON, trace, metadata, and input artifacts.
+Instead of returning only a summary, the system identifies the decision context, extracts relevant evidence, compares historical patterns, states a recommendation, explains confidence, and records what would require reassessment.
+
+## Example Output
+
+```text
+Recommendation:
+Prepare a staged response rather than immediate restructuring.
+
+Confidence:
+Moderate.
+
+Supporting Evidence:
+6 evidence items covering customer eligibility, licensing uncertainty,
+supplier exposure, compliance burden, market access, and operational timing.
+
+Historical Analogues:
+Huawei Entity List restrictions.
+ASML export-control exposure.
+
+Next 30-90 Days:
+Monitor supplier exposure, licensing approvals, customer eligibility,
+implementation rules, margin pressure, and management guidance.
+
+Decision Quality Review:
+Checks direct answer quality, evidence use, analogue relevance,
+risk identification, monitoring triggers, and overconfidence control.
+```
+
+This output is a decision-support artifact. It is not investment advice, legal advice, trading advice, or a claim of future accuracy.
 
 ## Core Capabilities
 
-| Capability | Purpose | Representative Components |
+| Capability | What It Provides | Where To Learn More |
 | --- | --- | --- |
-| Decision Framework | Structures ambiguous source material into a decision-support workflow. | [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md), [Product Overview](docs/ProductOverview.md) |
-| Evidence Ledger | Makes supporting observations, inferences, limitations, and claims reviewable. | [Evidence Architecture](docs/EvidenceArchitecture.md), `evidence_ledger` |
-| Historical Analogues | Compares current situations with relevant historical structures. | Local knowledge base, historical analogue retrieval |
-| Confidence Assessment | States qualitative confidence, assumptions, unknowns, and change triggers. | `confidence_assessment`, [Evidence Architecture](docs/EvidenceArchitecture.md) |
-| Decision Quality Evaluation | Applies deterministic product-quality checks to generated analysis artifacts. | `decision_quality_evaluation`, [Evaluation Strategy](docs/EvaluationStrategy.md) |
-| Monitoring Signals | Identifies what should be watched as conditions change. | Decision brief monitoring sections, change triggers |
-| Case Studies | Shows evidence, confidence, and evaluation in reviewer-friendly examples. | [V2 Case Studies](docs/case_studies/semiconductor_export_controls.md) |
-| Research Direction | Separates product QA from future research validation. | [Research Agenda](docs/research/ResearchAgenda.md), [Benchmark Strategy](docs/research/BenchmarkStrategy.md) |
+| Decision Framework | A structured path from ambiguous input to decision brief. | [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md) |
+| Evidence Ledger | Reviewable observations, inferences, supported claims, and limitations. | [Evidence Architecture](docs/EvidenceArchitecture.md) |
+| Historical Analogues | Historical comparison without treating past cases as predictions. | [Product Overview](docs/ProductOverview.md) |
+| Confidence Assessment | Qualitative confidence, assumptions, unknowns, and change triggers. | [Evidence Architecture](docs/EvidenceArchitecture.md) |
+| Decision Quality Evaluation | Deterministic checks for product-quality properties of generated briefs. | [Evaluation Strategy](docs/EvaluationStrategy.md) |
+| Case Studies | Reviewer-friendly examples of evidence, confidence, and evaluation. | [V2 Case Studies](docs/case_studies/semiconductor_export_controls.md) |
+| Research Direction | A separate path from product QA toward future research validation. | [Research Agenda](docs/research/ResearchAgenda.md) |
 
-## Example Workflow
+## Architecture
 
-User asks:
-
-```text
-What should a semiconductor manufacturer monitor after new export controls?
-```
-
-The platform structures the work as:
+The repository is a local FastAPI application with a deterministic analysis pipeline and downloadable artifacts.
 
 ```text
-Input
+User Input
   |
   v
-Evidence extraction
+FastAPI App
   |
   v
-Historical analogue comparison
+Analysis Service
   |
   v
-Decision recommendation
+Decision Intelligence Pipeline
   |
   v
-Confidence and assumptions
+Evidence + Analogues + Confidence + Evaluation
   |
   v
-Monitoring signals
-  |
-  v
-Decision quality evaluation
+Markdown, TXT, JSON, Trace, Metadata
 ```
-
-The result is not a standalone answer or forecast. It is a reviewable decision brief that distinguishes evidence, inference, recommendation, uncertainty, and follow-up monitoring.
-
-## Repository Architecture
 
 | Area | Role |
 | --- | --- |
-| `app.py` | Thin FastAPI entrypoint for local routes and dashboard serving. |
-| `src/` | Analysis service, deterministic pipeline, artifact generation, evidence, confidence, and evaluation modules. |
-| `dashboard/` | Static local dashboard for input, run review, and artifact downloads. |
+| `app.py` | Thin FastAPI entrypoint. |
+| `src/` | Analysis service, pipeline, artifacts, evidence, confidence, and evaluation modules. |
+| `dashboard/` | Local browser dashboard. |
 | `knowledge_base/` | Local mechanism, analogue, outcome, and playbook records. |
-| `docs/` | Product, engineering, governance, evidence, evaluation, research, and review documentation. |
-| `docs/case_studies/` | V2 case studies showing evidence-aware decision quality artifacts. |
-| `docs/research/` | V3 research validation foundation and future research direction. |
-| `demo_case_outputs/` | Bundled generated examples for reviewer inspection. |
+| `docs/` | Product, engineering, governance, evidence, evaluation, and research documentation. |
+| `demo_case_outputs/` | Bundled generated artifacts for review. |
 | `tests/` | Pytest coverage for API behavior and decision-quality foundations. |
 
-## Documentation Guide
+## Repository Guide
 
-Recommended reading path for first-time reviewers:
+Start here:
 
-1. [README](README.md)
-2. [Product Overview](docs/ProductOverview.md)
-3. [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md)
-4. [Evidence Architecture](docs/EvidenceArchitecture.md)
-5. [Review Guide](docs/ReviewGuide.md)
-6. [Case Studies](docs/case_studies/semiconductor_export_controls.md)
-7. [Research Agenda](docs/research/ResearchAgenda.md)
+1. [Product Overview](docs/ProductOverview.md)
+2. [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md)
+3. [Evidence Architecture](docs/EvidenceArchitecture.md)
+4. [Review Guide](docs/ReviewGuide.md)
+5. [Case Studies](docs/case_studies/semiconductor_export_controls.md)
+6. [Research Agenda](docs/research/ResearchAgenda.md)
 
-For the full documentation map, start with the [Documentation Index](docs/DocumentationIndex.md).
+For the complete map, see the [Documentation Index](docs/DocumentationIndex.md).
 
-## Engineering Highlights
+## Engineering
 
-| Area | Implementation |
-| --- | --- |
-| Application | Local FastAPI app with browser dashboard. |
-| Architecture | Thin `app.py`, separated service layer, deterministic analysis pipeline. |
-| Artifacts | Markdown, TXT, JSON, trace, metadata, and input records per run. |
-| Quality | Ruff, compile checks, pytest, and GitHub Actions CI. |
-| Testing | API smoke coverage and focused tests for decision-quality foundations. |
-| Maintainability | Stable module boundaries and documentation-first product governance. |
+The implementation is intentionally lightweight:
+
+- Local FastAPI app
+- Thin `app.py`
+- Modular service and pipeline structure
+- Deterministic analysis components
+- Per-run Markdown, TXT, JSON, trace, metadata, and input artifacts
+- Ruff, compile checks, pytest, and GitHub Actions CI
 
 Run locally:
 
@@ -148,18 +170,21 @@ python3 -m compileall app.py src tests
 python3 -m pytest
 ```
 
-## Research Direction
+## Research
 
-The repository separates four concerns:
+The repository separates product quality from research validation:
 
-| Layer | Role |
-| --- | --- |
-| Product | Helps users structure strategic decisions from source material. |
-| Engineering | Keeps the system local, deterministic, testable, and maintainable. |
-| Evaluation | Checks product-quality properties of generated decision-support artifacts. |
-| Research | Defines future validation questions without claiming benchmark superiority. |
+```text
+Product QA
+  |
+  v
+Research Validation
+  |
+  v
+Future Human Evaluation
+```
 
-Version 3 establishes a research-aware foundation. The current repository implements product QA and deterministic decision-quality evaluation; future research work is documented separately in [docs/research](docs/research/ResearchAgenda.md).
+The current system implements product QA and deterministic decision-quality evaluation. Future research work is documented separately so the product does not imply scientific proof, benchmark superiority, or real-world predictive accuracy.
 
 ## Current Status
 
@@ -167,11 +192,11 @@ Version 3 establishes a research-aware foundation. The current repository implem
 | --- | --- |
 | Architecture | Stable local Decision Intelligence Platform. |
 | Documentation | Product, engineering, governance, evidence, evaluation, and research layers complete. |
-| Evidence | Decision Case Schema, Evidence Ledger, and Confidence Assessment implemented as additive artifacts. |
+| Evidence | Decision Case Schema, Evidence Ledger, and Confidence Assessment implemented. |
 | Evaluation | Deterministic Decision Quality Evaluation Harness implemented. |
-| Research | V3 research validation foundation documented. |
+| Research | Version 3 research validation foundation documented. |
 | CI | Ruff, compile checks, and pytest passing. |
-| Portfolio Readiness | Prepared for external review as a mature AI product architecture project. |
+| Portfolio Readiness | Ready for external review as a mature AI product architecture project. |
 
 ## Limitations
 
@@ -187,4 +212,4 @@ The repository intentionally avoids:
 - Database infrastructure
 - Login, auth, or account systems
 
-These are product boundaries, not missing features. The platform is designed for local, reviewable, human-controlled decision support.
+These boundaries keep the platform local, reviewable, deterministic, and maintainable.

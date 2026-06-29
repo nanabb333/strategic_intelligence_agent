@@ -36,6 +36,18 @@ class DecisionQualityEvaluation:
     notes: list[str] = field(default_factory=list)
 
 
+DIMENSION_LABELS = {
+    "direct_answer_quality": "Direct answer quality",
+    "historical_analogue_relevance": "Historical analogue relevance",
+    "evidence_use": "Evidence use",
+    "option_clarity": "Option clarity",
+    "risk_identification": "Risk identification",
+    "change_trigger_quality": "Change trigger quality",
+    "localization_quality": "Localization quality",
+    "overconfidence_control": "Overconfidence control",
+}
+
+
 def evaluate_decision_quality(
     *,
     decision_case: DecisionCase,
@@ -66,6 +78,45 @@ def evaluate_decision_quality(
             "No LLM evaluator, network access, or external benchmark is used.",
         ],
     )
+
+
+def render_decision_quality_review(evaluation: DecisionQualityEvaluation) -> str:
+    """Render existing decision-quality evaluation as a concise brief section."""
+    dimensions = [
+        ("direct_answer_quality", evaluation.direct_answer_quality),
+        ("historical_analogue_relevance", evaluation.historical_analogue_relevance),
+        ("evidence_use", evaluation.evidence_use),
+        ("option_clarity", evaluation.option_clarity),
+        ("risk_identification", evaluation.risk_identification),
+        ("change_trigger_quality", evaluation.change_trigger_quality),
+        ("localization_quality", evaluation.localization_quality),
+        ("overconfidence_control", evaluation.overconfidence_control),
+    ]
+    lines = [
+        "## Decision Quality Review",
+        "",
+        f"**Overall label:** {evaluation.overall_label}",
+        f"**Overall score:** {evaluation.overall_score}",
+        "",
+        "This is a deterministic product-quality check. It is not a benchmark result, factual verification, or claim of real-world accuracy.",
+        "",
+    ]
+    for key, dimension in dimensions:
+        label = DIMENSION_LABELS[key]
+        lines.extend(
+            [
+                f"### {label}",
+                "",
+                f"- **Label:** {dimension.label}",
+                f"- **Rationale:** {dimension.rationale}",
+                "",
+            ]
+        )
+    if evaluation.notes:
+        lines.extend(["### Notes", ""])
+        lines.extend(f"- {note}" for note in evaluation.notes)
+        lines.append("")
+    return "\n".join(lines).strip()
 
 
 def _direct_answer_quality(decision_case: DecisionCase) -> DimensionEvaluation:

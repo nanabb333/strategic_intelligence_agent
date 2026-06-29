@@ -131,7 +131,7 @@ def _render_executive_output(markdown_text: str, language: str) -> str:
         limitations = "Limitations"
 
     lines = [f"# {title}", ""]
-    for section in ["Decision Snapshot", "Decision Criteria", preferred, "Assumptions", "Trade-offs", "What Could Change This Recommendation", monitor, actions, limitations]:
+    for section in ["Decision Snapshot", "Decision Criteria", preferred, "Assumptions", "Trade-offs", "Failure Modes", "What Could Change This Recommendation", monitor, actions, limitations]:
         body = sections.get(section)
         if body:
             lines.extend([f"## {section}", "", body, ""])
@@ -150,6 +150,7 @@ def _render_beginner_from_sections(markdown_text: str) -> str:
     reasoning = sections.get("Why This Reasoning Holds", "").strip()
     assumptions = sections.get("Assumptions", "").strip()
     tradeoffs = sections.get("Trade-offs", "").strip()
+    failure_modes = sections.get("Failure Modes", "").strip()
     change_section = sections.get("What Could Change This Recommendation", "").strip()
     monitor = sections.get("What to Monitor", "").strip()
     actions = sections.get("Action Timeline", "").strip() or sections.get("Actions / Next Steps", "").strip()
@@ -203,6 +204,10 @@ def _render_beginner_from_sections(markdown_text: str) -> str:
             "## Trade-offs",
             "",
             tradeoffs or "- The recommended path keeps flexibility, but it requires active monitoring and does not remove all risk immediately.",
+            "",
+            "## How this could fail",
+            "",
+            failure_modes or "- The recommendation could fail if exposure worsens faster than the review cadence or if the historical comparison does not fit the current case.",
             "",
             "## Action Timeline",
             "",
@@ -426,6 +431,7 @@ CHINESE_SECTION_HEADINGS = {
         "Why This Reasoning Holds": "为什么这个判断目前成立",
         "Assumptions": "当前假设",
         "Trade-offs": "取舍：得到什么、放弃什么、风险还在哪里",
+        "Failure Modes": "可能失效的情况",
         "What Could Change This Recommendation": "哪些新证据会改变今天的判断",
         "Action Timeline": "行动时间表",
         "What to Monitor": "后续观察重点",
@@ -445,6 +451,7 @@ CHINESE_SECTION_HEADINGS = {
         "Why This Reasoning Holds": "為什麼這個判斷目前成立",
         "Assumptions": "目前假設",
         "Trade-offs": "取捨：得到什麼、放棄什麼、風險還在哪裡",
+        "Failure Modes": "可能失效的情況",
         "What Could Change This Recommendation": "哪些新證據會改變今天的判斷",
         "Action Timeline": "行動時間表",
         "What to Monitor": "後續觀察重點",
@@ -467,6 +474,7 @@ CHINESE_ORDER = [
     "Why This Reasoning Holds",
     "Assumptions",
     "Trade-offs",
+    "Failure Modes",
     "What Could Change This Recommendation",
     "Action Timeline",
     "What to Monitor",

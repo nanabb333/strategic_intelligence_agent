@@ -422,27 +422,33 @@ def _profile_assumptions(profile: dict[str, object], event_family: str) -> list[
         for line in why_holds
         if line.lower().startswith("under what assumptions:")
     ]
+    option_b = str(profile.get("option_b", "Gradual adjustment / monitor and prepare"))
+    option_c = str(profile.get("option_c", "Immediate defensive action"))
     base = assumption_lines or [f"The event remains consistent with {event_family or 'the detected event family'} and no severe contradictory signal has appeared yet."]
     base = [line[:1].upper() + line[1:] if line else line for line in base]
     return [
         *base,
-        "The input text is directionally accurate enough for decision-support framing.",
-        "No immediate evidence shows that the highest-defensive option is already required.",
+        "The supplied source material is directionally accurate enough to frame the decision, but still requires human fact review before operational use.",
+        f"The organization has enough time and management capacity to execute {option_b} before the issue becomes binding.",
+        f"No immediate evidence shows that {option_c} is already required.",
     ]
 
 
-def _profile_tradeoffs(profile: dict[str, object]) -> list[str]:
+def _profile_tradeoffs(profile: dict[str, object], criteria: list[DecisionCriterion] | None = None) -> list[str]:
     option_b = str(profile.get("option_b", "Gradual adjustment / monitor and prepare"))
+    option_a = str(profile.get("option_a", "Maintain current position / wait for more evidence"))
     option_c = str(profile.get("option_c", "Immediate defensive action"))
+    top = _top_criteria(criteria or [])
+    top_text = ", ".join(top) or "the highest-importance criteria"
     return [
-        f"Benefits gained: {option_b} creates information, preparation, and reversibility before irreversible action.",
-        "Costs accepted: the user must assign ownership, monitor signals, and maintain an update cadence.",
-        f"Opportunities sacrificed: the user does not receive the full immediate protection of {option_c}.",
-        "Risks still unresolved: future policy, cost, customer, liquidity, or operating signals may still move the decision toward a different path.",
+        f"Benefits gained: {option_b} creates an exposure map, assigns ownership, and preserves reversibility while evidence on {top_text} is still developing.",
+        "Costs accepted: the team must spend management attention now, maintain a review cadence, and tolerate partial exposure while the evidence matures.",
+        f"Opportunities sacrificed: the user gives up the lowest-effort posture of {option_a} and does not receive the full immediate protection of {option_c}.",
+        f"Risks still unresolved: new evidence on {top_text}, implementation timing, cost, customer behavior, or operating constraints may still justify changing paths.",
     ]
 
 
-def _change_triggers(profile: dict[str, object]) -> list[str]:
+def _change_triggers(profile: dict[str, object], criteria: list[DecisionCriterion] | None = None) -> list[str]:
     why_holds = [str(item) for item in profile.get("why_holds", [])]
     wrong_lines = [
         line.replace("What would make it wrong:", "").strip()
@@ -450,10 +456,27 @@ def _change_triggers(profile: dict[str, object]) -> list[str]:
         if line.lower().startswith("what would make it wrong:")
     ]
     triggers = wrong_lines or ["Clear evidence that exposure is either immaterial or already severe enough to require a different path."]
+    triggers = [line[:1].upper() + line[1:] if line else line for line in triggers]
+    top = _top_criteria(criteria or [])
+    top_text = ", ".join(top) or "the highest-importance criteria"
+    option_a = str(profile.get("option_a", "Maintain current position / wait for more evidence"))
+    option_c = str(profile.get("option_c", "Immediate defensive action"))
     return [
         *triggers,
-        "Option A becomes more reasonable if exposure remains limited, reversible, and low-cost after review.",
-        "Option C becomes more reasonable if constraints become binding, costly, or difficult to reverse.",
+        f"Move toward Option A ({option_a}) if review shows limited exposure, low cost, high reversibility, and no deterioration in {top_text}.",
+        f"Move toward Option C ({option_c}) if constraints become binding, costly, customer-facing, or difficult to reverse.",
+    ]
+
+
+def _failure_modes(profile: dict[str, object], criteria: list[DecisionCriterion] | None = None) -> list[str]:
+    top = _top_criteria(criteria or [])
+    top_text = ", ".join(top) or "the highest-importance criteria"
+    option_b = str(profile.get("option_b", "Gradual adjustment / monitor and prepare"))
+    return [
+        f"The preferred path fails if the review cadence misses rapid deterioration in {top_text}.",
+        f"The recommendation is weaker if {option_b} creates process activity without producing a usable exposure map or decision owner.",
+        "Historical analogues may mislead if the current actor exposure, timing, or implementation details differ materially from retrieved cases.",
+        "Evidence remains insufficient if the supplied material does not confirm organization-specific exposure, costs, customer impact, or operational constraints.",
     ]
 
 
@@ -468,7 +491,7 @@ def _preferred_explanation(profile: dict[str, object], criteria: list[DecisionCr
         "Costs accepted: Option B requires monitoring, ownership, and delayed full protection rather than a one-step defensive move.",
         f"Why Option A does not rank first: {option_a} keeps costs low, but it can leave the user underprepared on {top_text} if exposure grows.",
         f"Why Option C does not rank first: {option_c} offers more protection, but it can impose high opportunity cost before evidence on {top_text} is strong enough.",
-        "What would change the ranking: stronger evidence that the high-importance criteria are either clearly immaterial or clearly severe.",
+        f"What would change the ranking: stronger evidence that {top_text} are either clearly immaterial or clearly severe.",
     ]
 
 
@@ -667,10 +690,13 @@ def generate_brief(
             lines.extend(_bullet_list(_profile_assumptions(profile, event_family), "No assumptions generated."))
 
             lines.extend(["", "## Trade-offs", ""])
-            lines.extend(_bullet_list(_profile_tradeoffs(profile), "No trade-offs generated."))
+            lines.extend(_bullet_list(_profile_tradeoffs(profile, criteria), "No trade-offs generated."))
+
+            lines.extend(["", "## Failure Modes", ""])
+            lines.extend(_bullet_list(_failure_modes(profile, criteria), "No failure modes generated."))
 
             lines.extend(["", "## What Could Change This Recommendation", ""])
-            lines.extend(_bullet_list(_change_triggers(profile), "No change triggers generated."))
+            lines.extend(_bullet_list(_change_triggers(profile, criteria), "No change triggers generated."))
 
             lines.extend(["", "## Action Timeline", ""])
             for window, items in action_timeline.items():

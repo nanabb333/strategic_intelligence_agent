@@ -11,8 +11,8 @@
       <header class="shell-header" aria-labelledby="app-title">
         <div class="shell-brand">
           <p class="eyebrow" data-i18n="workbenchLabel">Decision Companion</p>
-          <h1 id="app-title" data-i18n="appTitle">Make sense of a strategic situation</h1>
-          <p id="helper-text" class="hero-copy">Ask a decision question and add source material. The app returns a decision brief first, then supporting evidence, analysis details, and downloadable artifacts.</p>
+          <h1 id="app-title" data-i18n="appTitle">Decide what to do next</h1>
+          <p id="helper-text" class="hero-copy">Turn source material into a recommendation, confidence view, evidence summary, and monitoring plan before reviewing method details.</p>
         </div>
         <div class="shell-status">
           <span id="api-status" class="status-pill">Checking server</span>
@@ -28,9 +28,9 @@
               <h2 data-i18n="decisionGroup">Decision</h2>
             </div>
             <ol class="decision-flow" aria-label="Decision workflow">
-              <li data-i18n="flowInput">1. Add situation</li>
+              <li data-i18n="flowInput">1. Frame decision</li>
               <li data-i18n="flowEvidence">2. Review evidence</li>
-              <li data-i18n="flowDecision">3. Decide what to monitor</li>
+              <li data-i18n="flowDecision">3. Monitor change</li>
             </ol>
             <button id="analyze-button" type="button" data-i18n="runAnalysis">Build decision brief</button>
             <label for="assistant-input" class="input-label" data-i18n="assistantInputLabel">Decision question and source material</label>
@@ -39,7 +39,15 @@ Which historical cases are most similar?
 What trade-offs should be considered?
 What evidence would change today's recommendation?
 
-Paste an article, policy excerpt, earnings note, URL, or operational update here.">New semiconductor export controls affect advanced chip supply chains and market access. Equipment suppliers are reviewing licensing requirements, customer eligibility, and compliance documentation. Executives want to understand similar historical cases, observed outcomes, and what to monitor next.</textarea>
+Paste an article, policy excerpt, earnings note, URL, or operational update here.">Decision question:
+What should management do over the next 30-90 days after new semiconductor export controls affect customer eligibility and advanced chip supply chains?
+
+Source material:
+A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The rules may limit access for restricted end users while preserving licensed trade for lower-risk commercial customers.
+
+Several semiconductor manufacturers, equipment suppliers, and cloud infrastructure firms are reviewing customer exposure, product classifications, licensing requirements, and compliance documentation. Some customers have asked whether existing orders can continue under prior authorizations.
+
+Executives need a staged response plan that separates immediate compliance work from longer-term market-access risk. They want to understand which risks matter most, which historical cases are structurally similar, what evidence is still missing, and what should be monitored next.</textarea>
           </section>
 
           <section class="workspace-card">
@@ -112,15 +120,15 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
 
         <section class="results-panel" aria-live="polite" aria-labelledby="results-title">
           <header class="results-header">
-            <p class="eyebrow" data-i18n="resultsTitle">Decision workspace</p>
-            <h2 id="results-title" data-i18n="decisionBriefTitle">Decision Brief</h2>
-            <p data-i18n="resultsSubtitle">Start with the recommendation, then inspect supporting material and method details as needed.</p>
+            <p class="eyebrow" data-i18n="resultsTitle">Decision review</p>
+            <h2 id="results-title" data-i18n="decisionBriefTitle">Recommended Action</h2>
+            <p data-i18n="resultsSubtitle">Start with what to do, why, confidence, and what to monitor. Supporting evidence and method details stay available below.</p>
           </header>
 
           <div class="section-divider" data-i18n="decisionGroup">Decision</div>
           <section class="result-card result-card-primary" aria-labelledby="decision-brief-title">
             <div class="result-card-header">
-              <h3 id="decision-brief-title" data-i18n="executiveBrief">Executive Brief</h3>
+              <h3 id="decision-brief-title" data-i18n="executiveBrief">Decision Snapshot</h3>
               <span data-source="All Evidence">All Evidence</span>
             </div>
             <div id="brief-section" class="brief-output"></div>

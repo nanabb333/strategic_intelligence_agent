@@ -1,522 +1,346 @@
-# Analyst Reasoning Brief
-
-Decision-support only. No forecasts, probabilities, trading advice, or investment recommendations.
-
-> English output mode.
-
 # Executive Intelligence Brief
 
-This output is for decision-support and analyst productivity only. It does not provide forecasts, probabilities, trading advice, or investment recommendations.
+## Decision Snapshot
 
-## Executive Summary
+**Current Position:** Monitor closely and test whether pressure is temporary or structural
+**Confidence:** Medium
+**Why:** The decision depends on whether margin pressure comes from temporary costs or durable exposure to sanctions compliance, demand weakness, shipping costs, and customer concentration.
+**Next 30-90 Days:** Track guidance revisions, compliance staffing, regional revenue exposure, shipping cost absorption, and margin commentary.
 
-- The document describes an Earnings / Corporate Disclosure issue involving strategic operations.
-- Historical analogues and current context are used for comparison and decision support, not prediction.
-- Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
+## Decision Question
 
-## Agent Execution Trace
+The key question is not only why earnings weakened, but whether the drivers are temporary cost items or a structural exposure problem.
 
-- **Document type detected:** Earnings / Corporate Disclosure
-- **Scenario detected:** Earnings / Corporate Disclosure
-- **Selected tools:** IssueExtractor, ScenarioClassifier, HistoricalRetriever, ImplicationAnalyzer, BriefGenerator
-- **Skipped tools:** ContextRetriever
+## Decision Criteria
 
-1. **Scenario detected:** Earnings / Corporate Disclosure
-2. **Document type detected:** Earnings / Corporate Disclosure
-3. **Tool selected:** IssueExtractor: Every route starts by converting source text into structured issue fields.
-4. **Tool selected:** ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted.
-5. **Tool selected:** HistoricalRetriever: Earnings / Corporate Disclosure benefits from comparison against historical precedents.
-6. **Tool skipped:** ContextRetriever: No strong context retrieval trigger detected.
-7. **Tool selected:** ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations.
-8. **Tool selected:** BriefGenerator: The final deliverable is an executive intelligence brief.
+These are the dimensions driving today's decision:
+- **Margin durability** — **Importance: High.** The key distinction is temporary cost pressure versus recurring margin damage.
+- **Guidance credibility** — **Importance: High.** Management commentary shows whether visibility is improving or deteriorating.
+- **Compliance burden** — **Importance: Medium.** Staffing and control costs indicate whether geopolitical exposure is becoming structural.
+- **Regional demand exposure** — **Importance: High.** Customer and geography concentration determine revenue sensitivity.
+- **Cost pass-through** — **Importance: Medium.** Pricing power affects whether shipping or compliance costs hit margins.
 
-## Tool Decisions
+## Decision Paths
 
-### IssueExtractor
+### Option A
 
-- **Decision:** Selected
-- **Why:** Every route starts by converting source text into structured issue fields.
-- **Expected contribution:** Core issue, actors, industries, policy terms, and document type.
+**Path:** Treat the weakness as temporary and wait for another reporting cycle
 
-### ScenarioClassifier
+**Pros**
+- Lowest immediate effort.
+- Preserves current posture while more evidence arrives.
 
-- **Decision:** Selected
-- **Why:** Scenario classification is required before retrieval decisions can be interpreted.
-- **Expected contribution:** Primary scenario and matched keyword evidence.
+**Cons**
+- Risk can accumulate if exposure is already material.
+- May delay preparation if the issue moves quickly.
 
-### HistoricalRetriever
+**Criteria Fit**
+- Strong on low execution burden and near-term opportunity cost.
+- Weak on Margin durability, Guidance credibility, Regional demand exposure if current exposure is already material.
+- Fails high-importance criteria when margin durability cannot be assessed quickly.
 
-- **Decision:** Selected
-- **Why:** Earnings / Corporate Disclosure benefits from comparison against historical precedents.
-- **Expected contribution:** Top analogue cases and similarity reasons from the historical database.
+### Option B (Recommended)
 
-### ContextRetriever
+**Path:** Monitor drivers and prepare a staged response
 
-- **Decision:** Skipped
-- **Why:** No strong context retrieval trigger detected.
-- **Expected contribution:** Avoids adding weak context findings.
+**Pros**
+- Best balance between preparation and flexibility.
+- Creates useful information before irreversible action.
 
-### ImplicationAnalyzer
+**Cons**
+- Requires active monitoring and ownership.
+- Does not eliminate exposure immediately.
 
-- **Decision:** Selected
-- **Why:** Selected retrieval outputs need to be synthesized into analyst-facing considerations.
-- **Expected contribution:** Similarities, differences, business considerations, operational considerations, geopolitical considerations, and questions.
+**Criteria Fit**
+- Strong on Margin durability, Guidance credibility, Regional demand exposure because it converts uncertainty into an exposure map and review cadence.
+- Medium on immediate protection because it prepares response options before using them.
+- Best overall fit when high-importance criteria are serious but not yet fully resolved.
 
-### BriefGenerator
+### Option C
 
-- **Decision:** Selected
-- **Why:** The final deliverable is an executive intelligence brief.
-- **Expected contribution:** Markdown brief with evidence sources, trace, and analysis path.
+**Path:** Immediately assume structural deterioration
 
-## Analysis Path
+**Pros**
+- Highest immediate risk reduction.
+- Useful if exposure is already severe or binding.
 
-- Agent Router reviewed document type, scenario, industries, actors, and keywords.
-- Tool Registry provided available deterministic tools.
-- Selected tools executed in route order.
-- Result synthesis generated the executive brief with evidence sources.
+**Cons**
+- Highest opportunity cost and execution burden.
+- Hardest to reverse if the issue proves temporary.
 
-## Key Issue
+**Criteria Fit**
+- Strong on immediate protection if margin durability is already severe.
+- Weak on execution complexity, reversibility, and sacrificed upside.
+- Only fits the high-importance criteria better than Option B if evidence shows margin durability is binding or worsening.
 
-**Title:** Financial Earnings Geopolitical Risk Demo Case
+## Option Ranking
 
-**Core issue:** A fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets.
+- **1. Option B: Monitor drivers and prepare a staged response.** Ranks first because the highest-importance criteria are Margin durability, Guidance credibility, Regional demand exposure. It improves readiness on those criteria without creating the execution burden of Option C or the underpreparedness of Option A.
+- **2. Option A: Treat the weakness as temporary and wait for another reporting cycle.** Ranks second because it has lower cost and disruption than Option C, but it is weaker than Option B on Margin durability, Guidance credibility, Regional demand exposure if exposure grows.
+- **3. Option C: Immediately assume structural deterioration.** Ranks third because it offers more protection, but it is weaker on reversibility, opportunity cost, and execution burden unless margin durability is already severe.
 
-**Summary:** A fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets. Management says revenue remains diversified, but compliance review costs, customer screening, and risk controls have increased. The bank also notes that some corporate clients are delaying cross-border financing decisions until policy and sanctions rules become clearer.
+## Option Comparison
 
-Analysts reviewing the dis...
+| Option | Risk Reduction | Opportunity Cost | Execution Difficulty | Reversibility | Robustness | Information Value |
+| --- | --- | --- | --- | --- | --- | --- |
+| Option A | Low | Low | Low | High | Medium | High |
+| Option B | Medium | Medium | Medium | Medium | High | High |
+| Option C | High | High | High | Low | Medium | Low |
 
-**Evidence trace:** Source Document
+## Preferred Path
 
-## Current Event Context
+- **Option B currently ranks first**. It ranks first because it ranks above Option A by isolating the drivers now, and above Option C by waiting for evidence that pressure is durable rather than temporary.
+- Top criteria driving the recommendation: Margin durability, Guidance credibility, Regional demand exposure.
+- Why Option B ranks first: it performs best on the criteria that matter most for this decision, especially Margin durability, Guidance credibility, Regional demand exposure, while preserving flexibility.
+- Costs accepted: Option B requires monitoring, ownership, and delayed full protection rather than a one-step defensive move.
+- Why Option A does not rank first: Treat the weakness as temporary and wait for another reporting cycle keeps costs low, but it can leave the user underprepared on Margin durability, Guidance credibility, Regional demand exposure if exposure grows.
+- Why Option C does not rank first: Immediately assume structural deterioration offers more protection, but it can impose high opportunity cost before evidence on Margin durability, Guidance credibility, Regional demand exposure is strong enough.
+- What would change the ranking: stronger evidence that the high-importance criteria are either clearly immaterial or clearly severe.
 
-- **Event type:** Financial / Earnings Risk
-- **Primary actor:** Corporate executives
-- **Secondary actor:** Financial institutions
-- **Affected sectors:** Banking / Financial Services, Supply Chain / Logistics, Technology
-- **Affected regions:** Region not specified
-- **Policy domain:** Financial stability and compliance
-- **Strategic significance:** This financial / earnings risk context matters because it may affect Banking / Financial Services, Supply Chain / Logistics, Technology through financial stability and compliance considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.
-- **Event summary:** Financial Earnings Geopolitical Risk Demo Case
+## Why This Reasoning Holds
 
-A fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets. Management says revenue remains diversified, but compliance review costs, customer screening, and risk controls have increased.
-- **Confidence:** High
-- **Evidence trace:** Source Document + deterministic current-event rules
-- **Limitations:** Current-event context is extracted from the submitted document only. No live web retrieval, external news API, or source verification is performed. Actor, sector, and region labels use deterministic keyword rules and may miss nuance.
+- Why this is true: earnings pressure can reflect temporary cost timing, but geopolitical exposure can also become recurring compliance and revenue friction.
+- Compared with what: Option A risks ignoring early structural signals, while Option C may overstate durability before management guidance confirms it.
+- Under what assumptions: the company has not yet shown whether sanctions cost, shipping expense, and demand weakness are recurring.
+- What would make it wrong: repeated guidance cuts, persistent regional revenue weakness, customer loss, or rising compliance cost without offset.
 
-## Scenario Classification
+## Assumptions
 
-- **Primary scenario:** Earnings / Corporate Disclosure
-- **Matched keywords:** earnings, quarter, revenue, disclosure
-- **Classification confidence:** High
-- **Evidence trace:** Source Document + deterministic keyword classifier
-- **Note:** Confidence describes classification quality only; it is not a forecast.
-
-## Extracted Entities
-
-- **Document type guess:** Earnings / Corporate Disclosure (Evidence trace: Source Document)
-- **Actors:** executives, management, board (Evidence trace: Source Document)
-- **Countries / regions:** None detected (Evidence trace: Source Document)
-- **Industries:** None detected (Evidence trace: Source Document)
-- **Policy terms:** sanctions, compliance (Evidence trace: Source Document)
-- **Companies:** None detected (Evidence trace: Source Document)
-
-## Historical Analogues
-
-### Major Earnings Guidance Withdrawal During COVID (2020)
-
-- **Scenario type:** Earnings / Corporate Disclosure
-- **Similarity reason:** scenario match on Earnings / Corporate Disclosure; keyword overlap: corporate, disclosure, earnings, management; actor overlap: executives
-- **Business relevance:** Shows how disclosures can communicate operating uncertainty and planning limits.
-- **Geopolitical relevance:** Connects corporate communication with macro and policy disruption.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
+- The company has not yet shown whether sanctions cost, shipping expense, and demand weakness are recurring.
+- The input text is directionally accurate enough for decision-support framing.
+- No immediate evidence shows that the highest-defensive option is already required.
 
-### Huawei Entity List (2019)
-
-- **Scenario type:** Export Controls
-- **Similarity reason:** keyword overlap: compliance, controls, exposure, selected
-- **Business relevance:** Shows how export controls can alter supplier access and compliance workflows.
-- **Geopolitical relevance:** Illustrates technology competition between the United States and China.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Huawei Entity List (2019) - Historical Database
-
-### ASML Export Controls (2023)
-
-- **Scenario type:** Export Controls
-- **Similarity reason:** keyword overlap: controls, exposure, rules
-- **Business relevance:** Highlights exposure to licensing rules for critical production tools.
-- **Geopolitical relevance:** Shows allied coordination around sensitive technology controls.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** ASML Export Controls (2023) - Historical Database
+## Trade-offs
 
-## Historical Outcomes
+- Benefits gained: Monitor drivers and prepare a staged response creates information, preparation, and reversibility before irreversible action.
+- Costs accepted: the user must assign ownership, monitor signals, and maintain an update cadence.
+- Opportunities sacrificed: the user does not receive the full immediate protection of Immediately assume structural deterioration.
+- Risks still unresolved: future policy, cost, customer, liquidity, or operating signals may still move the decision toward a different path.
 
-### Huawei Entity List (2019)
+## What Could Change This Recommendation
 
-- **Event family:** Export Controls
-- **Observed outcome:** Restricted access to selected technology inputs changed supplier screening and product planning.
-- **Strategic response:** Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
-- **Time horizon:** Medium-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Export Controls; event-family/title overlap
+- repeated guidance cuts, persistent regional revenue weakness, customer loss, or rising compliance cost without offset.
+- Option A becomes more reasonable if exposure remains limited, reversible, and low-cost after review.
+- Option C becomes more reasonable if constraints become binding, costly, or difficult to reverse.
 
-### ASML Export Controls (2023)
+## Action Timeline
 
-- **Event family:** Export Controls
-- **Observed outcome:** Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.
-- **Strategic response:** Companies monitored license rules, tool availability, and jurisdictional alignment.
-- **Time horizon:** Medium-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Export Controls; event-family/title overlap
+### Immediate
 
-### Entity List Expansion (2020)
+- Separate margin pressure into compliance, shipping, demand, and pricing components.
+- Track whether management guidance changes before the next reporting cycle.
 
-- **Event family:** Export Controls
-- **Observed outcome:** Expanded restrictions increased screening burden and uncertainty for technology transactions.
-- **Strategic response:** Companies strengthened restricted-party checks and licensing escalation paths.
-- **Time horizon:** Short-to-medium-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** event-family match: Export Controls; event-family/title overlap
+### Next 30 Days
 
-### Allied Export Control Coordination (2023)
+- Prepare a short risk note on regional and customer concentration.
+- Compare current language with prior earnings disclosures for signs of deterioration.
 
-- **Event family:** Export Controls
-- **Observed outcome:** Policy alignment among allies increased the importance of jurisdiction-by-jurisdiction rule monitoring.
-- **Strategic response:** Firms tracked implementation differences, license requirements, and supplier communication.
-- **Time horizon:** Medium-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** event-family match: Export Controls; event-family/title overlap
+### Next Quarter
 
-### Major Earnings Guidance Withdrawals During COVID (2020)
+- Reassess whether the evidence still supports Option B or whether Option A or Option C has become more appropriate.
+- Compare the next-quarter update against sanctions compliance staffing and cost and cost/reversibility constraints.
 
-- **Event family:** Earnings / Corporate Disclosure
-- **Observed outcome:** Firms withdrew or revised guidance amid limited demand and operational visibility.
-- **Strategic response:** Management teams emphasized uncertainty, liquidity monitoring, and scenario communication.
-- **Time horizon:** Short-term
-- **Confidence:** High
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** event-family match: Earnings / Corporate Disclosure
+## What to Monitor
 
-## Strategic Lessons
+These signals answer: what could change today's recommendation?
+- **Guidance revisions and margin bridge:** Shows whether management sees the pressure as temporary or recurring.
+- **Sanctions compliance staffing and cost:** Indicates whether control burden is becoming structural.
+- **Regional demand and customer concentration:** Connects geopolitical exposure to revenue risk.
+- **Shipping expense and cost pass-through:** Shows whether logistics pressure is hitting margins or customers.
+- **Management language on visibility:** Helps distinguish one-quarter noise from durable uncertainty.
 
-### Supply chain diversification frequently appears after export-control or disruption shocks.
+### Investor
 
-- **Supporting cases:** Huawei Entity List (2019), ASML Export Controls (2023), Entity List Expansion (2020), Allied Export Control Coordination (2023)
-- **Confidence:** High
-- **Rationale:** Matched 4 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.
+- Monitor revenue exposure, margin pressure, management guidance, and customer concentration commentary.
+- Separate operational disruption signals from ordinary quarterly volatility.
+- Watch whether management distinguishes temporary disruption from durable business-model exposure.
 
-### Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.
+### Corporate Strategy
 
-- **Supporting cases:** Huawei Entity List (2019), ASML Export Controls (2023), Entity List Expansion (2020), Allied Export Control Coordination (2023)
-- **Confidence:** High
-- **Rationale:** Matched 4 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.
+- Monitor localization requirements, policy implementation details, supplier concentration, and eligibility rules.
+- Identify which business units need updated exposure maps or decision memos.
+- Prepare executive discussion notes that separate known facts from unresolved questions.
 
-### Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.
+### Supply Chain
 
-- **Supporting cases:** Huawei Entity List (2019)
-- **Confidence:** Low
-- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.
+- Monitor inventory coverage, logistics routes, alternative suppliers, and qualification timelines.
+- Check whether single-source inputs or chokepoints require contingency planning.
+- Track customer communication needs if delivery timing or input availability changes.
 
-### Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.
+### Policy
 
-- **Supporting cases:** Entity List Expansion (2020)
-- **Confidence:** Low
-- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.
+- Monitor implementation guidance, enforcement posture, exemptions, and timing.
+- Separate announced policy intent from operational rules that organizations can actually follow.
+- Track whether agencies, regulators, or counterpart governments clarify scope or eligibility.
 
-## Evidence Credibility Note
+## Historical Evidence
 
-- **Evidence summary:** 5 historical outcomes were retrieved. 1 are high confidence and 4 are medium confidence. Source URLs are not fabricated; source status is reported separately. 4 rule-based strategic lesson(s) were generated from those outcomes.
-- **Confidence distribution:** High: 1, Medium: 4
-- **Source status distribution:** source pending; educational summary: 5
-- **Reviewer note:** Use these outcomes and lessons as decision-support context. They do not prove factual, legal, geopolitical, financial, or predictive accuracy.
+### Russia Sanctions After Ukraine Invasion (2022)
 
-**Key limitations:**
-- Historical outcomes are simplified educational summaries.
-- Confidence reflects internal evidence coding, not real-world predictive accuracy.
-- Lessons are pattern-based and should be reviewed by a human analyst.
-- Source URLs are not fabricated; missing source links remain marked as source pending.
+- **Case:** Sanctions; Energy and Finance.
+- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.
+- **Key limitation:** The actor, sector exposure, rule detail, and timing may differ from the current case.
+- **Decision lesson:** Organizations expanded screening, reviewed contracts, and escalated legal/compliance review.
+- **Why this case does not fully apply:** Historical similarity supports comparison, not prediction; local exposure and execution constraints must be checked separately.
 
-## Decision Considerations
+### Iran Sanctions Reimposition (2018)
 
-- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.
-- Decision-makers may wish to separate recurring historical lessons from case-specific facts.
-- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.
+- **Case:** Sanctions; Energy and Finance.
+- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.
+- **Key limitation:** The actor, sector exposure, rule detail, and timing may differ from the current case.
+- **Decision lesson:** Firms reassessed market exposure, payment channels, and customer relationships.
+- **Why this case does not fully apply:** Historical similarity supports comparison, not prediction; local exposure and execution constraints must be checked separately.
 
-## Current Context
+### Crimea Sanctions (2014)
 
-- ContextRetriever was skipped or no current-context findings were returned for this route.
-- **Source origin:** Agent Router
+- **Case:** Sanctions; Energy and Finance.
+- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.
+- **Key limitation:** The actor, sector exposure, rule detail, and timing may differ from the current case.
+- **Decision lesson:** Organizations updated screening lists, contract reviews, and regional exposure reporting.
+- **Why this case does not fully apply:** Historical similarity supports comparison, not prediction; local exposure and execution constraints must be checked separately.
 
-## Similarities and Differences
+## Market Expectations vs Actual Outcomes
 
-### Observed Similarities
-- The issue may resemble Major Earnings Guidance Withdrawal During COVID (2020), Huawei Entity List (2019) because the retrieved cases share characteristics with the earnings / corporate disclosure scenario frame.
-- The current context findings from the retrieved context set share characteristics with the extracted industries and policy terms.
+### Russia Sanctions After Ukraine Invasion (2022)
 
-### Observed Differences
-- The source document differs from historical analogues because current actors, implementation details, and timing are document-specific.
-- The retrieved context differs from historical cases because it describes standing monitoring considerations rather than a completed event.
+- **Initial / mainstream expectation:** Observers often expect a narrow restriction on named counterparties.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Sanctions disrupted transactions, counterparties, contracts, and compliance workflows.
+- **Expectation gap:** The practical effect can spread into payments, contracts, screening, and relationship reviews.
+- **Lesson:** Track second-order compliance and counterparty effects, not only the initial sanctions list.
 
-## Business Considerations
+### Iran Sanctions Reimposition (2018)
 
-- The issue may indicate changing constraints for affected business operations and requires monitoring of stakeholder exposure.
-- The earnings / corporate disclosure frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
-- Historical and context evidence should be used to structure diligence, not to imply an outcome.
+- **Initial / mainstream expectation:** Observers often expect a narrow restriction on named counterparties.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Renewed sanctions increased counterparty and market-access restrictions for affected sectors.
+- **Expectation gap:** The practical effect can spread into payments, contracts, screening, and relationship reviews.
+- **Lesson:** Track second-order compliance and counterparty effects, not only the initial sanctions list.
 
-## Operational Considerations
+### Crimea Sanctions (2014)
 
-- Operational teams may need to monitor counterparties, implementation timelines, documentation requirements, and contingency plans.
-- The issue could affect supplier continuity, licensing workflows, routing choices, or internal escalation paths depending on the scenario.
+- **Initial / mainstream expectation:** Observers often expect a narrow restriction on named counterparties.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Regional sanctions increased counterparty restrictions and investment limits for affected activities.
+- **Expectation gap:** The practical effect can spread into payments, contracts, screening, and relationship reviews.
+- **Lesson:** Track second-order compliance and counterparty effects, not only the initial sanctions list.
 
-## Geopolitical Considerations
+### North Korea Sanctions Enforcement (2017)
 
-- The issue could affect cross-border coordination involving relevant jurisdictions.
-- Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions.
+- **Initial / mainstream expectation:** Observers often expect a narrow restriction on named counterparties.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Enforcement pressure increased due diligence around counterparties, vessels, and payment flows.
+- **Expectation gap:** The practical effect can spread into payments, contracts, screening, and relationship reviews.
+- **Lesson:** Track second-order compliance and counterparty effects, not only the initial sanctions list.
 
-## Mechanisms Detected
+### Venezuela Oil Sanctions (2019)
 
-### Reputational Sensitivity
+- **Initial / mainstream expectation:** Observers often expect a narrow restriction on named counterparties.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Sanctions constrained transactions, crude flows, and counterparty relationships.
+- **Expectation gap:** The practical effect can spread into payments, contracts, screening, and relationship reviews.
+- **Lesson:** Track second-order compliance and counterparty effects, not only the initial sanctions list.
 
-- **Description:** Stakeholder perception risk linked to public policy security or compliance issues
-- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: compliance, linked, policy, risk; actor overlap: executives
-- **Possible observations:** public statements; stakeholder concern; disclosure language
-- **Evidence references:** Source Document, Reputational Sensitivity (Mechanism Framework)
 
-### Capital Constraint
+## Evidence Used
 
-- **Description:** Limits on investment or operating flexibility caused by funding costs margins or liquidity
-- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: costs, pressure; actor overlap: executives
-- **Possible observations:** margin pressure; capex commentary; liquidity planning
-- **Evidence references:** Source Document, Capital Constraint (Mechanism Framework)
-
-### Financial Intermediation Stress
-
-- **Description:** Pressure on deposits liquidity credit or banking controls
-- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: controls, costs, pressure
-- **Possible observations:** deposit costs; liquidity planning; credit provisions
-- **Evidence references:** Source Document, Financial Intermediation Stress (Mechanism Framework)
-
-### Input Cost Pressure
-
-- **Description:** Cost pressure from freight inputs capital or compliance
-- **Detection reason:** scenario match: Earnings / Corporate Disclosure; observation overlap: compliance, costs, pressure
-- **Possible observations:** freight costs; margin pressure; pricing commentary
-- **Evidence references:** Source Document, Input Cost Pressure (Mechanism Framework)
-
-## Competing Interpretations
-
-### Economics
-
-- **Hypothesis:** One possible interpretation is that the earnings / corporate disclosure event reflects resource allocation constraints linked to Reputational Sensitivity, Capital Constraint.
-- **Evidence references:** Capital Constraint (Mechanism Framework), Huawei Entity List (2019) - Historical Database, Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Reputational Sensitivity (Mechanism Framework), Source Document
-
-### Political Economy
-
-- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Reputational Sensitivity, Capital Constraint.
-- **Evidence references:** Capital Constraint (Mechanism Framework), Huawei Entity List (2019) - Historical Database, Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Reputational Sensitivity (Mechanism Framework), Source Document
-
-### International Relations
-
-- **Hypothesis:** One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.
-- **Evidence references:** Capital Constraint (Mechanism Framework), Huawei Entity List (2019) - Historical Database, Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Reputational Sensitivity (Mechanism Framework), Source Document
-
-### Legislative / Regulatory
-
-- **Hypothesis:** One possible interpretation is that implementation rules and compliance obligations are central to the event.
-- **Evidence references:** Capital Constraint (Mechanism Framework), Huawei Entity List (2019) - Historical Database, Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Reputational Sensitivity (Mechanism Framework), Source Document
-
-### Business Strategy
-
-- **Hypothesis:** One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.
-- **Evidence references:** Capital Constraint (Mechanism Framework), Huawei Entity List (2019) - Historical Database, Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database, Reputational Sensitivity (Mechanism Framework), Source Document
-
-## Multi-Lens Analysis
-
-### Economics
-
-**Supporting observations:**
-- The issue references business operations and operating constraints.
-- Historical analogues such as Major Earnings Guidance Withdrawal During COVID, Huawei Entity List show comparable economic adjustment patterns.
-
-**Limitations:**
-- The document does not quantify cost, demand, or capacity effects.
-
-### Political Economy
-
-**Supporting observations:**
-- The scenario classification is Earnings / Corporate Disclosure.
-- Current context from retrieved context entries highlights stakeholders and monitoring considerations.
-
-**Limitations:**
-- The balance between public policy goals and firm-level incentives requires more source detail.
-
-### International Relations
-
-**Supporting observations:**
-- Detected regions include no explicit region in the source document.
-- Mechanisms such as Reputational Sensitivity, Capital Constraint can appear in geopolitical or cross-border settings.
-
-**Limitations:**
-- The source does not establish intent by governments or counterparties.
-
-### Legislative / Regulatory
-
-**Supporting observations:**
-- Detected policy terms include sanctions, compliance.
-- The evidence trace includes source document signals and retrieved context records.
-
-**Limitations:**
-- Primary legal text or agency guidance would be needed for a complete regulatory reading.
-
-### Business Strategy
-
-**Supporting observations:**
-- The issue mentions actors such as executives, management, board.
-- The brief combines analogue patterns with current context monitoring considerations.
-
-**Limitations:**
-- The source does not contain internal priorities, customer-level exposure, or implementation plans.
-
-## Supporting Evidence
-
-### Economics (Substantial)
-- The issue references business operations and operating constraints.
-- Historical analogues such as Major Earnings Guidance Withdrawal During COVID, Huawei Entity List show comparable economic adjustment patterns.
-
-### Political Economy (Substantial)
-- The scenario classification is Earnings / Corporate Disclosure.
-- Current context from retrieved context entries highlights stakeholders and monitoring considerations.
-
-### International Relations (Substantial)
-- Detected regions include no explicit region in the source document.
-- Mechanisms such as Reputational Sensitivity, Capital Constraint can appear in geopolitical or cross-border settings.
-
-### Legislative / Regulatory (Substantial)
-- Detected policy terms include sanctions, compliance.
-- The evidence trace includes source document signals and retrieved context records.
-
-### Business Strategy (Substantial)
-- The issue mentions actors such as executives, management, board.
-- The brief combines analogue patterns with current context monitoring considerations.
-
-## Weakening Evidence
-
-### Economics
-- The document does not quantify cost, demand, or capacity effects.
-
-### Political Economy
-- The balance between public policy goals and firm-level incentives requires more source detail.
-
-### International Relations
-- The source does not establish intent by governments or counterparties.
-
-### Legislative / Regulatory
-- Primary legal text or agency guidance would be needed for a complete regulatory reading.
-
-### Business Strategy
-- The source does not contain internal priorities, customer-level exposure, or implementation plans.
-
-## Missing Evidence
-
-### Economics
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
-
-### Political Economy
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
-
-### International Relations
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
-
-### Legislative / Regulatory
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
-
-### Business Strategy
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
-
-## Historical Response Patterns
-
-### Monitoring and contingency planning
-
-**Observed Historical Choices:**
-- Organizations reviewed counterparties, suppliers, and implementation details.
-- Teams created monitoring routines around policy updates and operational constraints.
-
-**Observed Outcomes:**
-- Observed outcomes varied across cases and should not be treated as predictive.
-- Relevant analogues include Major Earnings Guidance Withdrawal During COVID, Huawei Entity List, ASML Export Controls.
-
-**Business Lessons:**
-- Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.
-- Cross-functional review can help separate compliance, operational, and strategic questions.
-
-## Cross-Domain Lessons
-
-- Mechanisms such as Reputational Sensitivity, Capital Constraint, Financial Intermediation Stress can appear across policy, security, and business domains.
-- Historical response patterns are most useful when paired with current context and source verification.
-
-## Monitoring Considerations
-
-- Decision-makers may wish to monitor source updates, implementation details, stakeholder responses, and evidence gaps.
-- Decision-makers may wish to monitor whether new evidence strengthens or weakens each interpretation.
-
-## Strategic Questions
-
-- Which stakeholders are most exposed to this issue?
-- What facts would change the current scenario classification?
-- Which historical analogue is structurally closest, and where does the comparison differ from current context?
-- Which current-context findings require source verification before executive discussion?
-- What decisions require more source verification before executive action?
-
-## Analyst Notes
-
-- V3 uses an Agent Router to select tools before execution.
-- Current context retrieval uses local Markdown knowledge-base entries.
-- Historical analogues support structured comparison, not prediction.
-- The synthesis uses phrases such as may resemble, shares characteristics with, differs from, and requires monitoring by design.
+- Input document or question text.
+- Local historical analogue records.
+- Local historical outcome records.
+- Deterministic event-family understanding rules.
 
 ## Limitations
 
-- V3.0 uses deterministic routing, keyword matching, and overlap matching.
-- It does not call paid APIs or LLM services.
-- It does not generate forecasts or probabilities.
-- It does not provide trading advice or investment recommendations.
-- Outputs should be reviewed against primary sources before executive use.
+- Educational use only; this is a local decision-support demo, not a production advisory service.
+- This is not investment advice, trading advice, legal advice, or a forecast.
+- Human review is recommended before operational, legal, financial, or executive use.
+- Historical analogues help structure comparison but do not predict future outcomes.
+- Outcome frequencies are counts within the local curated dataset, not real-world probabilities.
+- The system does not use live web retrieval or source verification.
 
-### Evidence Trace
+## Evidence and Confidence
 
-- ASML Export Controls (2023) - Historical Database
-- ASML Export Controls (2023) - Historical Outcomes Database
-- Agent Router: deterministic tool selection trace
-- Allied Export Control Coordination (2023) - Historical Outcomes Database
-- Capital Constraint (Mechanism Framework)
-- Entity List Expansion (2020) - Historical Outcomes Database
-- Financial Intermediation Stress (Mechanism Framework)
-- Huawei Entity List (2019) - Historical Database
-- Huawei Entity List (2019) - Historical Outcomes Database
-- Input Cost Pressure (Mechanism Framework)
-- Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database
-- Major Earnings Guidance Withdrawals During COVID (2020) - Historical Outcomes Database
-- Reputational Sensitivity (Mechanism Framework)
-- Source Document
-- Tool Registry: registered deterministic analysis tools
+**Confidence level:** Moderate
 
-## Evidence Sources
+**Confidence rationale:** Moderate confidence because 8 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
 
-- **Input Document:** issue fields, scenario keywords, and extracted entities.
-- **Historical Database:** retrieved analogue cases and similarity reasons.
-- **Context Knowledge Base:** not used for this route because ContextRetriever was skipped or returned no findings.
-- **Agent Router:** selected and skipped tool decisions.
+### Evidence Ledger
+
+- **E1 (User-provided input material)**
+  - Observation: Financial Earnings Geopolitical Risk Demo Case
+
+A fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets.
+  - Inference: The extracted issue is treated as the starting point for decision support.
+  - Supports: Situation understanding and decision framing.
+  - Relevance: High; Confidence: Moderate
+  - Limitations: Source detail depends on the supplied material; no external source completeness is implied.
+- **E2 (Local historical analogue record)**
+  - Observation: keyword overlap: activity, compliance, geopolitical, linked
+  - Inference: The historical case may help compare mechanisms, but it does not determine the current outcome.
+  - Supports: Historical comparison and analogue reasoning.
+  - Relevance: Moderate; Confidence: Moderate
+  - Limitations: Historical analogues support comparison, not prediction.
+- **E3 (Deterministic mechanism detection)**
+  - Observation: public statements; stakeholder concern; disclosure language
+  - Inference: scenario match: Earnings / Corporate Disclosure; observation overlap: compliance, linked, policy, risk; actor overlap: executives
+  - Supports: Mechanism reasoning and risk identification.
+  - Relevance: Moderate; Confidence: Moderate
+  - Limitations: Mechanism detection is deterministic and should be reviewed against source details.
+- **E4 (Deterministic mechanism detection)**
+  - Observation: margin pressure; capex commentary; liquidity planning
+  - Inference: scenario match: Earnings / Corporate Disclosure; observation overlap: costs, pressure; actor overlap: executives
+  - Supports: Mechanism reasoning and risk identification.
+  - Relevance: Moderate; Confidence: Moderate
+  - Limitations: Mechanism detection is deterministic and should be reviewed against source details.
+- **E5 (Evidence assessment)**
+  - Observation: Economics has supporting and weakening evidence.
+  - Inference: The interpretation should be treated cautiously where weakening or missing evidence remains.
+  - Supports: Evidence quality and uncertainty.
+  - Relevance: High; Confidence: Moderate
+  - Limitations: The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
+- **E6 (Evidence assessment)**
+  - Observation: Political Economy has supporting and weakening evidence.
+  - Inference: The interpretation should be treated cautiously where weakening or missing evidence remains.
+  - Supports: Evidence quality and uncertainty.
+  - Relevance: High; Confidence: Moderate
+  - Limitations: The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
+- **E7 (Local historical outcome record)**
+  - Observation: Organizations expanded screening, reviewed contracts, and escalated legal/compliance review.
+  - Inference: The outcome informs possible response patterns but is not a forecast.
+  - Supports: Historical outcomes and strategic lessons.
+  - Relevance: Moderate; Confidence: High
+  - Limitations: source pending; educational summary
+- **E8 (Local historical outcome record)**
+  - Observation: Firms reassessed market exposure, payment channels, and customer relationships.
+  - Inference: The outcome informs possible response patterns but is not a forecast.
+  - Supports: Historical outcomes and strategic lessons.
+  - Relevance: Moderate; Confidence: Moderate
+  - Limitations: source pending; educational summary
+
+### Key Assumptions
+
+- The supplied material is sufficient for an initial decision-support brief.
+- Human review will verify source details before operational use.
+- The Earnings / Corporate Disclosure frame is an appropriate starting point for analysis.
+- The identified mechanisms remain relevant to the decision context: Reputational Sensitivity, Capital Constraint, Financial Intermediation Stress.
+
+### What Would Change This View
+
+- New primary source material changes the factual basis.
+- Stakeholder responses differ from the assumptions in the brief.
+- Implementation details create materially different constraints.
+- Evidence shows the situation no longer fits the Earnings / Corporate Disclosure frame.
+
+### What Is Unknown Or Uncertain
+
+- The current brief does not verify information outside the supplied input and local records.
+- Organization-specific exposure, timing, and implementation constraints require human review.
+
+### Evidence Limitations
+
+- Educational use only; this is a local decision-support demo, not a production advisory service.
+- This is not investment advice, trading advice, legal advice, or a forecast.
+- Human review is recommended before operational, legal, financial, or executive use.
+- Historical analogues help structure comparison but do not predict future outcomes.
+- Outcome frequencies are counts within the local curated dataset, not real-world probabilities.
+- The system does not use live web retrieval or source verification.

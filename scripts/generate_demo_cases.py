@@ -1,4 +1,4 @@
-"""Generate V8 demo case artifacts through the local FastAPI pipeline."""
+"""Generate reviewer-facing demo case artifacts through the local FastAPI pipeline."""
 
 from __future__ import annotations
 

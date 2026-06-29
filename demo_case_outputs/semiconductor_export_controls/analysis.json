@@ -1,8 +1,8 @@
 {
   "issue": {
-    "title": "Semiconductor Export Controls Demo Case",
-    "summary": "A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The government says the rules are intended to limit access to sensitive technology by restricted end users while preserving licensed trade for low-risk commercial customers. Several semiconductor manufacturers, equipment suppliers, and cloud infrastructure firms begin internal reviews of customer exposure, product classificati...",
-    "core_issue": "A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software.",
+    "title": "What does this issue mean?",
+    "summary": "Semiconductor Export Controls Demo Case\n\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The government says the rules are intended to limit access to sensitive technology by restricted end users while preserving licensed trade for low-risk commercial customers. Several semiconductor manufacturers, equipment suppliers, and cloud infrastructure firms begin internal reviews o...",
+    "core_issue": "Semiconductor Export Controls Demo Case\n\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software.",
     "actors": [
       "government",
       "executives",
@@ -35,9 +35,13 @@
       "Even when shipments are not fully blocked, licensing uncertainty can change sales timing, customer planning, and supplier qualification."
     ],
     "evidence": [
-      "A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The government says the rules are intended to limit access to sensitive technology by restricted end users while preserving licensed trade for low-risk commercial customers. Several semiconductor manufacturers, equipment suppliers, and cloud infrastructure firms begin internal reviews of customer exposure, product classificati..."
+      "Semiconductor Export Controls Demo Case\n\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The government says the rules are intended to limit access to sensitive technology by restricted end users while preserving licensed trade for low-risk commercial customers. Several semiconductor manufacturers, equipment suppliers, and cloud infrastructure firms begin internal reviews o..."
     ]
   },
+  "source_url": "",
+  "input_mode": "paste_text",
+  "uploaded_filename": "",
+  "file_type": "text",
   "event_context": {
     "event_type": "Export Controls",
     "primary_actor": "Government regulators",
@@ -53,7 +57,7 @@
     ],
     "policy_domain": "Technology and national security",
     "strategic_significance": "This export controls context matters because it may affect Semiconductors, Supply Chain / Logistics, Manufacturing through technology and national security considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.",
-    "event_summary": "Semiconductor Export Controls Demo Case\n\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The government says the rules are intended to limit access to sensitive technology by restricted end users while preserving licensed trade for low-risk commercial customers.",
+    "event_summary": "What does this issue mean? Semiconductor Export Controls Demo Case\n\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software.",
     "confidence": "High",
     "context_limitations": [
       "Current-event context is extracted from the submitted document only.",
@@ -61,8 +65,34 @@
       "Actor, sector, and region labels use deterministic keyword rules and may miss nuance."
     ]
   },
+  "event_understanding": {
+    "event_type": "Export control policy event",
+    "event_family": "Trade Restriction",
+    "rationale": "Matched event signals: export control, export controls, licensing requirement, end user, advanced semiconductor.",
+    "relevant_families": [
+      "Export Controls",
+      "Trade Policy",
+      "Technology Competition",
+      "Corporate Strategic Response"
+    ],
+    "comparison_guardrail": "Compare with technology-control, licensing, market-access, and supply-chain exposure cases."
+  },
+  "question_route": {
+    "question_text": "What does this issue mean?",
+    "intent": "Implication Analysis",
+    "intent_label": "Implication Analysis",
+    "matched_keywords": [
+      "mean"
+    ],
+    "response_focus": [
+      "current event context",
+      "business considerations",
+      "operational considerations"
+    ],
+    "routing_note": "Question intent is classified with deterministic keyword rules; no LLM routing is used."
+  },
   "scenario": {
-    "issue_title": "Semiconductor Export Controls Demo Case",
+    "issue_title": "What does this issue mean?",
     "primary_scenario": "Export Controls",
     "matched_keywords": [
       "export control",
@@ -100,31 +130,12 @@
       "typical_actors": "banks; exporters; suppliers; customers",
       "historical_examples": "Russia Sanctions; banking compliance cases",
       "possible_observations": "screening alerts; payment exceptions; contract reviews",
-      "detection_reason": "scenario match: Export Controls; observation overlap: customers, exposure, reviews, suppliers; actor overlap: customers, suppliers",
+      "detection_reason": "scenario match: Export Controls; observation overlap: customers, reviews, suppliers; actor overlap: customers, suppliers",
       "evidence_references": [
         "Source Document",
         "Counterparty Risk (Mechanism Framework)"
       ],
       "source_title": "Counterparty Risk",
-      "source_type": "Mechanism framework entry",
-      "source_date": "source pending",
-      "source_url": "source pending",
-      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
-    },
-    {
-      "mechanism_id": "M-002",
-      "mechanism_name": "Strategic Dependency",
-      "description": "Exposure created by reliance on concentrated suppliers or jurisdictions",
-      "related_scenarios": "Supply Chain Disruption; Industrial Policy; Export Controls",
-      "typical_actors": "manufacturers; suppliers; governments",
-      "historical_examples": "COVID Supply Chain Disruption; CHIPS Act",
-      "possible_observations": "supplier concentration; critical inputs; geographic dependency",
-      "detection_reason": "scenario match: Export Controls; observation overlap: exposure, suppliers; actor overlap: suppliers",
-      "evidence_references": [
-        "Source Document",
-        "Strategic Dependency (Mechanism Framework)"
-      ],
-      "source_title": "Strategic Dependency",
       "source_type": "Mechanism framework entry",
       "source_date": "source pending",
       "source_url": "source pending",
@@ -144,6 +155,25 @@
         "Market Access Restriction (Mechanism Framework)"
       ],
       "source_title": "Market Access Restriction",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
+    {
+      "mechanism_id": "M-013",
+      "mechanism_name": "Alliance Coordination",
+      "description": "Policy alignment or divergence among allied governments",
+      "related_scenarios": "Export Controls; Industrial Policy; Sanctions",
+      "typical_actors": "governments; agencies; firms",
+      "historical_examples": "ASML Export Controls; Russia Sanctions",
+      "possible_observations": "joint statements; aligned rules; implementation differences",
+      "detection_reason": "scenario match: Export Controls; observation overlap: policy, rules; actor overlap: firms",
+      "evidence_references": [
+        "Source Document",
+        "Alliance Coordination (Mechanism Framework)"
+      ],
+      "source_title": "Alliance Coordination",
       "source_type": "Mechanism framework entry",
       "source_date": "source pending",
       "source_url": "source pending",
@@ -184,18 +214,18 @@
       "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
     },
     {
-      "case_title": "CHIPS and Science Act",
-      "year": "2022",
-      "scenario_type": "Industrial Policy",
-      "similarity_reason": "keyword overlap: chips, policy, semiconductor, technology; industry overlap: manufacturing, technology; actor overlap: firms, government",
-      "business_relevance": "Shows how public incentives can shape capital planning and site selection.",
-      "geopolitical_relevance": "Reflects strategic concern about supply resilience and technology leadership.",
+      "case_title": "Japan-Korea Semiconductor Materials Dispute",
+      "year": "2019",
+      "scenario_type": "Trade Policy",
+      "similarity_reason": "keyword overlap: advanced, affecting, controls, export; industry overlap: technology; actor overlap: government, suppliers",
+      "business_relevance": "Shows how trade restrictions can affect specialized upstream inputs.",
+      "geopolitical_relevance": "Highlights bilateral tensions affecting advanced manufacturing.",
       "caution_note": "Historical analogues support comparison, not prediction.",
       "source": "Public-history example; concise summary only.",
-      "evidence_trace": "CHIPS and Science Act (2022) - Historical Database",
-      "source_title": "CHIPS and Science Act",
+      "evidence_trace": "Japan-Korea Semiconductor Materials Dispute (2019) - Historical Database",
+      "source_title": "Japan-Korea Semiconductor Materials Dispute",
       "source_type": "Historical analogue summary",
-      "source_date": "2022",
+      "source_date": "2019",
       "source_url": "source pending",
       "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
     }
@@ -238,24 +268,6 @@
       ]
     },
     {
-      "case_id": "HO-006",
-      "case_name": "CHIPS and Science Act",
-      "event_family": "Industrial Policy",
-      "year": "2022",
-      "actor": "U.S. government; semiconductor firms",
-      "sector": "Semiconductors",
-      "observed_outcome": "Public incentives reshaped capacity planning and domestic manufacturing discussions.",
-      "strategic_response": "Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.",
-      "time_horizon": "Long-term",
-      "confidence": "Medium",
-      "source_status": "source pending; educational summary",
-      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
-      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Industrial Policy",
-      "evidence_references": [
-        "CHIPS and Science Act (2022) - Historical Outcomes Database"
-      ]
-    },
-    {
       "case_id": "HO-017",
       "case_name": "Entity List Expansion",
       "event_family": "Export Controls",
@@ -290,6 +302,24 @@
       "evidence_references": [
         "Allied Export Control Coordination (2023) - Historical Outcomes Database"
       ]
+    },
+    {
+      "case_id": "HO-021",
+      "case_name": "ZTE Denial Order",
+      "event_family": "Export Controls",
+      "year": "2018",
+      "actor": "U.S. government; ZTE; suppliers",
+      "sector": "Telecommunications",
+      "observed_outcome": "Restricted access to U.S. technology inputs created severe operational disruption for a telecom equipment firm.",
+      "strategic_response": "The company pursued compliance remediation, management changes, and supplier access restoration.",
+      "time_horizon": "Short-term",
+      "confidence": "High",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "High confidence because the broad outcome is widely documented; exact operational details should be checked against primary sources.",
+      "retrieval_reason": "event-family match: Export Controls; event-family/title overlap",
+      "evidence_references": [
+        "ZTE Denial Order (2018) - Historical Outcomes Database"
+      ]
     }
   ],
   "strategic_lessons": [
@@ -298,18 +328,18 @@
       "supporting_cases": [
         "Huawei Entity List (2019)",
         "ASML Export Controls (2023)",
-        "CHIPS and Science Act (2022)",
         "Entity List Expansion (2020)",
-        "Allied Export Control Coordination (2023)"
+        "Allied Export Control Coordination (2023)",
+        "ZTE Denial Order (2018)"
       ],
       "confidence": "High",
       "rationale": "Matched 5 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.",
       "evidence_references": [
         "ASML Export Controls (2023) - Historical Outcomes Database",
         "Allied Export Control Coordination (2023) - Historical Outcomes Database",
-        "CHIPS and Science Act (2022) - Historical Outcomes Database",
         "Entity List Expansion (2020) - Historical Outcomes Database",
-        "Huawei Entity List (2019) - Historical Outcomes Database"
+        "Huawei Entity List (2019) - Historical Outcomes Database",
+        "ZTE Denial Order (2018) - Historical Outcomes Database"
       ]
     },
     {
@@ -318,27 +348,27 @@
         "Huawei Entity List (2019)",
         "ASML Export Controls (2023)",
         "Entity List Expansion (2020)",
-        "Allied Export Control Coordination (2023)"
+        "Allied Export Control Coordination (2023)",
+        "ZTE Denial Order (2018)"
       ],
       "confidence": "High",
-      "rationale": "Matched 4 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.",
+      "rationale": "Matched 5 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.",
       "evidence_references": [
         "ASML Export Controls (2023) - Historical Outcomes Database",
         "Allied Export Control Coordination (2023) - Historical Outcomes Database",
         "Entity List Expansion (2020) - Historical Outcomes Database",
-        "Huawei Entity List (2019) - Historical Outcomes Database"
+        "Huawei Entity List (2019) - Historical Outcomes Database",
+        "ZTE Denial Order (2018) - Historical Outcomes Database"
       ]
     },
     {
       "lesson": "Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.",
       "supporting_cases": [
-        "Huawei Entity List (2019)",
-        "CHIPS and Science Act (2022)"
+        "Huawei Entity List (2019)"
       ],
-      "confidence": "Medium",
-      "rationale": "Matched 2 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.",
+      "confidence": "Low",
+      "rationale": "Matched 1 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.",
       "evidence_references": [
-        "CHIPS and Science Act (2022) - Historical Outcomes Database",
         "Huawei Entity List (2019) - Historical Outcomes Database"
       ]
     },
@@ -354,10 +384,154 @@
       ]
     }
   ],
+  "strategic_assessment": {
+    "direct_answer": "The strongest historical similarity is a Export control policy event affecting semiconductor, chip. Across relevant historical cases, organizations most often expanded compliance monitoring and documentation; increased executive communication and guidance monitoring. The key pattern is that operational adaptation usually follows the first policy or market shock. The main risk is assuming the headline event is the whole story; the most important uncertainty is how rules, customers, suppliers, and management responses change after implementation. The next signal to watch is concrete exposure mapping or policy guidance. The comparison guardrail is: Compare with technology-control, licensing, market-access, and supply-chain exposure cases.",
+    "event_type": "Export control policy event",
+    "event_family": "Trade Restriction",
+    "comparison_guardrail": "Compare with technology-control, licensing, market-access, and supply-chain exposure cases.",
+    "historical_patterns": [
+      {
+        "pattern": "Expanded compliance monitoring and documentation",
+        "frequency_percent": 100,
+        "supporting_cases": [
+          "Huawei Entity List (2019)",
+          "ASML Export Controls (2023)",
+          "Entity List Expansion (2020)",
+          "Allied Export Control Coordination (2023)",
+          "ZTE Denial Order (2018)"
+        ],
+        "interpretation": "Organizations often added documentation, screening, or approval routines when rules became more restrictive."
+      },
+      {
+        "pattern": "Increased executive communication and guidance monitoring",
+        "frequency_percent": 80,
+        "supporting_cases": [
+          "Huawei Entity List (2019)",
+          "Entity List Expansion (2020)",
+          "Allied Export Control Coordination (2023)",
+          "ZTE Denial Order (2018)"
+        ],
+        "interpretation": "Uncertain events often made management communication and stakeholder updates more important."
+      },
+      {
+        "pattern": "Reviewed supplier concentration or diversified supply options",
+        "frequency_percent": 60,
+        "supporting_cases": [
+          "Huawei Entity List (2019)",
+          "Allied Export Control Coordination (2023)",
+          "ZTE Denial Order (2018)"
+        ],
+        "interpretation": "Similar cases often pushed organizations to reduce dependence on a narrow set of suppliers, routes, or inputs."
+      },
+      {
+        "pattern": "Reviewed continuity plans and operational exposure",
+        "frequency_percent": 40,
+        "supporting_cases": [
+          "Huawei Entity List (2019)",
+          "ASML Export Controls (2023)"
+        ],
+        "interpretation": "Operationally exposed cases often led teams to review contingency plans, routes, and concentration risks."
+      }
+    ],
+    "outcome_distribution": [
+      {
+        "outcome_type": "Partial Disruption",
+        "frequency_percent": 80,
+        "case_count": 4,
+        "interpretation": "Cases in this group show meaningful constraints, delays, or access limits that required operational response."
+      },
+      {
+        "outcome_type": "Strategic Reassessment",
+        "frequency_percent": 20,
+        "case_count": 1,
+        "interpretation": "Cases in this group show planning reviews or strategic repositioning without a single dominant disruption pattern."
+      }
+    ],
+    "expectation_vs_reality": [
+      {
+        "event": "Huawei Entity List (2019)",
+        "consensus_expectation": "Observers often focus first on immediate licensing or shipment disruption.",
+        "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
+        "observed_outcome": "Restricted access to selected technology inputs changed supplier screening and product planning.",
+        "expectation_gap": "The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.",
+        "strategic_lesson": "Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships."
+      },
+      {
+        "event": "ASML Export Controls (2023)",
+        "consensus_expectation": "Observers often focus first on immediate licensing or shipment disruption.",
+        "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
+        "observed_outcome": "Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.",
+        "expectation_gap": "The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.",
+        "strategic_lesson": "Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships."
+      },
+      {
+        "event": "Entity List Expansion (2020)",
+        "consensus_expectation": "Observers often focus first on immediate licensing or shipment disruption.",
+        "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
+        "observed_outcome": "Expanded restrictions increased screening burden and uncertainty for technology transactions.",
+        "expectation_gap": "The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.",
+        "strategic_lesson": "Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships."
+      },
+      {
+        "event": "Allied Export Control Coordination (2023)",
+        "consensus_expectation": "Observers often focus first on immediate licensing or shipment disruption.",
+        "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
+        "observed_outcome": "Policy alignment among allies increased the importance of jurisdiction-by-jurisdiction rule monitoring.",
+        "expectation_gap": "The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.",
+        "strategic_lesson": "Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships."
+      },
+      {
+        "event": "ZTE Denial Order (2018)",
+        "consensus_expectation": "Observers often focus first on immediate licensing or shipment disruption.",
+        "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
+        "observed_outcome": "Restricted access to U.S. technology inputs created severe operational disruption for a telecom equipment firm.",
+        "expectation_gap": "The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.",
+        "strategic_lesson": "Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships."
+      }
+    ],
+    "strategic_watchlist": [
+      "Regulatory clarification, implementation dates, exemptions, or licensing guidance.",
+      "Management commentary about customer exposure, supplier exposure, or operational constraints.",
+      "Supplier diversification announcements, qualification updates, or inventory adjustments.",
+      "Capex, localization, or sourcing changes tied to the event.",
+      "Evidence that affected organizations are revising contracts, compliance workflows, or customer terms."
+    ],
+    "role_based_monitoring": {
+      "investor_view": [
+        "Monitor revenue exposure, margin pressure, management guidance, and customer concentration commentary.",
+        "Separate operational disruption signals from ordinary quarterly volatility.",
+        "Watch whether management distinguishes temporary disruption from durable business-model exposure."
+      ],
+      "corporate_strategy_view": [
+        "Monitor localization requirements, policy implementation details, supplier concentration, and eligibility rules.",
+        "Identify which business units need updated exposure maps or decision memos.",
+        "Prepare executive discussion notes that separate known facts from unresolved questions."
+      ],
+      "supply_chain_view": [
+        "Monitor inventory coverage, logistics routes, alternative suppliers, and qualification timelines.",
+        "Check whether single-source inputs or chokepoints require contingency planning.",
+        "Track customer communication needs if delivery timing or input availability changes."
+      ],
+      "policy_view": [
+        "Monitor implementation guidance, enforcement posture, exemptions, and timing.",
+        "Separate announced policy intent from operational rules that organizations can actually follow.",
+        "Track whether agencies, regulators, or counterpart governments clarify scope or eligibility."
+      ]
+    },
+    "important_limitations": [
+      "Educational use only; this is a local decision-support demo, not a production advisory service.",
+      "This is not investment advice, trading advice, legal advice, or a forecast.",
+      "Human review is recommended before operational, legal, financial, or executive use.",
+      "Historical analogues help structure comparison but do not predict future outcomes.",
+      "Outcome frequencies are counts within the local curated dataset, not real-world probabilities.",
+      "The system does not use live web retrieval or source verification."
+    ]
+  },
   "evidence_credibility": {
-    "evidence_summary": "5 historical outcomes were retrieved. 5 are medium confidence. Source URLs are not fabricated; source status is reported separately. 4 rule-based strategic lesson(s) were generated from those outcomes.",
+    "evidence_summary": "5 historical outcomes were retrieved. 1 are high confidence and 4 are medium confidence. Source URLs are not fabricated; source status is reported separately. 4 rule-based strategic lesson(s) were generated from those outcomes.",
     "confidence_distribution": {
-      "Medium": 5
+      "Medium": 4,
+      "High": 1
     },
     "source_status_distribution": {
       "source pending; educational summary": 5
@@ -372,7 +546,7 @@
   },
   "current_context": [
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "industry": "Semiconductors",
       "scenario_type": "Export Controls",
       "context_summary": "Advanced chip and semiconductor equipment supply chains depend on cross-border licensing, specialized suppliers, and government controls.",
@@ -384,7 +558,7 @@
       "evidence_trace": "Semiconductors Context KB: SC-001 (semiconductor_context.md)"
     },
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "industry": "Supply Chain",
       "scenario_type": "Export Controls",
       "context_summary": "Export controls can restrict shipment of sensitive goods, software, or technology to certain end users.",
@@ -396,7 +570,7 @@
       "evidence_trace": "Supply Chain Context KB: SP-004 (supply_chain_context.md)"
     },
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "industry": "Trade Policy",
       "scenario_type": "Export Controls",
       "context_summary": "Export-control policy can link national security priorities with commercial technology transfer restrictions.",
@@ -410,7 +584,7 @@
   ],
   "implications": [
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "observed_similarities": [
         "The issue may resemble Huawei Entity List (2019), ASML Export Controls (2023) because the retrieved cases share characteristics with the export controls scenario frame.",
         "The current context findings from Semiconductors, Supply Chain, Trade Policy share characteristics with the extracted industries and policy terms."
@@ -442,7 +616,7 @@
       "evidence_trace": [
         "Huawei Entity List (2019) - Historical Database",
         "ASML Export Controls (2023) - Historical Database",
-        "CHIPS and Science Act (2022) - Historical Database",
+        "Japan-Korea Semiconductor Materials Dispute (2019) - Historical Database",
         "Semiconductors Context KB: SC-001 (semiconductor_context.md)",
         "Supply Chain Context KB: SP-004 (supply_chain_context.md)",
         "Trade Policy Context KB: TP-002 (trade_policy_context.md)"
@@ -451,7 +625,7 @@
   ],
   "response_playbooks": [
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "pattern_name": "Monitoring and contingency planning",
       "observed_historical_choices": [
         "Organizations reviewed counterparties, suppliers, and implementation details.",
@@ -459,23 +633,23 @@
       ],
       "observed_outcomes": [
         "Observed outcomes varied across cases and should not be treated as predictive.",
-        "Relevant analogues include Huawei Entity List, ASML Export Controls, CHIPS and Science Act."
+        "Relevant analogues include Huawei Entity List, ASML Export Controls, Japan-Korea Semiconductor Materials Dispute."
       ],
       "business_lessons": [
         "Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.",
         "Cross-functional review can help separate compliance, operational, and strategic questions."
       ],
       "cross_domain_lessons": [
-        "Mechanisms such as Technology Containment, Counterparty Risk, Strategic Dependency can appear across policy, security, and business domains.",
+        "Mechanisms such as Technology Containment, Counterparty Risk, Market Access Restriction can appear across policy, security, and business domains.",
         "Historical response patterns are most useful when paired with current context and source verification."
       ],
       "evidence_references": [
         "Huawei Entity List (2019) - Historical Database",
         "ASML Export Controls (2023) - Historical Database",
-        "CHIPS and Science Act (2022) - Historical Database",
+        "Japan-Korea Semiconductor Materials Dispute (2019) - Historical Database",
         "Technology Containment (Mechanism Framework)",
         "Counterparty Risk (Mechanism Framework)",
-        "Strategic Dependency (Mechanism Framework)"
+        "Market Access Restriction (Mechanism Framework)"
       ],
       "source_title": "Response Playbook",
       "source_type": "Deterministic response pattern",
@@ -486,7 +660,7 @@
   ],
   "lenses": [
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "lens": "Economics",
       "hypothesis": "One possible interpretation is that the export controls event reflects resource allocation constraints linked to Technology Containment, Counterparty Risk.",
       "supporting_observations": [
@@ -507,7 +681,7 @@
       ]
     },
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "lens": "Political Economy",
       "hypothesis": "One possible interpretation is that public authority and business incentives are interacting through Technology Containment, Counterparty Risk.",
       "supporting_observations": [
@@ -528,7 +702,7 @@
       ]
     },
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "lens": "International Relations",
       "hypothesis": "One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.",
       "supporting_observations": [
@@ -549,7 +723,7 @@
       ]
     },
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "lens": "Legislative / Regulatory",
       "hypothesis": "One possible interpretation is that implementation rules and compliance obligations are central to the event.",
       "supporting_observations": [
@@ -570,7 +744,7 @@
       ]
     },
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "lens": "Business Strategy",
       "hypothesis": "One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.",
       "supporting_observations": [
@@ -593,7 +767,7 @@
   ],
   "evidence": [
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "lens": "Economics",
       "supporting_evidence": [
         "The issue references semiconductor, chip, chips and operating constraints.",
@@ -610,7 +784,7 @@
       "confidence_language": "Substantial"
     },
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "lens": "Political Economy",
       "supporting_evidence": [
         "The scenario classification is Export Controls.",
@@ -627,7 +801,7 @@
       "confidence_language": "Substantial"
     },
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "lens": "International Relations",
       "supporting_evidence": [
         "Detected regions include Middle East.",
@@ -644,7 +818,7 @@
       "confidence_language": "Substantial"
     },
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "lens": "Legislative / Regulatory",
       "supporting_evidence": [
         "Detected policy terms include export controls, licensing, compliance.",
@@ -661,7 +835,7 @@
       "confidence_language": "Substantial"
     },
     {
-      "issue_title": "Semiconductor Export Controls Demo Case",
+      "issue_title": "What does this issue mean?",
       "lens": "Business Strategy",
       "supporting_evidence": [
         "The issue mentions actors such as government, executives, suppliers.",
@@ -678,6 +852,324 @@
       "confidence_language": "Substantial"
     }
   ],
+  "decision_case": {
+    "decision_question": "What does this issue mean?",
+    "source_summary": "Semiconductor Export Controls Demo Case\n\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The government says the rules are intended to limit access to sensitive technology by restricted end users while preserving licensed trade for low-risk commercial customers. Several semiconductor manufacturers, equipment suppliers, and cloud infrastructure firms begin internal reviews o...",
+    "situation": "Semiconductor Export Controls Demo Case\n\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software.",
+    "stakeholders": [
+      "government",
+      "executives",
+      "suppliers",
+      "customers",
+      "firms",
+      "companies",
+      "Middle East",
+      "semiconductor",
+      "chip",
+      "chips",
+      "AI",
+      "cloud",
+      "manufacturing",
+      "technology",
+      "software"
+    ],
+    "decision_criteria": [
+      "Evidence quality",
+      "Impact on semiconductor",
+      "Exposure",
+      "Reversibility",
+      "Execution burden",
+      "Monitoring value",
+      "Scenario fit: Export Controls"
+    ],
+    "decision_options": [
+      "Option A: wait for more complete information before changing posture.",
+      "Option B: map exposure, preserve flexibility, and prepare staged response options.",
+      "Option C: move immediately to a more defensive posture."
+    ],
+    "evidence_items": [
+      "E1",
+      "E2",
+      "E3",
+      "E4",
+      "E5",
+      "E6",
+      "E7",
+      "E8",
+      "E9",
+      "E10",
+      "E11",
+      "E12"
+    ],
+    "historical_analogues": [
+      "Huawei Entity List (2019)",
+      "ASML Export Controls (2023)",
+      "Japan-Korea Semiconductor Materials Dispute (2019)"
+    ],
+    "assumptions": [
+      "The supplied material is sufficient for an initial decision-support brief.",
+      "Human review will verify source details before operational use.",
+      "The Export Controls frame is an appropriate starting point for analysis.",
+      "The identified mechanisms remain relevant to the decision context: Technology Containment, Counterparty Risk, Market Access Restriction.",
+      "Sector exposure should be validated against organization-specific data."
+    ],
+    "risks": [
+      "The source material may omit operational details needed for final action.",
+      "Historical similarity may not transfer cleanly to the current context.",
+      "New evidence may change the preferred path.",
+      "The Export Controls classification may be incomplete if the input is brief or ambiguous."
+    ],
+    "recommended_path": "Option B: map exposure, preserve flexibility, and prepare staged response options.",
+    "confidence_level": "Moderate",
+    "change_triggers": [
+      "New primary source material changes the factual basis.",
+      "Stakeholder responses differ from the assumptions in the brief.",
+      "Implementation details create materially different constraints.",
+      "Evidence shows the situation no longer fits the Export Controls frame."
+    ],
+    "monitoring_signals": [
+      "Source updates",
+      "Stakeholder responses",
+      "Implementation details",
+      "Evidence gaps",
+      "Export Controls indicators",
+      "semiconductor exposure changes"
+    ],
+    "limitations": [
+      "Educational use only; this is a local decision-support demo, not a production advisory service.",
+      "This is not investment advice, trading advice, legal advice, or a forecast.",
+      "Human review is recommended before operational, legal, financial, or executive use.",
+      "Historical analogues help structure comparison but do not predict future outcomes.",
+      "Outcome frequencies are counts within the local curated dataset, not real-world probabilities.",
+      "The system does not use live web retrieval or source verification."
+    ]
+  },
+  "evidence_ledger": {
+    "items": [
+      {
+        "evidence_id": "E1",
+        "source_type": "User-provided input material",
+        "evidence_text": "Semiconductor Export Controls Demo Case\n\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The government says the rules are intended to limit access to sensitive technology by restricted end users while preserving licensed trade for low-risk commercial customers. Several semiconductor manufacturers, equipment suppliers, and cloud infrastructure firms begin internal reviews o...",
+        "observation": "Semiconductor Export Controls Demo Case\n\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software.",
+        "inference": "The extracted issue is treated as the starting point for decision support.",
+        "claim_supported": "Situation understanding and decision framing.",
+        "relevance": "High",
+        "confidence": "Moderate",
+        "limitations": "Source detail depends on the supplied material; no external source completeness is implied.",
+        "used_in_section": "Decision Snapshot; Decision Question; Decision Criteria"
+      },
+      {
+        "evidence_id": "E2",
+        "source_type": "Local historical analogue record",
+        "evidence_text": "Huawei Entity List (2019): Shows how export controls can alter supplier access and compliance workflows.",
+        "observation": "scenario match on Export Controls; keyword overlap: access, advanced, compliance, controls; industry overlap: technology; actor overlap: government, suppliers",
+        "inference": "The historical case may help compare mechanisms, but it does not determine the current outcome.",
+        "claim_supported": "Historical comparison and analogue reasoning.",
+        "relevance": "Moderate",
+        "confidence": "Moderate",
+        "limitations": "Historical analogues support comparison, not prediction.",
+        "used_in_section": "Historical Evidence; Evidence and Confidence"
+      },
+      {
+        "evidence_id": "E3",
+        "source_type": "Local historical analogue record",
+        "evidence_text": "ASML Export Controls (2023): Highlights exposure to licensing rules for critical production tools.",
+        "observation": "scenario match on Export Controls; keyword overlap: access, advanced, controls, equipment; industry overlap: technology; actor overlap: government",
+        "inference": "The historical case may help compare mechanisms, but it does not determine the current outcome.",
+        "claim_supported": "Historical comparison and analogue reasoning.",
+        "relevance": "Moderate",
+        "confidence": "Moderate",
+        "limitations": "Historical analogues support comparison, not prediction.",
+        "used_in_section": "Historical Evidence; Evidence and Confidence"
+      },
+      {
+        "evidence_id": "E4",
+        "source_type": "Local historical analogue record",
+        "evidence_text": "Japan-Korea Semiconductor Materials Dispute (2019): Shows how trade restrictions can affect specialized upstream inputs.",
+        "observation": "keyword overlap: advanced, affecting, controls, export; industry overlap: technology; actor overlap: government, suppliers",
+        "inference": "The historical case may help compare mechanisms, but it does not determine the current outcome.",
+        "claim_supported": "Historical comparison and analogue reasoning.",
+        "relevance": "Moderate",
+        "confidence": "Moderate",
+        "limitations": "Historical analogues support comparison, not prediction.",
+        "used_in_section": "Historical Evidence; Evidence and Confidence"
+      },
+      {
+        "evidence_id": "E5",
+        "source_type": "Deterministic mechanism detection",
+        "evidence_text": "Restrictions or controls that limit access to sensitive technologies",
+        "observation": "licenses; entity lists; restricted equipment; cloud access limits",
+        "inference": "scenario match: Export Controls; observation overlap: access, cloud, controls, equipment; actor overlap: firms, suppliers",
+        "claim_supported": "Mechanism reasoning and risk identification.",
+        "relevance": "Moderate",
+        "confidence": "Moderate",
+        "limitations": "Mechanism detection is deterministic and should be reviewed against source details.",
+        "used_in_section": "Mechanisms Detected; Evidence and Confidence"
+      },
+      {
+        "evidence_id": "E6",
+        "source_type": "Deterministic mechanism detection",
+        "evidence_text": "Exposure arising from customers suppliers banks or partners",
+        "observation": "screening alerts; payment exceptions; contract reviews",
+        "inference": "scenario match: Export Controls; observation overlap: customers, reviews, suppliers; actor overlap: customers, suppliers",
+        "claim_supported": "Mechanism reasoning and risk identification.",
+        "relevance": "Moderate",
+        "confidence": "Moderate",
+        "limitations": "Mechanism detection is deterministic and should be reviewed against source details.",
+        "used_in_section": "Mechanisms Detected; Evidence and Confidence"
+      },
+      {
+        "evidence_id": "E7",
+        "source_type": "Evidence assessment",
+        "evidence_text": "The issue references semiconductor, chip, chips and operating constraints.; Historical analogues such as Huawei Entity List, ASML Export Controls show comparable economic adjustment patterns.",
+        "observation": "Economics has supporting and weakening evidence.",
+        "inference": "The interpretation should be treated cautiously where weakening or missing evidence remains.",
+        "claim_supported": "Evidence quality and uncertainty.",
+        "relevance": "High",
+        "confidence": "High",
+        "limitations": "The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.",
+        "used_in_section": "Supporting Evidence; Weakening Evidence; Missing Evidence"
+      },
+      {
+        "evidence_id": "E8",
+        "source_type": "Evidence assessment",
+        "evidence_text": "The scenario classification is Export Controls.; Current context from Semiconductors, Supply Chain highlights stakeholders and monitoring considerations.",
+        "observation": "Political Economy has supporting and weakening evidence.",
+        "inference": "The interpretation should be treated cautiously where weakening or missing evidence remains.",
+        "claim_supported": "Evidence quality and uncertainty.",
+        "relevance": "High",
+        "confidence": "High",
+        "limitations": "The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.",
+        "used_in_section": "Supporting Evidence; Weakening Evidence; Missing Evidence"
+      },
+      {
+        "evidence_id": "E9",
+        "source_type": "Local historical outcome record",
+        "evidence_text": "Restricted access to selected technology inputs changed supplier screening and product planning.",
+        "observation": "Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.",
+        "inference": "The outcome informs possible response patterns but is not a forecast.",
+        "claim_supported": "Historical outcomes and strategic lessons.",
+        "relevance": "Moderate",
+        "confidence": "Moderate",
+        "limitations": "source pending; educational summary",
+        "used_in_section": "Historical Outcomes; Historical Evidence"
+      },
+      {
+        "evidence_id": "E10",
+        "source_type": "Local historical outcome record",
+        "evidence_text": "Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.",
+        "observation": "Companies monitored license rules, tool availability, and jurisdictional alignment.",
+        "inference": "The outcome informs possible response patterns but is not a forecast.",
+        "claim_supported": "Historical outcomes and strategic lessons.",
+        "relevance": "Moderate",
+        "confidence": "Moderate",
+        "limitations": "source pending; educational summary",
+        "used_in_section": "Historical Outcomes; Historical Evidence"
+      },
+      {
+        "evidence_id": "E11",
+        "source_type": "Local current-context record",
+        "evidence_text": "Advanced chip and semiconductor equipment supply chains depend on cross-border licensing, specialized suppliers, and government controls.",
+        "observation": "Controls can affect access to inputs, customer eligibility, and compliance review timelines.",
+        "inference": "Licensing updates; allied coordination; supplier disclosures; compliance guidance",
+        "claim_supported": "Monitoring and current context.",
+        "relevance": "Moderate",
+        "confidence": "Moderate",
+        "limitations": "Current-context records are local references and may not reflect live updates.",
+        "used_in_section": "Current Context; Monitoring Considerations"
+      },
+      {
+        "evidence_id": "E12",
+        "source_type": "Local current-context record",
+        "evidence_text": "Export controls can restrict shipment of sensitive goods, software, or technology to certain end users.",
+        "observation": "Companies may need to screen counterparties and assess license requirements before fulfillment.",
+        "inference": "Restricted party lists; product classifications; license applications; end-use statements",
+        "claim_supported": "Monitoring and current context.",
+        "relevance": "Moderate",
+        "confidence": "Moderate",
+        "limitations": "Current-context records are local references and may not reflect live updates.",
+        "used_in_section": "Current Context; Monitoring Considerations"
+      }
+    ]
+  },
+  "confidence_assessment": {
+    "confidence_level": "Moderate",
+    "key_assumptions": [
+      "The supplied material is sufficient for an initial decision-support brief.",
+      "Human review will verify source details before operational use.",
+      "The Export Controls frame is an appropriate starting point for analysis.",
+      "The identified mechanisms remain relevant to the decision context: Technology Containment, Counterparty Risk, Market Access Restriction.",
+      "Sector exposure should be validated against organization-specific data."
+    ],
+    "what_would_change_this_view": [
+      "New primary source material changes the factual basis.",
+      "Stakeholder responses differ from the assumptions in the brief.",
+      "Implementation details create materially different constraints.",
+      "Evidence shows the situation no longer fits the Export Controls frame."
+    ],
+    "unknown_or_uncertain": [
+      "The current brief does not verify information outside the supplied input and local records.",
+      "Organization-specific exposure, timing, and implementation constraints require human review."
+    ],
+    "limitations": [
+      "Educational use only; this is a local decision-support demo, not a production advisory service.",
+      "This is not investment advice, trading advice, legal advice, or a forecast.",
+      "Human review is recommended before operational, legal, financial, or executive use.",
+      "Historical analogues help structure comparison but do not predict future outcomes.",
+      "Outcome frequencies are counts within the local curated dataset, not real-world probabilities.",
+      "The system does not use live web retrieval or source verification."
+    ],
+    "rationale": "Moderate confidence because 12 reviewable evidence items were recorded, historical analogues are available, limitations remain visible."
+  },
+  "decision_quality_evaluation": {
+    "direct_answer_quality": {
+      "score": 1.0,
+      "label": "Strong",
+      "rationale": "Checks whether the output frames a decision question, situation, recommendation, and criteria."
+    },
+    "historical_analogue_relevance": {
+      "score": 1.0,
+      "label": "Strong",
+      "rationale": "Checks whether analogues exist, appear in the evidence ledger, and include transferability limits."
+    },
+    "evidence_use": {
+      "score": 1.0,
+      "label": "Strong",
+      "rationale": "Checks whether evidence items are reviewable and uncertainty remains visible."
+    },
+    "option_clarity": {
+      "score": 1.0,
+      "label": "Strong",
+      "rationale": "Checks whether options are distinct and a preferred path is identified."
+    },
+    "risk_identification": {
+      "score": 1.0,
+      "label": "Strong",
+      "rationale": "Checks whether risks, limitations, and unknowns are explicit."
+    },
+    "change_trigger_quality": {
+      "score": 1.0,
+      "label": "Strong",
+      "rationale": "Checks whether the recommendation includes observable change triggers and monitoring signals."
+    },
+    "localization_quality": {
+      "score": 1.0,
+      "label": "Strong",
+      "rationale": "English output selected; localization transformation is not required."
+    },
+    "overconfidence_control": {
+      "score": 0.75,
+      "label": "Adequate",
+      "rationale": "Checks for qualitative confidence, visible limitations, and absence of overconfident phrases."
+    },
+    "overall_score": 0.969,
+    "overall_label": "Strong",
+    "notes": [
+      "Deterministic product-quality evaluation only.",
+      "Scores are internal review aids, not real-world accuracy claims.",
+      "No LLM evaluator, network access, or external benchmark is used."
+    ]
+  },
   "agent_trace": {
     "document_type": "Policy / Regulatory Text",
     "scenario_type": "Export Controls",
@@ -772,8 +1264,10 @@
     ],
     "reasoning_stages": [
       "Current event context extraction",
+      "Event-family understanding",
       "Historical analogue retrieval",
       "Historical outcome retrieval",
+      "Strategic assessment generation",
       "Strategic lesson generation",
       "Evidence credibility assessment",
       "Response playbook retrieval",
@@ -785,20 +1279,26 @@
     "note": "Run artifacts are generated by the local deterministic pipeline; they are not real-world accuracy claims."
   },
   "metadata": {
-    "run_id": "run_20260623_030",
-    "created_at": "2026-06-23T16:12:08",
+    "run_id": "run_20260629_053",
+    "created_at": "2026-06-29T10:48:03",
     "language": "en",
     "output_mode": "analyst",
     "question_id": "meaning",
     "question_text": "What does this issue mean?",
+    "question_intent": "Implication Analysis",
+    "question_intent_label": "Implication Analysis",
+    "source_url": "",
+    "input_mode": "paste_text",
+    "uploaded_filename": "",
+    "file_type": "text",
     "status": "complete",
     "artifact_paths": {
-      "input": "outputs/runs/run_20260623_030/input.txt",
-      "analysis": "outputs/runs/run_20260623_030/analysis.json",
-      "brief_markdown": "outputs/runs/run_20260623_030/brief.md",
-      "brief_text": "outputs/runs/run_20260623_030/brief.txt",
-      "agent_trace": "outputs/runs/run_20260623_030/agent_trace.json",
-      "metadata": "outputs/runs/run_20260623_030/metadata.json"
+      "input": "outputs/runs/run_20260629_053/input.txt",
+      "analysis": "outputs/runs/run_20260629_053/analysis.json",
+      "brief_markdown": "outputs/runs/run_20260629_053/brief.md",
+      "brief_text": "outputs/runs/run_20260629_053/brief.txt",
+      "agent_trace": "outputs/runs/run_20260629_053/agent_trace.json",
+      "metadata": "outputs/runs/run_20260629_053/metadata.json"
     }
   }
 }

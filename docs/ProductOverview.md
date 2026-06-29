@@ -25,6 +25,9 @@ Historical Analogues + Outcomes
 Strategic Lessons + Monitoring
   |
   v
+Evidence, Confidence + Evaluation
+  |
+  v
 Downloadable Artifacts
 ```
 
@@ -67,8 +70,9 @@ At a high level, the pipeline:
 4. Identifies decision criteria and decision paths.
 5. Retrieves historical analogues and outcomes from local curated records.
 6. Generates strategic lessons and evidence notes.
-7. Produces an executive brief and structured JSON artifact.
-8. Stores run outputs for download and review.
+7. Builds additive V2 decision-quality structures: Decision Case, Evidence Ledger, Confidence Assessment, and Decision Quality Evaluation.
+8. Produces an executive brief and structured JSON artifact.
+9. Stores run outputs for download and review.
 
 ## Product Value
 

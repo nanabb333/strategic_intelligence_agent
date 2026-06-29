@@ -35,6 +35,10 @@ Intelligence Modules
 issue extraction, scenario classification, retrieval, assessment, brief generation
   |
   v
+V2 Decision-Quality Layer
+decision case, evidence ledger, confidence assessment, evaluation
+  |
+  v
 Artifact Generation
 analysis JSON, markdown brief, text brief, agent trace, metadata
   |
@@ -82,6 +86,10 @@ The pipeline intentionally remains explicit so the workflow is easy to inspect.
 - `src/analysis_metadata.py`: metadata artifact construction
 - `src/agent_trace.py`: agent trace artifact construction
 - `src/analysis_artifact.py`: analysis JSON artifact construction
+- `src/decision_case.py`: additive Decision Case schema for the primary decision issue
+- `src/evidence_ledger.py`: additive Evidence Ledger records for reviewable evidence items
+- `src/confidence_layer.py`: qualitative Confidence Assessment and Evidence and Confidence brief section
+- `src/decision_quality_evaluator.py`: deterministic Decision Quality Evaluation for generated artifacts
 - `src/serialization.py`: dataclass/list/dict serialization helper
 - `src/markdown_utils.py`: markdown-to-text conversion
 - `src/run_storage.py`: run directory and JSON storage helpers

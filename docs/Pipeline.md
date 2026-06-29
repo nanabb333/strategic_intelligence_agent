@@ -36,7 +36,7 @@ Input Preparation
 Run Folder Creation
   |
   v
-Agent Routing and Question Routing
+Document Routing and Question Routing
   |
   v
 Event Context and Event Understanding
@@ -57,6 +57,9 @@ Historical Outcome and Strategic Lesson Retrieval
 Strategic Assessment and Response Pattern Retrieval
   |
   v
+Decision Case, Evidence Ledger, Confidence Assessment, and Decision Quality Evaluation
+  |
+  v
 Executive Brief Generation and Localization
   |
   v
@@ -67,6 +70,8 @@ Run Storage
 ```
 
 The pipeline is deterministic and local. It does not perform live web research, autonomous planning, or probability scoring.
+
+The V2 decision-quality layer is additive. It exposes `decision_case`, `evidence_ledger`, `confidence_assessment`, and `decision_quality_evaluation` in `analysis.json` without removing earlier fields or changing download behavior.
 
 ## Outputs Written Per Run
 

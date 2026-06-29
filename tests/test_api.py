@@ -28,6 +28,22 @@ def test_analyze_returns_current_response_shape() -> None:
     assert payload["downloads"]["markdown"]
     assert payload["downloads"]["txt"]
     assert payload["downloads"]["json"]
+    assert "## Evidence and Confidence" in payload["brief_markdown"]
+    assert payload["analysis"]["decision_case"]["decision_question"]
+    assert payload["analysis"]["evidence_ledger"]["items"]
+    assert payload["analysis"]["confidence_assessment"]["confidence_level"] in {"Low", "Moderate", "High"}
+    evaluation = payload["analysis"]["decision_quality_evaluation"]
+    assert 0.0 <= evaluation["overall_score"] <= 1.0
+    assert set(evaluation) >= {
+        "direct_answer_quality",
+        "historical_analogue_relevance",
+        "evidence_use",
+        "option_clarity",
+        "risk_identification",
+        "change_trigger_quality",
+        "localization_quality",
+        "overconfidence_control",
+    }
 
 
 def test_markdown_download_route_returns_analyze_artifact() -> None:

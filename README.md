@@ -14,6 +14,16 @@ It is different from a generic summarizer because it does not only shorten the s
 
 Strategic Intelligence Agent is a local analyst workbench for reviewing business, policy, supply-chain, market-access, and geopolitical source material. It helps users move from unstructured input to a structured brief that explains the issue, the decision criteria, available paths, historical patterns, evidence limitations, and next monitoring steps. The app is designed for decision support and portfolio demonstration. It is not a live research platform, forecasting engine, trading advisor, legal advisor, or deployed SaaS product.
 
+The product is built around a documented [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md) that separates situation understanding, decision definition, evidence assessment, historical knowledge, decision reasoning, monitoring, and learning. This framework is the conceptual foundation for future product strategy, evaluation, and roadmap decisions.
+
+## Strategic Direction
+
+Version 1.0 is portfolio-ready. Future development should focus on evidence quality, evaluation rigor, trust, and decision quality rather than feature volume. The project intentionally avoids feature bloat and is designed as a long-term Decision Intelligence Platform with clear boundaries, reviewable artifacts, and human-controlled judgment.
+
+## Research Direction
+
+Version 3 begins a research validation layer for future work. The current repository implements product QA and deterministic decision-quality evaluation; it does not claim scientific proof, benchmark superiority, or real-world accuracy. Research docs under [docs/research](docs/research/ResearchAgenda.md) define future directions for human review, benchmark strategy, failure-mode tracking, and decision-intelligence research.
+
 ## Who It Is For
 
 - Analysts preparing executive briefings from messy source material.
@@ -37,6 +47,8 @@ This project turns that workflow into a repeatable local application.
 - Beginner, analyst, and executive output modes.
 - English, Simplified Chinese, and Traditional Chinese output structure.
 - Deterministic local modules for issue extraction, scenario classification, mechanism detection, historical analogue retrieval, outcome retrieval, strategic lesson generation, evidence assessment, and brief generation.
+- V2 foundation fields for a Decision Case Schema, Evidence Ledger, and qualitative Confidence Assessment.
+- Lightweight deterministic Decision Quality Evaluation Harness for generated analysis artifacts.
 - Per-run storage under `outputs/runs/`.
 - Markdown, TXT, and JSON downloads.
 - Pytest, Ruff, compile checks, and GitHub Actions CI.
@@ -88,6 +100,7 @@ Key implementation docs:
 - [Analysis Pipeline](docs/Pipeline.md)
 - [Folder Structure](docs/FolderStructure.md)
 - [Testing](docs/Testing.md)
+- [V2 Case Studies](docs/case_studies/semiconductor_export_controls.md): reviewer examples for evidence, confidence, and deterministic decision-quality evaluation.
 
 ## Local Setup
 
@@ -166,6 +179,8 @@ Each run writes local artifacts under `outputs/runs/<run_id>/`:
 - `agent_trace.json`
 - `metadata.json`
 - `input.txt`
+
+V2 foundation outputs also add `decision_case`, `evidence_ledger`, `confidence_assessment`, and `decision_quality_evaluation` fields to `analysis.json` and an **Evidence and Confidence** section to the generated brief.
 
 Start with [docs/ReviewGuide.md](docs/ReviewGuide.md) for a reviewer-friendly path through the repo.
 
@@ -261,13 +276,18 @@ The output is designed to support thinking and communication. It does not replac
 
 - [Documentation Index](docs/DocumentationIndex.md)
 - [Product Overview](docs/ProductOverview.md)
+- [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md)
+- [Evidence Architecture](docs/EvidenceArchitecture.md)
+- [Product Strategy](docs/ProductStrategy.md)
 - [Demo Scenarios](docs/DemoScenarios.md)
 - [Portfolio Narrative](docs/PortfolioNarrative.md)
 - [Repository Trust Audit](docs/RepositoryTrustAudit.md)
 - [Trust Model](docs/TrustModel.md)
 - [Evidence Philosophy](docs/EvidencePhilosophy.md)
+- [Evaluation Strategy](docs/EvaluationStrategy.md)
 - [Evaluation Methodology](docs/EvaluationMethodology.md)
 - [Golden Output Philosophy](docs/GoldenOutputPhilosophy.md)
+- [Research Agenda](docs/research/ResearchAgenda.md)
 - [Local App Setup](docs/local_app_setup.md)
 - [Run Management Design](docs/run_management_design.md)
 - [JSON Artifact Design](docs/json_artifact_design.md)
@@ -305,9 +325,10 @@ This repository demonstrates practical AI product engineering rather than a sing
 
 - FastAPI backend design with a thin app entrypoint.
 - Service and pipeline separation.
-- Deterministic agent-style workflow orchestration.
+- Deterministic decision-intelligence workflow orchestration.
 - Historical analogue and outcome reasoning.
 - Evidence traceability and limitation reporting.
+- Additive V2 decision-quality structures: Decision Case, Evidence Ledger, Confidence Assessment, and Decision Quality Evaluation.
 - Local run artifact generation.
 - Dashboard UX for non-technical users.
 - Localization and output-mode awareness.

@@ -18,6 +18,10 @@ implications
 response_playbooks
 lenses
 evidence
+decision_case
+evidence_ledger
+confidence_assessment
+decision_quality_evaluation
 agent_trace
 evaluation_metadata
 metadata
@@ -38,6 +42,10 @@ metadata
 - `response_playbooks`: observed historical response patterns.
 - `lenses`: multi-lens interpretations.
 - `evidence`: evidence assessment records.
+- `decision_case`: additive V2 decision case summary with question, situation, criteria, options, assumptions, risks, recommendation, monitoring signals, and limitations.
+- `evidence_ledger`: additive V2 evidence records that separate evidence text, observation, inference, supported claim, relevance, confidence, limitations, and brief section usage.
+- `confidence_assessment`: additive V2 qualitative confidence record with assumptions, change triggers, unknowns, limitations, and rationale.
+- `decision_quality_evaluation`: additive V2 deterministic product-quality evaluation across direct answer quality, historical analogue relevance, evidence use, option clarity, risk identification, change trigger quality, localization quality, and overconfidence control.
 - `agent_trace`: selected and skipped tools plus route trace.
 - `evaluation_metadata`: reminder that run artifacts are local deterministic outputs, not real-world accuracy claims.
 - `metadata`: run ID, language, output mode, question, timestamp, and artifact paths.

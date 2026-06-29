@@ -121,4 +121,4 @@ The project demonstrates strategic intelligence concepts:
 
 ## 14. Portfolio Value
 
-This project is strongest as a portfolio example of AI product architecture, analytics workflow design, agent-style orchestration, evidence traceability, and local application productization. It demonstrates judgment about what not to build: no unnecessary cloud deployment, no autonomous agents, no forecasting claims, and no advice framing.
+This project is strongest as a portfolio example of AI product architecture, analytics workflow design, deterministic decision-intelligence orchestration, evidence traceability, and local application productization. It demonstrates judgment about what not to build: no unnecessary cloud deployment, no autonomous agents, no forecasting claims, and no advice framing.

@@ -7,6 +7,12 @@ This index is the recommended starting point for reviewing the repository.
 - [README](../README.md): main landing page and quick start.
 - [Review Guide](ReviewGuide.md): recommended path for external reviewers.
 - [Product Overview](ProductOverview.md): product purpose, users, inputs, outputs, and limitations.
+- [Decision Intelligence Framework](DecisionIntelligenceFramework.md): conceptual framework that governs decision reasoning across the platform.
+- [Evidence Architecture](EvidenceArchitecture.md): conceptual design for evidence flow, transparency, quality, and future evidence systems.
+- [Decision Intelligence Constitution](DecisionIntelligenceConstitution.md): governance principles for future product and architecture changes.
+- [Product Strategy](ProductStrategy.md): long-term product identity, platform pillars, and strategic boundaries.
+- [Roadmap](Roadmap.md): 12-month maturity roadmap focused on evidence, evaluation, monitoring, and decision quality.
+- [Product Decisions](ProductDecisions.md): key product and architecture decisions with rationale and rejected alternatives.
 - [Demo Scenarios](DemoScenarios.md): realistic local demo scenarios.
 - [Portfolio Narrative](PortfolioNarrative.md): how to present the project as a portfolio artifact.
 
@@ -30,12 +36,26 @@ This index is the recommended starting point for reviewing the repository.
 - [Repository Trust Audit](RepositoryTrustAudit.md)
 - [Trust Model](TrustModel.md)
 - [Evidence Philosophy](EvidencePhilosophy.md)
+- [Evaluation Strategy](EvaluationStrategy.md)
 - [Evaluation Methodology](EvaluationMethodology.md)
 - [Golden Output Philosophy](GoldenOutputPhilosophy.md)
 - [Evaluation Framework](evaluation_framework.md)
 - [Evaluation Limitations](evaluation_limitations.md)
 - [Benchmark Design](benchmark_design.md)
 - [Evidence Assessment Design](evidence_assessment_design.md)
+
+## Research
+
+- [Research Agenda](research/ResearchAgenda.md): long-term research direction and open questions.
+- [Benchmark Strategy](research/BenchmarkStrategy.md): distinction between product QA, research validation, and academic benchmarking.
+- [Failure Modes](research/FailureModes.md): known limitation categories, mitigations, and research opportunities.
+- [Research Roadmap](research/ResearchRoadmap.md): realistic multi-year research validation path.
+
+## V2 Case Studies
+
+- [Semiconductor Export Controls](case_studies/semiconductor_export_controls.md): evidence-aware decision quality case for export-control response planning.
+- [Red Sea Shipping Disruption](case_studies/red_sea_shipping_disruption.md): evidence-aware decision quality case for supply-chain disruption response.
+- [Industrial Subsidy Strategy](case_studies/industrial_subsidy_strategy.md): evidence-aware decision quality case for industrial-policy strategy review.
 
 ## Portfolio Materials
 
@@ -48,9 +68,10 @@ This index is the recommended starting point for reviewing the repository.
 
 - [Public Release Checklist](PublicReleaseChecklist.md)
 - [Release Guide](ReleaseGuide.md)
+- [V3 Release Candidate Notes](releases/V3_RC.md)
 - [Future Engineering Recommendations](FutureEngineeringRecommendations.md)
 - [License Guidance](LicenseGuidance.md)
 
 ## Notes For Reviewers
 
-Some older documents describe earlier project milestones. They are retained for portfolio history, but the README, Product Overview, Engineering Architecture, Pipeline, Testing, and Folder Structure docs are the best sources for current behavior.
+Some older documents describe earlier project milestones. They are retained for portfolio history. For current behavior and product direction, start with the README, Review Guide, Decision Intelligence Framework, Evidence Architecture, Product Strategy, Engineering Architecture, Pipeline, Testing, Research Agenda, and V2 Case Studies.

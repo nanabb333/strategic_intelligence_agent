@@ -18,7 +18,7 @@ Suggested future fix:
 After product flow stabilizes, split localization and mode adaptation into separate helper modules.
 
 Status:
-Do not refactor yet. Revisit after V14 or product freeze.
+Do not refactor during the V3 release-candidate freeze. Revisit only as a focused future maintenance task.
 
 ---
 
@@ -34,7 +34,7 @@ Suggested future fix:
 Eventually split decision sections, scenario profiles, and historical evidence formatting.
 
 Status:
-Do not refactor yet. Current product is still evolving.
+Do not refactor during the V3 release-candidate freeze. The current structure is stable and covered by tests.
 
 ---
 

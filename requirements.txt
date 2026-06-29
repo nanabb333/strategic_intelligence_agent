@@ -6,3 +6,4 @@ requests
 trafilatura
 pytest
 ruff
+httpx2

@@ -234,12 +234,63 @@ Key files:
 
 - `app.py`: exposes `/projects`, `/projects/{project_id}`, `/projects/{project_id}/questions`, `/projects/{project_id}/evidence`, `/projects/{project_id}/delta`, and project-aware `/analyze` linking.
 - `src/project_workspace.py`: creates and updates local project JSON files, stores questions, evidence notes, decision history, and deterministic decision delta.
+- `src/evidence_retrieval.py`: provides the Version 4.5 user-triggered retrieval interface, deterministic source tiering, and a small provider abstraction that can later be swapped without changing the workspace contract.
 - `dashboard/project.js`: controls project creation, active project state, selected project question, evidence note entry, timeline rendering, and delta rendering.
 - `data/projects/`: local JSON project storage for runtime project state.
 - `outputs/runs/`: local generated run artifacts for analysis output.
 - `demo_case_outputs/v4_workspace/`: bundled release-validation demo with sample project, linked questions, evidence library, decision history, delta, and generated artifacts.
 
 This remains a workspace, not a chatbot. There is no conversational memory thread, autonomous browsing, background monitoring, multi-agent orchestration, external retrieval loop, database service, or cloud dependency. A user explicitly creates projects, adds evidence notes, selects questions, and runs analyses.
+
+## Version 4.5 Evidence Retrieval Candidate
+
+Version 4.5 adds a bounded retrieval candidate workflow:
+
+```text
+User Clicks Search Current Evidence
+  |
+  v
+Retrieve Evidence Candidates
+  |
+  v
+Evidence Review Queue
+  |
+  v
+User Accepts Selected Items
+  |
+  v
+Project Evidence Library
+  |
+  v
+Existing Decision Engine
+```
+
+Retrieval creates reviewable evidence items only. It must not directly update recommendations, call analysis, schedule follow-up searches, or monitor sources in the background.
+
+The backend route `/retrieve-evidence` returns candidate items with:
+
+- title
+- source name
+- source URL
+- source type
+- published date when available
+- retrieved date
+- excerpt
+- status
+- credibility tier
+- freshness note
+
+The project route `/projects/{project_id}/evidence/accept` saves selected retrieved items into the project evidence library after user review.
+
+Source tiering is deterministic:
+
+- Tier 1 Official: government, regulator, court, central bank, SEC, official statistics.
+- Tier 2 Company: annual report, 10-K, 10-Q, investor relations, press release.
+- Tier 3 Reputable News: Reuters, AP, FT, WSJ, Bloomberg.
+- Tier 4 Research: academic, IMF, World Bank, OECD, NBER.
+- Tier 5 Other: blogs, social, forums.
+
+Tier 1-3 are included by default. Tier 5 is excluded unless explicitly allowed.
 
 ## Deployment Boundary
 

@@ -49,6 +49,9 @@ def execute_analysis_pipeline(
     input_mode: str,
     uploaded_filename: str,
     file_type: str,
+    project_id: str = "",
+    project_question_id: str = "",
+    evidence_bundle: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Execute the ordered analysis workflow and persist artifacts."""
     prepared_input = prepare_analysis_input(
@@ -96,6 +99,12 @@ def execute_analysis_pipeline(
     primary_issue = issues[0] if issues else None
     primary_title = primary_issue.title if primary_issue else "Untitled issue"
     primary_classification = classifications[0] if classifications else None
+    evidence_bundle = evidence_bundle or []
+    evidence_bundle_ids = [
+        str(item.get("evidence_id"))
+        for item in evidence_bundle
+        if item.get("evidence_id")
+    ]
     evidence_ledger = build_evidence_ledger(
         issue=primary_issue,
         source_url=source_url,
@@ -104,6 +113,7 @@ def execute_analysis_pipeline(
         evidence_assessments=evidence_assessments.get(primary_title, []),
         historical_outcomes=historical_outcomes.get(primary_title, []),
         contexts=contexts.get(primary_title, []),
+        project_evidence=evidence_bundle,
     )
     decision_case = build_decision_case(
         issue=primary_issue,
@@ -168,6 +178,9 @@ def execute_analysis_pipeline(
         input_mode=input_mode,
         uploaded_filename=uploaded_filename,
         file_type=file_type,
+        project_id=project_id,
+        project_question_id=project_question_id,
+        evidence_ids=evidence_bundle_ids,
     )
     analysis = build_analysis_artifact(
         issues=issues,
@@ -197,6 +210,7 @@ def execute_analysis_pipeline(
         evidence_ledger=evidence_ledger,
         confidence_assessment=confidence_assessment,
         decision_quality_evaluation=decision_quality_evaluation,
+        evidence_bundle=evidence_bundle,
     )
     analysis = localize_analysis_payload(analysis, language)
     agent_trace = build_agent_trace(route)

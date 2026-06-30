@@ -42,6 +42,7 @@ def build_evidence_ledger(
     evidence_assessments: list[Any],
     historical_outcomes: list[Any],
     contexts: list[Any],
+    project_evidence: list[dict[str, Any]] | None = None,
 ) -> EvidenceLedger:
     """Build a deterministic evidence ledger from existing pipeline outputs."""
     items: list[EvidenceItem] = []
@@ -74,6 +75,27 @@ def build_evidence_ledger(
                 confidence="Low",
                 limitations="Issue extraction failed or returned no issue.",
                 used_in_section="Evidence and Confidence",
+            )
+        )
+
+    for evidence in (project_evidence or [])[:5]:
+        evidence_id = str(evidence.get("evidence_id") or _next_id(items))
+        summary = str(evidence.get("summary") or evidence.get("text_excerpt") or "").strip()
+        source_type = str(evidence.get("source_type") or "Project evidence").strip()
+        status = str(evidence.get("status") or "User Provided").strip()
+        freshness = str(evidence.get("freshness_note") or "").strip()
+        items.append(
+            EvidenceItem(
+                evidence_id=evidence_id,
+                source_type=source_type,
+                evidence_text=summary or str(evidence.get("title") or "Project evidence item").strip(),
+                observation=str(evidence.get("title") or "Selected project evidence was included in the run.").strip(),
+                inference="This evidence was selected from the project evidence library and should inform the recommendation only through the deterministic evidence ledger.",
+                claim_supported="Project evidence bundle and reviewer-selected context.",
+                relevance="High",
+                confidence=_confidence_from_status(status),
+                limitations=f"Evidence status: {status}. {freshness}".strip(),
+                used_in_section="Project Evidence Bundle; Evidence and Confidence",
             )
         )
 
@@ -203,3 +225,11 @@ def _normalize_confidence(value: str) -> str:
     if lowered in {"moderate", "medium"}:
         return "Moderate"
     return "Low" if lowered in {"low", "limited"} else "Moderate"
+
+
+def _confidence_from_status(status: str) -> str:
+    if status in {"Verified", "Corroborated", "Accepted", "Used"}:
+        return "High"
+    if status in {"Outdated", "Unavailable", "Conflicting"}:
+        return "Low"
+    return "Moderate"

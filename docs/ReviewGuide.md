@@ -89,12 +89,34 @@ http://127.0.0.1:8000/dashboard/
 6. Click **Build decision brief**.
 7. Confirm the saved question now shows a linked run.
 8. Add a manual Evidence Library note.
-9. Add a second project question and run another analysis.
-10. Confirm the Decision Timeline has two entries.
-11. Confirm Decision Delta appears and shows previous/current recommendation, confidence, Decision Quality on a `/ 10` scale, and evidence changes when available.
-12. Use the browser print dialog to print or save PDF. The print view should focus on generated results, not the sidebar controls.
+9. Use **Search Current Evidence** to create retrieved evidence candidates.
+10. Confirm retrieved candidates appear in the Evidence Review Queue, not directly in the Evidence Library.
+11. Accept one or more selected retrieved items.
+12. Confirm accepted items appear in the Evidence Library with source URL, source type, source tier, retrieved date, and freshness note.
+13. Add a second project question and run another analysis.
+14. Confirm the Decision Timeline has two entries.
+15. Confirm Decision Delta appears and shows previous/current recommendation, confidence, Decision Quality on a `/ 10` scale, and evidence changes when available.
+16. Use the browser print dialog to print or save PDF. The print view should focus on generated results, not the sidebar controls.
 
 Standalone analysis should still work when no project is active.
+
+## V4.5 Evidence Retrieval Candidate
+
+Evidence retrieval is user-triggered and review-first:
+
+```text
+Search Current Evidence -> Review Queue -> User Acceptance -> Project Evidence Library -> Existing Analysis
+```
+
+Retrieved items do not make decisions and do not automatically enter the project. They are candidates for reviewer inspection. Accepted items preserve source URL, source name, source type, retrieved date, published date when available, credibility tier, and freshness note.
+
+Default source ranking prefers:
+
+- Tier 1 Official: government, regulator, court, central bank, SEC, official statistics.
+- Tier 2 Company: annual report, 10-K, 10-Q, investor relations, press release.
+- Tier 3 Reputable News: Reuters, AP, FT, WSJ, Bloomberg.
+
+Tier 4 Research can be explicitly allowed for research context. Tier 5 Other is excluded by default and should only be allowed intentionally. This is not autonomous browsing, autonomous monitoring, or an agent workflow.
 
 ## Suggested Demo Scenario
 

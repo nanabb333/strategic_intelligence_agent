@@ -5,6 +5,7 @@ const PROJECT_API_BASE = window.location.origin.startsWith("http")
 
 let workspaceProject = null;
 let workspaceQuestionId = "";
+let retrievedEvidenceQueue = [];
 
 function projectEscapeHtml(value) {
   return String(value ?? "")
@@ -183,6 +184,29 @@ function renderProjectEvidence(items) {
   `).join("");
 }
 
+function renderRetrievedEvidenceQueue(items) {
+  const queue = document.getElementById("retrieved-evidence-queue");
+  if (!queue) return;
+
+  if (!items.length) {
+    queue.innerHTML = '<div class="empty">Search results will appear here for review before acceptance.</div>';
+    return;
+  }
+
+  queue.innerHTML = items.map((item, index) => `
+    <label class="retrieved-evidence-item">
+      <input type="checkbox" data-retrieved-index="${index}">
+      <span class="tier-badge">${projectEscapeHtml(item.credibility_tier || "Tier unknown")}</span>
+      <strong>${projectEscapeHtml(item.title)}</strong>
+      <span>${projectEscapeHtml(item.source_name || "Unknown source")} - ${projectEscapeHtml(item.source_type || "Retrieved evidence")}</span>
+      ${item.source_url ? `<a href="${projectEscapeHtml(item.source_url)}" target="_blank" rel="noreferrer">${projectEscapeHtml(item.source_url)}</a>` : ""}
+      <span>Retrieved: ${projectEscapeHtml(item.retrieved_at || "")}${item.published_at ? ` - Published: ${projectEscapeHtml(item.published_at)}` : ""}</span>
+      <span>${projectEscapeHtml(item.freshness_note || "")}</span>
+      <p>${projectEscapeHtml(item.excerpt || "")}</p>
+    </label>
+  `).join("");
+}
+
 function renderDecisionTimeline(project) {
   const timeline = document.getElementById("project-decision-timeline");
   if (!timeline) return;
@@ -319,6 +343,71 @@ async function addEvidenceToCurrentProject() {
   await loadProjects();
 }
 
+async function searchCurrentEvidence() {
+  if (!workspaceProject) {
+    alert("Create or select a project first.");
+    return;
+  }
+
+  const input = document.getElementById("evidence-search-input");
+  const query = input?.value.trim() || "";
+  if (!query) {
+    alert("Please enter an evidence search query.");
+    return;
+  }
+
+  const response = await fetch(`${PROJECT_API_BASE}/retrieve-evidence`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({
+      query,
+      project_id: workspaceProject.project_id,
+    }),
+  });
+
+  if (!response.ok) {
+    alert("Could not retrieve evidence candidates.");
+    return;
+  }
+
+  const data = await response.json();
+  retrievedEvidenceQueue = data.items || [];
+  renderRetrievedEvidenceQueue(retrievedEvidenceQueue);
+}
+
+async function acceptSelectedEvidence() {
+  if (!workspaceProject) {
+    alert("Create or select a project first.");
+    return;
+  }
+
+  const selected = Array.from(document.querySelectorAll("[data-retrieved-index]:checked"))
+    .map((item) => retrievedEvidenceQueue[Number(item.getAttribute("data-retrieved-index"))])
+    .filter(Boolean);
+
+  if (!selected.length) {
+    alert("Select at least one retrieved evidence item.");
+    return;
+  }
+
+  const response = await fetch(`${PROJECT_API_BASE}/projects/${workspaceProject.project_id}/evidence/accept`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({items: selected}),
+  });
+
+  if (!response.ok) {
+    alert("Could not accept selected evidence.");
+    return;
+  }
+
+  workspaceProject = await response.json();
+  retrievedEvidenceQueue = [];
+  renderActiveProject(workspaceProject);
+  renderRetrievedEvidenceQueue(retrievedEvidenceQueue);
+  await loadProjects();
+}
+
 window.getActiveProjectId = () => workspaceProject?.project_id || "";
 window.getActiveProjectAnalysisContext = () => {
   const question = activeProjectQuestion();
@@ -342,6 +431,14 @@ document.addEventListener("DOMContentLoaded", () => {
   document
     .getElementById("add-evidence-button")
     ?.addEventListener("click", addEvidenceToCurrentProject);
+
+  document
+    .getElementById("search-evidence-button")
+    ?.addEventListener("click", searchCurrentEvidence);
+
+  document
+    .getElementById("accept-evidence-button")
+    ?.addEventListener("click", acceptSelectedEvidence);
 
   loadProjects();
 });

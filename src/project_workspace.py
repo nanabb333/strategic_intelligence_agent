@@ -20,6 +20,7 @@ EVIDENCE_STATUSES = {
     "Historical Only",
     "Outdated",
     "Unavailable",
+    "Retrieved",
 }
 
 
@@ -208,6 +209,38 @@ def add_evidence_to_project(project_id: str, payload: dict[str, Any]) -> dict[st
         "freshness_note": str(payload.get("freshness_note") or "").strip(),
     }
     project.setdefault("evidence_library", []).append(evidence)
+    return save_project(project)
+
+
+def accept_retrieved_evidence(project_id: str, items: list[dict[str, Any]]) -> dict[str, Any]:
+    """Accept user-reviewed retrieval candidates into the project evidence library."""
+    project = get_project(project_id)
+    accepted = []
+    for item in items:
+        title = str(item.get("title") or "").strip()
+        excerpt = str(item.get("excerpt") or item.get("text_excerpt") or item.get("summary") or "").strip()
+        if not title or not excerpt:
+            continue
+        evidence = {
+            "evidence_id": str(uuid4())[:8],
+            "title": title,
+            "source_type": str(item.get("source_type") or "Retrieved evidence").strip(),
+            "source_name": str(item.get("source_name") or "").strip(),
+            "source_url": str(item.get("source_url") or "").strip(),
+            "uploaded_filename": str(item.get("uploaded_filename") or "").strip(),
+            "text_excerpt": excerpt,
+            "summary": str(item.get("summary") or excerpt).strip(),
+            "added_at": _now(),
+            "retrieved_at": str(item.get("retrieved_at") or "").strip(),
+            "published_at": str(item.get("published_at") or "").strip(),
+            "status": str(item.get("status") or "Retrieved").strip(),
+            "credibility_tier": str(item.get("credibility_tier") or "Tier 5 Other").strip(),
+            "freshness_note": str(item.get("freshness_note") or "").strip(),
+        }
+        if evidence["status"] not in EVIDENCE_STATUSES:
+            evidence["status"] = "Retrieved"
+        accepted.append(evidence)
+    project.setdefault("evidence_library", []).extend(accepted)
     return save_project(project)
 
 

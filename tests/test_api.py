@@ -2,6 +2,7 @@ from fastapi.testclient import TestClient
 import pytest
 
 from app import app
+from evidence_retrieval import source_tier
 from helpers import ANALYZE_PAYLOAD, create_analysis_run
 import project_workspace
 
@@ -152,6 +153,94 @@ def test_project_evidence_routes() -> None:
     list_response = client.get(f"/projects/{project['project_id']}/evidence")
     assert list_response.status_code == 200
     assert list_response.json()["evidence"][0]["title"] == "Policy bulletin"
+
+
+def test_retrieve_evidence_returns_deterministic_review_queue_shape() -> None:
+    client = TestClient(app)
+
+    response = client.post(
+        "/retrieve-evidence",
+        json={"query": "semiconductor export controls licensing"},
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["retrieval_id"]
+    assert payload["query"] == "semiconductor export controls licensing"
+    assert payload["retrieved_at"]
+    assert payload["items"]
+    assert {item["credibility_tier"] for item in payload["items"]} <= {
+        "Tier 1 Official",
+        "Tier 2 Company",
+        "Tier 3 Reputable News",
+    }
+    first = payload["items"][0]
+    assert set(first) == {
+        "title",
+        "source_name",
+        "source_url",
+        "source_type",
+        "published_at",
+        "retrieved_at",
+        "excerpt",
+        "status",
+        "credibility_tier",
+        "freshness_note",
+    }
+    assert first["status"] == "Retrieved"
+
+
+def test_retrieved_items_are_not_automatically_added_to_project() -> None:
+    client = TestClient(app)
+    project = client.post("/projects", json={"name": "Retrieval Workspace"}).json()
+
+    response = client.post(
+        "/retrieve-evidence",
+        json={
+            "query": "export controls",
+            "project_id": project["project_id"],
+        },
+    )
+
+    assert response.status_code == 200
+    refreshed = client.get(f"/projects/{project['project_id']}").json()
+    assert refreshed["evidence_library"] == []
+
+
+def test_accept_retrieved_items_adds_traceable_evidence_to_project() -> None:
+    client = TestClient(app)
+    project = client.post("/projects", json={"name": "Accept Evidence Workspace"}).json()
+    retrieved = client.post(
+        "/retrieve-evidence",
+        json={"query": "semiconductor export controls"},
+    ).json()
+    selected = retrieved["items"][:2]
+
+    response = client.post(
+        f"/projects/{project['project_id']}/evidence/accept",
+        json={"items": selected},
+    )
+
+    assert response.status_code == 200
+    evidence = response.json()["evidence_library"]
+    assert len(evidence) == 2
+    assert evidence[0]["status"] == "Retrieved"
+    assert evidence[0]["source_url"]
+    assert evidence[0]["source_name"]
+    assert evidence[0]["retrieved_at"]
+    assert evidence[0]["published_at"]
+    assert evidence[0]["credibility_tier"].startswith("Tier ")
+    assert evidence[0]["freshness_note"]
+
+
+def test_source_tiering_rules() -> None:
+    assert source_tier("SEC", "https://www.sec.gov/", "regulator") == "Tier 1 Official"
+    assert source_tier("Issuer", "", "10-K annual report") == "Tier 2 Company"
+    assert source_tier("Reuters", "https://www.reuters.com/", "news") == "Tier 3 Reputable News"
+    assert source_tier("AP", "", "news") == "Tier 3 Reputable News"
+    assert source_tier("FT", "", "news") == "Tier 3 Reputable News"
+    assert source_tier("OECD", "https://www.oecd.org/", "research") == "Tier 4 Research"
+    assert source_tier("Personal Blog", "https://example.com/blog", "blog") == "Tier 5 Other"
 
 
 def test_project_analyze_creates_question_decision_history_and_delta() -> None:

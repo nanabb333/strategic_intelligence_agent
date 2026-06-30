@@ -221,7 +221,8 @@ select {
 }
 
 .project-create-row,
-.project-section {
+.project-section,
+.project-retrieval-panel {
   display: grid;
   gap: var(--space-2);
 }
@@ -246,7 +247,8 @@ select {
 .project-question-list,
 .project-evidence-list,
 .project-decision-timeline,
-.project-delta-panel {
+.project-delta-panel,
+.retrieved-evidence-queue {
   display: grid;
   gap: var(--space-2);
 }
@@ -254,6 +256,7 @@ select {
 .project-item,
 .project-question-item,
 .project-evidence-item,
+.retrieved-evidence-item,
 .timeline-item,
 .project-delta-panel {
   border: 1px solid var(--line);
@@ -318,12 +321,41 @@ select {
 }
 
 .project-evidence-item p,
+.retrieved-evidence-item p,
 .timeline-item p,
 .project-delta-panel p {
   margin: 0;
   color: var(--muted);
   font-size: 13px;
   line-height: 1.45;
+}
+
+.retrieved-evidence-item {
+  display: grid;
+  gap: var(--space-2);
+  cursor: pointer;
+}
+
+.retrieved-evidence-item input {
+  width: auto;
+}
+
+.retrieved-evidence-item a {
+  color: var(--accent-text);
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+
+.tier-badge {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  background: #fff;
+  color: var(--accent-text);
+  font-size: 11px;
+  font-weight: 800;
+  padding: 3px 8px;
 }
 
 .timeline-item a,

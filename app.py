@@ -20,10 +20,12 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from analysis_service import run_analysis  # noqa: E402
+from evidence_retrieval import retrieve_evidence  # noqa: E402
 from pdf_reader import extract_pdf_text  # noqa: E402
 from project_workspace import (
     add_question_to_project,
     add_evidence_to_project,
+    accept_retrieved_evidence,
     attach_run_to_question,
     create_project,
     decision_delta,
@@ -63,6 +65,14 @@ class ExtractFileRequest(BaseModel):
 
     filename: str
     content_base64: str
+
+
+class RetrieveEvidenceRequest(BaseModel):
+    """Request payload for user-triggered evidence retrieval."""
+
+    query: str
+    project_id: str = ""
+    allowed_sources: list[str] = []
 
 
 class AnalyzeResponse(BaseModel):
@@ -125,6 +135,19 @@ def extract_file(request: ExtractFileRequest) -> dict[str, str]:
             "limitation": "PDF support works for text-based PDFs only. Scanned image PDFs are not supported.",
         }
     raise HTTPException(status_code=400, detail="Unsupported file type. Use .txt, .md, .markdown, or .pdf.")
+
+
+@app.post("/retrieve-evidence")
+def post_retrieve_evidence(request: RetrieveEvidenceRequest) -> dict[str, Any]:
+    """Retrieve user-triggered evidence candidates for review before acceptance."""
+    try:
+        return retrieve_evidence(
+            query=request.query,
+            project_id=request.project_id,
+            allowed_sources=request.allowed_sources,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
 
 
 @app.post("/analyze", response_model=AnalyzeResponse)
@@ -245,6 +268,18 @@ def get_project_evidence(project_id: str) -> dict[str, list[dict[str, Any]]]:
     """List evidence items stored under one project workspace."""
     try:
         return {"evidence": list_project_evidence(project_id)}
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+
+
+@app.post("/projects/{project_id}/evidence/accept")
+def post_accept_project_evidence(project_id: str, payload: dict[str, Any]) -> dict[str, Any]:
+    """Accept reviewed retrieved evidence candidates into a project."""
+    items = payload.get("items") or []
+    if not isinstance(items, list):
+        raise HTTPException(status_code=400, detail="Items must be a list.")
+    try:
+        return accept_retrieved_evidence(project_id, items)
     except FileNotFoundError as exc:
         raise HTTPException(status_code=404, detail="Project not found.") from exc
 

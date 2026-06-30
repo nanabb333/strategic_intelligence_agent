@@ -36,6 +36,7 @@ def build_analysis_artifact(**items: Any) -> dict[str, Any]:
         "evidence": serializable(items["evidence_assessments"].get(issue_title, [])),
         "decision_case": serializable(items.get("decision_case", {})),
         "evidence_ledger": serializable(items.get("evidence_ledger", {})),
+        "evidence_bundle": serializable(items.get("evidence_bundle", [])),
         "confidence_assessment": serializable(items.get("confidence_assessment", {})),
         "decision_quality_evaluation": serializable(items.get("decision_quality_evaluation", {})),
         "agent_trace": {

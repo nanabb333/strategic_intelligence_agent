@@ -18,6 +18,9 @@ def run_analysis(
     input_mode: str,
     uploaded_filename: str,
     file_type: str,
+    project_id: str = "",
+    project_question_id: str = "",
+    evidence_bundle: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Run the intelligence pipeline and persist run artifacts."""
     return execute_analysis_pipeline(
@@ -30,4 +33,7 @@ def run_analysis(
         input_mode=input_mode,
         uploaded_filename=uploaded_filename,
         file_type=file_type,
+        project_id=project_id,
+        project_question_id=project_question_id,
+        evidence_bundle=evidence_bundle,
     )

@@ -879,11 +879,11 @@
         "source_type": "User-provided input material",
         "evidence_text": "Regulatory Action Digital Markets Demo Case\n\nA fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks. The rules require clearer data governance practices, limits on self-preferencing, faster complaint handling for business users, and reporting on platform access decisions. Regulators say the goal is to improve market fairness and reduce gatekeeper control over digital commerce.\n\nPlatfo...",
         "observation": "Regulatory Action Digital Markets Demo Case\n\nA fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks.",
-        "inference": "The extracted issue is treated as the starting point for decision support.",
+        "inference": "The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.",
         "claim_supported": "Situation understanding and decision framing.",
         "relevance": "High",
         "confidence": "Moderate",
-        "limitations": "Source detail depends on the supplied material; no external source completeness is implied.",
+        "limitations": "Source detail depends on the supplied material. No primary supporting source is currently available unless a readable URL was provided.",
         "used_in_section": "Decision Snapshot; Decision Question; Decision Criteria"
       },
       {
@@ -891,11 +891,11 @@
         "source_type": "Local historical analogue record",
         "evidence_text": "COVID Supply Chain Disruption (2020): Shows how operational shocks can expose supplier concentration and inventory assumptions.",
         "observation": "keyword overlap: market; actor overlap: firms",
-        "inference": "The historical case may help compare mechanisms, but it does not determine the current outcome.",
+        "inference": "The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.",
         "claim_supported": "Historical comparison and analogue reasoning.",
         "relevance": "Moderate",
         "confidence": "Moderate",
-        "limitations": "Historical analogues support comparison, not prediction.",
+        "limitations": "Historical analogues support comparison, not prediction. Based on the repository's curated historical knowledge base; no primary supporting source is currently available.",
         "used_in_section": "Historical Evidence; Evidence and Confidence"
       },
       {
@@ -903,11 +903,11 @@
         "source_type": "Local historical analogue record",
         "evidence_text": "Red Sea Shipping Disruption (2023): Shows how route disruption can affect delivery timing and logistics costs.",
         "observation": "actor overlap: firms",
-        "inference": "The historical case may help compare mechanisms, but it does not determine the current outcome.",
+        "inference": "The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.",
         "claim_supported": "Historical comparison and analogue reasoning.",
         "relevance": "Moderate",
         "confidence": "Moderate",
-        "limitations": "Historical analogues support comparison, not prediction.",
+        "limitations": "Historical analogues support comparison, not prediction. Based on the repository's curated historical knowledge base; no primary supporting source is currently available.",
         "used_in_section": "Historical Evidence; Evidence and Confidence"
       },
       {
@@ -939,7 +939,7 @@
         "source_type": "Evidence assessment",
         "evidence_text": "The issue references software and operating constraints.; Historical analogues such as COVID Supply Chain Disruption, Red Sea Shipping Disruption show comparable economic adjustment patterns.",
         "observation": "Economics has supporting and weakening evidence.",
-        "inference": "The interpretation should be treated cautiously where weakening or missing evidence remains.",
+        "inference": "The recommendation should be constrained where weakening or missing evidence remains.",
         "claim_supported": "Evidence quality and uncertainty.",
         "relevance": "High",
         "confidence": "High",
@@ -951,7 +951,7 @@
         "source_type": "Evidence assessment",
         "evidence_text": "The scenario classification is Regulatory Action.; Current context from Banking, Energy highlights stakeholders and monitoring considerations.",
         "observation": "Political Economy has supporting and weakening evidence.",
-        "inference": "The interpretation should be treated cautiously where weakening or missing evidence remains.",
+        "inference": "The recommendation should be constrained where weakening or missing evidence remains.",
         "claim_supported": "Evidence quality and uncertainty.",
         "relevance": "High",
         "confidence": "High",
@@ -963,7 +963,7 @@
         "source_type": "Local historical outcome record",
         "evidence_text": "Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions.",
         "observation": "Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.",
-        "inference": "The outcome informs possible response patterns but is not a forecast.",
+        "inference": "The outcome informs possible response patterns and monitoring priorities; it is not a forecast.",
         "claim_supported": "Historical outcomes and strategic lessons.",
         "relevance": "Moderate",
         "confidence": "High",
@@ -975,7 +975,7 @@
         "source_type": "Local historical outcome record",
         "evidence_text": "Security risks disrupted routing, transit times, insurance terms, and delivery planning.",
         "observation": "Firms evaluated rerouting, customer communication, freight costs, and contingency planning.",
-        "inference": "The outcome informs possible response patterns but is not a forecast.",
+        "inference": "The outcome informs possible response patterns and monitoring priorities; it is not a forecast.",
         "claim_supported": "Historical outcomes and strategic lessons.",
         "relevance": "Moderate",
         "confidence": "Moderate",
@@ -1195,8 +1195,8 @@
     "note": "Run artifacts are generated by the local deterministic pipeline; they are not real-world accuracy claims."
   },
   "metadata": {
-    "run_id": "run_20260629_090",
-    "created_at": "2026-06-29T14:55:56",
+    "run_id": "run_20260629_163",
+    "created_at": "2026-06-29T16:32:41",
     "language": "en",
     "output_mode": "analyst",
     "question_id": "meaning",
@@ -1209,12 +1209,12 @@
     "file_type": "text",
     "status": "complete",
     "artifact_paths": {
-      "input": "outputs/runs/run_20260629_090/input.txt",
-      "analysis": "outputs/runs/run_20260629_090/analysis.json",
-      "brief_markdown": "outputs/runs/run_20260629_090/brief.md",
-      "brief_text": "outputs/runs/run_20260629_090/brief.txt",
-      "agent_trace": "outputs/runs/run_20260629_090/agent_trace.json",
-      "metadata": "outputs/runs/run_20260629_090/metadata.json"
+      "input": "outputs/runs/run_20260629_163/input.txt",
+      "analysis": "outputs/runs/run_20260629_163/analysis.json",
+      "brief_markdown": "outputs/runs/run_20260629_163/brief.md",
+      "brief_text": "outputs/runs/run_20260629_163/brief.txt",
+      "agent_trace": "outputs/runs/run_20260629_163/agent_trace.json",
+      "metadata": "outputs/runs/run_20260629_163/metadata.json"
     }
   }
 }

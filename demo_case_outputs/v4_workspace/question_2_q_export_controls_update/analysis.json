@@ -1,49 +1,45 @@
 {
   "issue": {
-    "title": "What does this issue mean?",
-    "summary": "Financial Earnings Geopolitical Risk Demo Case\n\nA fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets. Management says revenue remains diversified, but compliance review costs, customer screening, and risk controls have increased. The bank also notes that some corporate clients are delaying cross-border financing decisions until policy and sanctions r...",
-    "core_issue": "Financial Earnings Geopolitical Risk Demo Case\n\nA fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets.",
+    "title": "After receiving clearer licensing guidance, should management resume lower-risk ",
+    "summary": "Decision question:\nAfter receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?\n\nSource material:\nA follow-up fictional policy clarification describes a narrower set of restricted end users, a documented licensing path for some lower-risk commercial customers, and a transition period for previously authorized orders. Customer eligibility mapping is partially complete, but several high-risk counterparties remain...",
+    "core_issue": "Decision question:\nAfter receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?",
     "actors": [
       "executives",
-      "management",
-      "board"
+      "customers",
+      "management"
     ],
     "countries_or_regions": [],
     "industries": [],
     "policy_terms": [
-      "sanctions",
-      "compliance"
+      "licensing"
     ],
     "companies": [],
     "document_type_guess": "Earnings / Corporate Disclosure",
     "uncertainties": [
-      "The earnings note includes several overlapping signals: operating expenses tied to compliance, possible revenue timing pressure, regional market uncertainty, and management attention to risk governance.",
-      "Regional uncertainty can require additional controls, legal review, and board reporting."
+      "Executives need to decide whether to resume lower-risk shipments while preserving escalation controls, documentation review, and monitoring for new implementation guidance."
     ],
     "evidence": [
-      "Financial Earnings Geopolitical Risk Demo Case\n\nA fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets. Management says revenue remains diversified, but compliance review costs, customer screening, and risk controls have increased. The bank also notes that some corporate clients are delaying cross-border financing decisions until policy and sanctions r..."
+      "Decision question:\nAfter receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?\n\nSource material:\nA follow-up fictional policy clarification describes a narrower set of restricted end users, a documented licensing path for some lower-risk commercial customers, and a transition period for previously authorized orders. Customer eligibility mapping is partially complete, but several high-risk counterparties remain..."
     ]
   },
   "source_url": "",
-  "input_mode": "paste_text",
+  "input_mode": "demo_v4_workspace",
   "uploaded_filename": "",
   "file_type": "text",
   "event_context": {
-    "event_type": "Financial / Earnings Risk",
+    "event_type": "Export Controls",
     "primary_actor": "Corporate executives",
-    "secondary_actor": "Financial institutions",
+    "secondary_actor": "Customers",
     "affected_sectors": [
-      "Banking / Financial Services",
-      "Supply Chain / Logistics",
       "Technology"
     ],
     "affected_regions": [
       "Region not specified"
     ],
-    "policy_domain": "Financial stability and compliance",
-    "strategic_significance": "This financial / earnings risk context matters because it may affect Banking / Financial Services, Supply Chain / Logistics, Technology through financial stability and compliance considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.",
-    "event_summary": "What does this issue mean? Financial Earnings Geopolitical Risk Demo Case\n\nA fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets.",
-    "confidence": "High",
+    "policy_domain": "Geopolitical operating risk",
+    "strategic_significance": "This export controls context matters because it may affect Technology through geopolitical operating risk considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.",
+    "event_summary": "After receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers? Decision question:\nAfter receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?",
+    "confidence": "Medium",
     "context_limitations": [
       "Current-event context is extracted from the submitted document only.",
       "No live web retrieval, external news API, or source verification is performed.",
@@ -51,22 +47,22 @@
     ]
   },
   "event_understanding": {
-    "event_type": "Sanctions or restricted-counterparty event",
-    "event_family": "Economic Coercion",
-    "rationale": "Matched event signals: sanction, sanctions.",
+    "event_type": "Earnings shock or guidance event",
+    "event_family": "Earnings Shock",
+    "rationale": "Matched event signals: guidance.",
     "relevant_families": [
-      "Sanctions",
+      "Earnings / Corporate Disclosure",
       "Financial / Earnings Geopolitical Exposure",
       "Corporate Strategic Response"
     ],
-    "comparison_guardrail": "Compare with sanctions, payments, counterparty-screening, and compliance-operation cases."
+    "comparison_guardrail": "Compare with disclosure, demand-visibility, margin-pressure, and management-communication cases."
   },
   "question_route": {
-    "question_text": "What does this issue mean?",
+    "question_text": "After receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?",
     "intent": "Implication Analysis",
     "intent_label": "Implication Analysis",
     "matched_keywords": [
-      "mean"
+      "risk"
     ],
     "response_focus": [
       "current event context",
@@ -76,17 +72,35 @@
     "routing_note": "Question intent is classified with deterministic keyword rules; no LLM routing is used."
   },
   "scenario": {
-    "issue_title": "What does this issue mean?",
+    "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
     "primary_scenario": "Earnings / Corporate Disclosure",
     "matched_keywords": [
       "earnings",
-      "quarter",
-      "revenue",
+      "guidance",
       "disclosure"
     ],
     "confidence_label": "High"
   },
   "mechanisms": [
+    {
+      "mechanism_id": "M-009",
+      "mechanism_name": "Information Uncertainty",
+      "description": "Limited visibility that complicates interpretation and executive communication",
+      "related_scenarios": "Earnings / Corporate Disclosure; Supply Chain Disruption; Other",
+      "typical_actors": "executives; analysts; customers",
+      "historical_examples": "Guidance Withdrawals During COVID",
+      "possible_observations": "uncertain demand; unclear timelines; missing source details",
+      "detection_reason": "scenario match: Earnings / Corporate Disclosure; observation overlap: source; actor overlap: customers, executives",
+      "evidence_references": [
+        "Source Document",
+        "Information Uncertainty (Mechanism Framework)"
+      ],
+      "source_title": "Information Uncertainty",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
     {
       "mechanism_id": "M-019",
       "mechanism_name": "Reputational Sensitivity",
@@ -95,12 +109,31 @@
       "typical_actors": "executives; customers; regulators; media",
       "historical_examples": "sanctions compliance cases; public disclosures",
       "possible_observations": "public statements; stakeholder concern; disclosure language",
-      "detection_reason": "scenario match: Earnings / Corporate Disclosure; observation overlap: compliance, linked, policy, risk; actor overlap: executives",
+      "detection_reason": "scenario match: Earnings / Corporate Disclosure; observation overlap: policy; actor overlap: customers, executives",
       "evidence_references": [
         "Source Document",
         "Reputational Sensitivity (Mechanism Framework)"
       ],
       "source_title": "Reputational Sensitivity",
+      "source_type": "Mechanism framework entry",
+      "source_date": "source pending",
+      "source_url": "source pending",
+      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
+    },
+    {
+      "mechanism_id": "M-010",
+      "mechanism_name": "Demand Shock",
+      "description": "Change in customer demand visibility or order patterns",
+      "related_scenarios": "Earnings / Corporate Disclosure; Supply Chain Disruption",
+      "typical_actors": "customers; firms; suppliers",
+      "historical_examples": "COVID Demand Shifts",
+      "possible_observations": "order delays; revenue commentary; demand visibility",
+      "detection_reason": "scenario match: Earnings / Corporate Disclosure; observation overlap: customer; actor overlap: customers",
+      "evidence_references": [
+        "Source Document",
+        "Demand Shock (Mechanism Framework)"
+      ],
+      "source_title": "Demand Shock",
       "source_type": "Mechanism framework entry",
       "source_date": "source pending",
       "source_url": "source pending",
@@ -114,7 +147,7 @@
       "typical_actors": "executives; banks; investors",
       "historical_examples": "Major Earnings Guidance Withdrawal During COVID",
       "possible_observations": "margin pressure; capex commentary; liquidity planning",
-      "detection_reason": "scenario match: Earnings / Corporate Disclosure; observation overlap: costs, pressure; actor overlap: executives",
+      "detection_reason": "scenario match: Earnings / Corporate Disclosure; actor overlap: executives",
       "evidence_references": [
         "Source Document",
         "Capital Constraint (Mechanism Framework)"
@@ -124,65 +157,99 @@
       "source_date": "source pending",
       "source_url": "source pending",
       "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
-    },
-    {
-      "mechanism_id": "M-011",
-      "mechanism_name": "Financial Intermediation Stress",
-      "description": "Pressure on deposits liquidity credit or banking controls",
-      "related_scenarios": "Earnings / Corporate Disclosure; Regulatory Action; Sanctions",
-      "typical_actors": "banks; regulators; depositors",
-      "historical_examples": "Regional banking stress episodes",
-      "possible_observations": "deposit costs; liquidity planning; credit provisions",
-      "detection_reason": "scenario match: Earnings / Corporate Disclosure; observation overlap: controls, costs, pressure",
-      "evidence_references": [
-        "Source Document",
-        "Financial Intermediation Stress (Mechanism Framework)"
-      ],
-      "source_title": "Financial Intermediation Stress",
-      "source_type": "Mechanism framework entry",
-      "source_date": "source pending",
-      "source_url": "source pending",
-      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
-    },
-    {
-      "mechanism_id": "M-020",
-      "mechanism_name": "Input Cost Pressure",
-      "description": "Cost pressure from freight inputs capital or compliance",
-      "related_scenarios": "Supply Chain Disruption; Earnings / Corporate Disclosure; Energy",
-      "typical_actors": "firms; suppliers; logistics providers",
-      "historical_examples": "Red Sea Shipping; inflation periods",
-      "possible_observations": "freight costs; margin pressure; pricing commentary",
-      "detection_reason": "scenario match: Earnings / Corporate Disclosure; observation overlap: compliance, costs, pressure",
-      "evidence_references": [
-        "Source Document",
-        "Input Cost Pressure (Mechanism Framework)"
-      ],
-      "source_title": "Input Cost Pressure",
-      "source_type": "Mechanism framework entry",
-      "source_date": "source pending",
-      "source_url": "source pending",
-      "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
     }
   ],
   "analogues": [
     {
-      "case_title": "Russia Sanctions After Ukraine Invasion",
-      "year": "2022",
-      "scenario_type": "Sanctions",
-      "similarity_reason": "keyword overlap: activity, compliance, geopolitical, linked",
-      "business_relevance": " exports",
-      "geopolitical_relevance": " and business activity linked to Russia.",
+      "case_title": "Major Earnings Guidance Withdrawal During COVID",
+      "year": "2020",
+      "scenario_type": "Earnings / Corporate Disclosure",
+      "similarity_reason": "scenario match on Earnings / Corporate Disclosure; keyword overlap: disclosure, earnings, guidance, management; actor overlap: executives",
+      "business_relevance": "Shows how disclosures can communicate operating uncertainty and planning limits.",
+      "geopolitical_relevance": "Connects corporate communication with macro and policy disruption.",
       "caution_note": "Historical analogues support comparison, not prediction.",
-      "source": "Shaped narratives around energy, payments, and cross-border exposure.",
-      "evidence_trace": "Russia Sanctions After Ukraine Invasion (2022) - Historical Database",
-      "source_title": "Russia Sanctions After Ukraine Invasion",
+      "source": "Public-history example; concise summary only.",
+      "evidence_trace": "Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database",
+      "source_title": "Major Earnings Guidance Withdrawal During COVID",
       "source_type": "Historical analogue summary",
-      "source_date": "2022",
+      "source_date": "2020",
       "source_url": "source pending",
       "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
     }
   ],
   "historical_outcomes": [
+    {
+      "case_id": "HO-012",
+      "case_name": "Major Earnings Guidance Withdrawals During COVID",
+      "event_family": "Earnings / Corporate Disclosure",
+      "year": "2020",
+      "actor": "Public companies; executives",
+      "sector": "Multi-sector",
+      "observed_outcome": "Firms withdrew or revised guidance amid limited demand and operational visibility.",
+      "strategic_response": "Management teams emphasized uncertainty, liquidity monitoring, and scenario communication.",
+      "time_horizon": "Short-term",
+      "confidence": "High",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "High confidence because the outcome is broadly documented in public summaries; source URLs remain pending for this educational dataset.",
+      "retrieval_reason": "event-family match: Earnings / Corporate Disclosure",
+      "evidence_references": [
+        "Major Earnings Guidance Withdrawals During COVID (2020) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-001",
+      "case_name": "Huawei Entity List",
+      "event_family": "Export Controls",
+      "year": "2019",
+      "actor": "U.S. government; Huawei; suppliers",
+      "sector": "Technology",
+      "observed_outcome": "Restricted access to selected technology inputs changed supplier screening and product planning.",
+      "strategic_response": "Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.",
+      "time_horizon": "Medium-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "general outcome relevance",
+      "evidence_references": [
+        "Huawei Entity List (2019) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-002",
+      "case_name": "ASML Export Controls",
+      "event_family": "Export Controls",
+      "year": "2023",
+      "actor": "Dutch government; ASML; chipmakers",
+      "sector": "Semiconductors",
+      "observed_outcome": "Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.",
+      "strategic_response": "Companies monitored license rules, tool availability, and jurisdictional alignment.",
+      "time_horizon": "Medium-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "general outcome relevance",
+      "evidence_references": [
+        "ASML Export Controls (2023) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-003",
+      "case_name": "Japan-Korea Materials Dispute",
+      "event_family": "Trade Policy",
+      "year": "2019",
+      "actor": "Japan; South Korea; materials suppliers",
+      "sector": "Semiconductors",
+      "observed_outcome": "Input-specific trade controls exposed dependence on specialized upstream suppliers.",
+      "strategic_response": "Firms examined alternate sources, inventory buffers, and supplier qualification timelines.",
+      "time_horizon": "Medium-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "general outcome relevance",
+      "evidence_references": [
+        "Japan-Korea Materials Dispute (2019) - Historical Outcomes Database"
+      ]
+    },
     {
       "case_id": "HO-004",
       "case_name": "Russia Sanctions After Ukraine Invasion",
@@ -196,212 +263,97 @@
       "confidence": "High",
       "source_status": "source pending; educational summary",
       "evidence_note": "High confidence because the outcome is broadly documented in public summaries; source URLs remain pending for this educational dataset.",
-      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Sanctions; event-family/title overlap",
+      "retrieval_reason": "general outcome relevance",
       "evidence_references": [
         "Russia Sanctions After Ukraine Invasion (2022) - Historical Outcomes Database"
-      ]
-    },
-    {
-      "case_id": "HO-005",
-      "case_name": "Iran Sanctions Reimposition",
-      "event_family": "Sanctions",
-      "year": "2018",
-      "actor": "U.S. government; multinational firms",
-      "sector": "Energy and Finance",
-      "observed_outcome": "Renewed sanctions increased counterparty and market-access restrictions for affected sectors.",
-      "strategic_response": "Firms reassessed market exposure, payment channels, and customer relationships.",
-      "time_horizon": "Medium-term",
-      "confidence": "Medium",
-      "source_status": "source pending; educational summary",
-      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
-      "retrieval_reason": "event-family match: Sanctions; event-family/title overlap",
-      "evidence_references": [
-        "Iran Sanctions Reimposition (2018) - Historical Outcomes Database"
-      ]
-    },
-    {
-      "case_id": "HO-026",
-      "case_name": "Crimea Sanctions",
-      "event_family": "Sanctions",
-      "year": "2014",
-      "actor": "Governments; banks; energy firms",
-      "sector": "Energy and Finance",
-      "observed_outcome": "Regional sanctions increased counterparty restrictions and investment limits for affected activities.",
-      "strategic_response": "Organizations updated screening lists, contract reviews, and regional exposure reporting.",
-      "time_horizon": "Medium-term",
-      "confidence": "Medium",
-      "source_status": "source pending; educational summary",
-      "evidence_note": "Medium confidence because this is a simplified cross-sector summary.",
-      "retrieval_reason": "event-family match: Sanctions; event-family/title overlap",
-      "evidence_references": [
-        "Crimea Sanctions (2014) - Historical Outcomes Database"
-      ]
-    },
-    {
-      "case_id": "HO-027",
-      "case_name": "North Korea Sanctions Enforcement",
-      "event_family": "Sanctions",
-      "year": "2017",
-      "actor": "Governments; banks; shipping firms",
-      "sector": "Finance and Shipping",
-      "observed_outcome": "Enforcement pressure increased due diligence around counterparties, vessels, and payment flows.",
-      "strategic_response": "Firms strengthened screening, beneficial ownership checks, and escalation routines.",
-      "time_horizon": "Medium-term",
-      "confidence": "Medium",
-      "source_status": "source pending; educational summary",
-      "evidence_note": "Medium confidence because enforcement patterns are public but case-level details vary.",
-      "retrieval_reason": "event-family match: Sanctions; event-family/title overlap",
-      "evidence_references": [
-        "North Korea Sanctions Enforcement (2017) - Historical Outcomes Database"
-      ]
-    },
-    {
-      "case_id": "HO-028",
-      "case_name": "Venezuela Oil Sanctions",
-      "event_family": "Sanctions",
-      "year": "2019",
-      "actor": "Governments; oil firms; traders",
-      "sector": "Energy",
-      "observed_outcome": "Sanctions constrained transactions, crude flows, and counterparty relationships.",
-      "strategic_response": "Companies reviewed contracts, payment channels, and exposure to restricted entities.",
-      "time_horizon": "Medium-term",
-      "confidence": "Medium",
-      "source_status": "source pending; educational summary",
-      "evidence_note": "Medium confidence because this is an educational summary of a complex sanctions regime.",
-      "retrieval_reason": "event-family match: Sanctions; event-family/title overlap",
-      "evidence_references": [
-        "Venezuela Oil Sanctions (2019) - Historical Outcomes Database"
       ]
     }
   ],
   "strategic_lessons": [
     {
-      "lesson": "Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.",
+      "lesson": "Supply chain diversification frequently appears after export-control or disruption shocks.",
       "supporting_cases": [
-        "Russia Sanctions After Ukraine Invasion (2022)",
-        "Crimea Sanctions (2014)",
-        "North Korea Sanctions Enforcement (2017)",
-        "Venezuela Oil Sanctions (2019)"
+        "Huawei Entity List (2019)",
+        "ASML Export Controls (2023)",
+        "Japan-Korea Materials Dispute (2019)"
       ],
       "confidence": "High",
-      "rationale": "Matched 4 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.",
+      "rationale": "Matched 3 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.",
       "evidence_references": [
-        "Crimea Sanctions (2014) - Historical Outcomes Database",
-        "North Korea Sanctions Enforcement (2017) - Historical Outcomes Database",
-        "Russia Sanctions After Ukraine Invasion (2022) - Historical Outcomes Database",
-        "Venezuela Oil Sanctions (2019) - Historical Outcomes Database"
+        "ASML Export Controls (2023) - Historical Outcomes Database",
+        "Huawei Entity List (2019) - Historical Outcomes Database",
+        "Japan-Korea Materials Dispute (2019) - Historical Outcomes Database"
       ]
     },
     {
-      "lesson": "Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.",
+      "lesson": "Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.",
       "supporting_cases": [
-        "North Korea Sanctions Enforcement (2017)"
+        "Huawei Entity List (2019)",
+        "ASML Export Controls (2023)",
+        "Russia Sanctions After Ukraine Invasion (2022)"
+      ],
+      "confidence": "High",
+      "rationale": "Matched 3 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.",
+      "evidence_references": [
+        "ASML Export Controls (2023) - Historical Outcomes Database",
+        "Huawei Entity List (2019) - Historical Outcomes Database",
+        "Russia Sanctions After Ukraine Invasion (2022) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "lesson": "Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.",
+      "supporting_cases": [
+        "Huawei Entity List (2019)"
       ],
       "confidence": "Low",
-      "rationale": "Matched 1 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.",
+      "rationale": "Matched 1 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.",
       "evidence_references": [
-        "North Korea Sanctions Enforcement (2017) - Historical Outcomes Database"
+        "Huawei Entity List (2019) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "lesson": "Periods of uncertainty often increase the value of executive communication and monitoring routines.",
+      "supporting_cases": [
+        "Major Earnings Guidance Withdrawals During COVID (2020)"
+      ],
+      "confidence": "Low",
+      "rationale": "Matched 1 retrieved outcome case(s) with rule keywords: uncertainty, visibility, monitoring, communication.",
+      "evidence_references": [
+        "Major Earnings Guidance Withdrawals During COVID (2020) - Historical Outcomes Database"
       ]
     }
   ],
   "strategic_assessment": {
-    "direct_answer": "The strongest historical similarity is a Sanctions or restricted-counterparty event affecting the affected sector. Across relevant historical cases, organizations most often expanded compliance monitoring and documentation; reviewed continuity plans and operational exposure. The key pattern is that operational adaptation usually follows the first policy or market shock. The main risk is assuming the headline event is the whole story; the most important uncertainty is how rules, customers, suppliers, and management responses change after implementation. The next signal to watch is concrete exposure mapping or policy guidance. The comparison guardrail is: Compare with sanctions, payments, counterparty-screening, and compliance-operation cases.",
-    "event_type": "Sanctions or restricted-counterparty event",
-    "event_family": "Economic Coercion",
-    "comparison_guardrail": "Compare with sanctions, payments, counterparty-screening, and compliance-operation cases.",
+    "direct_answer": "The strongest historical similarity is a Earnings shock or guidance event affecting the affected sector. Across relevant historical cases, organizations most often increased executive communication and guidance monitoring. The key pattern is that operational adaptation usually follows the first policy or market shock. The main risk is assuming the headline event is the whole story; the most important uncertainty is how rules, customers, suppliers, and management responses change after implementation. The next signal to watch is concrete exposure mapping or policy guidance. The comparison guardrail is: Compare with disclosure, demand-visibility, margin-pressure, and management-communication cases.",
+    "event_type": "Earnings shock or guidance event",
+    "event_family": "Earnings Shock",
+    "comparison_guardrail": "Compare with disclosure, demand-visibility, margin-pressure, and management-communication cases.",
     "historical_patterns": [
       {
-        "pattern": "Expanded compliance monitoring and documentation",
-        "frequency_percent": 80,
-        "supporting_cases": [
-          "Russia Sanctions After Ukraine Invasion (2022)",
-          "Crimea Sanctions (2014)",
-          "North Korea Sanctions Enforcement (2017)",
-          "Venezuela Oil Sanctions (2019)"
-        ],
-        "interpretation": "Organizations often added documentation, screening, or approval routines when rules became more restrictive."
-      },
-      {
-        "pattern": "Reviewed continuity plans and operational exposure",
-        "frequency_percent": 60,
-        "supporting_cases": [
-          "Iran Sanctions Reimposition (2018)",
-          "Crimea Sanctions (2014)",
-          "Venezuela Oil Sanctions (2019)"
-        ],
-        "interpretation": "Operationally exposed cases often led teams to review contingency plans, routes, and concentration risks."
-      },
-      {
         "pattern": "Increased executive communication and guidance monitoring",
-        "frequency_percent": 20,
+        "frequency_percent": 100,
         "supporting_cases": [
-          "Iran Sanctions Reimposition (2018)"
+          "Major Earnings Guidance Withdrawals During COVID (2020)"
         ],
         "interpretation": "Uncertain events often made management communication and stakeholder updates more important."
-      },
-      {
-        "pattern": "Adjusted capital planning or localization strategy",
-        "frequency_percent": 20,
-        "supporting_cases": [
-          "Crimea Sanctions (2014)"
-        ],
-        "interpretation": "Industrial-policy cases often shifted attention toward eligibility, localization, and sequencing of investment decisions."
       }
     ],
     "outcome_distribution": [
       {
         "outcome_type": "Strategic Reassessment",
-        "frequency_percent": 60,
-        "case_count": 3,
+        "frequency_percent": 100,
+        "case_count": 1,
         "interpretation": "Cases in this group show planning reviews or strategic repositioning without a single dominant disruption pattern."
-      },
-      {
-        "outcome_type": "Partial Disruption",
-        "frequency_percent": 40,
-        "case_count": 2,
-        "interpretation": "Cases in this group show meaningful constraints, delays, or access limits that required operational response."
       }
     ],
     "expectation_vs_reality": [
       {
-        "event": "Russia Sanctions After Ukraine Invasion (2022)",
-        "consensus_expectation": "Observers often expect a narrow restriction on named counterparties.",
+        "event": "Major Earnings Guidance Withdrawals During COVID (2020)",
+        "consensus_expectation": "Observers often focus first on the headline event.",
         "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
-        "observed_outcome": "Sanctions disrupted transactions, counterparties, contracts, and compliance workflows.",
-        "expectation_gap": "The practical effect can spread into payments, contracts, screening, and relationship reviews.",
-        "strategic_lesson": "Track second-order compliance and counterparty effects, not only the initial sanctions list."
-      },
-      {
-        "event": "Iran Sanctions Reimposition (2018)",
-        "consensus_expectation": "Observers often expect a narrow restriction on named counterparties.",
-        "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
-        "observed_outcome": "Renewed sanctions increased counterparty and market-access restrictions for affected sectors.",
-        "expectation_gap": "The practical effect can spread into payments, contracts, screening, and relationship reviews.",
-        "strategic_lesson": "Track second-order compliance and counterparty effects, not only the initial sanctions list."
-      },
-      {
-        "event": "Crimea Sanctions (2014)",
-        "consensus_expectation": "Observers often expect a narrow restriction on named counterparties.",
-        "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
-        "observed_outcome": "Regional sanctions increased counterparty restrictions and investment limits for affected activities.",
-        "expectation_gap": "The practical effect can spread into payments, contracts, screening, and relationship reviews.",
-        "strategic_lesson": "Track second-order compliance and counterparty effects, not only the initial sanctions list."
-      },
-      {
-        "event": "North Korea Sanctions Enforcement (2017)",
-        "consensus_expectation": "Observers often expect a narrow restriction on named counterparties.",
-        "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
-        "observed_outcome": "Enforcement pressure increased due diligence around counterparties, vessels, and payment flows.",
-        "expectation_gap": "The practical effect can spread into payments, contracts, screening, and relationship reviews.",
-        "strategic_lesson": "Track second-order compliance and counterparty effects, not only the initial sanctions list."
-      },
-      {
-        "event": "Venezuela Oil Sanctions (2019)",
-        "consensus_expectation": "Observers often expect a narrow restriction on named counterparties.",
-        "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
-        "observed_outcome": "Sanctions constrained transactions, crude flows, and counterparty relationships.",
-        "expectation_gap": "The practical effect can spread into payments, contracts, screening, and relationship reviews.",
-        "strategic_lesson": "Track second-order compliance and counterparty effects, not only the initial sanctions list."
+        "observed_outcome": "Firms withdrew or revised guidance amid limited demand and operational visibility.",
+        "expectation_gap": "The practical impact can appear in operating routines, stakeholder behavior, and implementation details.",
+        "strategic_lesson": "Translate the headline into concrete exposure, process, and monitoring questions."
       }
     ],
     "strategic_watchlist": [
@@ -444,10 +396,10 @@
     ]
   },
   "evidence_credibility": {
-    "evidence_summary": "5 historical outcomes were retrieved. 1 are high confidence and 4 are medium confidence. Source URLs are not fabricated; source status is reported separately. 2 rule-based strategic lesson(s) were generated from those outcomes.",
+    "evidence_summary": "5 historical outcomes were retrieved. 2 are high confidence and 3 are medium confidence. Source URLs are not fabricated; source status is reported separately. 4 rule-based strategic lesson(s) were generated from those outcomes.",
     "confidence_distribution": {
-      "High": 1,
-      "Medium": 4
+      "High": 2,
+      "Medium": 3
     },
     "source_status_distribution": {
       "source pending; educational summary": 5
@@ -463,9 +415,9 @@
   "current_context": [],
   "implications": [
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "observed_similarities": [
-        "The issue may resemble Russia Sanctions After Ukraine Invasion (2022) because the retrieved cases share characteristics with the earnings / corporate disclosure scenario frame.",
+        "The issue may resemble Major Earnings Guidance Withdrawal During COVID (2020) because the retrieved cases share characteristics with the earnings / corporate disclosure scenario frame.",
         "The current context findings from the retrieved context set share characteristics with the extracted industries and policy terms."
       ],
       "observed_differences": [
@@ -493,13 +445,13 @@
         "What decisions require more source verification before executive action?"
       ],
       "evidence_trace": [
-        "Russia Sanctions After Ukraine Invasion (2022) - Historical Database"
+        "Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database"
       ]
     }
   ],
   "response_playbooks": [
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "pattern_name": "Monitoring and contingency planning",
       "observed_historical_choices": [
         "Organizations reviewed counterparties, suppliers, and implementation details.",
@@ -507,21 +459,21 @@
       ],
       "observed_outcomes": [
         "Observed outcomes varied across cases and should not be treated as predictive.",
-        "Relevant analogues include Russia Sanctions After Ukraine Invasion."
+        "Relevant analogues include Major Earnings Guidance Withdrawal During COVID."
       ],
       "business_lessons": [
         "Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.",
         "Cross-functional review can help separate compliance, operational, and strategic questions."
       ],
       "cross_domain_lessons": [
-        "Mechanisms such as Reputational Sensitivity, Capital Constraint, Financial Intermediation Stress can appear across policy, security, and business domains.",
+        "Mechanisms such as Information Uncertainty, Reputational Sensitivity, Demand Shock can appear across policy, security, and business domains.",
         "Historical response patterns are most useful when paired with current context and source verification."
       ],
       "evidence_references": [
-        "Russia Sanctions After Ukraine Invasion (2022) - Historical Database",
+        "Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database",
+        "Information Uncertainty (Mechanism Framework)",
         "Reputational Sensitivity (Mechanism Framework)",
-        "Capital Constraint (Mechanism Framework)",
-        "Financial Intermediation Stress (Mechanism Framework)"
+        "Demand Shock (Mechanism Framework)"
       ],
       "source_title": "Response Playbook",
       "source_type": "Deterministic response pattern",
@@ -532,27 +484,27 @@
   ],
   "lenses": [
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "lens": "Economics",
-      "hypothesis": "One possible interpretation is that the earnings / corporate disclosure event reflects resource allocation constraints linked to Reputational Sensitivity, Capital Constraint.",
+      "hypothesis": "One possible interpretation is that the earnings / corporate disclosure event reflects resource allocation constraints linked to Information Uncertainty, Reputational Sensitivity.",
       "supporting_observations": [
         "The issue references business operations and operating constraints.",
-        "Historical analogues such as Russia Sanctions After Ukraine Invasion show comparable economic adjustment patterns."
+        "Historical analogues such as Major Earnings Guidance Withdrawal During COVID show comparable economic adjustment patterns."
       ],
       "limitations": [
         "The document does not quantify cost, demand, or capacity effects."
       ],
       "evidence_references": [
         "Source Document",
-        "Russia Sanctions After Ukraine Invasion (2022) - Historical Database",
-        "Reputational Sensitivity (Mechanism Framework)",
-        "Capital Constraint (Mechanism Framework)"
+        "Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database",
+        "Information Uncertainty (Mechanism Framework)",
+        "Reputational Sensitivity (Mechanism Framework)"
       ]
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "lens": "Political Economy",
-      "hypothesis": "One possible interpretation is that public authority and business incentives are interacting through Reputational Sensitivity, Capital Constraint.",
+      "hypothesis": "One possible interpretation is that public authority and business incentives are interacting through Information Uncertainty, Reputational Sensitivity.",
       "supporting_observations": [
         "The scenario classification is Earnings / Corporate Disclosure.",
         "Current context from retrieved context entries highlights stakeholders and monitoring considerations."
@@ -562,35 +514,35 @@
       ],
       "evidence_references": [
         "Source Document",
-        "Russia Sanctions After Ukraine Invasion (2022) - Historical Database",
-        "Reputational Sensitivity (Mechanism Framework)",
-        "Capital Constraint (Mechanism Framework)"
+        "Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database",
+        "Information Uncertainty (Mechanism Framework)",
+        "Reputational Sensitivity (Mechanism Framework)"
       ]
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "lens": "International Relations",
       "hypothesis": "One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.",
       "supporting_observations": [
         "Detected regions include no explicit region in the source document.",
-        "Mechanisms such as Reputational Sensitivity, Capital Constraint can appear in geopolitical or cross-border settings."
+        "Mechanisms such as Information Uncertainty, Reputational Sensitivity can appear in geopolitical or cross-border settings."
       ],
       "limitations": [
         "The source does not establish intent by governments or counterparties."
       ],
       "evidence_references": [
         "Source Document",
-        "Russia Sanctions After Ukraine Invasion (2022) - Historical Database",
-        "Reputational Sensitivity (Mechanism Framework)",
-        "Capital Constraint (Mechanism Framework)"
+        "Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database",
+        "Information Uncertainty (Mechanism Framework)",
+        "Reputational Sensitivity (Mechanism Framework)"
       ]
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "lens": "Legislative / Regulatory",
       "hypothesis": "One possible interpretation is that implementation rules and compliance obligations are central to the event.",
       "supporting_observations": [
-        "Detected policy terms include sanctions, compliance.",
+        "Detected policy terms include licensing.",
         "The evidence trace includes source document signals and retrieved context records."
       ],
       "limitations": [
@@ -598,17 +550,17 @@
       ],
       "evidence_references": [
         "Source Document",
-        "Russia Sanctions After Ukraine Invasion (2022) - Historical Database",
-        "Reputational Sensitivity (Mechanism Framework)",
-        "Capital Constraint (Mechanism Framework)"
+        "Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database",
+        "Information Uncertainty (Mechanism Framework)",
+        "Reputational Sensitivity (Mechanism Framework)"
       ]
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "lens": "Business Strategy",
       "hypothesis": "One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.",
       "supporting_observations": [
-        "The issue mentions actors such as executives, management, board.",
+        "The issue mentions actors such as executives, customers, management.",
         "The brief combines analogue patterns with current context monitoring considerations."
       ],
       "limitations": [
@@ -616,19 +568,19 @@
       ],
       "evidence_references": [
         "Source Document",
-        "Russia Sanctions After Ukraine Invasion (2022) - Historical Database",
-        "Reputational Sensitivity (Mechanism Framework)",
-        "Capital Constraint (Mechanism Framework)"
+        "Major Earnings Guidance Withdrawal During COVID (2020) - Historical Database",
+        "Information Uncertainty (Mechanism Framework)",
+        "Reputational Sensitivity (Mechanism Framework)"
       ]
     }
   ],
   "evidence": [
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "lens": "Economics",
       "supporting_evidence": [
         "The issue references business operations and operating constraints.",
-        "Historical analogues such as Russia Sanctions After Ukraine Invasion show comparable economic adjustment patterns."
+        "Historical analogues such as Major Earnings Guidance Withdrawal During COVID show comparable economic adjustment patterns."
       ],
       "weakening_evidence": [
         "The document does not quantify cost, demand, or capacity effects."
@@ -641,7 +593,7 @@
       "confidence_language": "Moderate"
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "lens": "Political Economy",
       "supporting_evidence": [
         "The scenario classification is Earnings / Corporate Disclosure.",
@@ -658,11 +610,11 @@
       "confidence_language": "Moderate"
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "lens": "International Relations",
       "supporting_evidence": [
         "Detected regions include no explicit region in the source document.",
-        "Mechanisms such as Reputational Sensitivity, Capital Constraint can appear in geopolitical or cross-border settings."
+        "Mechanisms such as Information Uncertainty, Reputational Sensitivity can appear in geopolitical or cross-border settings."
       ],
       "weakening_evidence": [
         "The source does not establish intent by governments or counterparties."
@@ -675,10 +627,10 @@
       "confidence_language": "Moderate"
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "lens": "Legislative / Regulatory",
       "supporting_evidence": [
-        "Detected policy terms include sanctions, compliance.",
+        "Detected policy terms include licensing.",
         "The evidence trace includes source document signals and retrieved context records."
       ],
       "weakening_evidence": [
@@ -692,10 +644,10 @@
       "confidence_language": "Moderate"
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "After receiving clearer licensing guidance, should management resume lower-risk ",
       "lens": "Business Strategy",
       "supporting_evidence": [
-        "The issue mentions actors such as executives, management, board.",
+        "The issue mentions actors such as executives, customers, management.",
         "The brief combines analogue patterns with current context monitoring considerations."
       ],
       "weakening_evidence": [
@@ -710,13 +662,13 @@
     }
   ],
   "decision_case": {
-    "decision_question": "What does this issue mean?",
-    "source_summary": "Financial Earnings Geopolitical Risk Demo Case\n\nA fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets. Management says revenue remains diversified, but compliance review costs, customer screening, and risk controls have increased. The bank also notes that some corporate clients are delaying cross-border financing decisions until policy and sanctions r...",
-    "situation": "Financial Earnings Geopolitical Risk Demo Case\n\nA fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets.",
+    "decision_question": "After receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?",
+    "source_summary": "Decision question:\nAfter receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?\n\nSource material:\nA follow-up fictional policy clarification describes a narrower set of restricted end users, a documented licensing path for some lower-risk commercial customers, and a transition period for previously authorized orders. Customer eligibility mapping is partially complete, but several high-risk counterparties remain...",
+    "situation": "Decision question:\nAfter receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?",
     "stakeholders": [
       "executives",
-      "management",
-      "board"
+      "customers",
+      "management"
     ],
     "decision_criteria": [
       "Evidence quality",
@@ -742,13 +694,13 @@
       "E8"
     ],
     "historical_analogues": [
-      "Russia Sanctions After Ukraine Invasion (2022)"
+      "Major Earnings Guidance Withdrawal During COVID (2020)"
     ],
     "assumptions": [
       "The supplied material is sufficient for an initial decision-support brief.",
       "Human review will verify source details before operational use.",
       "The Earnings / Corporate Disclosure frame is an appropriate starting point for analysis.",
-      "The identified mechanisms remain relevant to the decision context: Reputational Sensitivity, Capital Constraint, Financial Intermediation Stress."
+      "The identified mechanisms remain relevant to the decision context: Information Uncertainty, Reputational Sensitivity, Demand Shock."
     ],
     "risks": [
       "The source material may omit operational details needed for final action.",
@@ -785,8 +737,8 @@
       {
         "evidence_id": "E1",
         "source_type": "User-provided input material",
-        "evidence_text": "Financial Earnings Geopolitical Risk Demo Case\n\nA fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets. Management says revenue remains diversified, but compliance review costs, customer screening, and risk controls have increased. The bank also notes that some corporate clients are delaying cross-border financing decisions until policy and sanctions r...",
-        "observation": "Financial Earnings Geopolitical Risk Demo Case\n\nA fictional multinational financial institution reports quarterly earnings pressure linked to regional geopolitical exposure, sanctions compliance costs, and slower client activity in selected markets.",
+        "evidence_text": "Decision question:\nAfter receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?\n\nSource material:\nA follow-up fictional policy clarification describes a narrower set of restricted end users, a documented licensing path for some lower-risk commercial customers, and a transition period for previously authorized orders. Customer eligibility mapping is partially complete, but several high-risk counterparties remain...",
+        "observation": "Decision question:\nAfter receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?",
         "inference": "The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.",
         "claim_supported": "Situation understanding and decision framing.",
         "relevance": "High",
@@ -797,8 +749,8 @@
       {
         "evidence_id": "E2",
         "source_type": "Local historical analogue record",
-        "evidence_text": "Russia Sanctions After Ukraine Invasion (2022):  exports",
-        "observation": "keyword overlap: activity, compliance, geopolitical, linked",
+        "evidence_text": "Major Earnings Guidance Withdrawal During COVID (2020): Shows how disclosures can communicate operating uncertainty and planning limits.",
+        "observation": "scenario match on Earnings / Corporate Disclosure; keyword overlap: disclosure, earnings, guidance, management; actor overlap: executives",
         "inference": "The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.",
         "claim_supported": "Historical comparison and analogue reasoning.",
         "relevance": "Moderate",
@@ -809,9 +761,9 @@
       {
         "evidence_id": "E3",
         "source_type": "Deterministic mechanism detection",
-        "evidence_text": "Stakeholder perception risk linked to public policy security or compliance issues",
-        "observation": "public statements; stakeholder concern; disclosure language",
-        "inference": "scenario match: Earnings / Corporate Disclosure; observation overlap: compliance, linked, policy, risk; actor overlap: executives",
+        "evidence_text": "Limited visibility that complicates interpretation and executive communication",
+        "observation": "uncertain demand; unclear timelines; missing source details",
+        "inference": "scenario match: Earnings / Corporate Disclosure; observation overlap: source; actor overlap: customers, executives",
         "claim_supported": "Mechanism reasoning and risk identification.",
         "relevance": "Moderate",
         "confidence": "Moderate",
@@ -821,9 +773,9 @@
       {
         "evidence_id": "E4",
         "source_type": "Deterministic mechanism detection",
-        "evidence_text": "Limits on investment or operating flexibility caused by funding costs margins or liquidity",
-        "observation": "margin pressure; capex commentary; liquidity planning",
-        "inference": "scenario match: Earnings / Corporate Disclosure; observation overlap: costs, pressure; actor overlap: executives",
+        "evidence_text": "Stakeholder perception risk linked to public policy security or compliance issues",
+        "observation": "public statements; stakeholder concern; disclosure language",
+        "inference": "scenario match: Earnings / Corporate Disclosure; observation overlap: policy; actor overlap: customers, executives",
         "claim_supported": "Mechanism reasoning and risk identification.",
         "relevance": "Moderate",
         "confidence": "Moderate",
@@ -833,7 +785,7 @@
       {
         "evidence_id": "E5",
         "source_type": "Evidence assessment",
-        "evidence_text": "The issue references business operations and operating constraints.; Historical analogues such as Russia Sanctions After Ukraine Invasion show comparable economic adjustment patterns.",
+        "evidence_text": "The issue references business operations and operating constraints.; Historical analogues such as Major Earnings Guidance Withdrawal During COVID show comparable economic adjustment patterns.",
         "observation": "Economics has supporting and weakening evidence.",
         "inference": "The recommendation should be constrained where weakening or missing evidence remains.",
         "claim_supported": "Evidence quality and uncertainty.",
@@ -857,8 +809,8 @@
       {
         "evidence_id": "E7",
         "source_type": "Local historical outcome record",
-        "evidence_text": "Sanctions disrupted transactions, counterparties, contracts, and compliance workflows.",
-        "observation": "Organizations expanded screening, reviewed contracts, and escalated legal/compliance review.",
+        "evidence_text": "Firms withdrew or revised guidance amid limited demand and operational visibility.",
+        "observation": "Management teams emphasized uncertainty, liquidity monitoring, and scenario communication.",
         "inference": "The outcome informs possible response patterns and monitoring priorities; it is not a forecast.",
         "claim_supported": "Historical outcomes and strategic lessons.",
         "relevance": "Moderate",
@@ -869,8 +821,8 @@
       {
         "evidence_id": "E8",
         "source_type": "Local historical outcome record",
-        "evidence_text": "Renewed sanctions increased counterparty and market-access restrictions for affected sectors.",
-        "observation": "Firms reassessed market exposure, payment channels, and customer relationships.",
+        "evidence_text": "Restricted access to selected technology inputs changed supplier screening and product planning.",
+        "observation": "Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.",
         "inference": "The outcome informs possible response patterns and monitoring priorities; it is not a forecast.",
         "claim_supported": "Historical outcomes and strategic lessons.",
         "relevance": "Moderate",
@@ -886,7 +838,7 @@
       "The supplied material is sufficient for an initial decision-support brief.",
       "Human review will verify source details before operational use.",
       "The Earnings / Corporate Disclosure frame is an appropriate starting point for analysis.",
-      "The identified mechanisms remain relevant to the decision context: Reputational Sensitivity, Capital Constraint, Financial Intermediation Stress."
+      "The identified mechanisms remain relevant to the decision context: Information Uncertainty, Reputational Sensitivity, Demand Shock."
     ],
     "what_would_change_this_view": [
       "New primary source material changes the factual basis.",
@@ -999,7 +951,7 @@
       {
         "step": 6,
         "event": "Tool skipped",
-        "detail": "ContextRetriever: No strong context retrieval trigger detected."
+        "detail": "ContextRetriever: Corporate disclosure detected without strong policy, supply chain, sanctions, or regulatory context terms."
       },
       {
         "step": 7,
@@ -1034,8 +986,8 @@
       {
         "tool": "ContextRetriever",
         "decision": "Skipped",
-        "why": "No strong context retrieval trigger detected.",
-        "expected_contribution": "Avoids adding weak context findings."
+        "why": "Corporate disclosure detected without strong policy, supply chain, sanctions, or regulatory context terms.",
+        "expected_contribution": "Context retrieval is skipped to keep the route focused on disclosure interpretation."
       },
       {
         "tool": "ImplicationAnalyzer",
@@ -1067,26 +1019,26 @@
     "note": "Run artifacts are generated by the local deterministic pipeline; they are not real-world accuracy claims."
   },
   "metadata": {
-    "run_id": "run_20260629_160",
-    "created_at": "2026-06-29T16:32:41",
+    "run_id": "run_20260630_004",
+    "created_at": "2026-06-30T11:18:44",
     "language": "en",
     "output_mode": "analyst",
-    "question_id": "meaning",
-    "question_text": "What does this issue mean?",
+    "question_id": "q_export_controls_update",
+    "question_text": "After receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?",
     "question_intent": "Implication Analysis",
     "question_intent_label": "Implication Analysis",
     "source_url": "",
-    "input_mode": "paste_text",
+    "input_mode": "demo_v4_workspace",
     "uploaded_filename": "",
     "file_type": "text",
     "status": "complete",
     "artifact_paths": {
-      "input": "outputs/runs/run_20260629_160/input.txt",
-      "analysis": "outputs/runs/run_20260629_160/analysis.json",
-      "brief_markdown": "outputs/runs/run_20260629_160/brief.md",
-      "brief_text": "outputs/runs/run_20260629_160/brief.txt",
-      "agent_trace": "outputs/runs/run_20260629_160/agent_trace.json",
-      "metadata": "outputs/runs/run_20260629_160/metadata.json"
+      "input": "outputs/runs/run_20260630_004/input.txt",
+      "analysis": "outputs/runs/run_20260630_004/analysis.json",
+      "brief_markdown": "outputs/runs/run_20260630_004/brief.md",
+      "brief_text": "outputs/runs/run_20260630_004/brief.txt",
+      "agent_trace": "outputs/runs/run_20260630_004/agent_trace.json",
+      "metadata": "outputs/runs/run_20260630_004/metadata.json"
     }
   }
 }

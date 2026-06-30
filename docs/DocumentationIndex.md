@@ -10,10 +10,12 @@ This index is the recommended starting point for reviewing the repository.
 - [Decision Intelligence Framework](DecisionIntelligenceFramework.md): conceptual framework that governs decision reasoning across the platform.
 - [Evidence Architecture](EvidenceArchitecture.md): conceptual design for evidence flow, transparency, quality, and future evidence systems.
 - [Decision Intelligence Constitution](DecisionIntelligenceConstitution.md): governance principles for future product and architecture changes.
+- [Version 4 Architecture](Version4Architecture.md): implemented local workspace architecture, evidence library, traceability, decision timeline, and decision delta boundaries.
 - [Product Strategy](ProductStrategy.md): long-term product identity, platform pillars, and strategic boundaries.
 - [Roadmap](Roadmap.md): 12-month maturity roadmap focused on evidence, evaluation, monitoring, and decision quality.
 - [Product Decisions](ProductDecisions.md): key product and architecture decisions with rationale and rejected alternatives.
 - [Demo Scenarios](DemoScenarios.md): realistic local demo scenarios.
+- [V4 Workspace Demo](../demo_case_outputs/v4_workspace/README.md): release-validation project workspace demo with linked questions, evidence library, timeline, delta, and generated artifacts.
 - [Portfolio Narrative](PortfolioNarrative.md): how to present the project as a portfolio artifact.
 
 ## Engineering Review

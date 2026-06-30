@@ -95,35 +95,38 @@ Version 3 would demonstrate product maturity beyond one-time analysis. It would 
 
 Version 3 should not add unsupervised web surveillance, automatic alerts from uncontrolled external sources, background agents, databases without a clear need, or operational claims that exceed the local product.
 
-## Version 4: Research-Grade Decision Intelligence
+## Version 4: Decision Intelligence Workspace
 
 ### Objective
 
-Version 4 should move the platform toward research-grade evaluation and evidence discipline. The goal is stronger validation of decision-support quality, not broader automation.
+Version 4 should evolve the platform from a one-time analysis tool into a structured Decision Intelligence Workspace. The focus is project continuity, reusable evidence, traceability, and decision evolution while preserving deterministic reasoning.
 
 ### User Value
 
-Users and reviewers should be able to understand the system's strengths, weaknesses, benchmark behavior, and failure modes with more confidence. The product should make it easier to compare outputs, evaluate reasoning quality, and maintain trust over time.
+Users should be able to work on a decision over time. A Project should hold related Questions, evidence, generated briefs, decision history, and change records so the user can see how recommendations evolve as evidence changes.
 
 ### Engineering Scope
 
 Potential Version 4 scope:
 
-- Larger curated benchmark corpus.
-- Human review rubrics and adjudication notes.
-- Scenario-specific evaluation dashboards or reports.
-- Structured failure taxonomy.
-- Versioned evaluation results.
-- Deeper comparison against generic LLM outputs.
-- More rigorous documentation of evidence provenance and limitations.
+- Project Workspace model for long-running decision problems.
+- Question records that generate independent, reproducible analyses.
+- Evidence Bundle model that unifies uploaded documents, user notes, supplied URLs, project evidence, and optional retrieved evidence.
+- Project Evidence Library for reusable source material.
+- Stronger evidence traceability from recommendation to reasoning rule, analogue, evidence statement, and original source.
+- Evidence status labels such as User Provided, Corroborated, Historical Only, Conflicting, Outdated, or Unavailable.
+- Deterministic evidence ranking based on authority, freshness, specificity, corroboration, and question relevance.
+- Conflict detection that lowers confidence and identifies what additional evidence is needed.
+- Decision evolution records comparing previous recommendations, new evidence, what changed, and updated recommendations.
+- Optional user-triggered live retrieval that supplements evidence bundles without autonomous browsing or monitoring.
 
 ### Portfolio Value
 
-Version 4 would position the project as a serious AI Decision Intelligence Platform prototype with defensible evaluation practices and long-term product architecture.
+Version 4 would position the project as a long-term Decision Intelligence Platform rather than a single-run report generator. It would show mature product architecture for evidence reuse, traceability, human-in-the-loop workflows, and decision continuity.
 
 ### What Should Not Be Included
 
-Version 4 should not pursue feature volume for its own sake. It should avoid enterprise infrastructure, autonomous multi-agent research, production compliance claims, or domain-specific advice unless those capabilities are explicitly evaluated and bounded.
+Version 4 should not introduce autonomous agents, autonomous web research, background monitoring, multi-agent orchestration, chat-first workflows, unbounded source crawling, or infrastructure that does not clearly improve decision quality, evidence quality, trust, traceability, or maintainability.
 
 ## Sequencing Principle
 

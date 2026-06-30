@@ -1,0 +1,5 @@
+Decision question:
+Should management pause high-risk semiconductor customer orders while export-control exposure is reviewed?
+
+Source material:
+A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, related design software, and restricted end users. Several customers have asked whether existing orders can continue under prior authorizations. The compliance team has not yet completed customer eligibility mapping, product classification, or license documentation. Executives need a staged decision that protects compliance posture without unnecessarily stopping lower-risk commercial activity.

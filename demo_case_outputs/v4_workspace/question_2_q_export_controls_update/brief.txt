@@ -143,10 +143,14 @@ What Could Change This Recommendation
 - Move toward Option C (Immediately reduce exposed customers, suppliers, or product lines) if constraints become binding, costly, customer-facing, or difficult to reverse.
 Regulatory Considerations
 Decision-support reminder only; this is not legal advice.
-Procurement Rules / Industrial Policy Conditions
-- Why it may matter: Eligibility, domestic-content, reporting, or public-funding conditions may affect investment sequencing.
-- Possible decision impact: The preferred path may require compliance readiness before capital commitments or supplier choices.
-- Suggested internal review: Strategy, Finance, and Compliance should prepare an eligibility and obligation checklist.
+Export Controls
+- Why it may matter: Licensing, product classification, end-use, or restricted-party obligations may determine whether execution is allowed.
+- Possible decision impact: Customer, supplier, product, or shipment decisions may need to pause until obligations are confirmed.
+- Suggested internal review: Legal / Compliance should prepare a regulatory impact review separating confirmed requirements from open interpretation questions.
+Corporate Governance
+- Why it may matter: Material exposure, disclosure language, or control gaps may require executive or board-level review.
+- Possible decision impact: The decision may need a formal memo, risk committee discussion, or documented escalation path.
+- Suggested internal review: Executive sponsor should decide whether the next checkpoint requires a board or risk-committee package.
 Recommendation Action Plan
 NOW
 - Action: Review supplier exposure to controlled equipment, inputs, and restricted jurisdictions. List products and customers requiring license or eligibility review.
@@ -192,61 +196,21 @@ Policy
 - Separate announced policy intent from operational rules that organizations can actually follow.
 - Track whether agencies, regulators, or counterpart governments clarify scope or eligibility.
 Historical Evidence
-CHIPS and Science Act (2022)
-- Case and time period: CHIPS and Science Act, 2022; Industrial Policy; Semiconductors.
-- Why it is comparable: scenario match on Industrial Policy; keyword overlap: capacity, capital, domestic, industrial; industry overlap: manufacturing, technology; actor overlap: firms, government
-- What happened: Public incentives reshaped capacity planning and domestic manufacturing discussions.
-- Why it matters today: Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.
-- Relationship to recommendation: Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
-- Reference: No primary source link available.
-- Source note: Curated repository historical knowledge record; primary source link pending.
-Inflation Reduction Act Clean Energy Incentives (2022)
-- Case and time period: Inflation Reduction Act Clean Energy Incentives, 2022; Industrial Policy; Energy and Manufacturing.
-- Why it is comparable: scenario match on Industrial Policy; keyword overlap: battery, capacity, capital, domestic; industry overlap: manufacturing; actor overlap: firms, government, suppliers
-- What happened: Industrial incentives affected domestic content planning and clean-energy supply-chain strategy.
-- Why it matters today: Firms reviewed tax credit eligibility, supplier location, and compliance documentation.
-- Relationship to recommendation: Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
-- Reference: No primary source link available.
-- Source note: Curated repository historical knowledge record; primary source link pending.
-Japan-Korea Materials Dispute (2019)
-- Case and time period: Japan-Korea Materials Dispute, 2019; Trade Policy; Semiconductors.
-- Why it is comparable: event-family match: Trade Policy
-- What happened: Input-specific trade controls exposed dependence on specialized upstream suppliers.
-- Why it matters today: Firms examined alternate sources, inventory buffers, and supplier qualification timelines.
+Major Earnings Guidance Withdrawals During COVID (2020)
+- Case and time period: Major Earnings Guidance Withdrawals During COVID, 2020; Earnings / Corporate Disclosure; Multi-sector.
+- Why it is comparable: event-family match: Earnings / Corporate Disclosure
+- What happened: Firms withdrew or revised guidance amid limited demand and operational visibility.
+- Why it matters today: Management teams emphasized uncertainty, liquidity monitoring, and scenario communication.
 - Relationship to recommendation: Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
 - Reference: No primary source link available.
 - Source note: Curated repository historical knowledge record; primary source link pending.
 Market Expectations vs Actual Outcomes
-CHIPS and Science Act (2022)
-- Initial / mainstream expectation: Observers often expect direct benefits from subsidies or incentives.
+Major Earnings Guidance Withdrawals During COVID (2020)
+- Initial / mainstream expectation: Observers often focus first on the headline event.
 - Market or user behavior: Local dataset does not contain enough market-outcome evidence for this claim.
-- Actual observed outcome: Public incentives reshaped capacity planning and domestic manufacturing discussions.
-- Expectation gap: Implementation details, eligibility rules, and capacity constraints can shape who can actually use the policy.
-- Lesson: Watch implementation guidance and execution requirements before assuming strategic value.
-Inflation Reduction Act Clean Energy Incentives (2022)
-- Initial / mainstream expectation: Observers often expect direct benefits from subsidies or incentives.
-- Market or user behavior: Local dataset does not contain enough market-outcome evidence for this claim.
-- Actual observed outcome: Industrial incentives affected domestic content planning and clean-energy supply-chain strategy.
-- Expectation gap: Implementation details, eligibility rules, and capacity constraints can shape who can actually use the policy.
-- Lesson: Watch implementation guidance and execution requirements before assuming strategic value.
-Japan-Korea Materials Dispute (2019)
-- Initial / mainstream expectation: Observers often expect tariff or customs effects to be the main issue.
-- Market or user behavior: Local dataset does not contain enough market-outcome evidence for this claim.
-- Actual observed outcome: Input-specific trade controls exposed dependence on specialized upstream suppliers.
-- Expectation gap: The broader effect can include documentation burden, sourcing changes, and cross-border operating complexity.
-- Lesson: Monitor implementation details and how firms adjust cross-border workflows.
-Brexit Supply Chain Uncertainty (2016)
-- Initial / mainstream expectation: Observers often expect tariff or customs effects to be the main issue.
-- Market or user behavior: Local dataset does not contain enough market-outcome evidence for this claim.
-- Actual observed outcome: Customs and regulatory uncertainty complicated cross-border operating models.
-- Expectation gap: The broader effect can include documentation burden, sourcing changes, and cross-border operating complexity.
-- Lesson: Monitor implementation details and how firms adjust cross-border workflows.
-Strategic Battery Supply Policy (2021)
-- Initial / mainstream expectation: Observers often expect direct benefits from subsidies or incentives.
-- Market or user behavior: Local dataset does not contain enough market-outcome evidence for this claim.
-- Actual observed outcome: Policy support increased attention to domestic battery inputs and supply security.
-- Expectation gap: Implementation details, eligibility rules, and capacity constraints can shape who can actually use the policy.
-- Lesson: Watch implementation guidance and execution requirements before assuming strategic value.
+- Actual observed outcome: Firms withdrew or revised guidance amid limited demand and operational visibility.
+- Expectation gap: The practical impact can appear in operating routines, stakeholder behavior, and implementation details.
+- Lesson: Translate the headline into concrete exposure, process, and monitoring questions.
 Evidence Used
 - Input document or question text.
 - Local historical analogue records.
@@ -267,11 +231,10 @@ Limitations
 Evidence and Confidence
 Confidence Assessment
 Overall Level: Moderate
-Reasoning: Moderate confidence because 12 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
+Reasoning: Moderate confidence because 8 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
 Supporting Evidence
 - User-provided evidence defines the decision frame.
-- 5 repository historical records support analogue reasoning.
-- Evidence assessment includes high-confidence support for parts of the recommendation.
+- 3 repository historical records support analogue reasoning.
 - Mechanism detection links the issue to operational or strategic pressure points.
 Confidence Reducers
 - Some evidence records do not include primary source links.
@@ -288,8 +251,8 @@ Evidence Ledger
 - Supporting Source: User-provided source material.
 - Evidence Type: User-provided input material
 - Source Metadata: Publisher: user-provided material; Publication Date: not available; Verification Status: provided input, not independently verified.
-- Observation: Industrial Policy Subsidy Demo Case
-A fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production.
+- Observation: Decision question:
+After receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?
 - Inference: The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.
 - Supports: Situation understanding and decision framing.
 - Why this evidence matters: It supports situation understanding and decision framing and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
@@ -297,60 +260,38 @@ A fictional government economic ministry announces a strategic subsidy program t
 - Relevance: High; Confidence: Moderate
 - E2 (Local historical analogue record)
 - Reference: No primary source link available.
-- Supporting Source: CHIPS and Science Act (2022): Shows how public incentives can shape capital planning and site selection. Based on the repository's curated historical knowledge base.
+- Supporting Source: Major Earnings Guidance Withdrawal During COVID (2020): Shows how disclosures can communicate operating uncertainty and planning limits. Based on the repository's curated historical knowledge base.
 - Evidence Type: Local historical analogue record
 - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-- Observation: scenario match on Industrial Policy; keyword overlap: capacity, capital, domestic, industrial; industry overlap: manufacturing, technology; actor overlap: firms, government
+- Observation: scenario match on Earnings / Corporate Disclosure; keyword overlap: disclosure, earnings, guidance, management; actor overlap: executives
 - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
 - Supports: Historical comparison and analogue reasoning.
 - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
 - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
 - Relevance: Moderate; Confidence: Moderate
-- E3 (Local historical analogue record)
-- Reference: No primary source link available.
-- Supporting Source: Inflation Reduction Act Clean Energy Incentives (2022): Shows how incentives can alter capital allocation and supplier location decisions. Based on the repository's curated historical knowledge base.
-- Evidence Type: Local historical analogue record
-- Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-- Observation: scenario match on Industrial Policy; keyword overlap: battery, capacity, capital, domestic; industry overlap: manufacturing; actor overlap: firms, government, suppliers
-- Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
-- Supports: Historical comparison and analogue reasoning.
-- Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-- Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
-- Relevance: Moderate; Confidence: Moderate
-- E4 (Local historical analogue record)
-- Reference: No primary source link available.
-- Supporting Source: Japan-Korea Semiconductor Materials Dispute (2019): Shows how trade restrictions can affect specialized upstream inputs. Based on the repository's curated historical knowledge base.
-- Evidence Type: Local historical analogue record
-- Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-- Observation: keyword overlap: manufacturing, policy, semiconductor; industry overlap: technology; actor overlap: government, suppliers
-- Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
-- Supports: Historical comparison and analogue reasoning.
-- Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-- Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
-- Relevance: Moderate; Confidence: Moderate
-- E5 (Deterministic mechanism detection)
+- E3 (Deterministic mechanism detection)
 - Reference: No primary source link available.
 - Supporting Source: Repository mechanism framework and source-text cues.
 - Evidence Type: Deterministic mechanism detection
 - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
-- Observation: tax credits; grants; eligibility rules; domestic content
-- Inference: scenario match: Industrial Policy; observation overlap: credits, domestic, government, grants; actor overlap: suppliers
+- Observation: uncertain demand; unclear timelines; missing source details
+- Inference: scenario match: Earnings / Corporate Disclosure; observation overlap: source; actor overlap: customers, executives
 - Supports: Mechanism reasoning and risk identification.
 - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
 - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
 - Relevance: Moderate; Confidence: Moderate
-- E6 (Deterministic mechanism detection)
+- E4 (Deterministic mechanism detection)
 - Reference: No primary source link available.
 - Supporting Source: Repository mechanism framework and source-text cues.
 - Evidence Type: Deterministic mechanism detection
 - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
-- Observation: public guidance; funding priorities; security messaging
-- Inference: scenario match: Industrial Policy; observation overlap: funding, government, strategic; actor overlap: firms
+- Observation: public statements; stakeholder concern; disclosure language
+- Inference: scenario match: Earnings / Corporate Disclosure; observation overlap: policy; actor overlap: customers, executives
 - Supports: Mechanism reasoning and risk identification.
 - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
 - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
 - Relevance: Moderate; Confidence: Moderate
-- E7 (Evidence assessment)
+- E5 (Evidence assessment)
 - Reference: No primary source link available.
 - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
 - Evidence Type: Evidence assessment
@@ -360,9 +301,9 @@ A fictional government economic ministry announces a strategic subsidy program t
 - Supports: Evidence quality and uncertainty.
 - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
 - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
-- Relevance: High; Confidence: High
+- Relevance: High; Confidence: Moderate
 - Item-specific limitation: The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
-- E8 (Evidence assessment)
+- E6 (Evidence assessment)
 - Reference: No primary source link available.
 - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
 - Evidence Type: Evidence assessment
@@ -372,63 +313,40 @@ A fictional government economic ministry announces a strategic subsidy program t
 - Supports: Evidence quality and uncertainty.
 - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
 - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
-- Relevance: High; Confidence: High
+- Relevance: High; Confidence: Moderate
 - Item-specific limitation: The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
-- E9 (Local historical outcome record)
+- E7 (Local historical outcome record)
 - Reference: No primary source link available.
-- Supporting Source: Public incentives reshaped capacity planning and domestic manufacturing discussions. Based on the repository's curated historical knowledge base.
+- Supporting Source: Firms withdrew or revised guidance amid limited demand and operational visibility. Based on the repository's curated historical knowledge base.
 - Evidence Type: Local historical outcome record
 - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-- Observation: Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.
+- Observation: Management teams emphasized uncertainty, liquidity monitoring, and scenario communication.
 - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
 - Supports: Historical outcomes and strategic lessons.
 - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
 - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
-- Relevance: Moderate; Confidence: Moderate
-- E10 (Local historical outcome record)
+- Relevance: Moderate; Confidence: High
+- E8 (Local historical outcome record)
 - Reference: No primary source link available.
-- Supporting Source: Industrial incentives affected domestic content planning and clean-energy supply-chain strategy. Based on the repository's curated historical knowledge base.
+- Supporting Source: Restricted access to selected technology inputs changed supplier screening and product planning. Based on the repository's curated historical knowledge base.
 - Evidence Type: Local historical outcome record
 - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-- Observation: Firms reviewed tax credit eligibility, supplier location, and compliance documentation.
+- Observation: Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
 - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
 - Supports: Historical outcomes and strategic lessons.
 - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
 - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
-- Relevance: Moderate; Confidence: Moderate
-- E11 (Local current-context record)
-- Reference: No primary source link available.
-- Supporting Source: Repository current-context knowledge base.
-- Evidence Type: Local current-context record
-- Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-- Observation: Incentives can shape site selection, partnership choices, and capital allocation.
-- Inference: Funding awards; eligibility rules; construction timelines; workforce constraints
-- Supports: Monitoring and current context.
-- Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-- Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
-- Relevance: Moderate; Confidence: Moderate
-- E12 (Local current-context record)
-- Reference: No primary source link available.
-- Supporting Source: Repository current-context knowledge base.
-- Evidence Type: Local current-context record
-- Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-- Observation: Incentives may affect manufacturing location, supplier strategy, and project economics.
-- Inference: Tax-credit rules; project announcements; grid constraints; supplier capacity
-- Supports: Monitoring and current context.
-- Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-- Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
 - Relevance: Moderate; Confidence: Moderate
 Key Assumptions
 - The supplied material is sufficient for an initial decision-support brief.
 - Human review will verify source details before operational use.
-- The Industrial Policy frame is an appropriate starting point for analysis.
-- The identified mechanisms remain relevant to the decision context: Industrial Subsidy, Policy Signaling, Strategic Dependency.
-- Sector exposure should be validated against organization-specific data.
+- The Earnings / Corporate Disclosure frame is an appropriate starting point for analysis.
+- The identified mechanisms remain relevant to the decision context: Information Uncertainty, Reputational Sensitivity, Demand Shock.
 What Would Change This View
 - New primary source material changes the factual basis.
 - Stakeholder responses differ from the assumptions in the brief.
 - Implementation details create materially different constraints.
-- Evidence shows the situation no longer fits the Industrial Policy frame.
+- Evidence shows the situation no longer fits the Earnings / Corporate Disclosure frame.
 What Is Unknown Or Uncertain
 - The current brief does not verify information outside the supplied input and local records.
 - Organization-specific exposure, timing, and implementation constraints require human review.
@@ -447,31 +365,39 @@ Evidence Limitations
 - The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
 Decision Quality Review
 Overall label: Strong
-Overall score: 0.969
+Overall score: 9.7 / 10
 This is a deterministic product-quality check. It is not a benchmark result, factual verification, or claim of real-world accuracy.
 Direct answer quality
-- Label: Strong
+- Score: 10.0 / 10
+- Assessment: Strong
 - Rationale: Checks whether the output frames a decision question, situation, recommendation, and criteria.
 Historical analogue relevance
-- Label: Strong
+- Score: 10.0 / 10
+- Assessment: Strong
 - Rationale: Checks whether analogues exist, appear in the evidence ledger, and include transferability limits.
 Evidence use
-- Label: Strong
+- Score: 10.0 / 10
+- Assessment: Strong
 - Rationale: Checks whether evidence items are reviewable and uncertainty remains visible.
 Option clarity
-- Label: Strong
+- Score: 10.0 / 10
+- Assessment: Strong
 - Rationale: Checks whether options are distinct and a preferred path is identified.
 Risk identification
-- Label: Strong
+- Score: 10.0 / 10
+- Assessment: Strong
 - Rationale: Checks whether risks, limitations, and unknowns are explicit.
 Change trigger quality
-- Label: Strong
+- Score: 10.0 / 10
+- Assessment: Strong
 - Rationale: Checks whether the recommendation includes observable change triggers and monitoring signals.
 Localization quality
-- Label: Strong
+- Score: 10.0 / 10
+- Assessment: Strong
 - Rationale: English output selected; localization transformation is not required.
 Overconfidence control
-- Label: Adequate
+- Score: 7.5 / 10
+- Assessment: Adequate
 - Rationale: Checks for qualitative confidence, visible limitations, and absence of overconfident phrases.
 Notes
 - Deterministic product-quality evaluation only.

@@ -1,6 +1,6 @@
 from confidence_layer import ConfidenceAssessment
 from decision_case import DecisionCase
-from decision_quality_evaluator import evaluate_decision_quality
+from decision_quality_evaluator import evaluate_decision_quality, render_decision_quality_review
 from evidence_ledger import EvidenceItem, EvidenceLedger
 
 
@@ -85,3 +85,7 @@ def test_decision_quality_evaluator_returns_all_dimensions() -> None:
     assert result.overall_label in {"Strong", "Adequate", "Needs Review", "Weak"}
     assert result.evidence_use.label == "Strong"
     assert "not real-world accuracy claims" in result.notes[1]
+
+    rendered = render_decision_quality_review(result)
+    assert "**Overall score:** 10.0 / 10" in rendered
+    assert "- **Score:** 10.0 / 10" in rendered

@@ -96,7 +96,7 @@ def render_decision_quality_review(evaluation: DecisionQualityEvaluation) -> str
         "## Decision Quality Review",
         "",
         f"**Overall label:** {evaluation.overall_label}",
-        f"**Overall score:** {evaluation.overall_score}",
+        f"**Overall score:** {_display_score(evaluation.overall_score)}",
         "",
         "This is a deterministic product-quality check. It is not a benchmark result, factual verification, or claim of real-world accuracy.",
         "",
@@ -105,11 +105,12 @@ def render_decision_quality_review(evaluation: DecisionQualityEvaluation) -> str
         label = DIMENSION_LABELS[key]
         lines.extend(
             [
-                f"### {label}",
-                "",
-                f"- **Label:** {dimension.label}",
-                f"- **Rationale:** {dimension.rationale}",
-                "",
+        f"### {label}",
+        "",
+        f"- **Score:** {_display_score(dimension.score)}",
+        f"- **Assessment:** {dimension.label}",
+        f"- **Rationale:** {dimension.rationale}",
+        "",
             ]
         )
     if evaluation.notes:
@@ -282,6 +283,11 @@ def _score(checks: list[bool]) -> float:
 
 def _result(score: float, rationale: str) -> DimensionEvaluation:
     return DimensionEvaluation(score=score, label=_label(score), rationale=rationale)
+
+
+def _display_score(score: float) -> str:
+    """Convert internal 0–1 score into a user-facing 10-point scale."""
+    return f"{score * 10:.1f} / 10"
 
 
 def _label(score: float) -> str:

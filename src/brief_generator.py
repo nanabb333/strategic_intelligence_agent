@@ -59,6 +59,62 @@ def _filter_outcomes_for_event(outcomes, event_understanding: EventUnderstanding
     return filtered if filtered else outcomes[:2]
 
 
+def _matching_analogue(outcome, analogues: list[HistoricalAnalogue]) -> HistoricalAnalogue | None:
+    outcome_name = getattr(outcome, "case_name", "").lower()
+    for analogue in analogues:
+        analogue_name = analogue.case_title.lower()
+        if outcome_name in analogue_name or analogue_name in outcome_name:
+            return analogue
+    return None
+
+
+def _analogue_comparison(outcome, analogue: HistoricalAnalogue | None) -> str:
+    if analogue:
+        return analogue.similarity_reason or analogue.business_relevance or "Retrieved as a structurally similar historical analogue."
+    return getattr(outcome, "retrieval_reason", "") or "Retrieved from the repository's historical outcome records as a comparable case."
+
+
+def _historical_reference_status(outcome, analogue: HistoricalAnalogue | None) -> str:
+    if analogue and _is_valid_url(analogue.source_url):
+        source_type = analogue.source_type if analogue.source_type != "source pending" else "Primary source"
+        return f"{source_type}; repository historical analogue record."
+    if getattr(outcome, "source_status", ""):
+        return "Curated repository historical knowledge record; primary source link pending."
+    return "Curated repository historical knowledge record."
+
+
+def _historical_reference(outcome, analogue: HistoricalAnalogue | None) -> str:
+    if analogue and _is_valid_url(analogue.source_url):
+        title = _historical_reference_label(outcome, analogue)
+        source_type = analogue.source_type if analogue.source_type != "source pending" else "Primary source"
+        return f"{title}. {source_type}. URL: {analogue.source_url.strip()}."
+    return "No primary source link available."
+
+
+def _historical_reference_label(outcome, analogue: HistoricalAnalogue) -> str:
+    title = analogue.source_title if analogue.source_title != "source pending" else analogue.case_title
+    year = analogue.year or getattr(outcome, "year", "")
+    return f"{title}, {year}" if year and year not in title else title
+
+
+def _source_reference(source_url: str) -> str:
+    if _is_valid_url(source_url):
+        return f"User-provided source. URL: {source_url.strip()}."
+    return "No primary source link available."
+
+
+def _is_valid_url(value: str) -> bool:
+    clean = value.strip()
+    return clean.startswith(("http://", "https://")) and " " not in clean
+
+
+def _sentence(value: str) -> str:
+    text = value.strip()
+    if not text:
+        return ""
+    return text if text.endswith((".", "!", "?")) else f"{text}."
+
+
 def _decision_confidence(similar_cases_count: int, has_event_family: bool) -> str:
     if similar_cases_count >= 3 and has_event_family:
         return "Medium"
@@ -251,12 +307,12 @@ def _decision_profile(issue: ExtractedIssue, event_family: str) -> dict[str, obj
         "preferred": "Option B currently ranks first because it preserves flexibility while reducing the risk of being forced to react later under worse conditions.",
         "why_holds": _assumption_text(event_family),
         "monitoring": _monitoring_signals("", issue),
-        "actions": [
-            "Build a short exposure map covering affected suppliers, customers, products, regions, and workflows.",
-            "Define trigger points that would move the decision from Option B to Option A or Option C.",
-            "Prepare a one-page update cadence for the next 30-90 days using the monitoring signals above.",
-            "Keep historical cases as comparison evidence, not as proof that the same outcome will occur.",
-        ],
+            "actions": [
+                "Build a short exposure map covering affected suppliers, customers, products, regions, and workflows.",
+                "Define trigger points that would move the decision from Option B to Option A or Option C.",
+                "Prepare a one-page decision update using named exposure, cost, customer, supplier, and reversibility indicators.",
+                "Keep historical cases as comparison evidence, not as proof that the same outcome will occur.",
+            ],
     }
 
 
@@ -354,49 +410,82 @@ def _option_comparison_rows() -> list[tuple[str, str, str, str, str, str, str]]:
 def _option_cards(
     profile: dict[str, object] | None = None,
     criteria: list[DecisionCriterion] | None = None,
-) -> list[tuple[str, str, list[str], list[str], list[str], bool]]:
+) -> list[dict[str, object]]:
     options = _decision_options(profile)
     criterion_names = [item[0] for item in (criteria or [])]
     high_criteria = _top_criteria(criteria or [])
     key_criteria = ", ".join(high_criteria) or "the highest-importance criteria"
     first_criterion = high_criteria[0] if high_criteria else (criterion_names[0] if criterion_names else "exposure")
+    option_b = options[1][1]
+    option_c = options[2][1]
     return [
-        (
-            "Option A",
-            options[0][1],
-            ["Lowest immediate effort.", "Preserves current posture while more evidence arrives."],
-            ["Risk can accumulate if exposure is already material.", "May delay preparation if the issue moves quickly."],
-            [
-                "Strong on low execution burden and near-term opportunity cost.",
-                f"Weak on {key_criteria} if current exposure is already material.",
-                f"Fails high-importance criteria when {first_criterion.lower()} cannot be assessed quickly.",
+        {
+            "name": "Option A",
+            "label": options[0][1],
+            "meaning": "Hold the current posture until the evidence base is clearer.",
+            "appropriate_when": (
+                f"Available evidence shows limited exposure, high reversibility, and no deterioration in {key_criteria}."
+            ),
+            "immediate_actions": [
+                f"Document why {options[0][1]} is acceptable.",
+                f"Confirm whether {first_criterion.lower()} can be ruled out as a material constraint.",
             ],
-            False,
-        ),
-        (
-            "Option B",
-            options[1][1],
-            ["Best balance between preparation and flexibility.", "Creates useful information before irreversible action."],
-            ["Requires active monitoring and ownership.", "Does not eliminate exposure immediately."],
-            [
-                f"Strong on {key_criteria} because it converts uncertainty into an exposure map and review cadence.",
-                "Medium on immediate protection because it prepares response options before using them.",
-                "Best overall fit when high-importance criteria are serious but not yet fully resolved.",
+            "near_term_actions": [
+                "Schedule a dated review rather than leaving the decision open-ended.",
+                f"Move to {option_b} if exposure cannot be ruled out with current evidence.",
             ],
-            True,
-        ),
-        (
-            "Option C",
-            options[2][1],
-            ["Highest immediate risk reduction.", "Useful if exposure is already severe or binding."],
-            ["Highest opportunity cost and execution burden.", "Hardest to reverse if the issue proves temporary."],
-            [
-                f"Strong on immediate protection if {first_criterion.lower()} is already severe.",
-                "Weak on execution complexity, reversibility, and sacrificed upside.",
-                f"Only fits the high-importance criteria better than Option B if evidence shows {first_criterion.lower()} is binding or worsening.",
+            "main_benefit": "Avoids unnecessary disruption when the issue is likely manageable.",
+            "main_risk": "May underprepare the organization if exposure is already material.",
+            "evidence_preferable": (
+                f"This becomes preferable if {key_criteria} remain limited and no monitoring signal shows material change."
+            ),
+            "recommended": False,
+        },
+        {
+            "name": "Option B",
+            "label": option_b,
+            "meaning": "Proceed with reversible preparation while delaying irreversible commitments.",
+            "appropriate_when": (
+                f"Uncertainty is meaningful, especially around {key_criteria}, but evidence does not yet justify a full defensive move."
+            ),
+            "immediate_actions": [
+                f"Build an exposure map covering {key_criteria}.",
+                "Assign one decision owner and one review date.",
+                "Separate confirmed facts from unresolved assumptions.",
             ],
-            False,
-        ),
+            "near_term_actions": [
+                "Review new evidence at the 30-day and 90-day checkpoints.",
+                f"Prepare actions needed if the decision shifts to {options[0][1]} or {option_c}.",
+            ],
+            "main_benefit": "Preserves flexibility while converting uncertainty into decision-useful evidence.",
+            "main_risk": "Can become process activity if the exposure map and review cadence are not owned.",
+            "evidence_preferable": (
+                f"This remains preferable when {key_criteria} are material enough to monitor but not yet binding."
+            ),
+            "recommended": True,
+        },
+        {
+            "name": "Option C",
+            "label": option_c,
+            "meaning": "Take immediate defensive action before waiting for additional clarification.",
+            "appropriate_when": (
+                f"Evidence shows {first_criterion.lower()} is already binding, costly, customer-facing, or difficult to reverse."
+            ),
+            "immediate_actions": [
+                "Identify the specific customers, suppliers, products, approvals, or workflows to reduce or pause.",
+                "Escalate legal, compliance, finance, and operating-owner review before acting.",
+            ],
+            "near_term_actions": [
+                "Confirm whether the defensive action reduced the specific exposure it targeted.",
+                "Document the opportunity cost and reversibility of the action taken.",
+            ],
+            "main_benefit": "Reduces downside quickly when exposure is already severe.",
+            "main_risk": "Can sacrifice opportunity or relationships before the evidence supports that cost.",
+            "evidence_preferable": (
+                f"This becomes preferable if evidence shows {first_criterion.lower()} is severe or worsening."
+            ),
+            "recommended": False,
+        },
     ]
 
 
@@ -442,7 +531,7 @@ def _profile_tradeoffs(profile: dict[str, object], criteria: list[DecisionCriter
     top_text = ", ".join(top) or "the highest-importance criteria"
     return [
         f"Benefits gained: {option_b} creates an exposure map, assigns ownership, and preserves reversibility while evidence on {top_text} is still developing.",
-        "Costs accepted: the team must spend management attention now, maintain a review cadence, and tolerate partial exposure while the evidence matures.",
+        "Costs accepted: the recommendation prioritizes execution flexibility and learning over immediate risk elimination, so the team must spend management attention now and tolerate partial exposure while evidence matures.",
         f"Opportunities sacrificed: the user gives up the lowest-effort posture of {option_a} and does not receive the full immediate protection of {option_c}.",
         f"Risks still unresolved: new evidence on {top_text}, implementation timing, cost, customer behavior, or operating constraints may still justify changing paths.",
     ]
@@ -480,6 +569,50 @@ def _failure_modes(profile: dict[str, object], criteria: list[DecisionCriterion]
     ]
 
 
+def _source_evidence_limitations(source_url: str, has_historical_cases: bool) -> list[str]:
+    limitations = [
+        "Some evidence is derived from user-provided material rather than independently verified primary sources.",
+        "Organization-specific exposure, timing, cost, and implementation data may be missing.",
+    ]
+    if not _is_valid_url(source_url):
+        limitations.append("No primary source link is available for the supplied input material.")
+    if has_historical_cases:
+        limitations.append(
+            "Some historical analogues are based on curated repository knowledge rather than linked source documents."
+        )
+        limitations.append(
+            "Analogue transferability depends on whether the current case shares comparable mechanisms and constraints."
+        )
+    return limitations
+
+
+def _role_implications(profile: dict[str, object], criteria: list[DecisionCriterion] | None = None) -> list[str]:
+    option_b = str(profile.get("option_b", "Gradual adjustment / monitor and prepare"))
+    option_c = str(profile.get("option_c", "Immediate defensive action"))
+    top = _top_criteria(criteria or [])
+    top_text = ", ".join(top) or "exposure, reversibility, and execution burden"
+    return [
+        f"CEO / Executive Sponsor: treat {option_b} as a decision-control posture, not a delay tactic; require a named owner and a date for reassessment.",
+        f"Corporate Strategy: translate {top_text} into an exposure map that shows which business units, customers, products, or regions are actually affected.",
+        "Finance / CFO: separate confirmed financial exposure from possible exposure so the team does not overstate cost, margin, or liquidity impact before evidence supports it.",
+        f"Operations / Supply Chain: identify which workflows would need to change if the decision shifts from Option B to {option_c}.",
+        "Legal / Compliance: distinguish confirmed obligations from unresolved interpretation questions and document what evidence would change the operating posture.",
+    ]
+
+
+def _decision_blind_spots(criteria: list[DecisionCriterion], monitor_signals: list[tuple[str, str]]) -> list[str]:
+    top = _top_criteria(criteria)
+    blind_spots = [
+        f"Organization-specific data for {criterion.lower()} is still needed to move from a general recommendation to an operating decision."
+        for criterion in top[:3]
+    ]
+    signal_names = [signal for signal, _ in monitor_signals[:2]]
+    if signal_names:
+        blind_spots.append(f"The current recommendation would improve with fresher evidence on {', '.join(signal_names).lower()}.")
+    blind_spots.append("Contractual obligations, customer commitments, and internal execution capacity may change the preferred path even if the external situation is unchanged.")
+    return blind_spots[:5]
+
+
 def _preferred_explanation(profile: dict[str, object], criteria: list[DecisionCriterion] | None = None) -> list[str]:
     option_a = str(profile.get("option_a", "Maintain current position / wait for more evidence"))
     option_c = str(profile.get("option_c", "Immediate defensive action"))
@@ -495,20 +628,203 @@ def _preferred_explanation(profile: dict[str, object], criteria: list[DecisionCr
     ]
 
 
+def _preferred_path_playbook(
+    profile: dict[str, object],
+    criteria: list[DecisionCriterion],
+    monitor_signals: list[tuple[str, str]],
+) -> dict[str, list[str] | str]:
+    option_b = str(profile.get("option_b", "Map exposure, preserve flexibility, and prepare staged response options"))
+    option_a = str(profile.get("option_a", "Maintain current position / wait for more evidence"))
+    option_c = str(profile.get("option_c", "Immediate defensive action"))
+    top = _top_criteria(criteria)
+    top_text = ", ".join(top) or "exposure, reversibility, and execution burden"
+    primary_signal = monitor_signals[0][0] if monitor_signals else "primary exposure indicators"
+    secondary_signal = monitor_signals[1][0] if len(monitor_signals) > 1 else "cost and reversibility"
+    actions = [str(item) for item in profile.get("actions", [])]
+    immediate = actions[:3] or [
+        f"Build an exposure map for {top_text}.",
+        "Assign one accountable decision owner.",
+        "Separate confirmed facts from unresolved assumptions.",
+    ]
+    return {
+        "path": option_b,
+        "why_today": [
+            f"{option_b} is preferred today because it produces decision evidence on {top_text} without forcing irreversible action.",
+            f"{option_a} is too passive if {primary_signal.lower()} is already material.",
+            f"{option_c} is premature unless {secondary_signal.lower()} shows binding or costly constraints.",
+        ],
+        "assumptions": [
+            f"The highest-priority unknowns are {top_text}, and they can be clarified through near-term internal work.",
+            "The organization can still preserve reversibility while the evidence base improves.",
+            "No current evidence requires immediate defensive reduction before exposure is mapped.",
+        ],
+        "immediate": immediate,
+        "stakeholders": [
+            "Executive sponsor: owns the go / hold / escalate decision.",
+            "Strategy: produces the exposure map and decision memo.",
+            "Finance: quantifies revenue, margin, liquidity, or cost exposure where relevant.",
+            "Legal / Compliance: separates confirmed obligations from interpretation questions.",
+            "Operations / Commercial owner: identifies affected workflows, suppliers, customers, or product commitments.",
+        ],
+        "checkpoints": [
+            "Now: complete the exposure map and list unresolved assumptions.",
+            "30 days: decide whether evidence supports holding Option B, de-escalating to Option A, or preparing Option C.",
+            "90 days: convert the review into a board or executive decision package if exposure remains material.",
+        ],
+        "escalation": [
+            f"Escalate toward {option_c} if {primary_signal.lower()} becomes binding, customer-facing, costly, or hard to reverse.",
+            f"Escalate executive review if {secondary_signal.lower()} moves against planning assumptions.",
+        ],
+        "exit": [
+            f"Exit toward {option_a} if exposure is confirmed as limited, reversible, and not material to the top criteria: {top_text}.",
+            f"Exit toward {option_c} if delay creates more downside than the opportunity cost of immediate defensive action.",
+        ],
+    }
+
+
 def _action_timeline(profile: dict[str, object], monitor_signals: list[tuple[str, str]]) -> dict[str, list[str]]:
     actions = list(profile.get("actions", []))
-    immediate = actions[:2] or ["Assign an owner and create an exposure map for the current issue."]
-    next_30 = actions[2:4] or [f"Review {monitor_signals[0][0].lower()} and document whether it changes the recommended path."]
-    next_quarter = [
-        "Reassess whether the evidence still supports Option B or whether Option A or Option C has become more appropriate.",
+    primary_signal = monitor_signals[0][0] if monitor_signals else "primary exposure indicators"
+    secondary_signal = monitor_signals[1][0] if len(monitor_signals) > 1 else "cost and reversibility constraints"
+    now_action = str(actions[0]) if actions else "Create an exposure map for the current issue."
+    now_support = str(actions[1]) if len(actions) > 1 else f"Confirm whether {primary_signal.lower()} is material."
+    next_30_action = str(actions[2]) if len(actions) > 2 else f"Review {primary_signal.lower()} and document whether it changes the recommended path."
+    next_30_support = str(actions[3]) if len(actions) > 3 else f"Confirm whether {secondary_signal.lower()} has changed."
+    next_90 = [
+        (
+            "- **Action:** Reassess whether the evidence still supports Option B or whether Option A or Option C "
+            "has become more appropriate.\n"
+            "- **Owner:** Executive sponsor + Strategy.\n"
+            "- **Deliverable:** Decision update memo comparing current evidence against the original criteria.\n"
+            "- **Decision Outcome:** Hold, de-escalate, or move to a more defensive path."
+        ),
     ]
-    if len(monitor_signals) > 1:
-        next_quarter.append(f"Compare the next-quarter update against {monitor_signals[1][0].lower()} and cost/reversibility constraints.")
     return {
-        "Immediate": [str(item) for item in immediate],
-        "Next 30 Days": [str(item) for item in next_30],
-        "Next Quarter": next_quarter,
+        "NOW": [
+            (
+                f"- **Action:** {now_action} {now_support}\n"
+                "- **Owner:** Strategy + relevant operating owner.\n"
+                "- **Deliverable:** Exposure map with affected customers, suppliers, products, regions, workflows, and open assumptions.\n"
+                "- **Decision Purpose:** Confirms whether staged preparation is sufficient or immediate escalation is needed."
+            )
+        ],
+        "NEXT 30 DAYS": [
+            (
+                f"- **Action:** {next_30_action} {next_30_support}\n"
+                "- **Owner:** Strategy + Legal / Compliance + Finance.\n"
+                "- **Deliverable:** Readiness checklist showing confirmed facts, unresolved assumptions, and required follow-up.\n"
+                "- **Expected Decision:** Hold the staged path, narrow scope, or prepare defensive execution."
+            )
+        ],
+        "NEXT 90 DAYS": next_90,
+        "RE-EVALUATION TRIGGER": [
+            (
+                f"- **Action:** Revisit the recommendation if {primary_signal.lower()}, {secondary_signal.lower()}, "
+                "customer impact, cost pressure, or reversibility changes materially.\n"
+                "- **Owner:** Executive sponsor.\n"
+                "- **Deliverable:** Go / hold / escalate decision record.\n"
+                "- **Decision Purpose:** Prevents the recommendation from remaining in force after the evidence changes."
+            ),
+        ],
     }
+
+
+def _risk_analysis(
+    profile: dict[str, object],
+    criteria: list[DecisionCriterion],
+    monitor_signals: list[tuple[str, str]],
+) -> list[dict[str, str]]:
+    top = _top_criteria(criteria)
+    option_b = str(profile.get("option_b", "staged response"))
+    option_c = str(profile.get("option_c", "immediate defensive action"))
+    primary = top[0] if top else "Exposure severity"
+    secondary = top[1] if len(top) > 1 else "Reversibility"
+    tertiary = top[2] if len(top) > 2 else "Execution burden"
+    primary_signal = monitor_signals[0][0] if monitor_signals else primary
+    secondary_signal = monitor_signals[1][0] if len(monitor_signals) > 1 else secondary
+    return [
+        {
+            "risk": f"{primary} is higher than the current evidence suggests.",
+            "why": f"{option_b} depends on the assumption that exposure can be mapped before it becomes binding.",
+            "impact": f"The preferred path may be insufficient and {option_c} may become necessary.",
+            "warning": f"{primary_signal} indicates exposure above the planning assumption or cannot be documented.",
+            "mitigation": f"Prepare the {option_c} execution checklist before making irreversible commitments.",
+        },
+        {
+            "risk": f"{secondary} deteriorates before the next checkpoint.",
+            "why": "The recommendation relies on preserving choice while evidence improves.",
+            "impact": "Decision-makers may lose the ability to shift paths without higher cost.",
+            "warning": f"{secondary_signal} indicates delay, denial, cost increase, or customer-facing impact.",
+            "mitigation": "Set a dated executive checkpoint and require a go / hold / escalate decision record.",
+        },
+        {
+            "risk": f"{tertiary} is underestimated.",
+            "why": "A staged path only works if operating teams can produce the required decision artifacts.",
+            "impact": "The organization may create review activity without improving the actual decision.",
+            "warning": "No accountable owner, incomplete exposure map, or unresolved assumptions at the 30-day checkpoint.",
+            "mitigation": "Assign owners by function and make the exposure map, readiness checklist, and decision memo mandatory deliverables.",
+        },
+    ]
+
+
+def _regulatory_considerations(issue: ExtractedIssue, scenario: str) -> list[dict[str, str]]:
+    text = _issue_text(issue)
+    considerations: list[dict[str, str]] = []
+    if "export control" in text or "licensing" in text or "restricted" in text:
+        considerations.append(
+            {
+                "area": "Export Controls",
+                "why": "Licensing, product classification, end-use, or restricted-party obligations may determine whether execution is allowed.",
+                "impact": "Customer, supplier, product, or shipment decisions may need to pause until obligations are confirmed.",
+                "review": "Legal / Compliance should prepare a regulatory impact review separating confirmed requirements from open interpretation questions.",
+            }
+        )
+    if "sanction" in text or "restricted party" in text or "payment" in text:
+        considerations.append(
+            {
+                "area": "Sanctions",
+                "why": "Counterparty, payment, contract, or regional exposure can restrict execution even when commercial demand exists.",
+                "impact": "The organization may need additional screening, payment-channel review, or contract escalation before acting.",
+                "review": "Compliance and Treasury should document restricted-party, payment, and contract exposure.",
+            }
+        )
+    if "competition" in text or "self-preferencing" in text or "marketplace" in text or "app store" in text:
+        considerations.append(
+            {
+                "area": "Competition Law",
+                "why": "Platform access, ranking, pricing, or complaint-handling rules may affect product and commercial choices.",
+                "impact": "Product or commercial teams may need to change operating processes before continuing the current path.",
+                "review": "Legal and Product should prepare a competition-risk operating checklist.",
+            }
+        )
+    if "data" in text or "privacy" in text or "governance" in text:
+        considerations.append(
+            {
+                "area": "Data Privacy / Data Governance",
+                "why": "Data handling, reporting, or governance obligations may affect product design and compliance evidence.",
+                "impact": "Execution may require documentation, access controls, reporting workflows, or data-use review.",
+                "review": "Privacy, Data Governance, and Engineering should confirm required controls and evidence artifacts.",
+            }
+        )
+    if "procurement" in text or "subsid" in text or "industrial policy" in text or "domestic" in text:
+        considerations.append(
+            {
+                "area": "Procurement Rules / Industrial Policy Conditions",
+                "why": "Eligibility, domestic-content, reporting, or public-funding conditions may affect investment sequencing.",
+                "impact": "The preferred path may require compliance readiness before capital commitments or supplier choices.",
+                "review": "Strategy, Finance, and Compliance should prepare an eligibility and obligation checklist.",
+            }
+        )
+    if "board" in text or "governance" in text or scenario in {"Earnings / Corporate Disclosure", "Regulatory Action"}:
+        considerations.append(
+            {
+                "area": "Corporate Governance",
+                "why": "Material exposure, disclosure language, or control gaps may require executive or board-level review.",
+                "impact": "The decision may need a formal memo, risk committee discussion, or documented escalation path.",
+                "review": "Executive sponsor should decide whether the next checkpoint requires a board or risk-committee package.",
+            }
+        )
+    return considerations[:4]
 
 
 def _monitoring_signals(scenario: str, issue: ExtractedIssue) -> list[tuple[str, str]]:
@@ -607,6 +923,9 @@ def generate_brief(
             why_sentence = str(profile["why"])
             action_timeline = _action_timeline(profile, monitor_signals)
             criteria = _decision_criteria(issue, profile)
+            preferred_playbook = _preferred_path_playbook(profile, criteria, monitor_signals)
+            risk_analysis = _risk_analysis(profile, criteria, monitor_signals)
+            regulatory_considerations = _regulatory_considerations(issue, scenario)
             lines.extend(
                 [
                     "## Decision Snapshot",
@@ -634,24 +953,32 @@ def generate_brief(
                     "",
                 ]
             )
-            for option_name, option_label, pros, cons, criteria_fit, recommended in _option_cards(profile, criteria):
-                label = f"{option_name} (Recommended)" if recommended else option_name
+            for option in _option_cards(profile, criteria):
+                option_name = str(option["name"])
+                label = f"{option_name} (Recommended)" if option["recommended"] else option_name
                 lines.extend(
                     [
                         f"### {label}",
                         "",
-                        f"**Path:** {option_label}",
+                        f"**Path:** {option['label']}",
                         "",
-                        "**Pros**",
+                        f"**Meaning:** {option['meaning']}",
+                        "",
+                        f"**Appropriate when:** {option['appropriate_when']}",
+                        "",
+                        "**Immediate actions**",
                     ]
                 )
-                lines.extend(f"- {item}" for item in pros)
+                lines.extend(f"- {item}" for item in option["immediate_actions"])
                 lines.append("")
-                lines.append("**Cons**")
-                lines.extend(f"- {item}" for item in cons)
+                lines.append("**Near-term actions**")
+                lines.extend(f"- {item}" for item in option["near_term_actions"])
                 lines.append("")
-                lines.append("**Criteria Fit**")
-                lines.extend(f"- {item}" for item in criteria_fit)
+                lines.append(f"**Main benefit:** {option['main_benefit']}")
+                lines.append("")
+                lines.append(f"**Main risk:** {option['main_risk']}")
+                lines.append("")
+                lines.append(f"**Evidence that would make this preferable:** {option['evidence_preferable']}")
                 lines.append("")
 
             lines.extend(["## Option Ranking", ""])
@@ -675,13 +1002,30 @@ def generate_brief(
                     "",
                 ]
             )
-            preferred_text = str(profile["preferred"])
-            preferred_text = preferred_text.replace("Option B currently ranks first because", "It ranks first because")
-            preferred_text = preferred_text.replace("Option B currently ranks first.", "").strip()
-            lines.append(
-                f"- **Option B currently ranks first**. {preferred_text}"
+            lines.extend(
+                [
+                    f"**Recommended path:** {preferred_playbook['path']}",
+                    "",
+                    "### Why Today",
+                    "",
+                ]
             )
-            lines.extend(f"- {item}" for item in _preferred_explanation(profile, criteria))
+            lines.extend(_bullet_list(list(preferred_playbook["why_today"]), "No preferred-path rationale generated."))
+            lines.extend(["", "### Assumptions That Make This Preferable", ""])
+            lines.extend(_bullet_list(list(preferred_playbook["assumptions"]), "No preferred-path assumptions generated."))
+            lines.extend(["", "### Immediate Execution Steps", ""])
+            lines.extend(_bullet_list(list(preferred_playbook["immediate"]), "No immediate execution steps generated."))
+            lines.extend(["", "### Required Stakeholders", ""])
+            lines.extend(_bullet_list(list(preferred_playbook["stakeholders"]), "No stakeholder list generated."))
+            lines.extend(["", "### Decision Checkpoints", ""])
+            lines.extend(_bullet_list(list(preferred_playbook["checkpoints"]), "No decision checkpoints generated."))
+            lines.extend(["", "### Escalation Conditions", ""])
+            lines.extend(_bullet_list(list(preferred_playbook["escalation"]), "No escalation conditions generated."))
+            lines.extend(["", "### Exit Criteria", ""])
+            lines.extend(_bullet_list(list(preferred_playbook["exit"]), "No exit criteria generated."))
+
+            lines.extend(["", "## Role-Based Implications", ""])
+            lines.extend(_bullet_list(_role_implications(profile, criteria), "No role-based implications generated."))
 
             lines.extend(["", "## Why This Reasoning Holds", ""])
             lines.extend(_bullet_list(list(profile["why_holds"]), "No decision assumptions generated."))
@@ -692,16 +1036,45 @@ def generate_brief(
             lines.extend(["", "## Trade-offs", ""])
             lines.extend(_bullet_list(_profile_tradeoffs(profile, criteria), "No trade-offs generated."))
 
-            lines.extend(["", "## Failure Modes", ""])
-            lines.extend(_bullet_list(_failure_modes(profile, criteria), "No failure modes generated."))
+            lines.extend(["", "## Risk Analysis", ""])
+            for item in risk_analysis:
+                lines.extend(
+                    [
+                        f"### {item['risk']}",
+                        "",
+                        f"- **Why it matters:** {item['why']}",
+                        f"- **Potential impact:** {item['impact']}",
+                        f"- **Early warning indicator:** {item['warning']}",
+                        f"- **Suggested mitigation:** {item['mitigation']}",
+                        "",
+                    ]
+                )
+
+            lines.extend(["", "## Decision Blind Spots", ""])
+            lines.extend(_bullet_list(_decision_blind_spots(criteria, monitor_signals), "No decision blind spots generated."))
 
             lines.extend(["", "## What Could Change This Recommendation", ""])
             lines.extend(_bullet_list(_change_triggers(profile, criteria), "No change triggers generated."))
 
-            lines.extend(["", "## Action Timeline", ""])
+            if regulatory_considerations:
+                lines.extend(["", "## Regulatory Considerations", ""])
+                lines.append("Decision-support reminder only; this is not legal advice.")
+                for item in regulatory_considerations:
+                    lines.extend(
+                        [
+                            "",
+                            f"### {item['area']}",
+                            "",
+                            f"- **Why it may matter:** {item['why']}",
+                            f"- **Possible decision impact:** {item['impact']}",
+                            f"- **Suggested internal review:** {item['review']}",
+                        ]
+                    )
+
+            lines.extend(["", "## Recommendation Action Plan", ""])
             for window, items in action_timeline.items():
                 lines.extend([f"### {window}", ""])
-                lines.extend(f"- {item}" for item in items)
+                lines.extend(str(item) for item in items)
                 lines.append("")
 
             lines.extend(["## What to Monitor", ""])
@@ -721,15 +1094,18 @@ def generate_brief(
             lines.extend(["", "## Historical Evidence", ""])
             if similar_cases:
                 for outcome in similar_cases[:3]:
+                    analogue = _matching_analogue(outcome, issue_analogues)
                     lines.extend(
                         [
                             f"### {outcome.case_name} ({outcome.year})",
                             "",
-                            f"- **Case:** {outcome.event_family}; {outcome.sector}.",
-                            "- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.",
-                            "- **Key limitation:** The actor, sector exposure, rule detail, and timing may differ from the current case.",
-                            f"- **Decision lesson:** {outcome.strategic_response}",
-                            "- **Why this case does not fully apply:** Historical similarity supports comparison, not prediction; local exposure and execution constraints must be checked separately.",
+                            f"- **Case and time period:** {outcome.case_name}, {outcome.year}; {outcome.event_family}; {outcome.sector}.",
+                            f"- **Why it is comparable:** {_analogue_comparison(outcome, analogue)}",
+                            f"- **What happened:** {outcome.observed_outcome}",
+                            f"- **Why it matters today:** {outcome.strategic_response}",
+                            "- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.",
+                            f"- **Reference:** {_historical_reference(outcome, analogue)}",
+                            f"- **Source note:** {_historical_reference_status(outcome, analogue)}",
                             "",
                         ]
                     )
@@ -761,10 +1137,11 @@ def generate_brief(
             if event_understanding:
                 lines.append("- Deterministic event-family understanding rules.")
             if source_url:
-                lines.append(f"- Source URL: {source_url}")
+                lines.append(f"- Source URL: {_source_reference(source_url)}")
             lines.append("")
             lines.extend(["## Limitations", ""])
             lines.extend(_bullet_list(issue_strategic_assessment.important_limitations, "No limitations generated."))
+            lines.extend(_bullet_list(_source_evidence_limitations(source_url, bool(similar_cases)), "No source limitations generated."))
             lines.append("")
             continue
 
@@ -834,7 +1211,13 @@ def generate_brief(
         )
         lines.extend(_format_event_context(event_context))
         if source_url:
-            lines.extend(["", f"- **Source Link:** {source_url}", "- **Source Link note:** Webpage text was fetched when readable content was available."])
+            lines.extend(
+                [
+                    "",
+                    f"- **Source Link:** {_source_reference(source_url)}",
+                    "- **Source Link note:** Webpage text was fetched when readable content was available.",
+                ]
+            )
         lines.extend(
             [
                 "",

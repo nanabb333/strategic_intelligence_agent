@@ -29,11 +29,11 @@ These benchmark scores measure internal deterministic benchmark performance only
 
 ## Results
 
-- Scenario Accuracy: 0.88
-- Mechanism Accuracy: 0.72
-- Lens Coverage Rate: 1.0
-- Response Retrieval Coverage: 1.0
-- Overall Benchmark Score: 0.9
+- Scenario Accuracy: 88%
+- Mechanism Accuracy: 72%
+- Lens Coverage Rate: 100%
+- Response Retrieval Coverage: 100%
+- Overall Benchmark Score: 90%
 - Detailed results: `evaluation/benchmark_results.csv`
 
 ## What the Evaluation Does Not Prove

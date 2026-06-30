@@ -22,6 +22,84 @@
 
       <main class="workbench">
         <aside class="input-panel" aria-label="Decision workspace setup">
+          <section class="workspace-card project-workspace-card" aria-labelledby="project-workspace-title">
+            <div class="workspace-card-header">
+              <span class="step-pill">V4 Workspace</span>
+              <h2 id="project-workspace-title">Projects</h2>
+            </div>
+
+            <p class="note">
+              Work inside a project for decision continuity, or leave no project selected for standalone analysis.
+            </p>
+
+            <div class="project-create-row">
+              <input
+                id="project-name-input"
+                class="project-input"
+                type="text"
+                placeholder="New project name, e.g. US Export Controls"
+              >
+              <button id="create-project-button" type="button">New Project</button>
+            </div>
+
+            <div id="project-list" class="project-list">
+              <div class="empty">No projects loaded yet.</div>
+            </div>
+
+            <div id="active-project-panel" class="active-project-panel" hidden>
+              <div class="active-project-header">
+                <span class="step-pill">Active Project</span>
+                <strong id="active-project-name"></strong>
+              </div>
+
+              <label for="project-question-input" class="input-label">Add a question to this project</label>
+              <textarea
+                id="project-question-input"
+                class="question-input"
+                placeholder="Ask another question inside this project..."
+              ></textarea>
+
+              <button id="add-project-question-button" type="button">Save and Select Question</button>
+
+              <div id="project-question-list" class="project-question-list"></div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Evidence Library</strong>
+                  <span>Reusable local notes</span>
+                </div>
+                <input
+                  id="evidence-title-input"
+                  class="project-input"
+                  type="text"
+                  placeholder="Evidence title"
+                >
+                <textarea
+                  id="evidence-note-input"
+                  class="question-input"
+                  placeholder="Manual evidence note, excerpt, or summary..."
+                ></textarea>
+                <button id="add-evidence-button" type="button">Add Evidence Note</button>
+                <div id="project-evidence-list" class="project-evidence-list"></div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Decision Timeline</strong>
+                  <span>Completed project analyses</span>
+                </div>
+                <div id="project-decision-timeline" class="project-decision-timeline"></div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Decision Delta</strong>
+                  <span>Latest vs previous</span>
+                </div>
+                <div id="project-delta-panel" class="project-delta-panel"></div>
+              </div>
+            </div>
+          </section>
           <section class="workspace-card">
             <div class="workspace-card-header">
               <span class="step-pill" data-i18n="stepOne">Step 1</span>
@@ -236,11 +314,11 @@ Executives need a staged response plan that separates immediate compliance work 
               <p>These values come from compact synthetic / curated benchmark cases. They measure deterministic consistency and coverage inside this repository, not real-world accuracy.</p>
               <ul>
                 <li>Benchmark cases: 25</li>
-                <li>Scenario Accuracy: 0.88</li>
-                <li>Mechanism Accuracy: 0.72</li>
-                <li>Lens Coverage Rate: 1.0</li>
-                <li>Response Retrieval Coverage: 1.0</li>
-                <li>Overall Benchmark Score: 0.9</li>
+                <li>Scenario Accuracy: 88%</li>
+                <li>Mechanism Accuracy: 72%</li>
+                <li>Lens Coverage Rate: 100%</li>
+                <li>Response Retrieval Coverage: 100%</li>
+                <li>Overall Benchmark Score: 90%</li>
               </ul>
               <p><span class="evidence"><span data-i18n="source">Source</span>: evaluation/benchmark_results.csv</span></p>
               <p>Known limitation: current benchmark cases do not prove factual correctness, legal accuracy, financial accuracy, geopolitical accuracy, or future outcomes.</p>
@@ -251,5 +329,6 @@ Executives need a staged response plan that separates immediate compliance work 
     </div>
 
     <script src="app.js"></script>
+    <script src="project.js?v=4-stability"></script>
   </body>
 </html>

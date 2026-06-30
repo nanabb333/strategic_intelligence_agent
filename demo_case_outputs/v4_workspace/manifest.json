@@ -1,0 +1,13 @@
+{
+  "demo": "V4 Decision Workspace release-validation demo",
+  "generated_at": "2026-06-30T11:18:44",
+  "project_file": "project.json",
+  "evidence_file": "evidence_library.json",
+  "decision_history_file": "decision_history.json",
+  "decision_delta_file": "decision_delta.json",
+  "question_artifact_folders": [
+    "question_1_q_export_controls_immediate",
+    "question_2_q_export_controls_update"
+  ],
+  "score_display_standard": "User-facing summary fields use x / 10 labels; normalized scores may remain inside raw analysis.json artifacts."
+}

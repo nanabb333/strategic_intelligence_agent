@@ -496,7 +496,10 @@ async function analyzeDocument() {
     setEmpty("summary-section", t("pasteFirst"));
     return;
   }
-  const questionText = parsedInput.questionText || t("assistantPlaceholder").split("\n")[0];
+  const projectContext = window.getActiveProjectAnalysisContext
+    ? window.getActiveProjectAnalysisContext()
+    : { project_id: "", project_question_id: "", question_text: "" };
+  const questionText = projectContext.question_text || parsedInput.questionText || t("assistantPlaceholder").split("\n")[0];
   const button = document.getElementById("analyze-button");
   button.disabled = true;
   button.textContent = t("analyzing");
@@ -515,6 +518,8 @@ async function analyzeDocument() {
         input_mode: parsedInput.inputMode,
         uploaded_filename: uploadedFilename,
         file_type: uploadedFileType,
+        project_id: projectContext.project_id || "",
+        project_question_id: projectContext.project_question_id || "",
       }),
     });
     if (!response.ok) {
@@ -523,6 +528,9 @@ async function analyzeDocument() {
     }
     currentRun = await response.json();
     renderRun(currentRun);
+    if (window.refreshProjectWorkspace) {
+      await window.refreshProjectWorkspace();
+    }
     await loadHistory();
   } catch (error) {
     setEmpty("summary-section", `Could not run analysis. ${error.message}`);
@@ -926,8 +934,10 @@ function briefSectionClass(title) {
   const rankingTitles = ["Option Ranking", "方案排序"];
   const preferredTitles = ["Preferred Path", "目前最佳方案"];
   const assumptionTitles = ["Assumptions", "当前假设", "目前假設"];
+  const roleTitles = ["Role-Based Implications", "按角色的决策含义", "按角色的決策含義"];
   const tradeoffTitles = ["Trade-offs", "取舍：得到什么、放弃什么、风险还在哪里", "取捨：得到什麼、放棄什麼、風險還在哪裡"];
   const changeTitles = ["What Could Change This Recommendation", "哪些新证据会改变今天的判断", "哪些新證據會改變今天的判斷"];
+  const blindSpotTitles = ["Decision Blind Spots", "决策盲点", "決策盲點"];
   const actionTitles = ["Action Timeline", "行动时间表", "行動時間表"];
   const monitorTitles = ["What to Monitor", "后续观察重点", "後續觀察重點"];
   const qualityTitles = ["Decision Quality Review"];
@@ -951,8 +961,10 @@ function briefSectionClass(title) {
   if (rankingTitles.includes(title)) classes.push("ranking-card");
   if (preferredTitles.includes(title)) classes.push("recommended-card");
   if (assumptionTitles.includes(title)) classes.push("assumption-card");
+  if (roleTitles.includes(title)) classes.push("role-card");
   if (tradeoffTitles.includes(title)) classes.push("tradeoff-card");
   if (changeTitles.includes(title)) classes.push("change-card");
+  if (blindSpotTitles.includes(title)) classes.push("blindspot-card");
   if (actionTitles.includes(title)) classes.push("action-card");
   if (monitorTitles.includes(title)) classes.push("monitor-card");
   if (qualityTitles.includes(title)) classes.push("quality-card");

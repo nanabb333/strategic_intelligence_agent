@@ -26,52 +26,68 @@ These are the dimensions driving today's decision:
 
 **Path:** Absorb delays and wait for route normalization
 
-**Pros**
-- Lowest immediate effort.
-- Preserves current posture while more evidence arrives.
+**Meaning:** Hold the current posture until the evidence base is clearer.
 
-**Cons**
-- Risk can accumulate if exposure is already material.
-- May delay preparation if the issue moves quickly.
+**Appropriate when:** Available evidence shows limited exposure, high reversibility, and no deterioration in Delivery reliability, Cost impact, Inventory coverage.
 
-**Criteria Fit**
-- Strong on low execution burden and near-term opportunity cost.
-- Weak on Delivery reliability, Cost impact, Inventory coverage if current exposure is already material.
-- Fails high-importance criteria when delivery reliability cannot be assessed quickly.
+**Immediate actions**
+- Document why Absorb delays and wait for route normalization is acceptable.
+- Confirm whether delivery reliability can be ruled out as a material constraint.
+
+**Near-term actions**
+- Schedule a dated review rather than leaving the decision open-ended.
+- Move to Prepare alternate routing, inventory, and customer communication plans if exposure cannot be ruled out with current evidence.
+
+**Main benefit:** Avoids unnecessary disruption when the issue is likely manageable.
+
+**Main risk:** May underprepare the organization if exposure is already material.
+
+**Evidence that would make this preferable:** This becomes preferable if Delivery reliability, Cost impact, Inventory coverage remain limited and no monitoring signal shows material change.
 
 ### Option B (Recommended)
 
 **Path:** Prepare alternate routing, inventory, and customer communication plans
 
-**Pros**
-- Best balance between preparation and flexibility.
-- Creates useful information before irreversible action.
+**Meaning:** Proceed with reversible preparation while delaying irreversible commitments.
 
-**Cons**
-- Requires active monitoring and ownership.
-- Does not eliminate exposure immediately.
+**Appropriate when:** Uncertainty is meaningful, especially around Delivery reliability, Cost impact, Inventory coverage, but evidence does not yet justify a full defensive move.
 
-**Criteria Fit**
-- Strong on Delivery reliability, Cost impact, Inventory coverage because it converts uncertainty into an exposure map and review cadence.
-- Medium on immediate protection because it prepares response options before using them.
-- Best overall fit when high-importance criteria are serious but not yet fully resolved.
+**Immediate actions**
+- Build an exposure map covering Delivery reliability, Cost impact, Inventory coverage.
+- Assign one decision owner and one review date.
+- Separate confirmed facts from unresolved assumptions.
+
+**Near-term actions**
+- Review new evidence at the 30-day and 90-day checkpoints.
+- Prepare actions needed if the decision shifts to Absorb delays and wait for route normalization or Shift suppliers or logistics model immediately.
+
+**Main benefit:** Preserves flexibility while converting uncertainty into decision-useful evidence.
+
+**Main risk:** Can become process activity if the exposure map and review cadence are not owned.
+
+**Evidence that would make this preferable:** This remains preferable when Delivery reliability, Cost impact, Inventory coverage are material enough to monitor but not yet binding.
 
 ### Option C
 
 **Path:** Shift suppliers or logistics model immediately
 
-**Pros**
-- Highest immediate risk reduction.
-- Useful if exposure is already severe or binding.
+**Meaning:** Take immediate defensive action before waiting for additional clarification.
 
-**Cons**
-- Highest opportunity cost and execution burden.
-- Hardest to reverse if the issue proves temporary.
+**Appropriate when:** Evidence shows delivery reliability is already binding, costly, customer-facing, or difficult to reverse.
 
-**Criteria Fit**
-- Strong on immediate protection if delivery reliability is already severe.
-- Weak on execution complexity, reversibility, and sacrificed upside.
-- Only fits the high-importance criteria better than Option B if evidence shows delivery reliability is binding or worsening.
+**Immediate actions**
+- Identify the specific customers, suppliers, products, approvals, or workflows to reduce or pause.
+- Escalate legal, compliance, finance, and operating-owner review before acting.
+
+**Near-term actions**
+- Confirm whether the defensive action reduced the specific exposure it targeted.
+- Document the opportunity cost and reversibility of the action taken.
+
+**Main benefit:** Reduces downside quickly when exposure is already severe.
+
+**Main risk:** Can sacrifice opportunity or relationships before the evidence supports that cost.
+
+**Evidence that would make this preferable:** This becomes preferable if evidence shows delivery reliability is severe or worsening.
 
 ## Option Ranking
 
@@ -89,13 +105,57 @@ These are the dimensions driving today's decision:
 
 ## Preferred Path
 
-- **Option B currently ranks first**. It ranks first because it ranks above Option A by reducing delivery blind spots, and above Option C by avoiding costly network changes before disruption persistence is clear.
-- Top criteria driving the recommendation: Delivery reliability, Cost impact, Inventory coverage.
-- Why Option B ranks first: it performs best on the criteria that matter most for this decision, especially Delivery reliability, Cost impact, Inventory coverage, while preserving flexibility.
-- Costs accepted: Option B requires monitoring, ownership, and delayed full protection rather than a one-step defensive move.
-- Why Option A does not rank first: Absorb delays and wait for route normalization keeps costs low, but it can leave the user underprepared on Delivery reliability, Cost impact, Inventory coverage if exposure grows.
-- Why Option C does not rank first: Shift suppliers or logistics model immediately offers more protection, but it can impose high opportunity cost before evidence on Delivery reliability, Cost impact, Inventory coverage is strong enough.
-- What would change the ranking: stronger evidence that Delivery reliability, Cost impact, Inventory coverage are either clearly immaterial or clearly severe.
+**Recommended path:** Prepare alternate routing, inventory, and customer communication plans
+
+### Why Today
+
+- Prepare alternate routing, inventory, and customer communication plans is preferred today because it produces decision evidence on Delivery reliability, Cost impact, Inventory coverage without forcing irreversible action.
+- Absorb delays and wait for route normalization is too passive if transit-time variance by route is already material.
+- Shift suppliers or logistics model immediately is premature unless freight and insurance cost changes shows binding or costly constraints.
+
+### Assumptions That Make This Preferable
+
+- The highest-priority unknowns are Delivery reliability, Cost impact, Inventory coverage, and they can be clarified through near-term internal work.
+- The organization can still preserve reversibility while the evidence base improves.
+- No current evidence requires immediate defensive reduction before exposure is mapped.
+
+### Immediate Execution Steps
+
+- Map affected lanes, suppliers, customers, and delivery commitments.
+- Prepare alternate-route and inventory-buffer options with cost estimates.
+- Define which customers need proactive delivery communication.
+
+### Required Stakeholders
+
+- Executive sponsor: owns the go / hold / escalate decision.
+- Strategy: produces the exposure map and decision memo.
+- Finance: quantifies revenue, margin, liquidity, or cost exposure where relevant.
+- Legal / Compliance: separates confirmed obligations from interpretation questions.
+- Operations / Commercial owner: identifies affected workflows, suppliers, customers, or product commitments.
+
+### Decision Checkpoints
+
+- Now: complete the exposure map and list unresolved assumptions.
+- 30 days: decide whether evidence supports holding Option B, de-escalating to Option A, or preparing Option C.
+- 90 days: convert the review into a board or executive decision package if exposure remains material.
+
+### Escalation Conditions
+
+- Escalate toward Shift suppliers or logistics model immediately if transit-time variance by route becomes binding, customer-facing, costly, or hard to reverse.
+- Escalate executive review if freight and insurance cost changes moves against planning assumptions.
+
+### Exit Criteria
+
+- Exit toward Absorb delays and wait for route normalization if exposure is confirmed as limited, reversible, and not material to the top criteria: Delivery reliability, Cost impact, Inventory coverage.
+- Exit toward Shift suppliers or logistics model immediately if delay creates more downside than the opportunity cost of immediate defensive action.
+
+## Role-Based Implications
+
+- CEO / Executive Sponsor: treat Prepare alternate routing, inventory, and customer communication plans as a decision-control posture, not a delay tactic; require a named owner and a date for reassessment.
+- Corporate Strategy: translate Delivery reliability, Cost impact, Inventory coverage into an exposure map that shows which business units, customers, products, or regions are actually affected.
+- Finance / CFO: separate confirmed financial exposure from possible exposure so the team does not overstate cost, margin, or liquidity impact before evidence supports it.
+- Operations / Supply Chain: identify which workflows would need to change if the decision shifts from Option B to Shift suppliers or logistics model immediately.
+- Legal / Compliance: distinguish confirmed obligations from unresolved interpretation questions and document what evidence would change the operating posture.
 
 ## Why This Reasoning Holds
 
@@ -114,16 +174,41 @@ These are the dimensions driving today's decision:
 ## Trade-offs
 
 - Benefits gained: Prepare alternate routing, inventory, and customer communication plans creates an exposure map, assigns ownership, and preserves reversibility while evidence on Delivery reliability, Cost impact, Inventory coverage is still developing.
-- Costs accepted: the team must spend management attention now, maintain a review cadence, and tolerate partial exposure while the evidence matures.
+- Costs accepted: the recommendation prioritizes execution flexibility and learning over immediate risk elimination, so the team must spend management attention now and tolerate partial exposure while evidence matures.
 - Opportunities sacrificed: the user gives up the lowest-effort posture of Absorb delays and wait for route normalization and does not receive the full immediate protection of Shift suppliers or logistics model immediately.
 - Risks still unresolved: new evidence on Delivery reliability, Cost impact, Inventory coverage, implementation timing, cost, customer behavior, or operating constraints may still justify changing paths.
 
-## Failure Modes
+## Risk Analysis
 
-- The preferred path fails if the review cadence misses rapid deterioration in Delivery reliability, Cost impact, Inventory coverage.
-- The recommendation is weaker if Prepare alternate routing, inventory, and customer communication plans creates process activity without producing a usable exposure map or decision owner.
-- Historical analogues may mislead if the current actor exposure, timing, or implementation details differ materially from retrieved cases.
-- Evidence remains insufficient if the supplied material does not confirm organization-specific exposure, costs, customer impact, or operational constraints.
+### Delivery reliability is higher than the current evidence suggests.
+
+- **Why it matters:** Prepare alternate routing, inventory, and customer communication plans depends on the assumption that exposure can be mapped before it becomes binding.
+- **Potential impact:** The preferred path may be insufficient and Shift suppliers or logistics model immediately may become necessary.
+- **Early warning indicator:** Transit-time variance by route indicates exposure above the planning assumption or cannot be documented.
+- **Suggested mitigation:** Prepare the Shift suppliers or logistics model immediately execution checklist before making irreversible commitments.
+
+### Cost impact deteriorates before the next checkpoint.
+
+- **Why it matters:** The recommendation relies on preserving choice while evidence improves.
+- **Potential impact:** Decision-makers may lose the ability to shift paths without higher cost.
+- **Early warning indicator:** Freight and insurance cost changes indicates delay, denial, cost increase, or customer-facing impact.
+- **Suggested mitigation:** Set a dated executive checkpoint and require a go / hold / escalate decision record.
+
+### Inventory coverage is underestimated.
+
+- **Why it matters:** A staged path only works if operating teams can produce the required decision artifacts.
+- **Potential impact:** The organization may create review activity without improving the actual decision.
+- **Early warning indicator:** No accountable owner, incomplete exposure map, or unresolved assumptions at the 30-day checkpoint.
+- **Suggested mitigation:** Assign owners by function and make the exposure map, readiness checklist, and decision memo mandatory deliverables.
+
+
+## Decision Blind Spots
+
+- Organization-specific data for delivery reliability is still needed to move from a general recommendation to an operating decision.
+- Organization-specific data for cost impact is still needed to move from a general recommendation to an operating decision.
+- Organization-specific data for inventory coverage is still needed to move from a general recommendation to an operating decision.
+- The current recommendation would improve with fresher evidence on transit-time variance by route, freight and insurance cost changes.
+- Contractual obligations, customer commitments, and internal execution capacity may change the preferred path even if the external situation is unchanged.
 
 ## What Could Change This Recommendation
 
@@ -131,22 +216,35 @@ These are the dimensions driving today's decision:
 - Move toward Option A (Absorb delays and wait for route normalization) if review shows limited exposure, low cost, high reversibility, and no deterioration in Delivery reliability, Cost impact, Inventory coverage.
 - Move toward Option C (Shift suppliers or logistics model immediately) if constraints become binding, costly, customer-facing, or difficult to reverse.
 
-## Action Timeline
+## Recommendation Action Plan
 
-### Immediate
+### NOW
 
-- Map affected lanes, suppliers, customers, and delivery commitments.
-- Prepare alternate-route and inventory-buffer options with cost estimates.
+- **Action:** Map affected lanes, suppliers, customers, and delivery commitments. Prepare alternate-route and inventory-buffer options with cost estimates.
+- **Owner:** Strategy + relevant operating owner.
+- **Deliverable:** Exposure map with affected customers, suppliers, products, regions, workflows, and open assumptions.
+- **Decision Purpose:** Confirms whether staged preparation is sufficient or immediate escalation is needed.
 
-### Next 30 Days
+### NEXT 30 DAYS
 
-- Define which customers need proactive delivery communication.
-- Review whether contract penalties or service-level commitments are exposed.
+- **Action:** Define which customers need proactive delivery communication. Review whether contract penalties or service-level commitments are exposed.
+- **Owner:** Strategy + Legal / Compliance + Finance.
+- **Deliverable:** Readiness checklist showing confirmed facts, unresolved assumptions, and required follow-up.
+- **Expected Decision:** Hold the staged path, narrow scope, or prepare defensive execution.
 
-### Next Quarter
+### NEXT 90 DAYS
 
-- Reassess whether the evidence still supports Option B or whether Option A or Option C has become more appropriate.
-- Compare the next-quarter update against freight and insurance cost changes and cost/reversibility constraints.
+- **Action:** Reassess whether the evidence still supports Option B or whether Option A or Option C has become more appropriate.
+- **Owner:** Executive sponsor + Strategy.
+- **Deliverable:** Decision update memo comparing current evidence against the original criteria.
+- **Decision Outcome:** Hold, de-escalate, or move to a more defensive path.
+
+### RE-EVALUATION TRIGGER
+
+- **Action:** Revisit the recommendation if transit-time variance by route, freight and insurance cost changes, customer impact, cost pressure, or reversibility changes materially.
+- **Owner:** Executive sponsor.
+- **Deliverable:** Go / hold / escalate decision record.
+- **Decision Purpose:** Prevents the recommendation from remaining in force after the evidence changes.
 
 ## What to Monitor
 
@@ -185,27 +283,33 @@ These signals answer: what could change today's recommendation?
 
 ### COVID Supply Chain Disruption (2020)
 
-- **Case:** Supply Chain Disruption; Manufacturing and Logistics.
-- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.
-- **Key limitation:** The actor, sector exposure, rule detail, and timing may differ from the current case.
-- **Decision lesson:** Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.
-- **Why this case does not fully apply:** Historical similarity supports comparison, not prediction; local exposure and execution constraints must be checked separately.
+- **Case and time period:** COVID Supply Chain Disruption, 2020; Supply Chain Disruption; Manufacturing and Logistics.
+- **Why it is comparable:** scenario match on Supply Chain Disruption; keyword overlap: chain, logistics, supply; industry overlap: logistics; actor overlap: firms, suppliers
+- **What happened:** Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions.
+- **Why it matters today:** Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
 
 ### Red Sea Shipping Disruption (2023)
 
-- **Case:** Supply Chain Disruption; Shipping and Logistics.
-- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.
-- **Key limitation:** The actor, sector exposure, rule detail, and timing may differ from the current case.
-- **Decision lesson:** Firms evaluated rerouting, customer communication, freight costs, and contingency planning.
-- **Why this case does not fully apply:** Historical similarity supports comparison, not prediction; local exposure and execution constraints must be checked separately.
+- **Case and time period:** Red Sea Shipping Disruption, 2023; Supply Chain Disruption; Shipping and Logistics.
+- **Why it is comparable:** scenario match on Supply Chain Disruption; keyword overlap: energy, logistics, regional, security; industry overlap: energy, logistics, shipping; actor overlap: firms
+- **What happened:** Security risks disrupted routing, transit times, insurance terms, and delivery planning.
+- **Why it matters today:** Firms evaluated rerouting, customer communication, freight costs, and contingency planning.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
 
 ### Semiconductor Shortage (2021)
 
-- **Case:** Supply Chain Disruption; Automotive and Semiconductors.
-- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.
-- **Key limitation:** The actor, sector exposure, rule detail, and timing may differ from the current case.
-- **Decision lesson:** Firms reviewed allocation processes, supplier relationships, and design flexibility.
-- **Why this case does not fully apply:** Historical similarity supports comparison, not prediction; local exposure and execution constraints must be checked separately.
+- **Case and time period:** Semiconductor Shortage, 2021; Supply Chain Disruption; Automotive and Semiconductors.
+- **Why it is comparable:** event-family match: Supply Chain Disruption; event-family/title overlap
+- **What happened:** Chip shortages delayed production and exposed supplier concentration in critical components.
+- **Why it matters today:** Firms reviewed allocation processes, supplier relationships, and design flexibility.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
 
 ## Market Expectations vs Actual Outcomes
 
@@ -265,83 +369,167 @@ These signals answer: what could change today's recommendation?
 - Historical analogues help structure comparison but do not predict future outcomes.
 - Outcome frequencies are counts within the local curated dataset, not real-world probabilities.
 - The system does not use live web retrieval or source verification.
+- Some evidence is derived from user-provided material rather than independently verified primary sources.
+- Organization-specific exposure, timing, cost, and implementation data may be missing.
+- No primary source link is available for the supplied input material.
+- Some historical analogues are based on curated repository knowledge rather than linked source documents.
+- Analogue transferability depends on whether the current case shares comparable mechanisms and constraints.
 
 ## Evidence and Confidence
 
-**Confidence level:** Moderate
+### Confidence Assessment
 
-**Confidence rationale:** Moderate confidence because 11 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
+**Overall Level:** Moderate
+
+**Reasoning:** Moderate confidence because 11 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
+
+**Supporting Evidence**
+
+- User-provided evidence defines the decision frame.
+- 4 repository historical records support analogue reasoning.
+- Evidence assessment includes high-confidence support for parts of the recommendation.
+- Mechanism detection links the issue to operational or strategic pressure points.
+
+**Confidence Reducers**
+
+- Some evidence records do not include primary source links.
+- The current brief does not verify information outside the supplied input and local records.
+- Organization-specific exposure, timing, and implementation constraints require human review.
+
+**Confidence Improvers**
+
+- New primary source material changes the factual basis.
+- Organization-specific exposure mapping.
+- Updated financial, customer, supplier, or compliance evidence.
+- Clear regulatory, contractual, or operating-owner confirmation.
 
 ### Evidence Ledger
 
 - **E1 (User-provided input material)**
+  - Reference: No primary source link available.
+  - Supporting Source: User-provided source material.
+  - Evidence Type: User-provided input material
+  - Source Metadata: Publisher: user-provided material; Publication Date: not available; Verification Status: provided input, not independently verified.
   - Observation: Geopolitical Escalation Supply Chain Demo Case
 
 A fictional regional security update reports rising geopolitical tension near a major maritime corridor used by container ships, energy cargoes, and industrial components.
-  - Inference: The extracted issue is treated as the starting point for decision support.
+  - Inference: The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.
   - Supports: Situation understanding and decision framing.
+  - Why this evidence matters: It supports situation understanding and decision framing and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It frames the decision and the criteria used to compare options.
   - Relevance: High; Confidence: Moderate
-  - Limitations: Source detail depends on the supplied material; no external source completeness is implied.
 - **E2 (Local historical analogue record)**
+  - Reference: No primary source link available.
+  - Supporting Source: COVID Supply Chain Disruption (2020): Shows how operational shocks can expose supplier concentration and inventory assumptions. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical analogue record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: scenario match on Supply Chain Disruption; keyword overlap: chain, logistics, supply; industry overlap: logistics; actor overlap: firms, suppliers
-  - Inference: The historical case may help compare mechanisms, but it does not determine the current outcome.
+  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
   - Supports: Historical comparison and analogue reasoning.
+  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Historical analogues support comparison, not prediction.
 - **E3 (Local historical analogue record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Red Sea Shipping Disruption (2023): Shows how route disruption can affect delivery timing and logistics costs. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical analogue record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: scenario match on Supply Chain Disruption; keyword overlap: energy, logistics, regional, security; industry overlap: energy, logistics, shipping; actor overlap: firms
-  - Inference: The historical case may help compare mechanisms, but it does not determine the current outcome.
+  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
   - Supports: Historical comparison and analogue reasoning.
+  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Historical analogues support comparison, not prediction.
 - **E4 (Deterministic mechanism detection)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository mechanism framework and source-text cues.
+  - Evidence Type: Deterministic mechanism detection
+  - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
   - Observation: contingency plans; alternate routes; monitoring routines
   - Inference: scenario match: Supply Chain Disruption; observation overlap: contingency, plans; actor overlap: executives, suppliers
   - Supports: Mechanism reasoning and risk identification.
+  - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Mechanism detection is deterministic and should be reviewed against source details.
 - **E5 (Deterministic mechanism detection)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository mechanism framework and source-text cues.
+  - Evidence Type: Deterministic mechanism detection
+  - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
   - Observation: military activity; route changes; advisories; insurance terms
   - Inference: scenario match: Supply Chain Disruption; observation overlap: insurance, security, that
   - Supports: Mechanism reasoning and risk identification.
+  - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Mechanism detection is deterministic and should be reviewed against source details.
 - **E6 (Evidence assessment)**
+  - Reference: No primary source link available.
+  - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
+  - Evidence Type: Evidence assessment
+  - Source Metadata: Publisher: internal deterministic assessment; Publication Date: analysis run; Verification Status: derived from available evidence.
   - Observation: Economics has supporting and weakening evidence.
-  - Inference: The interpretation should be treated cautiously where weakening or missing evidence remains.
+  - Inference: The recommendation should be constrained where weakening or missing evidence remains.
   - Supports: Evidence quality and uncertainty.
+  - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
   - Relevance: High; Confidence: High
-  - Limitations: The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
+  - Item-specific limitation: The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
 - **E7 (Evidence assessment)**
+  - Reference: No primary source link available.
+  - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
+  - Evidence Type: Evidence assessment
+  - Source Metadata: Publisher: internal deterministic assessment; Publication Date: analysis run; Verification Status: derived from available evidence.
   - Observation: Political Economy has supporting and weakening evidence.
-  - Inference: The interpretation should be treated cautiously where weakening or missing evidence remains.
+  - Inference: The recommendation should be constrained where weakening or missing evidence remains.
   - Supports: Evidence quality and uncertainty.
+  - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
   - Relevance: High; Confidence: High
-  - Limitations: The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
+  - Item-specific limitation: The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
 - **E8 (Local historical outcome record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical outcome record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.
-  - Inference: The outcome informs possible response patterns but is not a forecast.
+  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
   - Supports: Historical outcomes and strategic lessons.
+  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: High
-  - Limitations: source pending; educational summary
 - **E9 (Local historical outcome record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Security risks disrupted routing, transit times, insurance terms, and delivery planning. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical outcome record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: Firms evaluated rerouting, customer communication, freight costs, and contingency planning.
-  - Inference: The outcome informs possible response patterns but is not a forecast.
+  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
   - Supports: Historical outcomes and strategic lessons.
+  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: source pending; educational summary
 - **E10 (Local current-context record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository current-context knowledge base.
+  - Evidence Type: Local current-context record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: Disruption can affect delivery timing, maintenance planning, and contingency sourcing.
   - Inference: Route availability; equipment lead times; regional security updates; inventory levels
   - Supports: Monitoring and current context.
+  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Current-context records are local references and may not reflect live updates.
 - **E11 (Local current-context record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository current-context knowledge base.
+  - Evidence Type: Local current-context record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: Concentrated inputs can create operational exposure when disruptions occur.
   - Inference: Supplier concentration; lead times; inventory disclosures; qualification cycles
   - Supports: Monitoring and current context.
+  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Current-context records are local references and may not reflect live updates.
 
 ### Key Assumptions
 
@@ -365,12 +553,18 @@ A fictional regional security update reports rising geopolitical tension near a 
 
 ### Evidence Limitations
 
+- Some evidence is derived from user-provided material rather than independently verified primary sources.
+- Some historical analogues are based on curated repository knowledge rather than linked source documents.
+- Analogue transferability depends on whether the current case shares comparable mechanisms and constraints.
+- Organization-specific exposure, timing, cost, and implementation data may be missing.
 - Educational use only; this is a local decision-support demo, not a production advisory service.
 - This is not investment advice, trading advice, legal advice, or a forecast.
 - Human review is recommended before operational, legal, financial, or executive use.
 - Historical analogues help structure comparison but do not predict future outcomes.
 - Outcome frequencies are counts within the local curated dataset, not real-world probabilities.
 - The system does not use live web retrieval or source verification.
+- The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
+- The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
 
 ## Decision Quality Review
 

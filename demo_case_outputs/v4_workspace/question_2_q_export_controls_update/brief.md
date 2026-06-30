@@ -226,6 +226,12 @@ Decision-support reminder only; this is not legal advice.
 - **Possible decision impact:** Customer, supplier, product, or shipment decisions may need to pause until obligations are confirmed.
 - **Suggested internal review:** Legal / Compliance should prepare a regulatory impact review separating confirmed requirements from open interpretation questions.
 
+### Corporate Governance
+
+- **Why it may matter:** Material exposure, disclosure language, or control gaps may require executive or board-level review.
+- **Possible decision impact:** The decision may need a formal memo, risk committee discussion, or documented escalation path.
+- **Suggested internal review:** Executive sponsor should decide whether the next checkpoint requires a board or risk-committee package.
+
 ## Recommendation Action Plan
 
 ### NOW
@@ -291,77 +297,25 @@ These signals answer: what could change today's recommendation?
 
 ## Historical Evidence
 
-### Huawei Entity List (2019)
+### Major Earnings Guidance Withdrawals During COVID (2020)
 
-- **Case and time period:** Huawei Entity List, 2019; Export Controls; Technology.
-- **Why it is comparable:** scenario match on Export Controls; keyword overlap: access, advanced, compliance, controls; industry overlap: technology; actor overlap: government, suppliers
-- **What happened:** Restricted access to selected technology inputs changed supplier screening and product planning.
-- **Why it matters today:** Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
-- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
-- **Reference:** No primary source link available.
-- **Source note:** Curated repository historical knowledge record; primary source link pending.
-
-### ASML Export Controls (2023)
-
-- **Case and time period:** ASML Export Controls, 2023; Export Controls; Semiconductors.
-- **Why it is comparable:** scenario match on Export Controls; keyword overlap: access, advanced, controls, equipment; industry overlap: technology; actor overlap: government
-- **What happened:** Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.
-- **Why it matters today:** Companies monitored license rules, tool availability, and jurisdictional alignment.
-- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
-- **Reference:** No primary source link available.
-- **Source note:** Curated repository historical knowledge record; primary source link pending.
-
-### Entity List Expansion (2020)
-
-- **Case and time period:** Entity List Expansion, 2020; Export Controls; Technology.
-- **Why it is comparable:** event-family match: Export Controls; event-family/title overlap
-- **What happened:** Expanded restrictions increased screening burden and uncertainty for technology transactions.
-- **Why it matters today:** Companies strengthened restricted-party checks and licensing escalation paths.
+- **Case and time period:** Major Earnings Guidance Withdrawals During COVID, 2020; Earnings / Corporate Disclosure; Multi-sector.
+- **Why it is comparable:** event-family match: Earnings / Corporate Disclosure
+- **What happened:** Firms withdrew or revised guidance amid limited demand and operational visibility.
+- **Why it matters today:** Management teams emphasized uncertainty, liquidity monitoring, and scenario communication.
 - **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
 - **Reference:** No primary source link available.
 - **Source note:** Curated repository historical knowledge record; primary source link pending.
 
 ## Market Expectations vs Actual Outcomes
 
-### Huawei Entity List (2019)
+### Major Earnings Guidance Withdrawals During COVID (2020)
 
-- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
+- **Initial / mainstream expectation:** Observers often focus first on the headline event.
 - **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
-- **Actual observed outcome:** Restricted access to selected technology inputs changed supplier screening and product planning.
-- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
-- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
-
-### ASML Export Controls (2023)
-
-- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
-- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
-- **Actual observed outcome:** Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.
-- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
-- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
-
-### Entity List Expansion (2020)
-
-- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
-- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
-- **Actual observed outcome:** Expanded restrictions increased screening burden and uncertainty for technology transactions.
-- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
-- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
-
-### Allied Export Control Coordination (2023)
-
-- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
-- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
-- **Actual observed outcome:** Policy alignment among allies increased the importance of jurisdiction-by-jurisdiction rule monitoring.
-- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
-- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
-
-### ZTE Denial Order (2018)
-
-- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
-- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
-- **Actual observed outcome:** Restricted access to U.S. technology inputs created severe operational disruption for a telecom equipment firm.
-- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
-- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
+- **Actual observed outcome:** Firms withdrew or revised guidance amid limited demand and operational visibility.
+- **Expectation gap:** The practical impact can appear in operating routines, stakeholder behavior, and implementation details.
+- **Lesson:** Translate the headline into concrete exposure, process, and monitoring questions.
 
 
 ## Evidence Used
@@ -391,13 +345,12 @@ These signals answer: what could change today's recommendation?
 
 **Overall Level:** Moderate
 
-**Reasoning:** Moderate confidence because 12 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
+**Reasoning:** Moderate confidence because 8 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
 
 **Supporting Evidence**
 
 - User-provided evidence defines the decision frame.
-- 5 repository historical records support analogue reasoning.
-- Evidence assessment includes high-confidence support for parts of the recommendation.
+- 3 repository historical records support analogue reasoning.
 - Mechanism detection links the issue to operational or strategic pressure points.
 
 **Confidence Reducers**
@@ -420,9 +373,8 @@ These signals answer: what could change today's recommendation?
   - Supporting Source: User-provided source material.
   - Evidence Type: User-provided input material
   - Source Metadata: Publisher: user-provided material; Publication Date: not available; Verification Status: provided input, not independently verified.
-  - Observation: Semiconductor Export Controls Demo Case
-
-A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software.
+  - Observation: Decision question:
+After receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?
   - Inference: The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.
   - Supports: Situation understanding and decision framing.
   - Why this evidence matters: It supports situation understanding and decision framing and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
@@ -430,60 +382,38 @@ A fictional policy bulletin describes new export controls affecting advanced sem
   - Relevance: High; Confidence: Moderate
 - **E2 (Local historical analogue record)**
   - Reference: No primary source link available.
-  - Supporting Source: Huawei Entity List (2019): Shows how export controls can alter supplier access and compliance workflows. Based on the repository's curated historical knowledge base.
+  - Supporting Source: Major Earnings Guidance Withdrawal During COVID (2020): Shows how disclosures can communicate operating uncertainty and planning limits. Based on the repository's curated historical knowledge base.
   - Evidence Type: Local historical analogue record
   - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: scenario match on Export Controls; keyword overlap: access, advanced, compliance, controls; industry overlap: technology; actor overlap: government, suppliers
+  - Observation: scenario match on Earnings / Corporate Disclosure; keyword overlap: disclosure, earnings, guidance, management; actor overlap: executives
   - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
   - Supports: Historical comparison and analogue reasoning.
   - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
   - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-- **E3 (Local historical analogue record)**
-  - Reference: No primary source link available.
-  - Supporting Source: ASML Export Controls (2023): Highlights exposure to licensing rules for critical production tools. Based on the repository's curated historical knowledge base.
-  - Evidence Type: Local historical analogue record
-  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: scenario match on Export Controls; keyword overlap: access, advanced, controls, equipment; industry overlap: technology; actor overlap: government
-  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
-  - Supports: Historical comparison and analogue reasoning.
-  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
-  - Relevance: Moderate; Confidence: Moderate
-- **E4 (Local historical analogue record)**
-  - Reference: No primary source link available.
-  - Supporting Source: Japan-Korea Semiconductor Materials Dispute (2019): Shows how trade restrictions can affect specialized upstream inputs. Based on the repository's curated historical knowledge base.
-  - Evidence Type: Local historical analogue record
-  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: keyword overlap: advanced, affecting, controls, export; industry overlap: technology; actor overlap: government, suppliers
-  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
-  - Supports: Historical comparison and analogue reasoning.
-  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
-  - Relevance: Moderate; Confidence: Moderate
-- **E5 (Deterministic mechanism detection)**
+- **E3 (Deterministic mechanism detection)**
   - Reference: No primary source link available.
   - Supporting Source: Repository mechanism framework and source-text cues.
   - Evidence Type: Deterministic mechanism detection
   - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
-  - Observation: licenses; entity lists; restricted equipment; cloud access limits
-  - Inference: scenario match: Export Controls; observation overlap: access, cloud, controls, equipment; actor overlap: firms, suppliers
+  - Observation: uncertain demand; unclear timelines; missing source details
+  - Inference: scenario match: Earnings / Corporate Disclosure; observation overlap: source; actor overlap: customers, executives
   - Supports: Mechanism reasoning and risk identification.
   - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
   - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
   - Relevance: Moderate; Confidence: Moderate
-- **E6 (Deterministic mechanism detection)**
+- **E4 (Deterministic mechanism detection)**
   - Reference: No primary source link available.
   - Supporting Source: Repository mechanism framework and source-text cues.
   - Evidence Type: Deterministic mechanism detection
   - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
-  - Observation: screening alerts; payment exceptions; contract reviews
-  - Inference: scenario match: Export Controls; observation overlap: customers, reviews, suppliers; actor overlap: customers, suppliers
+  - Observation: public statements; stakeholder concern; disclosure language
+  - Inference: scenario match: Earnings / Corporate Disclosure; observation overlap: policy; actor overlap: customers, executives
   - Supports: Mechanism reasoning and risk identification.
   - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
   - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
   - Relevance: Moderate; Confidence: Moderate
-- **E7 (Evidence assessment)**
+- **E5 (Evidence assessment)**
   - Reference: No primary source link available.
   - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
   - Evidence Type: Evidence assessment
@@ -493,9 +423,9 @@ A fictional policy bulletin describes new export controls affecting advanced sem
   - Supports: Evidence quality and uncertainty.
   - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
   - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
-  - Relevance: High; Confidence: High
+  - Relevance: High; Confidence: Moderate
   - Item-specific limitation: The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
-- **E8 (Evidence assessment)**
+- **E6 (Evidence assessment)**
   - Reference: No primary source link available.
   - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
   - Evidence Type: Evidence assessment
@@ -505,9 +435,20 @@ A fictional policy bulletin describes new export controls affecting advanced sem
   - Supports: Evidence quality and uncertainty.
   - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
   - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
-  - Relevance: High; Confidence: High
+  - Relevance: High; Confidence: Moderate
   - Item-specific limitation: The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
-- **E9 (Local historical outcome record)**
+- **E7 (Local historical outcome record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Firms withdrew or revised guidance amid limited demand and operational visibility. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical outcome record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: Management teams emphasized uncertainty, liquidity monitoring, and scenario communication.
+  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
+  - Supports: Historical outcomes and strategic lessons.
+  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
+  - Relevance: Moderate; Confidence: High
+- **E8 (Local historical outcome record)**
   - Reference: No primary source link available.
   - Supporting Source: Restricted access to selected technology inputs changed supplier screening and product planning. Based on the repository's curated historical knowledge base.
   - Evidence Type: Local historical outcome record
@@ -518,54 +459,20 @@ A fictional policy bulletin describes new export controls affecting advanced sem
   - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
   - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-- **E10 (Local historical outcome record)**
-  - Reference: No primary source link available.
-  - Supporting Source: Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans. Based on the repository's curated historical knowledge base.
-  - Evidence Type: Local historical outcome record
-  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: Companies monitored license rules, tool availability, and jurisdictional alignment.
-  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
-  - Supports: Historical outcomes and strategic lessons.
-  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
-  - Relevance: Moderate; Confidence: Moderate
-- **E11 (Local current-context record)**
-  - Reference: No primary source link available.
-  - Supporting Source: Repository current-context knowledge base.
-  - Evidence Type: Local current-context record
-  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: Controls can affect access to inputs, customer eligibility, and compliance review timelines.
-  - Inference: Licensing updates; allied coordination; supplier disclosures; compliance guidance
-  - Supports: Monitoring and current context.
-  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
-  - Relevance: Moderate; Confidence: Moderate
-- **E12 (Local current-context record)**
-  - Reference: No primary source link available.
-  - Supporting Source: Repository current-context knowledge base.
-  - Evidence Type: Local current-context record
-  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: Companies may need to screen counterparties and assess license requirements before fulfillment.
-  - Inference: Restricted party lists; product classifications; license applications; end-use statements
-  - Supports: Monitoring and current context.
-  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
-  - Relevance: Moderate; Confidence: Moderate
 
 ### Key Assumptions
 
 - The supplied material is sufficient for an initial decision-support brief.
 - Human review will verify source details before operational use.
-- The Export Controls frame is an appropriate starting point for analysis.
-- The identified mechanisms remain relevant to the decision context: Technology Containment, Counterparty Risk, Market Access Restriction.
-- Sector exposure should be validated against organization-specific data.
+- The Earnings / Corporate Disclosure frame is an appropriate starting point for analysis.
+- The identified mechanisms remain relevant to the decision context: Information Uncertainty, Reputational Sensitivity, Demand Shock.
 
 ### What Would Change This View
 
 - New primary source material changes the factual basis.
 - Stakeholder responses differ from the assumptions in the brief.
 - Implementation details create materially different constraints.
-- Evidence shows the situation no longer fits the Export Controls frame.
+- Evidence shows the situation no longer fits the Earnings / Corporate Disclosure frame.
 
 ### What Is Unknown Or Uncertain
 
@@ -590,48 +497,56 @@ A fictional policy bulletin describes new export controls affecting advanced sem
 ## Decision Quality Review
 
 **Overall label:** Strong
-**Overall score:** 0.969
+**Overall score:** 9.7 / 10
 
 This is a deterministic product-quality check. It is not a benchmark result, factual verification, or claim of real-world accuracy.
 
 ### Direct answer quality
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether the output frames a decision question, situation, recommendation, and criteria.
 
 ### Historical analogue relevance
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether analogues exist, appear in the evidence ledger, and include transferability limits.
 
 ### Evidence use
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether evidence items are reviewable and uncertainty remains visible.
 
 ### Option clarity
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether options are distinct and a preferred path is identified.
 
 ### Risk identification
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether risks, limitations, and unknowns are explicit.
 
 ### Change trigger quality
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether the recommendation includes observable change triggers and monitoring signals.
 
 ### Localization quality
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** English output selected; localization transformation is not required.
 
 ### Overconfidence control
 
-- **Label:** Adequate
+- **Score:** 7.5 / 10
+- **Assessment:** Adequate
 - **Rationale:** Checks for qualitative confidence, visible limitations, and absence of overconfident phrases.
 
 ### Notes

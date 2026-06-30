@@ -29,7 +29,7 @@ Strategic Intelligence Decision Companion was built to structure decision-making
 
 A semiconductor manufacturer faces new export controls. Management needs to decide whether investment plans, customer exposure reviews, and supply-chain monitoring should change.
 
-The platform structures the situation as:
+The standalone analysis path structures one decision question as:
 
 ```text
 Source Material
@@ -57,6 +57,29 @@ Decision Quality Review
 ```
 
 Instead of returning only a summary, the system identifies the decision context, extracts relevant evidence, compares historical patterns, states a recommendation, explains confidence, and records what would require reassessment.
+
+Version 4 adds a local Decision Workspace around that same deterministic engine:
+
+```text
+Project
+  |
+  v
+Questions
+  |
+  v
+Evidence Library
+  |
+  v
+Analysis Runs
+  |
+  v
+Decision Timeline
+  |
+  v
+Decision Delta
+```
+
+Projects are not chats. A Project is a long-running decision problem. Questions remain independently reviewable analyses, evidence notes are stored in a reusable local library, and completed runs are linked back into a project-level timeline.
 
 ## Example Output
 
@@ -95,12 +118,14 @@ This output is a decision-support artifact. It is not investment advice, legal a
 | Historical Analogues | Historical comparison without treating past cases as predictions. | [Product Overview](docs/ProductOverview.md) |
 | Confidence Assessment | Qualitative confidence, assumptions, unknowns, and change triggers. | [Evidence Architecture](docs/EvidenceArchitecture.md) |
 | Decision Quality Evaluation | Deterministic checks for product-quality properties of generated briefs. | [Evaluation Strategy](docs/EvaluationStrategy.md) |
+| V4 Project Workspace | Local projects, linked questions, evidence library, decision timeline, and decision delta. | [Version 4 Architecture](docs/Version4Architecture.md) |
 | Case Studies | Reviewer-friendly examples of evidence, confidence, and evaluation. | [V2 Case Studies](docs/case_studies/semiconductor_export_controls.md) |
 | Research Direction | A separate path from product QA toward future research validation. | [Research Agenda](docs/research/ResearchAgenda.md) |
+| V4 Architecture | Long-term direction for projects, evidence bundles, traceability, and decision evolution. | [Version 4 Architecture](docs/Version4Architecture.md) |
 
 ## Architecture
 
-The repository is a local FastAPI application with a deterministic analysis pipeline and downloadable artifacts.
+The repository is a local FastAPI application with a deterministic analysis pipeline, local project workspace storage, and downloadable artifacts.
 
 ```text
 User Input
@@ -109,7 +134,7 @@ User Input
 FastAPI App
   |
   v
-Analysis Service
+Project Workspace + Analysis Service
   |
   v
 Decision Intelligence Pipeline
@@ -123,13 +148,16 @@ Markdown, TXT, JSON, Trace, Metadata
 
 | Area | Role |
 | --- | --- |
-| `app.py` | Thin FastAPI entrypoint. |
+| `app.py` | Thin FastAPI entrypoint for health, analysis, run artifacts, downloads, and V4 project routes. |
 | `src/` | Analysis service, pipeline, artifacts, evidence, confidence, and evaluation modules. |
-| `dashboard/` | Local browser dashboard. |
+| `src/project_workspace.py` | Local JSON project workspace utilities for projects, questions, evidence, decision history, and decision delta. |
+| `dashboard/` | Local browser dashboard, including `dashboard/project.js` for project workspace behavior. |
 | `knowledge_base/` | Local mechanism, analogue, outcome, and playbook records. |
 | `docs/` | Product, engineering, governance, evidence, evaluation, and research documentation. |
 | `demo_case_outputs/` | Bundled generated artifacts for review. |
 | `tests/` | Pytest coverage for API behavior and decision-quality foundations. |
+
+V4 uses local JSON files under `data/projects/` for project state. It does not add PostgreSQL, SQLite, Redis, background workers, authentication, cloud services, autonomous browsing, or autonomous monitoring.
 
 ## Repository Guide
 
@@ -155,6 +183,15 @@ The implementation is intentionally lightweight:
 - Per-run Markdown, TXT, JSON, trace, metadata, and input artifacts
 - Ruff, compile checks, pytest, and GitHub Actions CI
 
+## No-VS-Code Local Launch
+
+For non-technical reviewers on macOS:
+
+1. Download or clone this repository.
+2. Double-click `start.command`.
+3. If macOS blocks it, right-click `start.command`, then choose **Open**.
+4. The browser opens the local dashboard at `http://127.0.0.1:8000/dashboard/`.
+
 Run locally:
 
 ```bash
@@ -169,6 +206,40 @@ python3 -m ruff check .
 python3 -m compileall app.py src tests
 python3 -m pytest
 ```
+
+## How To Test V4 Locally
+
+1. Start FastAPI:
+
+```bash
+python3 -m uvicorn app:app --reload
+```
+
+2. Open the dashboard:
+
+```text
+http://127.0.0.1:8000/dashboard/
+```
+
+3. Create a Project in the V4 Workspace panel.
+4. Add and select a project question.
+5. Paste source material and click **Build decision brief**.
+6. Add a manual Evidence Library note under the active project.
+7. Add and select a second question, then run analysis again.
+8. Inspect the Decision Timeline and Decision Delta in the active project panel.
+9. Use the browser print dialog to print or save PDF. Print styles hide workspace controls and render the results panel full width.
+
+Standalone analysis is still supported: leave no active project selected and run the brief builder as before.
+
+## V4 Release Demo
+
+A complete Version 4 workspace validation demo is stored at:
+
+```text
+demo_case_outputs/v4_workspace/
+```
+
+It includes a sample project JSON, reusable evidence library sample, two linked question analyses, decision history, deterministic decision delta, and generated Markdown/TXT/JSON run artifacts.
 
 ## Research
 
@@ -185,6 +256,18 @@ Future Human Evaluation
 ```
 
 The current system implements product QA and deterministic decision-quality evaluation. Future research work is documented separately so the product does not imply scientific proof, benchmark superiority, or real-world predictive accuracy.
+
+## Version 4 Direction
+
+Version 4 evolves the platform into a local Decision Intelligence Workspace: projects, reusable evidence notes, evidence libraries, linked analysis runs, decision history, and traceable recommendation changes over time.
+
+The implemented V4 route is:
+
+```text
+Project -> Questions -> Evidence Library -> Analysis Runs -> Decision Timeline -> Decision Delta
+```
+
+This remains a professional decision workspace, not a chatbot or autonomous agent. The system does not browse independently, monitor sources in the background, orchestrate agents, or collect evidence without user action.
 
 ## Current Status
 

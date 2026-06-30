@@ -21,6 +21,16 @@ if str(SRC) not in sys.path:
 
 from analysis_service import run_analysis  # noqa: E402
 from pdf_reader import extract_pdf_text  # noqa: E402
+from project_workspace import (
+    add_question_to_project,
+    add_evidence_to_project,
+    attach_run_to_question,
+    create_project,
+    decision_delta,
+    get_project,
+    list_project_evidence,
+    list_projects as list_project_workspaces,
+)  # noqa: E402
 from run_storage import (
     download_links,
     read_json,
@@ -44,6 +54,8 @@ class AnalyzeRequest(BaseModel):
     input_mode: str = "paste_text"
     uploaded_filename: str = ""
     file_type: str = "text"
+    project_id: str = ""
+    project_question_id: str = ""
 
 
 class ExtractFileRequest(BaseModel):
@@ -118,6 +130,17 @@ def extract_file(request: ExtractFileRequest) -> dict[str, str]:
 @app.post("/analyze", response_model=AnalyzeResponse)
 def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     """Run the real Python pipeline and persist run artifacts."""
+    if request.project_id:
+        try:
+            project = get_project(request.project_id)
+        except FileNotFoundError as exc:
+            raise HTTPException(status_code=404, detail="Project not found.") from exc
+        if request.project_question_id and not any(
+            item.get("question_id") == request.project_question_id
+            for item in project.get("questions", [])
+        ):
+            raise HTTPException(status_code=404, detail="Project question not found.")
+
     result = run_analysis(
         text=request.text,
         language=request.language,
@@ -129,7 +152,110 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         uploaded_filename=request.uploaded_filename,
         file_type=request.file_type,
     )
+    if request.project_id:
+        try:
+            if request.project_question_id:
+                attach_run_to_question(
+                    request.project_id,
+                    question_id=request.project_question_id,
+                    run_id=result["run_id"],
+                    analysis=result["analysis"],
+                    brief_path=result["downloads"]["markdown"],
+                )
+            else:
+                add_question_to_project(
+                    project_id=request.project_id,
+                    question=request.question_text,
+                    run_id=result["run_id"],
+                    brief_path=result["downloads"]["markdown"],
+                    analysis=result["analysis"],
+                )
+        except FileNotFoundError as exc:
+            raise HTTPException(status_code=404, detail="Project or question not found.") from exc
     return AnalyzeResponse(**result)
+
+
+@app.get("/projects")
+def get_projects() -> dict[str, list[dict[str, Any]]]:
+    """List project workspaces."""
+    return {"projects": list_project_workspaces()}
+
+
+@app.post("/projects")
+def post_project(payload: dict[str, Any]) -> dict[str, Any]:
+    """Create a new project workspace."""
+    name = str(payload.get("name", "")).strip()
+    description = str(payload.get("description", "")).strip()
+
+    if not name:
+        raise HTTPException(status_code=400, detail="Project name is required.")
+
+    return create_project(name=name, description=description)
+
+
+@app.get("/projects/{project_id}")
+def get_project_workspace(project_id: str) -> dict[str, Any]:
+    """Return one project workspace."""
+    try:
+        return get_project(project_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+
+
+@app.post("/projects/{project_id}/questions")
+def post_project_question(project_id: str, payload: dict[str, Any]) -> dict[str, Any]:
+    """Add a question record to a project workspace."""
+    question = str(payload.get("question", "")).strip()
+    run_id = payload.get("run_id")
+    brief_path = payload.get("brief_path")
+    analysis = payload.get("analysis")
+
+    if not question:
+        raise HTTPException(status_code=400, detail="Question is required.")
+
+    if run_id and analysis is None:
+        try:
+            analysis = read_json(run_dir_or_404(str(run_id)) / "analysis.json")
+        except HTTPException:
+            analysis = None
+
+    try:
+        return add_question_to_project(
+            project_id=project_id,
+            question=question,
+            run_id=run_id,
+            brief_path=brief_path,
+            analysis=analysis,
+        )
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+
+
+@app.post("/projects/{project_id}/evidence")
+def post_project_evidence(project_id: str, payload: dict[str, Any]) -> dict[str, Any]:
+    """Add a manual evidence item to a project workspace."""
+    try:
+        return add_evidence_to_project(project_id, payload)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+
+
+@app.get("/projects/{project_id}/evidence")
+def get_project_evidence(project_id: str) -> dict[str, list[dict[str, Any]]]:
+    """List evidence items stored under one project workspace."""
+    try:
+        return {"evidence": list_project_evidence(project_id)}
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+
+
+@app.get("/projects/{project_id}/delta")
+def get_project_delta(project_id: str) -> dict[str, Any]:
+    """Compare the two latest completed project decisions."""
+    try:
+        return decision_delta(project_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
 
 
 @app.get("/runs")

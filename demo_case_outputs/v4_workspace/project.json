@@ -1,0 +1,97 @@
+{
+  "project_id": "demo_v4_workspace_export_controls",
+  "name": "V4 Workspace Demo - Semiconductor Export Controls",
+  "description": "Release-validation demo for Project -> Questions -> Evidence Library -> Analysis Runs -> Decision Timeline -> Decision Delta.",
+  "created_at": "2026-06-30T11:18:44",
+  "updated_at": "2026-06-30T11:18:44",
+  "questions": [
+    {
+      "question_id": "q_export_controls_immediate",
+      "question": "Should management pause high-risk semiconductor customer orders while export-control exposure is reviewed?",
+      "run_id": "run_20260630_003",
+      "artifact_folder": "question_1_q_export_controls_immediate",
+      "brief_path": "question_1_q_export_controls_immediate/brief.md",
+      "created_at": "2026-06-30T11:18:44"
+    },
+    {
+      "question_id": "q_export_controls_update",
+      "question": "After receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?",
+      "run_id": "run_20260630_004",
+      "artifact_folder": "question_2_q_export_controls_update",
+      "brief_path": "question_2_q_export_controls_update/brief.md",
+      "created_at": "2026-06-30T11:18:44"
+    }
+  ],
+  "evidence_library": [
+    {
+      "evidence_id": "EV-DEMO-001",
+      "title": "Initial export-control policy bulletin",
+      "source_type": "User Provided",
+      "source_url": "",
+      "uploaded_filename": "demo_initial_policy_bulletin.txt",
+      "text_excerpt": "New controls affect advanced semiconductor equipment, AI chips, design software, and restricted end users.",
+      "summary": "Initial local evidence note establishing the decision problem and immediate compliance uncertainty.",
+      "added_at": "2026-06-30T11:18:44",
+      "status": "User Provided",
+      "freshness_note": "Demo evidence representing the first project question."
+    },
+    {
+      "evidence_id": "EV-DEMO-002",
+      "title": "Follow-up licensing clarification",
+      "source_type": "User Provided",
+      "source_url": "",
+      "uploaded_filename": "demo_licensing_clarification.txt",
+      "text_excerpt": "Clarification identifies narrower restrictions, a licensing path, and a transition period for some previously authorized orders.",
+      "summary": "Follow-up local evidence note used to demonstrate how project decisions can change or stabilize over time.",
+      "added_at": "2026-06-30T11:18:44",
+      "status": "User Provided",
+      "freshness_note": "Demo evidence representing the second project question."
+    }
+  ],
+  "decision_history": [
+    {
+      "decision_id": "DEC-DEMO-001",
+      "question_id": "q_export_controls_immediate",
+      "run_id": "run_20260630_003",
+      "artifact_folder": "question_1_q_export_controls_immediate",
+      "created_at": "2026-06-30T11:18:44",
+      "recommendation_summary": "Option B: map exposure, preserve flexibility, and prepare staged response options.",
+      "confidence_label": "Moderate",
+      "decision_quality_score": "9.7 / 10",
+      "evidence_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E8",
+        "E9",
+        "E10",
+        "E11",
+        "E12"
+      ]
+    },
+    {
+      "decision_id": "DEC-DEMO-002",
+      "question_id": "q_export_controls_update",
+      "run_id": "run_20260630_004",
+      "artifact_folder": "question_2_q_export_controls_update",
+      "created_at": "2026-06-30T11:18:44",
+      "recommendation_summary": "Option B: map exposure, preserve flexibility, and prepare staged response options.",
+      "confidence_label": "Moderate",
+      "decision_quality_score": "9.7 / 10",
+      "evidence_ids": [
+        "E1",
+        "E2",
+        "E3",
+        "E4",
+        "E5",
+        "E6",
+        "E7",
+        "E8"
+      ]
+    }
+  ]
+}

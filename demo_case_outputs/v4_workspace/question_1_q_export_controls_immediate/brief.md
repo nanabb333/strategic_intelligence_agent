@@ -4,75 +4,76 @@
 
 **Current Position:** Monitor closely and prepare staged response options
 **Confidence:** Medium
-**Why:** Historical cases suggest the first headline is rarely the full impact; the real risk usually appears through implementation details, exposure mapping, compliance burden, customer eligibility, margins, or management reaction.
-**Next 30-90 Days:** Track management guidance, supplier/customer exposure, implementation details, margin pressure, and whether the issue remains temporary or becomes structural.
+**Why:** The decision turns on licensing approval delays, customer eligibility, supplier concentration, compliance cost, and whether management guidance treats the issue as temporary or structural.
+**Next 30-90 Days:** Review supplier exposure, licensing requirements, customer eligibility, compliance costs, and margin commentary over the next 30-90 days.
 
 ## Decision Question
 
-The key question is not only what happened in this supply chain disruption event, but whether it creates a temporary adjustment problem or a deeper structural risk.
+The key question is not only what the export control says, but whether it creates a temporary compliance adjustment or a structural market-access constraint.
 
 ## Decision Criteria
 
 These are the dimensions driving today's decision:
-- **Exposure severity** — **Importance: High.** The decision depends on whether exposure is limited or material.
-- **Reversibility** — **Importance: High.** Lower-reversibility actions require stronger evidence.
-- **Execution burden** — **Importance: Medium.** Operational difficulty affects whether preparation is realistic.
-- **Information value** — **Importance: Medium.** The preferred path should create useful evidence for the next review.
+- **Customer exposure** — **Importance: High.** Restricted end-user exposure determines whether market access is actually constrained.
+- **Licensing uncertainty** — **Importance: High.** Approval timing and denial patterns determine operating bottlenecks.
+- **Compliance burden** — **Importance: Medium.** Documentation, staffing, and review costs can become durable operating work.
+- **Margin impact** — **Importance: High.** Costs matter if they flow through to revenue, pricing, or profitability.
+- **Supply chain resilience** — **Importance: Medium.** Supplier concentration determines whether disruption spreads beyond legal review.
 
 ## Decision Paths
 
 ### Option A
 
-**Path:** Maintain current position / wait for more evidence
+**Path:** Wait for final rule detail before changing operations
 
 **Meaning:** Hold the current posture until the evidence base is clearer.
 
-**Appropriate when:** Available evidence shows limited exposure, high reversibility, and no deterioration in Exposure severity, Reversibility.
+**Appropriate when:** Available evidence shows limited exposure, high reversibility, and no deterioration in Customer exposure, Licensing uncertainty, Margin impact.
 
 **Immediate actions**
-- Document why Maintain current position / wait for more evidence is acceptable.
-- Confirm whether exposure severity can be ruled out as a material constraint.
+- Document why Wait for final rule detail before changing operations is acceptable.
+- Confirm whether customer exposure can be ruled out as a material constraint.
 
 **Near-term actions**
 - Schedule a dated review rather than leaving the decision open-ended.
-- Move to Gradual adjustment / monitor and prepare if exposure cannot be ruled out with current evidence.
+- Move to Map exposure and prepare staged adjustments if exposure cannot be ruled out with current evidence.
 
 **Main benefit:** Avoids unnecessary disruption when the issue is likely manageable.
 
 **Main risk:** May underprepare the organization if exposure is already material.
 
-**Evidence that would make this preferable:** This becomes preferable if Exposure severity, Reversibility remain limited and no monitoring signal shows material change.
+**Evidence that would make this preferable:** This becomes preferable if Customer exposure, Licensing uncertainty, Margin impact remain limited and no monitoring signal shows material change.
 
 ### Option B (Recommended)
 
-**Path:** Gradual adjustment / monitor and prepare
+**Path:** Map exposure and prepare staged adjustments
 
 **Meaning:** Proceed with reversible preparation while delaying irreversible commitments.
 
-**Appropriate when:** Uncertainty is meaningful, especially around Exposure severity, Reversibility, but evidence does not yet justify a full defensive move.
+**Appropriate when:** Uncertainty is meaningful, especially around Customer exposure, Licensing uncertainty, Margin impact, but evidence does not yet justify a full defensive move.
 
 **Immediate actions**
-- Build an exposure map covering Exposure severity, Reversibility.
+- Build an exposure map covering Customer exposure, Licensing uncertainty, Margin impact.
 - Assign one decision owner and one review date.
 - Separate confirmed facts from unresolved assumptions.
 
 **Near-term actions**
 - Review new evidence at the 30-day and 90-day checkpoints.
-- Prepare actions needed if the decision shifts to Maintain current position / wait for more evidence or Immediate defensive action.
+- Prepare actions needed if the decision shifts to Wait for final rule detail before changing operations or Immediately reduce exposed customers, suppliers, or product lines.
 
 **Main benefit:** Preserves flexibility while converting uncertainty into decision-useful evidence.
 
 **Main risk:** Can become process activity if the exposure map and review cadence are not owned.
 
-**Evidence that would make this preferable:** This remains preferable when Exposure severity, Reversibility are material enough to monitor but not yet binding.
+**Evidence that would make this preferable:** This remains preferable when Customer exposure, Licensing uncertainty, Margin impact are material enough to monitor but not yet binding.
 
 ### Option C
 
-**Path:** Immediate defensive action
+**Path:** Immediately reduce exposed customers, suppliers, or product lines
 
 **Meaning:** Take immediate defensive action before waiting for additional clarification.
 
-**Appropriate when:** Evidence shows exposure severity is already binding, costly, customer-facing, or difficult to reverse.
+**Appropriate when:** Evidence shows customer exposure is already binding, costly, customer-facing, or difficult to reverse.
 
 **Immediate actions**
 - Identify the specific customers, suppliers, products, approvals, or workflows to reduce or pause.
@@ -86,13 +87,13 @@ These are the dimensions driving today's decision:
 
 **Main risk:** Can sacrifice opportunity or relationships before the evidence supports that cost.
 
-**Evidence that would make this preferable:** This becomes preferable if evidence shows exposure severity is severe or worsening.
+**Evidence that would make this preferable:** This becomes preferable if evidence shows customer exposure is severe or worsening.
 
 ## Option Ranking
 
-- **1. Option B: Gradual adjustment / monitor and prepare.** Ranks first because the highest-importance criteria are Exposure severity, Reversibility. It improves readiness on those criteria without creating the execution burden of Option C or the underpreparedness of Option A.
-- **2. Option A: Maintain current position / wait for more evidence.** Ranks second because it has lower cost and disruption than Option C, but it is weaker than Option B on Exposure severity, Reversibility if exposure grows.
-- **3. Option C: Immediate defensive action.** Ranks third because it offers more protection, but it is weaker on reversibility, opportunity cost, and execution burden unless exposure severity is already severe.
+- **1. Option B: Map exposure and prepare staged adjustments.** Ranks first because the highest-importance criteria are Customer exposure, Licensing uncertainty, Margin impact. It improves readiness on those criteria without creating the execution burden of Option C or the underpreparedness of Option A.
+- **2. Option A: Wait for final rule detail before changing operations.** Ranks second because it has lower cost and disruption than Option C, but it is weaker than Option B on Customer exposure, Licensing uncertainty, Margin impact if exposure grows.
+- **3. Option C: Immediately reduce exposed customers, suppliers, or product lines.** Ranks third because it offers more protection, but it is weaker on reversibility, opportunity cost, and execution burden unless customer exposure is already severe.
 
 ## Option Comparison
 
@@ -104,25 +105,25 @@ These are the dimensions driving today's decision:
 
 ## Preferred Path
 
-**Recommended path:** Gradual adjustment / monitor and prepare
+**Recommended path:** Map exposure and prepare staged adjustments
 
 ### Why Today
 
-- Gradual adjustment / monitor and prepare is preferred today because it produces decision evidence on Exposure severity, Reversibility without forcing irreversible action.
-- Maintain current position / wait for more evidence is too passive if management guidance and operating commentary is already material.
-- Immediate defensive action is premature unless supplier and customer exposure shows binding or costly constraints.
+- Map exposure and prepare staged adjustments is preferred today because it produces decision evidence on Customer exposure, Licensing uncertainty, Margin impact without forcing irreversible action.
+- Wait for final rule detail before changing operations is too passive if customer eligibility and restricted end-user exposure is already material.
+- Immediately reduce exposed customers, suppliers, or product lines is premature unless licensing approval timing and denial patterns shows binding or costly constraints.
 
 ### Assumptions That Make This Preferable
 
-- The highest-priority unknowns are Exposure severity, Reversibility, and they can be clarified through near-term internal work.
+- The highest-priority unknowns are Customer exposure, Licensing uncertainty, Margin impact, and they can be clarified through near-term internal work.
 - The organization can still preserve reversibility while the evidence base improves.
 - No current evidence requires immediate defensive reduction before exposure is mapped.
 
 ### Immediate Execution Steps
 
-- Build a short exposure map covering affected suppliers, customers, products, regions, and workflows.
-- Define trigger points that would move the decision from Option B to Option A or Option C.
-- Prepare a one-page decision update using named exposure, cost, customer, supplier, and reversibility indicators.
+- Review supplier exposure to controlled equipment, inputs, and restricted jurisdictions.
+- List products and customers requiring license or eligibility review.
+- Track compliance cost and staffing needs as a separate operating signal.
 
 ### Required Stakeholders
 
@@ -140,60 +141,60 @@ These are the dimensions driving today's decision:
 
 ### Escalation Conditions
 
-- Escalate toward Immediate defensive action if management guidance and operating commentary becomes binding, customer-facing, costly, or hard to reverse.
-- Escalate executive review if supplier and customer exposure moves against planning assumptions.
+- Escalate toward Immediately reduce exposed customers, suppliers, or product lines if customer eligibility and restricted end-user exposure becomes binding, customer-facing, costly, or hard to reverse.
+- Escalate executive review if licensing approval timing and denial patterns moves against planning assumptions.
 
 ### Exit Criteria
 
-- Exit toward Maintain current position / wait for more evidence if exposure is confirmed as limited, reversible, and not material to the top criteria: Exposure severity, Reversibility.
-- Exit toward Immediate defensive action if delay creates more downside than the opportunity cost of immediate defensive action.
+- Exit toward Wait for final rule detail before changing operations if exposure is confirmed as limited, reversible, and not material to the top criteria: Customer exposure, Licensing uncertainty, Margin impact.
+- Exit toward Immediately reduce exposed customers, suppliers, or product lines if delay creates more downside than the opportunity cost of immediate defensive action.
 
 ## Role-Based Implications
 
-- CEO / Executive Sponsor: treat Gradual adjustment / monitor and prepare as a decision-control posture, not a delay tactic; require a named owner and a date for reassessment.
-- Corporate Strategy: translate Exposure severity, Reversibility into an exposure map that shows which business units, customers, products, or regions are actually affected.
+- CEO / Executive Sponsor: treat Map exposure and prepare staged adjustments as a decision-control posture, not a delay tactic; require a named owner and a date for reassessment.
+- Corporate Strategy: translate Customer exposure, Licensing uncertainty, Margin impact into an exposure map that shows which business units, customers, products, or regions are actually affected.
 - Finance / CFO: separate confirmed financial exposure from possible exposure so the team does not overstate cost, margin, or liquidity impact before evidence supports it.
-- Operations / Supply Chain: identify which workflows would need to change if the decision shifts from Option B to Immediate defensive action.
+- Operations / Supply Chain: identify which workflows would need to change if the decision shifts from Option B to Immediately reduce exposed customers, suppliers, or product lines.
 - Legal / Compliance: distinguish confirmed obligations from unresolved interpretation questions and document what evidence would change the operating posture.
 
 ## Why This Reasoning Holds
 
-- Why this is true: comparable cases often moved from headline shock into implementation, exposure mapping, and communication work.
-- Compared with what: immediate defensive action would reduce some risk but can create high opportunity cost before exposure is clear.
-- Under what assumptions: the event is being interpreted as Supply Chain Disruption and the local cases are relevant enough for comparison.
-- What would make it wrong: clear evidence of severe exposure, binding rules, customer loss, liquidity stress, or management guidance changing faster than expected.
+- Why this is true: export-control cases often move from announcement risk into licensing, screening, and supplier/customer review work.
+- Compared with what: Option A leaves the team exposed to rule-detail surprises, while Option C may cut relationships before the actual restricted scope is known.
+- Under what assumptions: the rule details, customer eligibility, and license timing remain uncertain enough to make staged preparation more robust than immediate withdrawal.
+- What would make it wrong: binding restrictions, license denials, severe customer loss, or management guidance showing structural revenue or margin damage.
 
 ## Assumptions
 
-- The event is being interpreted as Supply Chain Disruption and the local cases are relevant enough for comparison.
+- The rule details, customer eligibility, and license timing remain uncertain enough to make staged preparation more robust than immediate withdrawal.
 - The supplied source material is directionally accurate enough to frame the decision, but still requires human fact review before operational use.
-- The organization has enough time and management capacity to execute Gradual adjustment / monitor and prepare before the issue becomes binding.
-- No immediate evidence shows that Immediate defensive action is already required.
+- The organization has enough time and management capacity to execute Map exposure and prepare staged adjustments before the issue becomes binding.
+- No immediate evidence shows that Immediately reduce exposed customers, suppliers, or product lines is already required.
 
 ## Trade-offs
 
-- Benefits gained: Gradual adjustment / monitor and prepare creates an exposure map, assigns ownership, and preserves reversibility while evidence on Exposure severity, Reversibility is still developing.
+- Benefits gained: Map exposure and prepare staged adjustments creates an exposure map, assigns ownership, and preserves reversibility while evidence on Customer exposure, Licensing uncertainty, Margin impact is still developing.
 - Costs accepted: the recommendation prioritizes execution flexibility and learning over immediate risk elimination, so the team must spend management attention now and tolerate partial exposure while evidence matures.
-- Opportunities sacrificed: the user gives up the lowest-effort posture of Maintain current position / wait for more evidence and does not receive the full immediate protection of Immediate defensive action.
-- Risks still unresolved: new evidence on Exposure severity, Reversibility, implementation timing, cost, customer behavior, or operating constraints may still justify changing paths.
+- Opportunities sacrificed: the user gives up the lowest-effort posture of Wait for final rule detail before changing operations and does not receive the full immediate protection of Immediately reduce exposed customers, suppliers, or product lines.
+- Risks still unresolved: new evidence on Customer exposure, Licensing uncertainty, Margin impact, implementation timing, cost, customer behavior, or operating constraints may still justify changing paths.
 
 ## Risk Analysis
 
-### Exposure severity is higher than the current evidence suggests.
+### Customer exposure is higher than the current evidence suggests.
 
-- **Why it matters:** Gradual adjustment / monitor and prepare depends on the assumption that exposure can be mapped before it becomes binding.
-- **Potential impact:** The preferred path may be insufficient and Immediate defensive action may become necessary.
-- **Early warning indicator:** Management guidance and operating commentary indicates exposure above the planning assumption or cannot be documented.
-- **Suggested mitigation:** Prepare the Immediate defensive action execution checklist before making irreversible commitments.
+- **Why it matters:** Map exposure and prepare staged adjustments depends on the assumption that exposure can be mapped before it becomes binding.
+- **Potential impact:** The preferred path may be insufficient and Immediately reduce exposed customers, suppliers, or product lines may become necessary.
+- **Early warning indicator:** Customer eligibility and restricted end-user exposure indicates exposure above the planning assumption or cannot be documented.
+- **Suggested mitigation:** Prepare the Immediately reduce exposed customers, suppliers, or product lines execution checklist before making irreversible commitments.
 
-### Reversibility deteriorates before the next checkpoint.
+### Licensing uncertainty deteriorates before the next checkpoint.
 
 - **Why it matters:** The recommendation relies on preserving choice while evidence improves.
 - **Potential impact:** Decision-makers may lose the ability to shift paths without higher cost.
-- **Early warning indicator:** Supplier and customer exposure indicates delay, denial, cost increase, or customer-facing impact.
+- **Early warning indicator:** Licensing approval timing and denial patterns indicates delay, denial, cost increase, or customer-facing impact.
 - **Suggested mitigation:** Set a dated executive checkpoint and require a go / hold / escalate decision record.
 
-### Execution burden is underestimated.
+### Margin impact is underestimated.
 
 - **Why it matters:** A staged path only works if operating teams can produce the required decision artifacts.
 - **Potential impact:** The organization may create review activity without improving the actual decision.
@@ -203,51 +204,40 @@ These are the dimensions driving today's decision:
 
 ## Decision Blind Spots
 
-- Organization-specific data for exposure severity is still needed to move from a general recommendation to an operating decision.
-- Organization-specific data for reversibility is still needed to move from a general recommendation to an operating decision.
-- The current recommendation would improve with fresher evidence on management guidance and operating commentary, supplier and customer exposure.
+- Organization-specific data for customer exposure is still needed to move from a general recommendation to an operating decision.
+- Organization-specific data for licensing uncertainty is still needed to move from a general recommendation to an operating decision.
+- Organization-specific data for margin impact is still needed to move from a general recommendation to an operating decision.
+- The current recommendation would improve with fresher evidence on customer eligibility and restricted end-user exposure, licensing approval timing and denial patterns.
 - Contractual obligations, customer commitments, and internal execution capacity may change the preferred path even if the external situation is unchanged.
 
 ## What Could Change This Recommendation
 
-- Clear evidence of severe exposure, binding rules, customer loss, liquidity stress, or management guidance changing faster than expected.
-- Move toward Option A (Maintain current position / wait for more evidence) if review shows limited exposure, low cost, high reversibility, and no deterioration in Exposure severity, Reversibility.
-- Move toward Option C (Immediate defensive action) if constraints become binding, costly, customer-facing, or difficult to reverse.
+- Binding restrictions, license denials, severe customer loss, or management guidance showing structural revenue or margin damage.
+- Move toward Option A (Wait for final rule detail before changing operations) if review shows limited exposure, low cost, high reversibility, and no deterioration in Customer exposure, Licensing uncertainty, Margin impact.
+- Move toward Option C (Immediately reduce exposed customers, suppliers, or product lines) if constraints become binding, costly, customer-facing, or difficult to reverse.
 
 ## Regulatory Considerations
 
 Decision-support reminder only; this is not legal advice.
 
-### Competition Law
+### Export Controls
 
-- **Why it may matter:** Platform access, ranking, pricing, or complaint-handling rules may affect product and commercial choices.
-- **Possible decision impact:** Product or commercial teams may need to change operating processes before continuing the current path.
-- **Suggested internal review:** Legal and Product should prepare a competition-risk operating checklist.
-
-### Data Privacy / Data Governance
-
-- **Why it may matter:** Data handling, reporting, or governance obligations may affect product design and compliance evidence.
-- **Possible decision impact:** Execution may require documentation, access controls, reporting workflows, or data-use review.
-- **Suggested internal review:** Privacy, Data Governance, and Engineering should confirm required controls and evidence artifacts.
-
-### Corporate Governance
-
-- **Why it may matter:** Material exposure, disclosure language, or control gaps may require executive or board-level review.
-- **Possible decision impact:** The decision may need a formal memo, risk committee discussion, or documented escalation path.
-- **Suggested internal review:** Executive sponsor should decide whether the next checkpoint requires a board or risk-committee package.
+- **Why it may matter:** Licensing, product classification, end-use, or restricted-party obligations may determine whether execution is allowed.
+- **Possible decision impact:** Customer, supplier, product, or shipment decisions may need to pause until obligations are confirmed.
+- **Suggested internal review:** Legal / Compliance should prepare a regulatory impact review separating confirmed requirements from open interpretation questions.
 
 ## Recommendation Action Plan
 
 ### NOW
 
-- **Action:** Build a short exposure map covering affected suppliers, customers, products, regions, and workflows. Define trigger points that would move the decision from Option B to Option A or Option C.
+- **Action:** Review supplier exposure to controlled equipment, inputs, and restricted jurisdictions. List products and customers requiring license or eligibility review.
 - **Owner:** Strategy + relevant operating owner.
 - **Deliverable:** Exposure map with affected customers, suppliers, products, regions, workflows, and open assumptions.
 - **Decision Purpose:** Confirms whether staged preparation is sufficient or immediate escalation is needed.
 
 ### NEXT 30 DAYS
 
-- **Action:** Prepare a one-page decision update using named exposure, cost, customer, supplier, and reversibility indicators. Keep historical cases as comparison evidence, not as proof that the same outcome will occur.
+- **Action:** Track compliance cost and staffing needs as a separate operating signal. Prepare an executive update separating confirmed restrictions from unresolved rule details.
 - **Owner:** Strategy + Legal / Compliance + Finance.
 - **Deliverable:** Readiness checklist showing confirmed facts, unresolved assumptions, and required follow-up.
 - **Expected Decision:** Hold the staged path, narrow scope, or prepare defensive execution.
@@ -261,7 +251,7 @@ Decision-support reminder only; this is not legal advice.
 
 ### RE-EVALUATION TRIGGER
 
-- **Action:** Revisit the recommendation if management guidance and operating commentary, supplier and customer exposure, customer impact, cost pressure, or reversibility changes materially.
+- **Action:** Revisit the recommendation if customer eligibility and restricted end-user exposure, licensing approval timing and denial patterns, customer impact, cost pressure, or reversibility changes materially.
 - **Owner:** Executive sponsor.
 - **Deliverable:** Go / hold / escalate decision record.
 - **Decision Purpose:** Prevents the recommendation from remaining in force after the evidence changes.
@@ -269,11 +259,11 @@ Decision-support reminder only; this is not legal advice.
 ## What to Monitor
 
 These signals answer: what could change today's recommendation?
-- **Management guidance and operating commentary:** Shows whether leaders treat the issue as temporary noise or a structural planning constraint.
-- **Supplier and customer exposure:** Identifies where operational or revenue impact may appear before it is visible in headline summaries.
-- **Implementation details, licensing rules, exemptions, or timelines:** Clarifies whether the event changes actual workflows or remains a broad announcement.
-- **Margin pressure, cost absorption, or working-capital strain:** Helps separate manageable adjustment from business-model stress.
-- **Evidence of process changes such as compliance reviews, sourcing changes, or customer segmentation:** Shows whether organizations are moving from observation to action.
+- **Customer eligibility and restricted end-user exposure:** Shows whether market access is actually constrained or only administratively delayed.
+- **Licensing approval timing and denial patterns:** Indicates whether the issue is becoming an operating bottleneck.
+- **Supplier concentration in controlled tools or inputs:** Identifies where disruption could spread through the supply chain.
+- **Compliance staffing, documentation, and legal cost:** Shows whether the control is becoming a durable operating burden.
+- **Management guidance on revenue, margins, and product segmentation:** Connects policy exposure to business impact.
 
 ### Investor
 
@@ -301,77 +291,77 @@ These signals answer: what could change today's recommendation?
 
 ## Historical Evidence
 
-### COVID Supply Chain Disruption (2020)
+### Huawei Entity List (2019)
 
-- **Case and time period:** COVID Supply Chain Disruption, 2020; Supply Chain Disruption; Manufacturing and Logistics.
-- **Why it is comparable:** keyword overlap: market; actor overlap: firms
-- **What happened:** Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions.
-- **Why it matters today:** Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.
+- **Case and time period:** Huawei Entity List, 2019; Export Controls; Technology.
+- **Why it is comparable:** scenario match on Export Controls; keyword overlap: advanced, can, compliance, controls
+- **What happened:** Restricted access to selected technology inputs changed supplier screening and product planning.
+- **Why it matters today:** Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
 - **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
 - **Reference:** No primary source link available.
 - **Source note:** Curated repository historical knowledge record; primary source link pending.
 
-### Red Sea Shipping Disruption (2023)
+### ASML Export Controls (2023)
 
-- **Case and time period:** Red Sea Shipping Disruption, 2023; Supply Chain Disruption; Shipping and Logistics.
-- **Why it is comparable:** actor overlap: firms
-- **What happened:** Security risks disrupted routing, transit times, insurance terms, and delivery planning.
-- **Why it matters today:** Firms evaluated rerouting, customer communication, freight costs, and contingency planning.
+- **Case and time period:** ASML Export Controls, 2023; Export Controls; Semiconductors.
+- **Why it is comparable:** scenario match on Export Controls; keyword overlap: advanced, controls, equipment, export
+- **What happened:** Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.
+- **Why it matters today:** Companies monitored license rules, tool availability, and jurisdictional alignment.
 - **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
 - **Reference:** No primary source link available.
 - **Source note:** Curated repository historical knowledge record; primary source link pending.
 
-### Semiconductor Shortage (2021)
+### Entity List Expansion (2020)
 
-- **Case and time period:** Semiconductor Shortage, 2021; Supply Chain Disruption; Automotive and Semiconductors.
-- **Why it is comparable:** event-family match: Supply Chain Disruption; event-family/title overlap
-- **What happened:** Chip shortages delayed production and exposed supplier concentration in critical components.
-- **Why it matters today:** Firms reviewed allocation processes, supplier relationships, and design flexibility.
+- **Case and time period:** Entity List Expansion, 2020; Export Controls; Technology.
+- **Why it is comparable:** event-family match: Export Controls; event-family/title overlap
+- **What happened:** Expanded restrictions increased screening burden and uncertainty for technology transactions.
+- **Why it matters today:** Companies strengthened restricted-party checks and licensing escalation paths.
 - **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
 - **Reference:** No primary source link available.
 - **Source note:** Curated repository historical knowledge record; primary source link pending.
 
 ## Market Expectations vs Actual Outcomes
 
-### COVID Supply Chain Disruption (2020)
+### Huawei Entity List (2019)
 
-- **Initial / mainstream expectation:** Observers often focus on near-term delays.
+- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
 - **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
-- **Actual observed outcome:** Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions.
-- **Expectation gap:** The durable lesson is usually exposure mapping, inventory policy, and alternate supplier qualification.
-- **Lesson:** Separate short-term disruption from longer-term operating model changes.
+- **Actual observed outcome:** Restricted access to selected technology inputs changed supplier screening and product planning.
+- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
+- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
 
-### Red Sea Shipping Disruption (2023)
+### ASML Export Controls (2023)
 
-- **Initial / mainstream expectation:** Observers often focus on near-term delays.
+- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
 - **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
-- **Actual observed outcome:** Security risks disrupted routing, transit times, insurance terms, and delivery planning.
-- **Expectation gap:** The durable lesson is usually exposure mapping, inventory policy, and alternate supplier qualification.
-- **Lesson:** Separate short-term disruption from longer-term operating model changes.
+- **Actual observed outcome:** Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.
+- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
+- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
 
-### Semiconductor Shortage (2021)
+### Entity List Expansion (2020)
 
-- **Initial / mainstream expectation:** Observers often focus on near-term delays.
+- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
 - **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
-- **Actual observed outcome:** Chip shortages delayed production and exposed supplier concentration in critical components.
-- **Expectation gap:** The durable lesson is usually exposure mapping, inventory policy, and alternate supplier qualification.
-- **Lesson:** Separate short-term disruption from longer-term operating model changes.
+- **Actual observed outcome:** Expanded restrictions increased screening burden and uncertainty for technology transactions.
+- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
+- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
 
-### Maritime Chokepoint Disruption (2021)
+### Allied Export Control Coordination (2023)
 
-- **Initial / mainstream expectation:** Observers often focus on near-term delays.
+- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
 - **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
-- **Actual observed outcome:** Route concentration created delivery delays and highlighted chokepoint exposure.
-- **Expectation gap:** The durable lesson is usually exposure mapping, inventory policy, and alternate supplier qualification.
-- **Lesson:** Separate short-term disruption from longer-term operating model changes.
+- **Actual observed outcome:** Policy alignment among allies increased the importance of jurisdiction-by-jurisdiction rule monitoring.
+- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
+- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
 
-### Suez Canal Ever Given Blockage (2021)
+### ZTE Denial Order (2018)
 
-- **Initial / mainstream expectation:** Observers often focus on near-term delays.
+- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
 - **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
-- **Actual observed outcome:** A single chokepoint disruption delayed vessels and exposed route concentration.
-- **Expectation gap:** The durable lesson is usually exposure mapping, inventory policy, and alternate supplier qualification.
-- **Lesson:** Separate short-term disruption from longer-term operating model changes.
+- **Actual observed outcome:** Restricted access to U.S. technology inputs created severe operational disruption for a telecom equipment firm.
+- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
+- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
 
 
 ## Evidence Used
@@ -401,12 +391,12 @@ These signals answer: what could change today's recommendation?
 
 **Overall Level:** Moderate
 
-**Reasoning:** Moderate confidence because 11 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
+**Reasoning:** Moderate confidence because 12 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
 
 **Supporting Evidence**
 
 - User-provided evidence defines the decision frame.
-- 4 repository historical records support analogue reasoning.
+- 5 repository historical records support analogue reasoning.
 - Evidence assessment includes high-confidence support for parts of the recommendation.
 - Mechanism detection links the issue to operational or strategic pressure points.
 
@@ -430,9 +420,8 @@ These signals answer: what could change today's recommendation?
   - Supporting Source: User-provided source material.
   - Evidence Type: User-provided input material
   - Source Metadata: Publisher: user-provided material; Publication Date: not available; Verification Status: provided input, not independently verified.
-  - Observation: Regulatory Action Digital Markets Demo Case
-
-A fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks.
+  - Observation: Decision question:
+Should management pause high-risk semiconductor customer orders while export-control exposure is reviewed?
   - Inference: The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.
   - Supports: Situation understanding and decision framing.
   - Why this evidence matters: It supports situation understanding and decision framing and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
@@ -440,10 +429,10 @@ A fictional competition regulator announces new rules for large digital platform
   - Relevance: High; Confidence: Moderate
 - **E2 (Local historical analogue record)**
   - Reference: No primary source link available.
-  - Supporting Source: COVID Supply Chain Disruption (2020): Shows how operational shocks can expose supplier concentration and inventory assumptions. Based on the repository's curated historical knowledge base.
+  - Supporting Source: Huawei Entity List (2019): Shows how export controls can alter supplier access and compliance workflows. Based on the repository's curated historical knowledge base.
   - Evidence Type: Local historical analogue record
   - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: keyword overlap: market; actor overlap: firms
+  - Observation: scenario match on Export Controls; keyword overlap: advanced, can, compliance, controls
   - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
   - Supports: Historical comparison and analogue reasoning.
   - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
@@ -451,38 +440,49 @@ A fictional competition regulator announces new rules for large digital platform
   - Relevance: Moderate; Confidence: Moderate
 - **E3 (Local historical analogue record)**
   - Reference: No primary source link available.
-  - Supporting Source: Red Sea Shipping Disruption (2023): Shows how route disruption can affect delivery timing and logistics costs. Based on the repository's curated historical knowledge base.
+  - Supporting Source: ASML Export Controls (2023): Highlights exposure to licensing rules for critical production tools. Based on the repository's curated historical knowledge base.
   - Evidence Type: Local historical analogue record
   - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: actor overlap: firms
+  - Observation: scenario match on Export Controls; keyword overlap: advanced, controls, equipment, export
   - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
   - Supports: Historical comparison and analogue reasoning.
   - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
   - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-- **E4 (Deterministic mechanism detection)**
+- **E4 (Local historical analogue record)**
   - Reference: No primary source link available.
-  - Supporting Source: Repository mechanism framework and source-text cues.
-  - Evidence Type: Deterministic mechanism detection
-  - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
-  - Observation: new rules; enforcement; reporting obligations
-  - Inference: scenario match: Regulatory Action; observation overlap: compliance, reporting, rules; actor overlap: firms
-  - Supports: Mechanism reasoning and risk identification.
-  - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-  - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
+  - Supporting Source: Japan-Korea Semiconductor Materials Dispute (2019): Shows how trade restrictions can affect specialized upstream inputs. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical analogue record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: keyword overlap: advanced, affecting, can, controls
+  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
+  - Supports: Historical comparison and analogue reasoning.
+  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
 - **E5 (Deterministic mechanism detection)**
   - Reference: No primary source link available.
   - Supporting Source: Repository mechanism framework and source-text cues.
   - Evidence Type: Deterministic mechanism detection
   - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
-  - Observation: eligibility rules; agency guidance; compliance deadlines
-  - Inference: scenario match: Regulatory Action; observation overlap: compliance, rules; actor overlap: firms
+  - Observation: licenses; entity lists; restricted equipment; cloud access limits
+  - Inference: scenario match: Export Controls; observation overlap: controls, equipment, restricted
   - Supports: Mechanism reasoning and risk identification.
   - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
   - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
   - Relevance: Moderate; Confidence: Moderate
-- **E6 (Evidence assessment)**
+- **E6 (Deterministic mechanism detection)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository mechanism framework and source-text cues.
+  - Evidence Type: Deterministic mechanism detection
+  - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
+  - Observation: restricted customers; end-use screening; transaction limits
+  - Inference: scenario match: Export Controls; observation overlap: customers, restricted; actor overlap: customers
+  - Supports: Mechanism reasoning and risk identification.
+  - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
+  - Relevance: Moderate; Confidence: Moderate
+- **E7 (Evidence assessment)**
   - Reference: No primary source link available.
   - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
   - Evidence Type: Evidence assessment
@@ -494,7 +494,7 @@ A fictional competition regulator announces new rules for large digital platform
   - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
   - Relevance: High; Confidence: High
   - Item-specific limitation: The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
-- **E7 (Evidence assessment)**
+- **E8 (Evidence assessment)**
   - Reference: No primary source link available.
   - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
   - Evidence Type: Evidence assessment
@@ -506,46 +506,46 @@ A fictional competition regulator announces new rules for large digital platform
   - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
   - Relevance: High; Confidence: High
   - Item-specific limitation: The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
-- **E8 (Local historical outcome record)**
-  - Reference: No primary source link available.
-  - Supporting Source: Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions. Based on the repository's curated historical knowledge base.
-  - Evidence Type: Local historical outcome record
-  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.
-  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
-  - Supports: Historical outcomes and strategic lessons.
-  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
-  - Relevance: Moderate; Confidence: High
 - **E9 (Local historical outcome record)**
   - Reference: No primary source link available.
-  - Supporting Source: Security risks disrupted routing, transit times, insurance terms, and delivery planning. Based on the repository's curated historical knowledge base.
+  - Supporting Source: Restricted access to selected technology inputs changed supplier screening and product planning. Based on the repository's curated historical knowledge base.
   - Evidence Type: Local historical outcome record
   - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: Firms evaluated rerouting, customer communication, freight costs, and contingency planning.
+  - Observation: Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
   - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
   - Supports: Historical outcomes and strategic lessons.
   - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
   - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-- **E10 (Local current-context record)**
+- **E10 (Local historical outcome record)**
   - Reference: No primary source link available.
-  - Supporting Source: Repository current-context knowledge base.
-  - Evidence Type: Local current-context record
+  - Supporting Source: Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical outcome record
   - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: Regulatory requirements can change operating flexibility and compliance workload.
-  - Inference: Rule proposals; supervisory guidance; stress-test results; enforcement actions
-  - Supports: Monitoring and current context.
-  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
-  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
+  - Observation: Companies monitored license rules, tool availability, and jurisdictional alignment.
+  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
+  - Supports: Historical outcomes and strategic lessons.
+  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
 - **E11 (Local current-context record)**
   - Reference: No primary source link available.
   - Supporting Source: Repository current-context knowledge base.
   - Evidence Type: Local current-context record
   - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
-  - Observation: Regulatory changes can alter project timelines and operational controls.
-  - Inference: Permit decisions; compliance deadlines; agency guidance; public filings
+  - Observation: Controls can affect access to inputs, customer eligibility, and compliance review timelines.
+  - Inference: Licensing updates; allied coordination; supplier disclosures; compliance guidance
+  - Supports: Monitoring and current context.
+  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
+  - Relevance: Moderate; Confidence: Moderate
+- **E12 (Local current-context record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository current-context knowledge base.
+  - Evidence Type: Local current-context record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: Companies may need to screen counterparties and assess license requirements before fulfillment.
+  - Inference: Restricted party lists; product classifications; license applications; end-use statements
   - Supports: Monitoring and current context.
   - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
   - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
@@ -555,8 +555,8 @@ A fictional competition regulator announces new rules for large digital platform
 
 - The supplied material is sufficient for an initial decision-support brief.
 - Human review will verify source details before operational use.
-- The Regulatory Action frame is an appropriate starting point for analysis.
-- The identified mechanisms remain relevant to the decision context: Regulatory Shock, Legislative Implementation Gap, Compliance Burden.
+- The Export Controls frame is an appropriate starting point for analysis.
+- The identified mechanisms remain relevant to the decision context: Technology Containment, Market Access Restriction, Counterparty Risk.
 - Sector exposure should be validated against organization-specific data.
 
 ### What Would Change This View
@@ -564,7 +564,7 @@ A fictional competition regulator announces new rules for large digital platform
 - New primary source material changes the factual basis.
 - Stakeholder responses differ from the assumptions in the brief.
 - Implementation details create materially different constraints.
-- Evidence shows the situation no longer fits the Regulatory Action frame.
+- Evidence shows the situation no longer fits the Export Controls frame.
 
 ### What Is Unknown Or Uncertain
 
@@ -589,48 +589,56 @@ A fictional competition regulator announces new rules for large digital platform
 ## Decision Quality Review
 
 **Overall label:** Strong
-**Overall score:** 0.969
+**Overall score:** 9.7 / 10
 
 This is a deterministic product-quality check. It is not a benchmark result, factual verification, or claim of real-world accuracy.
 
 ### Direct answer quality
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether the output frames a decision question, situation, recommendation, and criteria.
 
 ### Historical analogue relevance
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether analogues exist, appear in the evidence ledger, and include transferability limits.
 
 ### Evidence use
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether evidence items are reviewable and uncertainty remains visible.
 
 ### Option clarity
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether options are distinct and a preferred path is identified.
 
 ### Risk identification
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether risks, limitations, and unknowns are explicit.
 
 ### Change trigger quality
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** Checks whether the recommendation includes observable change triggers and monitoring signals.
 
 ### Localization quality
 
-- **Label:** Strong
+- **Score:** 10.0 / 10
+- **Assessment:** Strong
 - **Rationale:** English output selected; localization transformation is not required.
 
 ### Overconfidence control
 
-- **Label:** Adequate
+- **Score:** 7.5 / 10
+- **Assessment:** Adequate
 - **Rationale:** Checks for qualitative confidence, visible limitations, and absence of overconfident phrases.
 
 ### Notes

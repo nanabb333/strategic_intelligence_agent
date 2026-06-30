@@ -26,52 +26,68 @@ These are the dimensions driving today's decision:
 
 **Path:** Wait for final rule detail before changing operations
 
-**Pros**
-- Lowest immediate effort.
-- Preserves current posture while more evidence arrives.
+**Meaning:** Hold the current posture until the evidence base is clearer.
 
-**Cons**
-- Risk can accumulate if exposure is already material.
-- May delay preparation if the issue moves quickly.
+**Appropriate when:** Available evidence shows limited exposure, high reversibility, and no deterioration in Customer exposure, Licensing uncertainty, Margin impact.
 
-**Criteria Fit**
-- Strong on low execution burden and near-term opportunity cost.
-- Weak on Customer exposure, Licensing uncertainty, Margin impact if current exposure is already material.
-- Fails high-importance criteria when customer exposure cannot be assessed quickly.
+**Immediate actions**
+- Document why Wait for final rule detail before changing operations is acceptable.
+- Confirm whether customer exposure can be ruled out as a material constraint.
+
+**Near-term actions**
+- Schedule a dated review rather than leaving the decision open-ended.
+- Move to Map exposure and prepare staged adjustments if exposure cannot be ruled out with current evidence.
+
+**Main benefit:** Avoids unnecessary disruption when the issue is likely manageable.
+
+**Main risk:** May underprepare the organization if exposure is already material.
+
+**Evidence that would make this preferable:** This becomes preferable if Customer exposure, Licensing uncertainty, Margin impact remain limited and no monitoring signal shows material change.
 
 ### Option B (Recommended)
 
 **Path:** Map exposure and prepare staged adjustments
 
-**Pros**
-- Best balance between preparation and flexibility.
-- Creates useful information before irreversible action.
+**Meaning:** Proceed with reversible preparation while delaying irreversible commitments.
 
-**Cons**
-- Requires active monitoring and ownership.
-- Does not eliminate exposure immediately.
+**Appropriate when:** Uncertainty is meaningful, especially around Customer exposure, Licensing uncertainty, Margin impact, but evidence does not yet justify a full defensive move.
 
-**Criteria Fit**
-- Strong on Customer exposure, Licensing uncertainty, Margin impact because it converts uncertainty into an exposure map and review cadence.
-- Medium on immediate protection because it prepares response options before using them.
-- Best overall fit when high-importance criteria are serious but not yet fully resolved.
+**Immediate actions**
+- Build an exposure map covering Customer exposure, Licensing uncertainty, Margin impact.
+- Assign one decision owner and one review date.
+- Separate confirmed facts from unresolved assumptions.
+
+**Near-term actions**
+- Review new evidence at the 30-day and 90-day checkpoints.
+- Prepare actions needed if the decision shifts to Wait for final rule detail before changing operations or Immediately reduce exposed customers, suppliers, or product lines.
+
+**Main benefit:** Preserves flexibility while converting uncertainty into decision-useful evidence.
+
+**Main risk:** Can become process activity if the exposure map and review cadence are not owned.
+
+**Evidence that would make this preferable:** This remains preferable when Customer exposure, Licensing uncertainty, Margin impact are material enough to monitor but not yet binding.
 
 ### Option C
 
 **Path:** Immediately reduce exposed customers, suppliers, or product lines
 
-**Pros**
-- Highest immediate risk reduction.
-- Useful if exposure is already severe or binding.
+**Meaning:** Take immediate defensive action before waiting for additional clarification.
 
-**Cons**
-- Highest opportunity cost and execution burden.
-- Hardest to reverse if the issue proves temporary.
+**Appropriate when:** Evidence shows customer exposure is already binding, costly, customer-facing, or difficult to reverse.
 
-**Criteria Fit**
-- Strong on immediate protection if customer exposure is already severe.
-- Weak on execution complexity, reversibility, and sacrificed upside.
-- Only fits the high-importance criteria better than Option B if evidence shows customer exposure is binding or worsening.
+**Immediate actions**
+- Identify the specific customers, suppliers, products, approvals, or workflows to reduce or pause.
+- Escalate legal, compliance, finance, and operating-owner review before acting.
+
+**Near-term actions**
+- Confirm whether the defensive action reduced the specific exposure it targeted.
+- Document the opportunity cost and reversibility of the action taken.
+
+**Main benefit:** Reduces downside quickly when exposure is already severe.
+
+**Main risk:** Can sacrifice opportunity or relationships before the evidence supports that cost.
+
+**Evidence that would make this preferable:** This becomes preferable if evidence shows customer exposure is severe or worsening.
 
 ## Option Ranking
 
@@ -89,13 +105,57 @@ These are the dimensions driving today's decision:
 
 ## Preferred Path
 
-- **Option B currently ranks first**. It ranks first because it ranks above Option A by reducing blind exposure, and above Option C by avoiding premature disruption before licensing details and customer eligibility are clear.
-- Top criteria driving the recommendation: Customer exposure, Licensing uncertainty, Margin impact.
-- Why Option B ranks first: it performs best on the criteria that matter most for this decision, especially Customer exposure, Licensing uncertainty, Margin impact, while preserving flexibility.
-- Costs accepted: Option B requires monitoring, ownership, and delayed full protection rather than a one-step defensive move.
-- Why Option A does not rank first: Wait for final rule detail before changing operations keeps costs low, but it can leave the user underprepared on Customer exposure, Licensing uncertainty, Margin impact if exposure grows.
-- Why Option C does not rank first: Immediately reduce exposed customers, suppliers, or product lines offers more protection, but it can impose high opportunity cost before evidence on Customer exposure, Licensing uncertainty, Margin impact is strong enough.
-- What would change the ranking: stronger evidence that Customer exposure, Licensing uncertainty, Margin impact are either clearly immaterial or clearly severe.
+**Recommended path:** Map exposure and prepare staged adjustments
+
+### Why Today
+
+- Map exposure and prepare staged adjustments is preferred today because it produces decision evidence on Customer exposure, Licensing uncertainty, Margin impact without forcing irreversible action.
+- Wait for final rule detail before changing operations is too passive if customer eligibility and restricted end-user exposure is already material.
+- Immediately reduce exposed customers, suppliers, or product lines is premature unless licensing approval timing and denial patterns shows binding or costly constraints.
+
+### Assumptions That Make This Preferable
+
+- The highest-priority unknowns are Customer exposure, Licensing uncertainty, Margin impact, and they can be clarified through near-term internal work.
+- The organization can still preserve reversibility while the evidence base improves.
+- No current evidence requires immediate defensive reduction before exposure is mapped.
+
+### Immediate Execution Steps
+
+- Review supplier exposure to controlled equipment, inputs, and restricted jurisdictions.
+- List products and customers requiring license or eligibility review.
+- Track compliance cost and staffing needs as a separate operating signal.
+
+### Required Stakeholders
+
+- Executive sponsor: owns the go / hold / escalate decision.
+- Strategy: produces the exposure map and decision memo.
+- Finance: quantifies revenue, margin, liquidity, or cost exposure where relevant.
+- Legal / Compliance: separates confirmed obligations from interpretation questions.
+- Operations / Commercial owner: identifies affected workflows, suppliers, customers, or product commitments.
+
+### Decision Checkpoints
+
+- Now: complete the exposure map and list unresolved assumptions.
+- 30 days: decide whether evidence supports holding Option B, de-escalating to Option A, or preparing Option C.
+- 90 days: convert the review into a board or executive decision package if exposure remains material.
+
+### Escalation Conditions
+
+- Escalate toward Immediately reduce exposed customers, suppliers, or product lines if customer eligibility and restricted end-user exposure becomes binding, customer-facing, costly, or hard to reverse.
+- Escalate executive review if licensing approval timing and denial patterns moves against planning assumptions.
+
+### Exit Criteria
+
+- Exit toward Wait for final rule detail before changing operations if exposure is confirmed as limited, reversible, and not material to the top criteria: Customer exposure, Licensing uncertainty, Margin impact.
+- Exit toward Immediately reduce exposed customers, suppliers, or product lines if delay creates more downside than the opportunity cost of immediate defensive action.
+
+## Role-Based Implications
+
+- CEO / Executive Sponsor: treat Map exposure and prepare staged adjustments as a decision-control posture, not a delay tactic; require a named owner and a date for reassessment.
+- Corporate Strategy: translate Customer exposure, Licensing uncertainty, Margin impact into an exposure map that shows which business units, customers, products, or regions are actually affected.
+- Finance / CFO: separate confirmed financial exposure from possible exposure so the team does not overstate cost, margin, or liquidity impact before evidence supports it.
+- Operations / Supply Chain: identify which workflows would need to change if the decision shifts from Option B to Immediately reduce exposed customers, suppliers, or product lines.
+- Legal / Compliance: distinguish confirmed obligations from unresolved interpretation questions and document what evidence would change the operating posture.
 
 ## Why This Reasoning Holds
 
@@ -114,16 +174,41 @@ These are the dimensions driving today's decision:
 ## Trade-offs
 
 - Benefits gained: Map exposure and prepare staged adjustments creates an exposure map, assigns ownership, and preserves reversibility while evidence on Customer exposure, Licensing uncertainty, Margin impact is still developing.
-- Costs accepted: the team must spend management attention now, maintain a review cadence, and tolerate partial exposure while the evidence matures.
+- Costs accepted: the recommendation prioritizes execution flexibility and learning over immediate risk elimination, so the team must spend management attention now and tolerate partial exposure while evidence matures.
 - Opportunities sacrificed: the user gives up the lowest-effort posture of Wait for final rule detail before changing operations and does not receive the full immediate protection of Immediately reduce exposed customers, suppliers, or product lines.
 - Risks still unresolved: new evidence on Customer exposure, Licensing uncertainty, Margin impact, implementation timing, cost, customer behavior, or operating constraints may still justify changing paths.
 
-## Failure Modes
+## Risk Analysis
 
-- The preferred path fails if the review cadence misses rapid deterioration in Customer exposure, Licensing uncertainty, Margin impact.
-- The recommendation is weaker if Map exposure and prepare staged adjustments creates process activity without producing a usable exposure map or decision owner.
-- Historical analogues may mislead if the current actor exposure, timing, or implementation details differ materially from retrieved cases.
-- Evidence remains insufficient if the supplied material does not confirm organization-specific exposure, costs, customer impact, or operational constraints.
+### Customer exposure is higher than the current evidence suggests.
+
+- **Why it matters:** Map exposure and prepare staged adjustments depends on the assumption that exposure can be mapped before it becomes binding.
+- **Potential impact:** The preferred path may be insufficient and Immediately reduce exposed customers, suppliers, or product lines may become necessary.
+- **Early warning indicator:** Customer eligibility and restricted end-user exposure indicates exposure above the planning assumption or cannot be documented.
+- **Suggested mitigation:** Prepare the Immediately reduce exposed customers, suppliers, or product lines execution checklist before making irreversible commitments.
+
+### Licensing uncertainty deteriorates before the next checkpoint.
+
+- **Why it matters:** The recommendation relies on preserving choice while evidence improves.
+- **Potential impact:** Decision-makers may lose the ability to shift paths without higher cost.
+- **Early warning indicator:** Licensing approval timing and denial patterns indicates delay, denial, cost increase, or customer-facing impact.
+- **Suggested mitigation:** Set a dated executive checkpoint and require a go / hold / escalate decision record.
+
+### Margin impact is underestimated.
+
+- **Why it matters:** A staged path only works if operating teams can produce the required decision artifacts.
+- **Potential impact:** The organization may create review activity without improving the actual decision.
+- **Early warning indicator:** No accountable owner, incomplete exposure map, or unresolved assumptions at the 30-day checkpoint.
+- **Suggested mitigation:** Assign owners by function and make the exposure map, readiness checklist, and decision memo mandatory deliverables.
+
+
+## Decision Blind Spots
+
+- Organization-specific data for customer exposure is still needed to move from a general recommendation to an operating decision.
+- Organization-specific data for licensing uncertainty is still needed to move from a general recommendation to an operating decision.
+- Organization-specific data for margin impact is still needed to move from a general recommendation to an operating decision.
+- The current recommendation would improve with fresher evidence on customer eligibility and restricted end-user exposure, licensing approval timing and denial patterns.
+- Contractual obligations, customer commitments, and internal execution capacity may change the preferred path even if the external situation is unchanged.
 
 ## What Could Change This Recommendation
 
@@ -131,22 +216,45 @@ These are the dimensions driving today's decision:
 - Move toward Option A (Wait for final rule detail before changing operations) if review shows limited exposure, low cost, high reversibility, and no deterioration in Customer exposure, Licensing uncertainty, Margin impact.
 - Move toward Option C (Immediately reduce exposed customers, suppliers, or product lines) if constraints become binding, costly, customer-facing, or difficult to reverse.
 
-## Action Timeline
+## Regulatory Considerations
 
-### Immediate
+Decision-support reminder only; this is not legal advice.
 
-- Review supplier exposure to controlled equipment, inputs, and restricted jurisdictions.
-- List products and customers requiring license or eligibility review.
+### Procurement Rules / Industrial Policy Conditions
 
-### Next 30 Days
+- **Why it may matter:** Eligibility, domestic-content, reporting, or public-funding conditions may affect investment sequencing.
+- **Possible decision impact:** The preferred path may require compliance readiness before capital commitments or supplier choices.
+- **Suggested internal review:** Strategy, Finance, and Compliance should prepare an eligibility and obligation checklist.
 
-- Track compliance cost and staffing needs as a separate operating signal.
-- Prepare an executive update separating confirmed restrictions from unresolved rule details.
+## Recommendation Action Plan
 
-### Next Quarter
+### NOW
 
-- Reassess whether the evidence still supports Option B or whether Option A or Option C has become more appropriate.
-- Compare the next-quarter update against licensing approval timing and denial patterns and cost/reversibility constraints.
+- **Action:** Review supplier exposure to controlled equipment, inputs, and restricted jurisdictions. List products and customers requiring license or eligibility review.
+- **Owner:** Strategy + relevant operating owner.
+- **Deliverable:** Exposure map with affected customers, suppliers, products, regions, workflows, and open assumptions.
+- **Decision Purpose:** Confirms whether staged preparation is sufficient or immediate escalation is needed.
+
+### NEXT 30 DAYS
+
+- **Action:** Track compliance cost and staffing needs as a separate operating signal. Prepare an executive update separating confirmed restrictions from unresolved rule details.
+- **Owner:** Strategy + Legal / Compliance + Finance.
+- **Deliverable:** Readiness checklist showing confirmed facts, unresolved assumptions, and required follow-up.
+- **Expected Decision:** Hold the staged path, narrow scope, or prepare defensive execution.
+
+### NEXT 90 DAYS
+
+- **Action:** Reassess whether the evidence still supports Option B or whether Option A or Option C has become more appropriate.
+- **Owner:** Executive sponsor + Strategy.
+- **Deliverable:** Decision update memo comparing current evidence against the original criteria.
+- **Decision Outcome:** Hold, de-escalate, or move to a more defensive path.
+
+### RE-EVALUATION TRIGGER
+
+- **Action:** Revisit the recommendation if customer eligibility and restricted end-user exposure, licensing approval timing and denial patterns, customer impact, cost pressure, or reversibility changes materially.
+- **Owner:** Executive sponsor.
+- **Deliverable:** Go / hold / escalate decision record.
+- **Decision Purpose:** Prevents the recommendation from remaining in force after the evidence changes.
 
 ## What to Monitor
 
@@ -185,27 +293,33 @@ These signals answer: what could change today's recommendation?
 
 ### CHIPS and Science Act (2022)
 
-- **Case:** Industrial Policy; Semiconductors.
-- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.
-- **Key limitation:** The actor, sector exposure, rule detail, and timing may differ from the current case.
-- **Decision lesson:** Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.
-- **Why this case does not fully apply:** Historical similarity supports comparison, not prediction; local exposure and execution constraints must be checked separately.
+- **Case and time period:** CHIPS and Science Act, 2022; Industrial Policy; Semiconductors.
+- **Why it is comparable:** scenario match on Industrial Policy; keyword overlap: capacity, capital, domestic, industrial; industry overlap: manufacturing, technology; actor overlap: firms, government
+- **What happened:** Public incentives reshaped capacity planning and domestic manufacturing discussions.
+- **Why it matters today:** Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
 
 ### Inflation Reduction Act Clean Energy Incentives (2022)
 
-- **Case:** Industrial Policy; Energy and Manufacturing.
-- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.
-- **Key limitation:** The actor, sector exposure, rule detail, and timing may differ from the current case.
-- **Decision lesson:** Firms reviewed tax credit eligibility, supplier location, and compliance documentation.
-- **Why this case does not fully apply:** Historical similarity supports comparison, not prediction; local exposure and execution constraints must be checked separately.
+- **Case and time period:** Inflation Reduction Act Clean Energy Incentives, 2022; Industrial Policy; Energy and Manufacturing.
+- **Why it is comparable:** scenario match on Industrial Policy; keyword overlap: battery, capacity, capital, domestic; industry overlap: manufacturing; actor overlap: firms, government, suppliers
+- **What happened:** Industrial incentives affected domestic content planning and clean-energy supply-chain strategy.
+- **Why it matters today:** Firms reviewed tax credit eligibility, supplier location, and compliance documentation.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
 
 ### Japan-Korea Materials Dispute (2019)
 
-- **Case:** Trade Policy; Semiconductors.
-- **Why it supports the recommendation:** It shows how similar pressure required staged organizational response rather than a single headline reaction.
-- **Key limitation:** The actor, sector exposure, rule detail, and timing may differ from the current case.
-- **Decision lesson:** Firms examined alternate sources, inventory buffers, and supplier qualification timelines.
-- **Why this case does not fully apply:** Historical similarity supports comparison, not prediction; local exposure and execution constraints must be checked separately.
+- **Case and time period:** Japan-Korea Materials Dispute, 2019; Trade Policy; Semiconductors.
+- **Why it is comparable:** event-family match: Trade Policy
+- **What happened:** Input-specific trade controls exposed dependence on specialized upstream suppliers.
+- **Why it matters today:** Firms examined alternate sources, inventory buffers, and supplier qualification timelines.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
 
 ## Market Expectations vs Actual Outcomes
 
@@ -265,89 +379,178 @@ These signals answer: what could change today's recommendation?
 - Historical analogues help structure comparison but do not predict future outcomes.
 - Outcome frequencies are counts within the local curated dataset, not real-world probabilities.
 - The system does not use live web retrieval or source verification.
+- Some evidence is derived from user-provided material rather than independently verified primary sources.
+- Organization-specific exposure, timing, cost, and implementation data may be missing.
+- No primary source link is available for the supplied input material.
+- Some historical analogues are based on curated repository knowledge rather than linked source documents.
+- Analogue transferability depends on whether the current case shares comparable mechanisms and constraints.
 
 ## Evidence and Confidence
 
-**Confidence level:** Moderate
+### Confidence Assessment
 
-**Confidence rationale:** Moderate confidence because 12 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
+**Overall Level:** Moderate
+
+**Reasoning:** Moderate confidence because 12 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
+
+**Supporting Evidence**
+
+- User-provided evidence defines the decision frame.
+- 5 repository historical records support analogue reasoning.
+- Evidence assessment includes high-confidence support for parts of the recommendation.
+- Mechanism detection links the issue to operational or strategic pressure points.
+
+**Confidence Reducers**
+
+- Some evidence records do not include primary source links.
+- The current brief does not verify information outside the supplied input and local records.
+- Organization-specific exposure, timing, and implementation constraints require human review.
+
+**Confidence Improvers**
+
+- New primary source material changes the factual basis.
+- Organization-specific exposure mapping.
+- Updated financial, customer, supplier, or compliance evidence.
+- Clear regulatory, contractual, or operating-owner confirmation.
 
 ### Evidence Ledger
 
 - **E1 (User-provided input material)**
+  - Reference: No primary source link available.
+  - Supporting Source: User-provided source material.
+  - Evidence Type: User-provided input material
+  - Source Metadata: Publisher: user-provided material; Publication Date: not available; Verification Status: provided input, not independently verified.
   - Observation: Industrial Policy Subsidy Demo Case
 
 A fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production.
-  - Inference: The extracted issue is treated as the starting point for decision support.
+  - Inference: The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.
   - Supports: Situation understanding and decision framing.
+  - Why this evidence matters: It supports situation understanding and decision framing and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It frames the decision and the criteria used to compare options.
   - Relevance: High; Confidence: Moderate
-  - Limitations: Source detail depends on the supplied material; no external source completeness is implied.
 - **E2 (Local historical analogue record)**
+  - Reference: No primary source link available.
+  - Supporting Source: CHIPS and Science Act (2022): Shows how public incentives can shape capital planning and site selection. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical analogue record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: scenario match on Industrial Policy; keyword overlap: capacity, capital, domestic, industrial; industry overlap: manufacturing, technology; actor overlap: firms, government
-  - Inference: The historical case may help compare mechanisms, but it does not determine the current outcome.
+  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
   - Supports: Historical comparison and analogue reasoning.
+  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Historical analogues support comparison, not prediction.
 - **E3 (Local historical analogue record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Inflation Reduction Act Clean Energy Incentives (2022): Shows how incentives can alter capital allocation and supplier location decisions. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical analogue record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: scenario match on Industrial Policy; keyword overlap: battery, capacity, capital, domestic; industry overlap: manufacturing; actor overlap: firms, government, suppliers
-  - Inference: The historical case may help compare mechanisms, but it does not determine the current outcome.
+  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
   - Supports: Historical comparison and analogue reasoning.
+  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Historical analogues support comparison, not prediction.
 - **E4 (Local historical analogue record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Japan-Korea Semiconductor Materials Dispute (2019): Shows how trade restrictions can affect specialized upstream inputs. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical analogue record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: keyword overlap: manufacturing, policy, semiconductor; industry overlap: technology; actor overlap: government, suppliers
-  - Inference: The historical case may help compare mechanisms, but it does not determine the current outcome.
+  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
   - Supports: Historical comparison and analogue reasoning.
+  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Historical analogues support comparison, not prediction.
 - **E5 (Deterministic mechanism detection)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository mechanism framework and source-text cues.
+  - Evidence Type: Deterministic mechanism detection
+  - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
   - Observation: tax credits; grants; eligibility rules; domestic content
   - Inference: scenario match: Industrial Policy; observation overlap: credits, domestic, government, grants; actor overlap: suppliers
   - Supports: Mechanism reasoning and risk identification.
+  - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Mechanism detection is deterministic and should be reviewed against source details.
 - **E6 (Deterministic mechanism detection)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository mechanism framework and source-text cues.
+  - Evidence Type: Deterministic mechanism detection
+  - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
   - Observation: public guidance; funding priorities; security messaging
   - Inference: scenario match: Industrial Policy; observation overlap: funding, government, strategic; actor overlap: firms
   - Supports: Mechanism reasoning and risk identification.
+  - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Mechanism detection is deterministic and should be reviewed against source details.
 - **E7 (Evidence assessment)**
+  - Reference: No primary source link available.
+  - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
+  - Evidence Type: Evidence assessment
+  - Source Metadata: Publisher: internal deterministic assessment; Publication Date: analysis run; Verification Status: derived from available evidence.
   - Observation: Economics has supporting and weakening evidence.
-  - Inference: The interpretation should be treated cautiously where weakening or missing evidence remains.
+  - Inference: The recommendation should be constrained where weakening or missing evidence remains.
   - Supports: Evidence quality and uncertainty.
+  - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
   - Relevance: High; Confidence: High
-  - Limitations: The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
+  - Item-specific limitation: The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
 - **E8 (Evidence assessment)**
+  - Reference: No primary source link available.
+  - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
+  - Evidence Type: Evidence assessment
+  - Source Metadata: Publisher: internal deterministic assessment; Publication Date: analysis run; Verification Status: derived from available evidence.
   - Observation: Political Economy has supporting and weakening evidence.
-  - Inference: The interpretation should be treated cautiously where weakening or missing evidence remains.
+  - Inference: The recommendation should be constrained where weakening or missing evidence remains.
   - Supports: Evidence quality and uncertainty.
+  - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
   - Relevance: High; Confidence: High
-  - Limitations: The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
+  - Item-specific limitation: The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
 - **E9 (Local historical outcome record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Public incentives reshaped capacity planning and domestic manufacturing discussions. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical outcome record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.
-  - Inference: The outcome informs possible response patterns but is not a forecast.
+  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
   - Supports: Historical outcomes and strategic lessons.
+  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: source pending; educational summary
 - **E10 (Local historical outcome record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Industrial incentives affected domestic content planning and clean-energy supply-chain strategy. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical outcome record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: Firms reviewed tax credit eligibility, supplier location, and compliance documentation.
-  - Inference: The outcome informs possible response patterns but is not a forecast.
+  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
   - Supports: Historical outcomes and strategic lessons.
+  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: source pending; educational summary
 - **E11 (Local current-context record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository current-context knowledge base.
+  - Evidence Type: Local current-context record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: Incentives can shape site selection, partnership choices, and capital allocation.
   - Inference: Funding awards; eligibility rules; construction timelines; workforce constraints
   - Supports: Monitoring and current context.
+  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Current-context records are local references and may not reflect live updates.
 - **E12 (Local current-context record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository current-context knowledge base.
+  - Evidence Type: Local current-context record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
   - Observation: Incentives may affect manufacturing location, supplier strategy, and project economics.
   - Inference: Tax-credit rules; project announcements; grid constraints; supplier capacity
   - Supports: Monitoring and current context.
+  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
   - Relevance: Moderate; Confidence: Moderate
-  - Limitations: Current-context records are local references and may not reflect live updates.
 
 ### Key Assumptions
 
@@ -371,12 +574,18 @@ A fictional government economic ministry announces a strategic subsidy program t
 
 ### Evidence Limitations
 
+- Some evidence is derived from user-provided material rather than independently verified primary sources.
+- Some historical analogues are based on curated repository knowledge rather than linked source documents.
+- Analogue transferability depends on whether the current case shares comparable mechanisms and constraints.
+- Organization-specific exposure, timing, cost, and implementation data may be missing.
 - Educational use only; this is a local decision-support demo, not a production advisory service.
 - This is not investment advice, trading advice, legal advice, or a forecast.
 - Human review is recommended before operational, legal, financial, or executive use.
 - Historical analogues help structure comparison but do not predict future outcomes.
 - Outcome frequencies are counts within the local curated dataset, not real-world probabilities.
 - The system does not use live web retrieval or source verification.
+- The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
+- The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
 
 ## Decision Quality Review
 

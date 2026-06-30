@@ -53,11 +53,11 @@ def build_evidence_ledger(
                 source_type=_source_type(source_url),
                 evidence_text=getattr(issue, "summary", "") or getattr(issue, "core_issue", "") or "Input material was processed.",
                 observation=getattr(issue, "core_issue", "") or "A primary issue was extracted from the supplied material.",
-                inference="The extracted issue is treated as the starting point for decision support.",
+                inference="The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.",
                 claim_supported="Situation understanding and decision framing.",
                 relevance="High",
                 confidence="Moderate",
-                limitations="Source detail depends on the supplied material; no external source completeness is implied.",
+                limitations="Source detail depends on the supplied material. No primary supporting source is currently available unless a readable URL was provided.",
                 used_in_section="Decision Snapshot; Decision Question; Decision Criteria",
             )
         )
@@ -84,11 +84,11 @@ def build_evidence_ledger(
                 source_type="Local historical analogue record",
                 evidence_text=_analogue_text(analogue),
                 observation=getattr(analogue, "similarity_reason", "") or "A historical analogue was retrieved.",
-                inference="The historical case may help compare mechanisms, but it does not determine the current outcome.",
+                inference="The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.",
                 claim_supported="Historical comparison and analogue reasoning.",
                 relevance="Moderate",
                 confidence="Moderate",
-                limitations=getattr(analogue, "caution_note", "") or "Historical similarity supports comparison, not prediction.",
+                limitations=_analogue_limitations(analogue),
                 used_in_section="Historical Evidence; Evidence and Confidence",
             )
         )
@@ -100,7 +100,7 @@ def build_evidence_ledger(
                 source_type="Deterministic mechanism detection",
                 evidence_text=getattr(mechanism, "description", "") or getattr(mechanism, "mechanism_name", "Mechanism detected."),
                 observation=getattr(mechanism, "possible_observations", "") or "A mechanism was detected from issue and scenario cues.",
-                inference=getattr(mechanism, "detection_reason", "") or "The mechanism may explain how pressure moves through the situation.",
+                inference=getattr(mechanism, "detection_reason", "") or "The mechanism explains how pressure could move from source material into operations, customers, suppliers, or compliance work.",
                 claim_supported="Mechanism reasoning and risk identification.",
                 relevance="Moderate",
                 confidence=_confidence_from_note(getattr(mechanism, "confidence_note", "")),
@@ -119,7 +119,7 @@ def build_evidence_ledger(
                 source_type="Evidence assessment",
                 evidence_text="; ".join(supporting[:2]) or "Evidence assessment generated from multi-lens interpretation.",
                 observation=f"{getattr(assessment, 'lens', 'Interpretation')} has supporting and weakening evidence.",
-                inference="The interpretation should be treated cautiously where weakening or missing evidence remains.",
+                inference="The recommendation should be constrained where weakening or missing evidence remains.",
                 claim_supported="Evidence quality and uncertainty.",
                 relevance="High",
                 confidence=_normalize_confidence(getattr(assessment, "confidence_language", "")),
@@ -135,7 +135,7 @@ def build_evidence_ledger(
                 source_type="Local historical outcome record",
                 evidence_text=getattr(outcome, "observed_outcome", "") or "Historical outcome record retrieved.",
                 observation=getattr(outcome, "strategic_response", "") or "Historical response pattern was retrieved.",
-                inference="The outcome informs possible response patterns but is not a forecast.",
+                inference="The outcome informs possible response patterns and monitoring priorities; it is not a forecast.",
                 claim_supported="Historical outcomes and strategic lessons.",
                 relevance="Moderate",
                 confidence=_normalize_confidence(getattr(outcome, "confidence", "")),
@@ -177,6 +177,15 @@ def _analogue_text(analogue: Any) -> str:
     reason = getattr(analogue, "business_relevance", "") or getattr(analogue, "geopolitical_relevance", "")
     label = f"{title} ({year})" if year else title
     return f"{label}: {reason}" if reason else label
+
+
+def _analogue_limitations(analogue: Any) -> str:
+    source_url = getattr(analogue, "source_url", "") or ""
+    source_title = getattr(analogue, "source_title", "") or ""
+    base = getattr(analogue, "caution_note", "") or "Historical similarity supports comparison, not prediction."
+    if source_url and source_url != "source pending":
+        return f"{base} Reference: {source_title or source_url} ({source_url})."
+    return f"{base} Based on the repository's curated historical knowledge base; no primary supporting source is currently available."
 
 
 def _confidence_from_note(note: str) -> str:

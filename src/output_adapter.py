@@ -131,7 +131,23 @@ def _render_executive_output(markdown_text: str, language: str) -> str:
         limitations = "Limitations"
 
     lines = [f"# {title}", ""]
-    for section in ["Decision Snapshot", "Decision Criteria", preferred, "Assumptions", "Trade-offs", "Failure Modes", "What Could Change This Recommendation", monitor, actions, limitations]:
+    for section in [
+        "Decision Snapshot",
+        "Decision Criteria",
+        preferred,
+        "Role-Based Implications",
+        "Assumptions",
+        "Trade-offs",
+        "Risk Analysis",
+        "Failure Modes",
+        "Decision Blind Spots",
+        "What Could Change This Recommendation",
+        "Regulatory Considerations",
+        monitor,
+        "Recommendation Action Plan",
+        actions,
+        limitations,
+    ]:
         body = sections.get(section)
         if body:
             lines.extend([f"## {section}", "", body, ""])
@@ -147,10 +163,12 @@ def _render_beginner_from_sections(markdown_text: str) -> str:
     criteria = sections.get("Decision Criteria", "").strip()
     paths = sections.get("Decision Paths", "").strip()
     preferred = sections.get("Preferred Path", "").strip()
+    role_implications = sections.get("Role-Based Implications", "").strip()
     reasoning = sections.get("Why This Reasoning Holds", "").strip()
     assumptions = sections.get("Assumptions", "").strip()
     tradeoffs = sections.get("Trade-offs", "").strip()
-    failure_modes = sections.get("Failure Modes", "").strip()
+    risk_analysis = sections.get("Risk Analysis", "").strip() or sections.get("Failure Modes", "").strip()
+    blind_spots = sections.get("Decision Blind Spots", "").strip()
     change_section = sections.get("What Could Change This Recommendation", "").strip()
     monitor = sections.get("What to Monitor", "").strip()
     actions = sections.get("Action Timeline", "").strip() or sections.get("Actions / Next Steps", "").strip()
@@ -189,6 +207,10 @@ def _render_beginner_from_sections(markdown_text: str) -> str:
             "",
             preferred or "- Option B is usually the better starting point when evidence is meaningful but still incomplete.",
             "",
+            "## Who needs to do what",
+            "",
+            role_implications or "- Assign a decision owner, clarify exposure, separate confirmed facts from assumptions, and define when the recommendation should change.",
+            "",
             "## What to watch next",
             "",
             monitor or "- Watch for evidence that the issue is becoming more costly, less reversible, or more structural.",
@@ -207,11 +229,17 @@ def _render_beginner_from_sections(markdown_text: str) -> str:
             "",
             "## How this could fail",
             "",
-            failure_modes or "- The recommendation could fail if exposure worsens faster than the review cadence or if the historical comparison does not fit the current case.",
+            risk_analysis or "- The recommendation could fail if exposure worsens faster than the review cadence or if the historical comparison does not fit the current case.",
+            "",
+            "## What is still missing",
+            "",
+            blind_spots or "- More organization-specific exposure, cost, customer, supplier, and contractual evidence would improve the decision.",
             "",
             "## Action Timeline",
             "",
-            actions or "- Build an exposure map and define trigger points for changing the decision path.",
+            actions
+            or sections.get("Recommendation Action Plan", "").strip()
+            or "- Build an exposure map and define trigger points for changing the decision path.",
             "",
             "## Limitations",
             "",
@@ -428,10 +456,12 @@ CHINESE_SECTION_HEADINGS = {
         "Option Ranking": "方案排序",
         "Option Comparison": "方案对比",
         "Preferred Path": "目前最佳方案",
+        "Role-Based Implications": "按角色的决策含义",
         "Why This Reasoning Holds": "为什么这个判断目前成立",
         "Assumptions": "当前假设",
         "Trade-offs": "取舍：得到什么、放弃什么、风险还在哪里",
         "Failure Modes": "可能失效的情况",
+        "Decision Blind Spots": "决策盲点",
         "What Could Change This Recommendation": "哪些新证据会改变今天的判断",
         "Action Timeline": "行动时间表",
         "What to Monitor": "后续观察重点",
@@ -448,10 +478,12 @@ CHINESE_SECTION_HEADINGS = {
         "Option Ranking": "方案排序",
         "Option Comparison": "方案對比",
         "Preferred Path": "目前最佳方案",
+        "Role-Based Implications": "按角色的決策含義",
         "Why This Reasoning Holds": "為什麼這個判斷目前成立",
         "Assumptions": "目前假設",
         "Trade-offs": "取捨：得到什麼、放棄什麼、風險還在哪裡",
         "Failure Modes": "可能失效的情況",
+        "Decision Blind Spots": "決策盲點",
         "What Could Change This Recommendation": "哪些新證據會改變今天的判斷",
         "Action Timeline": "行動時間表",
         "What to Monitor": "後續觀察重點",
@@ -471,10 +503,12 @@ CHINESE_ORDER = [
     "Option Ranking",
     "Option Comparison",
     "Preferred Path",
+    "Role-Based Implications",
     "Why This Reasoning Holds",
     "Assumptions",
     "Trade-offs",
     "Failure Modes",
+    "Decision Blind Spots",
     "What Could Change This Recommendation",
     "Action Timeline",
     "What to Monitor",
@@ -594,9 +628,12 @@ def _chinese_replacements(language: str) -> dict[str, str]:
             "Costs accepted": "接受什么成本",
             "Opportunities sacrificed": "放弃什么机会",
             "Risks still unresolved": "尚未解决的风险",
+            "Now": "现在",
             "Immediate": "立即",
             "Next 30 Days": "未来 30 天",
+            "Next 90 Days": "未来 90 天",
             "Next Quarter": "下一季度",
+            "Re-evaluation Trigger": "重新评估触发条件",
             "Investor": "投资者",
             "Corporate Strategy": "企业战略",
             "Supply Chain": "供应链",
@@ -719,9 +756,12 @@ def _chinese_replacements(language: str) -> dict[str, str]:
         "Costs accepted": "接受什麼成本",
         "Opportunities sacrificed": "放棄什麼機會",
         "Risks still unresolved": "尚未解決的風險",
+        "Now": "現在",
         "Immediate": "立即",
         "Next 30 Days": "未來 30 天",
+        "Next 90 Days": "未來 90 天",
         "Next Quarter": "下一季",
+        "Re-evaluation Trigger": "重新評估觸發條件",
         "Investor": "投資者",
         "Corporate Strategy": "企業策略",
         "Supply Chain": "供應鏈",

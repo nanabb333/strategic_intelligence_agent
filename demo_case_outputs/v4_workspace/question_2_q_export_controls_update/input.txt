@@ -1,0 +1,5 @@
+Decision question:
+After receiving clearer licensing guidance, should management resume lower-risk shipments while maintaining restrictions for unresolved customers?
+
+Source material:
+A follow-up fictional policy clarification describes a narrower set of restricted end users, a documented licensing path for some lower-risk commercial customers, and a transition period for previously authorized orders. Customer eligibility mapping is partially complete, but several high-risk counterparties remain unresolved. Executives need to decide whether to resume lower-risk shipments while preserving escalation controls, documentation review, and monitoring for new implementation guidance.

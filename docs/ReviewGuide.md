@@ -12,6 +12,7 @@ This guide is for reviewers who want to understand Strategic Intelligence Agent 
 6. [Engineering Architecture](EngineeringArchitecture.md): FastAPI, service layer, pipeline, artifacts, and storage.
 7. [Testing](Testing.md): test scope, CI checks, and validation commands.
 8. [Repository Trust Audit](RepositoryTrustAudit.md): scientific, engineering, product, and UX credibility review.
+9. [Version 4 Architecture](Version4Architecture.md): project workspace, evidence library, timeline, delta, and non-agent boundaries.
 
 For V2 evidence-aware examples, review:
 
@@ -20,6 +21,21 @@ For V2 evidence-aware examples, review:
 - [Industrial Subsidy Strategy](case_studies/industrial_subsidy_strategy.md)
 
 ## How To Run Locally
+
+### Option A: One-Click Local Launch
+
+For non-technical reviewers on macOS:
+
+1. Double-click `start.command` in the repository folder.
+2. If macOS blocks it, right-click `start.command`, then choose **Open**.
+3. Keep the terminal window open while reviewing.
+4. The browser opens the dashboard at:
+
+```text
+http://127.0.0.1:8000/dashboard/
+```
+
+### Option B: Manual Terminal Launch
 
 Install dependencies:
 
@@ -51,6 +67,35 @@ python3 -m pytest
 
 These checks validate linting, import/compile health, and the lightweight helper/API test suite.
 
+## How To Test V4 Locally
+
+Version 4 should be reviewed as a structured Decision Intelligence Workspace, not as a chat interface.
+
+1. Start the local FastAPI app:
+
+```bash
+python3 -m uvicorn app:app --reload
+```
+
+2. Open the dashboard:
+
+```text
+http://127.0.0.1:8000/dashboard/
+```
+
+3. In **Projects**, create a new project.
+4. Add a project question and keep it selected.
+5. Paste source material into the decision input box.
+6. Click **Build decision brief**.
+7. Confirm the saved question now shows a linked run.
+8. Add a manual Evidence Library note.
+9. Add a second project question and run another analysis.
+10. Confirm the Decision Timeline has two entries.
+11. Confirm Decision Delta appears and shows previous/current recommendation, confidence, Decision Quality on a `/ 10` scale, and evidence changes when available.
+12. Use the browser print dialog to print or save PDF. The print view should focus on generated results, not the sidebar controls.
+
+Standalone analysis should still work when no project is active.
+
 ## Suggested Demo Scenario
 
 Use this decision question:
@@ -66,6 +111,22 @@ New semiconductor export controls affect advanced chip supply chains and market 
 ```
 
 Then click **Build decision brief**.
+
+## V4 Workspace Demo Artifacts
+
+The release-validation demo is stored in:
+
+```text
+demo_case_outputs/v4_workspace/
+```
+
+Review these files:
+
+- `project.json`: sample V4 project with linked questions, evidence library, and decision history.
+- `decision_delta.json`: deterministic latest-vs-previous comparison.
+- `question_1_q_export_controls_immediate/brief.md`: first generated decision brief.
+- `question_2_q_export_controls_update/brief.md`: second generated decision brief.
+- `analysis.json` files: structured run artifacts for reviewer inspection.
 
 ## How To Interpret Outputs
 
@@ -96,6 +157,8 @@ Each run creates:
 Runtime folders are written under `outputs/runs/` and ignored by git.
 
 The structured analysis JSON includes additive V2 fields: `decision_case`, `evidence_ledger`, `confidence_assessment`, and `decision_quality_evaluation`.
+
+V4 project state is local JSON. The FastAPI app exposes project routes in `app.py`, workspace persistence lives in `src/project_workspace.py`, and dashboard workspace behavior lives in `dashboard/project.js`.
 
 ## What This Project Does Not Claim
 

@@ -1,57 +1,53 @@
 {
   "issue": {
-    "title": "What does this issue mean?",
-    "summary": "Industrial Policy Subsidy Demo Case\n\nA fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production. The program includes grants for new manufacturing facilities, tax credits for qualified capital investment, and workforce funding for technical training. Officials describe the initiative as a way to strengthen domestic production capacity, reduce strategic dependency, and attract private investment into p...",
-    "core_issue": "Industrial Policy Subsidy Demo Case\n\nA fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production.",
+    "title": "Should management pause high-risk semiconductor customer orders while export-con",
+    "summary": "Decision question:\nShould management pause high-risk semiconductor customer orders while export-control exposure is reviewed?\n\nSource material:\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, related design software, and restricted end users. Several customers have asked whether existing orders can continue under prior authorizations. The compliance team has not yet completed customer eligibility mappi...",
+    "core_issue": "Decision question:\nShould management pause high-risk semiconductor customer orders while export-control exposure is reviewed?",
     "actors": [
-      "government",
       "executives",
-      "suppliers",
-      "firms",
-      "companies"
+      "customers",
+      "management"
     ],
     "countries_or_regions": [],
     "industries": [
       "semiconductor",
+      "chips",
+      "AI",
       "manufacturing",
-      "technology",
-      "battery"
+      "software"
     ],
     "policy_terms": [
-      "subsidy",
-      "subsidies",
-      "industrial policy",
+      "export controls",
+      "license",
       "compliance"
     ],
     "companies": [],
     "document_type_guess": "Policy / Regulatory Text",
     "uncertainties": [],
     "evidence": [
-      "Industrial Policy Subsidy Demo Case\n\nA fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production. The program includes grants for new manufacturing facilities, tax credits for qualified capital investment, and workforce funding for technical training. Officials describe the initiative as a way to strengthen domestic production capacity, reduce strategic dependency, and attract private investment into p..."
+      "Decision question:\nShould management pause high-risk semiconductor customer orders while export-control exposure is reviewed?\n\nSource material:\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, related design software, and restricted end users. Several customers have asked whether existing orders can continue under prior authorizations. The compliance team has not yet completed customer eligibility mappi..."
     ]
   },
   "source_url": "",
-  "input_mode": "paste_text",
+  "input_mode": "demo_v4_workspace",
   "uploaded_filename": "",
   "file_type": "text",
   "event_context": {
-    "event_type": "Industrial Policy",
-    "primary_actor": "Government regulators",
-    "secondary_actor": "Corporate executives",
+    "event_type": "Export Controls",
+    "primary_actor": "Corporate executives",
+    "secondary_actor": "Customers",
     "affected_sectors": [
       "Semiconductors",
-      "Banking / Financial Services",
       "Supply Chain / Logistics",
-      "Clean Technology",
       "Manufacturing",
       "Technology"
     ],
     "affected_regions": [
       "Region not specified"
     ],
-    "policy_domain": "Industrial strategy",
-    "strategic_significance": "This industrial policy context matters because it may affect Semiconductors, Banking / Financial Services, Supply Chain / Logistics through industrial strategy considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.",
-    "event_summary": "What does this issue mean? Industrial Policy Subsidy Demo Case\n\nA fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production.",
+    "policy_domain": "Technology and national security",
+    "strategic_significance": "This export controls context matters because it may affect Semiconductors, Supply Chain / Logistics, Manufacturing through technology and national security considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.",
+    "event_summary": "Should management pause high-risk semiconductor customer orders while export-control exposure is reviewed? Decision question:\nShould management pause high-risk semiconductor customer orders while export-control exposure is reviewed?",
     "confidence": "High",
     "context_limitations": [
       "Current-event context is extracted from the submitted document only.",
@@ -60,22 +56,23 @@
     ]
   },
   "event_understanding": {
-    "event_type": "Industrial subsidy or state-support event",
-    "event_family": "State Support",
-    "rationale": "Matched event signals: subsidy, subsidies, tax credit, industrial policy.",
+    "event_type": "Export control policy event",
+    "event_family": "Trade Restriction",
+    "rationale": "Matched event signals: export control, export controls, end user, advanced semiconductor.",
     "relevant_families": [
-      "Industrial Policy",
+      "Export Controls",
       "Trade Policy",
+      "Technology Competition",
       "Corporate Strategic Response"
     ],
-    "comparison_guardrail": "Compare with subsidy implementation, eligibility, localization, and capacity-planning cases."
+    "comparison_guardrail": "Compare with technology-control, licensing, market-access, and supply-chain exposure cases."
   },
   "question_route": {
-    "question_text": "What does this issue mean?",
+    "question_text": "Should management pause high-risk semiconductor customer orders while export-control exposure is reviewed?",
     "intent": "Implication Analysis",
     "intent_label": "Implication Analysis",
     "matched_keywords": [
-      "mean"
+      "risk"
     ],
     "response_focus": [
       "current event context",
@@ -85,87 +82,87 @@
     "routing_note": "Question intent is classified with deterministic keyword rules; no LLM routing is used."
   },
   "scenario": {
-    "issue_title": "What does this issue mean?",
-    "primary_scenario": "Industrial Policy",
+    "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
+    "primary_scenario": "Export Controls",
     "matched_keywords": [
-      "industrial policy",
-      "subsidy",
-      "subsidies"
+      "export control",
+      "export controls",
+      "license"
     ],
     "confidence_label": "High"
   },
   "mechanisms": [
     {
-      "mechanism_id": "M-006",
-      "mechanism_name": "Industrial Subsidy",
-      "description": "Government incentives that shape investment production or supply location",
-      "related_scenarios": "Industrial Policy; Strategic Investment",
-      "typical_actors": "governments; manufacturers; suppliers",
-      "historical_examples": "CHIPS Act; Inflation Reduction Act",
-      "possible_observations": "tax credits; grants; eligibility rules; domestic content",
-      "detection_reason": "scenario match: Industrial Policy; observation overlap: credits, domestic, government, grants; actor overlap: suppliers",
+      "mechanism_id": "M-001",
+      "mechanism_name": "Technology Containment",
+      "description": "Restrictions or controls that limit access to sensitive technologies",
+      "related_scenarios": "Export Controls; Sanctions; Trade Policy",
+      "typical_actors": "governments; technology firms; suppliers",
+      "historical_examples": "Huawei Entity List; ASML Export Controls",
+      "possible_observations": "licenses; entity lists; restricted equipment; cloud access limits",
+      "detection_reason": "scenario match: Export Controls; observation overlap: controls, equipment, restricted",
       "evidence_references": [
         "Source Document",
-        "Industrial Subsidy (Mechanism Framework)"
+        "Technology Containment (Mechanism Framework)"
       ],
-      "source_title": "Industrial Subsidy",
+      "source_title": "Technology Containment",
       "source_type": "Mechanism framework entry",
       "source_date": "source pending",
       "source_url": "source pending",
       "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
     },
     {
-      "mechanism_id": "M-015",
-      "mechanism_name": "Policy Signaling",
-      "description": "Government action used to signal strategic priorities or boundaries",
-      "related_scenarios": "Industrial Policy; Trade Policy; Military / Security Shock",
-      "typical_actors": "governments; regulators; firms",
-      "historical_examples": "CHIPS Act; Taiwan Strait Exercises",
-      "possible_observations": "public guidance; funding priorities; security messaging",
-      "detection_reason": "scenario match: Industrial Policy; observation overlap: funding, government, strategic; actor overlap: firms",
+      "mechanism_id": "M-005",
+      "mechanism_name": "Market Access Restriction",
+      "description": "Reduced ability to serve supply or transact in a target market",
+      "related_scenarios": "Export Controls; Sanctions; Trade Policy",
+      "typical_actors": "exporters; regulators; customers",
+      "historical_examples": "Russia Sanctions; Huawei Entity List",
+      "possible_observations": "restricted customers; end-use screening; transaction limits",
+      "detection_reason": "scenario match: Export Controls; observation overlap: customers, restricted; actor overlap: customers",
       "evidence_references": [
         "Source Document",
-        "Policy Signaling (Mechanism Framework)"
+        "Market Access Restriction (Mechanism Framework)"
       ],
-      "source_title": "Policy Signaling",
+      "source_title": "Market Access Restriction",
       "source_type": "Mechanism framework entry",
       "source_date": "source pending",
       "source_url": "source pending",
       "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
     },
     {
-      "mechanism_id": "M-002",
-      "mechanism_name": "Strategic Dependency",
-      "description": "Exposure created by reliance on concentrated suppliers or jurisdictions",
-      "related_scenarios": "Supply Chain Disruption; Industrial Policy; Export Controls",
-      "typical_actors": "manufacturers; suppliers; governments",
-      "historical_examples": "COVID Supply Chain Disruption; CHIPS Act",
-      "possible_observations": "supplier concentration; critical inputs; geographic dependency",
-      "detection_reason": "scenario match: Industrial Policy; observation overlap: dependency, suppliers; actor overlap: suppliers",
+      "mechanism_id": "M-017",
+      "mechanism_name": "Counterparty Risk",
+      "description": "Exposure arising from customers suppliers banks or partners",
+      "related_scenarios": "Sanctions; Banking; Trade Policy; Export Controls",
+      "typical_actors": "banks; exporters; suppliers; customers",
+      "historical_examples": "Russia Sanctions; banking compliance cases",
+      "possible_observations": "screening alerts; payment exceptions; contract reviews",
+      "detection_reason": "scenario match: Export Controls; observation overlap: customers, exposure; actor overlap: customers",
       "evidence_references": [
         "Source Document",
-        "Strategic Dependency (Mechanism Framework)"
+        "Counterparty Risk (Mechanism Framework)"
       ],
-      "source_title": "Strategic Dependency",
+      "source_title": "Counterparty Risk",
       "source_type": "Mechanism framework entry",
       "source_date": "source pending",
       "source_url": "source pending",
       "confidence_note": "Deterministic framework entry; use for classification support, not factual proof."
     },
     {
-      "mechanism_id": "M-018",
-      "mechanism_name": "Legislative Implementation Gap",
-      "description": "Difference between enacted policy and operational implementation",
-      "related_scenarios": "Industrial Policy; Regulatory Action; Trade Policy",
-      "typical_actors": "lawmakers; agencies; firms",
-      "historical_examples": "CHIPS Act; IRA implementation",
-      "possible_observations": "eligibility rules; agency guidance; compliance deadlines",
-      "detection_reason": "scenario match: Industrial Policy; observation overlap: compliance, policy; actor overlap: firms",
+      "mechanism_id": "M-016",
+      "mechanism_name": "Operational Resilience",
+      "description": "Organizational ability to adapt workflows sourcing or controls",
+      "related_scenarios": "Supply Chain Disruption; Regulatory Action; Export Controls",
+      "typical_actors": "operators; executives; suppliers",
+      "historical_examples": "COVID Supply Chain Disruption",
+      "possible_observations": "contingency plans; alternate routes; monitoring routines",
+      "detection_reason": "scenario match: Export Controls; observation overlap: controls; actor overlap: executives",
       "evidence_references": [
         "Source Document",
-        "Legislative Implementation Gap (Mechanism Framework)"
+        "Operational Resilience (Mechanism Framework)"
       ],
-      "source_title": "Legislative Implementation Gap",
+      "source_title": "Operational Resilience",
       "source_type": "Mechanism framework entry",
       "source_date": "source pending",
       "source_url": "source pending",
@@ -174,34 +171,34 @@
   ],
   "analogues": [
     {
-      "case_title": "CHIPS and Science Act",
-      "year": "2022",
-      "scenario_type": "Industrial Policy",
-      "similarity_reason": "scenario match on Industrial Policy; keyword overlap: capacity, capital, domestic, industrial; industry overlap: manufacturing, technology; actor overlap: firms, government",
-      "business_relevance": "Shows how public incentives can shape capital planning and site selection.",
-      "geopolitical_relevance": "Reflects strategic concern about supply resilience and technology leadership.",
+      "case_title": "Huawei Entity List",
+      "year": "2019",
+      "scenario_type": "Export Controls",
+      "similarity_reason": "scenario match on Export Controls; keyword overlap: advanced, can, compliance, controls",
+      "business_relevance": "Shows how export controls can alter supplier access and compliance workflows.",
+      "geopolitical_relevance": "Illustrates technology competition between the United States and China.",
       "caution_note": "Historical analogues support comparison, not prediction.",
       "source": "Public-history example; concise summary only.",
-      "evidence_trace": "CHIPS and Science Act (2022) - Historical Database",
-      "source_title": "CHIPS and Science Act",
+      "evidence_trace": "Huawei Entity List (2019) - Historical Database",
+      "source_title": "Huawei Entity List",
       "source_type": "Historical analogue summary",
-      "source_date": "2022",
+      "source_date": "2019",
       "source_url": "source pending",
       "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
     },
     {
-      "case_title": "Inflation Reduction Act Clean Energy Incentives",
-      "year": "2022",
-      "scenario_type": "Industrial Policy",
-      "similarity_reason": "scenario match on Industrial Policy; keyword overlap: battery, capacity, capital, domestic; industry overlap: manufacturing; actor overlap: firms, government, suppliers",
-      "business_relevance": "Shows how incentives can alter capital allocation and supplier location decisions.",
-      "geopolitical_relevance": "Reflects strategic competition around clean energy production capacity.",
+      "case_title": "ASML Export Controls",
+      "year": "2023",
+      "scenario_type": "Export Controls",
+      "similarity_reason": "scenario match on Export Controls; keyword overlap: advanced, controls, equipment, export",
+      "business_relevance": "Highlights exposure to licensing rules for critical production tools.",
+      "geopolitical_relevance": "Shows allied coordination around sensitive technology controls.",
       "caution_note": "Historical analogues support comparison, not prediction.",
       "source": "Public-history example; concise summary only.",
-      "evidence_trace": "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
-      "source_title": "Inflation Reduction Act Clean Energy Incentives",
+      "evidence_trace": "ASML Export Controls (2023) - Historical Database",
+      "source_title": "ASML Export Controls",
       "source_type": "Historical analogue summary",
-      "source_date": "2022",
+      "source_date": "2023",
       "source_url": "source pending",
       "confidence_note": "Curated public-history summary; verify with primary sources before executive use."
     },
@@ -209,7 +206,7 @@
       "case_title": "Japan-Korea Semiconductor Materials Dispute",
       "year": "2019",
       "scenario_type": "Trade Policy",
-      "similarity_reason": "keyword overlap: manufacturing, policy, semiconductor; industry overlap: technology; actor overlap: government, suppliers",
+      "similarity_reason": "keyword overlap: advanced, affecting, can, controls",
       "business_relevance": "Shows how trade restrictions can affect specialized upstream inputs.",
       "geopolitical_relevance": "Highlights bilateral tensions affecting advanced manufacturing.",
       "caution_note": "Historical analogues support comparison, not prediction.",
@@ -224,93 +221,93 @@
   ],
   "historical_outcomes": [
     {
-      "case_id": "HO-006",
-      "case_name": "CHIPS and Science Act",
-      "event_family": "Industrial Policy",
-      "year": "2022",
-      "actor": "U.S. government; semiconductor firms",
-      "sector": "Semiconductors",
-      "observed_outcome": "Public incentives reshaped capacity planning and domestic manufacturing discussions.",
-      "strategic_response": "Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.",
-      "time_horizon": "Long-term",
-      "confidence": "Medium",
-      "source_status": "source pending; educational summary",
-      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
-      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Industrial Policy",
-      "evidence_references": [
-        "CHIPS and Science Act (2022) - Historical Outcomes Database"
-      ]
-    },
-    {
-      "case_id": "HO-007",
-      "case_name": "Inflation Reduction Act Clean Energy Incentives",
-      "event_family": "Industrial Policy",
-      "year": "2022",
-      "actor": "U.S. government; energy firms; automakers",
-      "sector": "Energy and Manufacturing",
-      "observed_outcome": "Industrial incentives affected domestic content planning and clean-energy supply-chain strategy.",
-      "strategic_response": "Firms reviewed tax credit eligibility, supplier location, and compliance documentation.",
-      "time_horizon": "Long-term",
-      "confidence": "Medium",
-      "source_status": "source pending; educational summary",
-      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
-      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Industrial Policy",
-      "evidence_references": [
-        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database"
-      ]
-    },
-    {
-      "case_id": "HO-003",
-      "case_name": "Japan-Korea Materials Dispute",
-      "event_family": "Trade Policy",
+      "case_id": "HO-001",
+      "case_name": "Huawei Entity List",
+      "event_family": "Export Controls",
       "year": "2019",
-      "actor": "Japan; South Korea; materials suppliers",
-      "sector": "Semiconductors",
-      "observed_outcome": "Input-specific trade controls exposed dependence on specialized upstream suppliers.",
-      "strategic_response": "Firms examined alternate sources, inventory buffers, and supplier qualification timelines.",
+      "actor": "U.S. government; Huawei; suppliers",
+      "sector": "Technology",
+      "observed_outcome": "Restricted access to selected technology inputs changed supplier screening and product planning.",
+      "strategic_response": "Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.",
       "time_horizon": "Medium-term",
       "confidence": "Medium",
       "source_status": "source pending; educational summary",
       "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
-      "retrieval_reason": "event-family match: Trade Policy",
+      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Export Controls; event-family/title overlap",
       "evidence_references": [
-        "Japan-Korea Materials Dispute (2019) - Historical Outcomes Database"
+        "Huawei Entity List (2019) - Historical Outcomes Database"
       ]
     },
     {
-      "case_id": "HO-010",
-      "case_name": "Brexit Supply Chain Uncertainty",
-      "event_family": "Trade Policy",
-      "year": "2016",
-      "actor": "UK government; EU; manufacturers",
-      "sector": "Manufacturing and Retail",
-      "observed_outcome": "Customs and regulatory uncertainty complicated cross-border operating models.",
-      "strategic_response": "Companies prepared documentation, adjusted logistics plans, and monitored transition rules.",
-      "time_horizon": "Long-term",
+      "case_id": "HO-002",
+      "case_name": "ASML Export Controls",
+      "event_family": "Export Controls",
+      "year": "2023",
+      "actor": "Dutch government; ASML; chipmakers",
+      "sector": "Semiconductors",
+      "observed_outcome": "Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.",
+      "strategic_response": "Companies monitored license rules, tool availability, and jurisdictional alignment.",
+      "time_horizon": "Medium-term",
       "confidence": "Medium",
       "source_status": "source pending; educational summary",
       "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
-      "retrieval_reason": "event-family match: Trade Policy",
+      "retrieval_reason": "case-name match with retrieved analogue; event-family match: Export Controls; event-family/title overlap",
       "evidence_references": [
-        "Brexit Supply Chain Uncertainty (2016) - Historical Outcomes Database"
+        "ASML Export Controls (2023) - Historical Outcomes Database"
       ]
     },
     {
-      "case_id": "HO-018",
-      "case_name": "Strategic Battery Supply Policy",
-      "event_family": "Industrial Policy",
-      "year": "2021",
-      "actor": "Governments; automakers; battery suppliers",
-      "sector": "Batteries and Automotive",
-      "observed_outcome": "Policy support increased attention to domestic battery inputs and supply security.",
-      "strategic_response": "Firms evaluated supplier geography, qualification timelines, and incentive eligibility.",
-      "time_horizon": "Long-term",
+      "case_id": "HO-017",
+      "case_name": "Entity List Expansion",
+      "event_family": "Export Controls",
+      "year": "2020",
+      "actor": "U.S. government; listed firms; suppliers",
+      "sector": "Technology",
+      "observed_outcome": "Expanded restrictions increased screening burden and uncertainty for technology transactions.",
+      "strategic_response": "Companies strengthened restricted-party checks and licensing escalation paths.",
+      "time_horizon": "Short-to-medium-term",
       "confidence": "Medium",
       "source_status": "source pending; educational summary",
       "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
-      "retrieval_reason": "event-family match: Industrial Policy",
+      "retrieval_reason": "event-family match: Export Controls; event-family/title overlap",
       "evidence_references": [
-        "Strategic Battery Supply Policy (2021) - Historical Outcomes Database"
+        "Entity List Expansion (2020) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-020",
+      "case_name": "Allied Export Control Coordination",
+      "event_family": "Export Controls",
+      "year": "2023",
+      "actor": "Allied governments; semiconductor firms",
+      "sector": "Semiconductors",
+      "observed_outcome": "Policy alignment among allies increased the importance of jurisdiction-by-jurisdiction rule monitoring.",
+      "strategic_response": "Firms tracked implementation differences, license requirements, and supplier communication.",
+      "time_horizon": "Medium-term",
+      "confidence": "Medium",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "Medium confidence because the outcome is a simplified public-history summary and should be checked against primary sources.",
+      "retrieval_reason": "event-family match: Export Controls; event-family/title overlap",
+      "evidence_references": [
+        "Allied Export Control Coordination (2023) - Historical Outcomes Database"
+      ]
+    },
+    {
+      "case_id": "HO-021",
+      "case_name": "ZTE Denial Order",
+      "event_family": "Export Controls",
+      "year": "2018",
+      "actor": "U.S. government; ZTE; suppliers",
+      "sector": "Telecommunications",
+      "observed_outcome": "Restricted access to U.S. technology inputs created severe operational disruption for a telecom equipment firm.",
+      "strategic_response": "The company pursued compliance remediation, management changes, and supplier access restoration.",
+      "time_horizon": "Short-term",
+      "confidence": "High",
+      "source_status": "source pending; educational summary",
+      "evidence_note": "High confidence because the broad outcome is widely documented; exact operational details should be checked against primary sources.",
+      "retrieval_reason": "event-family match: Export Controls; event-family/title overlap",
+      "evidence_references": [
+        "ZTE Denial Order (2018) - Historical Outcomes Database"
       ]
     }
   ],
@@ -318,122 +315,119 @@
     {
       "lesson": "Supply chain diversification frequently appears after export-control or disruption shocks.",
       "supporting_cases": [
-        "CHIPS and Science Act (2022)",
-        "Inflation Reduction Act Clean Energy Incentives (2022)",
-        "Japan-Korea Materials Dispute (2019)",
-        "Strategic Battery Supply Policy (2021)"
+        "Huawei Entity List (2019)",
+        "ASML Export Controls (2023)",
+        "Entity List Expansion (2020)",
+        "Allied Export Control Coordination (2023)",
+        "ZTE Denial Order (2018)"
       ],
       "confidence": "High",
-      "rationale": "Matched 4 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.",
+      "rationale": "Matched 5 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.",
       "evidence_references": [
-        "CHIPS and Science Act (2022) - Historical Outcomes Database",
-        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database",
-        "Japan-Korea Materials Dispute (2019) - Historical Outcomes Database",
-        "Strategic Battery Supply Policy (2021) - Historical Outcomes Database"
+        "ASML Export Controls (2023) - Historical Outcomes Database",
+        "Allied Export Control Coordination (2023) - Historical Outcomes Database",
+        "Entity List Expansion (2020) - Historical Outcomes Database",
+        "Huawei Entity List (2019) - Historical Outcomes Database",
+        "ZTE Denial Order (2018) - Historical Outcomes Database"
       ]
     },
     {
       "lesson": "Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.",
       "supporting_cases": [
-        "Inflation Reduction Act Clean Energy Incentives (2022)",
-        "Brexit Supply Chain Uncertainty (2016)"
+        "Huawei Entity List (2019)",
+        "ASML Export Controls (2023)",
+        "Entity List Expansion (2020)",
+        "Allied Export Control Coordination (2023)",
+        "ZTE Denial Order (2018)"
       ],
-      "confidence": "Medium",
-      "rationale": "Matched 2 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.",
+      "confidence": "High",
+      "rationale": "Matched 5 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.",
       "evidence_references": [
-        "Brexit Supply Chain Uncertainty (2016) - Historical Outcomes Database",
-        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database"
+        "ASML Export Controls (2023) - Historical Outcomes Database",
+        "Allied Export Control Coordination (2023) - Historical Outcomes Database",
+        "Entity List Expansion (2020) - Historical Outcomes Database",
+        "Huawei Entity List (2019) - Historical Outcomes Database",
+        "ZTE Denial Order (2018) - Historical Outcomes Database"
       ]
     },
     {
       "lesson": "Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.",
       "supporting_cases": [
-        "CHIPS and Science Act (2022)",
-        "Inflation Reduction Act Clean Energy Incentives (2022)",
-        "Strategic Battery Supply Policy (2021)"
+        "Huawei Entity List (2019)"
       ],
-      "confidence": "High",
-      "rationale": "Matched 3 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.",
+      "confidence": "Low",
+      "rationale": "Matched 1 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.",
       "evidence_references": [
-        "CHIPS and Science Act (2022) - Historical Outcomes Database",
-        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Outcomes Database",
-        "Strategic Battery Supply Policy (2021) - Historical Outcomes Database"
+        "Huawei Entity List (2019) - Historical Outcomes Database"
       ]
     },
     {
       "lesson": "Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.",
       "supporting_cases": [
-        "Strategic Battery Supply Policy (2021)"
+        "Entity List Expansion (2020)"
       ],
       "confidence": "Low",
       "rationale": "Matched 1 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.",
       "evidence_references": [
-        "Strategic Battery Supply Policy (2021) - Historical Outcomes Database"
+        "Entity List Expansion (2020) - Historical Outcomes Database"
       ]
     }
   ],
   "strategic_assessment": {
-    "direct_answer": "The strongest historical similarity is a Industrial subsidy or state-support event affecting semiconductor, manufacturing. Across relevant historical cases, organizations most often reviewed supplier concentration or diversified supply options; expanded compliance monitoring and documentation. The key pattern is that operational adaptation usually follows the first policy or market shock. The main risk is assuming the headline event is the whole story; the most important uncertainty is how rules, customers, suppliers, and management responses change after implementation. The next signal to watch is concrete exposure mapping or policy guidance. The comparison guardrail is: Compare with subsidy implementation, eligibility, localization, and capacity-planning cases.",
-    "event_type": "Industrial subsidy or state-support event",
-    "event_family": "State Support",
-    "comparison_guardrail": "Compare with subsidy implementation, eligibility, localization, and capacity-planning cases.",
+    "direct_answer": "The strongest historical similarity is a Export control policy event affecting semiconductor, chips. Across relevant historical cases, organizations most often expanded compliance monitoring and documentation; increased executive communication and guidance monitoring. The key pattern is that operational adaptation usually follows the first policy or market shock. The main risk is assuming the headline event is the whole story; the most important uncertainty is how rules, customers, suppliers, and management responses change after implementation. The next signal to watch is concrete exposure mapping or policy guidance. The comparison guardrail is: Compare with technology-control, licensing, market-access, and supply-chain exposure cases.",
+    "event_type": "Export control policy event",
+    "event_family": "Trade Restriction",
+    "comparison_guardrail": "Compare with technology-control, licensing, market-access, and supply-chain exposure cases.",
     "historical_patterns": [
       {
-        "pattern": "Reviewed supplier concentration or diversified supply options",
-        "frequency_percent": 80,
-        "supporting_cases": [
-          "CHIPS and Science Act (2022)",
-          "Inflation Reduction Act Clean Energy Incentives (2022)",
-          "Japan-Korea Materials Dispute (2019)",
-          "Strategic Battery Supply Policy (2021)"
-        ],
-        "interpretation": "Similar cases often pushed organizations to reduce dependence on a narrow set of suppliers, routes, or inputs."
-      },
-      {
         "pattern": "Expanded compliance monitoring and documentation",
-        "frequency_percent": 80,
+        "frequency_percent": 100,
         "supporting_cases": [
-          "CHIPS and Science Act (2022)",
-          "Inflation Reduction Act Clean Energy Incentives (2022)",
-          "Brexit Supply Chain Uncertainty (2016)",
-          "Strategic Battery Supply Policy (2021)"
+          "Huawei Entity List (2019)",
+          "ASML Export Controls (2023)",
+          "Entity List Expansion (2020)",
+          "Allied Export Control Coordination (2023)",
+          "ZTE Denial Order (2018)"
         ],
         "interpretation": "Organizations often added documentation, screening, or approval routines when rules became more restrictive."
       },
       {
-        "pattern": "Adjusted capital planning or localization strategy",
+        "pattern": "Increased executive communication and guidance monitoring",
+        "frequency_percent": 80,
+        "supporting_cases": [
+          "Huawei Entity List (2019)",
+          "Entity List Expansion (2020)",
+          "Allied Export Control Coordination (2023)",
+          "ZTE Denial Order (2018)"
+        ],
+        "interpretation": "Uncertain events often made management communication and stakeholder updates more important."
+      },
+      {
+        "pattern": "Reviewed supplier concentration or diversified supply options",
         "frequency_percent": 60,
         "supporting_cases": [
-          "CHIPS and Science Act (2022)",
-          "Inflation Reduction Act Clean Energy Incentives (2022)",
-          "Strategic Battery Supply Policy (2021)"
+          "Huawei Entity List (2019)",
+          "Allied Export Control Coordination (2023)",
+          "ZTE Denial Order (2018)"
         ],
-        "interpretation": "Industrial-policy cases often shifted attention toward eligibility, localization, and sequencing of investment decisions."
+        "interpretation": "Similar cases often pushed organizations to reduce dependence on a narrow set of suppliers, routes, or inputs."
       },
       {
         "pattern": "Reviewed continuity plans and operational exposure",
         "frequency_percent": 40,
         "supporting_cases": [
-          "Brexit Supply Chain Uncertainty (2016)",
-          "Strategic Battery Supply Policy (2021)"
+          "Huawei Entity List (2019)",
+          "ASML Export Controls (2023)"
         ],
         "interpretation": "Operationally exposed cases often led teams to review contingency plans, routes, and concentration risks."
-      },
-      {
-        "pattern": "Increased executive communication and guidance monitoring",
-        "frequency_percent": 20,
-        "supporting_cases": [
-          "Brexit Supply Chain Uncertainty (2016)"
-        ],
-        "interpretation": "Uncertain events often made management communication and stakeholder updates more important."
       }
     ],
     "outcome_distribution": [
       {
-        "outcome_type": "Adaptation",
+        "outcome_type": "Partial Disruption",
         "frequency_percent": 80,
         "case_count": 4,
-        "interpretation": "Cases in this group show organizations adjusting processes, monitoring, or planning rather than stopping operations entirely."
+        "interpretation": "Cases in this group show meaningful constraints, delays, or access limits that required operational response."
       },
       {
         "outcome_type": "Strategic Reassessment",
@@ -444,44 +438,44 @@
     ],
     "expectation_vs_reality": [
       {
-        "event": "CHIPS and Science Act (2022)",
-        "consensus_expectation": "Observers often expect direct benefits from subsidies or incentives.",
+        "event": "Huawei Entity List (2019)",
+        "consensus_expectation": "Observers often focus first on immediate licensing or shipment disruption.",
         "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
-        "observed_outcome": "Public incentives reshaped capacity planning and domestic manufacturing discussions.",
-        "expectation_gap": "Implementation details, eligibility rules, and capacity constraints can shape who can actually use the policy.",
-        "strategic_lesson": "Watch implementation guidance and execution requirements before assuming strategic value."
+        "observed_outcome": "Restricted access to selected technology inputs changed supplier screening and product planning.",
+        "expectation_gap": "The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.",
+        "strategic_lesson": "Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships."
       },
       {
-        "event": "Inflation Reduction Act Clean Energy Incentives (2022)",
-        "consensus_expectation": "Observers often expect direct benefits from subsidies or incentives.",
+        "event": "ASML Export Controls (2023)",
+        "consensus_expectation": "Observers often focus first on immediate licensing or shipment disruption.",
         "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
-        "observed_outcome": "Industrial incentives affected domestic content planning and clean-energy supply-chain strategy.",
-        "expectation_gap": "Implementation details, eligibility rules, and capacity constraints can shape who can actually use the policy.",
-        "strategic_lesson": "Watch implementation guidance and execution requirements before assuming strategic value."
+        "observed_outcome": "Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.",
+        "expectation_gap": "The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.",
+        "strategic_lesson": "Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships."
       },
       {
-        "event": "Japan-Korea Materials Dispute (2019)",
-        "consensus_expectation": "Observers often expect tariff or customs effects to be the main issue.",
+        "event": "Entity List Expansion (2020)",
+        "consensus_expectation": "Observers often focus first on immediate licensing or shipment disruption.",
         "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
-        "observed_outcome": "Input-specific trade controls exposed dependence on specialized upstream suppliers.",
-        "expectation_gap": "The broader effect can include documentation burden, sourcing changes, and cross-border operating complexity.",
-        "strategic_lesson": "Monitor implementation details and how firms adjust cross-border workflows."
+        "observed_outcome": "Expanded restrictions increased screening burden and uncertainty for technology transactions.",
+        "expectation_gap": "The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.",
+        "strategic_lesson": "Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships."
       },
       {
-        "event": "Brexit Supply Chain Uncertainty (2016)",
-        "consensus_expectation": "Observers often expect tariff or customs effects to be the main issue.",
+        "event": "Allied Export Control Coordination (2023)",
+        "consensus_expectation": "Observers often focus first on immediate licensing or shipment disruption.",
         "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
-        "observed_outcome": "Customs and regulatory uncertainty complicated cross-border operating models.",
-        "expectation_gap": "The broader effect can include documentation burden, sourcing changes, and cross-border operating complexity.",
-        "strategic_lesson": "Monitor implementation details and how firms adjust cross-border workflows."
+        "observed_outcome": "Policy alignment among allies increased the importance of jurisdiction-by-jurisdiction rule monitoring.",
+        "expectation_gap": "The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.",
+        "strategic_lesson": "Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships."
       },
       {
-        "event": "Strategic Battery Supply Policy (2021)",
-        "consensus_expectation": "Observers often expect direct benefits from subsidies or incentives.",
+        "event": "ZTE Denial Order (2018)",
+        "consensus_expectation": "Observers often focus first on immediate licensing or shipment disruption.",
         "market_user_behavior": "Local dataset does not contain enough market-outcome evidence for this claim.",
-        "observed_outcome": "Policy support increased attention to domestic battery inputs and supply security.",
-        "expectation_gap": "Implementation details, eligibility rules, and capacity constraints can shape who can actually use the policy.",
-        "strategic_lesson": "Watch implementation guidance and execution requirements before assuming strategic value."
+        "observed_outcome": "Restricted access to U.S. technology inputs created severe operational disruption for a telecom equipment firm.",
+        "expectation_gap": "The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.",
+        "strategic_lesson": "Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships."
       }
     ],
     "strategic_watchlist": [
@@ -523,9 +517,10 @@
     ]
   },
   "evidence_credibility": {
-    "evidence_summary": "5 historical outcomes were retrieved. 5 are medium confidence. Source URLs are not fabricated; source status is reported separately. 4 rule-based strategic lesson(s) were generated from those outcomes.",
+    "evidence_summary": "5 historical outcomes were retrieved. 1 are high confidence and 4 are medium confidence. Source URLs are not fabricated; source status is reported separately. 4 rule-based strategic lesson(s) were generated from those outcomes.",
     "confidence_distribution": {
-      "Medium": 5
+      "Medium": 4,
+      "High": 1
     },
     "source_status_distribution": {
       "source pending; educational summary": 5
@@ -540,56 +535,56 @@
   },
   "current_context": [
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "industry": "Semiconductors",
-      "scenario_type": "Industrial Policy",
-      "context_summary": "Governments use subsidies, tax credits, and research programs to support domestic semiconductor capacity.",
-      "why_it_matters": "Incentives can shape site selection, partnership choices, and capital allocation.",
-      "stakeholders": "Manufacturers; governments; equipment suppliers; local communities",
-      "monitoring_considerations": "Funding awards; eligibility rules; construction timelines; workforce constraints",
-      "similarity_reason": "industry match: semiconductor; scenario match: Industrial Policy; keyword overlap: capacity, capital, credit, credits",
+      "scenario_type": "Export Controls",
+      "context_summary": "Advanced chip and semiconductor equipment supply chains depend on cross-border licensing, specialized suppliers, and government controls.",
+      "why_it_matters": "Controls can affect access to inputs, customer eligibility, and compliance review timelines.",
+      "stakeholders": "Chip designers; equipment vendors; foundries; cloud providers; regulators",
+      "monitoring_considerations": "Licensing updates; allied coordination; supplier disclosures; compliance guidance",
+      "similarity_reason": "industry match: semiconductor; scenario match: Export Controls; keyword overlap: advanced, chip, compliance, control",
       "source_file": "semiconductor_context.md",
-      "evidence_trace": "Semiconductors Context KB: SC-002 (semiconductor_context.md)"
+      "evidence_trace": "Semiconductors Context KB: SC-001 (semiconductor_context.md)"
     },
     {
-      "issue_title": "What does this issue mean?",
-      "industry": "Energy",
-      "scenario_type": "Industrial Policy",
-      "context_summary": "Clean energy incentives can influence battery, solar, hydrogen, and grid-related investment decisions.",
-      "why_it_matters": "Incentives may affect manufacturing location, supplier strategy, and project economics.",
-      "stakeholders": "Energy developers; manufacturers; utilities; governments; suppliers",
-      "monitoring_considerations": "Tax-credit rules; project announcements; grid constraints; supplier capacity",
-      "similarity_reason": "scenario match: Industrial Policy; keyword overlap: battery, capacity, economic, government",
-      "source_file": "energy_context.md",
-      "evidence_trace": "Energy Context KB: EN-002 (energy_context.md)"
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
+      "industry": "Supply Chain",
+      "scenario_type": "Export Controls",
+      "context_summary": "Export controls can restrict shipment of sensitive goods, software, or technology to certain end users.",
+      "why_it_matters": "Companies may need to screen counterparties and assess license requirements before fulfillment.",
+      "stakeholders": "Exporters; freight forwarders; compliance teams; customers; regulators",
+      "monitoring_considerations": "Restricted party lists; product classifications; license applications; end-use statements",
+      "similarity_reason": "scenario match: Export Controls; keyword overlap: compliance, control, controls, customer",
+      "source_file": "supply_chain_context.md",
+      "evidence_trace": "Supply Chain Context KB: SP-004 (supply_chain_context.md)"
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "industry": "Trade Policy",
-      "scenario_type": "Industrial Policy",
-      "context_summary": "Industrial policy can combine incentives, procurement rules, and domestic-content requirements.",
-      "why_it_matters": "Firms may need to assess eligibility, supply chain configuration, and partnership requirements.",
-      "stakeholders": "Governments; manufacturers; suppliers; customers; local workforces",
-      "monitoring_considerations": "Eligibility criteria; award announcements; domestic-content rules; implementation guidance",
-      "similarity_reason": "scenario match: Industrial Policy; keyword overlap: firm, firms, government, industrial",
+      "scenario_type": "Export Controls",
+      "context_summary": "Export-control policy can link national security priorities with commercial technology transfer restrictions.",
+      "why_it_matters": "Business teams may need to align sales, compliance, and product-classification processes.",
+      "stakeholders": "Regulators; exporters; technology firms; legal teams; customers",
+      "monitoring_considerations": "Control lists; licensing policy; allied alignment; enforcement examples",
+      "similarity_reason": "scenario match: Export Controls; keyword overlap: compliance, control, customer, customers",
       "source_file": "trade_policy_context.md",
-      "evidence_trace": "Trade Policy Context KB: TP-004 (trade_policy_context.md)"
+      "evidence_trace": "Trade Policy Context KB: TP-002 (trade_policy_context.md)"
     }
   ],
   "implications": [
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "observed_similarities": [
-        "The issue may resemble CHIPS and Science Act (2022), Inflation Reduction Act Clean Energy Incentives (2022) because the retrieved cases share characteristics with the industrial policy scenario frame.",
-        "The current context findings from Energy, Semiconductors, Trade Policy share characteristics with the extracted industries and policy terms."
+        "The issue may resemble Huawei Entity List (2019), ASML Export Controls (2023) because the retrieved cases share characteristics with the export controls scenario frame.",
+        "The current context findings from Semiconductors, Supply Chain, Trade Policy share characteristics with the extracted industries and policy terms."
       ],
       "observed_differences": [
         "The source document differs from historical analogues because current actors, implementation details, and timing are document-specific.",
         "The retrieved context differs from historical cases because it describes standing monitoring considerations rather than a completed event."
       ],
       "business_considerations": [
-        "The issue may indicate changing constraints for semiconductor, manufacturing, technology and requires monitoring of stakeholder exposure.",
-        "The industrial policy frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.",
+        "The issue may indicate changing constraints for semiconductor, chips, AI and requires monitoring of stakeholder exposure.",
+        "The export controls frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.",
         "Historical and context evidence should be used to structure diligence, not to imply an outcome."
       ],
       "operational_considerations": [
@@ -608,18 +603,18 @@
         "What decisions require more source verification before executive action?"
       ],
       "evidence_trace": [
-        "CHIPS and Science Act (2022) - Historical Database",
-        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+        "Huawei Entity List (2019) - Historical Database",
+        "ASML Export Controls (2023) - Historical Database",
         "Japan-Korea Semiconductor Materials Dispute (2019) - Historical Database",
-        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
-        "Energy Context KB: EN-002 (energy_context.md)",
-        "Trade Policy Context KB: TP-004 (trade_policy_context.md)"
+        "Semiconductors Context KB: SC-001 (semiconductor_context.md)",
+        "Supply Chain Context KB: SP-004 (supply_chain_context.md)",
+        "Trade Policy Context KB: TP-002 (trade_policy_context.md)"
       ]
     }
   ],
   "response_playbooks": [
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "pattern_name": "Monitoring and contingency planning",
       "observed_historical_choices": [
         "Organizations reviewed counterparties, suppliers, and implementation details.",
@@ -627,23 +622,23 @@
       ],
       "observed_outcomes": [
         "Observed outcomes varied across cases and should not be treated as predictive.",
-        "Relevant analogues include CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives, Japan-Korea Semiconductor Materials Dispute."
+        "Relevant analogues include Huawei Entity List, ASML Export Controls, Japan-Korea Semiconductor Materials Dispute."
       ],
       "business_lessons": [
         "Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.",
         "Cross-functional review can help separate compliance, operational, and strategic questions."
       ],
       "cross_domain_lessons": [
-        "Mechanisms such as Industrial Subsidy, Policy Signaling, Strategic Dependency can appear across policy, security, and business domains.",
+        "Mechanisms such as Technology Containment, Market Access Restriction, Counterparty Risk can appear across policy, security, and business domains.",
         "Historical response patterns are most useful when paired with current context and source verification."
       ],
       "evidence_references": [
-        "CHIPS and Science Act (2022) - Historical Database",
-        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
+        "Huawei Entity List (2019) - Historical Database",
+        "ASML Export Controls (2023) - Historical Database",
         "Japan-Korea Semiconductor Materials Dispute (2019) - Historical Database",
-        "Industrial Subsidy (Mechanism Framework)",
-        "Policy Signaling (Mechanism Framework)",
-        "Strategic Dependency (Mechanism Framework)"
+        "Technology Containment (Mechanism Framework)",
+        "Market Access Restriction (Mechanism Framework)",
+        "Counterparty Risk (Mechanism Framework)"
       ],
       "source_title": "Response Playbook",
       "source_type": "Deterministic response pattern",
@@ -654,74 +649,74 @@
   ],
   "lenses": [
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "lens": "Economics",
-      "hypothesis": "One possible interpretation is that the industrial policy event reflects resource allocation constraints linked to Industrial Subsidy, Policy Signaling.",
+      "hypothesis": "One possible interpretation is that the export controls event reflects resource allocation constraints linked to Technology Containment, Market Access Restriction.",
       "supporting_observations": [
-        "The issue references semiconductor, manufacturing, technology and operating constraints.",
-        "Historical analogues such as CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives show comparable economic adjustment patterns."
+        "The issue references semiconductor, chips, AI and operating constraints.",
+        "Historical analogues such as Huawei Entity List, ASML Export Controls show comparable economic adjustment patterns."
       ],
       "limitations": [
         "The document does not quantify cost, demand, or capacity effects."
       ],
       "evidence_references": [
         "Source Document",
-        "CHIPS and Science Act (2022) - Historical Database",
-        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
-        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
-        "Energy Context KB: EN-002 (energy_context.md)",
-        "Industrial Subsidy (Mechanism Framework)",
-        "Policy Signaling (Mechanism Framework)"
+        "Huawei Entity List (2019) - Historical Database",
+        "ASML Export Controls (2023) - Historical Database",
+        "Semiconductors Context KB: SC-001 (semiconductor_context.md)",
+        "Supply Chain Context KB: SP-004 (supply_chain_context.md)",
+        "Technology Containment (Mechanism Framework)",
+        "Market Access Restriction (Mechanism Framework)"
       ]
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "lens": "Political Economy",
-      "hypothesis": "One possible interpretation is that public authority and business incentives are interacting through Industrial Subsidy, Policy Signaling.",
+      "hypothesis": "One possible interpretation is that public authority and business incentives are interacting through Technology Containment, Market Access Restriction.",
       "supporting_observations": [
-        "The scenario classification is Industrial Policy.",
-        "Current context from Semiconductors, Energy highlights stakeholders and monitoring considerations."
+        "The scenario classification is Export Controls.",
+        "Current context from Semiconductors, Supply Chain highlights stakeholders and monitoring considerations."
       ],
       "limitations": [
         "The balance between public policy goals and firm-level incentives requires more source detail."
       ],
       "evidence_references": [
         "Source Document",
-        "CHIPS and Science Act (2022) - Historical Database",
-        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
-        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
-        "Energy Context KB: EN-002 (energy_context.md)",
-        "Industrial Subsidy (Mechanism Framework)",
-        "Policy Signaling (Mechanism Framework)"
+        "Huawei Entity List (2019) - Historical Database",
+        "ASML Export Controls (2023) - Historical Database",
+        "Semiconductors Context KB: SC-001 (semiconductor_context.md)",
+        "Supply Chain Context KB: SP-004 (supply_chain_context.md)",
+        "Technology Containment (Mechanism Framework)",
+        "Market Access Restriction (Mechanism Framework)"
       ]
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "lens": "International Relations",
       "hypothesis": "One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.",
       "supporting_observations": [
         "Detected regions include no explicit region in the source document.",
-        "Mechanisms such as Industrial Subsidy, Policy Signaling can appear in geopolitical or cross-border settings."
+        "Mechanisms such as Technology Containment, Market Access Restriction can appear in geopolitical or cross-border settings."
       ],
       "limitations": [
         "The source does not establish intent by governments or counterparties."
       ],
       "evidence_references": [
         "Source Document",
-        "CHIPS and Science Act (2022) - Historical Database",
-        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
-        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
-        "Energy Context KB: EN-002 (energy_context.md)",
-        "Industrial Subsidy (Mechanism Framework)",
-        "Policy Signaling (Mechanism Framework)"
+        "Huawei Entity List (2019) - Historical Database",
+        "ASML Export Controls (2023) - Historical Database",
+        "Semiconductors Context KB: SC-001 (semiconductor_context.md)",
+        "Supply Chain Context KB: SP-004 (supply_chain_context.md)",
+        "Technology Containment (Mechanism Framework)",
+        "Market Access Restriction (Mechanism Framework)"
       ]
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "lens": "Legislative / Regulatory",
       "hypothesis": "One possible interpretation is that implementation rules and compliance obligations are central to the event.",
       "supporting_observations": [
-        "Detected policy terms include subsidy, subsidies, industrial policy, compliance.",
+        "Detected policy terms include export controls, license, compliance.",
         "The evidence trace includes source document signals and retrieved context records."
       ],
       "limitations": [
@@ -729,20 +724,20 @@
       ],
       "evidence_references": [
         "Source Document",
-        "CHIPS and Science Act (2022) - Historical Database",
-        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
-        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
-        "Energy Context KB: EN-002 (energy_context.md)",
-        "Industrial Subsidy (Mechanism Framework)",
-        "Policy Signaling (Mechanism Framework)"
+        "Huawei Entity List (2019) - Historical Database",
+        "ASML Export Controls (2023) - Historical Database",
+        "Semiconductors Context KB: SC-001 (semiconductor_context.md)",
+        "Supply Chain Context KB: SP-004 (supply_chain_context.md)",
+        "Technology Containment (Mechanism Framework)",
+        "Market Access Restriction (Mechanism Framework)"
       ]
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "lens": "Business Strategy",
       "hypothesis": "One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.",
       "supporting_observations": [
-        "The issue mentions actors such as government, executives, suppliers.",
+        "The issue mentions actors such as executives, customers, management.",
         "The brief combines analogue patterns with current context monitoring considerations."
       ],
       "limitations": [
@@ -750,22 +745,22 @@
       ],
       "evidence_references": [
         "Source Document",
-        "CHIPS and Science Act (2022) - Historical Database",
-        "Inflation Reduction Act Clean Energy Incentives (2022) - Historical Database",
-        "Semiconductors Context KB: SC-002 (semiconductor_context.md)",
-        "Energy Context KB: EN-002 (energy_context.md)",
-        "Industrial Subsidy (Mechanism Framework)",
-        "Policy Signaling (Mechanism Framework)"
+        "Huawei Entity List (2019) - Historical Database",
+        "ASML Export Controls (2023) - Historical Database",
+        "Semiconductors Context KB: SC-001 (semiconductor_context.md)",
+        "Supply Chain Context KB: SP-004 (supply_chain_context.md)",
+        "Technology Containment (Mechanism Framework)",
+        "Market Access Restriction (Mechanism Framework)"
       ]
     }
   ],
   "evidence": [
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "lens": "Economics",
       "supporting_evidence": [
-        "The issue references semiconductor, manufacturing, technology and operating constraints.",
-        "Historical analogues such as CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives show comparable economic adjustment patterns."
+        "The issue references semiconductor, chips, AI and operating constraints.",
+        "Historical analogues such as Huawei Entity List, ASML Export Controls show comparable economic adjustment patterns."
       ],
       "weakening_evidence": [
         "The document does not quantify cost, demand, or capacity effects."
@@ -778,11 +773,11 @@
       "confidence_language": "Substantial"
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "lens": "Political Economy",
       "supporting_evidence": [
-        "The scenario classification is Industrial Policy.",
-        "Current context from Semiconductors, Energy highlights stakeholders and monitoring considerations."
+        "The scenario classification is Export Controls.",
+        "Current context from Semiconductors, Supply Chain highlights stakeholders and monitoring considerations."
       ],
       "weakening_evidence": [
         "The balance between public policy goals and firm-level incentives requires more source detail."
@@ -795,11 +790,11 @@
       "confidence_language": "Substantial"
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "lens": "International Relations",
       "supporting_evidence": [
         "Detected regions include no explicit region in the source document.",
-        "Mechanisms such as Industrial Subsidy, Policy Signaling can appear in geopolitical or cross-border settings."
+        "Mechanisms such as Technology Containment, Market Access Restriction can appear in geopolitical or cross-border settings."
       ],
       "weakening_evidence": [
         "The source does not establish intent by governments or counterparties."
@@ -812,10 +807,10 @@
       "confidence_language": "Substantial"
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "lens": "Legislative / Regulatory",
       "supporting_evidence": [
-        "Detected policy terms include subsidy, subsidies, industrial policy, compliance.",
+        "Detected policy terms include export controls, license, compliance.",
         "The evidence trace includes source document signals and retrieved context records."
       ],
       "weakening_evidence": [
@@ -829,10 +824,10 @@
       "confidence_language": "Substantial"
     },
     {
-      "issue_title": "What does this issue mean?",
+      "issue_title": "Should management pause high-risk semiconductor customer orders while export-con",
       "lens": "Business Strategy",
       "supporting_evidence": [
-        "The issue mentions actors such as government, executives, suppliers.",
+        "The issue mentions actors such as executives, customers, management.",
         "The brief combines analogue patterns with current context monitoring considerations."
       ],
       "weakening_evidence": [
@@ -847,19 +842,18 @@
     }
   ],
   "decision_case": {
-    "decision_question": "What does this issue mean?",
-    "source_summary": "Industrial Policy Subsidy Demo Case\n\nA fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production. The program includes grants for new manufacturing facilities, tax credits for qualified capital investment, and workforce funding for technical training. Officials describe the initiative as a way to strengthen domestic production capacity, reduce strategic dependency, and attract private investment into p...",
-    "situation": "Industrial Policy Subsidy Demo Case\n\nA fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production.",
+    "decision_question": "Should management pause high-risk semiconductor customer orders while export-control exposure is reviewed?",
+    "source_summary": "Decision question:\nShould management pause high-risk semiconductor customer orders while export-control exposure is reviewed?\n\nSource material:\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, related design software, and restricted end users. Several customers have asked whether existing orders can continue under prior authorizations. The compliance team has not yet completed customer eligibility mappi...",
+    "situation": "Decision question:\nShould management pause high-risk semiconductor customer orders while export-control exposure is reviewed?",
     "stakeholders": [
-      "government",
       "executives",
-      "suppliers",
-      "firms",
-      "companies",
+      "customers",
+      "management",
       "semiconductor",
+      "chips",
+      "AI",
       "manufacturing",
-      "technology",
-      "battery"
+      "software"
     ],
     "decision_criteria": [
       "Evidence quality",
@@ -868,7 +862,7 @@
       "Reversibility",
       "Execution burden",
       "Monitoring value",
-      "Scenario fit: Industrial Policy"
+      "Scenario fit: Export Controls"
     ],
     "decision_options": [
       "Option A: wait for more complete information before changing posture.",
@@ -890,22 +884,22 @@
       "E12"
     ],
     "historical_analogues": [
-      "CHIPS and Science Act (2022)",
-      "Inflation Reduction Act Clean Energy Incentives (2022)",
+      "Huawei Entity List (2019)",
+      "ASML Export Controls (2023)",
       "Japan-Korea Semiconductor Materials Dispute (2019)"
     ],
     "assumptions": [
       "The supplied material is sufficient for an initial decision-support brief.",
       "Human review will verify source details before operational use.",
-      "The Industrial Policy frame is an appropriate starting point for analysis.",
-      "The identified mechanisms remain relevant to the decision context: Industrial Subsidy, Policy Signaling, Strategic Dependency.",
+      "The Export Controls frame is an appropriate starting point for analysis.",
+      "The identified mechanisms remain relevant to the decision context: Technology Containment, Market Access Restriction, Counterparty Risk.",
       "Sector exposure should be validated against organization-specific data."
     ],
     "risks": [
       "The source material may omit operational details needed for final action.",
       "Historical similarity may not transfer cleanly to the current context.",
       "New evidence may change the preferred path.",
-      "The Industrial Policy classification may be incomplete if the input is brief or ambiguous."
+      "The Export Controls classification may be incomplete if the input is brief or ambiguous."
     ],
     "recommended_path": "Option B: map exposure, preserve flexibility, and prepare staged response options.",
     "confidence_level": "Moderate",
@@ -913,14 +907,14 @@
       "New primary source material changes the factual basis.",
       "Stakeholder responses differ from the assumptions in the brief.",
       "Implementation details create materially different constraints.",
-      "Evidence shows the situation no longer fits the Industrial Policy frame."
+      "Evidence shows the situation no longer fits the Export Controls frame."
     ],
     "monitoring_signals": [
       "Source updates",
       "Stakeholder responses",
       "Implementation details",
       "Evidence gaps",
-      "Industrial Policy indicators",
+      "Export Controls indicators",
       "semiconductor exposure changes"
     ],
     "limitations": [
@@ -937,8 +931,8 @@
       {
         "evidence_id": "E1",
         "source_type": "User-provided input material",
-        "evidence_text": "Industrial Policy Subsidy Demo Case\n\nA fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production. The program includes grants for new manufacturing facilities, tax credits for qualified capital investment, and workforce funding for technical training. Officials describe the initiative as a way to strengthen domestic production capacity, reduce strategic dependency, and attract private investment into p...",
-        "observation": "Industrial Policy Subsidy Demo Case\n\nA fictional government economic ministry announces a strategic subsidy program to support domestic battery, semiconductor, and clean-technology production.",
+        "evidence_text": "Decision question:\nShould management pause high-risk semiconductor customer orders while export-control exposure is reviewed?\n\nSource material:\nA fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, related design software, and restricted end users. Several customers have asked whether existing orders can continue under prior authorizations. The compliance team has not yet completed customer eligibility mappi...",
+        "observation": "Decision question:\nShould management pause high-risk semiconductor customer orders while export-control exposure is reviewed?",
         "inference": "The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.",
         "claim_supported": "Situation understanding and decision framing.",
         "relevance": "High",
@@ -949,8 +943,8 @@
       {
         "evidence_id": "E2",
         "source_type": "Local historical analogue record",
-        "evidence_text": "CHIPS and Science Act (2022): Shows how public incentives can shape capital planning and site selection.",
-        "observation": "scenario match on Industrial Policy; keyword overlap: capacity, capital, domestic, industrial; industry overlap: manufacturing, technology; actor overlap: firms, government",
+        "evidence_text": "Huawei Entity List (2019): Shows how export controls can alter supplier access and compliance workflows.",
+        "observation": "scenario match on Export Controls; keyword overlap: advanced, can, compliance, controls",
         "inference": "The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.",
         "claim_supported": "Historical comparison and analogue reasoning.",
         "relevance": "Moderate",
@@ -961,8 +955,8 @@
       {
         "evidence_id": "E3",
         "source_type": "Local historical analogue record",
-        "evidence_text": "Inflation Reduction Act Clean Energy Incentives (2022): Shows how incentives can alter capital allocation and supplier location decisions.",
-        "observation": "scenario match on Industrial Policy; keyword overlap: battery, capacity, capital, domestic; industry overlap: manufacturing; actor overlap: firms, government, suppliers",
+        "evidence_text": "ASML Export Controls (2023): Highlights exposure to licensing rules for critical production tools.",
+        "observation": "scenario match on Export Controls; keyword overlap: advanced, controls, equipment, export",
         "inference": "The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.",
         "claim_supported": "Historical comparison and analogue reasoning.",
         "relevance": "Moderate",
@@ -974,7 +968,7 @@
         "evidence_id": "E4",
         "source_type": "Local historical analogue record",
         "evidence_text": "Japan-Korea Semiconductor Materials Dispute (2019): Shows how trade restrictions can affect specialized upstream inputs.",
-        "observation": "keyword overlap: manufacturing, policy, semiconductor; industry overlap: technology; actor overlap: government, suppliers",
+        "observation": "keyword overlap: advanced, affecting, can, controls",
         "inference": "The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.",
         "claim_supported": "Historical comparison and analogue reasoning.",
         "relevance": "Moderate",
@@ -985,9 +979,9 @@
       {
         "evidence_id": "E5",
         "source_type": "Deterministic mechanism detection",
-        "evidence_text": "Government incentives that shape investment production or supply location",
-        "observation": "tax credits; grants; eligibility rules; domestic content",
-        "inference": "scenario match: Industrial Policy; observation overlap: credits, domestic, government, grants; actor overlap: suppliers",
+        "evidence_text": "Restrictions or controls that limit access to sensitive technologies",
+        "observation": "licenses; entity lists; restricted equipment; cloud access limits",
+        "inference": "scenario match: Export Controls; observation overlap: controls, equipment, restricted",
         "claim_supported": "Mechanism reasoning and risk identification.",
         "relevance": "Moderate",
         "confidence": "Moderate",
@@ -997,9 +991,9 @@
       {
         "evidence_id": "E6",
         "source_type": "Deterministic mechanism detection",
-        "evidence_text": "Government action used to signal strategic priorities or boundaries",
-        "observation": "public guidance; funding priorities; security messaging",
-        "inference": "scenario match: Industrial Policy; observation overlap: funding, government, strategic; actor overlap: firms",
+        "evidence_text": "Reduced ability to serve supply or transact in a target market",
+        "observation": "restricted customers; end-use screening; transaction limits",
+        "inference": "scenario match: Export Controls; observation overlap: customers, restricted; actor overlap: customers",
         "claim_supported": "Mechanism reasoning and risk identification.",
         "relevance": "Moderate",
         "confidence": "Moderate",
@@ -1009,7 +1003,7 @@
       {
         "evidence_id": "E7",
         "source_type": "Evidence assessment",
-        "evidence_text": "The issue references semiconductor, manufacturing, technology and operating constraints.; Historical analogues such as CHIPS and Science Act, Inflation Reduction Act Clean Energy Incentives show comparable economic adjustment patterns.",
+        "evidence_text": "The issue references semiconductor, chips, AI and operating constraints.; Historical analogues such as Huawei Entity List, ASML Export Controls show comparable economic adjustment patterns.",
         "observation": "Economics has supporting and weakening evidence.",
         "inference": "The recommendation should be constrained where weakening or missing evidence remains.",
         "claim_supported": "Evidence quality and uncertainty.",
@@ -1021,7 +1015,7 @@
       {
         "evidence_id": "E8",
         "source_type": "Evidence assessment",
-        "evidence_text": "The scenario classification is Industrial Policy.; Current context from Semiconductors, Energy highlights stakeholders and monitoring considerations.",
+        "evidence_text": "The scenario classification is Export Controls.; Current context from Semiconductors, Supply Chain highlights stakeholders and monitoring considerations.",
         "observation": "Political Economy has supporting and weakening evidence.",
         "inference": "The recommendation should be constrained where weakening or missing evidence remains.",
         "claim_supported": "Evidence quality and uncertainty.",
@@ -1033,8 +1027,8 @@
       {
         "evidence_id": "E9",
         "source_type": "Local historical outcome record",
-        "evidence_text": "Public incentives reshaped capacity planning and domestic manufacturing discussions.",
-        "observation": "Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.",
+        "evidence_text": "Restricted access to selected technology inputs changed supplier screening and product planning.",
+        "observation": "Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.",
         "inference": "The outcome informs possible response patterns and monitoring priorities; it is not a forecast.",
         "claim_supported": "Historical outcomes and strategic lessons.",
         "relevance": "Moderate",
@@ -1045,8 +1039,8 @@
       {
         "evidence_id": "E10",
         "source_type": "Local historical outcome record",
-        "evidence_text": "Industrial incentives affected domestic content planning and clean-energy supply-chain strategy.",
-        "observation": "Firms reviewed tax credit eligibility, supplier location, and compliance documentation.",
+        "evidence_text": "Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.",
+        "observation": "Companies monitored license rules, tool availability, and jurisdictional alignment.",
         "inference": "The outcome informs possible response patterns and monitoring priorities; it is not a forecast.",
         "claim_supported": "Historical outcomes and strategic lessons.",
         "relevance": "Moderate",
@@ -1057,9 +1051,9 @@
       {
         "evidence_id": "E11",
         "source_type": "Local current-context record",
-        "evidence_text": "Governments use subsidies, tax credits, and research programs to support domestic semiconductor capacity.",
-        "observation": "Incentives can shape site selection, partnership choices, and capital allocation.",
-        "inference": "Funding awards; eligibility rules; construction timelines; workforce constraints",
+        "evidence_text": "Advanced chip and semiconductor equipment supply chains depend on cross-border licensing, specialized suppliers, and government controls.",
+        "observation": "Controls can affect access to inputs, customer eligibility, and compliance review timelines.",
+        "inference": "Licensing updates; allied coordination; supplier disclosures; compliance guidance",
         "claim_supported": "Monitoring and current context.",
         "relevance": "Moderate",
         "confidence": "Moderate",
@@ -1069,9 +1063,9 @@
       {
         "evidence_id": "E12",
         "source_type": "Local current-context record",
-        "evidence_text": "Clean energy incentives can influence battery, solar, hydrogen, and grid-related investment decisions.",
-        "observation": "Incentives may affect manufacturing location, supplier strategy, and project economics.",
-        "inference": "Tax-credit rules; project announcements; grid constraints; supplier capacity",
+        "evidence_text": "Export controls can restrict shipment of sensitive goods, software, or technology to certain end users.",
+        "observation": "Companies may need to screen counterparties and assess license requirements before fulfillment.",
+        "inference": "Restricted party lists; product classifications; license applications; end-use statements",
         "claim_supported": "Monitoring and current context.",
         "relevance": "Moderate",
         "confidence": "Moderate",
@@ -1085,15 +1079,15 @@
     "key_assumptions": [
       "The supplied material is sufficient for an initial decision-support brief.",
       "Human review will verify source details before operational use.",
-      "The Industrial Policy frame is an appropriate starting point for analysis.",
-      "The identified mechanisms remain relevant to the decision context: Industrial Subsidy, Policy Signaling, Strategic Dependency.",
+      "The Export Controls frame is an appropriate starting point for analysis.",
+      "The identified mechanisms remain relevant to the decision context: Technology Containment, Market Access Restriction, Counterparty Risk.",
       "Sector exposure should be validated against organization-specific data."
     ],
     "what_would_change_this_view": [
       "New primary source material changes the factual basis.",
       "Stakeholder responses differ from the assumptions in the brief.",
       "Implementation details create materially different constraints.",
-      "Evidence shows the situation no longer fits the Industrial Policy frame."
+      "Evidence shows the situation no longer fits the Export Controls frame."
     ],
     "unknown_or_uncertain": [
       "The current brief does not verify information outside the supplied input and local records.",
@@ -1160,7 +1154,7 @@
   },
   "agent_trace": {
     "document_type": "Policy / Regulatory Text",
-    "scenario_type": "Industrial Policy",
+    "scenario_type": "Export Controls",
     "selected_tools": [
       "IssueExtractor",
       "ScenarioClassifier",
@@ -1174,7 +1168,7 @@
       {
         "step": 1,
         "event": "Scenario detected",
-        "detail": "Industrial Policy"
+        "detail": "Export Controls"
       },
       {
         "step": 2,
@@ -1194,12 +1188,12 @@
       {
         "step": 5,
         "event": "Tool selected",
-        "detail": "HistoricalRetriever: Industrial Policy benefits from comparison against historical precedents."
+        "detail": "HistoricalRetriever: Export Controls benefits from comparison against historical precedents."
       },
       {
         "step": 6,
         "event": "Tool selected",
-        "detail": "ContextRetriever: Industrial Policy usually benefits from domain context and monitoring considerations."
+        "detail": "ContextRetriever: Export Controls usually benefits from domain context and monitoring considerations."
       },
       {
         "step": 7,
@@ -1228,13 +1222,13 @@
       {
         "tool": "HistoricalRetriever",
         "decision": "Selected",
-        "why": "Industrial Policy benefits from comparison against historical precedents.",
+        "why": "Export Controls benefits from comparison against historical precedents.",
         "expected_contribution": "Top analogue cases and similarity reasons from the historical database."
       },
       {
         "tool": "ContextRetriever",
         "decision": "Selected",
-        "why": "Industrial Policy usually benefits from domain context and monitoring considerations.",
+        "why": "Export Controls usually benefits from domain context and monitoring considerations.",
         "expected_contribution": "Adds current context from the local knowledge base."
       },
       {
@@ -1267,26 +1261,26 @@
     "note": "Run artifacts are generated by the local deterministic pipeline; they are not real-world accuracy claims."
   },
   "metadata": {
-    "run_id": "run_20260629_162",
-    "created_at": "2026-06-29T16:32:41",
+    "run_id": "run_20260630_003",
+    "created_at": "2026-06-30T11:18:44",
     "language": "en",
     "output_mode": "analyst",
-    "question_id": "meaning",
-    "question_text": "What does this issue mean?",
+    "question_id": "q_export_controls_immediate",
+    "question_text": "Should management pause high-risk semiconductor customer orders while export-control exposure is reviewed?",
     "question_intent": "Implication Analysis",
     "question_intent_label": "Implication Analysis",
     "source_url": "",
-    "input_mode": "paste_text",
+    "input_mode": "demo_v4_workspace",
     "uploaded_filename": "",
     "file_type": "text",
     "status": "complete",
     "artifact_paths": {
-      "input": "outputs/runs/run_20260629_162/input.txt",
-      "analysis": "outputs/runs/run_20260629_162/analysis.json",
-      "brief_markdown": "outputs/runs/run_20260629_162/brief.md",
-      "brief_text": "outputs/runs/run_20260629_162/brief.txt",
-      "agent_trace": "outputs/runs/run_20260629_162/agent_trace.json",
-      "metadata": "outputs/runs/run_20260629_162/metadata.json"
+      "input": "outputs/runs/run_20260630_003/input.txt",
+      "analysis": "outputs/runs/run_20260630_003/analysis.json",
+      "brief_markdown": "outputs/runs/run_20260630_003/brief.md",
+      "brief_text": "outputs/runs/run_20260630_003/brief.txt",
+      "agent_trace": "outputs/runs/run_20260630_003/agent_trace.json",
+      "metadata": "outputs/runs/run_20260630_003/metadata.json"
     }
   }
 }

@@ -1,0 +1,26 @@
+[
+  {
+    "evidence_id": "EV-DEMO-001",
+    "title": "Initial export-control policy bulletin",
+    "source_type": "User Provided",
+    "source_url": "",
+    "uploaded_filename": "demo_initial_policy_bulletin.txt",
+    "text_excerpt": "New controls affect advanced semiconductor equipment, AI chips, design software, and restricted end users.",
+    "summary": "Initial local evidence note establishing the decision problem and immediate compliance uncertainty.",
+    "added_at": "2026-06-30T11:18:44",
+    "status": "User Provided",
+    "freshness_note": "Demo evidence representing the first project question."
+  },
+  {
+    "evidence_id": "EV-DEMO-002",
+    "title": "Follow-up licensing clarification",
+    "source_type": "User Provided",
+    "source_url": "",
+    "uploaded_filename": "demo_licensing_clarification.txt",
+    "text_excerpt": "Clarification identifies narrower restrictions, a licensing path, and a transition period for some previously authorized orders.",
+    "summary": "Follow-up local evidence note used to demonstrate how project decisions can change or stabilize over time.",
+    "added_at": "2026-06-30T11:18:44",
+    "status": "User Provided",
+    "freshness_note": "Demo evidence representing the second project question."
+  }
+]

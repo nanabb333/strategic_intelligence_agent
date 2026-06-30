@@ -89,26 +89,28 @@ http://127.0.0.1:8000/dashboard/
 6. Click **Build decision brief**.
 7. Confirm the saved question now shows a linked run.
 8. Add a manual Evidence Library note.
-9. Use **Search Current Evidence** to create retrieved evidence candidates.
-10. Confirm retrieved candidates appear in the Evidence Review Queue, not directly in the Evidence Library.
-11. Accept one or more selected retrieved items.
-12. Confirm accepted items appear in the Evidence Library with source URL, source type, source tier, retrieved date, and freshness note.
-13. Add a second project question and run another analysis.
-14. Confirm the Decision Timeline has two entries.
-15. Confirm Decision Delta appears and shows previous/current recommendation, confidence, Decision Quality on a `/ 10` scale, and evidence changes when available.
+9. Select one or more Evidence Library items before running the next analysis.
+10. Confirm the generated run JSON metadata includes `project_id`, `project_question_id`, and selected `evidence_ids`.
+11. Confirm the analysis JSON includes an `evidence_bundle` and that selected evidence IDs appear in the Evidence Ledger.
+12. Add a second project question and run another analysis.
+13. Confirm the Decision Timeline has two entries.
+14. Confirm Decision Delta appears and shows previous/current recommendation, confidence, Decision Quality on a `/ 10` scale, and durable project evidence ID changes when available.
+15. Use **Search Current Evidence** only as a user-triggered candidate workflow; confirm retrieved items still require review and acceptance before they can be selected into an Evidence Bundle.
 16. Use the browser print dialog to print or save PDF. The print view should focus on generated results, not the sidebar controls.
 
 Standalone analysis should still work when no project is active.
 
-## V4.5 Evidence Retrieval Candidate
+## V4.5 Decision Context Before Retrieval
 
-Evidence retrieval is user-triggered and review-first:
+Decision Context is the required foundation for live retrieval:
 
 ```text
-Search Current Evidence -> Review Queue -> User Acceptance -> Project Evidence Library -> Existing Analysis
+Project -> Question -> Selected Evidence IDs -> Evidence Bundle -> Analysis Run -> Timeline / Delta
 ```
 
-Retrieved items do not make decisions and do not automatically enter the project. They are candidates for reviewer inspection. Accepted items preserve source URL, source name, source type, retrieved date, published date when available, credibility tier, and freshness note.
+Project-aware runs should be traceable to the project, project question, selected evidence IDs, and Evidence Bundle. Accepted evidence follows a simple lifecycle: Retrieved, Reviewed, Accepted, Used, Archived.
+
+Live retrieval remains user-triggered and review-first. Retrieved items do not make decisions and do not automatically enter analysis. They are candidates for reviewer inspection before acceptance into the Evidence Library and explicit selection into an Evidence Bundle.
 
 Default source ranking prefers:
 

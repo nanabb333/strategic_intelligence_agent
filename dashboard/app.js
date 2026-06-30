@@ -520,6 +520,7 @@ async function analyzeDocument() {
         file_type: uploadedFileType,
         project_id: projectContext.project_id || "",
         project_question_id: projectContext.project_question_id || "",
+        evidence_ids: projectContext.evidence_ids || [],
       }),
     });
     if (!response.ok) {

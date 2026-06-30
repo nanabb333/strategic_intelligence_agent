@@ -12,6 +12,11 @@ from uuid import uuid4
 ROOT = Path(__file__).resolve().parent.parent
 PROJECTS_DIR = ROOT / "data" / "projects"
 EVIDENCE_STATUSES = {
+    "Retrieved",
+    "Reviewed",
+    "Accepted",
+    "Used",
+    "Archived",
     "Verified",
     "Corroborated",
     "User Provided",
@@ -20,7 +25,6 @@ EVIDENCE_STATUSES = {
     "Historical Only",
     "Outdated",
     "Unavailable",
-    "Retrieved",
 }
 
 
@@ -44,6 +48,7 @@ def create_project(name: str, description: str = "") -> dict[str, Any]:
         "questions": [],
         "evidence_library": [],
         "decision_history": [],
+        "workspace_state": _workspace_state([], []),
     }
     path = PROJECTS_DIR / f"{project_id}.json"
     path.write_text(json.dumps(project, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -71,9 +76,25 @@ def get_project(project_id: str) -> dict[str, Any]:
 def save_project(project: dict[str, Any]) -> dict[str, Any]:
     ensure_projects_dir()
     project["updated_at"] = _now()
+    project["workspace_state"] = _workspace_state(
+        project.get("evidence_library", []),
+        project.get("decision_history", []),
+    )
     path = PROJECTS_DIR / f"{project['project_id']}.json"
     path.write_text(json.dumps(project, indent=2, ensure_ascii=False), encoding="utf-8")
     return project
+
+
+def _workspace_state(evidence_library: list[dict[str, Any]], history: list[dict[str, Any]]) -> dict[str, Any]:
+    latest = history[-1] if history else {}
+    return {
+        "current_recommendation": latest.get("recommendation_summary", ""),
+        "current_confidence": latest.get("confidence_label", ""),
+        "last_analyzed_question_id": latest.get("question_id", ""),
+        "last_updated_at": latest.get("created_at", ""),
+        "evidence_count": len(evidence_library),
+        "decision_count": len(history),
+    }
 
 
 def _summary_from_analysis(analysis: dict[str, Any]) -> str:
@@ -121,6 +142,7 @@ def _record_decision_history(
     question_id: str,
     run_id: str,
     analysis: dict[str, Any],
+    evidence_ids: list[str] | None = None,
 ) -> None:
     history = project.setdefault("decision_history", [])
     existing = next(
@@ -139,7 +161,7 @@ def _record_decision_history(
             "recommendation_summary": _summary_from_analysis(analysis),
             "confidence_label": _confidence_from_analysis(analysis),
             "decision_quality_score": _quality_from_analysis(analysis),
-            "evidence_ids": _evidence_ids_from_analysis(analysis),
+            "evidence_ids": evidence_ids if evidence_ids is not None else _evidence_ids_from_analysis(analysis),
         }
     )
     if existing is None:
@@ -179,6 +201,7 @@ def attach_run_to_question(
     run_id: str,
     analysis: dict[str, Any],
     brief_path: str | None = None,
+    evidence_ids: list[str] | None = None,
 ) -> dict[str, Any]:
     project = get_project(project_id)
     question = _find_question(project, question_id)
@@ -187,8 +210,35 @@ def attach_run_to_question(
     question["run_id"] = run_id
     if brief_path:
         question["brief_path"] = brief_path
-    _record_decision_history(project, question_id=question_id, run_id=run_id, analysis=analysis)
+    if evidence_ids:
+        _mark_evidence_used(project, evidence_ids)
+    _record_decision_history(
+        project,
+        question_id=question_id,
+        run_id=run_id,
+        analysis=analysis,
+        evidence_ids=evidence_ids,
+    )
     return save_project(project)
+
+
+def evidence_bundle_for_project(project: dict[str, Any], evidence_ids: list[str]) -> list[dict[str, Any]]:
+    """Return selected project evidence items in caller-provided order."""
+    evidence_by_id = {
+        str(item.get("evidence_id")): item
+        for item in project.get("evidence_library", [])
+        if item.get("evidence_id")
+    }
+    return [evidence_by_id[evidence_id] for evidence_id in evidence_ids if evidence_id in evidence_by_id]
+
+
+def _mark_evidence_used(project: dict[str, Any], evidence_ids: list[str]) -> None:
+    selected = set(evidence_ids)
+    used_at = _now()
+    for item in project.get("evidence_library", []):
+        if item.get("evidence_id") in selected:
+            item["status"] = "Used"
+            item["used_at"] = used_at
 
 
 def add_evidence_to_project(project_id: str, payload: dict[str, Any]) -> dict[str, Any]:
@@ -233,12 +283,10 @@ def accept_retrieved_evidence(project_id: str, items: list[dict[str, Any]]) -> d
             "added_at": _now(),
             "retrieved_at": str(item.get("retrieved_at") or "").strip(),
             "published_at": str(item.get("published_at") or "").strip(),
-            "status": str(item.get("status") or "Retrieved").strip(),
+            "status": "Accepted",
             "credibility_tier": str(item.get("credibility_tier") or "Tier 5 Other").strip(),
             "freshness_note": str(item.get("freshness_note") or "").strip(),
         }
-        if evidence["status"] not in EVIDENCE_STATUSES:
-            evidence["status"] = "Retrieved"
         accepted.append(evidence)
     project.setdefault("evidence_library", []).extend(accepted)
     return save_project(project)

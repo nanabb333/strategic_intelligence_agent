@@ -232,37 +232,61 @@ Run Artifacts + Project Timeline + Decision Delta
 
 Key files:
 
-- `app.py`: exposes `/projects`, `/projects/{project_id}`, `/projects/{project_id}/questions`, `/projects/{project_id}/evidence`, `/projects/{project_id}/delta`, and project-aware `/analyze` linking.
-- `src/project_workspace.py`: creates and updates local project JSON files, stores questions, evidence notes, decision history, and deterministic decision delta.
-- `src/evidence_retrieval.py`: provides the Version 4.5 user-triggered retrieval interface, deterministic source tiering, and a small provider abstraction that can later be swapped without changing the workspace contract.
-- `dashboard/project.js`: controls project creation, active project state, selected project question, evidence note entry, timeline rendering, and delta rendering.
+- `app.py`: exposes `/projects`, `/projects/{project_id}`, `/projects/{project_id}/questions`, `/projects/{project_id}/evidence`, `/projects/{project_id}/delta`, and project-aware `/analyze` linking with selected evidence IDs.
+- `src/project_workspace.py`: creates and updates local project JSON files, stores questions, evidence notes, workspace state, decision history, and deterministic decision delta.
+- `src/evidence_retrieval.py`: provides the Version 4.5 user-triggered retrieval candidate interface. Retrieval remains downstream of Decision Context and cannot directly decide.
+- `dashboard/project.js`: controls project creation, active project state, selected project question, selected Evidence Bundle IDs, evidence note entry, timeline rendering, and delta rendering.
 - `data/projects/`: local JSON project storage for runtime project state.
 - `outputs/runs/`: local generated run artifacts for analysis output.
 - `demo_case_outputs/v4_workspace/`: bundled release-validation demo with sample project, linked questions, evidence library, decision history, delta, and generated artifacts.
 
 This remains a workspace, not a chatbot. There is no conversational memory thread, autonomous browsing, background monitoring, multi-agent orchestration, external retrieval loop, database service, or cloud dependency. A user explicitly creates projects, adds evidence notes, selects questions, and runs analyses.
 
-## Version 4.5 Evidence Retrieval Candidate
+## Version 4.5 Decision Context Before Retrieval
 
-Version 4.5 adds a bounded retrieval candidate workflow:
+Version 4.5 should stabilize Decision Context before live retrieval:
 
 ```text
-User Clicks Search Current Evidence
+Project
   |
   v
-Retrieve Evidence Candidates
+Question
   |
   v
-Evidence Review Queue
+Selected Project Evidence IDs
   |
   v
-User Accepts Selected Items
+Evidence Bundle
   |
   v
-Project Evidence Library
+Analysis Run Metadata + Evidence Ledger
   |
   v
-Existing Decision Engine
+Decision Timeline + Decision Delta
+```
+
+A project-aware run should preserve:
+
+- project ID
+- project question ID
+- selected durable project evidence IDs
+- Evidence Bundle records copied from the project evidence library
+- generated Evidence Ledger entries that preserve selected project evidence IDs
+
+Workspace state should track current recommendation, current confidence, last analyzed question, last updated timestamp, evidence count, and decision count.
+
+Decision Delta should compare previous and current recommendation, confidence, decision quality, and durable project evidence IDs. It should not rely on temporary run-local evidence IDs where project evidence IDs are available.
+
+Accepted evidence follows this lifecycle:
+
+```text
+Retrieved -> Reviewed -> Accepted -> Used -> Archived
+```
+
+Live retrieval remains a bounded candidate workflow after Decision Context is stable:
+
+```text
+Search Current Evidence -> Review Queue -> User Acceptance -> Project Evidence Library -> Evidence Bundle -> Existing Decision Engine
 ```
 
 Retrieval creates reviewable evidence items only. It must not directly update recommendations, call analysis, schedule follow-up searches, or monitor sources in the background.

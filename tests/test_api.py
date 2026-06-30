@@ -224,7 +224,7 @@ def test_accept_retrieved_items_adds_traceable_evidence_to_project() -> None:
     assert response.status_code == 200
     evidence = response.json()["evidence_library"]
     assert len(evidence) == 2
-    assert evidence[0]["status"] == "Retrieved"
+    assert evidence[0]["status"] == "Accepted"
     assert evidence[0]["source_url"]
     assert evidence[0]["source_name"]
     assert evidence[0]["retrieved_at"]
@@ -311,3 +311,52 @@ def test_project_analyze_links_existing_question_record() -> None:
     assert refreshed["questions"][0]["question_id"] == question_id
     assert refreshed["questions"][0]["run_id"] == response.json()["run_id"]
     assert refreshed["decision_history"][0]["question_id"] == question_id
+
+
+def test_project_analysis_persists_decision_context_and_project_evidence_ids() -> None:
+    client = TestClient(app)
+    project = client.post("/projects", json={"name": "Decision Context Workspace"}).json()
+    project = client.post(
+        f"/projects/{project['project_id']}/questions",
+        json={"question": "Should management change the shipment plan?"},
+    ).json()
+    question_id = project["questions"][0]["question_id"]
+    project = client.post(
+        f"/projects/{project['project_id']}/evidence",
+        json={
+            "title": "Customer exposure note",
+            "source_type": "Manual note",
+            "text_excerpt": "A named customer depends on components covered by the export-control update.",
+            "status": "Accepted",
+        },
+    ).json()
+    evidence_id = project["evidence_library"][0]["evidence_id"]
+
+    response = client.post(
+        "/analyze",
+        json={
+            **ANALYZE_PAYLOAD,
+            "project_id": project["project_id"],
+            "project_question_id": question_id,
+            "question_text": "Should management change the shipment plan?",
+            "evidence_ids": [evidence_id],
+        },
+    )
+
+    assert response.status_code == 200
+    payload = response.json()
+    assert payload["metadata"]["project_id"] == project["project_id"]
+    assert payload["metadata"]["project_question_id"] == question_id
+    assert payload["metadata"]["evidence_ids"] == [evidence_id]
+    assert payload["analysis"]["evidence_bundle"][0]["evidence_id"] == evidence_id
+    assert any(
+        item["evidence_id"] == evidence_id
+        for item in payload["analysis"]["evidence_ledger"]["items"]
+    )
+
+    refreshed = client.get(f"/projects/{project['project_id']}").json()
+    assert refreshed["decision_history"][0]["evidence_ids"] == [evidence_id]
+    assert refreshed["evidence_library"][0]["status"] == "Used"
+    assert refreshed["workspace_state"]["last_analyzed_question_id"] == question_id
+    assert refreshed["workspace_state"]["evidence_count"] == 1
+    assert refreshed["workspace_state"]["decision_count"] == 1

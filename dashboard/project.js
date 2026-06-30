@@ -6,6 +6,7 @@ const PROJECT_API_BASE = window.location.origin.startsWith("http")
 let workspaceProject = null;
 let workspaceQuestionId = "";
 let retrievedEvidenceQueue = [];
+let selectedEvidenceIds = new Set();
 
 function projectEscapeHtml(value) {
   return String(value ?? "")
@@ -94,6 +95,7 @@ async function createProjectFromInput() {
   input.value = "";
   workspaceProject = await response.json();
   workspaceQuestionId = "";
+  selectedEvidenceIds = new Set();
   renderActiveProject(workspaceProject);
   await loadProjects();
 }
@@ -107,6 +109,7 @@ async function selectProject(projectId) {
   }
 
   workspaceProject = await response.json();
+  selectedEvidenceIds = new Set();
   if (!activeProjectQuestion() && (workspaceProject.questions || []).length) {
     workspaceQuestionId = workspaceProject.questions[0].question_id;
   }
@@ -174,14 +177,31 @@ function renderProjectEvidence(items) {
   }
 
   evidenceList.innerHTML = items.map((item) => `
-    <div class="project-evidence-item">
+    <label class="project-evidence-item">
+      <input
+        type="checkbox"
+        data-project-evidence-id="${projectEscapeHtml(item.evidence_id || "")}"
+        ${selectedEvidenceIds.has(item.evidence_id) ? "checked" : ""}
+      >
       <strong>${projectEscapeHtml(item.title)}</strong>
       <span>Status: ${projectEscapeHtml(item.status || "User Provided")} - Source type: ${projectEscapeHtml(item.source_type || "Manual note")}</span>
       ${(item.source_url || item.uploaded_filename) ? `<span>Source: ${projectEscapeHtml(item.source_url || item.uploaded_filename)}</span>` : ""}
       ${item.freshness_note ? `<span>Freshness: ${projectEscapeHtml(item.freshness_note)}</span>` : ""}
       <p>${projectEscapeHtml(item.summary || item.text_excerpt || "")}</p>
-    </div>
+    </label>
   `).join("");
+
+  evidenceList.querySelectorAll("[data-project-evidence-id]").forEach((input) => {
+    input.addEventListener("change", () => {
+      const evidenceId = input.getAttribute("data-project-evidence-id");
+      if (!evidenceId) return;
+      if (input.checked) {
+        selectedEvidenceIds.add(evidenceId);
+      } else {
+        selectedEvidenceIds.delete(evidenceId);
+      }
+    });
+  });
 }
 
 function renderRetrievedEvidenceQueue(items) {
@@ -415,6 +435,7 @@ window.getActiveProjectAnalysisContext = () => {
     project_id: workspaceProject?.project_id || "",
     project_question_id: question?.question_id || "",
     question_text: question?.question || "",
+    evidence_ids: [...selectedEvidenceIds],
   };
 };
 window.refreshProjectWorkspace = refreshProjectWorkspace;

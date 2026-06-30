@@ -11,7 +11,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 ROOT = Path(__file__).resolve().parent
@@ -29,6 +29,7 @@ from project_workspace import (
     attach_run_to_question,
     create_project,
     decision_delta,
+    evidence_bundle_for_project,
     get_project,
     list_project_evidence,
     list_projects as list_project_workspaces,
@@ -58,6 +59,7 @@ class AnalyzeRequest(BaseModel):
     file_type: str = "text"
     project_id: str = ""
     project_question_id: str = ""
+    evidence_ids: list[str] = Field(default_factory=list)
 
 
 class ExtractFileRequest(BaseModel):
@@ -72,7 +74,7 @@ class RetrieveEvidenceRequest(BaseModel):
 
     query: str
     project_id: str = ""
-    allowed_sources: list[str] = []
+    allowed_sources: list[str] = Field(default_factory=list)
 
 
 class AnalyzeResponse(BaseModel):
@@ -153,16 +155,26 @@ def post_retrieve_evidence(request: RetrieveEvidenceRequest) -> dict[str, Any]:
 @app.post("/analyze", response_model=AnalyzeResponse)
 def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     """Run the real Python pipeline and persist run artifacts."""
+    project = None
+    project_question_id = request.project_question_id
+    evidence_bundle: list[dict[str, Any]] = []
     if request.project_id:
         try:
             project = get_project(request.project_id)
         except FileNotFoundError as exc:
             raise HTTPException(status_code=404, detail="Project not found.") from exc
-        if request.project_question_id and not any(
-            item.get("question_id") == request.project_question_id
+        if project_question_id and not any(
+            item.get("question_id") == project_question_id
             for item in project.get("questions", [])
         ):
             raise HTTPException(status_code=404, detail="Project question not found.")
+        if not project_question_id:
+            project = add_question_to_project(
+                project_id=request.project_id,
+                question=request.question_text,
+            )
+            project_question_id = project["questions"][-1]["question_id"]
+        evidence_bundle = evidence_bundle_for_project(project, [str(item) for item in request.evidence_ids])
 
     result = run_analysis(
         text=request.text,
@@ -174,25 +186,20 @@ def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
         input_mode=request.input_mode,
         uploaded_filename=request.uploaded_filename,
         file_type=request.file_type,
+        project_id=request.project_id,
+        project_question_id=project_question_id,
+        evidence_bundle=evidence_bundle,
     )
     if request.project_id:
         try:
-            if request.project_question_id:
-                attach_run_to_question(
-                    request.project_id,
-                    question_id=request.project_question_id,
-                    run_id=result["run_id"],
-                    analysis=result["analysis"],
-                    brief_path=result["downloads"]["markdown"],
-                )
-            else:
-                add_question_to_project(
-                    project_id=request.project_id,
-                    question=request.question_text,
-                    run_id=result["run_id"],
-                    brief_path=result["downloads"]["markdown"],
-                    analysis=result["analysis"],
-                )
+            attach_run_to_question(
+                request.project_id,
+                question_id=project_question_id,
+                run_id=result["run_id"],
+                analysis=result["analysis"],
+                brief_path=result["downloads"]["markdown"],
+                evidence_ids=[item["evidence_id"] for item in evidence_bundle],
+            )
         except FileNotFoundError as exc:
             raise HTTPException(status_code=404, detail="Project or question not found.") from exc
     return AnalyzeResponse(**result)

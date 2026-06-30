@@ -81,25 +81,25 @@ Decision Delta
 
 Projects are not chats. A Project is a long-running decision problem. Questions remain independently reviewable analyses, evidence notes are stored in a reusable local library, and completed runs are linked back into a project-level timeline.
 
-Version 4.5 adds a user-triggered Evidence Retrieval Candidate:
+Version 4.5 is sequenced around a Decision Context layer before live retrieval:
 
 ```text
-Search Current Evidence
+Project + Question
   |
   v
-Evidence Review Queue
+Selected Evidence IDs
   |
   v
-User Accepts Selected Items
+Evidence Bundle
   |
   v
-Project Evidence Library
+Analysis Run Metadata + Evidence Ledger
   |
   v
-Existing Decision Engine
+Decision Timeline + Decision Delta
 ```
 
-Retrieved evidence never enters analysis automatically. It must be reviewed and accepted into the project evidence library before it becomes part of the workspace.
+Live retrieval should only be added after project evidence can flow into this traceable Decision Context. Retrieved evidence never enters analysis automatically. It must be reviewed and accepted into the project evidence library, then selected into an Evidence Bundle before it can affect a run.
 
 ## Example Output
 
@@ -139,7 +139,7 @@ This output is a decision-support artifact. It is not investment advice, legal a
 | Confidence Assessment | Qualitative confidence, assumptions, unknowns, and change triggers. | [Evidence Architecture](docs/EvidenceArchitecture.md) |
 | Decision Quality Evaluation | Deterministic checks for product-quality properties of generated briefs. | [Evaluation Strategy](docs/EvaluationStrategy.md) |
 | V4 Project Workspace | Local projects, linked questions, evidence library, decision timeline, and decision delta. | [Version 4 Architecture](docs/Version4Architecture.md) |
-| V4.5 Evidence Retrieval Candidate | User-triggered retrieval candidates, source tiers, review queue, and explicit acceptance into project evidence. | [Version 4 Architecture](docs/Version4Architecture.md) |
+| V4.5 Decision Context | Project/question/run linkage, selected Evidence Bundles, durable evidence IDs, workspace state, and retrieval readiness. | [Version 4 Architecture](docs/Version4Architecture.md) |
 | Case Studies | Reviewer-friendly examples of evidence, confidence, and evaluation. | [V2 Case Studies](docs/case_studies/semiconductor_export_controls.md) |
 | Research Direction | A separate path from product QA toward future research validation. | [Research Agenda](docs/research/ResearchAgenda.md) |
 | V4 Architecture | Long-term direction for projects, evidence bundles, traceability, and decision evolution. | [Version 4 Architecture](docs/Version4Architecture.md) |
@@ -172,7 +172,7 @@ Markdown, TXT, JSON, Trace, Metadata
 | `app.py` | Thin FastAPI entrypoint for health, analysis, run artifacts, downloads, and V4 project routes. |
 | `src/` | Analysis service, pipeline, artifacts, evidence, confidence, and evaluation modules. |
 | `src/project_workspace.py` | Local JSON project workspace utilities for projects, questions, evidence, decision history, and decision delta. |
-| `src/evidence_retrieval.py` | Deterministic user-triggered retrieval provider abstraction and source tiering rules. |
+| `src/evidence_retrieval.py` | Deterministic user-triggered retrieval candidate module. It should remain downstream of the Decision Context workflow. |
 | `dashboard/` | Local browser dashboard, including `dashboard/project.js` for project workspace behavior. |
 | `knowledge_base/` | Local mechanism, analogue, outcome, and playbook records. |
 | `docs/` | Product, engineering, governance, evidence, evaluation, and research documentation. |
@@ -181,7 +181,7 @@ Markdown, TXT, JSON, Trace, Metadata
 
 V4 uses local JSON files under `data/projects/` for project state. It does not add PostgreSQL, SQLite, Redis, background workers, authentication, cloud services, autonomous browsing, or autonomous monitoring.
 
-V4.5 retrieval is a candidate interface, not an autonomous research system. The default implementation returns deterministic review candidates through `/retrieve-evidence`; accepted items are stored only when the user explicitly accepts them into a project.
+V4.5 prioritizes Decision Context before live retrieval. Project-aware runs store project and question linkage, selected evidence IDs, and an Evidence Bundle in run artifacts. Retrieval remains a candidate interface, not an autonomous research system; accepted items are stored only when the user explicitly accepts them into a project.
 
 ## Repository Guide
 
@@ -249,10 +249,10 @@ http://127.0.0.1:8000/dashboard/
 4. Add and select a project question.
 5. Paste source material and click **Build decision brief**.
 6. Add a manual Evidence Library note under the active project.
-7. Use **Search Current Evidence** to populate the review queue.
-8. Accept selected retrieved evidence into the Evidence Library.
-9. Add and select a second question, then run analysis again.
-10. Inspect the Decision Timeline and Decision Delta in the active project panel.
+7. Select one or more Evidence Library items to include in the next Evidence Bundle.
+8. Add and select a second question, then run analysis again.
+9. Inspect the Decision Timeline and Decision Delta in the active project panel.
+10. Confirm the run JSON metadata includes `project_id`, `project_question_id`, and selected `evidence_ids`.
 11. Use the browser print dialog to print or save PDF. Print styles hide workspace controls and render the results panel full width.
 
 Standalone analysis is still supported: leave no active project selected and run the brief builder as before.
@@ -295,7 +295,7 @@ Project -> Questions -> Evidence Library -> Analysis Runs -> Decision Timeline -
 
 This remains a professional decision workspace, not a chatbot or autonomous agent. The system does not browse independently, monitor sources in the background, orchestrate agents, or collect evidence without user action.
 
-Version 4.5 introduces user-triggered current evidence retrieval as a review queue. Retrieval creates candidate evidence items with source URL, source name, source type, retrieval timestamp, source tier, and freshness note. It does not make decisions, update recommendations, or bypass the deterministic Decision Engine.
+Version 4.5 introduces Decision Context before live retrieval. A project-aware run can now be traced to the project, project question, selected evidence IDs, and Evidence Bundle used in the deterministic Decision Engine. User-triggered current evidence retrieval remains a later candidate workflow: it creates reviewable items only, does not make decisions, does not update recommendations directly, and does not bypass the deterministic Decision Engine.
 
 ## Current Status
 

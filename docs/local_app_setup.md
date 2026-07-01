@@ -1,6 +1,6 @@
 # Local App Setup
 
-V6 turns Strategic Intelligence Agent into a local usable application. The browser dashboard calls a FastAPI backend, and the backend runs the existing Python pipeline.
+Strategic Intelligence Decision Companion runs as a local usable application. The browser dashboard calls a FastAPI backend, and the backend runs the existing Python pipeline.
 
 ## Install
 
@@ -32,12 +32,12 @@ http://127.0.0.1:8000/dashboard/
 
 ## Basic User Workflow
 
-1. Choose a language.
-2. Paste text or upload a `.md` / `.txt` file.
-3. Choose a guided question.
+1. Create or open a project.
+2. Add a decision question.
+3. Paste text, upload a supported file, or provide a readable URL.
 4. Choose beginner, analyst, or executive output mode.
 5. Click Analyze.
-6. Download Markdown, TXT, or JSON results.
+6. Review the workspace panels and download Markdown, TXT, or JSON results.
 
 ## Local-Only Scope
 

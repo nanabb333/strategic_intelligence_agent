@@ -1,6 +1,6 @@
 # Evaluation Strategy
 
-This document defines the future evaluation strategy for Strategic Intelligence Agent. It does not implement a new evaluation harness.
+This document defines the future evaluation strategy for Strategic Intelligence Decision Companion. It does not implement a new evaluation harness.
 
 The goal is to evaluate decision-support quality, not to claim real-world accuracy or prediction capability.
 
@@ -72,9 +72,9 @@ Assess whether the output identifies material downside risks, implementation ris
 
 Assess whether the output explains what new information would change the analysis. Good triggers are observable, specific, and connected to the decision.
 
-### Localization Quality
+### Product Language Consistency
 
-Assess whether localized output preserves meaning, structure, and decision logic across English, Simplified Chinese, and Traditional Chinese modes. Localization should not merely translate labels while losing analytical clarity.
+Assess whether English output preserves the official terminology, decision-support boundaries, and reviewer-first workflow. Localization is not active in the consolidated release.
 
 ### Overconfidence Control
 
@@ -89,7 +89,7 @@ Future benchmarks should move beyond simple label coverage. A stronger benchmark
 - Evidence quality annotations.
 - Golden output fixtures for selected cases.
 - Scenario-specific risk expectations.
-- Localization review samples.
+- Product language consistency samples.
 - Regression tests for overconfidence language.
 - Side-by-side comparison against generic LLM-style outputs.
 
@@ -120,7 +120,7 @@ Future versions should track recurring failure modes such as:
 - Overconfident recommendation language.
 - Vague options.
 - Missing downside risks.
-- Localization drift.
+- Product terminology drift.
 - Unsupported causal claims.
 - Confusion between monitoring signals and predictions.
 - Output that implies investment, trading, legal, or compliance advice.

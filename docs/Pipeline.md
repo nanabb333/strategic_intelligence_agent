@@ -60,7 +60,7 @@ Strategic Assessment and Response Pattern Retrieval
 Decision Case, Evidence Ledger, Confidence Assessment, and Decision Quality Evaluation
   |
   v
-Executive Brief Generation and Localization
+English Brief Generation
   |
   v
 Artifact Construction

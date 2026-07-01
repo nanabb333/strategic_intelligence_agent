@@ -1,6 +1,6 @@
 # Review Guide
 
-This guide is for reviewers who want to understand Strategic Intelligence Agent quickly without reading every document in the repository.
+This guide is for reviewers who want to understand Strategic Intelligence Decision Companion quickly without reading every document in the repository.
 
 ## Recommended Reading Order
 
@@ -118,7 +118,7 @@ Default source ranking prefers:
 - Tier 2 Company: annual report, 10-K, 10-Q, investor relations, press release.
 - Tier 3 Reputable News: Reuters, AP, FT, WSJ, Bloomberg.
 
-Tier 4 Research can be explicitly allowed for research context. Tier 5 Other is excluded by default and should only be allowed intentionally. This is not autonomous browsing, autonomous monitoring, or an agent workflow.
+Tier 4 Research can be explicitly allowed for research context. Tier 5 Other is excluded by default and should only be allowed intentionally. This is not autonomous browsing, autonomous monitoring, or an tool-routing workflow.
 
 ## Suggested Demo Scenario
 

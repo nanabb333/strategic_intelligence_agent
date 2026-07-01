@@ -1,6 +1,6 @@
 # Product Overview
 
-Strategic Intelligence Agent is a local FastAPI intelligence app for turning messy source material into structured decision-support briefs. It is built for strategic analysis, not prediction.
+Strategic Intelligence Decision Companion is a local FastAPI decision intelligence workspace for turning messy source material into structured decision-support briefs. It is built for strategic analysis, not prediction.
 
 ## Product Purpose
 
@@ -56,7 +56,7 @@ PDF extraction is text-based only. Scanned image PDFs are not supported.
 The dashboard and pipeline support:
 
 - Beginner, analyst, and executive output modes.
-- English, Simplified Chinese, and Traditional Chinese output structure.
+- English output structure.
 - Markdown, TXT, and JSON downloads.
 - Run history and per-run artifacts under `outputs/runs/`.
 

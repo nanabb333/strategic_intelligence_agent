@@ -6,6 +6,7 @@ Start here for the consolidated enterprise product view.
 
 - [README](../README.md): product overview, workflow, architecture, local testing, and roadmap.
 - [Product Terminology](ProductTerminology.md): official vocabulary and prohibited claims.
+- [Repository Maturity Review](RepositoryMaturityReview.md): enterprise repository quality review and remaining maturity opportunities.
 - [Review Guide](ReviewGuide.md): reviewer flow for the local product.
 - [Enterprise Release Guide](EnterpriseReleaseGuide.md): release checks, diagnostics, and recovery model.
 - [Version 5 Release Notes](Version5ReleaseNotes.md): enterprise release notes and compatibility boundaries.
@@ -53,6 +54,7 @@ Start here for the consolidated enterprise product view.
 - [Testing](Testing.md): test scope and commands.
 - [Folder Structure](FolderStructure.md): repository layout.
 - [Naming Review](Reference/NamingReview.md): product naming assessment.
+- [Changelog](../CHANGELOG.md): consolidation release summary.
 
 ## Historical Portfolio Material
 

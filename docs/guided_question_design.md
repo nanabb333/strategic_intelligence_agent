@@ -4,7 +4,7 @@ Guided questions convert a prompt-writing task into a product workflow. Users ch
 
 ## Question Set
 
-The knowledge base includes eight question types across English, Simplified Chinese, and Traditional Chinese:
+The knowledge base includes eight English question types:
 
 - What does this issue mean?
 - What past events does this resemble?
@@ -21,4 +21,4 @@ The question definitions are stored in `knowledge_base/guided_questions.csv` wit
 
 ## Product Rationale
 
-The design reduces prompt burden, improves repeatability, and makes the agent workflow easier to demonstrate to non-technical stakeholders.
+The design reduces prompt burden, improves repeatability, and makes the reviewer workflow easier to demonstrate to non-technical stakeholders.

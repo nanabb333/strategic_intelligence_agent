@@ -18,6 +18,10 @@ This document describes the current repository layout.
 ├── demo_cases/
 ├── demo_case_outputs/
 ├── docs/
+│   ├── Architecture/
+│   ├── Developer/
+│   ├── GettingStarted/
+│   └── Reference/
 ├── evaluation/
 ├── examples/
 ├── knowledge_base/
@@ -53,6 +57,18 @@ analysis_service.py
       -> run_storage.py
 ```
 
+Enterprise decision modules include:
+
+```text
+evidence_intelligence.py
+  -> decision_readiness.py
+      -> decision_pathways.py
+          -> pathway_comparison.py
+              -> decision_review.py
+```
+
+Shared dependency-free decision helpers live in `decision_support_utils.py`.
+
 ### `knowledge_base/`
 
 Local curated data used by deterministic retrieval and reasoning layers.
@@ -64,6 +80,22 @@ Generated run artifacts. Runtime run folders under `outputs/runs/` are ignored b
 ### `tests/`
 
 Pytest suite for helper modules and FastAPI endpoint smoke tests.
+
+### `docs/Architecture/`
+
+Enterprise architecture and module-boundary documentation.
+
+### `docs/Developer/`
+
+Developer-facing conventions such as API naming and compatibility guidance.
+
+### `docs/GettingStarted/`
+
+Reviewer and demo-scenario entry points.
+
+### `docs/Reference/`
+
+Reference material such as naming review.
 
 ### `.github/workflows/`
 

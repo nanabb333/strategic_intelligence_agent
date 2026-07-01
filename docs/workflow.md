@@ -7,7 +7,7 @@ Question, pasted document, uploaded file, or user-provided URL
 -> Language / Output Mode
 -> Current Event Context
 -> Event Understanding
--> Agent Router
+-> Tool Router
 -> Tool Selection
 -> Tool Execution
 -> Result Synthesis
@@ -36,7 +36,7 @@ returns a clear error and does not generate filler.
 
 The product controls are intentionally minimal:
 
-- Language: English, Simplified Chinese, or Traditional Chinese.
+- Product language: English.
 - Output mode: beginner, analyst, or executive.
 
 The controls reduce prompt-writing burden while preserving the same underlying
@@ -69,7 +69,7 @@ historical comparison:
 This prevents weak comparisons such as treating a corporate layoff as directly
 comparable to export controls unless the input source gives a clear reason.
 
-### 5. Agent Router
+### 5. Tool Router
 
 The router inspects document type, scenario type, industries, actors, and
 keywords. It creates an Agent Trace and a reasoning record before selected tools
@@ -211,7 +211,7 @@ The generator writes a concise brief with these sections:
 - Strategic Questions.
 - Analyst Notes.
 - Limitations.
-- Agent Execution Trace.
+- Execution Trace.
 - Tool Decisions.
 - Evidence Sources.
 - Analysis Path.

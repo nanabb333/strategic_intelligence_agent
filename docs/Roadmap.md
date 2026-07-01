@@ -1,6 +1,6 @@
 # Roadmap
 
-This roadmap defines a 12-month product evolution path for Strategic Intelligence Agent. The priority is product maturity, not feature quantity.
+This roadmap defines a 12-month product evolution path for Strategic Intelligence Decision Companion. The priority is product maturity, not feature quantity.
 
 The project should evolve as a Decision Intelligence Platform: more evidence-aware, more evaluable, more trustworthy, and more useful for human decision review. Future work should preserve the current repository stability and avoid broad infrastructure expansion unless a specific product need justifies it.
 
@@ -8,7 +8,7 @@ The project should evolve as a Decision Intelligence Platform: more evidence-awa
 
 ### Objective
 
-Version 1.0 is complete and portfolio-ready. It demonstrates a local FastAPI decision-support workspace with structured outputs, historical analogues, evidence notes, localization support, run artifacts, and CI validation.
+Version 1.0 is complete and portfolio-ready. It demonstrates a local FastAPI decision-support workspace with structured English outputs, historical analogues, evidence notes, run artifacts, and CI validation.
 
 ### User Value
 

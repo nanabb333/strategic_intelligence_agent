@@ -1,6 +1,6 @@
 # Portfolio Narrative
 
-Strategic Intelligence Agent is a portfolio project showing how an AI-oriented product can be organized as a local, testable, decision-support application instead of a one-off prompt demo.
+Strategic Intelligence Decision Companion is a portfolio project showing how an AI-oriented product can be organized as a local, testable, decision-support application instead of a one-off prompt demo.
 
 ## What The Project Demonstrates
 
@@ -66,9 +66,9 @@ Each run creates reviewable artifacts:
 
 This demonstrates product thinking around traceability, download support, and reuse beyond the browser UI.
 
-### Localization And UX Awareness
+### Reviewer Workflow And UX Awareness
 
-The dashboard and output structure support English, Simplified Chinese, and Traditional Chinese modes. The product also separates beginner, analyst, and executive output modes, showing attention to different reviewer needs.
+The dashboard and output structure support beginner, analyst, and executive output modes, showing attention to different reviewer needs while keeping the official product language English-only.
 
 ### Testing And CI Maturity
 

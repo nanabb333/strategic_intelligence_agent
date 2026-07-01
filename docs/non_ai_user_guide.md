@@ -1,12 +1,10 @@
 # Non-AI User Guide
 
-This workbench is designed for users who do not write prompts. Choose a language, paste or upload a document, select a guided question, choose an output mode, and run the analysis.
+This workbench is designed for users who do not write prompts. Paste or upload a document, select or write a decision question, choose an output mode, and run the analysis.
 
-## Supported Languages
+## Product Language
 
-- English
-- Simplified Chinese
-- Traditional Chinese
+English is the official product language for this release.
 
 ## Output Modes
 
@@ -16,12 +14,11 @@ This workbench is designed for users who do not write prompts. Choose a language
 
 ## How to Use
 
-1. Open `dashboard/index.html` in a browser.
-2. Select a language.
-3. Paste text or upload a `.md` or `.txt` file.
-4. Choose one guided question.
-5. Select Beginner, Analyst, or Executive mode.
-6. Run analysis and review the generated sections.
+1. Open the dashboard from the local FastAPI server.
+2. Paste text, upload a supported file, or provide a readable URL.
+3. Add or select a decision question.
+4. Select Beginner, Analyst, or Executive mode.
+5. Run analysis and review the generated sections.
 
 ## Important Limits
 

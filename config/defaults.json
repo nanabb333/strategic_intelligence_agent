@@ -1,0 +1,43 @@
+{
+  "app": {
+    "name": "Strategic Intelligence Decision Companion",
+    "api_title": "Strategic Intelligence Agent Local App",
+    "version": "5.0.0"
+  },
+  "release": {
+    "version": "5.0.0",
+    "label": "Enterprise Product Release",
+    "stage": "release",
+    "released_on": "2026-06-30",
+    "compatibility": "Compatible with Version 4 and Version 4.5 local project JSON workspaces.",
+    "storage_schema": "local-json-v1",
+    "positioning": "Enterprise Decision Intelligence Platform"
+  },
+  "defaults": {
+    "language": "en",
+    "output_mode": "analyst"
+  },
+  "features": {
+    "project_workspace": true,
+    "evidence_retrieval": true,
+    "diagnostics": true
+  },
+  "storage": {
+    "projects_directory": "data/projects",
+    "runs_directory": "outputs/runs"
+  },
+  "evidence": {
+    "default_allowed_tiers": [
+      "Tier 1 Official",
+      "Tier 2 Company",
+      "Tier 3 Reputable News"
+    ],
+    "review_required": true
+  },
+  "dashboard": {
+    "theme": "lavender-grey",
+    "primary": "#B8A7E8",
+    "background": "#F7F4FF",
+    "soft_highlight": "#EFEAFB"
+  }
+}

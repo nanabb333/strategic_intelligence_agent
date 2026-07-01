@@ -1,0 +1,25 @@
+{
+  "available": true,
+  "previous_decision_id": "DEC-DEMO-001",
+  "current_decision_id": "DEC-DEMO-002",
+  "previous_recommendation": "Option B: map exposure, preserve flexibility, and prepare staged response options.",
+  "current_recommendation": "Option B: map exposure, preserve flexibility, and prepare staged response options.",
+  "what_changed": "The second analysis adds licensing clarification and completed partial eligibility mapping while preserving unresolved-customer controls.",
+  "confidence_change": {
+    "previous": "Moderate",
+    "current": "Moderate"
+  },
+  "decision_quality_change": {
+    "previous": "9.7 / 10",
+    "current": "9.7 / 10",
+    "delta": "No change"
+  },
+  "evidence_added": [],
+  "evidence_missing_or_weakened": [
+    "E10",
+    "E11",
+    "E12",
+    "E9"
+  ],
+  "recommendation_changed": false
+}

@@ -18,10 +18,10 @@ A release should be considered only when:
 Use simple tags for portfolio milestones:
 
 ```text
-v13.0
-v14.0
-v15.0
-v16.0
+v1.0
+v2.0
+v3.0-rc
+v3.0
 ```
 
 Avoid tagging experimental work as a release unless the repository is in a clean, validated state.
@@ -52,8 +52,11 @@ Avoid tagging experimental work as a release unless the repository is in a clean
 
    - README
    - Product Overview
+   - Decision Intelligence Framework
+   - Evidence Architecture
    - Demo Scenarios
    - Engineering Architecture
+   - Research Agenda
    - Testing
    - Future Engineering Recommendations
 

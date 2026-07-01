@@ -1,0 +1,23 @@
+{
+  "run_id": "run_20260630_003",
+  "created_at": "2026-06-30T11:18:44",
+  "language": "en",
+  "output_mode": "analyst",
+  "question_id": "q_export_controls_immediate",
+  "question_text": "Should management pause high-risk semiconductor customer orders while export-control exposure is reviewed?",
+  "question_intent": "Implication Analysis",
+  "question_intent_label": "Implication Analysis",
+  "source_url": "",
+  "input_mode": "demo_v4_workspace",
+  "uploaded_filename": "",
+  "file_type": "text",
+  "status": "complete",
+  "artifact_paths": {
+    "input": "outputs/runs/run_20260630_003/input.txt",
+    "analysis": "outputs/runs/run_20260630_003/analysis.json",
+    "brief_markdown": "outputs/runs/run_20260630_003/brief.md",
+    "brief_text": "outputs/runs/run_20260630_003/brief.txt",
+    "agent_trace": "outputs/runs/run_20260630_003/agent_trace.json",
+    "metadata": "outputs/runs/run_20260630_003/metadata.json"
+  }
+}

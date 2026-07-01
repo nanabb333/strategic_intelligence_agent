@@ -1,93 +1,217 @@
-# Strategic Intelligence Agent
+# Strategic Intelligence Decision Companion
 
-A local FastAPI decision-support workspace that turns strategic source material into structured executive briefs with decision criteria, historical analogues, strategic lessons, evidence notes, and downloadable artifacts.
+Strategic Intelligence Decision Companion is a reviewer-first Enterprise Decision Intelligence Platform for structuring complex strategic decisions.
 
-![Strategic Intelligence Agent workbench](docs/screenshots/v12_assistant_workbench.svg)
+It helps product leaders, analysts, executives, and reviewers turn ambiguous source material and project evidence into deterministic, evidence-backed, auditable decision-support artifacts.
 
-## At A Glance
+This is not a chatbot, autonomous researcher, monitoring system, forecasting engine, investment advisor, legal advisor, or autonomous decision maker.
 
-Strategic Intelligence Agent helps analysts, product leaders, strategy teams, and portfolio reviewers make sense of business, policy, supply-chain, market-access, and geopolitical situations. A user can paste source text, upload a supported file, or provide a readable URL, then generate a local decision brief that separates the current issue, decision criteria, options, historical evidence, trade-offs, monitoring signals, and limitations.
+Strategic decisions rarely fail because no one can generate text. They fail because evidence is incomplete, trade-offs are unclear, assumptions are hidden, and teams do not know what should change their view.
 
-It is different from a generic summarizer because it does not only shorten the source. It structures the situation as a decision-support workflow and produces reviewable Markdown, TXT, JSON, trace, and metadata artifacts.
+Repo 5 is built around that problem.
 
-## Product Summary
+It separates evidence from inference, recommendations from facts, confidence from certainty, and reviewer judgment from system-generated structure. The goal is not to predict outcomes. The goal is to make strategic reasoning explicit enough for human review.
 
-Strategic Intelligence Agent is a local analyst workbench for reviewing business, policy, supply-chain, market-access, and geopolitical source material. It helps users move from unstructured input to a structured brief that explains the issue, the decision criteria, available paths, historical patterns, evidence limitations, and next monitoring steps. The app is designed for decision support and portfolio demonstration. It is not a live research platform, forecasting engine, trading advisor, legal advisor, or deployed SaaS product.
+## The Problem
 
-## Who It Is For
+Modern AI systems are excellent at answering questions, summarizing documents, and generating fluent text. Those capabilities are useful, but they are not the same as decision support.
 
-- Analysts preparing executive briefings from messy source material.
-- Product managers and strategy teams comparing current issues with historical cases.
-- Business analytics stakeholders who need structured decision-support artifacts.
-- Recruiters, admissions reviewers, and engineers evaluating an AI product architecture portfolio project.
+Strategic decisions require a different shape of reasoning. A reviewer needs to know:
 
-## Problem It Solves
+- What decision is actually being made.
+- Which evidence matters.
+- Which assumptions remain unresolved.
+- Which constraints affect the decision.
+- Which risks are supported by evidence.
+- Which evidence conflicts with or duplicates other evidence.
+- Whether the decision is ready for review.
+- Which possible pathways deserve comparison.
+- What would require reassessment later.
 
-Strategic source material is often ambiguous. A policy announcement, earnings excerpt, supply-chain disruption, or regulatory update may contain useful signals, but a reviewer still needs to identify what happened, what decision matters, which criteria should drive the response, what historical cases resemble it, what evidence is weak, and what should be monitored next.
+Strategic Intelligence Decision Companion was built to support that workflow.
 
-This project turns that workflow into a repeatable local application.
+It turns ambiguous source material, accepted project evidence, and decision questions into reviewable decision briefs, evidence intelligence, readiness maps, pathway drafts, pathway comparison matrices, and reviewer-controlled review records.
 
-## What The App Supports Today
+## Before And After
 
-- Local FastAPI backend and browser dashboard.
-- Plain-language question input.
-- Pasted text analysis.
-- Uploads for `.txt`, `.md`, `.markdown`, and text-based `.pdf` files.
-- User-provided readable URL extraction when the page text can be fetched locally.
-- Beginner, analyst, and executive output modes.
-- English, Simplified Chinese, and Traditional Chinese output structure.
-- Deterministic local modules for issue extraction, scenario classification, mechanism detection, historical analogue retrieval, outcome retrieval, strategic lesson generation, evidence assessment, and brief generation.
-- Per-run storage under `outputs/runs/`.
-- Markdown, TXT, and JSON downloads.
-- Pytest, Ruff, compile checks, and GitHub Actions CI.
+| Traditional AI | Strategic Intelligence Decision Companion |
+| --- | --- |
+| Summarizes source material | Structures a decision-support workflow |
+| Answers a question | Clarifies the decision being made |
+| Generates text | Builds reviewable decision artifacts |
+| Produces a response | Produces evidence-backed decision support |
+| Treats uncertainty as prose | Exposes assumptions, unknowns, gaps, and change triggers |
+| Hides reasoning inside a generated answer | Preserves traceable evidence, metadata, and review state |
+| Ends at the answer | Supports timeline, delta, readiness, pathway comparison, and review |
 
-## What It Does Not Support
+## Product Workflow
 
-This project intentionally does not provide:
-
-- Forecasts, probabilities, or guaranteed future outcomes.
-- Investment advice, trading recommendations, or legal advice.
-- Live web monitoring or autonomous internet research.
-- RAG infrastructure or external vector search.
-- Cloud deployment, authentication, or multi-user operations.
-- OCR for scanned PDFs.
-- Real-world accuracy guarantees.
-
-URL mode only attempts to fetch readable text from a user-provided page. If the page blocks access or contains too little readable text, the app asks for pasted text or a file instead.
-
-## Architecture Summary
-
-The implementation is a local FastAPI app with a thin HTTP entrypoint and a separated service/pipeline workflow.
+The platform is organized as a local decision workspace:
 
 ```text
-User Input
+Project
   |
   v
-FastAPI app.py
+Decision Questions
   |
   v
-Analysis Service
+Evidence Library
   |
   v
-Analysis Pipeline
+Evidence Intelligence
   |
   v
-Intelligence Modules
+Decision Readiness
   |
   v
-Brief + JSON Artifact
+Decision Pathway Drafts
   |
   v
-Run Storage + Downloads
+Pathway Comparison Matrix
+  |
+  v
+Reviewer Review
+  |
+  v
+Decision Timeline and Delta
 ```
 
-Key implementation docs:
+Evidence can be retrieved only through explicit reviewer action. Retrieved items enter a review queue first. Accepted evidence becomes part of the project Evidence Library. Analysis and decision-support views remain deterministic and do not bypass reviewer control.
 
-- [Documentation Index](docs/DocumentationIndex.md)
-- [Engineering Architecture](docs/EngineeringArchitecture.md)
-- [Analysis Pipeline](docs/Pipeline.md)
-- [Folder Structure](docs/FolderStructure.md)
+The system helps reviewers compare defensible decision paths. It does not choose a best path, rank options, assign probabilities, or make final decisions.
+
+## Example Decision-Support Output
+
+A semiconductor manufacturer faces new export controls. Management needs to decide whether investment plans, customer exposure reviews, and supply-chain monitoring should change.
+
+The platform structures the situation as:
+
+```text
+Decision Question:
+Should we adjust investment and supply-chain plans in response to new export controls?
+
+Evidence:
+Accepted project evidence covering customer eligibility, licensing uncertainty,
+supplier exposure, compliance burden, market access, and operational timing.
+
+Evidence Intelligence:
+Possible duplicate evidence, potential conflicts, freshness concerns,
+source concentration risks, and reviewer attention items.
+
+Decision Readiness:
+Mapped evidence coverage, assumptions, unknowns, constraints, historical support,
+and open reviewer questions.
+
+Decision Pathway Drafts:
+Possible staged response, further evidence required, regulatory clarity,
+or contingency preparation pathways.
+
+Pathway Comparison:
+Side-by-side comparison of constraints, risks, supporting evidence,
+unknowns, trade-offs, and decision triggers.
+
+Reviewer Review:
+Human-controlled notes, unresolved questions, and review statuses.
+```
+
+This output is a decision-support artifact. It is not investment advice, legal advice, trading advice, or a claim of future accuracy.
+
+## Core Capabilities
+
+| Capability | What It Provides | Where To Learn More |
+| --- | --- | --- |
+| Decision Workspace | Project-scoped questions, evidence, runs, timeline, delta, and review state. | [Product Overview](docs/ProductOverview.md) |
+| Evidence Library | Local evidence store for manual notes and accepted retrieved evidence. | [Evidence Architecture](docs/EvidenceArchitecture.md) |
+| Evidence Intelligence | Deterministic duplicate, conflict, novelty, freshness, coverage, and source-diversity support. | [Evidence Philosophy](docs/EvidencePhilosophy.md) |
+| Decision Readiness | Evidence and framework coverage map with assumptions, unknowns, gaps, and reviewer questions. | [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md) |
+| Decision Pathway Drafts | Reviewer-facing pathway scaffolds without ranking or recommendation. | [Documentation Index](docs/DocumentationIndex.md) |
+| Pathway Comparison Matrix | Categorical side-by-side comparison of possible pathways. | [Documentation Index](docs/DocumentationIndex.md) |
+| Reviewer Review Layer | Reviewer-controlled statuses, notes, unresolved questions, and audit-friendly review summary. | [Trust Model](docs/TrustModel.md) |
+| Decision Brief | Deterministic analysis artifact with evidence, confidence, monitoring signals, and quality checks. | [Review Guide](docs/ReviewGuide.md) |
+| Decision Quality Evaluation | Deterministic checks for product-quality properties of generated briefs. | [Evaluation Strategy](docs/EvaluationStrategy.md) |
+| Historical Analogues | Historical comparison without treating past cases as predictions. | [Product Overview](docs/ProductOverview.md) |
+
+## Reviewer-First Governance
+
+The product is intentionally bounded.
+
+It does not:
+
+- Autonomously browse the web.
+- Run background monitoring.
+- Make final decisions.
+- Select a best pathway.
+- Rank pathways.
+- Assign probabilities to outcomes.
+- Provide investment advice.
+- Provide legal advice.
+- Replace reviewer judgment.
+
+The reviewer remains responsible for accepting evidence, interpreting trade-offs, resolving open questions, and making any final decision.
+
+## Architecture
+
+The repository is a local FastAPI application with a deterministic analysis pipeline, local JSON storage, a vanilla dashboard, and downloadable artifacts.
+
+```text
+Dashboard (vanilla HTML/CSS/JS)
+  |
+  v
+FastAPI App
+  |
+  v
+Project Workspace
+  |
+  v
+Evidence + Readiness + Pathway + Review Modules
+  |
+  v
+Deterministic Decision Engine
+  |
+  v
+Markdown, TXT, JSON, Trace, Metadata
+```
+
+| Area | Role |
+| --- | --- |
+| `app.py` | FastAPI entrypoint and API routes. |
+| `src/` | Decision engine, evidence, readiness, pathway, comparison, review, confidence, and evaluation modules. |
+| `dashboard/` | Local browser dashboard for the decision workspace. |
+| `knowledge_base/` | Local mechanism, analogue, outcome, and playbook records. |
+| `docs/` | Product, engineering, governance, evidence, evaluation, and research documentation. |
+| `demo_case_outputs/` | Bundled generated artifacts for review. |
+| `tests/` | Pytest coverage for API behavior, workspace behavior, and decision-quality foundations. |
+
+Important modules:
+
+- `src/project_workspace.py`: local JSON project storage, questions, evidence library, timeline, delta, and review state.
+- `src/evidence_intelligence.py`: deterministic evidence-set review support.
+- `src/decision_readiness.py`: evidence-to-framework readiness mapping.
+- `src/decision_pathways.py`: deterministic pathway draft generation.
+- `src/pathway_comparison.py`: categorical pathway comparison.
+- `src/decision_review.py`: reviewer-controlled review layer.
+- `dashboard/project.js`: project workspace dashboard behavior.
+
+The platform does not require a database, cloud service, background worker, external UI framework, LangGraph, RAG framework, autonomous agent, or scheduled retrieval.
+
+## Repository Guide
+
+Start here:
+
+1. [Product Overview](docs/ProductOverview.md)
+2. [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md)
+3. [Evidence Architecture](docs/EvidenceArchitecture.md)
+4. [Evidence Philosophy](docs/EvidencePhilosophy.md)
+5. [Trust Model](docs/TrustModel.md)
+6. [Review Guide](docs/ReviewGuide.md)
+7. [Documentation Index](docs/DocumentationIndex.md)
+
+For release and repository maturity context:
+
+- [Repository Maturity Review](docs/RepositoryMaturityReview.md)
 - [Testing](docs/Testing.md)
+- [Folder Structure](docs/FolderStructure.md)
+- [Changelog](CHANGELOG.md)
 
 ## Local Setup
 
@@ -97,7 +221,7 @@ Install dependencies:
 python3 -m pip install -r requirements.txt
 ```
 
-Start the local server:
+Run the API:
 
 ```bash
 python3 -m uvicorn app:app --reload
@@ -109,212 +233,82 @@ Open the dashboard:
 http://127.0.0.1:8000/dashboard/
 ```
 
-Each analysis creates a run folder under `outputs/runs/` with:
-
-- `input.txt`
-- `analysis.json`
-- `brief.md`
-- `brief.txt`
-- `agent_trace.json`
-- `metadata.json`
-
-## Test And Quality Commands
-
-Run the same checks used by CI:
+Run validation:
 
 ```bash
-python3 -m ruff check .
-python3 -m compileall app.py src tests
+.venv/bin/ruff check .
+python3 -m py_compile app.py src/*.py
 python3 -m pytest
 ```
 
-GitHub Actions runs dependency installation, compile validation, Ruff, and pytest on push and pull request.
+## Reviewer Workflow
 
-## Demo Walkthrough
+1. Create a project.
+2. Add a decision question.
+3. Add evidence manually or accept retrieved evidence into the Evidence Library.
+4. Select evidence for analysis.
+5. Run deterministic analysis.
+6. Inspect Evidence Intelligence.
+7. Review Decision Readiness.
+8. Compare Decision Pathway Drafts.
+9. Inspect the Pathway Comparison Matrix.
+10. Record reviewer notes, unresolved questions, and review statuses.
+11. Review Decision Timeline, Decision Delta, and downloadable Markdown/TXT/JSON artifacts.
 
-**Decision question**
+## Demo Scenarios
 
-```text
-What should management consider after new semiconductor export controls affect customer eligibility and advanced chip supply chains?
-```
+Demo walkthroughs are documented in [docs/GettingStarted/DemoScenarios.md](docs/GettingStarted/DemoScenarios.md).
 
-**Supporting material**
+Representative scenarios include:
 
-```text
-New semiconductor export controls affect advanced chip supply chains and market access. Equipment suppliers are reviewing licensing requirements, customer eligibility, and compliance documentation. Executives want to understand similar historical cases, observed outcomes, and what to monitor next.
-```
+- Federal Reserve Rate Hike
+- Export Controls
+- Supply Chain Disruption
+- Insurance Company Review
+- Strategic Partnership
 
-**Expected output**
-
-The local app produces a decision brief with:
-
-- Decision Snapshot
-- Decision Criteria
-- Decision Paths and Preferred Path
-- Trade-offs and assumptions
-- Historical evidence and analogues
-- Monitoring considerations
-- Evidence and limitation notes
-
-**Downloadable artifacts**
-
-Each run writes local artifacts under `outputs/runs/<run_id>/`:
-
-- `brief.md`
-- `brief.txt`
-- `analysis.json`
-- `agent_trace.json`
-- `metadata.json`
-- `input.txt`
-
-Start with [docs/ReviewGuide.md](docs/ReviewGuide.md) for a reviewer-friendly path through the repo.
-
-## Example Analysis
-
-Sample input:
-
-```text
-The government announced new export controls affecting advanced semiconductor manufacturing equipment and high-performance AI chips. Several chipmakers and equipment suppliers said they are reviewing licensing requirements and customer exposure. The measures may limit access to advanced-node production tools for firms tied to restricted end users. Executives are preparing internal briefings on supply chain exposure, compliance burden, and market access implications.
-```
-
-The system identifies:
-
-| Field | Example output |
-| --- | --- |
-| Event type | Export control policy update |
-| Key actors | Regulators, semiconductor manufacturers, equipment suppliers, restricted end users |
-| Affected sector | Semiconductors and advanced chip supply chains |
-| Scenario category | Export Controls |
-| Mechanisms | Technology Containment, Market Access Restriction, Compliance Burden, Supply Chain Reconfiguration |
-| Historical analogues | Prior semiconductor equipment controls, entity-list restrictions, industrial policy responses |
-| Historical outcomes | Licensing reviews, exposure mapping, customer segmentation, compliance process expansion |
-| Strategic lessons | Export-control shocks often require exposure mapping, screening, customer review, and management reporting routines |
-| Evidence note | Based on local curated records and deterministic retrieval; human review remains required |
-
-## Sample Output Preview
-
-The following is an illustrative preview of the local deterministic workflow. It is not a forecast, investment recommendation, legal opinion, or claim of future accuracy.
-
-```text
-Decision Snapshot:
-Current Recommendation: Map exposure and prepare staged response options.
-Confidence: Medium.
-Rationale: The highest-priority criteria are customer exposure, licensing
-uncertainty, margin impact, and compliance burden.
-Next Review Window: Reassess as implementation rules, license outcomes, and
-management guidance become clearer.
-
-Decision Criteria:
-- Customer exposure
-- Licensing uncertainty
-- Margin impact
-- Compliance burden
-- Supply chain resilience
-
-Decision Paths:
-Option A: Wait for final rule detail.
-Option B: Map exposure and prepare staged adjustments. Recommended.
-Option C: Immediately reduce exposed customers, suppliers, or product lines.
-
-Preferred Path:
-Option B ranks first because it performs best on the criteria that matter most
-for this decision while preserving flexibility.
-
-Historical Evidence:
-Case: Prior semiconductor equipment controls.
-Why it supports the recommendation: licensing and equipment access became
-operational work, not only policy headlines.
-Key limitation: current rule scope, actor exposure, and timing may differ.
-
-Monitoring:
-Track rule implementation, license denials, customer eligibility, margin
-pressure, supplier exposure, and management commentary.
-```
-
-## Why This Is Not Just A Summarizer
-
-A generic summarizer tells the user what the document says. Strategic Intelligence Agent helps the user reason about what kind of strategic issue the document represents and what evidence should shape the response.
-
-| Generic Summarizer | Strategic Intelligence Agent |
-| --- | --- |
-| Condenses source text | Extracts the issue, actors, sector, and scenario |
-| Produces a shorter document | Structures a decision-support brief |
-| Usually stays inside the source | Connects the issue to local historical analogues |
-| May miss operating mechanisms | Detects mechanisms such as compliance burden, market access restriction, or supply chain reconfiguration |
-| Does not explain historical patterns | Retrieves simplified observed outcomes and strategic lessons |
-| Rarely separates action from monitoring | Produces decision paths, actions, monitoring points, evidence notes, and limitations |
-| Outputs prose only | Writes Markdown, TXT, JSON, trace, and metadata artifacts |
-
-## What Users Can Do With The Output
-
-- Prepare an executive briefing.
-- Compare a current issue with historical analogues.
-- Identify strategic mechanisms behind a policy, market, or operational event.
-- Structure risk and strategy discussions.
-- Generate decision-support notes for analyst review.
-- Export JSON artifacts for further analysis.
-- Preserve run history for portfolio demonstration or review.
-
-The output is designed to support thinking and communication. It does not replace expert judgment.
-
-## Product Documentation
-
-- [Documentation Index](docs/DocumentationIndex.md)
-- [Product Overview](docs/ProductOverview.md)
-- [Demo Scenarios](docs/DemoScenarios.md)
-- [Portfolio Narrative](docs/PortfolioNarrative.md)
-- [Repository Trust Audit](docs/RepositoryTrustAudit.md)
-- [Trust Model](docs/TrustModel.md)
-- [Evidence Philosophy](docs/EvidencePhilosophy.md)
-- [Evaluation Methodology](docs/EvaluationMethodology.md)
-- [Golden Output Philosophy](docs/GoldenOutputPhilosophy.md)
-- [Local App Setup](docs/local_app_setup.md)
-- [Run Management Design](docs/run_management_design.md)
-- [JSON Artifact Design](docs/json_artifact_design.md)
-- [Evaluation Framework](docs/evaluation_framework.md)
-- [Evaluation Limitations](docs/evaluation_limitations.md)
-
-## Maintainer Documentation
-
-- [Contributing](CONTRIBUTING.md)
-- [Security](SECURITY.md)
-- [Public Release Checklist](docs/PublicReleaseChecklist.md)
-- [Release Guide](docs/ReleaseGuide.md)
-- [Future Engineering Recommendations](docs/FutureEngineeringRecommendations.md)
-- [License Guidance](docs/LicenseGuidance.md)
-
-## Repository Structure
-
-```text
-app.py                         Local FastAPI backend.
-dashboard/                     Static browser dashboard served by FastAPI.
-docs/                          Architecture, product, portfolio, and usage docs.
-examples/                      Source examples and demo inputs.
-knowledge_base/                Local context, mechanism, analogue, outcome, and playbook records.
-outputs/                       Generated artifacts; runtime run folders are gitignored.
-scripts/                       Validation scripts.
-src/                           Analysis service, pipeline, helpers, and intelligence modules.
-tests/                         Pytest suite for helpers and API smoke tests.
-evaluation/                    Benchmark cases, results, and evaluation summary.
-legacy/financial_rubric_agent/ Preserved earlier project history.
-```
-
-## Portfolio Positioning
-
-This repository demonstrates practical AI product engineering rather than a single prompt demo. It shows:
-
-- FastAPI backend design with a thin app entrypoint.
-- Service and pipeline separation.
-- Deterministic agent-style workflow orchestration.
-- Historical analogue and outcome reasoning.
-- Evidence traceability and limitation reporting.
-- Local run artifact generation.
-- Dashboard UX for non-technical users.
-- Localization and output-mode awareness.
-- Testing, linting, compile checks, and CI maturity.
-
-The project is strongest as a portfolio artifact for AI product architecture, analytics product thinking, and strategic intelligence workflow design.
+Generated workspace artifacts are available under `demo_case_outputs/`.
 
 ## Current Status
 
-The repository is a local usable application with a deterministic document-to-brief pipeline, dashboard, run history, downloadable artifacts, test coverage, linting, and CI. It is ready for external review as a portfolio project, with remaining limitations clearly documented.
+| Area | Status |
+| --- | --- |
+| Architecture | Stable local Decision Intelligence Platform. |
+| Workspace | Project questions, evidence library, decision timeline, delta, and review state implemented. |
+| Evidence | Evidence lifecycle, validation, ranking, intelligence, and review queue foundations implemented. |
+| Readiness | Decision readiness mapping, framework evidence mapping, gaps, assumptions, and unknowns implemented. |
+| Pathways | Deterministic pathway drafting and pathway comparison implemented. |
+| Review | Reviewer-controlled review layer implemented without approval or selection workflow. |
+| Evaluation | Deterministic Decision Quality Evaluation Harness implemented. |
+| Dashboard | Local reviewer workspace implemented in vanilla HTML/CSS/JavaScript. |
+| CI | Ruff, compile checks, and pytest used for validation. |
+| Portfolio Readiness | Suitable for external review as a mature AI product architecture project. |
+
+## Limitations
+
+The repository intentionally avoids:
+
+- Autonomous web agents
+- Background retrieval
+- Live monitoring
+- Benchmark superiority claims
+- Investment advice
+- Legal advice
+- Trading advice
+- Statistical confidence claims
+- Database infrastructure
+- Login, auth, or account systems
+- Cloud dependency
+- External frontend frameworks
+
+These boundaries keep the platform local, reviewable, deterministic, auditable, and maintainable.
+
+## Roadmap
+
+Near-term direction:
+
+1. Preserve the reviewer-first decision workspace as the center of the product.
+2. Continue tightening documentation around workspace, evidence, readiness, pathway comparison, and review.
+3. Keep retrieval user-triggered and review-queue based.
+4. Add future retrieval providers only behind the existing provider interface.
+5. Avoid autonomous decision behavior, hidden ranking, or unreviewable reasoning loops.

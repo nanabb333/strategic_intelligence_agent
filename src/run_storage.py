@@ -55,6 +55,79 @@ def read_json(path: Path) -> Any:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+ARTIFACT_FILENAMES = {
+    "input": "input.txt",
+    "analysis": "analysis.json",
+    "brief_markdown": "brief.md",
+    "brief_text": "brief.txt",
+    "agent_trace": "agent_trace.json",
+    "metadata": "metadata.json",
+}
+
+
+def list_run_metadata() -> list[dict[str, Any]]:
+    """Return metadata for stored runs, skipping malformed metadata files."""
+    RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    runs = []
+    for metadata_path in sorted(RUNS_DIR.glob("*/metadata.json"), reverse=True):
+        try:
+            metadata = read_json(metadata_path)
+        except (OSError, json.JSONDecodeError):
+            continue
+        if isinstance(metadata, dict):
+            runs.append(metadata)
+    return runs
+
+
+def artifact_metadata(run_id: str) -> dict[str, Any]:
+    """Return existence and size metadata for expected run artifacts."""
+    run_dir = RUNS_DIR / run_id
+    artifacts: dict[str, dict[str, Any]] = {}
+    warnings: list[str] = []
+    if not run_dir.exists() or not run_dir.is_dir():
+        return {
+            "run_id": run_id,
+            "run_directory": str(run_dir),
+            "exists": False,
+            "artifacts": artifacts,
+            "warnings": [f"Run directory not found: {run_id}"],
+        }
+    for artifact, filename in ARTIFACT_FILENAMES.items():
+        path = run_dir / filename
+        exists = path.exists()
+        artifacts[artifact] = {
+            "filename": filename,
+            "path": str(path),
+            "exists": exists,
+            "size_bytes": path.stat().st_size if exists else 0,
+        }
+        if not exists:
+            warnings.append(f"Missing run artifact {filename} for {run_id}.")
+    return {
+        "run_id": run_id,
+        "run_directory": str(run_dir),
+        "exists": True,
+        "artifacts": artifacts,
+        "warnings": warnings,
+    }
+
+
+def runs_summary() -> dict[str, Any]:
+    """Return a lightweight summary of local run artifact storage."""
+    RUNS_DIR.mkdir(parents=True, exist_ok=True)
+    run_dirs = [path for path in RUNS_DIR.glob("run_*") if path.is_dir()]
+    metadata = list_run_metadata()
+    warnings = []
+    if len(metadata) < len(run_dirs):
+        warnings.append("One or more run directories are missing readable metadata.json files.")
+    return {
+        "runs_directory": str(RUNS_DIR),
+        "run_count": len(run_dirs),
+        "metadata_count": len(metadata),
+        "warnings": warnings,
+    }
+
+
 def download_links(run_id: str) -> dict[str, str]:
     return {
         "markdown": f"/run/{run_id}/download/markdown",

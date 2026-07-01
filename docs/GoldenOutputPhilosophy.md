@@ -10,7 +10,7 @@ For this repository, golden outputs would help verify:
 - Run artifacts keep the same filenames and top-level fields.
 - Brief sections remain present and ordered.
 - Evidence and limitations remain visible.
-- Localization structure does not silently drift.
+- Official product terminology and English output structure do not silently drift.
 
 ## What Golden Outputs Should Avoid
 

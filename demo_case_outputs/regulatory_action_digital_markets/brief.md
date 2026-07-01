@@ -1,543 +1,640 @@
-# Analyst Reasoning Brief
-
-Decision-support only. No forecasts, probabilities, trading advice, or investment recommendations.
-
-> English output mode.
-
 # Executive Intelligence Brief
 
-This output is for decision-support and analyst productivity only. It does not provide forecasts, probabilities, trading advice, or investment recommendations.
+## Decision Snapshot
 
-## Executive Summary
+**Current Position:** Monitor closely and prepare staged response options
+**Confidence:** Medium
+**Why:** Historical cases suggest the first headline is rarely the full impact; the real risk usually appears through implementation details, exposure mapping, compliance burden, customer eligibility, margins, or management reaction.
+**Next 30-90 Days:** Track management guidance, supplier/customer exposure, implementation details, margin pressure, and whether the issue remains temporary or becomes structural.
 
-- The document describes a Regulatory Action issue involving software.
-- Historical analogues and current context are used for comparison and decision support, not prediction.
-- Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
+## Decision Question
 
-## Agent Execution Trace
+The key question is not only what happened in this supply chain disruption event, but whether it creates a temporary adjustment problem or a deeper structural risk.
 
-- **Document type detected:** Policy / Regulatory Text
-- **Scenario detected:** Regulatory Action
-- **Selected tools:** IssueExtractor, ScenarioClassifier, HistoricalRetriever, ContextRetriever, ImplicationAnalyzer, BriefGenerator
-- **Skipped tools:** None
+## Decision Criteria
 
-1. **Scenario detected:** Regulatory Action
-2. **Document type detected:** Policy / Regulatory Text
-3. **Tool selected:** IssueExtractor: Every route starts by converting source text into structured issue fields.
-4. **Tool selected:** ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted.
-5. **Tool selected:** HistoricalRetriever: Regulatory Action benefits from comparison against historical precedents.
-6. **Tool selected:** ContextRetriever: Regulatory Action usually benefits from domain context and monitoring considerations.
-7. **Tool selected:** ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations.
-8. **Tool selected:** BriefGenerator: The final deliverable is an executive intelligence brief.
+These are the dimensions driving today's decision:
+- **Exposure severity** — **Importance: High.** The decision depends on whether exposure is limited or material.
+- **Reversibility** — **Importance: High.** Lower-reversibility actions require stronger evidence.
+- **Execution burden** — **Importance: Medium.** Operational difficulty affects whether preparation is realistic.
+- **Information value** — **Importance: Medium.** The preferred path should create useful evidence for the next review.
 
-## Tool Decisions
+## Decision Paths
 
-### IssueExtractor
+### Option A
 
-- **Decision:** Selected
-- **Why:** Every route starts by converting source text into structured issue fields.
-- **Expected contribution:** Core issue, actors, industries, policy terms, and document type.
+**Path:** Maintain current position / wait for more evidence
 
-### ScenarioClassifier
+**Meaning:** Hold the current posture until the evidence base is clearer.
 
-- **Decision:** Selected
-- **Why:** Scenario classification is required before retrieval decisions can be interpreted.
-- **Expected contribution:** Primary scenario and matched keyword evidence.
+**Appropriate when:** Available evidence shows limited exposure, high reversibility, and no deterioration in Exposure severity, Reversibility.
 
-### HistoricalRetriever
+**Immediate actions**
+- Document why Maintain current position / wait for more evidence is acceptable.
+- Confirm whether exposure severity can be ruled out as a material constraint.
 
-- **Decision:** Selected
-- **Why:** Regulatory Action benefits from comparison against historical precedents.
-- **Expected contribution:** Top analogue cases and similarity reasons from the historical database.
+**Near-term actions**
+- Schedule a dated review rather than leaving the decision open-ended.
+- Move to Gradual adjustment / monitor and prepare if exposure cannot be ruled out with current evidence.
 
-### ContextRetriever
+**Main benefit:** Avoids unnecessary disruption when the issue is likely manageable.
 
-- **Decision:** Selected
-- **Why:** Regulatory Action usually benefits from domain context and monitoring considerations.
-- **Expected contribution:** Adds current context from the local knowledge base.
+**Main risk:** May underprepare the organization if exposure is already material.
 
-### ImplicationAnalyzer
+**Evidence that would make this preferable:** This becomes preferable if Exposure severity, Reversibility remain limited and no monitoring signal shows material change.
 
-- **Decision:** Selected
-- **Why:** Selected retrieval outputs need to be synthesized into analyst-facing considerations.
-- **Expected contribution:** Similarities, differences, business considerations, operational considerations, geopolitical considerations, and questions.
+### Option B (Recommended)
 
-### BriefGenerator
+**Path:** Gradual adjustment / monitor and prepare
 
-- **Decision:** Selected
-- **Why:** The final deliverable is an executive intelligence brief.
-- **Expected contribution:** Markdown brief with evidence sources, trace, and analysis path.
+**Meaning:** Proceed with reversible preparation while delaying irreversible commitments.
 
-## Analysis Path
+**Appropriate when:** Uncertainty is meaningful, especially around Exposure severity, Reversibility, but evidence does not yet justify a full defensive move.
 
-- Agent Router reviewed document type, scenario, industries, actors, and keywords.
-- Tool Registry provided available deterministic tools.
-- Selected tools executed in route order.
-- Result synthesis generated the executive brief with evidence sources.
+**Immediate actions**
+- Build an exposure map covering Exposure severity, Reversibility.
+- Assign one decision owner and one review date.
+- Separate confirmed facts from unresolved assumptions.
 
-## Key Issue
+**Near-term actions**
+- Review new evidence at the 30-day and 90-day checkpoints.
+- Prepare actions needed if the decision shifts to Maintain current position / wait for more evidence or Immediate defensive action.
 
-**Title:** Regulatory Action Digital Markets Demo Case
+**Main benefit:** Preserves flexibility while converting uncertainty into decision-useful evidence.
 
-**Core issue:** A fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks.
+**Main risk:** Can become process activity if the exposure map and review cadence are not owned.
 
-**Summary:** A fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks. The rules require clearer data governance practices, limits on self-preferencing, faster complaint handling for business users, and reporting on platform access decisions. Regulators say the goal is to improve market fairness and reduce gatekeeper control over digital commerce.
+**Evidence that would make this preferable:** This remains preferable when Exposure severity, Reversibility are material enough to monitor but not yet binding.
 
-Platform operators, software developers, advertiser...
+### Option C
 
-**Evidence trace:** Source Document
+**Path:** Immediate defensive action
 
-## Current Event Context
+**Meaning:** Take immediate defensive action before waiting for additional clarification.
 
-- **Event type:** Regulatory Action
-- **Primary actor:** Government regulators
-- **Secondary actor:** Digital platforms
-- **Affected sectors:** Supply Chain / Logistics, Digital Platforms, Technology
-- **Affected regions:** Region not specified
-- **Policy domain:** Competition and data governance
-- **Strategic significance:** This regulatory action context matters because it may affect Supply Chain / Logistics, Digital Platforms, Technology through competition and data governance considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.
-- **Event summary:** Regulatory Action Digital Markets Demo Case
+**Appropriate when:** Evidence shows exposure severity is already binding, costly, customer-facing, or difficult to reverse.
 
-A fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks. The rules require clearer data governance practices, limits on self-preferencing, faster complaint handling for business users, and reporting on platform access decisions.
-- **Confidence:** High
-- **Evidence trace:** Source Document + deterministic current-event rules
-- **Limitations:** Current-event context is extracted from the submitted document only. No live web retrieval, external news API, or source verification is performed. Actor, sector, and region labels use deterministic keyword rules and may miss nuance.
+**Immediate actions**
+- Identify the specific customers, suppliers, products, approvals, or workflows to reduce or pause.
+- Escalate legal, compliance, finance, and operating-owner review before acting.
 
-## Scenario Classification
+**Near-term actions**
+- Confirm whether the defensive action reduced the specific exposure it targeted.
+- Document the opportunity cost and reversibility of the action taken.
 
-- **Primary scenario:** Regulatory Action
-- **Matched keywords:** regulation, regulatory, compliance, rule
-- **Classification confidence:** High
-- **Evidence trace:** Source Document + deterministic keyword classifier
-- **Note:** Confidence describes classification quality only; it is not a forecast.
-
-## Extracted Entities
-
-- **Document type guess:** Policy / Regulatory Text (Evidence trace: Source Document)
-- **Actors:** regulator, firms, companies (Evidence trace: Source Document)
-- **Countries / regions:** None detected (Evidence trace: Source Document)
-- **Industries:** software (Evidence trace: Source Document)
-- **Policy terms:** regulation, regulatory, compliance (Evidence trace: Source Document)
-- **Companies:** None detected (Evidence trace: Source Document)
-
-## Historical Analogues
-
-### GDPR Implementation (2018)
-
-- **Scenario type:** Regulatory Action
-- **Similarity reason:** scenario match on Regulatory Action; keyword overlap: business, compliance, data, governance; industry overlap: software; actor overlap: firms
-- **Business relevance:** Shows how regulation can require governance, documentation, and process changes.
-- **Geopolitical relevance:** Illustrates regulatory power shaping global business practices.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** GDPR Implementation (2018) - Historical Database
-
-### Huawei Entity List (2019)
-
-- **Scenario type:** Export Controls
-- **Similarity reason:** keyword overlap: access, competition, compliance
-- **Business relevance:** Shows how export controls can alter supplier access and compliance workflows.
-- **Geopolitical relevance:** Illustrates technology competition between the United States and China.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Huawei Entity List (2019) - Historical Database
-
-### Russia Sanctions After Ukraine Invasion (2022)
-
-- **Scenario type:** Sanctions
-- **Similarity reason:** keyword overlap: business, compliance; actor overlap: firms
-- **Business relevance:**  exports
-- **Geopolitical relevance:**  and business activity linked to Russia.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Russia Sanctions After Ukraine Invasion (2022) - Historical Database
-
-## Historical Outcomes
-
-### Russia Sanctions After Ukraine Invasion (2022)
-
-- **Event family:** Sanctions
-- **Observed outcome:** Sanctions disrupted transactions, counterparties, contracts, and compliance workflows.
-- **Strategic response:** Organizations expanded screening, reviewed contracts, and escalated legal/compliance review.
-- **Time horizon:** Short-to-medium-term
-- **Confidence:** High
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Sanctions; event-family/title overlap
-
-### Huawei Entity List (2019)
+**Main benefit:** Reduces downside quickly when exposure is already severe.
 
-- **Event family:** Export Controls
-- **Observed outcome:** Restricted access to selected technology inputs changed supplier screening and product planning.
-- **Strategic response:** Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
-- **Time horizon:** Medium-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Export Controls
-
-### GDPR Implementation (2018)
-
-- **Event family:** Regulatory Action
-- **Observed outcome:** Data protection rules increased governance, documentation, and compliance process needs.
-- **Strategic response:** Organizations created privacy controls, reporting workflows, and compliance ownership.
-- **Time horizon:** Long-term
-- **Confidence:** High
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Regulatory Action
-
-### Iran Sanctions Reimposition (2018)
+**Main risk:** Can sacrifice opportunity or relationships before the evidence supports that cost.
 
-- **Event family:** Sanctions
-- **Observed outcome:** Renewed sanctions increased counterparty and market-access restrictions for affected sectors.
-- **Strategic response:** Firms reassessed market exposure, payment channels, and customer relationships.
-- **Time horizon:** Medium-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** event-family match: Sanctions; event-family/title overlap
+**Evidence that would make this preferable:** This becomes preferable if evidence shows exposure severity is severe or worsening.
 
-### ASML Export Controls (2023)
+## Option Ranking
 
-- **Event family:** Export Controls
-- **Observed outcome:** Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.
-- **Strategic response:** Companies monitored license rules, tool availability, and jurisdictional alignment.
-- **Time horizon:** Medium-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** event-family match: Export Controls
+- **1. Option B: Gradual adjustment / monitor and prepare.** Ranks first because the highest-importance criteria are Exposure severity, Reversibility. It improves readiness on those criteria without creating the execution burden of Option C or the underpreparedness of Option A.
+- **2. Option A: Maintain current position / wait for more evidence.** Ranks second because it has lower cost and disruption than Option C, but it is weaker than Option B on Exposure severity, Reversibility if exposure grows.
+- **3. Option C: Immediate defensive action.** Ranks third because it offers more protection, but it is weaker on reversibility, opportunity cost, and execution burden unless exposure severity is already severe.
 
-## Strategic Lessons
+## Option Comparison
 
-### Supply chain diversification frequently appears after export-control or disruption shocks.
+| Option | Risk Reduction | Opportunity Cost | Execution Difficulty | Reversibility | Robustness | Information Value |
+| --- | --- | --- | --- | --- | --- | --- |
+| Option A | Low | Low | Low | High | Medium | High |
+| Option B | Medium | Medium | Medium | Medium | High | High |
+| Option C | High | High | High | Low | Medium | Low |
 
-- **Supporting cases:** Huawei Entity List (2019), ASML Export Controls (2023)
-- **Confidence:** Medium
-- **Rationale:** Matched 2 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.
+## Preferred Path
 
-### Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.
+**Recommended path:** Gradual adjustment / monitor and prepare
 
-- **Supporting cases:** Russia Sanctions After Ukraine Invasion (2022), Huawei Entity List (2019), GDPR Implementation (2018), ASML Export Controls (2023)
-- **Confidence:** High
-- **Rationale:** Matched 4 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.
+### Why Today
 
-### Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.
+- Gradual adjustment / monitor and prepare is preferred today because it produces decision evidence on Exposure severity, Reversibility without forcing irreversible action.
+- Maintain current position / wait for more evidence is too passive if management guidance and operating commentary is already material.
+- Immediate defensive action is premature unless supplier and customer exposure shows binding or costly constraints.
 
-- **Supporting cases:** Huawei Entity List (2019)
-- **Confidence:** Low
-- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.
+### Assumptions That Make This Preferable
 
-## Evidence Credibility Note
+- The highest-priority unknowns are Exposure severity, Reversibility, and they can be clarified through near-term internal work.
+- The organization can still preserve reversibility while the evidence base improves.
+- No current evidence requires immediate defensive reduction before exposure is mapped.
 
-- **Evidence summary:** 5 historical outcomes were retrieved. 2 are high confidence and 3 are medium confidence. Source URLs are not fabricated; source status is reported separately. 3 rule-based strategic lesson(s) were generated from those outcomes.
-- **Confidence distribution:** High: 2, Medium: 3
-- **Source status distribution:** source pending; educational summary: 5
-- **Reviewer note:** Use these outcomes and lessons as decision-support context. They do not prove factual, legal, geopolitical, financial, or predictive accuracy.
+### Immediate Execution Steps
 
-**Key limitations:**
-- Historical outcomes are simplified educational summaries.
-- Confidence reflects internal evidence coding, not real-world predictive accuracy.
-- Lessons are pattern-based and should be reviewed by a human analyst.
-- Source URLs are not fabricated; missing source links remain marked as source pending.
+- Build a short exposure map covering affected suppliers, customers, products, regions, and workflows.
+- Define trigger points that would move the decision from Option B to Option A or Option C.
+- Prepare a one-page decision update using named exposure, cost, customer, supplier, and reversibility indicators.
 
-## Decision Considerations
+### Required Stakeholders
 
-- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.
-- Decision-makers may wish to separate recurring historical lessons from case-specific facts.
-- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.
+- Executive sponsor: owns the go / hold / escalate decision.
+- Strategy: produces the exposure map and decision memo.
+- Finance: quantifies revenue, margin, liquidity, or cost exposure where relevant.
+- Legal / Compliance: separates confirmed obligations from interpretation questions.
+- Operations / Commercial owner: identifies affected workflows, suppliers, customers, or product commitments.
 
-## Current Context
+### Decision Checkpoints
 
-### Banking - Regulatory Action
+- Now: complete the exposure map and list unresolved assumptions.
+- 30 days: decide whether evidence supports holding Option B, de-escalating to Option A, or preparing Option C.
+- 90 days: convert the review into a board or executive decision package if exposure remains material.
 
-- **Context summary:** Banking regulation can affect capital planning, liquidity management, risk controls, and reporting obligations.
-- **Why it matters:** Regulatory requirements can change operating flexibility and compliance workload.
-- **Stakeholders:** Banks; regulators; boards; risk officers; customers
-- **Monitoring considerations:** Rule proposals; supervisory guidance; stress-test results; enforcement actions
-- **Retrieval reason:** scenario match: Regulatory Action; keyword overlap: action, compliance, control, regulation
-- **Source origin:** Banking Context KB: BK-002 (banking_context.md)
+### Escalation Conditions
 
-### Energy - Regulatory Action
+- Escalate toward Immediate defensive action if management guidance and operating commentary becomes binding, customer-facing, costly, or hard to reverse.
+- Escalate executive review if supplier and customer exposure moves against planning assumptions.
 
-- **Context summary:** Energy regulation can affect permitting, emissions compliance, grid access, and reporting obligations.
-- **Why it matters:** Regulatory changes can alter project timelines and operational controls.
-- **Stakeholders:** Regulators; utilities; project developers; communities; customers
-- **Monitoring considerations:** Permit decisions; compliance deadlines; agency guidance; public filings
-- **Retrieval reason:** scenario match: Regulatory Action; keyword overlap: acces, access, compliance, control
-- **Source origin:** Energy Context KB: EN-004 (energy_context.md)
+### Exit Criteria
 
-### Banking - Sanctions
+- Exit toward Maintain current position / wait for more evidence if exposure is confirmed as limited, reversible, and not material to the top criteria: Exposure severity, Reversibility.
+- Exit toward Immediate defensive action if delay creates more downside than the opportunity cost of immediate defensive action.
 
-- **Context summary:** Banks often implement sanctions screening, transaction monitoring, and customer due diligence controls.
-- **Why it matters:** Sanctions changes can affect payment flows, counterparty relationships, and operational risk controls.
-- **Stakeholders:** Compliance teams; correspondent banks; regulators; corporate customers
-- **Monitoring considerations:** Sanctions lists; payment exceptions; correspondent relationships; compliance updates
-- **Retrieval reason:** keyword overlap: compliance, control, regulator, regulators
-- **Source origin:** Banking Context KB: BK-003 (banking_context.md)
+## Role-Based Implications
 
-## Similarities and Differences
+- CEO / Executive Sponsor: treat Gradual adjustment / monitor and prepare as a decision-control posture, not a delay tactic; require a named owner and a date for reassessment.
+- Corporate Strategy: translate Exposure severity, Reversibility into an exposure map that shows which business units, customers, products, or regions are actually affected.
+- Finance / CFO: separate confirmed financial exposure from possible exposure so the team does not overstate cost, margin, or liquidity impact before evidence supports it.
+- Operations / Supply Chain: identify which workflows would need to change if the decision shifts from Option B to Immediate defensive action.
+- Legal / Compliance: distinguish confirmed obligations from unresolved interpretation questions and document what evidence would change the operating posture.
 
-### Observed Similarities
-- The issue may resemble GDPR Implementation (2018), Huawei Entity List (2019) because the retrieved cases share characteristics with the regulatory action scenario frame.
-- The current context findings from Banking, Energy share characteristics with the extracted industries and policy terms.
+## Why This Reasoning Holds
 
-### Observed Differences
-- The source document differs from historical analogues because current actors, implementation details, and timing are document-specific.
-- The retrieved context differs from historical cases because it describes standing monitoring considerations rather than a completed event.
+- Why this is true: comparable cases often moved from headline shock into implementation, exposure mapping, and communication work.
+- Compared with what: immediate defensive action would reduce some risk but can create high opportunity cost before exposure is clear.
+- Under what assumptions: the event is being interpreted as Supply Chain Disruption and the local cases are relevant enough for comparison.
+- What would make it wrong: clear evidence of severe exposure, binding rules, customer loss, liquidity stress, or management guidance changing faster than expected.
 
-## Business Considerations
+## Assumptions
 
-- The issue may indicate changing constraints for software and requires monitoring of stakeholder exposure.
-- The regulatory action frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
-- Historical and context evidence should be used to structure diligence, not to imply an outcome.
+- The event is being interpreted as Supply Chain Disruption and the local cases are relevant enough for comparison.
+- The supplied source material is directionally accurate enough to frame the decision, but still requires human fact review before operational use.
+- The organization has enough time and management capacity to execute Gradual adjustment / monitor and prepare before the issue becomes binding.
+- No immediate evidence shows that Immediate defensive action is already required.
 
-## Operational Considerations
+## Trade-offs
 
-- Operational teams may need to monitor counterparties, implementation timelines, documentation requirements, and contingency plans.
-- The issue could affect supplier continuity, licensing workflows, routing choices, or internal escalation paths depending on the scenario.
+- Benefits gained: Gradual adjustment / monitor and prepare creates an exposure map, assigns ownership, and preserves reversibility while evidence on Exposure severity, Reversibility is still developing.
+- Costs accepted: the recommendation prioritizes execution flexibility and learning over immediate risk elimination, so the team must spend management attention now and tolerate partial exposure while evidence matures.
+- Opportunities sacrificed: the user gives up the lowest-effort posture of Maintain current position / wait for more evidence and does not receive the full immediate protection of Immediate defensive action.
+- Risks still unresolved: new evidence on Exposure severity, Reversibility, implementation timing, cost, customer behavior, or operating constraints may still justify changing paths.
 
-## Geopolitical Considerations
+## Risk Analysis
 
-- The issue could affect cross-border coordination involving relevant jurisdictions.
-- Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions.
+### Exposure severity is higher than the current evidence suggests.
 
-## Mechanisms Detected
+- **Why it matters:** Gradual adjustment / monitor and prepare depends on the assumption that exposure can be mapped before it becomes binding.
+- **Potential impact:** The preferred path may be insufficient and Immediate defensive action may become necessary.
+- **Early warning indicator:** Management guidance and operating commentary indicates exposure above the planning assumption or cannot be documented.
+- **Suggested mitigation:** Prepare the Immediate defensive action execution checklist before making irreversible commitments.
 
-### Regulatory Shock
+### Reversibility deteriorates before the next checkpoint.
 
-- **Description:** Sudden or material change in compliance obligations
-- **Detection reason:** scenario match: Regulatory Action; observation overlap: compliance, reporting, rules; actor overlap: firms
-- **Possible observations:** new rules; enforcement; reporting obligations
-- **Evidence references:** Source Document, Regulatory Shock (Mechanism Framework)
+- **Why it matters:** The recommendation relies on preserving choice while evidence improves.
+- **Potential impact:** Decision-makers may lose the ability to shift paths without higher cost.
+- **Early warning indicator:** Supplier and customer exposure indicates delay, denial, cost increase, or customer-facing impact.
+- **Suggested mitigation:** Set a dated executive checkpoint and require a go / hold / escalate decision record.
 
-### Legislative Implementation Gap
+### Execution burden is underestimated.
 
-- **Description:** Difference between enacted policy and operational implementation
-- **Detection reason:** scenario match: Regulatory Action; observation overlap: compliance, rules; actor overlap: firms
-- **Possible observations:** eligibility rules; agency guidance; compliance deadlines
-- **Evidence references:** Source Document, Legislative Implementation Gap (Mechanism Framework)
+- **Why it matters:** A staged path only works if operating teams can produce the required decision artifacts.
+- **Potential impact:** The organization may create review activity without improving the actual decision.
+- **Early warning indicator:** No accountable owner, incomplete exposure map, or unresolved assumptions at the 30-day checkpoint.
+- **Suggested mitigation:** Assign owners by function and make the exposure map, readiness checklist, and decision memo mandatory deliverables.
 
-### Compliance Burden
 
-- **Description:** Operational workload created by screening reporting licensing or documentation
-- **Detection reason:** scenario match: Regulatory Action; observation overlap: reporting
-- **Possible observations:** screening; licenses; documentation; policy updates
-- **Evidence references:** Source Document, Compliance Burden (Mechanism Framework)
+## Decision Blind Spots
 
-### Reputational Sensitivity
+- Organization-specific data for exposure severity is still needed to move from a general recommendation to an operating decision.
+- Organization-specific data for reversibility is still needed to move from a general recommendation to an operating decision.
+- The current recommendation would improve with fresher evidence on management guidance and operating commentary, supplier and customer exposure.
+- Contractual obligations, customer commitments, and internal execution capacity may change the preferred path even if the external situation is unchanged.
 
-- **Description:** Stakeholder perception risk linked to public policy security or compliance issues
-- **Detection reason:** scenario match: Regulatory Action; observation overlap: compliance
-- **Possible observations:** public statements; stakeholder concern; disclosure language
-- **Evidence references:** Source Document, Reputational Sensitivity (Mechanism Framework)
+## What Could Change This Recommendation
 
-## Competing Interpretations
+- Clear evidence of severe exposure, binding rules, customer loss, liquidity stress, or management guidance changing faster than expected.
+- Move toward Option A (Maintain current position / wait for more evidence) if review shows limited exposure, low cost, high reversibility, and no deterioration in Exposure severity, Reversibility.
+- Move toward Option C (Immediate defensive action) if constraints become binding, costly, customer-facing, or difficult to reverse.
 
-### Economics
+## Regulatory Considerations
 
-- **Hypothesis:** One possible interpretation is that the regulatory action event reflects resource allocation constraints linked to Regulatory Shock, Legislative Implementation Gap.
-- **Evidence references:** Banking Context KB: BK-002 (banking_context.md), Energy Context KB: EN-004 (energy_context.md), GDPR Implementation (2018) - Historical Database, Huawei Entity List (2019) - Historical Database, Legislative Implementation Gap (Mechanism Framework), Regulatory Shock (Mechanism Framework), Source Document
+Decision-support reminder only; this is not legal advice.
 
-### Political Economy
+### Competition Law
 
-- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Regulatory Shock, Legislative Implementation Gap.
-- **Evidence references:** Banking Context KB: BK-002 (banking_context.md), Energy Context KB: EN-004 (energy_context.md), GDPR Implementation (2018) - Historical Database, Huawei Entity List (2019) - Historical Database, Legislative Implementation Gap (Mechanism Framework), Regulatory Shock (Mechanism Framework), Source Document
+- **Why it may matter:** Platform access, ranking, pricing, or complaint-handling rules may affect product and commercial choices.
+- **Possible decision impact:** Product or commercial teams may need to change operating processes before continuing the current path.
+- **Suggested internal review:** Legal and Product should prepare a competition-risk operating checklist.
 
-### International Relations
+### Data Privacy / Data Governance
 
-- **Hypothesis:** One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.
-- **Evidence references:** Banking Context KB: BK-002 (banking_context.md), Energy Context KB: EN-004 (energy_context.md), GDPR Implementation (2018) - Historical Database, Huawei Entity List (2019) - Historical Database, Legislative Implementation Gap (Mechanism Framework), Regulatory Shock (Mechanism Framework), Source Document
+- **Why it may matter:** Data handling, reporting, or governance obligations may affect product design and compliance evidence.
+- **Possible decision impact:** Execution may require documentation, access controls, reporting workflows, or data-use review.
+- **Suggested internal review:** Privacy, Data Governance, and Engineering should confirm required controls and evidence artifacts.
 
-### Legislative / Regulatory
+### Corporate Governance
 
-- **Hypothesis:** One possible interpretation is that implementation rules and compliance obligations are central to the event.
-- **Evidence references:** Banking Context KB: BK-002 (banking_context.md), Energy Context KB: EN-004 (energy_context.md), GDPR Implementation (2018) - Historical Database, Huawei Entity List (2019) - Historical Database, Legislative Implementation Gap (Mechanism Framework), Regulatory Shock (Mechanism Framework), Source Document
+- **Why it may matter:** Material exposure, disclosure language, or control gaps may require executive or board-level review.
+- **Possible decision impact:** The decision may need a formal memo, risk committee discussion, or documented escalation path.
+- **Suggested internal review:** Executive sponsor should decide whether the next checkpoint requires a board or risk-committee package.
 
-### Business Strategy
+## Recommendation Action Plan
 
-- **Hypothesis:** One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.
-- **Evidence references:** Banking Context KB: BK-002 (banking_context.md), Energy Context KB: EN-004 (energy_context.md), GDPR Implementation (2018) - Historical Database, Huawei Entity List (2019) - Historical Database, Legislative Implementation Gap (Mechanism Framework), Regulatory Shock (Mechanism Framework), Source Document
+### NOW
 
-## Multi-Lens Analysis
+- **Action:** Build a short exposure map covering affected suppliers, customers, products, regions, and workflows. Define trigger points that would move the decision from Option B to Option A or Option C.
+- **Owner:** Strategy + relevant operating owner.
+- **Deliverable:** Exposure map with affected customers, suppliers, products, regions, workflows, and open assumptions.
+- **Decision Purpose:** Confirms whether staged preparation is sufficient or immediate escalation is needed.
 
-### Economics
+### NEXT 30 DAYS
 
-**Supporting observations:**
-- The issue references software and operating constraints.
-- Historical analogues such as GDPR Implementation, Huawei Entity List show comparable economic adjustment patterns.
+- **Action:** Prepare a one-page decision update using named exposure, cost, customer, supplier, and reversibility indicators. Keep historical cases as comparison evidence, not as proof that the same outcome will occur.
+- **Owner:** Strategy + Legal / Compliance + Finance.
+- **Deliverable:** Readiness checklist showing confirmed facts, unresolved assumptions, and required follow-up.
+- **Expected Decision:** Hold the staged path, narrow scope, or prepare defensive execution.
 
-**Limitations:**
-- The document does not quantify cost, demand, or capacity effects.
+### NEXT 90 DAYS
 
-### Political Economy
+- **Action:** Reassess whether the evidence still supports Option B or whether Option A or Option C has become more appropriate.
+- **Owner:** Executive sponsor + Strategy.
+- **Deliverable:** Decision update memo comparing current evidence against the original criteria.
+- **Decision Outcome:** Hold, de-escalate, or move to a more defensive path.
 
-**Supporting observations:**
-- The scenario classification is Regulatory Action.
-- Current context from Banking, Energy highlights stakeholders and monitoring considerations.
+### RE-EVALUATION TRIGGER
 
-**Limitations:**
-- The balance between public policy goals and firm-level incentives requires more source detail.
+- **Action:** Revisit the recommendation if management guidance and operating commentary, supplier and customer exposure, customer impact, cost pressure, or reversibility changes materially.
+- **Owner:** Executive sponsor.
+- **Deliverable:** Go / hold / escalate decision record.
+- **Decision Purpose:** Prevents the recommendation from remaining in force after the evidence changes.
 
-### International Relations
+## What to Monitor
 
-**Supporting observations:**
-- Detected regions include no explicit region in the source document.
-- Mechanisms such as Regulatory Shock, Legislative Implementation Gap can appear in geopolitical or cross-border settings.
+These signals answer: what could change today's recommendation?
+- **Management guidance and operating commentary:** Shows whether leaders treat the issue as temporary noise or a structural planning constraint.
+- **Supplier and customer exposure:** Identifies where operational or revenue impact may appear before it is visible in headline summaries.
+- **Implementation details, licensing rules, exemptions, or timelines:** Clarifies whether the event changes actual workflows or remains a broad announcement.
+- **Margin pressure, cost absorption, or working-capital strain:** Helps separate manageable adjustment from business-model stress.
+- **Evidence of process changes such as compliance reviews, sourcing changes, or customer segmentation:** Shows whether organizations are moving from observation to action.
 
-**Limitations:**
-- The source does not establish intent by governments or counterparties.
+### Investor
 
-### Legislative / Regulatory
+- Monitor revenue exposure, margin pressure, management guidance, and customer concentration commentary.
+- Separate operational disruption signals from ordinary quarterly volatility.
+- Watch whether management distinguishes temporary disruption from durable business-model exposure.
 
-**Supporting observations:**
-- Detected policy terms include regulation, regulatory, compliance.
-- The evidence trace includes source document signals and retrieved context records.
+### Corporate Strategy
 
-**Limitations:**
-- Primary legal text or agency guidance would be needed for a complete regulatory reading.
+- Monitor localization requirements, policy implementation details, supplier concentration, and eligibility rules.
+- Identify which business units need updated exposure maps or decision memos.
+- Prepare executive discussion notes that separate known facts from unresolved questions.
 
-### Business Strategy
+### Supply Chain
 
-**Supporting observations:**
-- The issue mentions actors such as regulator, firms, companies.
-- The brief combines analogue patterns with current context monitoring considerations.
+- Monitor inventory coverage, logistics routes, alternative suppliers, and qualification timelines.
+- Check whether single-source inputs or chokepoints require contingency planning.
+- Track customer communication needs if delivery timing or input availability changes.
 
-**Limitations:**
-- The source does not contain internal priorities, customer-level exposure, or implementation plans.
+### Policy
 
-## Supporting Evidence
+- Monitor implementation guidance, enforcement posture, exemptions, and timing.
+- Separate announced policy intent from operational rules that organizations can actually follow.
+- Track whether agencies, regulators, or counterpart governments clarify scope or eligibility.
 
-### Economics (Substantial)
-- The issue references software and operating constraints.
-- Historical analogues such as GDPR Implementation, Huawei Entity List show comparable economic adjustment patterns.
+## Historical Evidence
 
-### Political Economy (Substantial)
-- The scenario classification is Regulatory Action.
-- Current context from Banking, Energy highlights stakeholders and monitoring considerations.
+### COVID Supply Chain Disruption (2020)
 
-### International Relations (Substantial)
-- Detected regions include no explicit region in the source document.
-- Mechanisms such as Regulatory Shock, Legislative Implementation Gap can appear in geopolitical or cross-border settings.
+- **Case and time period:** COVID Supply Chain Disruption, 2020; Supply Chain Disruption; Manufacturing and Logistics.
+- **Why it is comparable:** keyword overlap: market; actor overlap: firms
+- **What happened:** Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions.
+- **Why it matters today:** Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
 
-### Legislative / Regulatory (Substantial)
-- Detected policy terms include regulation, regulatory, compliance.
-- The evidence trace includes source document signals and retrieved context records.
+### Red Sea Shipping Disruption (2023)
 
-### Business Strategy (Substantial)
-- The issue mentions actors such as regulator, firms, companies.
-- The brief combines analogue patterns with current context monitoring considerations.
+- **Case and time period:** Red Sea Shipping Disruption, 2023; Supply Chain Disruption; Shipping and Logistics.
+- **Why it is comparable:** actor overlap: firms
+- **What happened:** Security risks disrupted routing, transit times, insurance terms, and delivery planning.
+- **Why it matters today:** Firms evaluated rerouting, customer communication, freight costs, and contingency planning.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
 
-## Weakening Evidence
+### Semiconductor Shortage (2021)
 
-### Economics
-- The document does not quantify cost, demand, or capacity effects.
+- **Case and time period:** Semiconductor Shortage, 2021; Supply Chain Disruption; Automotive and Semiconductors.
+- **Why it is comparable:** event-family match: Supply Chain Disruption; event-family/title overlap
+- **What happened:** Chip shortages delayed production and exposed supplier concentration in critical components.
+- **Why it matters today:** Firms reviewed allocation processes, supplier relationships, and design flexibility.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
 
-### Political Economy
-- The balance between public policy goals and firm-level incentives requires more source detail.
+## Market Expectations vs Actual Outcomes
 
-### International Relations
-- The source does not establish intent by governments or counterparties.
+### COVID Supply Chain Disruption (2020)
 
-### Legislative / Regulatory
-- Primary legal text or agency guidance would be needed for a complete regulatory reading.
+- **Initial / mainstream expectation:** Observers often focus on near-term delays.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions.
+- **Expectation gap:** The durable lesson is usually exposure mapping, inventory policy, and alternate supplier qualification.
+- **Lesson:** Separate short-term disruption from longer-term operating model changes.
 
-### Business Strategy
-- The source does not contain internal priorities, customer-level exposure, or implementation plans.
+### Red Sea Shipping Disruption (2023)
 
-## Missing Evidence
+- **Initial / mainstream expectation:** Observers often focus on near-term delays.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Security risks disrupted routing, transit times, insurance terms, and delivery planning.
+- **Expectation gap:** The durable lesson is usually exposure mapping, inventory policy, and alternate supplier qualification.
+- **Lesson:** Separate short-term disruption from longer-term operating model changes.
 
-### Economics
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
+### Semiconductor Shortage (2021)
 
-### Political Economy
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
+- **Initial / mainstream expectation:** Observers often focus on near-term delays.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Chip shortages delayed production and exposed supplier concentration in critical components.
+- **Expectation gap:** The durable lesson is usually exposure mapping, inventory policy, and alternate supplier qualification.
+- **Lesson:** Separate short-term disruption from longer-term operating model changes.
 
-### International Relations
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
+### Maritime Chokepoint Disruption (2021)
 
-### Legislative / Regulatory
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
+- **Initial / mainstream expectation:** Observers often focus on near-term delays.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Route concentration created delivery delays and highlighted chokepoint exposure.
+- **Expectation gap:** The durable lesson is usually exposure mapping, inventory policy, and alternate supplier qualification.
+- **Lesson:** Separate short-term disruption from longer-term operating model changes.
 
-### Business Strategy
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
+### Suez Canal Ever Given Blockage (2021)
 
-## Historical Response Patterns
+- **Initial / mainstream expectation:** Observers often focus on near-term delays.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** A single chokepoint disruption delayed vessels and exposed route concentration.
+- **Expectation gap:** The durable lesson is usually exposure mapping, inventory policy, and alternate supplier qualification.
+- **Lesson:** Separate short-term disruption from longer-term operating model changes.
 
-### Monitoring and contingency planning
 
-**Observed Historical Choices:**
-- Organizations reviewed counterparties, suppliers, and implementation details.
-- Teams created monitoring routines around policy updates and operational constraints.
+## Evidence Used
 
-**Observed Outcomes:**
-- Observed outcomes varied across cases and should not be treated as predictive.
-- Relevant analogues include GDPR Implementation, Huawei Entity List, Russia Sanctions After Ukraine Invasion.
-
-**Business Lessons:**
-- Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.
-- Cross-functional review can help separate compliance, operational, and strategic questions.
-
-## Cross-Domain Lessons
-
-- Mechanisms such as Regulatory Shock, Legislative Implementation Gap, Compliance Burden can appear across policy, security, and business domains.
-- Historical response patterns are most useful when paired with current context and source verification.
-
-## Monitoring Considerations
-
-- Decision-makers may wish to monitor source updates, implementation details, stakeholder responses, and evidence gaps.
-- Decision-makers may wish to monitor whether new evidence strengthens or weakens each interpretation.
-
-## Strategic Questions
-
-- Which stakeholders are most exposed to this issue?
-- What facts would change the current scenario classification?
-- Which historical analogue is structurally closest, and where does the comparison differ from current context?
-- Which current-context findings require source verification before executive discussion?
-- What decisions require more source verification before executive action?
-
-## Analyst Notes
-
-- V3 uses an Agent Router to select tools before execution.
-- Current context retrieval uses local Markdown knowledge-base entries.
-- Historical analogues support structured comparison, not prediction.
-- The synthesis uses phrases such as may resemble, shares characteristics with, differs from, and requires monitoring by design.
+- Input document or question text.
+- Local historical analogue records.
+- Local historical outcome records.
+- Deterministic event-family understanding rules.
 
 ## Limitations
 
-- V3.0 uses deterministic routing, keyword matching, and overlap matching.
-- It does not call paid APIs or LLM services.
-- It does not generate forecasts or probabilities.
-- It does not provide trading advice or investment recommendations.
-- Outputs should be reviewed against primary sources before executive use.
+- Educational use only; this is a local decision-support demo, not a production advisory service.
+- This is not investment advice, trading advice, legal advice, or a forecast.
+- Human review is recommended before operational, legal, financial, or executive use.
+- Historical analogues help structure comparison but do not predict future outcomes.
+- Outcome frequencies are counts within the local curated dataset, not real-world probabilities.
+- The system does not use live web retrieval or source verification.
+- Some evidence is derived from user-provided material rather than independently verified primary sources.
+- Organization-specific exposure, timing, cost, and implementation data may be missing.
+- No primary source link is available for the supplied input material.
+- Some historical analogues are based on curated repository knowledge rather than linked source documents.
+- Analogue transferability depends on whether the current case shares comparable mechanisms and constraints.
 
-### Evidence Trace
+## Evidence and Confidence
 
-- ASML Export Controls (2023) - Historical Outcomes Database
-- Agent Router: deterministic tool selection trace
-- Banking Context KB: BK-002 (banking_context.md)
-- Banking Context KB: BK-003 (banking_context.md)
-- Compliance Burden (Mechanism Framework)
-- Energy Context KB: EN-004 (energy_context.md)
-- GDPR Implementation (2018) - Historical Database
-- GDPR Implementation (2018) - Historical Outcomes Database
-- Huawei Entity List (2019) - Historical Database
-- Huawei Entity List (2019) - Historical Outcomes Database
-- Iran Sanctions Reimposition (2018) - Historical Outcomes Database
-- Legislative Implementation Gap (Mechanism Framework)
-- Regulatory Shock (Mechanism Framework)
-- Reputational Sensitivity (Mechanism Framework)
-- Russia Sanctions After Ukraine Invasion (2022) - Historical Database
-- Russia Sanctions After Ukraine Invasion (2022) - Historical Outcomes Database
-- Source Document
-- Tool Registry: registered deterministic analysis tools
+### Confidence Assessment
 
-## Evidence Sources
+**Overall Level:** Moderate
 
-- **Input Document:** issue fields, scenario keywords, and extracted entities.
-- **Historical Database:** retrieved analogue cases and similarity reasons.
-- **Context Knowledge Base:** selected current-context findings when the router selected ContextRetriever.
-- **Agent Router:** selected and skipped tool decisions.
+**Reasoning:** Moderate confidence because 11 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
+
+**Supporting Evidence**
+
+- User-provided evidence defines the decision frame.
+- 4 repository historical records support analogue reasoning.
+- Evidence assessment includes high-confidence support for parts of the recommendation.
+- Mechanism detection links the issue to operational or strategic pressure points.
+
+**Confidence Reducers**
+
+- Some evidence records do not include primary source links.
+- The current brief does not verify information outside the supplied input and local records.
+- Organization-specific exposure, timing, and implementation constraints require human review.
+
+**Confidence Improvers**
+
+- New primary source material changes the factual basis.
+- Organization-specific exposure mapping.
+- Updated financial, customer, supplier, or compliance evidence.
+- Clear regulatory, contractual, or operating-owner confirmation.
+
+### Evidence Ledger
+
+- **E1 (User-provided input material)**
+  - Reference: No primary source link available.
+  - Supporting Source: User-provided source material.
+  - Evidence Type: User-provided input material
+  - Source Metadata: Publisher: user-provided material; Publication Date: not available; Verification Status: provided input, not independently verified.
+  - Observation: Regulatory Action Digital Markets Demo Case
+
+A fictional competition regulator announces new rules for large digital platforms that operate app stores, online marketplaces, data services, and advertising networks.
+  - Inference: The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.
+  - Supports: Situation understanding and decision framing.
+  - Why this evidence matters: It supports situation understanding and decision framing and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It frames the decision and the criteria used to compare options.
+  - Relevance: High; Confidence: Moderate
+- **E2 (Local historical analogue record)**
+  - Reference: No primary source link available.
+  - Supporting Source: COVID Supply Chain Disruption (2020): Shows how operational shocks can expose supplier concentration and inventory assumptions. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical analogue record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: keyword overlap: market; actor overlap: firms
+  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
+  - Supports: Historical comparison and analogue reasoning.
+  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
+  - Relevance: Moderate; Confidence: Moderate
+- **E3 (Local historical analogue record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Red Sea Shipping Disruption (2023): Shows how route disruption can affect delivery timing and logistics costs. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical analogue record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: actor overlap: firms
+  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
+  - Supports: Historical comparison and analogue reasoning.
+  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
+  - Relevance: Moderate; Confidence: Moderate
+- **E4 (Deterministic mechanism detection)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository mechanism framework and source-text cues.
+  - Evidence Type: Deterministic mechanism detection
+  - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
+  - Observation: new rules; enforcement; reporting obligations
+  - Inference: scenario match: Regulatory Action; observation overlap: compliance, reporting, rules; actor overlap: firms
+  - Supports: Mechanism reasoning and risk identification.
+  - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
+  - Relevance: Moderate; Confidence: Moderate
+- **E5 (Deterministic mechanism detection)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository mechanism framework and source-text cues.
+  - Evidence Type: Deterministic mechanism detection
+  - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
+  - Observation: eligibility rules; agency guidance; compliance deadlines
+  - Inference: scenario match: Regulatory Action; observation overlap: compliance, rules; actor overlap: firms
+  - Supports: Mechanism reasoning and risk identification.
+  - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
+  - Relevance: Moderate; Confidence: Moderate
+- **E6 (Evidence assessment)**
+  - Reference: No primary source link available.
+  - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
+  - Evidence Type: Evidence assessment
+  - Source Metadata: Publisher: internal deterministic assessment; Publication Date: analysis run; Verification Status: derived from available evidence.
+  - Observation: Economics has supporting and weakening evidence.
+  - Inference: The recommendation should be constrained where weakening or missing evidence remains.
+  - Supports: Evidence quality and uncertainty.
+  - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
+  - Relevance: High; Confidence: High
+  - Item-specific limitation: The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
+- **E7 (Evidence assessment)**
+  - Reference: No primary source link available.
+  - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
+  - Evidence Type: Evidence assessment
+  - Source Metadata: Publisher: internal deterministic assessment; Publication Date: analysis run; Verification Status: derived from available evidence.
+  - Observation: Political Economy has supporting and weakening evidence.
+  - Inference: The recommendation should be constrained where weakening or missing evidence remains.
+  - Supports: Evidence quality and uncertainty.
+  - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
+  - Relevance: High; Confidence: High
+  - Item-specific limitation: The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
+- **E8 (Local historical outcome record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Restrictions and demand shifts exposed fragile inventory, sourcing, and logistics assumptions. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical outcome record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: Organizations diversified suppliers, increased monitoring, and adjusted inventory strategy.
+  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
+  - Supports: Historical outcomes and strategic lessons.
+  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
+  - Relevance: Moderate; Confidence: High
+- **E9 (Local historical outcome record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Security risks disrupted routing, transit times, insurance terms, and delivery planning. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical outcome record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: Firms evaluated rerouting, customer communication, freight costs, and contingency planning.
+  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
+  - Supports: Historical outcomes and strategic lessons.
+  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
+  - Relevance: Moderate; Confidence: Moderate
+- **E10 (Local current-context record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository current-context knowledge base.
+  - Evidence Type: Local current-context record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: Regulatory requirements can change operating flexibility and compliance workload.
+  - Inference: Rule proposals; supervisory guidance; stress-test results; enforcement actions
+  - Supports: Monitoring and current context.
+  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
+  - Relevance: Moderate; Confidence: Moderate
+- **E11 (Local current-context record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository current-context knowledge base.
+  - Evidence Type: Local current-context record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: Regulatory changes can alter project timelines and operational controls.
+  - Inference: Permit decisions; compliance deadlines; agency guidance; public filings
+  - Supports: Monitoring and current context.
+  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
+  - Relevance: Moderate; Confidence: Moderate
+
+### Key Assumptions
+
+- The supplied material is sufficient for an initial decision-support brief.
+- Human review will verify source details before operational use.
+- The Regulatory Action frame is an appropriate starting point for analysis.
+- The identified mechanisms remain relevant to the decision context: Regulatory Shock, Legislative Implementation Gap, Compliance Burden.
+- Sector exposure should be validated against organization-specific data.
+
+### What Would Change This View
+
+- New primary source material changes the factual basis.
+- Stakeholder responses differ from the assumptions in the brief.
+- Implementation details create materially different constraints.
+- Evidence shows the situation no longer fits the Regulatory Action frame.
+
+### What Is Unknown Or Uncertain
+
+- The current brief does not verify information outside the supplied input and local records.
+- Organization-specific exposure, timing, and implementation constraints require human review.
+
+### Evidence Limitations
+
+- Some evidence is derived from user-provided material rather than independently verified primary sources.
+- Some historical analogues are based on curated repository knowledge rather than linked source documents.
+- Analogue transferability depends on whether the current case shares comparable mechanisms and constraints.
+- Organization-specific exposure, timing, cost, and implementation data may be missing.
+- Educational use only; this is a local decision-support demo, not a production advisory service.
+- This is not investment advice, trading advice, legal advice, or a forecast.
+- Human review is recommended before operational, legal, financial, or executive use.
+- Historical analogues help structure comparison but do not predict future outcomes.
+- Outcome frequencies are counts within the local curated dataset, not real-world probabilities.
+- The system does not use live web retrieval or source verification.
+- The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
+- The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
+
+## Decision Quality Review
+
+**Overall label:** Strong
+**Overall score:** 0.969
+
+This is a deterministic product-quality check. It is not a benchmark result, factual verification, or claim of real-world accuracy.
+
+### Direct answer quality
+
+- **Label:** Strong
+- **Rationale:** Checks whether the output frames a decision question, situation, recommendation, and criteria.
+
+### Historical analogue relevance
+
+- **Label:** Strong
+- **Rationale:** Checks whether analogues exist, appear in the evidence ledger, and include transferability limits.
+
+### Evidence use
+
+- **Label:** Strong
+- **Rationale:** Checks whether evidence items are reviewable and uncertainty remains visible.
+
+### Option clarity
+
+- **Label:** Strong
+- **Rationale:** Checks whether options are distinct and a preferred path is identified.
+
+### Risk identification
+
+- **Label:** Strong
+- **Rationale:** Checks whether risks, limitations, and unknowns are explicit.
+
+### Change trigger quality
+
+- **Label:** Strong
+- **Rationale:** Checks whether the recommendation includes observable change triggers and monitoring signals.
+
+### Localization quality
+
+- **Label:** Strong
+- **Rationale:** English output selected; localization transformation is not required.
+
+### Overconfidence control
+
+- **Label:** Adequate
+- **Rationale:** Checks for qualitative confidence, visible limitations, and absence of overconfident phrases.
+
+### Notes
+
+- Deterministic product-quality evaluation only.
+- Scores are internal review aids, not real-world accuracy claims.
+- No LLM evaluator, network access, or external benchmark is used.

@@ -11,8 +11,9 @@
       <header class="shell-header" aria-labelledby="app-title">
         <div class="shell-brand">
           <p class="eyebrow" data-i18n="workbenchLabel">Decision Companion</p>
-          <h1 id="app-title" data-i18n="appTitle">Make sense of a strategic situation</h1>
-          <p id="helper-text" class="hero-copy">Ask a decision question and add source material. The app returns a decision brief first, then supporting evidence, analysis details, and downloadable artifacts.</p>
+          <h1 id="app-title" data-i18n="appTitle">Decide what to do next</h1>
+          <p class="hero-subtitle">Local-first Decision Intelligence Workspace</p>
+          <p id="helper-text" class="hero-copy">Turn source material into a recommendation, confidence view, evidence summary, and monitoring plan before reviewing method details.</p>
         </div>
         <div class="shell-status">
           <span id="api-status" class="status-pill">Checking server</span>
@@ -22,30 +23,214 @@
 
       <main class="workbench">
         <aside class="input-panel" aria-label="Decision workspace setup">
-          <section class="workspace-card">
+          <section class="workspace-section project-workspace-card" aria-labelledby="project-workspace-title">
             <div class="workspace-card-header">
-              <span class="step-pill" data-i18n="stepOne">Step 1</span>
-              <h2 data-i18n="decisionGroup">Decision</h2>
+              <span class="step-pill">Workspace Management</span>
+              <h2 id="project-workspace-title">Projects</h2>
             </div>
-            <ol class="decision-flow" aria-label="Decision workflow">
-              <li data-i18n="flowInput">1. Add situation</li>
-              <li data-i18n="flowEvidence">2. Review evidence</li>
-              <li data-i18n="flowDecision">3. Decide what to monitor</li>
-            </ol>
-            <button id="analyze-button" type="button" data-i18n="runAnalysis">Build decision brief</button>
+
+            <div class="project-create-row">
+              <input
+                id="project-name-input"
+                class="project-input"
+                type="text"
+                placeholder="New project name"
+              >
+              <button id="create-project-button" type="button">Create Project</button>
+            </div>
+
+            <div id="getting-started" class="getting-started" hidden>
+              <h3>Getting Started</h3>
+              <p>Projects organize multiple decision questions, evidence, decision history, and recommendations in one workspace.</p>
+              <button id="load-demo-workspace-button" type="button" disabled>Load Demo Workspace</button>
+            </div>
+
+            <div id="project-list" class="project-list">
+              <div class="empty">No projects loaded yet.</div>
+            </div>
+
+            <div id="active-project-panel" class="active-project-panel" hidden>
+              <div class="active-project-header">
+                <div>
+                  <span class="step-pill">Active Project</span>
+                  <strong id="active-project-name"></strong>
+                </div>
+                <span id="active-project-status" class="status-pill">Ready</span>
+              </div>
+              <div class="project-overview-grid" aria-label="Active project overview">
+                <div><strong id="active-question-count">0</strong><span>Questions</span></div>
+                <div><strong id="active-evidence-count">0</strong><span>Evidence</span></div>
+                <div><strong id="active-decision-count">0</strong><span>Decisions</span></div>
+                <div><strong id="active-updated-at">Not updated</strong><span>Last updated</span></div>
+              </div>
+
+              <label for="project-question-input" class="input-label">Add a question to this project</label>
+              <textarea
+                id="project-question-input"
+                class="question-input"
+                placeholder="Ask another question inside this project..."
+              ></textarea>
+
+              <button id="add-project-question-button" type="button">Save and Select Question</button>
+
+              <div id="project-question-list" class="project-question-list"></div>
+
+              <div class="project-group-heading" aria-label="Evidence workspace group">
+                <span>Evidence</span>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Evidence Library</strong>
+                  <span>Reusable local notes</span>
+                </div>
+                <input
+                  id="evidence-title-input"
+                  class="project-input"
+                  type="text"
+                  placeholder="Evidence title"
+                >
+                <textarea
+                  id="evidence-note-input"
+                  class="question-input"
+                  placeholder="Manual evidence note, excerpt, or summary..."
+                ></textarea>
+                <button id="add-evidence-button" type="button">Add Evidence Note</button>
+                <div id="project-evidence-list" class="project-evidence-list"></div>
+                <div class="project-retrieval-panel">
+                  <div class="project-section-header">
+                    <strong>Retrieve Current Evidence</strong>
+                    <span>URL or local query</span>
+                  </div>
+                  <p class="retrieval-helper">Paste a URL to retrieve that page, or enter a query for local evidence candidates. Retrieved evidence must be reviewed and accepted before use.</p>
+                  <input
+                    id="evidence-search-input"
+                    class="project-input"
+                    type="text"
+                    placeholder="Paste a URL or enter a search query"
+                  >
+                  <button id="search-evidence-button" type="button">Retrieve Evidence</button>
+                  <div id="retrieved-evidence-queue" class="retrieved-evidence-queue">
+                    <div class="empty">Retrieved evidence will appear here for review before acceptance.</div>
+                  </div>
+                  <button id="accept-evidence-button" type="button">Accept Selected Evidence</button>
+                </div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Evidence Intelligence</strong>
+                  <span>Read-only reviewer triage</span>
+                </div>
+                <div id="evidence-intelligence-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No evidence intelligence available yet. Add or accept project evidence first.</div>
+                </div>
+              </div>
+
+              <div class="project-group-heading" aria-label="Decision workspace group">
+                <span>Decision</span>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Decision Readiness</strong>
+                  <span>Read-only pathway preparation</span>
+                </div>
+                <div id="decision-readiness-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No decision readiness available yet. Add a question and accepted evidence first.</div>
+                </div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Domain Decision Evaluation</strong>
+                  <span>Read-only domain review</span>
+                </div>
+                <div id="domain-evaluation-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No domain evaluation available yet. Add a relevant question and accepted evidence first.</div>
+                </div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Decision Pathway Drafts</strong>
+                  <span>Read-only comparison scaffolds</span>
+                </div>
+                <div id="decision-pathways-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No pathway drafts available yet. Add a question and accepted evidence first.</div>
+                </div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Pathway Comparison Matrix</strong>
+                  <span>Read-only side-by-side review</span>
+                </div>
+                <div id="pathway-comparison-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No pathway comparison available yet. Add a question and accepted evidence first.</div>
+                </div>
+              </div>
+
+              <div class="project-group-heading" aria-label="Review workspace group">
+                <span>Review</span>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Decision Review</strong>
+                  <span>Reviewer-controlled state</span>
+                </div>
+                <div id="decision-review-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No review state recorded yet.</div>
+                </div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Future Decision Record</strong>
+                  <span>Placeholder</span>
+                </div>
+                <div class="evidence-intelligence-panel">
+                  <div class="empty">Decision Record workflow reserved for a future reviewer-controlled release.</div>
+                </div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Decision Timeline</strong>
+                  <span>Completed project analyses</span>
+                </div>
+                <div id="project-decision-timeline" class="project-decision-timeline"></div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Decision Delta</strong>
+                  <span>Latest vs previous</span>
+                </div>
+                <div id="project-delta-panel" class="project-delta-panel"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="workspace-section" aria-labelledby="decision-input-title">
+            <div class="workspace-card-header">
+              <span class="step-pill">Decision Authoring</span>
+              <h2 id="decision-input-title">Decision Input</h2>
+            </div>
             <label for="assistant-input" class="input-label" data-i18n="assistantInputLabel">Decision question and source material</label>
             <textarea id="assistant-input" class="document-dropzone assistant-input" spellcheck="true" data-i18n-placeholder="assistantPlaceholder" placeholder="What decision does this situation raise?
 Which historical cases are most similar?
 What trade-offs should be considered?
 What evidence would change today's recommendation?
 
-Paste an article, policy excerpt, earnings note, URL, or operational update here.">New semiconductor export controls affect advanced chip supply chains and market access. Equipment suppliers are reviewing licensing requirements, customer eligibility, and compliance documentation. Executives want to understand similar historical cases, observed outcomes, and what to monitor next.</textarea>
+Paste an article, policy excerpt, earnings note, URL, or operational update here."></textarea>
           </section>
 
-          <section class="workspace-card">
+          <section class="workspace-section compact-workspace-section" aria-labelledby="analysis-controls-title">
             <div class="workspace-card-header">
-              <span class="step-pill" data-i18n="stepTwo">Step 2</span>
-              <h2 data-i18n="supportGroup">Supporting Material</h2>
+              <span class="step-pill">Analysis</span>
+              <h2 id="analysis-controls-title">Run Configuration</h2>
             </div>
             <div class="assistant-actions">
               <label class="file-control upload-box compact-upload" for="file-input">
@@ -55,21 +240,7 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
               </label>
               <p class="note" data-i18n="urlModeNote">Paste a full webpage URL in the box to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.</p>
             </div>
-          </section>
-
-          <section class="workspace-card">
-            <div class="workspace-card-header">
-              <span class="step-pill" data-i18n="stepThree">Step 3</span>
-              <h2 data-i18n="settingsGroup">Brief Settings</h2>
-            </div>
-            <div class="selector-grid" aria-label="Language and output controls">
-              <label for="language-select" data-i18n="languageLabel">Language</label>
-              <select id="language-select">
-                <option value="en">English</option>
-                <option value="zh-CN">简体中文</option>
-                <option value="zh-TW">繁體中文</option>
-              </select>
-
+            <div class="selector-grid" aria-label="Output controls">
               <label for="mode-select" data-i18n="outputModeLabel">Output mode</label>
               <select id="mode-select">
                 <option value="beginner" selected data-i18n="beginnerMode">Beginner</option>
@@ -77,24 +248,17 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
                 <option value="executive" data-i18n="executiveMode">Executive</option>
               </select>
             </div>
-          </section>
-
-          <section class="trust-note" aria-label="Trust and limitations">
-            <strong data-i18n="trustNoteTitle">Trust boundary</strong>
-            <p data-i18n="trustNoteBody">Local deterministic rules and curated knowledge files support the brief. Treat outputs as decision-support drafts for human review, not forecasts, legal advice, investment advice, or verified research.</p>
-          </section>
-
-          <details class="advanced-settings">
-            <summary data-i18n="advancedSettings">Advanced settings and input options</summary>
-            <div class="advanced-body">
-              <p class="note" data-i18n="advancedNote">Downloads, run history, and stored artifacts remain available after analysis.</p>
+            <button id="analyze-button" type="button" data-i18n="runAnalysis">Build decision brief</button>
+            <div class="trust-note" aria-label="Trust and limitations">
+              <strong data-i18n="trustNoteTitle">Trust boundary</strong>
+              <p data-i18n="trustNoteBody">Local deterministic rules and curated knowledge files support the brief. Treat outputs as decision-support drafts for human review, not forecasts, legal advice, investment advice, or verified research.</p>
             </div>
-          </details>
+          </section>
 
-          <section class="workspace-card compact-card">
+          <section class="workspace-section compact-workspace-section">
             <div class="workspace-card-header">
-              <span class="step-pill" data-i18n="artifactsGroup">Artifacts</span>
-              <h2 data-i18n="downloadsGroup">Downloads</h2>
+              <span class="step-pill">Results</span>
+              <h2 data-i18n="downloadsGroup">Artifacts</h2>
             </div>
             <div class="export-row" aria-label="Export executive brief">
               <button id="export-md" type="button" data-i18n="exportMarkdown">Export Markdown</button>
@@ -102,25 +266,24 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
               <button id="export-json" type="button">Download JSON</button>
             </div>
             <p id="run-note" class="note" data-i18n="exportNote">Results are saved locally by the FastAPI app under outputs/runs/.</p>
-          </section>
-
-          <section class="history-panel" aria-labelledby="history-title">
-            <h2 id="history-title" data-i18n="runHistory">Run History</h2>
-            <div id="history-list" class="history-list"></div>
+            <div class="history-panel" aria-labelledby="history-title">
+              <h2 id="history-title" data-i18n="runHistory">Run History</h2>
+              <div id="history-list" class="history-list"></div>
+            </div>
           </section>
         </aside>
 
         <section class="results-panel" aria-live="polite" aria-labelledby="results-title">
           <header class="results-header">
-            <p class="eyebrow" data-i18n="resultsTitle">Decision workspace</p>
-            <h2 id="results-title" data-i18n="decisionBriefTitle">Decision Brief</h2>
-            <p data-i18n="resultsSubtitle">Start with the recommendation, then inspect supporting material and method details as needed.</p>
+            <p class="eyebrow" data-i18n="resultsTitle">Decision review</p>
+            <h2 id="results-title" data-i18n="decisionBriefTitle">Recommended Action</h2>
+            <p data-i18n="resultsSubtitle">Start with what to do, why, confidence, and what to monitor. Supporting evidence and method details stay available below.</p>
           </header>
 
           <div class="section-divider" data-i18n="decisionGroup">Decision</div>
           <section class="result-card result-card-primary" aria-labelledby="decision-brief-title">
             <div class="result-card-header">
-              <h3 id="decision-brief-title" data-i18n="executiveBrief">Executive Brief</h3>
+              <h3 id="decision-brief-title" data-i18n="executiveBrief">Decision Snapshot</h3>
               <span data-source="All Evidence">All Evidence</span>
             </div>
             <div id="brief-section" class="brief-output"></div>
@@ -228,11 +391,11 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
               <p>These values come from compact synthetic / curated benchmark cases. They measure deterministic consistency and coverage inside this repository, not real-world accuracy.</p>
               <ul>
                 <li>Benchmark cases: 25</li>
-                <li>Scenario Accuracy: 0.88</li>
-                <li>Mechanism Accuracy: 0.72</li>
-                <li>Lens Coverage Rate: 1.0</li>
-                <li>Response Retrieval Coverage: 1.0</li>
-                <li>Overall Benchmark Score: 0.9</li>
+                <li>Scenario Accuracy: 88%</li>
+                <li>Mechanism Accuracy: 72%</li>
+                <li>Lens Coverage Rate: 100%</li>
+                <li>Response Retrieval Coverage: 100%</li>
+                <li>Overall Benchmark Score: 90%</li>
               </ul>
               <p><span class="evidence"><span data-i18n="source">Source</span>: evaluation/benchmark_results.csv</span></p>
               <p>Known limitation: current benchmark cases do not prove factual correctness, legal accuracy, financial accuracy, geopolitical accuracy, or future outcomes.</p>
@@ -243,5 +406,6 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
     </div>
 
     <script src="app.js"></script>
+    <script src="project.js?v=4-stability"></script>
   </body>
 </html>

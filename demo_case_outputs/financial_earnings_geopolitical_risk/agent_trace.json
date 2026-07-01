@@ -93,8 +93,10 @@
   ],
   "reasoning_stages": [
     "Current event context extraction",
+    "Event-family understanding",
     "Historical analogue retrieval",
     "Historical outcome retrieval",
+    "Strategic assessment generation",
     "Strategic lesson generation",
     "Evidence credibility assessment",
     "Response playbook retrieval",

@@ -7,19 +7,3 @@ affected,en,Who may be affected?,Identify stakeholders and exposure categories,"
 monitor,en,What should decision-makers monitor?,Create monitoring considerations without advice language,"ContextRetriever;EvidenceAssessor",Monitoring considerations
 interpretations,en,What are the competing interpretations?,Generate multi-lens interpretations,"MultiLensAnalyzer;EvidenceAssessor",Competing interpretations
 limitations,en,What are the limitations of this analysis?,List evidence gaps and limitations,"EvidenceAssessor;BriefGenerator",Limitations
-meaning,zh-CN,这件事是什么意思？,用通俗语言解释核心问题,"IssueExtractor;ScenarioClassifier;BriefGenerator",通俗解释
-analogues,zh-CN,这和过去哪些事件相似？,检索并解释历史相似案例,"HistoricalRetriever;BriefGenerator",历史相似案例
-mechanisms,zh-CN,可能有哪些机制在起作用？,识别战略机制和可能解释,"MechanismDetector;MultiLensAnalyzer",机制
-responses,zh-CN,历史上相关参与者采取过哪些做法？,检索历史应对模式,"HistoricalRetriever;ResponsePlaybookRetriever",历史应对
-affected,zh-CN,谁可能受到影响？,识别利益相关者和影响范围,"IssueExtractor;ContextRetriever",利益相关者
-monitor,zh-CN,我应该关注哪些后续变化？,生成非建议性的监测事项,"ContextRetriever;EvidenceAssessor",监测事项
-interpretations,zh-CN,有哪些不同解释？,生成多视角解释,"MultiLensAnalyzer;EvidenceAssessor",多种解释
-limitations,zh-CN,这个分析有哪些局限？,列出证据缺口和分析局限,"EvidenceAssessor;BriefGenerator",局限
-meaning,zh-TW,這件事是什麼意思？,用通俗語言解釋核心問題,"IssueExtractor;ScenarioClassifier;BriefGenerator",通俗解釋
-analogues,zh-TW,這和過去哪些事件相似？,檢索並解釋歷史相似案例,"HistoricalRetriever;BriefGenerator",歷史相似案例
-mechanisms,zh-TW,可能有哪些機制在起作用？,識別戰略機制和可能解釋,"MechanismDetector;MultiLensAnalyzer",機制
-responses,zh-TW,歷史上相關參與者採取過哪些做法？,檢索歷史應對模式,"HistoricalRetriever;ResponsePlaybookRetriever",歷史應對
-affected,zh-TW,誰可能受到影響？,識別利害關係人和影響範圍,"IssueExtractor;ContextRetriever",利害關係人
-monitor,zh-TW,我應該關注哪些後續變化？,生成非建議性的監測事項,"ContextRetriever;EvidenceAssessor",監測事項
-interpretations,zh-TW,有哪些不同解釋？,生成多視角解釋,"MultiLensAnalyzer;EvidenceAssessor",多種解釋
-limitations,zh-TW,這個分析有哪些局限？,列出證據缺口和分析局限,"EvidenceAssessor;BriefGenerator",局限

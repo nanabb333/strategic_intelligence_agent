@@ -42,12 +42,22 @@ Current tests cover:
 - FastAPI `/run/{run_id}`
 - markdown artifact download route
 - markdown, TXT, and JSON download routes
+- project workspace creation, questions, evidence, timeline, and delta
+- user-triggered evidence retrieval interfaces and URL provider behavior
+- Evidence Intelligence
+- Decision Framework classification
+- Decision Readiness
+- Domain Decision Evaluation
+- Decision Pathway Drafts
+- Pathway Comparison Matrix
+- Decision Review state and API behavior
+- enterprise diagnostics and release metadata
 
 The tests avoid:
 
 - external network calls
 - uvicorn server startup
-- real PDF files
+- external provider credentials
 - exact long-form analysis text assertions
 
 This keeps tests stable while still protecting the public API shape and core artifact helpers.

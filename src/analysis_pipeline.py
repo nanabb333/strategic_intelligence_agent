@@ -11,8 +11,12 @@ from analysis_input import prepare_analysis_input
 from analysis_metadata import build_analysis_metadata
 from brief_generator import generate_brief
 from context_retriever import retrieve_current_context
+from confidence_layer import assess_confidence, render_evidence_confidence_section
+from decision_case import build_decision_case
+from decision_quality_evaluator import evaluate_decision_quality, render_decision_quality_review
 from evidence_assessor import assess_evidence
 from evidence_credibility import assess_evidence_credibility
+from evidence_ledger import build_evidence_ledger
 from event_context import extract_event_context
 from event_understanding import detect_event_understanding
 from historical_retriever import retrieve_historical_analogues
@@ -45,6 +49,9 @@ def execute_analysis_pipeline(
     input_mode: str,
     uploaded_filename: str,
     file_type: str,
+    project_id: str = "",
+    project_question_id: str = "",
+    evidence_bundle: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Execute the ordered analysis workflow and persist artifacts."""
     prepared_input = prepare_analysis_input(
@@ -89,6 +96,35 @@ def execute_analysis_pipeline(
     )
     evidence_credibility = assess_evidence_credibility(historical_outcomes, strategic_lessons)
     response_patterns = retrieve_response_patterns(analogues, mechanisms)
+    primary_issue = issues[0] if issues else None
+    primary_title = primary_issue.title if primary_issue else "Untitled issue"
+    primary_classification = classifications[0] if classifications else None
+    evidence_bundle = evidence_bundle or []
+    evidence_bundle_ids = [
+        str(item.get("evidence_id"))
+        for item in evidence_bundle
+        if item.get("evidence_id")
+    ]
+    evidence_ledger = build_evidence_ledger(
+        issue=primary_issue,
+        source_url=source_url,
+        analogues=analogues.get(primary_title, []),
+        mechanisms=mechanisms.get(primary_title, []),
+        evidence_assessments=evidence_assessments.get(primary_title, []),
+        historical_outcomes=historical_outcomes.get(primary_title, []),
+        contexts=contexts.get(primary_title, []),
+        project_evidence=evidence_bundle,
+    )
+    decision_case = build_decision_case(
+        issue=primary_issue,
+        classification=primary_classification,
+        analogues=analogues.get(primary_title, []),
+        mechanisms=mechanisms.get(primary_title, []),
+        strategic_assessment=strategic_assessments.get(primary_title),
+        evidence_ids=evidence_ledger.ids(),
+        question_text=question_text,
+    )
+    confidence_assessment = assess_confidence(decision_case, evidence_ledger)
     base_brief = generate_brief(
         issues,
         classifications,
@@ -109,6 +145,27 @@ def execute_analysis_pipeline(
         source_url=source_url,
     )
     brief_markdown = adapt_output(base_brief, mode=output_mode, language=language)
+    brief_markdown = (
+        brief_markdown.rstrip()
+        + "\n\n"
+        + render_evidence_confidence_section(
+            evidence_ledger=evidence_ledger,
+            confidence_assessment=confidence_assessment,
+        )
+    )
+    decision_quality_evaluation = evaluate_decision_quality(
+        decision_case=decision_case,
+        evidence_ledger=evidence_ledger,
+        confidence_assessment=confidence_assessment,
+        brief_markdown=brief_markdown,
+        language=language,
+    )
+    brief_markdown = (
+        brief_markdown.rstrip()
+        + "\n\n"
+        + render_decision_quality_review(decision_quality_evaluation)
+        + "\n"
+    )
     brief_text = markdown_to_text(brief_markdown)
 
     metadata = build_analysis_metadata(
@@ -121,6 +178,9 @@ def execute_analysis_pipeline(
         input_mode=input_mode,
         uploaded_filename=uploaded_filename,
         file_type=file_type,
+        project_id=project_id,
+        project_question_id=project_question_id,
+        evidence_ids=evidence_bundle_ids,
     )
     analysis = build_analysis_artifact(
         issues=issues,
@@ -146,6 +206,11 @@ def execute_analysis_pipeline(
         file_type=file_type,
         route=route,
         metadata=metadata,
+        decision_case=decision_case,
+        evidence_ledger=evidence_ledger,
+        confidence_assessment=confidence_assessment,
+        decision_quality_evaluation=decision_quality_evaluation,
+        evidence_bundle=evidence_bundle,
     )
     analysis = localize_analysis_payload(analysis, language)
     agent_trace = build_agent_trace(route)

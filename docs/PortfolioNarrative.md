@@ -1,6 +1,6 @@
 # Portfolio Narrative
 
-Strategic Intelligence Agent is a portfolio project showing how an AI-oriented product can be organized as a local, testable, decision-support application instead of a one-off prompt demo.
+Strategic Intelligence Decision Companion is a portfolio project showing how an AI-oriented product can be organized as a local, testable, decision-support application instead of a one-off prompt demo.
 
 ## What The Project Demonstrates
 
@@ -37,9 +37,17 @@ Run Storage
 
 This structure is useful for product development because the user-facing API can remain stable while pipeline internals are tested and documented.
 
-### Agent Workflow Design
+### Deterministic Workflow Design
 
 The project uses deterministic local workflow orchestration. It does not rely on autonomous planning, multi-agent debate, or live web retrieval. The value comes from breaking a broad strategic-intelligence task into reviewable stages: issue extraction, scenario classification, retrieval, evidence assessment, decision criteria, brief generation, and artifact storage.
+
+### V2 Decision-Quality Layer
+
+The V2 foundation adds reviewable decision-quality structures without changing the product identity: Decision Case, Evidence Ledger, Confidence Assessment, and Decision Quality Evaluation. These are additive artifact fields designed to make evidence, assumptions, confidence, and evaluation easier to inspect.
+
+### Research Validation Boundary
+
+The repository separates product evaluation from research validation. Product evaluation checks whether the local workflow is reliable, reviewable, and internally coherent. Research validation is documented as a future layer for human review, benchmark strategy, failure-mode analysis, and decision-intelligence research. This separation prevents deterministic product-quality checks from being overstated as scientific proof.
 
 ### Historical Analogue Reasoning
 
@@ -58,9 +66,9 @@ Each run creates reviewable artifacts:
 
 This demonstrates product thinking around traceability, download support, and reuse beyond the browser UI.
 
-### Localization And UX Awareness
+### Reviewer Workflow And UX Awareness
 
-The dashboard and output structure support English, Simplified Chinese, and Traditional Chinese modes. The product also separates beginner, analyst, and executive output modes, showing attention to different reviewer needs.
+The dashboard and output structure support beginner, analyst, and executive output modes, showing attention to different reviewer needs while keeping the official product language English-only.
 
 ### Testing And CI Maturity
 
@@ -90,7 +98,7 @@ The project should be evaluated as a local AI product architecture and strategic
 
 The strongest portfolio framing is:
 
-> I built a local FastAPI decision-support app that takes unstructured strategic source material and produces structured briefs, JSON artifacts, traceable evidence notes, historical analogues, and run history. The project demonstrates AI product architecture, pipeline design, business analytics thinking, and practical software engineering quality.
+> I built a local FastAPI decision-support app that takes unstructured strategic source material and produces structured briefs, JSON artifacts, traceable evidence notes, historical analogues, confidence assessments, deterministic decision-quality evaluation, and run history. The project demonstrates AI product architecture, pipeline design, business analytics thinking, and practical software engineering quality.
 
 ## Related Documentation
 
@@ -100,4 +108,5 @@ The strongest portfolio framing is:
 - [Demo Scenarios](DemoScenarios.md)
 - [Engineering Architecture](EngineeringArchitecture.md)
 - [Analysis Pipeline](Pipeline.md)
+- [Research Agenda](research/ResearchAgenda.md)
 - [Testing](Testing.md)

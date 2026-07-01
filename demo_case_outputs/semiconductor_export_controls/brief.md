@@ -1,547 +1,641 @@
-# Analyst Reasoning Brief
-
-Decision-support only. No forecasts, probabilities, trading advice, or investment recommendations.
-
-> English output mode.
-
 # Executive Intelligence Brief
 
-This output is for decision-support and analyst productivity only. It does not provide forecasts, probabilities, trading advice, or investment recommendations.
+## Decision Snapshot
 
-## Executive Summary
+**Current Position:** Monitor closely and prepare staged response options
+**Confidence:** Medium
+**Why:** The decision turns on licensing approval delays, customer eligibility, supplier concentration, compliance cost, and whether management guidance treats the issue as temporary or structural.
+**Next 30-90 Days:** Review supplier exposure, licensing requirements, customer eligibility, compliance costs, and margin commentary over the next 30-90 days.
 
-- The document describes an Export Controls issue involving semiconductor, chip, chips.
-- Historical analogues and current context are used for comparison and decision support, not prediction.
-- Evidence traces identify whether each finding comes from the source document, the historical database, or the current context knowledge base.
+## Decision Question
 
-## Agent Execution Trace
+The key question is not only what the export control says, but whether it creates a temporary compliance adjustment or a structural market-access constraint.
 
-- **Document type detected:** Policy / Regulatory Text
-- **Scenario detected:** Export Controls
-- **Selected tools:** IssueExtractor, ScenarioClassifier, HistoricalRetriever, ContextRetriever, ImplicationAnalyzer, BriefGenerator
-- **Skipped tools:** None
+## Decision Criteria
 
-1. **Scenario detected:** Export Controls
-2. **Document type detected:** Policy / Regulatory Text
-3. **Tool selected:** IssueExtractor: Every route starts by converting source text into structured issue fields.
-4. **Tool selected:** ScenarioClassifier: Scenario classification is required before retrieval decisions can be interpreted.
-5. **Tool selected:** HistoricalRetriever: Export Controls benefits from comparison against historical precedents.
-6. **Tool selected:** ContextRetriever: Export Controls usually benefits from domain context and monitoring considerations.
-7. **Tool selected:** ImplicationAnalyzer: Selected retrieval outputs need to be synthesized into analyst-facing considerations.
-8. **Tool selected:** BriefGenerator: The final deliverable is an executive intelligence brief.
+These are the dimensions driving today's decision:
+- **Customer exposure** — **Importance: High.** Restricted end-user exposure determines whether market access is actually constrained.
+- **Licensing uncertainty** — **Importance: High.** Approval timing and denial patterns determine operating bottlenecks.
+- **Compliance burden** — **Importance: Medium.** Documentation, staffing, and review costs can become durable operating work.
+- **Margin impact** — **Importance: High.** Costs matter if they flow through to revenue, pricing, or profitability.
+- **Supply chain resilience** — **Importance: Medium.** Supplier concentration determines whether disruption spreads beyond legal review.
 
-## Tool Decisions
+## Decision Paths
 
-### IssueExtractor
+### Option A
 
-- **Decision:** Selected
-- **Why:** Every route starts by converting source text into structured issue fields.
-- **Expected contribution:** Core issue, actors, industries, policy terms, and document type.
+**Path:** Wait for final rule detail before changing operations
 
-### ScenarioClassifier
+**Meaning:** Hold the current posture until the evidence base is clearer.
 
-- **Decision:** Selected
-- **Why:** Scenario classification is required before retrieval decisions can be interpreted.
-- **Expected contribution:** Primary scenario and matched keyword evidence.
+**Appropriate when:** Available evidence shows limited exposure, high reversibility, and no deterioration in Customer exposure, Licensing uncertainty, Margin impact.
 
-### HistoricalRetriever
+**Immediate actions**
+- Document why Wait for final rule detail before changing operations is acceptable.
+- Confirm whether customer exposure can be ruled out as a material constraint.
 
-- **Decision:** Selected
-- **Why:** Export Controls benefits from comparison against historical precedents.
-- **Expected contribution:** Top analogue cases and similarity reasons from the historical database.
+**Near-term actions**
+- Schedule a dated review rather than leaving the decision open-ended.
+- Move to Map exposure and prepare staged adjustments if exposure cannot be ruled out with current evidence.
 
-### ContextRetriever
+**Main benefit:** Avoids unnecessary disruption when the issue is likely manageable.
 
-- **Decision:** Selected
-- **Why:** Export Controls usually benefits from domain context and monitoring considerations.
-- **Expected contribution:** Adds current context from the local knowledge base.
+**Main risk:** May underprepare the organization if exposure is already material.
 
-### ImplicationAnalyzer
+**Evidence that would make this preferable:** This becomes preferable if Customer exposure, Licensing uncertainty, Margin impact remain limited and no monitoring signal shows material change.
 
-- **Decision:** Selected
-- **Why:** Selected retrieval outputs need to be synthesized into analyst-facing considerations.
-- **Expected contribution:** Similarities, differences, business considerations, operational considerations, geopolitical considerations, and questions.
+### Option B (Recommended)
 
-### BriefGenerator
+**Path:** Map exposure and prepare staged adjustments
 
-- **Decision:** Selected
-- **Why:** The final deliverable is an executive intelligence brief.
-- **Expected contribution:** Markdown brief with evidence sources, trace, and analysis path.
+**Meaning:** Proceed with reversible preparation while delaying irreversible commitments.
 
-## Analysis Path
+**Appropriate when:** Uncertainty is meaningful, especially around Customer exposure, Licensing uncertainty, Margin impact, but evidence does not yet justify a full defensive move.
 
-- Agent Router reviewed document type, scenario, industries, actors, and keywords.
-- Tool Registry provided available deterministic tools.
-- Selected tools executed in route order.
-- Result synthesis generated the executive brief with evidence sources.
+**Immediate actions**
+- Build an exposure map covering Customer exposure, Licensing uncertainty, Margin impact.
+- Assign one decision owner and one review date.
+- Separate confirmed facts from unresolved assumptions.
 
-## Key Issue
+**Near-term actions**
+- Review new evidence at the 30-day and 90-day checkpoints.
+- Prepare actions needed if the decision shifts to Wait for final rule detail before changing operations or Immediately reduce exposed customers, suppliers, or product lines.
 
-**Title:** Semiconductor Export Controls Demo Case
+**Main benefit:** Preserves flexibility while converting uncertainty into decision-useful evidence.
 
-**Core issue:** A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software.
+**Main risk:** Can become process activity if the exposure map and review cadence are not owned.
 
-**Summary:** A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The government says the rules are intended to limit access to sensitive technology by restricted end users while preserving licensed trade for low-risk commercial customers. Several semiconductor manufacturers, equipment suppliers, and cloud infrastructure firms begin internal reviews of customer exposure, product classificati...
+**Evidence that would make this preferable:** This remains preferable when Customer exposure, Licensing uncertainty, Margin impact are material enough to monitor but not yet binding.
 
-**Evidence trace:** Source Document
+### Option C
 
-## Current Event Context
+**Path:** Immediately reduce exposed customers, suppliers, or product lines
 
-- **Event type:** Export Controls
-- **Primary actor:** Government regulators
-- **Secondary actor:** Corporate executives
-- **Affected sectors:** Semiconductors, Supply Chain / Logistics, Manufacturing, Technology
-- **Affected regions:** Middle East
-- **Policy domain:** Technology and national security
-- **Strategic significance:** This export controls context matters because it may affect Semiconductors, Supply Chain / Logistics, Manufacturing through technology and national security considerations. The layer frames what kind of event the input describes before the system retrieves analogues, outcomes, and lessons.
-- **Event summary:** Semiconductor Export Controls Demo Case
+**Meaning:** Take immediate defensive action before waiting for additional clarification.
 
-A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The government says the rules are intended to limit access to sensitive technology by restricted end users while preserving licensed trade for low-risk commercial customers.
-- **Confidence:** High
-- **Evidence trace:** Source Document + deterministic current-event rules
-- **Limitations:** Current-event context is extracted from the submitted document only. No live web retrieval, external news API, or source verification is performed. Actor, sector, and region labels use deterministic keyword rules and may miss nuance.
+**Appropriate when:** Evidence shows customer exposure is already binding, costly, customer-facing, or difficult to reverse.
 
-## Scenario Classification
+**Immediate actions**
+- Identify the specific customers, suppliers, products, approvals, or workflows to reduce or pause.
+- Escalate legal, compliance, finance, and operating-owner review before acting.
 
-- **Primary scenario:** Export Controls
-- **Matched keywords:** export control, export controls, license, licensing
-- **Classification confidence:** High
-- **Evidence trace:** Source Document + deterministic keyword classifier
-- **Note:** Confidence describes classification quality only; it is not a forecast.
+**Near-term actions**
+- Confirm whether the defensive action reduced the specific exposure it targeted.
+- Document the opportunity cost and reversibility of the action taken.
 
-## Extracted Entities
+**Main benefit:** Reduces downside quickly when exposure is already severe.
 
-- **Document type guess:** Policy / Regulatory Text (Evidence trace: Source Document)
-- **Actors:** government, executives, suppliers, customers, firms, companies (Evidence trace: Source Document)
-- **Countries / regions:** Middle East (Evidence trace: Source Document)
-- **Industries:** semiconductor, chip, chips, AI, cloud, manufacturing, technology, software (Evidence trace: Source Document)
-- **Policy terms:** export controls, licensing, compliance (Evidence trace: Source Document)
-- **Companies:** None detected (Evidence trace: Source Document)
+**Main risk:** Can sacrifice opportunity or relationships before the evidence supports that cost.
 
-## Historical Analogues
+**Evidence that would make this preferable:** This becomes preferable if evidence shows customer exposure is severe or worsening.
+
+## Option Ranking
+
+- **1. Option B: Map exposure and prepare staged adjustments.** Ranks first because the highest-importance criteria are Customer exposure, Licensing uncertainty, Margin impact. It improves readiness on those criteria without creating the execution burden of Option C or the underpreparedness of Option A.
+- **2. Option A: Wait for final rule detail before changing operations.** Ranks second because it has lower cost and disruption than Option C, but it is weaker than Option B on Customer exposure, Licensing uncertainty, Margin impact if exposure grows.
+- **3. Option C: Immediately reduce exposed customers, suppliers, or product lines.** Ranks third because it offers more protection, but it is weaker on reversibility, opportunity cost, and execution burden unless customer exposure is already severe.
+
+## Option Comparison
+
+| Option | Risk Reduction | Opportunity Cost | Execution Difficulty | Reversibility | Robustness | Information Value |
+| --- | --- | --- | --- | --- | --- | --- |
+| Option A | Low | Low | Low | High | Medium | High |
+| Option B | Medium | Medium | Medium | Medium | High | High |
+| Option C | High | High | High | Low | Medium | Low |
+
+## Preferred Path
+
+**Recommended path:** Map exposure and prepare staged adjustments
+
+### Why Today
+
+- Map exposure and prepare staged adjustments is preferred today because it produces decision evidence on Customer exposure, Licensing uncertainty, Margin impact without forcing irreversible action.
+- Wait for final rule detail before changing operations is too passive if customer eligibility and restricted end-user exposure is already material.
+- Immediately reduce exposed customers, suppliers, or product lines is premature unless licensing approval timing and denial patterns shows binding or costly constraints.
+
+### Assumptions That Make This Preferable
+
+- The highest-priority unknowns are Customer exposure, Licensing uncertainty, Margin impact, and they can be clarified through near-term internal work.
+- The organization can still preserve reversibility while the evidence base improves.
+- No current evidence requires immediate defensive reduction before exposure is mapped.
+
+### Immediate Execution Steps
+
+- Review supplier exposure to controlled equipment, inputs, and restricted jurisdictions.
+- List products and customers requiring license or eligibility review.
+- Track compliance cost and staffing needs as a separate operating signal.
+
+### Required Stakeholders
+
+- Executive sponsor: owns the go / hold / escalate decision.
+- Strategy: produces the exposure map and decision memo.
+- Finance: quantifies revenue, margin, liquidity, or cost exposure where relevant.
+- Legal / Compliance: separates confirmed obligations from interpretation questions.
+- Operations / Commercial owner: identifies affected workflows, suppliers, customers, or product commitments.
+
+### Decision Checkpoints
+
+- Now: complete the exposure map and list unresolved assumptions.
+- 30 days: decide whether evidence supports holding Option B, de-escalating to Option A, or preparing Option C.
+- 90 days: convert the review into a board or executive decision package if exposure remains material.
+
+### Escalation Conditions
+
+- Escalate toward Immediately reduce exposed customers, suppliers, or product lines if customer eligibility and restricted end-user exposure becomes binding, customer-facing, costly, or hard to reverse.
+- Escalate executive review if licensing approval timing and denial patterns moves against planning assumptions.
+
+### Exit Criteria
+
+- Exit toward Wait for final rule detail before changing operations if exposure is confirmed as limited, reversible, and not material to the top criteria: Customer exposure, Licensing uncertainty, Margin impact.
+- Exit toward Immediately reduce exposed customers, suppliers, or product lines if delay creates more downside than the opportunity cost of immediate defensive action.
+
+## Role-Based Implications
+
+- CEO / Executive Sponsor: treat Map exposure and prepare staged adjustments as a decision-control posture, not a delay tactic; require a named owner and a date for reassessment.
+- Corporate Strategy: translate Customer exposure, Licensing uncertainty, Margin impact into an exposure map that shows which business units, customers, products, or regions are actually affected.
+- Finance / CFO: separate confirmed financial exposure from possible exposure so the team does not overstate cost, margin, or liquidity impact before evidence supports it.
+- Operations / Supply Chain: identify which workflows would need to change if the decision shifts from Option B to Immediately reduce exposed customers, suppliers, or product lines.
+- Legal / Compliance: distinguish confirmed obligations from unresolved interpretation questions and document what evidence would change the operating posture.
+
+## Why This Reasoning Holds
+
+- Why this is true: export-control cases often move from announcement risk into licensing, screening, and supplier/customer review work.
+- Compared with what: Option A leaves the team exposed to rule-detail surprises, while Option C may cut relationships before the actual restricted scope is known.
+- Under what assumptions: the rule details, customer eligibility, and license timing remain uncertain enough to make staged preparation more robust than immediate withdrawal.
+- What would make it wrong: binding restrictions, license denials, severe customer loss, or management guidance showing structural revenue or margin damage.
+
+## Assumptions
+
+- The rule details, customer eligibility, and license timing remain uncertain enough to make staged preparation more robust than immediate withdrawal.
+- The supplied source material is directionally accurate enough to frame the decision, but still requires human fact review before operational use.
+- The organization has enough time and management capacity to execute Map exposure and prepare staged adjustments before the issue becomes binding.
+- No immediate evidence shows that Immediately reduce exposed customers, suppliers, or product lines is already required.
+
+## Trade-offs
+
+- Benefits gained: Map exposure and prepare staged adjustments creates an exposure map, assigns ownership, and preserves reversibility while evidence on Customer exposure, Licensing uncertainty, Margin impact is still developing.
+- Costs accepted: the recommendation prioritizes execution flexibility and learning over immediate risk elimination, so the team must spend management attention now and tolerate partial exposure while evidence matures.
+- Opportunities sacrificed: the user gives up the lowest-effort posture of Wait for final rule detail before changing operations and does not receive the full immediate protection of Immediately reduce exposed customers, suppliers, or product lines.
+- Risks still unresolved: new evidence on Customer exposure, Licensing uncertainty, Margin impact, implementation timing, cost, customer behavior, or operating constraints may still justify changing paths.
+
+## Risk Analysis
+
+### Customer exposure is higher than the current evidence suggests.
+
+- **Why it matters:** Map exposure and prepare staged adjustments depends on the assumption that exposure can be mapped before it becomes binding.
+- **Potential impact:** The preferred path may be insufficient and Immediately reduce exposed customers, suppliers, or product lines may become necessary.
+- **Early warning indicator:** Customer eligibility and restricted end-user exposure indicates exposure above the planning assumption or cannot be documented.
+- **Suggested mitigation:** Prepare the Immediately reduce exposed customers, suppliers, or product lines execution checklist before making irreversible commitments.
+
+### Licensing uncertainty deteriorates before the next checkpoint.
+
+- **Why it matters:** The recommendation relies on preserving choice while evidence improves.
+- **Potential impact:** Decision-makers may lose the ability to shift paths without higher cost.
+- **Early warning indicator:** Licensing approval timing and denial patterns indicates delay, denial, cost increase, or customer-facing impact.
+- **Suggested mitigation:** Set a dated executive checkpoint and require a go / hold / escalate decision record.
+
+### Margin impact is underestimated.
+
+- **Why it matters:** A staged path only works if operating teams can produce the required decision artifacts.
+- **Potential impact:** The organization may create review activity without improving the actual decision.
+- **Early warning indicator:** No accountable owner, incomplete exposure map, or unresolved assumptions at the 30-day checkpoint.
+- **Suggested mitigation:** Assign owners by function and make the exposure map, readiness checklist, and decision memo mandatory deliverables.
+
+
+## Decision Blind Spots
+
+- Organization-specific data for customer exposure is still needed to move from a general recommendation to an operating decision.
+- Organization-specific data for licensing uncertainty is still needed to move from a general recommendation to an operating decision.
+- Organization-specific data for margin impact is still needed to move from a general recommendation to an operating decision.
+- The current recommendation would improve with fresher evidence on customer eligibility and restricted end-user exposure, licensing approval timing and denial patterns.
+- Contractual obligations, customer commitments, and internal execution capacity may change the preferred path even if the external situation is unchanged.
+
+## What Could Change This Recommendation
+
+- Binding restrictions, license denials, severe customer loss, or management guidance showing structural revenue or margin damage.
+- Move toward Option A (Wait for final rule detail before changing operations) if review shows limited exposure, low cost, high reversibility, and no deterioration in Customer exposure, Licensing uncertainty, Margin impact.
+- Move toward Option C (Immediately reduce exposed customers, suppliers, or product lines) if constraints become binding, costly, customer-facing, or difficult to reverse.
+
+## Regulatory Considerations
+
+Decision-support reminder only; this is not legal advice.
+
+### Export Controls
+
+- **Why it may matter:** Licensing, product classification, end-use, or restricted-party obligations may determine whether execution is allowed.
+- **Possible decision impact:** Customer, supplier, product, or shipment decisions may need to pause until obligations are confirmed.
+- **Suggested internal review:** Legal / Compliance should prepare a regulatory impact review separating confirmed requirements from open interpretation questions.
+
+## Recommendation Action Plan
+
+### NOW
+
+- **Action:** Review supplier exposure to controlled equipment, inputs, and restricted jurisdictions. List products and customers requiring license or eligibility review.
+- **Owner:** Strategy + relevant operating owner.
+- **Deliverable:** Exposure map with affected customers, suppliers, products, regions, workflows, and open assumptions.
+- **Decision Purpose:** Confirms whether staged preparation is sufficient or immediate escalation is needed.
+
+### NEXT 30 DAYS
+
+- **Action:** Track compliance cost and staffing needs as a separate operating signal. Prepare an executive update separating confirmed restrictions from unresolved rule details.
+- **Owner:** Strategy + Legal / Compliance + Finance.
+- **Deliverable:** Readiness checklist showing confirmed facts, unresolved assumptions, and required follow-up.
+- **Expected Decision:** Hold the staged path, narrow scope, or prepare defensive execution.
+
+### NEXT 90 DAYS
+
+- **Action:** Reassess whether the evidence still supports Option B or whether Option A or Option C has become more appropriate.
+- **Owner:** Executive sponsor + Strategy.
+- **Deliverable:** Decision update memo comparing current evidence against the original criteria.
+- **Decision Outcome:** Hold, de-escalate, or move to a more defensive path.
+
+### RE-EVALUATION TRIGGER
+
+- **Action:** Revisit the recommendation if customer eligibility and restricted end-user exposure, licensing approval timing and denial patterns, customer impact, cost pressure, or reversibility changes materially.
+- **Owner:** Executive sponsor.
+- **Deliverable:** Go / hold / escalate decision record.
+- **Decision Purpose:** Prevents the recommendation from remaining in force after the evidence changes.
+
+## What to Monitor
+
+These signals answer: what could change today's recommendation?
+- **Customer eligibility and restricted end-user exposure:** Shows whether market access is actually constrained or only administratively delayed.
+- **Licensing approval timing and denial patterns:** Indicates whether the issue is becoming an operating bottleneck.
+- **Supplier concentration in controlled tools or inputs:** Identifies where disruption could spread through the supply chain.
+- **Compliance staffing, documentation, and legal cost:** Shows whether the control is becoming a durable operating burden.
+- **Management guidance on revenue, margins, and product segmentation:** Connects policy exposure to business impact.
+
+### Investor
+
+- Monitor revenue exposure, margin pressure, management guidance, and customer concentration commentary.
+- Separate operational disruption signals from ordinary quarterly volatility.
+- Watch whether management distinguishes temporary disruption from durable business-model exposure.
+
+### Corporate Strategy
+
+- Monitor localization requirements, policy implementation details, supplier concentration, and eligibility rules.
+- Identify which business units need updated exposure maps or decision memos.
+- Prepare executive discussion notes that separate known facts from unresolved questions.
+
+### Supply Chain
+
+- Monitor inventory coverage, logistics routes, alternative suppliers, and qualification timelines.
+- Check whether single-source inputs or chokepoints require contingency planning.
+- Track customer communication needs if delivery timing or input availability changes.
+
+### Policy
+
+- Monitor implementation guidance, enforcement posture, exemptions, and timing.
+- Separate announced policy intent from operational rules that organizations can actually follow.
+- Track whether agencies, regulators, or counterpart governments clarify scope or eligibility.
+
+## Historical Evidence
 
 ### Huawei Entity List (2019)
 
-- **Scenario type:** Export Controls
-- **Similarity reason:** scenario match on Export Controls; keyword overlap: access, advanced, compliance, controls; industry overlap: technology; actor overlap: government, suppliers
-- **Business relevance:** Shows how export controls can alter supplier access and compliance workflows.
-- **Geopolitical relevance:** Illustrates technology competition between the United States and China.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** Huawei Entity List (2019) - Historical Database
+- **Case and time period:** Huawei Entity List, 2019; Export Controls; Technology.
+- **Why it is comparable:** scenario match on Export Controls; keyword overlap: access, advanced, compliance, controls; industry overlap: technology; actor overlap: government, suppliers
+- **What happened:** Restricted access to selected technology inputs changed supplier screening and product planning.
+- **Why it matters today:** Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
 
 ### ASML Export Controls (2023)
 
-- **Scenario type:** Export Controls
-- **Similarity reason:** scenario match on Export Controls; keyword overlap: access, advanced, controls, equipment; industry overlap: technology; actor overlap: government
-- **Business relevance:** Highlights exposure to licensing rules for critical production tools.
-- **Geopolitical relevance:** Shows allied coordination around sensitive technology controls.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** ASML Export Controls (2023) - Historical Database
-
-### CHIPS and Science Act (2022)
-
-- **Scenario type:** Industrial Policy
-- **Similarity reason:** keyword overlap: chips, policy, semiconductor, technology; industry overlap: manufacturing, technology; actor overlap: firms, government
-- **Business relevance:** Shows how public incentives can shape capital planning and site selection.
-- **Geopolitical relevance:** Reflects strategic concern about supply resilience and technology leadership.
-- **Caution note:** Historical analogues support comparison, not prediction.
-- **Source origin:** CHIPS and Science Act (2022) - Historical Database
-
-## Historical Outcomes
-
-### Huawei Entity List (2019)
-
-- **Event family:** Export Controls
-- **Observed outcome:** Restricted access to selected technology inputs changed supplier screening and product planning.
-- **Strategic response:** Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
-- **Time horizon:** Medium-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Export Controls; event-family/title overlap
-
-### ASML Export Controls (2023)
-
-- **Event family:** Export Controls
-- **Observed outcome:** Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.
-- **Strategic response:** Companies monitored license rules, tool availability, and jurisdictional alignment.
-- **Time horizon:** Medium-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Export Controls; event-family/title overlap
-
-### CHIPS and Science Act (2022)
-
-- **Event family:** Industrial Policy
-- **Observed outcome:** Public incentives reshaped capacity planning and domestic manufacturing discussions.
-- **Strategic response:** Companies evaluated eligibility rules, site selection, workforce needs, and supplier readiness.
-- **Time horizon:** Long-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** case-name match with retrieved analogue; event-family match: Industrial Policy
+- **Case and time period:** ASML Export Controls, 2023; Export Controls; Semiconductors.
+- **Why it is comparable:** scenario match on Export Controls; keyword overlap: access, advanced, controls, equipment; industry overlap: technology; actor overlap: government
+- **What happened:** Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.
+- **Why it matters today:** Companies monitored license rules, tool availability, and jurisdictional alignment.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
 
 ### Entity List Expansion (2020)
 
-- **Event family:** Export Controls
-- **Observed outcome:** Expanded restrictions increased screening burden and uncertainty for technology transactions.
-- **Strategic response:** Companies strengthened restricted-party checks and licensing escalation paths.
-- **Time horizon:** Short-to-medium-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** event-family match: Export Controls; event-family/title overlap
+- **Case and time period:** Entity List Expansion, 2020; Export Controls; Technology.
+- **Why it is comparable:** event-family match: Export Controls; event-family/title overlap
+- **What happened:** Expanded restrictions increased screening burden and uncertainty for technology transactions.
+- **Why it matters today:** Companies strengthened restricted-party checks and licensing escalation paths.
+- **Relationship to recommendation:** Supports a staged decision path by showing what organizations had to map, review, or adjust before acting.
+- **Reference:** No primary source link available.
+- **Source note:** Curated repository historical knowledge record; primary source link pending.
+
+## Market Expectations vs Actual Outcomes
+
+### Huawei Entity List (2019)
+
+- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Restricted access to selected technology inputs changed supplier screening and product planning.
+- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
+- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
+
+### ASML Export Controls (2023)
+
+- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans.
+- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
+- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
+
+### Entity List Expansion (2020)
+
+- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Expanded restrictions increased screening burden and uncertainty for technology transactions.
+- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
+- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
 
 ### Allied Export Control Coordination (2023)
 
-- **Event family:** Export Controls
-- **Observed outcome:** Policy alignment among allies increased the importance of jurisdiction-by-jurisdiction rule monitoring.
-- **Strategic response:** Firms tracked implementation differences, license requirements, and supplier communication.
-- **Time horizon:** Medium-term
-- **Confidence:** Medium
-- **Source status:** source pending; educational summary
-- **Retrieval reason:** event-family match: Export Controls; event-family/title overlap
-
-## Strategic Lessons
-
-### Supply chain diversification frequently appears after export-control or disruption shocks.
-
-- **Supporting cases:** Huawei Entity List (2019), ASML Export Controls (2023), CHIPS and Science Act (2022), Entity List Expansion (2020), Allied Export Control Coordination (2023)
-- **Confidence:** High
-- **Rationale:** Matched 5 retrieved outcome case(s) with rule keywords: export, supply, supplier, route.
-
-### Compliance and screening routines often expand after sanctions, export controls, or regulatory changes.
-
-- **Supporting cases:** Huawei Entity List (2019), ASML Export Controls (2023), Entity List Expansion (2020), Allied Export Control Coordination (2023)
-- **Confidence:** High
-- **Rationale:** Matched 4 retrieved outcome case(s) with rule keywords: compliance, screening, license, documentation.
-
-### Industrial policy episodes often require monitoring eligibility, domestic content, and implementation details.
-
-- **Supporting cases:** Huawei Entity List (2019), CHIPS and Science Act (2022)
-- **Confidence:** Medium
-- **Rationale:** Matched 2 retrieved outcome case(s) with rule keywords: incentive, eligibility, domestic, subsidy.
-
-### Geopolitical escalation cases often lead organizations to review continuity plans and exposure concentration.
-
-- **Supporting cases:** Entity List Expansion (2020)
-- **Confidence:** Low
-- **Rationale:** Matched 1 retrieved outcome case(s) with rule keywords: security, conflict, escalation, continuity.
-
-## Evidence Credibility Note
-
-- **Evidence summary:** 5 historical outcomes were retrieved. 5 are medium confidence. Source URLs are not fabricated; source status is reported separately. 4 rule-based strategic lesson(s) were generated from those outcomes.
-- **Confidence distribution:** Medium: 5
-- **Source status distribution:** source pending; educational summary: 5
-- **Reviewer note:** Use these outcomes and lessons as decision-support context. They do not prove factual, legal, geopolitical, financial, or predictive accuracy.
-
-**Key limitations:**
-- Historical outcomes are simplified educational summaries.
-- Confidence reflects internal evidence coding, not real-world predictive accuracy.
-- Lessons are pattern-based and should be reviewed by a human analyst.
-- Source URLs are not fabricated; missing source links remain marked as source pending.
-
-## Decision Considerations
-
-- Decision-makers may wish to compare current issue details against the retrieved outcomes before acting.
-- Decision-makers may wish to separate recurring historical lessons from case-specific facts.
-- Historical outcomes and lessons support structured discussion; they do not imply forecasts, legal conclusions, or investment recommendations.
-
-## Current Context
-
-### Semiconductors - Export Controls
-
-- **Context summary:** Advanced chip and semiconductor equipment supply chains depend on cross-border licensing, specialized suppliers, and government controls.
-- **Why it matters:** Controls can affect access to inputs, customer eligibility, and compliance review timelines.
-- **Stakeholders:** Chip designers; equipment vendors; foundries; cloud providers; regulators
-- **Monitoring considerations:** Licensing updates; allied coordination; supplier disclosures; compliance guidance
-- **Retrieval reason:** industry match: semiconductor; scenario match: Export Controls; keyword overlap: acces, access, advanced, chip
-- **Source origin:** Semiconductors Context KB: SC-001 (semiconductor_context.md)
-
-### Supply Chain - Export Controls
-
-- **Context summary:** Export controls can restrict shipment of sensitive goods, software, or technology to certain end users.
-- **Why it matters:** Companies may need to screen counterparties and assess license requirements before fulfillment.
-- **Stakeholders:** Exporters; freight forwarders; compliance teams; customers; regulators
-- **Monitoring considerations:** Restricted party lists; product classifications; license applications; end-use statements
-- **Retrieval reason:** scenario match: Export Controls; keyword overlap: companie, companies, compliance, control
-- **Source origin:** Supply Chain Context KB: SP-004 (supply_chain_context.md)
-
-### Trade Policy - Export Controls
-
-- **Context summary:** Export-control policy can link national security priorities with commercial technology transfer restrictions.
-- **Why it matters:** Business teams may need to align sales, compliance, and product-classification processes.
-- **Stakeholders:** Regulators; exporters; technology firms; legal teams; customers
-- **Monitoring considerations:** Control lists; licensing policy; allied alignment; enforcement examples
-- **Retrieval reason:** scenario match: Export Controls; keyword overlap: commercial, compliance, control, customer
-- **Source origin:** Trade Policy Context KB: TP-002 (trade_policy_context.md)
-
-## Similarities and Differences
-
-### Observed Similarities
-- The issue may resemble Huawei Entity List (2019), ASML Export Controls (2023) because the retrieved cases share characteristics with the export controls scenario frame.
-- The current context findings from Semiconductors, Supply Chain, Trade Policy share characteristics with the extracted industries and policy terms.
-
-### Observed Differences
-- The source document differs from historical analogues because current actors, implementation details, and timing are document-specific.
-- The retrieved context differs from historical cases because it describes standing monitoring considerations rather than a completed event.
-
-## Business Considerations
-
-- The issue may indicate changing constraints for semiconductor, chip, chips and requires monitoring of stakeholder exposure.
-- The export controls frame raises questions about compliance, supplier exposure, customer communication, and executive briefing needs.
-- Historical and context evidence should be used to structure diligence, not to imply an outcome.
-
-## Operational Considerations
-
-- Operational teams may need to monitor counterparties, implementation timelines, documentation requirements, and contingency plans.
-- The issue could affect supplier continuity, licensing workflows, routing choices, or internal escalation paths depending on the scenario.
-
-## Geopolitical Considerations
-
-- The issue could affect cross-border coordination involving Middle East.
-- Government actions, regulatory updates, and security conditions require monitoring because they can alter operating assumptions.
-
-## Mechanisms Detected
-
-### Technology Containment
-
-- **Description:** Restrictions or controls that limit access to sensitive technologies
-- **Detection reason:** scenario match: Export Controls; observation overlap: access, cloud, controls, equipment; actor overlap: firms, suppliers
-- **Possible observations:** licenses; entity lists; restricted equipment; cloud access limits
-- **Evidence references:** Source Document, Technology Containment (Mechanism Framework)
-
-### Counterparty Risk
-
-- **Description:** Exposure arising from customers suppliers banks or partners
-- **Detection reason:** scenario match: Export Controls; observation overlap: customers, exposure, reviews, suppliers; actor overlap: customers, suppliers
-- **Possible observations:** screening alerts; payment exceptions; contract reviews
-- **Evidence references:** Source Document, Counterparty Risk (Mechanism Framework)
-
-### Strategic Dependency
-
-- **Description:** Exposure created by reliance on concentrated suppliers or jurisdictions
-- **Detection reason:** scenario match: Export Controls; observation overlap: exposure, suppliers; actor overlap: suppliers
-- **Possible observations:** supplier concentration; critical inputs; geographic dependency
-- **Evidence references:** Source Document, Strategic Dependency (Mechanism Framework)
-
-### Market Access Restriction
-
-- **Description:** Reduced ability to serve supply or transact in a target market
-- **Detection reason:** scenario match: Export Controls; observation overlap: customers, restricted; actor overlap: customers
-- **Possible observations:** restricted customers; end-use screening; transaction limits
-- **Evidence references:** Source Document, Market Access Restriction (Mechanism Framework)
-
-## Competing Interpretations
-
-### Economics
-
-- **Hypothesis:** One possible interpretation is that the export controls event reflects resource allocation constraints linked to Technology Containment, Counterparty Risk.
-- **Evidence references:** ASML Export Controls (2023) - Historical Database, Counterparty Risk (Mechanism Framework), Huawei Entity List (2019) - Historical Database, Semiconductors Context KB: SC-001 (semiconductor_context.md), Source Document, Supply Chain Context KB: SP-004 (supply_chain_context.md), Technology Containment (Mechanism Framework)
-
-### Political Economy
-
-- **Hypothesis:** One possible interpretation is that public authority and business incentives are interacting through Technology Containment, Counterparty Risk.
-- **Evidence references:** ASML Export Controls (2023) - Historical Database, Counterparty Risk (Mechanism Framework), Huawei Entity List (2019) - Historical Database, Semiconductors Context KB: SC-001 (semiconductor_context.md), Source Document, Supply Chain Context KB: SP-004 (supply_chain_context.md), Technology Containment (Mechanism Framework)
-
-### International Relations
-
-- **Hypothesis:** One possible interpretation is that the issue reflects cross-border strategic positioning rather than only firm-level operations.
-- **Evidence references:** ASML Export Controls (2023) - Historical Database, Counterparty Risk (Mechanism Framework), Huawei Entity List (2019) - Historical Database, Semiconductors Context KB: SC-001 (semiconductor_context.md), Source Document, Supply Chain Context KB: SP-004 (supply_chain_context.md), Technology Containment (Mechanism Framework)
-
-### Legislative / Regulatory
-
-- **Hypothesis:** One possible interpretation is that implementation rules and compliance obligations are central to the event.
-- **Evidence references:** ASML Export Controls (2023) - Historical Database, Counterparty Risk (Mechanism Framework), Huawei Entity List (2019) - Historical Database, Semiconductors Context KB: SC-001 (semiconductor_context.md), Source Document, Supply Chain Context KB: SP-004 (supply_chain_context.md), Technology Containment (Mechanism Framework)
-
-### Business Strategy
-
-- **Hypothesis:** One possible interpretation is that executives face a positioning and resilience question, not only a one-time event summary.
-- **Evidence references:** ASML Export Controls (2023) - Historical Database, Counterparty Risk (Mechanism Framework), Huawei Entity List (2019) - Historical Database, Semiconductors Context KB: SC-001 (semiconductor_context.md), Source Document, Supply Chain Context KB: SP-004 (supply_chain_context.md), Technology Containment (Mechanism Framework)
-
-## Multi-Lens Analysis
-
-### Economics
-
-**Supporting observations:**
-- The issue references semiconductor, chip, chips and operating constraints.
-- Historical analogues such as Huawei Entity List, ASML Export Controls show comparable economic adjustment patterns.
-
-**Limitations:**
-- The document does not quantify cost, demand, or capacity effects.
-
-### Political Economy
-
-**Supporting observations:**
-- The scenario classification is Export Controls.
-- Current context from Semiconductors, Supply Chain highlights stakeholders and monitoring considerations.
-
-**Limitations:**
-- The balance between public policy goals and firm-level incentives requires more source detail.
-
-### International Relations
-
-**Supporting observations:**
-- Detected regions include Middle East.
-- Mechanisms such as Technology Containment, Counterparty Risk can appear in geopolitical or cross-border settings.
-
-**Limitations:**
-- The source does not establish intent by governments or counterparties.
-
-### Legislative / Regulatory
-
-**Supporting observations:**
-- Detected policy terms include export controls, licensing, compliance.
-- The evidence trace includes source document signals and retrieved context records.
-
-**Limitations:**
-- Primary legal text or agency guidance would be needed for a complete regulatory reading.
-
-### Business Strategy
-
-**Supporting observations:**
-- The issue mentions actors such as government, executives, suppliers.
-- The brief combines analogue patterns with current context monitoring considerations.
-
-**Limitations:**
-- The source does not contain internal priorities, customer-level exposure, or implementation plans.
-
-## Supporting Evidence
-
-### Economics (Substantial)
-- The issue references semiconductor, chip, chips and operating constraints.
-- Historical analogues such as Huawei Entity List, ASML Export Controls show comparable economic adjustment patterns.
-
-### Political Economy (Substantial)
-- The scenario classification is Export Controls.
-- Current context from Semiconductors, Supply Chain highlights stakeholders and monitoring considerations.
-
-### International Relations (Substantial)
-- Detected regions include Middle East.
-- Mechanisms such as Technology Containment, Counterparty Risk can appear in geopolitical or cross-border settings.
-
-### Legislative / Regulatory (Substantial)
-- Detected policy terms include export controls, licensing, compliance.
-- The evidence trace includes source document signals and retrieved context records.
-
-### Business Strategy (Substantial)
-- The issue mentions actors such as government, executives, suppliers.
-- The brief combines analogue patterns with current context monitoring considerations.
-
-## Weakening Evidence
-
-### Economics
-- The document does not quantify cost, demand, or capacity effects.
-
-### Political Economy
-- The balance between public policy goals and firm-level incentives requires more source detail.
-
-### International Relations
-- The source does not establish intent by governments or counterparties.
-
-### Legislative / Regulatory
-- Primary legal text or agency guidance would be needed for a complete regulatory reading.
-
-### Business Strategy
-- The source does not contain internal priorities, customer-level exposure, or implementation plans.
-
-## Missing Evidence
-
-### Economics
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
-
-### Political Economy
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
-
-### International Relations
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
-
-### Legislative / Regulatory
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
-
-### Business Strategy
-- Primary-source confirmation of implementation details.
-- Stakeholder-specific exposure data.
-- Updated source material that confirms whether conditions have changed.
-
-## Historical Response Patterns
-
-### Monitoring and contingency planning
-
-**Observed Historical Choices:**
-- Organizations reviewed counterparties, suppliers, and implementation details.
-- Teams created monitoring routines around policy updates and operational constraints.
-
-**Observed Outcomes:**
-- Observed outcomes varied across cases and should not be treated as predictive.
-- Relevant analogues include Huawei Entity List, ASML Export Controls, CHIPS and Science Act.
-
-**Business Lessons:**
-- Decision-makers may wish to monitor exposure, stakeholder communication, and operating dependencies.
-- Cross-functional review can help separate compliance, operational, and strategic questions.
-
-## Cross-Domain Lessons
-
-- Mechanisms such as Technology Containment, Counterparty Risk, Strategic Dependency can appear across policy, security, and business domains.
-- Historical response patterns are most useful when paired with current context and source verification.
-
-## Monitoring Considerations
-
-- Decision-makers may wish to monitor source updates, implementation details, stakeholder responses, and evidence gaps.
-- Decision-makers may wish to monitor whether new evidence strengthens or weakens each interpretation.
-
-## Strategic Questions
-
-- Which stakeholders are most exposed to this issue?
-- What facts would change the current scenario classification?
-- Which historical analogue is structurally closest, and where does the comparison differ from current context?
-- Which current-context findings require source verification before executive discussion?
-- What decisions require more source verification before executive action?
-
-## Analyst Notes
-
-- V3 uses an Agent Router to select tools before execution.
-- Current context retrieval uses local Markdown knowledge-base entries.
-- Historical analogues support structured comparison, not prediction.
-- The synthesis uses phrases such as may resemble, shares characteristics with, differs from, and requires monitoring by design.
+- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Policy alignment among allies increased the importance of jurisdiction-by-jurisdiction rule monitoring.
+- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
+- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
+
+### ZTE Denial Order (2018)
+
+- **Initial / mainstream expectation:** Observers often focus first on immediate licensing or shipment disruption.
+- **Market or user behavior:** Local dataset does not contain enough market-outcome evidence for this claim.
+- **Actual observed outcome:** Restricted access to U.S. technology inputs created severe operational disruption for a telecom equipment firm.
+- **Expectation gap:** The larger gap is that operational adaptation, supplier screening, and product planning can become ongoing management work.
+- **Lesson:** Do not stop at the restriction itself; monitor how firms redesign compliance and supply relationships.
+
+
+## Evidence Used
+
+- Input document or question text.
+- Local historical analogue records.
+- Local historical outcome records.
+- Deterministic event-family understanding rules.
 
 ## Limitations
 
-- V3.0 uses deterministic routing, keyword matching, and overlap matching.
-- It does not call paid APIs or LLM services.
-- It does not generate forecasts or probabilities.
-- It does not provide trading advice or investment recommendations.
-- Outputs should be reviewed against primary sources before executive use.
+- Educational use only; this is a local decision-support demo, not a production advisory service.
+- This is not investment advice, trading advice, legal advice, or a forecast.
+- Human review is recommended before operational, legal, financial, or executive use.
+- Historical analogues help structure comparison but do not predict future outcomes.
+- Outcome frequencies are counts within the local curated dataset, not real-world probabilities.
+- The system does not use live web retrieval or source verification.
+- Some evidence is derived from user-provided material rather than independently verified primary sources.
+- Organization-specific exposure, timing, cost, and implementation data may be missing.
+- No primary source link is available for the supplied input material.
+- Some historical analogues are based on curated repository knowledge rather than linked source documents.
+- Analogue transferability depends on whether the current case shares comparable mechanisms and constraints.
 
-### Evidence Trace
+## Evidence and Confidence
 
-- ASML Export Controls (2023) - Historical Database
-- ASML Export Controls (2023) - Historical Outcomes Database
-- Agent Router: deterministic tool selection trace
-- Allied Export Control Coordination (2023) - Historical Outcomes Database
-- CHIPS and Science Act (2022) - Historical Database
-- CHIPS and Science Act (2022) - Historical Outcomes Database
-- Counterparty Risk (Mechanism Framework)
-- Entity List Expansion (2020) - Historical Outcomes Database
-- Huawei Entity List (2019) - Historical Database
-- Huawei Entity List (2019) - Historical Outcomes Database
-- Market Access Restriction (Mechanism Framework)
-- Semiconductors Context KB: SC-001 (semiconductor_context.md)
-- Source Document
-- Strategic Dependency (Mechanism Framework)
-- Supply Chain Context KB: SP-004 (supply_chain_context.md)
-- Technology Containment (Mechanism Framework)
-- Tool Registry: registered deterministic analysis tools
-- Trade Policy Context KB: TP-002 (trade_policy_context.md)
+### Confidence Assessment
 
-## Evidence Sources
+**Overall Level:** Moderate
 
-- **Input Document:** issue fields, scenario keywords, and extracted entities.
-- **Historical Database:** retrieved analogue cases and similarity reasons.
-- **Context Knowledge Base:** selected current-context findings when the router selected ContextRetriever.
-- **Agent Router:** selected and skipped tool decisions.
+**Reasoning:** Moderate confidence because 12 reviewable evidence items were recorded, historical analogues are available, limitations remain visible.
+
+**Supporting Evidence**
+
+- User-provided evidence defines the decision frame.
+- 5 repository historical records support analogue reasoning.
+- Evidence assessment includes high-confidence support for parts of the recommendation.
+- Mechanism detection links the issue to operational or strategic pressure points.
+
+**Confidence Reducers**
+
+- Some evidence records do not include primary source links.
+- The current brief does not verify information outside the supplied input and local records.
+- Organization-specific exposure, timing, and implementation constraints require human review.
+
+**Confidence Improvers**
+
+- New primary source material changes the factual basis.
+- Organization-specific exposure mapping.
+- Updated financial, customer, supplier, or compliance evidence.
+- Clear regulatory, contractual, or operating-owner confirmation.
+
+### Evidence Ledger
+
+- **E1 (User-provided input material)**
+  - Reference: No primary source link available.
+  - Supporting Source: User-provided source material.
+  - Evidence Type: User-provided input material
+  - Source Metadata: Publisher: user-provided material; Publication Date: not available; Verification Status: provided input, not independently verified.
+  - Observation: Semiconductor Export Controls Demo Case
+
+A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software.
+  - Inference: The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.
+  - Supports: Situation understanding and decision framing.
+  - Why this evidence matters: It supports situation understanding and decision framing and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It frames the decision and the criteria used to compare options.
+  - Relevance: High; Confidence: Moderate
+- **E2 (Local historical analogue record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Huawei Entity List (2019): Shows how export controls can alter supplier access and compliance workflows. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical analogue record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: scenario match on Export Controls; keyword overlap: access, advanced, compliance, controls; industry overlap: technology; actor overlap: government, suppliers
+  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
+  - Supports: Historical comparison and analogue reasoning.
+  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
+  - Relevance: Moderate; Confidence: Moderate
+- **E3 (Local historical analogue record)**
+  - Reference: No primary source link available.
+  - Supporting Source: ASML Export Controls (2023): Highlights exposure to licensing rules for critical production tools. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical analogue record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: scenario match on Export Controls; keyword overlap: access, advanced, controls, equipment; industry overlap: technology; actor overlap: government
+  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
+  - Supports: Historical comparison and analogue reasoning.
+  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
+  - Relevance: Moderate; Confidence: Moderate
+- **E4 (Local historical analogue record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Japan-Korea Semiconductor Materials Dispute (2019): Shows how trade restrictions can affect specialized upstream inputs. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical analogue record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: keyword overlap: advanced, affecting, controls, export; industry overlap: technology; actor overlap: government, suppliers
+  - Inference: The analogue supports comparison of mechanisms and response patterns; it does not determine the current outcome.
+  - Supports: Historical comparison and analogue reasoning.
+  - Why this evidence matters: It supports historical comparison and analogue reasoning and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
+  - Relevance: Moderate; Confidence: Moderate
+- **E5 (Deterministic mechanism detection)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository mechanism framework and source-text cues.
+  - Evidence Type: Deterministic mechanism detection
+  - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
+  - Observation: licenses; entity lists; restricted equipment; cloud access limits
+  - Inference: scenario match: Export Controls; observation overlap: access, cloud, controls, equipment; actor overlap: firms, suppliers
+  - Supports: Mechanism reasoning and risk identification.
+  - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
+  - Relevance: Moderate; Confidence: Moderate
+- **E6 (Deterministic mechanism detection)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository mechanism framework and source-text cues.
+  - Evidence Type: Deterministic mechanism detection
+  - Source Metadata: Publisher: internal mechanism framework; Publication Date: analysis run; Verification Status: deterministic classification support.
+  - Observation: screening alerts; payment exceptions; contract reviews
+  - Inference: scenario match: Export Controls; observation overlap: customers, reviews, suppliers; actor overlap: customers, suppliers
+  - Supports: Mechanism reasoning and risk identification.
+  - Why this evidence matters: It supports mechanism reasoning and risk identification and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It explains how the issue could create operational or strategic pressure.
+  - Relevance: Moderate; Confidence: Moderate
+- **E7 (Evidence assessment)**
+  - Reference: No primary source link available.
+  - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
+  - Evidence Type: Evidence assessment
+  - Source Metadata: Publisher: internal deterministic assessment; Publication Date: analysis run; Verification Status: derived from available evidence.
+  - Observation: Economics has supporting and weakening evidence.
+  - Inference: The recommendation should be constrained where weakening or missing evidence remains.
+  - Supports: Evidence quality and uncertainty.
+  - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
+  - Relevance: High; Confidence: High
+  - Item-specific limitation: The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
+- **E8 (Evidence assessment)**
+  - Reference: No primary source link available.
+  - Supporting Source: Internal evidence assessment derived from supplied material and deterministic interpretation checks.
+  - Evidence Type: Evidence assessment
+  - Source Metadata: Publisher: internal deterministic assessment; Publication Date: analysis run; Verification Status: derived from available evidence.
+  - Observation: Political Economy has supporting and weakening evidence.
+  - Inference: The recommendation should be constrained where weakening or missing evidence remains.
+  - Supports: Evidence quality and uncertainty.
+  - Why this evidence matters: It supports evidence quality and uncertainty and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies support, uncertainty, or missing evidence that should constrain confidence.
+  - Relevance: High; Confidence: High
+  - Item-specific limitation: The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
+- **E9 (Local historical outcome record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Restricted access to selected technology inputs changed supplier screening and product planning. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical outcome record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: Firms reviewed licensing exposure, supplier dependencies, and customer eligibility.
+  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
+  - Supports: Historical outcomes and strategic lessons.
+  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
+  - Relevance: Moderate; Confidence: Moderate
+- **E10 (Local historical outcome record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Advanced equipment licensing became a strategic chokepoint for selected manufacturing plans. Based on the repository's curated historical knowledge base.
+  - Evidence Type: Local historical outcome record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: Companies monitored license rules, tool availability, and jurisdictional alignment.
+  - Inference: The outcome informs possible response patterns and monitoring priorities; it is not a forecast.
+  - Supports: Historical outcomes and strategic lessons.
+  - Why this evidence matters: It supports historical outcomes and strategic lessons and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It supports the recommendation by showing a comparable response pattern, while preserving transferability limits.
+  - Relevance: Moderate; Confidence: Moderate
+- **E11 (Local current-context record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository current-context knowledge base.
+  - Evidence Type: Local current-context record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: Controls can affect access to inputs, customer eligibility, and compliance review timelines.
+  - Inference: Licensing updates; allied coordination; supplier disclosures; compliance guidance
+  - Supports: Monitoring and current context.
+  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
+  - Relevance: Moderate; Confidence: Moderate
+- **E12 (Local current-context record)**
+  - Reference: No primary source link available.
+  - Supporting Source: Repository current-context knowledge base.
+  - Evidence Type: Local current-context record
+  - Source Metadata: Publisher: Repository knowledge base; Publication Date: not available; Verification Status: curated local record.
+  - Observation: Companies may need to screen counterparties and assess license requirements before fulfillment.
+  - Inference: Restricted party lists; product classifications; license applications; end-use statements
+  - Supports: Monitoring and current context.
+  - Why this evidence matters: It supports monitoring and current context and clarifies whether the recommendation rests on source material, historical comparison, or remaining uncertainty.
+  - Relationship to recommendation: It identifies observable signals that could confirm or change today's recommendation.
+  - Relevance: Moderate; Confidence: Moderate
+
+### Key Assumptions
+
+- The supplied material is sufficient for an initial decision-support brief.
+- Human review will verify source details before operational use.
+- The Export Controls frame is an appropriate starting point for analysis.
+- The identified mechanisms remain relevant to the decision context: Technology Containment, Counterparty Risk, Market Access Restriction.
+- Sector exposure should be validated against organization-specific data.
+
+### What Would Change This View
+
+- New primary source material changes the factual basis.
+- Stakeholder responses differ from the assumptions in the brief.
+- Implementation details create materially different constraints.
+- Evidence shows the situation no longer fits the Export Controls frame.
+
+### What Is Unknown Or Uncertain
+
+- The current brief does not verify information outside the supplied input and local records.
+- Organization-specific exposure, timing, and implementation constraints require human review.
+
+### Evidence Limitations
+
+- Some evidence is derived from user-provided material rather than independently verified primary sources.
+- Some historical analogues are based on curated repository knowledge rather than linked source documents.
+- Analogue transferability depends on whether the current case shares comparable mechanisms and constraints.
+- Organization-specific exposure, timing, cost, and implementation data may be missing.
+- Educational use only; this is a local decision-support demo, not a production advisory service.
+- This is not investment advice, trading advice, legal advice, or a forecast.
+- Human review is recommended before operational, legal, financial, or executive use.
+- Historical analogues help structure comparison but do not predict future outcomes.
+- Outcome frequencies are counts within the local curated dataset, not real-world probabilities.
+- The system does not use live web retrieval or source verification.
+- The document does not quantify cost, demand, or capacity effects.; Primary-source confirmation of implementation details.
+- The balance between public policy goals and firm-level incentives requires more source detail.; Primary-source confirmation of implementation details.
+
+## Decision Quality Review
+
+**Overall label:** Strong
+**Overall score:** 0.969
+
+This is a deterministic product-quality check. It is not a benchmark result, factual verification, or claim of real-world accuracy.
+
+### Direct answer quality
+
+- **Label:** Strong
+- **Rationale:** Checks whether the output frames a decision question, situation, recommendation, and criteria.
+
+### Historical analogue relevance
+
+- **Label:** Strong
+- **Rationale:** Checks whether analogues exist, appear in the evidence ledger, and include transferability limits.
+
+### Evidence use
+
+- **Label:** Strong
+- **Rationale:** Checks whether evidence items are reviewable and uncertainty remains visible.
+
+### Option clarity
+
+- **Label:** Strong
+- **Rationale:** Checks whether options are distinct and a preferred path is identified.
+
+### Risk identification
+
+- **Label:** Strong
+- **Rationale:** Checks whether risks, limitations, and unknowns are explicit.
+
+### Change trigger quality
+
+- **Label:** Strong
+- **Rationale:** Checks whether the recommendation includes observable change triggers and monitoring signals.
+
+### Localization quality
+
+- **Label:** Strong
+- **Rationale:** English output selected; localization transformation is not required.
+
+### Overconfidence control
+
+- **Label:** Adequate
+- **Rationale:** Checks for qualitative confidence, visible limitations, and absence of overconfident phrases.
+
+### Notes
+
+- Deterministic product-quality evaluation only.
+- Scores are internal review aids, not real-world accuracy claims.
+- No LLM evaluator, network access, or external benchmark is used.

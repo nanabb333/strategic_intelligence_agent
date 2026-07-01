@@ -22,6 +22,9 @@ def test_build_analysis_metadata_preserves_keys_and_paths() -> None:
     assert metadata["question_text"] == "What matters?"
     assert metadata["question_intent"] == "Decision Support"
     assert metadata["question_intent_label"] == "Decision Support"
+    assert metadata["project_id"] == ""
+    assert metadata["project_question_id"] == ""
+    assert metadata["evidence_ids"] == []
     assert metadata["status"] == "complete"
     assert metadata["artifact_paths"] == {
         "input": "outputs/runs/run_20260626_001/input.txt",

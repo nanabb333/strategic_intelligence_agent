@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 import base64
 import sys
 from pathlib import Path
@@ -20,7 +19,14 @@ if str(SRC) not in sys.path:
     sys.path.insert(0, str(SRC))
 
 from analysis_service import run_analysis  # noqa: E402
+from config import load_config, release_metadata  # noqa: E402
+from diagnostics import build_diagnostics  # noqa: E402
+from decision_pathways import build_project_decision_pathway_drafts  # noqa: E402
+from decision_readiness import build_project_decision_readiness  # noqa: E402
+from domain_evaluation import build_project_domain_evaluation  # noqa: E402
+from evidence_intelligence import build_evidence_intelligence  # noqa: E402
 from evidence_retrieval import retrieve_evidence  # noqa: E402
+from pathway_comparison import build_project_pathway_comparison  # noqa: E402
 from pdf_reader import extract_pdf_text  # noqa: E402
 from project_workspace import (
     add_question_to_project,
@@ -28,20 +34,25 @@ from project_workspace import (
     accept_retrieved_evidence,
     attach_run_to_question,
     create_project,
+    delete_project,
     decision_delta,
     evidence_bundle_for_project,
+    get_decision_review_state,
     get_project,
     list_project_evidence,
     list_projects as list_project_workspaces,
+    update_project_decision_review,
 )  # noqa: E402
 from run_storage import (
     download_links,
+    list_run_metadata,
     read_json,
     RUNS_DIR,
     run_dir_or_404,
 )  # noqa: E402
 
 
+APP_CONFIG = load_config()
 RUNS_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -89,8 +100,8 @@ class AnalyzeResponse(BaseModel):
 
 
 app = FastAPI(
-    title="Strategic Intelligence Agent Local App",
-    version="12.0",
+    title=str(APP_CONFIG.get("app", {}).get("api_title") or "Strategic Intelligence Agent Local App"),
+    version=str(APP_CONFIG.get("app", {}).get("version") or "5.0.0"),
     description="Local-only API for running the Strategic Intelligence Agent pipeline.",
 )
 
@@ -109,7 +120,23 @@ app.mount("/runs", StaticFiles(directory=RUNS_DIR, html=False), name="runs")
 @app.get("/health")
 def health() -> dict[str, str]:
     """Return local app health."""
-    return {"status": "ok", "app": "Strategic Intelligence Agent", "version": "12.0"}
+    return {
+        "status": "ok",
+        "app": str(APP_CONFIG.get("app", {}).get("name") or "Strategic Intelligence Agent"),
+        "version": str(APP_CONFIG.get("app", {}).get("version") or "5.0.0"),
+    }
+
+
+@app.get("/version")
+def version() -> dict[str, Any]:
+    """Return product release metadata."""
+    return release_metadata()
+
+
+@app.get("/diagnostics")
+def diagnostics() -> dict[str, Any]:
+    """Return a local diagnostic snapshot without changing workspace state."""
+    return build_diagnostics()
 
 
 @app.post("/extract-file")
@@ -155,6 +182,9 @@ def post_retrieve_evidence(request: RetrieveEvidenceRequest) -> dict[str, Any]:
 @app.post("/analyze", response_model=AnalyzeResponse)
 def analyze(request: AnalyzeRequest) -> AnalyzeResponse:
     """Run the real Python pipeline and persist run artifacts."""
+    if request.language != "en":
+        raise HTTPException(status_code=400, detail="English is the official product language for this release.")
+
     project = None
     project_question_id = request.project_question_id
     evidence_bundle: list[dict[str, Any]] = []
@@ -223,6 +253,19 @@ def post_project(payload: dict[str, Any]) -> dict[str, Any]:
     return create_project(name=name, description=description)
 
 
+@app.delete("/projects/{project_id}")
+def delete_project_endpoint(project_id: str) -> dict[str, Any]:
+    try:
+        delete_project(project_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(
+            status_code=404,
+            detail="Project not found."
+        ) from exc
+
+    return {"status": "deleted", "project_id": project_id}
+
+
 @app.get("/projects/{project_id}")
 def get_project_workspace(project_id: str) -> dict[str, Any]:
     """Return one project workspace."""
@@ -279,6 +322,76 @@ def get_project_evidence(project_id: str) -> dict[str, list[dict[str, Any]]]:
         raise HTTPException(status_code=404, detail="Project not found.") from exc
 
 
+@app.get("/projects/{project_id}/evidence/intelligence")
+def get_project_evidence_intelligence(project_id: str) -> dict[str, Any]:
+    """Return deterministic read-only evidence intelligence for one project."""
+    try:
+        project = get_project(project_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+    return build_evidence_intelligence(project.get("evidence_library", []))
+
+
+@app.get("/projects/{project_id}/decision/readiness")
+def get_project_decision_readiness(project_id: str) -> dict[str, Any]:
+    """Return deterministic read-only decision readiness for one project."""
+    try:
+        project = get_project(project_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+    return build_project_decision_readiness(project)
+
+
+@app.get("/projects/{project_id}/decision/pathways")
+def get_project_decision_pathways(project_id: str) -> dict[str, Any]:
+    """Return deterministic read-only decision pathway drafts for one project."""
+    try:
+        project = get_project(project_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+    return build_project_decision_pathway_drafts(project)
+
+
+@app.get("/projects/{project_id}/decision/domain-evaluation")
+def get_project_domain_evaluation(project_id: str) -> dict[str, Any]:
+    """Return deterministic read-only domain decision evaluation for one project."""
+    try:
+        project = get_project(project_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+    return build_project_domain_evaluation(project)
+
+
+@app.get("/projects/{project_id}/decision/pathway-comparison")
+def get_project_pathway_comparison(project_id: str) -> dict[str, Any]:
+    """Return deterministic read-only pathway comparison matrix for one project."""
+    try:
+        project = get_project(project_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+    return build_project_pathway_comparison(project)
+
+
+@app.get("/projects/{project_id}/decision/review")
+def get_project_decision_review(project_id: str) -> dict[str, Any]:
+    """Return reviewer-controlled decision review state for one project."""
+    try:
+        return get_decision_review_state(project_id)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+
+
+@app.put("/projects/{project_id}/decision/review")
+def put_project_decision_review(project_id: str, payload: dict[str, Any]) -> dict[str, Any]:
+    """Persist reviewer-controlled decision review state for one project."""
+    try:
+        return update_project_decision_review(project_id, payload)
+    except FileNotFoundError as exc:
+        raise HTTPException(status_code=404, detail="Project not found.") from exc
+    except ValueError as exc:
+        raise HTTPException(status_code=400, detail=str(exc)) from exc
+
+
 @app.post("/projects/{project_id}/evidence/accept")
 def post_accept_project_evidence(project_id: str, payload: dict[str, Any]) -> dict[str, Any]:
     """Accept reviewed retrieved evidence candidates into a project."""
@@ -303,11 +416,7 @@ def get_project_delta(project_id: str) -> dict[str, Any]:
 @app.get("/runs")
 def list_runs() -> list[dict[str, Any]]:
     """List previous local analysis runs."""
-    RUNS_DIR.mkdir(parents=True, exist_ok=True)
-    runs = []
-    for metadata_path in sorted(RUNS_DIR.glob("*/metadata.json"), reverse=True):
-        runs.append(json.loads(metadata_path.read_text(encoding="utf-8")))
-    return runs
+    return list_run_metadata()
 
 
 @app.get("/run/{run_id}")

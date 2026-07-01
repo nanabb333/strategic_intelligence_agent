@@ -28,9 +28,12 @@ def test_dashboard_static_files_load() -> None:
 
     assert dashboard.status_code == 200
     assert "Decision Intelligence" in dashboard.text or "Decision Companion" in dashboard.text
+    assert "Evidence Intelligence" in dashboard.text
     assert project_js.status_code == 200
     assert "getActiveProjectAnalysisContext" in project_js.text
+    assert "fetchEvidenceIntelligence" in project_js.text
     assert styles.status_code == 200
+    assert "evidence-intelligence-panel" in styles.text
     assert "@media print" in styles.text
 
 
@@ -175,19 +178,30 @@ def test_retrieve_evidence_returns_deterministic_review_queue_shape() -> None:
         "Tier 3 Reputable News",
     }
     first = payload["items"][0]
-    assert set(first) == {
+    assert set(first) >= {
+        "evidence_id",
         "title",
         "source_name",
         "source_url",
         "source_type",
+        "publisher",
+        "author",
         "published_at",
         "retrieved_at",
         "excerpt",
+        "summary",
         "status",
         "credibility_tier",
+        "credibility_score",
         "freshness_note",
+        "relevance_score",
+        "validation_status",
+        "validation_notes",
+        "conflict_status",
+        "trace_id",
     }
     assert first["status"] == "Retrieved"
+    assert first["validation_status"] == "Valid"
 
 
 def test_retrieved_items_are_not_automatically_added_to_project() -> None:
@@ -230,6 +244,9 @@ def test_accept_retrieved_items_adds_traceable_evidence_to_project() -> None:
     assert evidence[0]["retrieved_at"]
     assert evidence[0]["published_at"]
     assert evidence[0]["credibility_tier"].startswith("Tier ")
+    assert evidence[0]["validation_status"]
+    assert evidence[0]["trace_id"]
+    assert evidence[0]["conflict_status"] == "No Conflict"
     assert evidence[0]["freshness_note"]
 
 

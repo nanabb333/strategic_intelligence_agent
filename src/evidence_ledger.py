@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass, field
+from datetime import datetime
 from typing import Any
+from uuid import uuid4
 
 
 @dataclass
@@ -31,6 +33,96 @@ class EvidenceLedger:
     def ids(self) -> list[str]:
         """Return stable evidence identifiers for downstream artifacts."""
         return [item.evidence_id for item in self.items]
+
+
+@dataclass
+class EvidenceWorkflowLedgerEntry:
+    """Append-only audit entry for evidence lifecycle movement."""
+
+    ledger_id: str
+    project_id: str
+    project_question_id: str
+    decision_run_id: str
+    evidence_id: str
+    trace_id: str
+    evidence_title: str
+    lifecycle_state: str
+    reviewer_action: str
+    reviewer_status: str
+    rationale: str
+    supported_sections: list[str] = field(default_factory=list)
+    confidence_effect: str = ""
+    validation_status: str = ""
+    ranking_score: float | None = None
+    timestamp: str = ""
+
+
+def build_evidence_workflow_entry(
+    *,
+    project_id: str,
+    evidence: dict[str, Any],
+    lifecycle_state: str,
+    reviewer_action: str,
+    reviewer_status: str = "",
+    rationale: str = "",
+    project_question_id: str = "",
+    decision_run_id: str = "",
+    supported_sections: list[str] | None = None,
+    confidence_effect: str = "",
+    timestamp: str | None = None,
+) -> dict[str, Any]:
+    """Build a deterministic audit entry for project evidence workflow events."""
+    entry = EvidenceWorkflowLedgerEntry(
+        ledger_id=str(uuid4())[:8],
+        project_id=project_id,
+        project_question_id=project_question_id,
+        decision_run_id=decision_run_id,
+        evidence_id=str(evidence.get("evidence_id") or ""),
+        trace_id=str(evidence.get("trace_id") or ""),
+        evidence_title=str(evidence.get("title") or "Untitled evidence"),
+        lifecycle_state=lifecycle_state,
+        reviewer_action=reviewer_action,
+        reviewer_status=reviewer_status or lifecycle_state,
+        rationale=rationale,
+        supported_sections=supported_sections or [],
+        confidence_effect=confidence_effect,
+        validation_status=str(evidence.get("validation_status") or ""),
+        ranking_score=_ranking_score(evidence),
+        timestamp=timestamp or datetime.now().isoformat(timespec="seconds"),
+    )
+    return {
+        "ledger_id": entry.ledger_id,
+        "project_id": entry.project_id,
+        "project_question_id": entry.project_question_id,
+        "decision_run_id": entry.decision_run_id,
+        "evidence_id": entry.evidence_id,
+        "trace_id": entry.trace_id,
+        "evidence_title": entry.evidence_title,
+        "lifecycle_state": entry.lifecycle_state,
+        "reviewer_action": entry.reviewer_action,
+        "reviewer_status": entry.reviewer_status,
+        "rationale": entry.rationale,
+        "supported_sections": entry.supported_sections,
+        "confidence_effect": entry.confidence_effect,
+        "validation_status": entry.validation_status,
+        "ranking_score": entry.ranking_score,
+        "timestamp": entry.timestamp,
+    }
+
+
+def confidence_effect_for_evidence(evidence: dict[str, Any]) -> str:
+    """Return additive confidence-effect metadata without changing confidence behavior."""
+    conflict = str(evidence.get("conflict_status") or "").strip().lower()
+    validation = str(evidence.get("validation_status") or "").lower()
+    tier = str(evidence.get("credibility_tier") or "")
+    status = str(evidence.get("status") or "").lower()
+    if conflict and conflict != "no conflict":
+        return "requires_reviewer_attention"
+    if validation and validation != "valid":
+        return "weakens_confidence_metadata"
+    if tier in {"Tier 1 Official", "Tier 2 Company", "Tier 3 Reputable News"} and status in {"accepted", "used", "verified", "corroborated"}:
+        return "strengthens_confidence_metadata"
+    return "neutral_confidence_metadata"
 
 
 def build_evidence_ledger(
@@ -183,6 +275,15 @@ def build_evidence_ledger(
         )
 
     return EvidenceLedger(items=items)
+
+
+def _ranking_score(evidence: dict[str, Any]) -> float | None:
+    value = evidence.get("ranking_score")
+    if value is None:
+        value = evidence.get("relevance_score")
+    if isinstance(value, (int, float)):
+        return round(float(value), 3)
+    return None
 
 
 def _next_id(items: list[EvidenceItem]) -> str:

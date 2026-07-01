@@ -12,6 +12,7 @@
         <div class="shell-brand">
           <p class="eyebrow" data-i18n="workbenchLabel">Decision Companion</p>
           <h1 id="app-title" data-i18n="appTitle">Decide what to do next</h1>
+          <p class="hero-subtitle">Local-first Decision Intelligence Workspace</p>
           <p id="helper-text" class="hero-copy">Turn source material into a recommendation, confidence view, evidence summary, and monitoring plan before reviewing method details.</p>
         </div>
         <div class="shell-status">
@@ -22,24 +23,26 @@
 
       <main class="workbench">
         <aside class="input-panel" aria-label="Decision workspace setup">
-          <section class="workspace-card project-workspace-card" aria-labelledby="project-workspace-title">
+          <section class="workspace-section project-workspace-card" aria-labelledby="project-workspace-title">
             <div class="workspace-card-header">
-              <span class="step-pill">V4 Workspace</span>
+              <span class="step-pill">Workspace Management</span>
               <h2 id="project-workspace-title">Projects</h2>
             </div>
-
-            <p class="note">
-              Work inside a project for decision continuity, or leave no project selected for standalone analysis.
-            </p>
 
             <div class="project-create-row">
               <input
                 id="project-name-input"
                 class="project-input"
                 type="text"
-                placeholder="New project name, e.g. US Export Controls"
+                placeholder="New project name"
               >
-              <button id="create-project-button" type="button">New Project</button>
+              <button id="create-project-button" type="button">Create Project</button>
+            </div>
+
+            <div id="getting-started" class="getting-started" hidden>
+              <h3>Getting Started</h3>
+              <p>Projects organize multiple decision questions, evidence, decision history, and recommendations in one workspace.</p>
+              <button id="load-demo-workspace-button" type="button" disabled>Load Demo Workspace</button>
             </div>
 
             <div id="project-list" class="project-list">
@@ -48,8 +51,17 @@
 
             <div id="active-project-panel" class="active-project-panel" hidden>
               <div class="active-project-header">
-                <span class="step-pill">Active Project</span>
-                <strong id="active-project-name"></strong>
+                <div>
+                  <span class="step-pill">Active Project</span>
+                  <strong id="active-project-name"></strong>
+                </div>
+                <span id="active-project-status" class="status-pill">Ready</span>
+              </div>
+              <div class="project-overview-grid" aria-label="Active project overview">
+                <div><strong id="active-question-count">0</strong><span>Questions</span></div>
+                <div><strong id="active-evidence-count">0</strong><span>Evidence</span></div>
+                <div><strong id="active-decision-count">0</strong><span>Decisions</span></div>
+                <div><strong id="active-updated-at">Not updated</strong><span>Last updated</span></div>
               </div>
 
               <label for="project-question-input" class="input-label">Add a question to this project</label>
@@ -62,6 +74,10 @@
               <button id="add-project-question-button" type="button">Save and Select Question</button>
 
               <div id="project-question-list" class="project-question-list"></div>
+
+              <div class="project-group-heading" aria-label="Evidence workspace group">
+                <span>Evidence</span>
+              </div>
 
               <div class="project-section">
                 <div class="project-section-header">
@@ -83,20 +99,99 @@
                 <div id="project-evidence-list" class="project-evidence-list"></div>
                 <div class="project-retrieval-panel">
                   <div class="project-section-header">
-                    <strong>Search Current Evidence</strong>
-                    <span>User-triggered review queue</span>
+                    <strong>Retrieve Current Evidence</strong>
+                    <span>URL or local query</span>
                   </div>
+                  <p class="retrieval-helper">Paste a URL to retrieve that page, or enter a query for local evidence candidates. Retrieved evidence must be reviewed and accepted before use.</p>
                   <input
                     id="evidence-search-input"
                     class="project-input"
                     type="text"
-                    placeholder="Search query, e.g. semiconductor export controls licensing"
+                    placeholder="Paste a URL or enter a search query"
                   >
-                  <button id="search-evidence-button" type="button">Search Current Evidence</button>
+                  <button id="search-evidence-button" type="button">Retrieve Evidence</button>
                   <div id="retrieved-evidence-queue" class="retrieved-evidence-queue">
-                    <div class="empty">Search results will appear here for review before acceptance.</div>
+                    <div class="empty">Retrieved evidence will appear here for review before acceptance.</div>
                   </div>
                   <button id="accept-evidence-button" type="button">Accept Selected Evidence</button>
+                </div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Evidence Intelligence</strong>
+                  <span>Read-only reviewer triage</span>
+                </div>
+                <div id="evidence-intelligence-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No evidence intelligence available yet. Add or accept project evidence first.</div>
+                </div>
+              </div>
+
+              <div class="project-group-heading" aria-label="Decision workspace group">
+                <span>Decision</span>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Decision Readiness</strong>
+                  <span>Read-only pathway preparation</span>
+                </div>
+                <div id="decision-readiness-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No decision readiness available yet. Add a question and accepted evidence first.</div>
+                </div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Domain Decision Evaluation</strong>
+                  <span>Read-only domain review</span>
+                </div>
+                <div id="domain-evaluation-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No domain evaluation available yet. Add a relevant question and accepted evidence first.</div>
+                </div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Decision Pathway Drafts</strong>
+                  <span>Read-only comparison scaffolds</span>
+                </div>
+                <div id="decision-pathways-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No pathway drafts available yet. Add a question and accepted evidence first.</div>
+                </div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Pathway Comparison Matrix</strong>
+                  <span>Read-only side-by-side review</span>
+                </div>
+                <div id="pathway-comparison-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No pathway comparison available yet. Add a question and accepted evidence first.</div>
+                </div>
+              </div>
+
+              <div class="project-group-heading" aria-label="Review workspace group">
+                <span>Review</span>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Decision Review</strong>
+                  <span>Reviewer-controlled state</span>
+                </div>
+                <div id="decision-review-panel" class="evidence-intelligence-panel">
+                  <div class="empty">No review state recorded yet.</div>
+                </div>
+              </div>
+
+              <div class="project-section">
+                <div class="project-section-header">
+                  <strong>Future Decision Record</strong>
+                  <span>Placeholder</span>
+                </div>
+                <div class="evidence-intelligence-panel">
+                  <div class="empty">Decision Record workflow reserved for a future reviewer-controlled release.</div>
                 </div>
               </div>
 
@@ -117,38 +212,25 @@
               </div>
             </div>
           </section>
-          <section class="workspace-card">
+
+          <section class="workspace-section" aria-labelledby="decision-input-title">
             <div class="workspace-card-header">
-              <span class="step-pill" data-i18n="stepOne">Step 1</span>
-              <h2 data-i18n="decisionGroup">Decision</h2>
+              <span class="step-pill">Decision Authoring</span>
+              <h2 id="decision-input-title">Decision Input</h2>
             </div>
-            <ol class="decision-flow" aria-label="Decision workflow">
-              <li data-i18n="flowInput">1. Frame decision</li>
-              <li data-i18n="flowEvidence">2. Review evidence</li>
-              <li data-i18n="flowDecision">3. Monitor change</li>
-            </ol>
-            <button id="analyze-button" type="button" data-i18n="runAnalysis">Build decision brief</button>
             <label for="assistant-input" class="input-label" data-i18n="assistantInputLabel">Decision question and source material</label>
             <textarea id="assistant-input" class="document-dropzone assistant-input" spellcheck="true" data-i18n-placeholder="assistantPlaceholder" placeholder="What decision does this situation raise?
 Which historical cases are most similar?
 What trade-offs should be considered?
 What evidence would change today's recommendation?
 
-Paste an article, policy excerpt, earnings note, URL, or operational update here.">Decision question:
-What should management do over the next 30-90 days after new semiconductor export controls affect customer eligibility and advanced chip supply chains?
-
-Source material:
-A fictional policy bulletin describes new export controls affecting advanced semiconductor manufacturing equipment, high-performance AI chips, and related design software. The rules may limit access for restricted end users while preserving licensed trade for lower-risk commercial customers.
-
-Several semiconductor manufacturers, equipment suppliers, and cloud infrastructure firms are reviewing customer exposure, product classifications, licensing requirements, and compliance documentation. Some customers have asked whether existing orders can continue under prior authorizations.
-
-Executives need a staged response plan that separates immediate compliance work from longer-term market-access risk. They want to understand which risks matter most, which historical cases are structurally similar, what evidence is still missing, and what should be monitored next.</textarea>
+Paste an article, policy excerpt, earnings note, URL, or operational update here."></textarea>
           </section>
 
-          <section class="workspace-card">
+          <section class="workspace-section compact-workspace-section" aria-labelledby="analysis-controls-title">
             <div class="workspace-card-header">
-              <span class="step-pill" data-i18n="stepTwo">Step 2</span>
-              <h2 data-i18n="supportGroup">Supporting Material</h2>
+              <span class="step-pill">Analysis</span>
+              <h2 id="analysis-controls-title">Run Configuration</h2>
             </div>
             <div class="assistant-actions">
               <label class="file-control upload-box compact-upload" for="file-input">
@@ -158,21 +240,7 @@ Executives need a staged response plan that separates immediate compliance work 
               </label>
               <p class="note" data-i18n="urlModeNote">Paste a full webpage URL in the box to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.</p>
             </div>
-          </section>
-
-          <section class="workspace-card">
-            <div class="workspace-card-header">
-              <span class="step-pill" data-i18n="stepThree">Step 3</span>
-              <h2 data-i18n="settingsGroup">Brief Settings</h2>
-            </div>
-            <div class="selector-grid" aria-label="Language and output controls">
-              <label for="language-select" data-i18n="languageLabel">Language</label>
-              <select id="language-select">
-                <option value="en">English</option>
-                <option value="zh-CN">简体中文</option>
-                <option value="zh-TW">繁體中文</option>
-              </select>
-
+            <div class="selector-grid" aria-label="Output controls">
               <label for="mode-select" data-i18n="outputModeLabel">Output mode</label>
               <select id="mode-select">
                 <option value="beginner" selected data-i18n="beginnerMode">Beginner</option>
@@ -180,24 +248,17 @@ Executives need a staged response plan that separates immediate compliance work 
                 <option value="executive" data-i18n="executiveMode">Executive</option>
               </select>
             </div>
-          </section>
-
-          <section class="trust-note" aria-label="Trust and limitations">
-            <strong data-i18n="trustNoteTitle">Trust boundary</strong>
-            <p data-i18n="trustNoteBody">Local deterministic rules and curated knowledge files support the brief. Treat outputs as decision-support drafts for human review, not forecasts, legal advice, investment advice, or verified research.</p>
-          </section>
-
-          <details class="advanced-settings">
-            <summary data-i18n="advancedSettings">Advanced settings and input options</summary>
-            <div class="advanced-body">
-              <p class="note" data-i18n="advancedNote">Downloads, run history, and stored artifacts remain available after analysis.</p>
+            <button id="analyze-button" type="button" data-i18n="runAnalysis">Build decision brief</button>
+            <div class="trust-note" aria-label="Trust and limitations">
+              <strong data-i18n="trustNoteTitle">Trust boundary</strong>
+              <p data-i18n="trustNoteBody">Local deterministic rules and curated knowledge files support the brief. Treat outputs as decision-support drafts for human review, not forecasts, legal advice, investment advice, or verified research.</p>
             </div>
-          </details>
+          </section>
 
-          <section class="workspace-card compact-card">
+          <section class="workspace-section compact-workspace-section">
             <div class="workspace-card-header">
-              <span class="step-pill" data-i18n="artifactsGroup">Artifacts</span>
-              <h2 data-i18n="downloadsGroup">Downloads</h2>
+              <span class="step-pill">Results</span>
+              <h2 data-i18n="downloadsGroup">Artifacts</h2>
             </div>
             <div class="export-row" aria-label="Export executive brief">
               <button id="export-md" type="button" data-i18n="exportMarkdown">Export Markdown</button>
@@ -205,11 +266,10 @@ Executives need a staged response plan that separates immediate compliance work 
               <button id="export-json" type="button">Download JSON</button>
             </div>
             <p id="run-note" class="note" data-i18n="exportNote">Results are saved locally by the FastAPI app under outputs/runs/.</p>
-          </section>
-
-          <section class="history-panel" aria-labelledby="history-title">
-            <h2 id="history-title" data-i18n="runHistory">Run History</h2>
-            <div id="history-list" class="history-list"></div>
+            <div class="history-panel" aria-labelledby="history-title">
+              <h2 id="history-title" data-i18n="runHistory">Run History</h2>
+              <div id="history-list" class="history-list"></div>
+            </div>
           </section>
         </aside>
 

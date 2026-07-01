@@ -1,326 +1,769 @@
 # Strategic Intelligence Decision Companion
 
-An AI Decision Intelligence Platform that helps people structure complex strategic decisions, not just summarize information.
+<div align="center">
 
-Strategic decisions rarely fail because no one can generate text. They fail because evidence is incomplete, trade-offs are unclear, assumptions are hidden, and teams do not know what should change their view.
+## Enterprise Decision Intelligence Platform
 
-This project turns ambiguous source material into reviewable decision briefs with evidence, historical analogues, confidence, monitoring signals, and deterministic quality checks.
+**Transform evidence into auditable decision pathways through deterministic, reviewer-first workflows.**
 
-## The Problem
+<p>
 
-Modern AI systems are excellent at answering questions, summarizing documents, and generating fluent text. Those capabilities are useful, but they are not the same as decision support.
+![Python](https://img.shields.io/badge/Python-3.11+-blue)
+![FastAPI](https://img.shields.io/badge/FastAPI-Backend-009688)
+![Architecture](https://img.shields.io/badge/Architecture-Deterministic-success)
+![Tests](https://img.shields.io/badge/Tests-137%20Passing-brightgreen)
+![Status](https://img.shields.io/badge/Status-v4.0-orange)
 
-Strategic decisions require a different shape of reasoning. A product leader, analyst, or executive needs to know what decision is actually being made, which evidence matters, what trade-offs exist, how much uncertainty remains, whether historical cases are relevant, and what should be monitored next.
+</p>
 
-Strategic Intelligence Decision Companion was built to structure decision-making rather than generate answers. It separates evidence from inference, recommendations from facts, and confidence from certainty. The goal is not to predict outcomes. The goal is to make strategic reasoning explicit enough for human review.
+</div>
 
-## Before And After
+---
 
-| Traditional AI | Decision Companion |
-| --- | --- |
-| Summarizes source material | Structures a decision-support workflow |
-| Answers a question | Clarifies the decision being made |
-| Generates text | Builds a reviewable decision brief |
-| Produces a response | Produces evidence-aware recommendations |
-| Treats uncertainty as prose | Exposes assumptions, unknowns, and change triggers |
-| Ends at the answer | Adds monitoring signals and quality review |
+# Enterprise Decision Workspace
 
-## Product Walkthrough
+<p align="center">
+    <img
+        src="docs/images/dashboard-overview.png"
+        alt="Strategic Intelligence Decision Companion"
+        width="100%">
+</p>
 
-A semiconductor manufacturer faces new export controls. Management needs to decide whether investment plans, customer exposure reviews, and supply-chain monitoring should change.
+---
 
-The standalone analysis path structures one decision question as:
+## At a Glance
+
+| | |
+|---|---|
+| **Product Type** | Enterprise Decision Intelligence Platform |
+| **Architecture** | Deterministic & Reviewer-first |
+| **Backend** | FastAPI |
+| **Interface** | Local Decision Workspace |
+| **Reasoning Style** | Evidence-backed |
+| **Decision Model** | Human-in-the-loop |
+| **Deployment** | Local-first |
+
+---
+
+# Why This Project Exists
+
+Large Language Models are excellent at generating answers.
+
+Enterprise decisions require something fundamentally different.
+
+Organizations rarely fail because nobody can summarize a report.
+
+They fail because:
+
+- Critical evidence is missing.
+- Assumptions remain implicit.
+- Risks are poorly structured.
+- Regulatory constraints are overlooked.
+- Trade-offs are never compared.
+- Decision rationale cannot be reconstructed months later.
+
+Strategic Intelligence Decision Companion was built to solve those problems.
+
+Rather than producing another AI-generated answer, the platform helps reviewers transform evidence into structured, explainable, and auditable decision workflows.
+
+---
+
+# One Sentence Summary
+
+> **Evidence → Decision → Review → Governance**
+
+Instead of replacing decision makers, the platform helps organizations make complex decisions more transparent, reviewable, and evidence-backed.
+
+---
+
+# Enterprise Workflow
 
 ```text
-Source Material
-  |
-  v
 Decision Question
-  |
-  v
-Evidence
-  |
-  v
-Historical Analogues
-  |
-  v
-Decision Brief
-  |
-  v
-Confidence
-  |
-  v
-Monitoring Signals
-  |
-  v
-Decision Quality Review
+        │
+        ▼
+Evidence Collection
+        │
+        ▼
+Evidence Intelligence
+        │
+        ▼
+Decision Readiness
+        │
+        ▼
+Decision Framework
+        │
+        ▼
+Decision Pathway Drafts
+        │
+        ▼
+Pathway Comparison
+        │
+        ▼
+Reviewer Decision Review
+        │
+        ▼
+Decision Record (Future)
 ```
 
-Instead of returning only a summary, the system identifies the decision context, extracts relevant evidence, compares historical patterns, states a recommendation, explains confidence, and records what would require reassessment.
+---
 
-Version 4 adds a local Decision Workspace around that same deterministic engine:
+# Key Product Highlights
+
+✅ Deterministic reasoning
+
+✅ Reviewer-first workflow
+
+✅ Explainable decision support
+
+✅ Evidence traceability
+
+✅ Decision pathway comparison
+
+✅ Enterprise governance
+
+✅ Fully auditable architecture
+
+---
+
+# What Makes It Different?
+
+Traditional AI systems focus on generating answers.
+
+Strategic Intelligence Decision Companion focuses on improving decision quality.
+
+| Traditional AI | Decision Intelligence Platform |
+|----------------|--------------------------------|
+| Generates responses | Structures decision workflows |
+| Produces summaries | Organizes evidence |
+| One answer | Multiple decision pathways |
+| Hidden reasoning | Explainable reasoning |
+| Conversation ends | Review workflow begins |
+| Limited traceability | Complete evidence traceability |
+| Minimal governance | Reviewer-centered governance |
+
+---
+
+# Product Philosophy
+
+This platform follows five core principles.
+
+### Evidence-backed
+
+Every important output should be traceable to supporting evidence.
+
+---
+
+### Reviewer-first
+
+The reviewer—not the AI—owns the final decision.
+
+---
+
+### Deterministic
+
+Given the same evidence, the platform should produce the same analytical workflow.
+
+---
+
+### Explainable
+
+Every conclusion should explain:
+
+- Why it exists
+- Which evidence supports it
+- Which assumptions remain
+- Which evidence is missing
+
+---
+
+### Auditable
+
+Decision processes should be reconstructable long after the original analysis.
+
+---
+
+# What This Project Is
+
+- Enterprise Decision Intelligence Platform
+- Reviewer Decision Support
+- Evidence-backed Analysis
+- Explainable Decision Workflow
+- Human-in-the-loop Intelligence
+- Enterprise Governance Foundation
+
+---
+
+# What This Project Is NOT
+
+- Chatbot
+- Autonomous AI Agent
+- Autonomous Research System
+- Investment Advisor
+- Legal Advisor
+- Trading Platform
+- Autonomous Monitoring Tool
+- Black-box Recommendation Engine
+
+---
+
+# Why Enterprise Decision Intelligence?
+
+Most AI applications are designed to answer questions.
+
+Enterprise organizations face a different challenge.
+
+The real difficulty is rarely generating information.
+
+It is deciding **what to trust**, **what is missing**, **which assumptions matter**, and **how different decision paths compare**.
+
+Strategic Intelligence Decision Companion was built around that workflow.
+
+Rather than replacing human judgement, the platform makes decision reasoning transparent, structured, and auditable.
+
+---
+
+# Decision Intelligence Lifecycle
+
+The product follows a deterministic enterprise decision lifecycle.
 
 ```text
-Project
-  |
-  v
-Questions
-  |
-  v
-Evidence Library
-  |
-  v
-Analysis Runs
-  |
-  v
-Decision Timeline
-  |
-  v
-Decision Delta
+                Evidence
+                    │
+                    ▼
+        Evidence Intelligence
+                    │
+                    ▼
+          Decision Readiness
+                    │
+                    ▼
+      Decision Framework Library
+                    │
+                    ▼
+     Domain Decision Evaluation
+                    │
+                    ▼
+      Decision Pathway Drafts
+                    │
+                    ▼
+      Pathway Comparison Matrix
+                    │
+                    ▼
+      Reviewer Decision Review
+                    │
+                    ▼
+      Decision Record (Future)
 ```
 
-Projects are not chats. A Project is a long-running decision problem. Questions remain independently reviewable analyses, evidence notes are stored in a reusable local library, and completed runs are linked back into a project-level timeline.
+Every stage has one responsibility.
 
-Version 4.5 is sequenced around a Decision Context layer before live retrieval:
+Each stage produces structured artifacts for the next stage.
+
+Nothing is hidden inside a black-box pipeline.
+
+---
+
+# Core Capabilities
+
+## Evidence Intelligence
+
+Evidence is treated as a first-class asset rather than raw input.
+
+The platform helps reviewers:
+
+- Assess evidence quality
+- Detect duplicates
+- Identify supporting relationships
+- Highlight potential conflicts
+- Evaluate freshness
+- Analyze source diversity
+- Detect evidence gaps
+
+---
+
+## Decision Readiness
+
+Before pathway analysis begins, the platform evaluates whether the available evidence is sufficient.
+
+Readiness focuses on questions such as:
+
+- Is enough evidence available?
+- Which assumptions remain?
+- Which unknowns matter?
+- Which domains lack evidence?
+- Which reviewer questions should be answered first?
+
+The objective is to prevent premature decision making.
+
+---
+
+## Decision Framework Library
+
+Decision questions are mapped into deterministic decision frameworks.
+
+Examples include:
+
+- Investment Decisions
+- Corporate Strategy
+- Supply Chain
+- Export Control
+- Regulatory Review
+- Insurance Evaluation
+- Credit Risk
+- Technology Strategy
+
+Framework selection is rule-based and explainable.
+
+---
+
+## Domain Decision Evaluation
+
+Different domains require different analytical perspectives.
+
+The platform currently supports deterministic evaluation for:
+
+- Investment & Asset Allocation
+- Credit Risk
+- Insurance Business Review
+- Regulatory & Compliance Considerations
+
+These evaluations provide structured reviewer insight rather than recommendations.
+
+---
+
+## Decision Pathway Drafts
+
+Instead of generating one answer, the platform drafts multiple reviewable decision pathways.
+
+Each pathway documents:
+
+- Supporting evidence
+- Assumptions
+- Unknowns
+- Risks
+- Constraints
+- Historical context
+- Decision triggers
+
+Pathways are intentionally unranked.
+
+---
+
+## Pathway Comparison Matrix
+
+Multiple pathways are compared using consistent enterprise dimensions.
+
+Examples include:
+
+- Evidence support
+- Regulatory exposure
+- Historical support
+- Unknowns
+- Execution complexity
+- Timing sensitivity
+- Reversibility
+
+The comparison is descriptive—not prescriptive.
+
+---
+
+## Reviewer Decision Review
+
+Human reviewers remain responsible for interpretation.
+
+The review layer records:
+
+- Review status
+- Reviewer notes
+- Outstanding questions
+- Accepted assumptions
+- Accepted unknowns
+- Compliance considerations
+
+The platform records reviewer judgement without replacing it.
+
+---
+
+# Enterprise Architecture
+
+<p align="center">
+    <img
+        src="docs/images/architecture.png"
+        width="100%"
+        alt="Enterprise Decision Architecture">
+</p>
+
+> The architecture intentionally separates evidence management, decision reasoning, and reviewer governance into independent layers.
+
+---
+
+# Design Goals
+
+The platform was designed around six engineering goals.
+
+| Goal | Description |
+|------|-------------|
+| Deterministic | Identical evidence produces identical analytical workflows. |
+| Explainable | Every output is traceable to evidence and explicit rules. |
+| Reviewer-first | Human reviewers remain responsible for all decisions. |
+| Modular | Each capability has a clearly defined responsibility. |
+| Auditable | Decision reasoning can be reconstructed later. |
+| Enterprise-ready | Architecture prioritizes maintainability over feature accumulation. |
+
+---
+
+# Product Boundaries
+
+The platform intentionally avoids becoming an autonomous decision system.
+
+It does **not**:
+
+- recommend investment actions
+- provide legal advice
+- rank decision pathways
+- assign hidden confidence scores
+- perform autonomous research
+- continuously monitor external events
+- replace reviewer judgement
+
+These boundaries are product decisions rather than technical limitations.
+
+---
+
+# End-to-End Decision Walkthrough
+
+The best way to understand the platform is to follow a complete enterprise decision workflow.
+
+The following example demonstrates how a reviewer uses the platform to transform evidence into structured decision artifacts.
+
+---
+
+## Scenario
+
+A global semiconductor manufacturer learns that the U.S. government has expanded export controls on advanced AI chips.
+
+Leadership needs to answer a strategic question.
+
+> **Should the company continue its planned expansion under the new regulatory environment?**
+
+This is not a summarization problem.
+
+It is an enterprise decision problem.
+
+---
+
+## Step 1 — Define the Decision
+
+The reviewer creates a new project and records the decision question.
 
 ```text
-Project + Question
-  |
-  v
-Selected Evidence IDs
-  |
-  v
-Evidence Bundle
-  |
-  v
-Analysis Run Metadata + Evidence Ledger
-  |
-  v
-Decision Timeline + Decision Delta
+Decision Question
+
+Should expansion plans continue after the new AI export-control policy?
 ```
 
-Live retrieval should only be added after project evidence can flow into this traceable Decision Context. Retrieved evidence never enters analysis automatically. It must be reviewed and accepted into the project evidence library, then selected into an Evidence Bundle before it can affect a run.
+The platform separates the decision question from supporting evidence before any analysis begins.
 
-## Example Output
+---
 
-```text
-Recommendation:
-Prepare a staged response rather than immediate restructuring.
+## Step 2 — Collect Evidence
 
-Confidence:
-Moderate.
+Evidence may include:
 
-Supporting Evidence:
-6 evidence items covering customer eligibility, licensing uncertainty,
-supplier exposure, compliance burden, market access, and operational timing.
+- Government regulations
+- Company filings
+- Earnings calls
+- Industry reports
+- Internal strategy documents
+- News articles
+- Historical analogue cases
 
-Historical Analogues:
-Huawei Entity List restrictions.
-ASML export-control exposure.
+Evidence remains reviewer-controlled throughout the workflow.
 
-Next 30-90 Days:
-Monitor supplier exposure, licensing approvals, customer eligibility,
-implementation rules, margin pressure, and management guidance.
+---
 
-Decision Quality Review:
-Checks direct answer quality, evidence use, analogue relevance,
-risk identification, monitoring triggers, and overconfidence control.
+## Step 3 — Evidence Intelligence
+
+The platform analyzes the evidence set.
+
+Outputs include:
+
+- Duplicate detection
+- Evidence relationships
+- Supporting evidence
+- Potential conflicts
+- Novel information
+- Freshness analysis
+- Source diversity
+- Coverage gaps
+
+At this stage, no decision pathways are generated.
+
+The objective is to improve evidence quality before decision reasoning begins.
+
+---
+
+## Step 4 — Decision Readiness
+
+The platform evaluates whether sufficient evidence exists.
+
+Typical reviewer questions include:
+
+- Are important regulatory sources missing?
+- Is market evidence sufficient?
+- Which assumptions remain implicit?
+- Are key unknowns identified?
+- Does the evidence rely on too few sources?
+- Is historical context available?
+
+If readiness is insufficient, reviewers are informed before pathway drafting begins.
+
+---
+
+## Step 5 — Domain Decision Evaluation
+
+Decision evaluation is adapted to the problem domain.
+
+Investment-related scenarios evaluate dimensions such as:
+
+- Interest-rate sensitivity
+- Liquidity risk
+- Credit-spread exposure
+- Inflation sensitivity
+- Policy uncertainty
+
+Regulatory scenarios evaluate:
+
+- Compliance considerations
+- Export-control exposure
+- Disclosure implications
+- Jurisdictional uncertainty
+
+Insurance scenarios evaluate:
+
+- Underwriting risk
+- Reserve adequacy
+- Solvency considerations
+- Reinsurance exposure
+
+These evaluations provide reviewer insight rather than recommendations.
+
+---
+
+## Step 6 — Decision Pathway Drafts
+
+The platform drafts multiple possible pathways.
+
+Example:
+
+### Pathway A
+
+Maintain Current Strategy
+
+- Supporting evidence
+- Known assumptions
+- Remaining unknowns
+- Decision triggers
+
+---
+
+### Pathway B
+
+Delay Expansion
+
+- Historical analogues
+- Regulatory concerns
+- Execution considerations
+- Reviewer questions
+
+---
+
+### Pathway C
+
+Further Evidence Required
+
+- Missing evidence
+- Regulatory uncertainty
+- Additional information required
+
+No pathway is labelled as "best."
+
+---
+
+## Step 7 — Pathway Comparison Matrix
+
+Decision pathways are compared using consistent dimensions.
+
+| Dimension | Path A | Path B | Path C |
+|-----------|---------|---------|---------|
+| Evidence Support | High | Medium | Low |
+| Regulatory Exposure | Medium | High | High |
+| Historical Support | High | Medium | Low |
+| Unknowns | Low | Medium | High |
+| Execution Complexity | Medium | Medium | Low |
+| Timing Sensitivity | High | Medium | Low |
+
+The comparison remains descriptive.
+
+No ranking or recommendation is produced.
+
+---
+
+## Step 8 — Reviewer Decision Review
+
+The reviewer records:
+
+- Review status
+- Outstanding questions
+- Accepted assumptions
+- Accepted unknowns
+- Compliance review requirements
+- Reviewer notes
+
+This creates an auditable review history while preserving reviewer ownership.
+
+---
+
+## Example Workspace
+
+<p align="center">
+    <img
+        src="docs/images/dashboard-overview.png"
+        width="100%"
+        alt="Decision Workspace">
+</p>
+
+---
+
+# Why This Workflow Matters
+
+Traditional AI applications typically stop after producing an answer.
+
+Strategic Intelligence Decision Companion continues the workflow by helping reviewers understand:
+
+- What evidence supports the analysis?
+- What information is still missing?
+- Which assumptions require validation?
+- Which pathways deserve consideration?
+- Which risks remain unresolved?
+- What would change the decision?
+
+The result is a deterministic, evidence-backed, reviewer-first decision process designed for enterprise environments.
+
+---
+
+# Quick Start
+
+Clone the repository.
+
+```bash
+git clone https://github.com/nanabb333/strategic_intelligence_agent.git
+
+cd strategic_intelligence_agent
 ```
 
-This output is a decision-support artifact. It is not investment advice, legal advice, trading advice, or a claim of future accuracy.
-
-## Core Capabilities
-
-| Capability | What It Provides | Where To Learn More |
-| --- | --- | --- |
-| Decision Framework | A structured path from ambiguous input to decision brief. | [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md) |
-| Evidence Ledger | Reviewable observations, inferences, supported claims, and limitations. | [Evidence Architecture](docs/EvidenceArchitecture.md) |
-| Historical Analogues | Historical comparison without treating past cases as predictions. | [Product Overview](docs/ProductOverview.md) |
-| Confidence Assessment | Qualitative confidence, assumptions, unknowns, and change triggers. | [Evidence Architecture](docs/EvidenceArchitecture.md) |
-| Decision Quality Evaluation | Deterministic checks for product-quality properties of generated briefs. | [Evaluation Strategy](docs/EvaluationStrategy.md) |
-| V4 Project Workspace | Local projects, linked questions, evidence library, decision timeline, and decision delta. | [Version 4 Architecture](docs/Version4Architecture.md) |
-| V4.5 Decision Context | Project/question/run linkage, selected Evidence Bundles, durable evidence IDs, workspace state, and retrieval readiness. | [Version 4 Architecture](docs/Version4Architecture.md) |
-| Case Studies | Reviewer-friendly examples of evidence, confidence, and evaluation. | [V2 Case Studies](docs/case_studies/semiconductor_export_controls.md) |
-| Research Direction | A separate path from product QA toward future research validation. | [Research Agenda](docs/research/ResearchAgenda.md) |
-| V4 Architecture | Long-term direction for projects, evidence bundles, traceability, and decision evolution. | [Version 4 Architecture](docs/Version4Architecture.md) |
-
-## Architecture
-
-The repository is a local FastAPI application with a deterministic analysis pipeline, local project workspace storage, and downloadable artifacts.
-
-```text
-User Input
-  |
-  v
-FastAPI App
-  |
-  v
-Project Workspace + Analysis Service
-  |
-  v
-Decision Intelligence Pipeline
-  |
-  v
-Evidence + Analogues + Confidence + Evaluation
-  |
-  v
-Markdown, TXT, JSON, Trace, Metadata
-```
-
-| Area | Role |
-| --- | --- |
-| `app.py` | Thin FastAPI entrypoint for health, analysis, run artifacts, downloads, and V4 project routes. |
-| `src/` | Analysis service, pipeline, artifacts, evidence, confidence, and evaluation modules. |
-| `src/project_workspace.py` | Local JSON project workspace utilities for projects, questions, evidence, decision history, and decision delta. |
-| `src/evidence_retrieval.py` | Deterministic user-triggered retrieval candidate module. It should remain downstream of the Decision Context workflow. |
-| `dashboard/` | Local browser dashboard, including `dashboard/project.js` for project workspace behavior. |
-| `knowledge_base/` | Local mechanism, analogue, outcome, and playbook records. |
-| `docs/` | Product, engineering, governance, evidence, evaluation, and research documentation. |
-| `demo_case_outputs/` | Bundled generated artifacts for review. |
-| `tests/` | Pytest coverage for API behavior and decision-quality foundations. |
-
-V4 uses local JSON files under `data/projects/` for project state. It does not add PostgreSQL, SQLite, Redis, background workers, authentication, cloud services, autonomous browsing, or autonomous monitoring.
-
-V4.5 prioritizes Decision Context before live retrieval. Project-aware runs store project and question linkage, selected evidence IDs, and an Evidence Bundle in run artifacts. Retrieval remains a candidate interface, not an autonomous research system; accepted items are stored only when the user explicitly accepts them into a project.
-
-## Repository Guide
-
-Start here:
-
-1. [Product Overview](docs/ProductOverview.md)
-2. [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md)
-3. [Evidence Architecture](docs/EvidenceArchitecture.md)
-4. [Review Guide](docs/ReviewGuide.md)
-5. [Case Studies](docs/case_studies/semiconductor_export_controls.md)
-6. [Research Agenda](docs/research/ResearchAgenda.md)
-
-For the complete map, see the [Documentation Index](docs/DocumentationIndex.md).
-
-## Engineering
-
-The implementation is intentionally lightweight:
-
-- Local FastAPI app
-- Thin `app.py`
-- Modular service and pipeline structure
-- Deterministic analysis components
-- Per-run Markdown, TXT, JSON, trace, metadata, and input artifacts
-- Ruff, compile checks, pytest, and GitHub Actions CI
-
-## No-VS-Code Local Launch
-
-For non-technical reviewers on macOS:
-
-1. Download or clone this repository.
-2. Double-click `start.command`.
-3. If macOS blocks it, right-click `start.command`, then choose **Open**.
-4. The browser opens the local dashboard at `http://127.0.0.1:8000/dashboard/`.
-
-Run locally:
+Install dependencies.
 
 ```bash
 python3 -m pip install -r requirements.txt
-python3 -m uvicorn app:app --reload
 ```
 
-Run validation:
-
-```bash
-python3 -m ruff check .
-python3 -m compileall app.py src tests
-python3 -m pytest
-```
-
-## How To Test V4 Locally
-
-1. Start FastAPI:
+Run the application.
 
 ```bash
 python3 -m uvicorn app:app --reload
 ```
 
-2. Open the dashboard:
+Open the dashboard.
 
-```text
+```
 http://127.0.0.1:8000/dashboard/
 ```
 
-3. Create a Project in the V4 Workspace panel.
-4. Add and select a project question.
-5. Paste source material and click **Build decision brief**.
-6. Add a manual Evidence Library note under the active project.
-7. Select one or more Evidence Library items to include in the next Evidence Bundle.
-8. Add and select a second question, then run analysis again.
-9. Inspect the Decision Timeline and Decision Delta in the active project panel.
-10. Confirm the run JSON metadata includes `project_id`, `project_question_id`, and selected `evidence_ids`.
-11. Use the browser print dialog to print or save PDF. Print styles hide workspace controls and render the results panel full width.
+Run the test suite.
 
-Standalone analysis is still supported: leave no active project selected and run the brief builder as before.
-
-## V4 Release Demo
-
-A complete Version 4 workspace validation demo is stored at:
-
-```text
-demo_case_outputs/v4_workspace/
+```bash
+python3 -m pytest
 ```
 
-It includes a sample project JSON, reusable evidence library sample, two linked question analyses, decision history, deterministic decision delta, and generated Markdown/TXT/JSON run artifacts.
+---
 
-## Research
-
-The repository separates product quality from research validation:
+# Repository Structure
 
 ```text
-Product QA
-  |
-  v
-Research Validation
-  |
-  v
-Future Human Evaluation
+strategic_intelligence_agent/
+│
+├── app.py
+├── dashboard/
+├── src/
+├── knowledge_base/
+├── docs/
+├── tests/
+├── demo_case_outputs/
+└── README.md
 ```
 
-The current system implements product QA and deterministic decision-quality evaluation. Future research work is documented separately so the product does not imply scientific proof, benchmark superiority, or real-world predictive accuracy.
+---
 
-## Version 4 Direction
+# Documentation
 
-Version 4 evolves the platform into a local Decision Intelligence Workspace: projects, reusable evidence notes, evidence libraries, linked analysis runs, decision history, and traceable recommendation changes over time.
+Complete product documentation is available under:
 
-The implemented V4 route is:
-
-```text
-Project -> Questions -> Evidence Library -> Analysis Runs -> Decision Timeline -> Decision Delta
+```
+docs/
 ```
 
-This remains a professional decision workspace, not a chatbot or autonomous agent. The system does not browse independently, monitor sources in the background, orchestrate agents, or collect evidence without user action.
+Key documents include:
 
-Version 4.5 introduces Decision Context before live retrieval. A project-aware run can now be traced to the project, project question, selected evidence IDs, and Evidence Bundle used in the deterministic Decision Engine. User-triggered current evidence retrieval remains a later candidate workflow: it creates reviewable items only, does not make decisions, does not update recommendations directly, and does not bypass the deterministic Decision Engine.
+- Architecture
+- Module Boundaries
+- Product Terminology
+- API Conventions
+- Demo Scenarios
 
-## Current Status
+---
 
-| Area | Status |
-| --- | --- |
-| Architecture | Stable local Decision Intelligence Platform. |
-| Documentation | Product, engineering, governance, evidence, evaluation, and research layers complete. |
-| Evidence | Decision Case Schema, Evidence Ledger, and Confidence Assessment implemented. |
-| Evaluation | Deterministic Decision Quality Evaluation Harness implemented. |
-| Research | Version 3 research validation foundation documented. |
-| CI | Ruff, compile checks, and pytest passing. |
-| Portfolio Readiness | Ready for external review as a mature AI product architecture project. |
+# Roadmap
 
-## Limitations
+### Version 4
 
-The repository intentionally avoids:
+Enterprise Decision Intelligence
 
-- Autonomous web agents
-- Live monitoring
-- Benchmark superiority claims
-- Investment advice
-- Legal advice
-- Trading advice
-- Statistical confidence claims
-- Database infrastructure
-- Login, auth, or account systems
+- Evidence Intelligence
+- Decision Readiness
+- Decision Framework Library
+- Domain Evaluation
+- Decision Pathway Drafts
+- Pathway Comparison Matrix
+- Reviewer Decision Review
 
-These boundaries keep the platform local, reviewable, deterministic, and maintainable.
+---
+
+### Version 5
+
+Enterprise Decision Governance
+
+- Decision Record
+- Decision History
+- Decision Audit Trail
+- Decision Replay
+- Decision Learning
+
+---
+
+# Engineering Principles
+
+The platform is intentionally designed around:
+
+- Deterministic reasoning
+- Reviewer ownership
+- Explainable outputs
+- Modular architecture
+- Evidence traceability
+- Enterprise maintainability
+
+---
+
+# License
+
+This repository is released under the MIT License.

@@ -229,17 +229,10 @@ def _change_trigger_quality(
 
 def _localization_quality(brief_markdown: str, language: str) -> DimensionEvaluation:
     if language == "en":
-        return _result(1.0, "English output selected; localization transformation is not required.")
-    if language == "zh_CN":
-        checks = ["决策" in brief_markdown, "证据" in brief_markdown or "Evidence and Confidence" in brief_markdown]
-    elif language == "zh_TW":
-        checks = ["決策" in brief_markdown, "證據" in brief_markdown or "Evidence and Confidence" in brief_markdown]
-    else:
-        checks = [False]
-    score = _score(checks)
+        return _result(1.0, "English is the official product language; localization transformation is not active.")
     return _result(
-        score,
-        "Checks for localized decision/evidence language in non-English outputs.",
+        0.0,
+        "Unsupported language requested for an English-only product release.",
     )
 
 

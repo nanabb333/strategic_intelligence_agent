@@ -3,7 +3,7 @@ import json
 from fastapi.testclient import TestClient
 
 from app import app
-from decision_readiness import build_decision_readiness_map, build_project_decision_readiness
+from decision_readiness import build_decision_readiness_map
 import project_workspace
 from project_workspace import create_project
 

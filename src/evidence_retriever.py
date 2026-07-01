@@ -7,7 +7,7 @@ from datetime import datetime
 from typing import Any
 
 from evidence_normalizer import normalize_retrieved_document
-from evidence_provider import BaseEvidenceProvider, RetrievedDocument, SearchResult, provider_registry
+from evidence_provider import BaseEvidenceProvider, RetrievedDocument, provider_registry
 from evidence_retrieval import EvidenceItem
 
 

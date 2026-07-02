@@ -8,6 +8,7 @@ Release notes summarize user-visible product release themes, validation posture,
 - [V4.4 - Product Distribution Release](V4.4.md)
 - [V4.5 - Enterprise Product Presentation & Repository Excellence](V4.5.md)
 - [V4.6 - Portfolio Demo Package Release](V4.6.md)
+- [V4.9 - Enterprise Design Review And Freeze Assessment](V4.9.md)
 
 ## Historical Release Material
 

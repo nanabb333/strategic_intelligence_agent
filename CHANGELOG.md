@@ -1,5 +1,49 @@
 # Changelog
 
+## V4.9 - Enterprise Design Review And Freeze Assessment
+
+### Added
+
+- `docs/EnterpriseDesignReviewFreezeAssessment.md` with product, architecture, cohesion, technical debt, simplification, freeze, and V5-readiness assessments.
+- `docs/releases/V4.9.md` release notes.
+
+### Changed
+
+- Documentation Index and release notes index now surface the V4.9 freeze recommendation.
+
+### Recommendation
+
+- Freeze V4 for product behavior, Decision Intelligence logic, evidence workflows, reviewer workflow, dashboard structure, local launch, and CI standards.
+- Defer new capabilities to a V5 architecture planning phase.
+
+### Preserved
+
+- No product behavior, API, UI workflow, evidence processing, reasoning logic, evaluation, generated output, or test changes.
+
+## V4.8 - Engineering Excellence Foundation And CI Quality Gates
+
+### Added
+
+- GitHub pull request and issue templates for release-scoped collaboration.
+- Contribution standards covering branch strategy, commit conventions, release naming, validation, coding standards, documentation expectations, and privacy.
+- GitHub Actions CI quality gates mirroring local validation.
+- README CI badge.
+
+### Preserved
+
+- No product behavior, Decision Intelligence, API, UI workflow, evidence processing, generated output, or test changes.
+
+## V4.7 - Enterprise Product Polish Release
+
+### Changed
+
+- Refined public-facing workspace copy, empty states, loading states, error messages, and release footer.
+- Replaced stale public-facing agent terminology in the dashboard with product-aligned language.
+
+### Preserved
+
+- No Decision Intelligence, evidence, API, routing, evaluation, reviewer workflow, generated output, or product logic changes.
+
 ## V4.6 - Portfolio Demo Package Release
 
 ### Added

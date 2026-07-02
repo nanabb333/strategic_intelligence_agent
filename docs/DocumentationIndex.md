@@ -9,6 +9,7 @@ Start here for the consolidated enterprise product view. Current behavior should
 - [Product Terminology](ProductTerminology.md): official vocabulary and prohibited claims.
 - [Enterprise Readiness Checklist](EnterpriseReadinessChecklist.md): enterprise-readiness posture and known local-first gaps.
 - [Repository Maturity Review](RepositoryMaturityReview.md): enterprise repository quality review and remaining maturity opportunities.
+- [Enterprise Design Review And Freeze Assessment](EnterpriseDesignReviewFreezeAssessment.md): V4 freeze recommendation, simplification opportunities, and V5 planning themes.
 - [Review Guide](ReviewGuide.md): reviewer flow for the local product.
 - [Enterprise Release Guide](EnterpriseReleaseGuide.md): release checks, diagnostics, and recovery model.
 
@@ -61,6 +62,7 @@ Start here for the consolidated enterprise product view. Current behavior should
 - [V4.3 Launch Experience Release](releases/V4.3.md): product landing page and workspace route.
 - [V4.4 Product Distribution Release](releases/V4.4.md): double-click local launchers.
 - [V4.5 Enterprise Repository Excellence Release](releases/V4.5.md): product presentation, repository navigation, and release notes.
+- [V4.9 Enterprise Design Review And Freeze Assessment](releases/V4.9.md): V4 freeze assessment and V5 planning boundary.
 - [Version 5 Release Notes](Version5ReleaseNotes.md): enterprise release notes and compatibility boundaries.
 
 ## Developer Reference

@@ -2,24 +2,41 @@
 
 ## Description
 
-Strategic Intelligence Agent is a local analyst workbench that converts policy
-texts, earnings excerpts, and operational risk notes into evidence-aware
-executive intelligence briefs.
+Reviewer-first Enterprise Decision Intelligence Platform for deterministic, evidence-backed, auditable strategic decision workflows.
 
 ## Website / Demo Path
 
-`dashboard/index.html`
+```text
+http://localhost:8000
+```
+
+Local workspace route:
+
+```text
+http://localhost:8000/workspace
+```
 
 ## Topics
 
-- ai-agents
-- analyst-workbench
+- decision-intelligence
+- enterprise-ai
+- reviewer-first
+- evidence-based-ai
 - business-analytics
-- decision-support
-- executive-briefs
-- information-extraction
-- retrieval
+- fastapi
 - strategic-intelligence
-- workflow-orchestration
+- human-in-the-loop
+- auditability
 - portfolio-project
 
+## Social Preview Guidance
+
+Use a populated Decision Workspace screenshot showing:
+
+- active project
+- decision question
+- evidence
+- deterministic analysis result
+- reviewer panels
+
+Avoid positioning the repository as an AI agent, chatbot, RAG demo, autonomous researcher, or monitoring platform.

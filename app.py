@@ -1,4 +1,4 @@
-"""Local FastAPI application for Strategic Intelligence Agent."""
+"""Local FastAPI application for Strategic Intelligence Decision Companion."""
 
 from __future__ import annotations
 
@@ -100,9 +100,9 @@ class AnalyzeResponse(BaseModel):
 
 
 app = FastAPI(
-    title=str(APP_CONFIG.get("app", {}).get("api_title") or "Strategic Intelligence Agent Local App"),
+    title=str(APP_CONFIG.get("app", {}).get("api_title") or "Strategic Intelligence Decision Companion Local App"),
     version=str(APP_CONFIG.get("app", {}).get("version") or "5.0.0"),
-    description="Local-only API for running the Strategic Intelligence Agent pipeline.",
+    description="Local-only API for running the Strategic Intelligence Decision Companion pipeline.",
 )
 
 app.add_middleware(
@@ -232,7 +232,7 @@ def landing_page() -> str:
       </ul>
       <div class="actions">
         <a class="button" href="/workspace">Open Decision Workspace</a>
-        <span class="version">Version 4.3</span>
+        <span class="version">Version 4.5 · Build local</span>
       </div>
     </main>
   </body>
@@ -251,7 +251,7 @@ def health() -> dict[str, str]:
     """Return local app health."""
     return {
         "status": "ok",
-        "app": str(APP_CONFIG.get("app", {}).get("name") or "Strategic Intelligence Agent"),
+        "app": str(APP_CONFIG.get("app", {}).get("name") or "Strategic Intelligence Decision Companion"),
         "version": str(APP_CONFIG.get("app", {}).get("version") or "5.0.0"),
     }
 

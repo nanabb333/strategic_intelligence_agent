@@ -4,6 +4,8 @@ Strategic Intelligence Decision Companion is a reviewer-first Enterprise Decisio
 
 It helps product leaders, analysts, executives, and reviewers turn ambiguous source material and project evidence into deterministic, evidence-backed, auditable decision-support artifacts.
 
+> Tagline: Reviewer-first Enterprise Decision Intelligence for evidence-backed strategic decisions.
+
 ![Strategic Intelligence Decision Companion Decision Workspace](docs/Images/dashboard-overview.png)
 
 The Decision Workspace presents projects, decision questions, evidence, deterministic analysis, review state, and downloadable artifacts in one auditable flow.
@@ -85,6 +87,22 @@ Decision Timeline and Delta
 Evidence can be retrieved only through explicit reviewer action. Retrieved items enter a review queue first. Accepted evidence becomes part of the project Evidence Library. Analysis and decision-support views remain deterministic and do not bypass reviewer control.
 
 The system helps reviewers compare defensible decision paths. It does not choose a best path, rank options, assign probabilities, or make final decisions.
+
+## Product Presentation Assets
+
+The repository includes a dedicated portfolio asset structure:
+
+```text
+portfolio_assets/
+  screenshots/
+  sample_inputs/
+  sample_outputs/
+  media/
+```
+
+Current screenshot placeholder: [docs/Images/dashboard-overview.png](docs/Images/dashboard-overview.png)
+
+Future screenshots should show a populated Decision Workspace with an active project, evidence, analysis result, and reviewer panels.
 
 ## Example Decision-Support Output
 
@@ -205,19 +223,21 @@ The platform does not require a database, cloud service, background worker, exte
 Start here:
 
 1. [Product Overview](docs/ProductOverview.md)
-2. [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md)
-3. [Evidence Architecture](docs/EvidenceArchitecture.md)
-4. [Evidence Philosophy](docs/EvidencePhilosophy.md)
-5. [Trust Model](docs/TrustModel.md)
-6. [Review Guide](docs/ReviewGuide.md)
+2. [Product Vision](docs/ProductVision.md)
+3. [Architecture](docs/architecture.md)
+4. [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md)
+5. [Evidence Architecture](docs/EvidenceArchitecture.md)
+6. [Trust Model](docs/TrustModel.md)
 7. [Documentation Index](docs/DocumentationIndex.md)
 
 For release and repository maturity context:
 
+- [Enterprise Readiness Checklist](docs/EnterpriseReadinessChecklist.md)
 - [Repository Maturity Review](docs/RepositoryMaturityReview.md)
 - [Testing](docs/Testing.md)
 - [Folder Structure](docs/FolderStructure.md)
 - [Changelog](CHANGELOG.md)
+- [Release Notes](docs/releases/V4.5.md)
 
 ## Quick Start
 

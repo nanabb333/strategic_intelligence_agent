@@ -14,7 +14,7 @@ CONFIG_PATH = ROOT / "config" / "defaults.json"
 DEFAULT_CONFIG: dict[str, Any] = {
     "app": {
         "name": "Strategic Intelligence Decision Companion",
-        "api_title": "Strategic Intelligence Agent Local App",
+        "api_title": "Strategic Intelligence Decision Companion Local App",
         "version": "5.0.0",
     },
     "release": {

@@ -25,7 +25,9 @@ This document describes the current repository layout.
 ├── evaluation/
 ├── examples/
 ├── knowledge_base/
+├── launch/
 ├── outputs/
+├── portfolio_assets/
 ├── scripts/
 ├── src/
 ├── tests/
@@ -73,9 +75,17 @@ Shared dependency-free decision helpers live in `decision_support_utils.py`.
 
 Local curated data used by deterministic retrieval and reasoning layers.
 
+### `launch/`
+
+Double-click local launchers and launch documentation for non-technical users.
+
 ### `outputs/`
 
 Generated run artifacts. Runtime run folders under `outputs/runs/` are ignored by git.
+
+### `portfolio_assets/`
+
+Curated presentation assets for screenshots, sample inputs, sample outputs, and future demo media. Generated artifacts should remain under `outputs/` or `demo_case_outputs/`.
 
 ### `tests/`
 

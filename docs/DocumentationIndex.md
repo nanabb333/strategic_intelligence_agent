@@ -1,24 +1,28 @@
 # Documentation Index
 
-Start here for the consolidated enterprise product view.
+Start here for the consolidated enterprise product view. Current behavior should be interpreted from the documents in the first three sections before consulting historical portfolio material.
 
 ## Product Entry Points
 
 - [README](../README.md): product overview, workflow, architecture, local testing, and roadmap.
+- [Product Vision](ProductVision.md): product category, philosophy, reviewer-first promise, and non-promises.
 - [Product Terminology](ProductTerminology.md): official vocabulary and prohibited claims.
+- [Enterprise Readiness Checklist](EnterpriseReadinessChecklist.md): enterprise-readiness posture and known local-first gaps.
 - [Repository Maturity Review](RepositoryMaturityReview.md): enterprise repository quality review and remaining maturity opportunities.
 - [Review Guide](ReviewGuide.md): reviewer flow for the local product.
 - [Enterprise Release Guide](EnterpriseReleaseGuide.md): release checks, diagnostics, and recovery model.
-- [Version 5 Release Notes](Version5ReleaseNotes.md): enterprise release notes and compatibility boundaries.
 
 ## Getting Started
 
+- [Double-Click Launchers](../launch/README.md): macOS and Windows local launch paths.
 - [Demo Scenarios](GettingStarted/DemoScenarios.md): polished end-to-end scenarios for portfolio review.
 - [V4 Workspace Demo](../demo_case_outputs/v4_workspace/README.md): generated workspace artifacts with linked questions, evidence, timeline, and delta.
-- [Local App Setup](local_app_setup.md): local FastAPI and dashboard setup.
+- [Local App Setup](local_app_setup.md): local product setup for non-technical users and developers.
+- [Non-AI User Guide](non_ai_user_guide.md): reviewer workflow without prompt-writing assumptions.
 
 ## Architecture
 
+- [Current Architecture](architecture.md): canonical architecture overview for the current local product.
 - [Enterprise Architecture](Architecture/EnterpriseArchitecture.md): product flow, dependency direction, and module interaction diagrams.
 - [Module Boundaries](Architecture/ModuleBoundaries.md): inputs, outputs, dependencies, ownership, and refactor findings.
 - [Engineering Architecture](EngineeringArchitecture.md): FastAPI, service, pipeline, artifacts, and storage.
@@ -47,6 +51,15 @@ Start here for the consolidated enterprise product view.
 - [Trust Model](TrustModel.md): trust boundaries.
 - [Repository Trust Audit](RepositoryTrustAudit.md): repository review posture.
 - [Public Release Checklist](PublicReleaseChecklist.md): release readiness checks.
+- [Security](../SECURITY.md): local-first security posture and deployment warning.
+
+## Releases
+
+- [Release Notes Index](releases/README.md): current and historical release notes.
+- [V4.3 Launch Experience Release](releases/V4.3.md): product landing page and workspace route.
+- [V4.4 Product Distribution Release](releases/V4.4.md): double-click local launchers.
+- [V4.5 Enterprise Repository Excellence Release](releases/V4.5.md): product presentation, repository navigation, and release notes.
+- [Version 5 Release Notes](Version5ReleaseNotes.md): enterprise release notes and compatibility boundaries.
 
 ## Developer Reference
 
@@ -55,6 +68,10 @@ Start here for the consolidated enterprise product view.
 - [Folder Structure](FolderStructure.md): repository layout.
 - [Naming Review](Reference/NamingReview.md): product naming assessment.
 - [Changelog](../CHANGELOG.md): consolidation release summary.
+
+## Portfolio Assets
+
+- [Portfolio Assets](../portfolio_assets/README.md): curated screenshots, sample inputs, sample outputs, and future media structure.
 
 ## Historical Portfolio Material
 

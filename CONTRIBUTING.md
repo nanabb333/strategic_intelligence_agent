@@ -82,6 +82,8 @@ node --check dashboard/app.js
 node --check dashboard/project.js
 ```
 
+GitHub Actions runs the same core quality gates on push and pull request through `.github/workflows/ci.yml`. Local validation is still expected before review so failures can be corrected before CI runs.
+
 For documentation-only changes, also verify repository-local Markdown links when practical.
 
 Document commands run and results in the pull request.

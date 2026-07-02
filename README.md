@@ -1,5 +1,7 @@
 # Strategic Intelligence Decision Companion
 
+[![CI](https://github.com/nanabb333/strategic_intelligence_agent/actions/workflows/ci.yml/badge.svg)](https://github.com/nanabb333/strategic_intelligence_agent/actions/workflows/ci.yml)
+
 Strategic Intelligence Decision Companion is a reviewer-first Enterprise Decision Intelligence Platform for structuring complex strategic decisions.
 
 It helps product leaders, analysts, executives, and reviewers turn ambiguous source material and project evidence into deterministic, evidence-backed, auditable decision-support artifacts.

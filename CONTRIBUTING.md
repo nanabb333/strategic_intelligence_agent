@@ -1,60 +1,111 @@
 # Contributing
 
-This repository is maintained as a local AI product and portfolio project. Contributions should preserve existing behavior unless a change is explicitly scoped as a feature release.
+Strategic Intelligence Decision Companion is maintained as a local-first, reviewer-first Enterprise Decision Intelligence product. Contributions should improve product quality, engineering maturity, documentation accuracy, or explicitly scoped functionality without weakening determinism, traceability, or reviewer control.
 
-## Development Principles
+This repository is not a chatbot project, autonomous agent, forecasting system, legal advisor, investment advisor, or live monitoring service.
 
-- Do not change API routes without a migration plan.
-- Do not change request or response schemas casually.
-- Do not introduce forecasting, probabilities, trading recommendations, investment advice, or legal advice.
-- Keep analysis changes deterministic and reviewable.
-- Prefer small pull requests with clear validation results.
-- Keep documentation factual and aligned with the current repository.
+## Branch Strategy
 
-## Local Setup
+- Use short-lived branches for focused work.
+- Prefer descriptive branch names such as `docs/v4-8-engineering-foundation`, `fix/evidence-review-copy`, or `product/v4-7-polish`.
+- Keep `main` releasable.
+- Rebase or merge from `main` before review when a branch has drifted.
+- Do not force-push shared branches unless maintainers explicitly agree.
 
-```bash
-python3 -m pip install -r requirements.txt
-python3 -m uvicorn app:app --reload
-```
+## Commit Message Convention
 
-Open the local dashboard:
+Use a short conventional prefix followed by the release or change intent:
 
 ```text
-http://127.0.0.1:8000/dashboard/
+docs: clarify decision readiness workflow
+fix: load workspace assets from product routes
+product: V4.7 enterprise product polish release
+engineering: V4.8 sprint 1 engineering foundation
 ```
 
-## Quality Checks
+Recommended prefixes:
 
-Run these checks before opening a pull request:
+- `product:` for product presentation, release packaging, or portfolio polish.
+- `engineering:` for repository standards, maintainability, or developer workflow.
+- `docs:` for documentation-only changes.
+- `fix:` for bug fixes.
+- `test:` for test-only changes.
+- `chore:` for small maintenance changes with no product behavior impact.
+
+## Release Naming Convention
+
+Release work should include:
+
+- Release version, for example `V4.8 Sprint 1`.
+- Release theme, for example `Engineering Excellence Foundation`.
+- Clear objectives.
+- Explicit non-goals.
+- Validation results.
+- Known risks or follow-up work.
+
+Avoid mixing unrelated release themes in one pull request.
+
+## Coding Standards
+
+- Preserve deterministic behavior unless a feature release explicitly changes it.
+- Keep module responsibilities narrow and aligned with existing architecture.
+- Do not change API routes, request schemas, response schemas, or storage formats casually.
+- Do not introduce autonomous research, autonomous monitoring, hidden LLM orchestration, external RAG frameworks, databases, cloud services, or background workers without an approved architecture decision.
+- Keep user-facing scores explicit, for example `7.5 / 10` or `82%`.
+- Prefer clear, small changes over broad rewrites.
+- Do not commit local credentials, private source material, generated scratch artifacts, or environment-specific files.
+
+## Documentation Standards
+
+Documentation must describe implemented behavior accurately.
+
+Update documentation when a change affects:
+
+- Product workflow.
+- API usage.
+- Local setup.
+- Architecture or module responsibilities.
+- Release notes or repository navigation.
+- User-facing limitations.
+
+Do not claim unsupported capabilities such as real-world accuracy guarantees, legal conclusions, investment recommendations, live monitoring, autonomous browsing, or enterprise cloud deployment.
+
+## Validation Checklist Before Merge
+
+Run the relevant checks before opening or merging a pull request. For release-level changes, run the full suite:
 
 ```bash
-python3 -m ruff check .
-python3 -m compileall app.py src tests
+.venv/bin/ruff check .
+python3 -m py_compile app.py src/*.py launch.py
 python3 -m pytest
+node --check dashboard/app.js
+node --check dashboard/project.js
 ```
+
+For documentation-only changes, also verify repository-local Markdown links when practical.
+
+Document commands run and results in the pull request.
 
 ## Pull Request Expectations
 
 Every pull request should include:
 
-- A short summary of what changed.
-- Confirmation that product behavior is unchanged, or a clear explanation if behavior intentionally changed.
+- Summary of what changed.
+- Release theme or issue context.
+- Scope and explicit non-goals.
+- Product behavior impact.
 - Validation commands and results.
-- Updated docs when user-facing behavior or developer workflow changes.
+- Documentation updates, if applicable.
+- Risks, limitations, or follow-up work.
 
-## Documentation Standards
-
-Documentation should not overclaim. If a capability is not implemented in the repository, describe it as future work or omit it.
-
-Avoid claiming:
-
-- Live monitoring.
-- Forecasting.
-- Investment, trading, legal, or compliance advice.
-- Enterprise deployment.
-- Real-world accuracy guarantees.
+If product behavior changes, explain why the change is in scope and how reviewer control, traceability, and deterministic execution are preserved.
 
 ## Runtime Artifacts
 
-Local run folders under `outputs/runs/` are generated artifacts and should not be committed.
+Local run folders under `outputs/runs/` are generated artifacts and should not be committed unless a release explicitly includes curated demo outputs.
+
+## Security And Privacy
+
+- Do not include credentials, tokens, API keys, private documents, or sensitive source material in issues, pull requests, commits, screenshots, or demo artifacts.
+- Keep local-first operation clear in documentation.
+- Treat reviewer notes, evidence samples, and project files as potentially sensitive unless they are clearly synthetic demo assets.

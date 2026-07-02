@@ -1,6 +1,28 @@
 # Non-AI User Guide
 
-This workbench is designed for users who do not write prompts. Paste or upload a document, select or write a decision question, choose an output mode, and run the analysis.
+Strategic Intelligence Decision Companion is designed for reviewers who want a structured decision workspace, not a prompt-writing exercise.
+
+## Start The Product
+
+Run one command from the repository folder:
+
+```bash
+./run_app.sh
+```
+
+Or:
+
+```bash
+python3 launch.py
+```
+
+Open:
+
+```text
+http://localhost
+```
+
+Choose **Open Decision Workspace**.
 
 ## Product Language
 
@@ -12,14 +34,16 @@ English is the official product language for this release.
 - Analyst: fuller brief with evidence, mechanisms, interpretations, and source traceability.
 - Executive: concise decision-support brief for review meetings.
 
-## How to Use
+## How To Use
 
-1. Open the dashboard from the local FastAPI server.
-2. Paste text, upload a supported file, or provide a readable URL.
-3. Add or select a decision question.
+1. Create a project.
+2. Add or select a decision question.
+3. Add evidence manually, accept retrieved evidence, paste text, or upload a supported file.
 4. Select Beginner, Analyst, or Executive mode.
-5. Run analysis and review the generated sections.
+5. Run analysis.
+6. Review the generated Decision Workspace sections.
+7. Download Markdown, TXT, or JSON artifacts if needed.
 
 ## Important Limits
 
-The system does not provide forecasts, probabilities, trading advice, investment recommendations, or claims of certainty. It supports structured analysis, evidence review, and monitoring questions.
+The system does not provide forecasts, probabilities, trading advice, investment recommendations, legal advice, or claims of certainty. It supports structured analysis, evidence review, reviewer-controlled interpretation, and reassessment questions.

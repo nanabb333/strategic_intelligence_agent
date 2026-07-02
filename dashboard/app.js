@@ -846,7 +846,7 @@ function renderTrace(trace) {
 }
 
 function renderPath() {
-  return `<ul><li>Dashboard called FastAPI.</li><li>FastAPI executed the Python pipeline.</li><li>Run artifacts were saved under outputs/runs/.</li></ul><p>${sourceBadge("Local App")}</p>`;
+  return `<ul><li>Decision Workspace called the local API.</li><li>The local API executed the Python pipeline.</li><li>Run artifacts were saved under outputs/runs/.</li></ul><p>${sourceBadge("Local App")}</p>`;
 }
 
 function renderCards(elementId, items, renderItem) {

@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Any
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, HTMLResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -115,6 +115,135 @@ app.add_middleware(
 
 app.mount("/dashboard", StaticFiles(directory=ROOT / "dashboard", html=True), name="dashboard")
 app.mount("/runs", StaticFiles(directory=RUNS_DIR, html=False), name="runs")
+
+
+@app.get("/", response_class=HTMLResponse)
+def landing_page() -> str:
+    """Return the local product landing page."""
+    return """
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Strategic Intelligence Decision Companion</title>
+    <style>
+      :root {
+        --primary: #B8A7E8;
+        --background: #F7F4FF;
+        --highlight: #EFEAFB;
+        --ink: #191724;
+        --muted: #6E6A7E;
+        --line: #DDD6F7;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        background: var(--background);
+        color: var(--ink);
+        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      main {
+        width: min(760px, calc(100vw - 40px));
+        padding: 56px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: #fff;
+        box-shadow: 0 24px 80px rgba(64, 48, 96, 0.12);
+      }
+      .eyebrow {
+        margin: 0 0 16px;
+        color: #7563A8;
+        font-size: 0.78rem;
+        font-weight: 800;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 5vw, 4rem);
+        line-height: 1.02;
+        letter-spacing: 0;
+      }
+      .subtitle {
+        margin: 20px 0 0;
+        color: var(--muted);
+        font-size: 1.24rem;
+        line-height: 1.5;
+      }
+      .principles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 28px 0 36px;
+        padding: 0;
+        list-style: none;
+      }
+      .principles li {
+        padding: 9px 12px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        background: var(--highlight);
+        color: #524579;
+        font-size: 0.94rem;
+        font-weight: 700;
+      }
+      .actions {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      a.button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: 8px;
+        background: var(--primary);
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 800;
+      }
+      .version {
+        color: var(--muted);
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+      @media (max-width: 640px) {
+        main { padding: 32px; }
+      }
+    </style>
+  </head>
+  <body>
+    <main aria-labelledby="product-title">
+      <p class="eyebrow">Reviewer-first Enterprise Decision Intelligence</p>
+      <h1 id="product-title">Strategic Intelligence Decision Companion</h1>
+      <p class="subtitle">Local, deterministic, evidence-backed, human-in-the-loop decision support.</p>
+      <ul class="principles" aria-label="Product principles">
+        <li>Local</li>
+        <li>Deterministic</li>
+        <li>Evidence-backed</li>
+        <li>Human-in-the-loop</li>
+      </ul>
+      <div class="actions">
+        <a class="button" href="/workspace">Open Decision Workspace</a>
+        <span class="version">Version 4.3</span>
+      </div>
+    </main>
+  </body>
+</html>
+"""
+
+
+@app.get("/workspace", response_class=FileResponse)
+def decision_workspace() -> FileResponse:
+    """Return the Decision Workspace interface."""
+    return FileResponse(ROOT / "dashboard" / "index.html")
 
 
 @app.get("/health")

@@ -4,11 +4,17 @@ Strategic Intelligence Decision Companion is a reviewer-first Enterprise Decisio
 
 It helps product leaders, analysts, executives, and reviewers turn ambiguous source material and project evidence into deterministic, evidence-backed, auditable decision-support artifacts.
 
+![Strategic Intelligence Decision Companion Decision Workspace](docs/Images/dashboard-overview.png)
+
+The Decision Workspace presents projects, decision questions, evidence, deterministic analysis, review state, and downloadable artifacts in one auditable flow.
+
 This is not a chatbot, autonomous researcher, monitoring system, forecasting engine, investment advisor, legal advisor, or autonomous decision maker.
 
 Strategic decisions rarely fail because no one can generate text. They fail because evidence is incomplete, trade-offs are unclear, assumptions are hidden, and teams do not know what should change their view.
 
 Repo 5 is built around that problem.
+
+Most AI systems optimize for generating answers. Strategic Intelligence Decision Companion optimizes for improving decision quality.
 
 It separates evidence from inference, recommendations from facts, confidence from certainty, and reviewer judgment from system-generated structure. The goal is not to predict outcomes. The goal is to make strategic reasoning explicit enough for human review.
 
@@ -151,7 +157,7 @@ The reviewer remains responsible for accepting evidence, interpreting trade-offs
 
 ## Architecture
 
-The repository is a local FastAPI application with a deterministic analysis pipeline, local JSON storage, a vanilla dashboard, and downloadable artifacts.
+The repository is a local FastAPI application with a deterministic analysis pipeline, local JSON storage, a vanilla Decision Workspace, and downloadable artifacts.
 
 ```text
 Dashboard (vanilla HTML/CSS/JS)
@@ -176,7 +182,7 @@ Markdown, TXT, JSON, Trace, Metadata
 | --- | --- |
 | `app.py` | FastAPI entrypoint and API routes. |
 | `src/` | Decision engine, evidence, readiness, pathway, comparison, review, confidence, and evaluation modules. |
-| `dashboard/` | Local browser dashboard for the decision workspace. |
+| `dashboard/` | Local browser implementation for the Decision Workspace. |
 | `knowledge_base/` | Local mechanism, analogue, outcome, and playbook records. |
 | `docs/` | Product, engineering, governance, evidence, evaluation, and research documentation. |
 | `demo_case_outputs/` | Bundled generated artifacts for review. |
@@ -190,7 +196,7 @@ Important modules:
 - `src/decision_pathways.py`: deterministic pathway draft generation.
 - `src/pathway_comparison.py`: categorical pathway comparison.
 - `src/decision_review.py`: reviewer-controlled review layer.
-- `dashboard/project.js`: project workspace dashboard behavior.
+- `dashboard/project.js`: Decision Workspace browser behavior.
 
 The platform does not require a database, cloud service, background worker, external UI framework, LangGraph, RAG framework, autonomous agent, or scheduled retrieval.
 
@@ -213,24 +219,39 @@ For release and repository maturity context:
 - [Folder Structure](docs/FolderStructure.md)
 - [Changelog](CHANGELOG.md)
 
-## Local Setup
+## Quick Start
 
-Install dependencies:
+Launch the local product:
+
+```bash
+./run_app.sh
+```
+
+Or use the cross-platform Python launcher:
+
+```bash
+python3 launch.py
+```
+
+Open:
+
+```text
+http://localhost
+```
+
+## Developer Startup
+
+Developers can still run the FastAPI app directly:
 
 ```bash
 python3 -m pip install -r requirements.txt
-```
-
-Run the API:
-
-```bash
 python3 -m uvicorn app:app --reload
 ```
 
-Open the dashboard:
+Developer route:
 
 ```text
-http://127.0.0.1:8000/dashboard/
+http://127.0.0.1:8000/workspace
 ```
 
 Run validation:
@@ -280,7 +301,7 @@ Generated workspace artifacts are available under `demo_case_outputs/`.
 | Pathways | Deterministic pathway drafting and pathway comparison implemented. |
 | Review | Reviewer-controlled review layer implemented without approval or selection workflow. |
 | Evaluation | Deterministic Decision Quality Evaluation Harness implemented. |
-| Dashboard | Local reviewer workspace implemented in vanilla HTML/CSS/JavaScript. |
+| Decision Workspace | Local reviewer workspace implemented in vanilla HTML/CSS/JavaScript. |
 | CI | Ruff, compile checks, and pytest used for validation. |
 | Portfolio Readiness | Suitable for external review as a mature AI product architecture project. |
 

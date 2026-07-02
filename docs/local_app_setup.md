@@ -1,44 +1,56 @@
 # Local App Setup
 
-Strategic Intelligence Decision Companion runs as a local usable application. The browser dashboard calls a FastAPI backend, and the backend runs the existing Python pipeline.
+Strategic Intelligence Decision Companion runs as a local product. You do not need to understand FastAPI, uvicorn, or local server ports to start using it.
 
-## Install
+## Quick Start
 
-```bash
-python3 -m pip install -r requirements.txt
-```
-
-## Start The Local Server
-
-From the repository root:
+From the repository folder, run:
 
 ```bash
-python3 -m uvicorn app:app --reload
+./run_app.sh
 ```
 
-The local API runs at:
+Or use the Python launcher:
 
-```text
-http://127.0.0.1:8000
+```bash
+python3 launch.py
 ```
-
-## Open The Dashboard
 
 Open:
 
 ```text
-http://127.0.0.1:8000/dashboard/
+http://localhost
 ```
 
-## Basic User Workflow
+Select **Open Decision Workspace** to begin.
 
-1. Create or open a project.
+## First Workflow
+
+1. Create a project.
 2. Add a decision question.
-3. Paste text, upload a supported file, or provide a readable URL.
-4. Choose beginner, analyst, or executive output mode.
-5. Click Analyze.
-6. Review the workspace panels and download Markdown, TXT, or JSON results.
+3. Add evidence manually or accept retrieved evidence into the Evidence Library.
+4. Select evidence for analysis.
+5. Run the deterministic analysis.
+6. Review the Decision Workspace panels.
+7. Download Markdown, TXT, or JSON artifacts if needed.
+
+## Developer Startup
+
+Developers can still run the FastAPI app directly:
+
+```bash
+python3 -m pip install -r requirements.txt
+python3 -m uvicorn app:app --reload
+```
+
+Developer workspace route:
+
+```text
+http://127.0.0.1:8000/workspace
+```
+
+The backward-compatible route remains available at `/dashboard`.
 
 ## Local-Only Scope
 
-The server is intended for local execution. It can attempt to fetch readable text from a user-provided URL, but it does not add live web search, external monitoring, LLM APIs, forecasting, investment advice, or trading recommendations.
+The app is intended for local execution. It can retrieve evidence only through explicit user action. It does not add live web search, autonomous browsing, external monitoring, LLM APIs, forecasting, investment advice, legal advice, or trading recommendations.

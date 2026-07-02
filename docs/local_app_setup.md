@@ -4,22 +4,22 @@ Strategic Intelligence Decision Companion runs as a local product. You do not ne
 
 ## Quick Start
 
-From the repository folder, run:
-
-```bash
-./run_app.sh
-```
-
-Or use the Python launcher:
-
-```bash
-python3 launch.py
-```
-
-Open:
+For macOS, double-click:
 
 ```text
-http://localhost
+launch/Launch Strategic Intelligence Decision Companion.command
+```
+
+For Windows, double-click:
+
+```text
+launch/Launch Strategic Intelligence Decision Companion.bat
+```
+
+The launcher starts the local app and opens the Decision Workspace. If the browser does not open automatically, open:
+
+```text
+http://localhost:8000
 ```
 
 Select **Open Decision Workspace** to begin.
@@ -36,7 +36,14 @@ Select **Open Decision Workspace** to begin.
 
 ## Developer Startup
 
-Developers can still run the FastAPI app directly:
+Technical users can still launch from a terminal:
+
+```bash
+./run_app.sh
+python3 launch.py
+```
+
+Developers can also run the FastAPI app directly:
 
 ```bash
 python3 -m pip install -r requirements.txt

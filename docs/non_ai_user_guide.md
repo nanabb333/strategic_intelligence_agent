@@ -4,22 +4,22 @@ Strategic Intelligence Decision Companion is designed for reviewers who want a s
 
 ## Start The Product
 
-Run one command from the repository folder:
-
-```bash
-./run_app.sh
-```
-
-Or:
-
-```bash
-python3 launch.py
-```
-
-Open:
+For macOS, double-click:
 
 ```text
-http://localhost
+launch/Launch Strategic Intelligence Decision Companion.command
+```
+
+For Windows, double-click:
+
+```text
+launch/Launch Strategic Intelligence Decision Companion.bat
+```
+
+The launcher starts the local app and opens the Decision Workspace. If the browser does not open automatically, open:
+
+```text
+http://localhost:8000
 ```
 
 Choose **Open Decision Workspace**.

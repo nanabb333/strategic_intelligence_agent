@@ -221,27 +221,34 @@ For release and repository maturity context:
 
 ## Quick Start
 
-Launch the local product:
-
-```bash
-./run_app.sh
-```
-
-Or use the cross-platform Python launcher:
-
-```bash
-python3 launch.py
-```
-
-Open:
+For macOS, double-click:
 
 ```text
-http://localhost
+launch/Launch Strategic Intelligence Decision Companion.command
+```
+
+For Windows, double-click:
+
+```text
+launch/Launch Strategic Intelligence Decision Companion.bat
+```
+
+The launcher starts the local app and opens the Decision Workspace. If the browser does not open automatically, open:
+
+```text
+http://localhost:8000
 ```
 
 ## Developer Startup
 
-Developers can still run the FastAPI app directly:
+Technical users can still launch from a terminal:
+
+```bash
+./run_app.sh
+python3 launch.py
+```
+
+Developers can also run the FastAPI app directly:
 
 ```bash
 python3 -m pip install -r requirements.txt

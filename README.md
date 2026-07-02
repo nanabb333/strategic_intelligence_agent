@@ -104,6 +104,18 @@ Current screenshot placeholder: [docs/Images/dashboard-overview.png](docs/Images
 
 Future screenshots should show a populated Decision Workspace with an active project, evidence, analysis result, and reviewer panels.
 
+## Demo In 3 Minutes
+
+Reviewers can understand the product without running it:
+
+1. Read the [Demo Walkthrough](docs/DemoWalkthrough.md).
+2. Open the [V4 Workspace Demo](demo_case_outputs/v4_workspace/README.md).
+3. Inspect the [Evidence Library](demo_case_outputs/v4_workspace/evidence_library.json).
+4. Open the first [Decision Brief](demo_case_outputs/v4_workspace/question_1_q_export_controls_immediate/brief.md).
+5. Compare the [Decision History](demo_case_outputs/v4_workspace/decision_history.json) and [Decision Delta](demo_case_outputs/v4_workspace/decision_delta.json).
+
+For a portfolio-oriented review, start with the [Portfolio Review Guide](docs/PortfolioReviewGuide.md).
+
 ## Example Decision-Support Output
 
 A semiconductor manufacturer faces new export controls. Management needs to decide whether investment plans, customer exposure reviews, and supply-chain monitoring should change.
@@ -233,6 +245,8 @@ Start here:
 For release and repository maturity context:
 
 - [Enterprise Readiness Checklist](docs/EnterpriseReadinessChecklist.md)
+- [Demo Walkthrough](docs/DemoWalkthrough.md)
+- [Portfolio Review Guide](docs/PortfolioReviewGuide.md)
 - [Repository Maturity Review](docs/RepositoryMaturityReview.md)
 - [Testing](docs/Testing.md)
 - [Folder Structure](docs/FolderStructure.md)
@@ -316,6 +330,8 @@ Representative scenarios include:
 - Strategic Partnership
 
 Generated workspace artifacts are available under `demo_case_outputs/`.
+
+Curated portfolio demo assets are available under [portfolio_assets/](portfolio_assets/README.md).
 
 ## Current Status
 

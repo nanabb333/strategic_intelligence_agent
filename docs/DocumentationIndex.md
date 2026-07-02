@@ -15,6 +15,8 @@ Start here for the consolidated enterprise product view. Current behavior should
 ## Getting Started
 
 - [Double-Click Launchers](../launch/README.md): macOS and Windows local launch paths.
+- [Demo Walkthrough](DemoWalkthrough.md): three-minute reviewer path through the V4 workspace demo.
+- [Portfolio Review Guide](PortfolioReviewGuide.md): product, engineering, Decision Intelligence, and enterprise review guide.
 - [Demo Scenarios](GettingStarted/DemoScenarios.md): polished end-to-end scenarios for portfolio review.
 - [V4 Workspace Demo](../demo_case_outputs/v4_workspace/README.md): generated workspace artifacts with linked questions, evidence, timeline, and delta.
 - [Local App Setup](local_app_setup.md): local product setup for non-technical users and developers.
@@ -72,6 +74,9 @@ Start here for the consolidated enterprise product view. Current behavior should
 ## Portfolio Assets
 
 - [Portfolio Assets](../portfolio_assets/README.md): curated screenshots, sample inputs, sample outputs, and future media structure.
+- [Demo Notes](../portfolio_assets/demo_notes/README.md): reviewer checklists and presentation notes.
+- [Sample Inputs](../portfolio_assets/sample_inputs/README.md): curated demo input guidance.
+- [Sample Outputs](../portfolio_assets/sample_outputs/README.md): curated demo output guidance.
 
 ## Historical Portfolio Material
 

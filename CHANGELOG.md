@@ -1,5 +1,23 @@
 # Changelog
 
+## V4.6 - Portfolio Demo Package Release
+
+### Added
+
+- `docs/DemoWalkthrough.md` for a three-minute reviewer demo path.
+- `docs/PortfolioReviewGuide.md` for product, engineering, Decision Intelligence, and enterprise evaluation.
+- Portfolio asset guidance for screenshots, sample inputs, sample outputs, and demo notes.
+- Reviewer checklist under `portfolio_assets/demo_notes/`.
+
+### Changed
+
+- README now exposes a Demo in 3 Minutes path.
+- Documentation Index now surfaces demo and portfolio review entry points.
+
+### Preserved
+
+- No Decision Intelligence, evidence, API, routing, evaluation, reviewer workflow, or product logic changes.
+
 ## V4.5 - Enterprise Product Presentation & Repository Excellence
 
 ### Changed

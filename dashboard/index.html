@@ -10,14 +10,14 @@
     <div class="product-shell">
       <header class="shell-header" aria-labelledby="app-title">
         <div class="shell-brand">
-          <p class="eyebrow" data-i18n="workbenchLabel">Decision Companion</p>
-          <h1 id="app-title" data-i18n="appTitle">Decide what to do next</h1>
-          <p class="hero-subtitle">Local-first Decision Intelligence Workspace</p>
-          <p id="helper-text" class="hero-copy">Turn source material into a recommendation, confidence view, evidence summary, and monitoring plan before reviewing method details.</p>
+          <p class="eyebrow" data-i18n="workbenchLabel">Reviewer-first Decision Workspace</p>
+          <h1 id="app-title" data-i18n="appTitle">Strategic Intelligence Decision Companion</h1>
+          <p class="hero-subtitle">Local-first Enterprise Decision Intelligence</p>
+          <p id="helper-text" class="hero-copy">Structure decision questions, evidence, analysis runs, and reviewer observations without autonomous decision-making.</p>
         </div>
         <div class="shell-status">
-          <span id="api-status" class="status-pill">Checking server</span>
-          <span class="local-pill">Local FastAPI workspace</span>
+          <span id="api-status" class="status-pill">Checking workspace</span>
+          <span class="local-pill">Local-first reviewer workflow</span>
         </div>
       </header>
 
@@ -40,13 +40,13 @@
             </div>
 
             <div id="getting-started" class="getting-started" hidden>
-              <h3>Getting Started</h3>
-              <p>Projects organize multiple decision questions, evidence, decision history, and recommendations in one workspace.</p>
+              <h3>Create your first Decision Workspace</h3>
+              <p>Projects organize decision questions, accepted evidence, analyses, and reviewer observations in one local workspace.</p>
               <button id="load-demo-workspace-button" type="button" disabled>Load Demo Workspace</button>
             </div>
 
             <div id="project-list" class="project-list">
-              <div class="empty">No projects loaded yet.</div>
+              <div class="empty">No projects yet. Create a project to begin a reviewer-controlled decision workflow.</div>
             </div>
 
             <div id="active-project-panel" class="active-project-panel" hidden>
@@ -55,7 +55,7 @@
                   <span class="step-pill">Active Project</span>
                   <strong id="active-project-name"></strong>
                 </div>
-                <span id="active-project-status" class="status-pill">Ready</span>
+                <span id="active-project-status" class="status-pill">Workspace ready</span>
               </div>
               <div class="project-overview-grid" aria-label="Active project overview">
                 <div><strong id="active-question-count">0</strong><span>Questions</span></div>
@@ -82,7 +82,7 @@
               <div class="project-section">
                 <div class="project-section-header">
                   <strong>Evidence Library</strong>
-                  <span>Reusable local notes</span>
+                  <span>Reviewer-controlled evidence</span>
                 </div>
                 <input
                   id="evidence-title-input"
@@ -111,7 +111,7 @@
                   >
                   <button id="search-evidence-button" type="button">Retrieve Evidence</button>
                   <div id="retrieved-evidence-queue" class="retrieved-evidence-queue">
-                    <div class="empty">Retrieved evidence will appear here for review before acceptance.</div>
+                    <div class="empty">Retrieved evidence will appear here for human review before it can be accepted into the Evidence Library.</div>
                   </div>
                   <button id="accept-evidence-button" type="button">Accept Selected Evidence</button>
                 </div>
@@ -123,7 +123,7 @@
                   <span>Read-only reviewer triage</span>
                 </div>
                 <div id="evidence-intelligence-panel" class="evidence-intelligence-panel">
-                  <div class="empty">No evidence intelligence available yet. Add or accept project evidence first.</div>
+                  <div class="empty">No evidence intelligence available yet. Add or accept project evidence to review duplicates, conflicts, freshness, and coverage.</div>
                 </div>
               </div>
 
@@ -137,7 +137,7 @@
                   <span>Read-only pathway preparation</span>
                 </div>
                 <div id="decision-readiness-panel" class="evidence-intelligence-panel">
-                  <div class="empty">No decision readiness available yet. Add a question and accepted evidence first.</div>
+                  <div class="empty">No decision readiness available yet. Add a question and accepted evidence to surface assumptions, unknowns, and evidence gaps.</div>
                 </div>
               </div>
 
@@ -147,7 +147,7 @@
                   <span>Read-only domain review</span>
                 </div>
                 <div id="domain-evaluation-panel" class="evidence-intelligence-panel">
-                  <div class="empty">No domain evaluation available yet. Add a relevant question and accepted evidence first.</div>
+                  <div class="empty">No domain evaluation available yet. Add a relevant question and accepted evidence to review domain-specific evidence mapping.</div>
                 </div>
               </div>
 
@@ -157,7 +157,7 @@
                   <span>Read-only comparison scaffolds</span>
                 </div>
                 <div id="decision-pathways-panel" class="evidence-intelligence-panel">
-                  <div class="empty">No pathway drafts available yet. Add a question and accepted evidence first.</div>
+                  <div class="empty">No pathway drafts available yet. Add a question and accepted evidence to compare possible reviewer-validated paths.</div>
                 </div>
               </div>
 
@@ -167,7 +167,7 @@
                   <span>Read-only side-by-side review</span>
                 </div>
                 <div id="pathway-comparison-panel" class="evidence-intelligence-panel">
-                  <div class="empty">No pathway comparison available yet. Add a question and accepted evidence first.</div>
+                  <div class="empty">No pathway comparison available yet. Generate pathway drafts before reviewing side-by-side trade-offs.</div>
                 </div>
               </div>
 
@@ -181,7 +181,7 @@
                   <span>Reviewer-controlled state</span>
                 </div>
                 <div id="decision-review-panel" class="evidence-intelligence-panel">
-                  <div class="empty">No review state recorded yet.</div>
+                  <div class="empty">No reviewer notes yet. Record reviewed items, open questions, or evidence needs when ready.</div>
                 </div>
               </div>
 
@@ -265,7 +265,7 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
               <button id="export-txt" type="button" data-i18n="exportTxt">Export TXT</button>
               <button id="export-json" type="button">Download JSON</button>
             </div>
-            <p id="run-note" class="note" data-i18n="exportNote">Results are saved locally by the FastAPI app under outputs/runs/.</p>
+            <p id="run-note" class="note" data-i18n="exportNote">Results are saved locally as reviewable Markdown, TXT, and JSON artifacts.</p>
             <div class="history-panel" aria-labelledby="history-title">
               <h2 id="history-title" data-i18n="runHistory">Run History</h2>
               <div id="history-list" class="history-list"></div>
@@ -338,7 +338,7 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
           </details>
 
           <details class="internal-detail">
-            <summary><span data-i18n="executionTrace">Execution Trace</span> <span data-source="Agent Router">Agent Router</span></summary>
+            <summary><span data-i18n="executionTrace">Execution Trace</span> <span data-source="Tool Router">Tool Router</span></summary>
             <div id="trace-section" class="section-body"></div>
           </details>
 
@@ -370,7 +370,7 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
           </details>
 
           <details class="internal-detail">
-            <summary><span data-i18n="selectedTools">Selected Tools</span> <span data-source="Agent Router">Agent Router</span></summary>
+            <summary><span data-i18n="selectedTools">Selected Tools</span> <span data-source="Tool Router">Tool Router</span></summary>
             <div id="tools-section" class="section-body"></div>
           </details>
 
@@ -403,6 +403,11 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
           </details>
         </section>
       </main>
+      <footer class="product-footer" aria-label="Product release">
+        <span>Strategic Intelligence Decision Companion</span>
+        <span>Release V4.7</span>
+        <span>Local-first reviewer workflow</span>
+      </footer>
     </div>
 
     <script src="/dashboard/app.js"></script>

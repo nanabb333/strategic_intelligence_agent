@@ -190,7 +190,7 @@ The reviewer remains responsible for accepting evidence, interpreting trade-offs
 The repository is a local FastAPI application with a deterministic analysis pipeline, local JSON storage, a vanilla Decision Workspace, and downloadable artifacts.
 
 ```text
-Dashboard (vanilla HTML/CSS/JS)
+Decision Workspace (vanilla HTML/CSS/JS)
   |
   v
 FastAPI App

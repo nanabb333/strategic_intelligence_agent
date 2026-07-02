@@ -2,9 +2,9 @@ const API_BASE = window.location.origin.startsWith("http") ? window.location.ori
 
 const localeText = {
   en: {
-    appTitle: "Decide what to do next",
-    workbenchLabel: "Decision Companion",
-    helperText: "Turn source material into a recommendation, confidence view, evidence summary, and monitoring plan before reviewing method details.",
+    appTitle: "Strategic Intelligence Decision Companion",
+    workbenchLabel: "Reviewer-first Decision Workspace",
+    helperText: "Structure decision questions, evidence, analysis runs, and reviewer observations without autonomous decision-making.",
     trustNoteTitle: "Trust boundary",
     trustNoteBody: "Local deterministic rules and curated knowledge files support the brief. Treat outputs as decision-support drafts for human review, not forecasts, legal advice, investment advice, or verified research.",
     flowInput: "1. Frame decision",
@@ -21,11 +21,11 @@ const localeText = {
     artifactsGroup: "Artifacts",
     downloadsGroup: "Downloads",
     runHistory: "Run History",
-    emptyTitle: "Start with a situation",
-    emptyBody: "Paste a policy excerpt, earnings note, supply chain update, URL, or internal memo. Ask the decision question you want the brief to address.",
-    emptyDecision: "Recommendation, confidence, rationale, risks, and next monitoring window appear first.",
-    emptyEvidence: "Evidence summary, historical cases, and decision quality checks appear after the first run.",
-    emptyDownloads: "Markdown, TXT, and JSON downloads become available after analysis.",
+    emptyTitle: "Start with a decision question",
+    emptyBody: "Paste source material, add project evidence, or upload a supported file. The workspace will keep evidence, assumptions, and reviewer judgment separate.",
+    emptyDecision: "Decision-support output appears first for reviewer inspection.",
+    emptyEvidence: "Evidence summaries, historical cases, and quality checks appear after analysis.",
+    emptyDownloads: "Markdown, TXT, and JSON artifacts become available after analysis.",
     loadingTitle: "Building decision brief",
     loadingBody: "Reviewing the input, matching local historical cases, and preparing downloadable artifacts.",
     assistantInputLabel: "Decision question and source material",
@@ -116,8 +116,8 @@ const localeText = {
     noFindings: "No findings returned for this run.",
     noContext: "No article content was detected. Please paste article text, upload a file, or use a working webpage link.",
     noImplications: "No implications returned.",
-    analyzing: "Analyzing...",
-    pasteFirst: "Paste text or upload a file first.",
+    analyzing: "Building brief...",
+    pasteFirst: "Add source material, a URL, or an uploaded file before building a decision brief.",
     downloadFirst: "Run an analysis before downloading.",
   },
 };
@@ -190,10 +190,10 @@ async function checkHealth() {
   try {
     const response = await fetch(`${API_BASE}/health`);
     if (!response.ok) throw new Error("Health check failed");
-    status.textContent = "Server connected";
+    status.textContent = "Workspace connected";
     status.classList.remove("offline");
   } catch (error) {
-    status.textContent = "Start FastAPI server";
+    status.textContent = "Start local workspace";
     status.classList.add("offline");
   }
 }
@@ -278,7 +278,7 @@ async function loadHistory() {
     if (!response.ok) throw new Error("History unavailable");
     const runs = await response.json();
     if (!runs.length) {
-      list.innerHTML = '<div class="empty">No saved runs yet.</div>';
+      list.innerHTML = '<div class="empty">No saved runs yet. Build a decision brief to create a local review artifact.</div>';
       return;
     }
     list.innerHTML = "";
@@ -291,7 +291,7 @@ async function loadHistory() {
       list.appendChild(button);
     });
   } catch (error) {
-    list.innerHTML = '<div class="empty">Start the local server to view history.</div>';
+    list.innerHTML = '<div class="empty">Start the local workspace to view saved review artifacts.</div>';
   }
 }
 
@@ -841,7 +841,7 @@ function renderImplications(items) {
 }
 
 function renderTrace(trace) {
-  document.getElementById("tools-section").innerHTML = `<p><strong>${t("selected")}:</strong> ${escapeHtml((trace.selected_tools || []).join(", ") || t("none"))}</p><p><strong>${t("skipped")}:</strong> ${escapeHtml((trace.skipped_tools || []).join(", ") || t("none"))}</p><p>${sourceBadge("Agent Router")}</p>`;
+  document.getElementById("tools-section").innerHTML = `<p><strong>${t("selected")}:</strong> ${escapeHtml((trace.selected_tools || []).join(", ") || t("none"))}</p><p><strong>${t("skipped")}:</strong> ${escapeHtml((trace.skipped_tools || []).join(", ") || t("none"))}</p><p>${sourceBadge("Tool Router")}</p>`;
   document.getElementById("trace-section").innerHTML = `<ol>${(trace.trace || []).map((step) => `<li>${escapeHtml(step.event)}: ${escapeHtml(step.detail)}</li>`).join("")}</ol><p>${sourceBadge("agent_trace.json")}</p>`;
 }
 

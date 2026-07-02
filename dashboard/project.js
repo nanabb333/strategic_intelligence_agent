@@ -55,7 +55,7 @@
       }
 
       if (!projects.length) {
-        list.innerHTML = '<div class="empty project-empty-state">No projects yet.</div>';
+        list.innerHTML = '<div class="empty project-empty-state">No projects yet. Create a project to organize questions, evidence, analyses, and reviewer notes.</div>';
         return;
       }
 
@@ -84,7 +84,7 @@
       });
     } catch (error) {
       if (gettingStarted) gettingStarted.hidden = true;
-      list.innerHTML = '<div class="empty">Could not load projects.</div>';
+      list.innerHTML = '<div class="empty error-state">Could not load projects. Start the local workspace and try again.</div>';
     }
   }
 
@@ -95,7 +95,7 @@
     const name = input.value.trim();
 
     if (!name) {
-      alert("Please enter a project name.");
+      alert("Enter a project name to create a reviewer-controlled workspace.");
       return;
     }
 
@@ -109,7 +109,7 @@
     });
 
     if (!response.ok) {
-      alert("Could not create project.");
+      alert("Could not create the project. Confirm the local workspace is running and try again.");
       return;
     }
 
@@ -125,7 +125,7 @@
     const response = await fetch(`${PROJECT_API_BASE}/projects/${projectId}`);
 
     if (!response.ok) {
-      alert("Could not open project.");
+      alert("Could not open the project. Refresh the workspace and try again.");
       return;
     }
 
@@ -194,7 +194,7 @@
     if (!questionList) return;
 
     if (!questions.length) {
-      questionList.innerHTML = '<div class="empty">No questions saved in this project yet.</div>';
+      questionList.innerHTML = '<div class="empty">No questions saved yet. Add the decision question reviewers need to examine.</div>';
       return;
     }
 
@@ -226,7 +226,7 @@
     if (!evidenceList) return;
 
     if (!items.length) {
-      evidenceList.innerHTML = '<div class="empty">No reusable evidence saved yet.</div>';
+      evidenceList.innerHTML = '<div class="empty">No accepted evidence saved yet. Add a manual note or accept retrieved evidence after human review.</div>';
       return;
     }
 
@@ -292,7 +292,7 @@
       return;
     }
 
-    panel.innerHTML = '<div class="empty">Loading evidence intelligence...</div>';
+    panel.innerHTML = '<div class="empty">Preparing evidence intelligence for reviewer triage...</div>';
 
     try {
       const response = await fetch(`${PROJECT_API_BASE}/projects/${projectId}/evidence/intelligence`);
@@ -301,7 +301,7 @@
       if (workspaceProject?.project_id !== projectId) return;
       renderEvidenceIntelligence(data);
     } catch (error) {
-      renderEvidenceIntelligenceError("Could not load evidence intelligence.");
+      renderEvidenceIntelligenceError("Could not load evidence intelligence. Existing evidence remains unchanged.");
     }
   }
 
@@ -336,7 +336,7 @@
         <div><strong>${projectEscapeHtml((data.duplicate_groups || []).length)}</strong><span>Possible duplicate groups</span></div>
         <div><strong>${projectEscapeHtml(coverage.coverage_score ?? "0")}</strong><span>Coverage score</span></div>
       </div>
-      ${decisionSignalsAvailable ? "" : '<div class="empty">No decision-grade evidence signals available yet. Add or accept more project evidence.</div>'}
+      ${decisionSignalsAvailable ? "" : '<div class="empty">No decision-grade evidence signals available yet. Add or accept more project evidence for reviewer triage.</div>'}
       ${renderEvidenceIntelligenceSection("Traceable Signals", renderTraceableSignals(data.traceable_signals || []))}
       ${renderEvidenceIntelligenceSection("Decision Risk Evidence Map", renderRiskSignals(data.decision_risk_evidence_map || []))}
       ${renderEvidenceIntelligenceSection("Regulatory / Legal Constraint Flags", renderRegulatoryFlags(data.regulatory_constraint_flags || []))}
@@ -356,7 +356,7 @@
   function renderEvidenceIntelligenceEmptyState() {
     const panel = document.getElementById("evidence-intelligence-panel");
     if (!panel) return;
-    panel.innerHTML = '<div class="empty">No evidence intelligence available yet. Add or accept project evidence first.</div>';
+    panel.innerHTML = '<div class="empty">No evidence intelligence available yet. Add or accept project evidence to review duplicates, conflicts, freshness, and coverage.</div>';
   }
 
   function renderEvidenceIntelligenceError(message) {
@@ -553,7 +553,7 @@
       return;
     }
 
-    panel.innerHTML = '<div class="empty">Loading decision readiness...</div>';
+    panel.innerHTML = '<div class="empty">Preparing decision readiness map for reviewer inspection...</div>';
 
     try {
       const response = await fetch(`${PROJECT_API_BASE}/projects/${projectId}/decision/readiness`);
@@ -562,7 +562,7 @@
       if (workspaceProject?.project_id !== projectId) return;
       renderDecisionReadiness(data);
     } catch (error) {
-      renderDecisionReadinessError("Could not load decision readiness.");
+      renderDecisionReadinessError("Could not load decision readiness. Project evidence and review state were not changed.");
     }
   }
 
@@ -603,7 +603,7 @@
   function renderDecisionReadinessEmptyState() {
     const panel = document.getElementById("decision-readiness-panel");
     if (!panel) return;
-    panel.innerHTML = '<div class="empty">No decision readiness available yet. Add a question and accepted evidence first.</div>';
+    panel.innerHTML = '<div class="empty">No decision readiness available yet. Add a question and accepted evidence to surface assumptions, unknowns, and evidence gaps.</div>';
   }
 
   function renderDecisionReadinessError(message) {
@@ -617,7 +617,7 @@
   }
 
   function renderReadinessFrameworks(items) {
-    if (!items.length) return '<div class="empty">No applicable frameworks identified yet.</div>';
+    if (!items.length) return '<div class="empty">No applicable frameworks identified yet. Add evidence that clarifies risks, constraints, or decision criteria.</div>';
     return items.map((item) => `
       <div class="intelligence-item">
         <strong>${projectEscapeHtml(item.name || item.framework_id || "Framework")}</strong>
@@ -671,7 +671,7 @@
   }
 
   function renderAssumptionsAndUnknowns(assumptions, unknowns) {
-    if (!assumptions.length && !unknowns.length) return '<div class="empty">No assumptions or unknowns mapped yet.</div>';
+    if (!assumptions.length && !unknowns.length) return '<div class="empty">No assumptions or unknowns mapped yet. Reviewers can add evidence to make unresolved issues visible.</div>';
     return `
       ${assumptions.map((item) => `
         <div class="intelligence-item">
@@ -693,7 +693,7 @@
   }
 
   function renderReadinessQuestions(items) {
-    if (!items.length) return '<div class="empty">No reviewer questions generated yet.</div>';
+    if (!items.length) return '<div class="empty">No reviewer questions generated yet. Add accepted evidence to expose gaps that need human judgment.</div>';
     return items.map((item) => `
       <div class="intelligence-item">
         <strong>${projectEscapeHtml(item.question || "Reviewer question")}</strong>
@@ -724,7 +724,7 @@
       return;
     }
 
-    panel.innerHTML = '<div class="empty">Loading pathway drafts...</div>';
+    panel.innerHTML = '<div class="empty">Preparing pathway drafts for reviewer comparison...</div>';
 
     try {
       const response = await fetch(`${PROJECT_API_BASE}/projects/${projectId}/decision/pathways`);
@@ -733,7 +733,7 @@
       if (workspaceProject?.project_id !== projectId) return;
       renderDecisionPathways(data);
     } catch (error) {
-      renderDecisionPathwaysError("Could not load decision pathway drafts.");
+      renderDecisionPathwaysError("Could not load decision pathway drafts. No pathway was selected or recommended.");
     }
   }
 
@@ -808,7 +808,7 @@
   function renderDecisionPathwaysEmptyState() {
     const panel = document.getElementById("decision-pathways-panel");
     if (!panel) return;
-    panel.innerHTML = '<div class="empty">No pathway drafts available yet. Add a question and accepted evidence first.</div>';
+    panel.innerHTML = '<div class="empty">No pathway drafts available yet. Add a question and accepted evidence to compare possible reviewer-validated paths.</div>';
   }
 
   function renderDecisionPathwaysError(message) {
@@ -825,7 +825,7 @@
       return;
     }
 
-    panel.innerHTML = '<div class="empty">Loading pathway comparison...</div>';
+    panel.innerHTML = '<div class="empty">Preparing pathway comparison matrix for reviewer inspection...</div>';
 
     try {
       const response = await fetch(`${PROJECT_API_BASE}/projects/${projectId}/decision/pathway-comparison`);
@@ -834,7 +834,7 @@
       if (workspaceProject?.project_id !== projectId) return;
       renderPathwayComparison(data);
     } catch (error) {
-      renderPathwayComparisonError("Could not load pathway comparison matrix.");
+      renderPathwayComparisonError("Could not load pathway comparison matrix. No ranking or selection was created.");
     }
   }
 
@@ -927,7 +927,7 @@
   function renderPathwayComparisonEmptyState() {
     const panel = document.getElementById("pathway-comparison-panel");
     if (!panel) return;
-    panel.innerHTML = '<div class="empty">No pathway comparison available yet. Add a question and accepted evidence first.</div>';
+    panel.innerHTML = '<div class="empty">No pathway comparison available yet. Generate pathway drafts before reviewing side-by-side trade-offs.</div>';
   }
 
   function renderPathwayComparisonError(message) {
@@ -944,7 +944,7 @@
       return;
     }
 
-    panel.innerHTML = '<div class="empty">Loading decision review state...</div>';
+    panel.innerHTML = '<div class="empty">Loading reviewer-controlled decision review state...</div>';
 
     try {
       const response = await fetch(`${PROJECT_API_BASE}/projects/${projectId}/decision/review`);
@@ -953,7 +953,7 @@
       if (workspaceProject?.project_id !== projectId) return;
       renderDecisionReview(data);
     } catch (error) {
-      renderDecisionReviewError("Could not load decision review state.");
+      renderDecisionReviewError("Could not load decision review state. Existing notes were not changed.");
     }
   }
 
@@ -1067,7 +1067,7 @@
       ...(data.unknown_reviews || []).map((item) => ({...item, label: item.unknown_id, type: "Unknown"})),
       ...(data.trigger_reviews || []).map((item) => ({...item, label: item.trigger_id, type: "Decision trigger"})),
     ];
-    if (!items.length) return '<div class="empty">No review items recorded yet.</div>';
+    if (!items.length) return '<div class="empty">No review items recorded yet. Mark items only after reviewer inspection.</div>';
     return items.map((item) => `
       <div class="intelligence-item">
         <strong>${projectEscapeHtml(item.type)}: ${projectEscapeHtml(item.label || "Review item")}</strong>
@@ -1080,7 +1080,7 @@
   }
 
   function renderReviewerNotes(items) {
-    if (!items.length) return '<div class="empty">No reviewer notes recorded yet.</div>';
+    if (!items.length) return '<div class="empty">No reviewer notes recorded yet. Add notes when human judgment, evidence needs, or compliance review should be preserved.</div>';
     return items.slice(-8).reverse().map((item) => `
       <div class="intelligence-item">
         <strong>${projectEscapeHtml(item.target_type || "Review note")}: ${projectEscapeHtml(item.target_id || "")}</strong>
@@ -1091,7 +1091,7 @@
   }
 
   function renderUnresolvedQuestions(items) {
-    if (!items.length) return '<div class="empty">No unresolved decision questions recorded yet.</div>';
+    if (!items.length) return '<div class="empty">No unresolved decision questions recorded yet. Add questions when reviewers need more evidence or interpretation.</div>';
     return items.slice(-8).reverse().map((item) => `
       <div class="intelligence-item">
         <strong>${projectEscapeHtml(item.question || "Unresolved question")}</strong>
@@ -1105,7 +1105,7 @@
   function renderDecisionReviewEmptyState() {
     const panel = document.getElementById("decision-review-panel");
     if (!panel) return;
-    panel.innerHTML = '<div class="empty">No review state recorded yet.</div>';
+    panel.innerHTML = '<div class="empty">No reviewer notes yet. Record reviewed items, open questions, or evidence needs when ready.</div>';
   }
 
   function renderDecisionReviewError(message) {
@@ -1122,7 +1122,7 @@
       return;
     }
 
-    panel.innerHTML = '<div class="empty">Loading domain evaluation...</div>';
+    panel.innerHTML = '<div class="empty">Preparing domain evaluation for reviewer inspection...</div>';
 
     try {
       const response = await fetch(`${PROJECT_API_BASE}/projects/${projectId}/decision/domain-evaluation`);
@@ -1131,7 +1131,7 @@
       if (workspaceProject?.project_id !== projectId) return;
       renderDomainEvaluation(data);
     } catch (error) {
-      renderDomainEvaluationError("Could not load domain decision evaluation.");
+      renderDomainEvaluationError("Could not load domain decision evaluation. Existing evidence and analysis remain unchanged.");
     }
   }
 
@@ -1219,7 +1219,7 @@
   function renderDomainEvaluationEmptyState() {
     const panel = document.getElementById("domain-evaluation-panel");
     if (!panel) return;
-    panel.innerHTML = '<div class="empty">No domain evaluation available yet. Add a relevant question and accepted evidence first.</div>';
+    panel.innerHTML = '<div class="empty">No domain evaluation available yet. Add a relevant question and accepted evidence to review domain-specific evidence mapping.</div>';
   }
 
   function renderDomainEvaluationError(message) {

@@ -99,6 +99,27 @@ body {
   padding: 0 32px 32px;
 }
 
+.product-footer {
+  align-items: center;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 12px;
+  font-weight: 700;
+  gap: var(--space-3);
+  justify-content: center;
+  letter-spacing: 0.02em;
+  margin: 0 auto;
+  max-width: 1680px;
+  padding: 0 32px 28px;
+}
+
+.product-footer span:not(:last-child)::after {
+  color: var(--line-strong);
+  content: "|";
+  margin-left: var(--space-3);
+}
+
 .input-panel,
 .results-panel {
   background: transparent;

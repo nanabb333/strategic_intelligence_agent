@@ -3,35 +3,37 @@ const API_BASE = window.location.origin.startsWith("http") ? window.location.ori
 const localeText = {
   en: {
     appTitle: "Strategic Intelligence Decision Companion",
-    workbenchLabel: "Reviewer-first Decision Workspace",
-    helperText: "Structure decision questions, evidence, analysis runs, and reviewer observations without autonomous decision-making.",
+    workbenchLabel: "Enterprise Decision Intelligence",
+    helperText: "Frame the decision, provide reviewer context and supporting evidence, then review the assessment before acting.",
     trustNoteTitle: "Trust boundary",
     trustNoteBody: "Local deterministic rules and curated knowledge files support the brief. Treat outputs as decision-support drafts for human review, not forecasts, legal advice, investment advice, or verified research.",
     flowInput: "1. Frame decision",
     flowEvidence: "2. Review evidence",
     flowDecision: "3. Monitor change",
     resultsTitle: "Decision review",
-    decisionBriefTitle: "Decision Snapshot",
+    decisionBriefTitle: "Decision Assessment",
     resultsSubtitle: "Review the decision-support output before acting. Supporting evidence and method details stay available below.",
-    decisionGroup: "Decision",
-    supportGroup: "Supporting material",
-    analysisGroup: "Analysis",
-    methodsGroup: "Method details",
+    decisionGroup: "Decision Assessment",
+    supportGroup: "Strategic Considerations",
+    analysisGroup: "Evidence Used",
+    methodsGroup: "Assumptions and Limitations",
     settingsGroup: "Brief settings",
-    artifactsGroup: "Artifacts",
-    downloadsGroup: "Downloads",
-    runHistory: "Run History",
+    artifactsGroup: "Export Assessment",
+    downloadsGroup: "Export Assessment",
+    runHistory: "Recent Decisions",
     emptyTitle: "Start with a decision question",
-    emptyBody: "Start with the decision question, then add evidence or source material. The workspace will keep evidence, assumptions, and reviewer judgment separate.",
-    emptyDecision: "Decision-support output appears first for reviewer inspection.",
-    emptyEvidence: "Evidence summaries, historical cases, and quality checks appear after analysis.",
-    emptyDownloads: "Markdown, TXT, and JSON artifacts become available after analysis.",
-    loadingTitle: "Building decision brief",
-    loadingBody: "Reviewing the input, matching local historical cases, and preparing downloadable artifacts.",
+    emptyBody: "Start with the decision question, then add decision context and supporting evidence. The product keeps reviewer judgment separate from evidence.",
+    emptyDecision: "Decision Assessment appears first for reviewer inspection.",
+    emptyEvidence: "Confidence, evidence used, strategic considerations, assumptions, and limitations appear after analysis.",
+    emptyDownloads: "Markdown, TXT, and JSON assessment exports become available after analysis.",
+    loadingTitle: "Generating decision assessment",
+    loadingBody: "Reviewing the question, context, supporting evidence, and local historical cases.",
     decisionQuestionLabel: "Decision Question",
     decisionQuestionPlaceholder: "What decision needs reviewer judgment? What evidence would change the decision?",
-    assistantInputLabel: "Evidence / Source Material",
-    assistantPlaceholder: "Paste source material, article text, policy excerpt, earnings note, URL, or operational update here.",
+    decisionContextLabel: "Decision Context",
+    decisionContextPlaceholder: "Optional: background, objectives, constraints, or review criteria. This is reviewer-authored context, not evidence.",
+    assistantInputLabel: "Supporting Evidence",
+    assistantPlaceholder: "Paste supporting evidence, article text, policy excerpt, earnings note, URL, or operational update here.",
     documentTextLabel: "Paste document or article here",
     questionInputLabel: "Ask a Question",
     questionPlaceholder: "What does this issue mean? What historical events resemble this? How have organizations responded in similar situations? What should I monitor next?",
@@ -43,28 +45,28 @@ const localeText = {
     inputModeLabel: "Input Mode",
     pasteTextMode: "Paste Text",
     uploadFileMode: "Upload File",
-    pasteLinkMode: "Analyze Link",
+    pasteLinkMode: "Paste URL",
     uploadInstructions: "Upload .txt / .md / .markdown / .pdf",
     noFileSelected: "No file selected",
     pdfLimitNote: "PDF support works for text-based PDFs only. Scanned image PDFs are not supported.",
     sourceUrlLabel: "Paste source link",
     sourceUrlPlaceholder: "https://example.com/source-document",
     linkModeNote: "The app will try to fetch readable webpage text. If it cannot, paste the article text or upload a file.",
-    urlModeNote: "Paste a full webpage URL in Evidence / Source Material to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.",
+    urlModeNote: "Paste a full webpage URL in Supporting Evidence to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.",
     stepOne: "STEP 1",
     stepTwo: "STEP 2",
     stepThree: "STEP 3",
     pasteDocumentStep: "Paste Document",
-    chooseInputStep: "Upload File / Paste Article / Analyze Link",
+    chooseInputStep: "Paste Text / Upload File / Paste URL",
     askQuestionStep: "Ask a Question",
-    analyzeStep: "Analyze",
+    analyzeStep: "Generate Assessment",
     advancedSettings: "Advanced settings and input options",
-    advancedNote: "Downloads, run history, and stored artifacts remain available after analysis.",
+    advancedNote: "Recent decisions and assessment exports remain available after analysis.",
     pasteModeNote: "Paste mode uses the main document box above.",
-    runAnalysis: "Build decision brief",
+    runAnalysis: "Generate Decision Assessment",
     exportMarkdown: "Download Markdown",
     exportTxt: "Download TXT",
-    currentEventContext: "Current Event Context",
+    currentEventContext: "Assessment Summary",
     documentSummary: "Document Summary",
     scenarioClassification: "Scenario Classification",
     historicalAnalogues: "Historical Analogues",
@@ -79,12 +81,12 @@ const localeText = {
     interpretations: "Interpretations",
     historicalResponses: "Historical Responses",
     evidenceAssessment: "Evidence Assessment",
-    evidenceReview: "Evidence Review",
+    evidenceReview: "Evidence Used",
     evidenceCredibility: "Evidence Credibility",
     analysisTransparency: "Analysis Transparency",
     transparencyNote: "This system uses a rules-based workflow to connect the input document with historical cases, common mechanisms, and strategic lessons. A human analyst should review the result.",
     evaluation: "Evaluation",
-    executiveBrief: "Decision Snapshot",
+    executiveBrief: "Assessment Summary",
     detailedAnalysis: "Detailed Analysis",
     methodDetails: "Method Details",
     primaryScenario: "Primary scenario",
@@ -118,9 +120,9 @@ const localeText = {
     noFindings: "No findings returned for this run.",
     noContext: "No article content was detected. Please paste article text, upload a file, or use a working webpage link.",
     noImplications: "No implications returned.",
-    analyzing: "Building brief...",
-    pasteFirst: "Add a decision question, source material, a URL, or an uploaded file before building a decision brief.",
-    downloadFirst: "Run an analysis before downloading.",
+    analyzing: "Generating assessment...",
+    pasteFirst: "Add a decision question, decision context, supporting evidence, a URL, or an uploaded file before generating an assessment.",
+    downloadFirst: "Generate a decision assessment before exporting.",
   },
 };
 
@@ -192,18 +194,20 @@ async function checkHealth() {
   try {
     const response = await fetch(`${API_BASE}/health`);
     if (!response.ok) throw new Error("Health check failed");
-    status.textContent = "Workspace connected";
+    status.textContent = "Local product connected";
     status.classList.remove("offline");
   } catch (error) {
-    status.textContent = "Start local workspace";
+    status.textContent = "Start local product";
     status.classList.add("offline");
   }
 }
 
 async function analyzeDocument() {
   const decisionQuestionValue = document.getElementById("decision-question-input")?.value.trim() || "";
+  const decisionContextValue = document.getElementById("decision-context-input")?.value.trim() || "";
   const assistantValue = document.getElementById("assistant-input").value.trim();
-  const parsedInput = parseAssistantInput(assistantValue || decisionQuestionValue);
+  const combinedInput = buildDecisionInput(decisionQuestionValue, decisionContextValue, assistantValue);
+  const parsedInput = parseAssistantInput(combinedInput);
   if (!parsedInput.text && !parsedInput.sourceUrl) {
     setEmpty("summary-section", t("pasteFirst"));
     return;
@@ -274,6 +278,20 @@ function parseAssistantInput(value) {
   };
 }
 
+function buildDecisionInput(question, context, evidence) {
+  const parts = [];
+  if (question) {
+    parts.push(`Decision Question:\n${question}`);
+  }
+  if (context) {
+    parts.push(`Decision Context (reviewer-authored, not evidence):\n${context}`);
+  }
+  if (evidence) {
+    parts.push(`Supporting Evidence:\n${evidence}`);
+  }
+  return parts.join("\n\n");
+}
+
 async function loadHistory() {
   const list = document.getElementById("history-list");
   try {
@@ -281,7 +299,7 @@ async function loadHistory() {
     if (!response.ok) throw new Error("History unavailable");
     const runs = await response.json();
     if (!runs.length) {
-      list.innerHTML = '<div class="empty">No saved runs yet. Build a decision brief to create a local review artifact.</div>';
+      list.innerHTML = '<div class="empty">No recent decisions yet. Generate a Decision Assessment to create a local review artifact.</div>';
       return;
     }
     list.innerHTML = "";
@@ -294,7 +312,7 @@ async function loadHistory() {
       list.appendChild(button);
     });
   } catch (error) {
-    list.innerHTML = '<div class="empty">Start the local workspace to view saved review artifacts.</div>';
+    list.innerHTML = '<div class="empty">Start the local product to view recent decisions.</div>';
   }
 }
 
@@ -342,7 +360,7 @@ function renderRun(run) {
   const issue = analysis.issue || {};
   const scenario = analysis.scenario || {};
   renderEventContext(analysis.event_context || {});
-  document.getElementById("run-note").textContent = `Saved run: ${metadata.run_id}. Artifacts are stored under outputs/runs/${metadata.run_id}/.`;
+  document.getElementById("run-note").textContent = `Saved assessment: ${metadata.run_id}. Exports are stored under outputs/runs/${metadata.run_id}/.`;
   if (analysis.message && analysis.source_url) {
     document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(analysis.message)}</p><p><span class="evidence">${t("source")}: ${escapeHtml(analysis.source_url)}</span></p>`;
     document.getElementById("brief-section").innerHTML = renderBriefCards(run.brief_markdown || "");
@@ -849,7 +867,7 @@ function renderTrace(trace) {
 }
 
 function renderPath() {
-  return `<ul><li>Decision Workspace called the local API.</li><li>The local API executed the Python pipeline.</li><li>Run artifacts were saved under outputs/runs/.</li></ul><p>${sourceBadge("Local App")}</p>`;
+  return `<ul><li>The Decision Assessment interface called the local API.</li><li>The local API executed the Python pipeline.</li><li>Assessment exports were saved under outputs/runs/.</li></ul><p>${sourceBadge("Local App")}</p>`;
 }
 
 function renderCards(elementId, items, renderItem) {
@@ -933,12 +951,12 @@ document.querySelectorAll(".input-mode").forEach((button) => {
   button.addEventListener("click", () => setInputMode(button.dataset.mode));
 });
 document.getElementById("analyze-button").addEventListener("click", analyzeDocument);
-document.getElementById("export-md").addEventListener("click", () => downloadArtifact("markdown"));
-document.getElementById("export-txt").addEventListener("click", () => downloadArtifact("txt"));
-document.getElementById("export-json").addEventListener("click", () => downloadArtifact("json"));
-document.getElementById("download-shelf-md").addEventListener("click", () => downloadArtifact("markdown"));
-document.getElementById("download-shelf-txt").addEventListener("click", () => downloadArtifact("txt"));
-document.getElementById("download-shelf-json").addEventListener("click", () => downloadArtifact("json"));
+document.getElementById("export-md")?.addEventListener("click", () => downloadArtifact("markdown"));
+document.getElementById("export-txt")?.addEventListener("click", () => downloadArtifact("txt"));
+document.getElementById("export-json")?.addEventListener("click", () => downloadArtifact("json"));
+document.getElementById("download-shelf-md")?.addEventListener("click", () => downloadArtifact("markdown"));
+document.getElementById("download-shelf-txt")?.addEventListener("click", () => downloadArtifact("txt"));
+document.getElementById("download-shelf-json")?.addEventListener("click", () => downloadArtifact("json"));
 
 applyLocale();
 checkHealth();

@@ -43,6 +43,7 @@
     const list = document.getElementById("project-list");
     const gettingStarted = document.getElementById("getting-started");
     if (!list) return;
+    const isSelect = list.tagName.toLowerCase() === "select";
 
     try {
       const response = await fetch(`${PROJECT_API_BASE}/projects`);
@@ -55,11 +56,30 @@
       }
 
       if (!projects.length) {
-        list.innerHTML = '<div class="empty project-empty-state">No projects yet. Create a project to organize questions, evidence, analyses, and reviewer notes.</div>';
+        if (isSelect) {
+          list.innerHTML = '<option value="">No project selected</option>';
+        } else {
+          list.innerHTML = '<div class="empty project-empty-state">No projects yet. Create a project to organize questions, evidence, analyses, and reviewer notes.</div>';
+        }
         return;
       }
 
       list.innerHTML = "";
+
+      if (isSelect) {
+        list.innerHTML = [
+          '<option value="">Select project</option>',
+          ...projects.map((project) => `
+            <option value="${projectEscapeHtml(project.project_id)}"${workspaceProject?.project_id === project.project_id ? " selected" : ""}>
+              ${projectEscapeHtml(project.name)}
+            </option>
+          `),
+        ].join("");
+        list.onchange = () => {
+          if (list.value) selectProject(list.value);
+        };
+        return;
+      }
 
       projects.forEach((project) => {
         const button = document.createElement("button");
@@ -84,7 +104,11 @@
       });
     } catch (error) {
       if (gettingStarted) gettingStarted.hidden = true;
-      list.innerHTML = '<div class="empty error-state">Could not load projects. Start the local workspace and try again.</div>';
+      if (isSelect) {
+        list.innerHTML = '<option value="">Projects unavailable</option>';
+      } else {
+        list.innerHTML = '<div class="empty error-state">Could not load projects. Start the local product and try again.</div>';
+      }
     }
   }
 
@@ -95,7 +119,7 @@
     const name = input.value.trim();
 
     if (!name) {
-      alert("Enter a project name to create a reviewer-controlled workspace.");
+      alert("Enter a project name to create a reviewer-controlled decision project.");
       return;
     }
 
@@ -104,12 +128,12 @@
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify({
         name,
-        description: "Decision workspace",
+        description: "Decision project",
       }),
     });
 
     if (!response.ok) {
-      alert("Could not create the project. Confirm the local workspace is running and try again.");
+      alert("Could not create the project. Confirm the local product is running and try again.");
       return;
     }
 
@@ -134,6 +158,11 @@
 
     if (!activeProjectQuestion() && (workspaceProject.questions || []).length) {
       workspaceQuestionId = workspaceProject.questions[0].question_id;
+    }
+    const selectedQuestion = activeProjectQuestion();
+    const decisionQuestionInput = document.getElementById("decision-question-input");
+    if (decisionQuestionInput && selectedQuestion?.question) {
+      decisionQuestionInput.value = selectedQuestion.question;
     }
 
     renderActiveProject(workspaceProject);
@@ -215,6 +244,8 @@
         renderProjectQuestions(questions);
         const input = document.getElementById("project-question-input");
         if (input) input.value = item.question || "";
+        const decisionQuestionInput = document.getElementById("decision-question-input");
+        if (decisionQuestionInput) decisionQuestionInput.value = item.question || "";
       });
 
       questionList.appendChild(card);

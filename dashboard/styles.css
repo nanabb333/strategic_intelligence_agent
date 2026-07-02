@@ -43,9 +43,9 @@ body {
 
 .shell-header {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, auto);
   gap: var(--space-6);
-  max-width: 1440px;
+  max-width: 1680px;
   margin: 0 auto;
   padding: 32px 32px 20px;
 }
@@ -72,9 +72,37 @@ body {
 
 .shell-status {
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
+  flex-wrap: wrap;
   gap: var(--space-2);
   justify-content: flex-end;
+}
+
+.current-project-control {
+  align-items: end;
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: auto minmax(180px, 260px) minmax(220px, 300px);
+}
+
+.current-project-control label {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding-bottom: 10px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.project-select {
+  min-height: 38px;
+}
+
+.header-project-create {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: minmax(0, 1fr) auto;
 }
 
 .local-pill {
@@ -92,7 +120,7 @@ body {
 
 .workbench {
   display: grid;
-  grid-template-columns: minmax(430px, 520px) minmax(680px, 1fr);
+  grid-template-columns: minmax(390px, 38fr) minmax(620px, 62fr);
   gap: var(--space-6);
   max-width: 1680px;
   margin: 0 auto;
@@ -152,6 +180,10 @@ body {
 
 .artifact-workspace-section {
   order: 4;
+}
+
+.project-internals[hidden] {
+  display: none;
 }
 
 .brand-row,
@@ -934,6 +966,26 @@ textarea {
   border-color: var(--accent-border);
   background: #fff;
   font-size: 15px;
+}
+
+.decision-context-input {
+  min-height: 110px;
+}
+
+.evidence-methods {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.evidence-methods span {
+  border: 1px solid var(--accent-border);
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px 9px;
 }
 
 .document-dropzone:focus,
@@ -1770,6 +1822,19 @@ summary::-webkit-details-marker {
   .shell-status {
     justify-content: flex-start;
     flex-wrap: wrap;
+  }
+
+  .current-project-control {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .current-project-control label {
+    padding-bottom: 0;
+  }
+
+  .header-project-create {
+    grid-template-columns: 1fr;
   }
 
   .workbench {

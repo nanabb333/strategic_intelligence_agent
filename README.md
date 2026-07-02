@@ -8,9 +8,9 @@ It helps product leaders, analysts, executives, and reviewers turn ambiguous sou
 
 > Tagline: Reviewer-first Enterprise Decision Intelligence for evidence-backed strategic decisions.
 
-![Strategic Intelligence Decision Companion Decision Workspace](docs/Images/dashboard-overview.png)
+![Strategic Intelligence Decision Companion Decision Assessment interface](docs/Images/dashboard-overview.png)
 
-The Decision Workspace presents projects, decision questions, evidence, deterministic analysis, review state, and downloadable artifacts in one auditable flow.
+The Decision Assessment interface starts with the decision question, adds reviewer-authored context and supporting evidence, then produces deterministic review artifacts.
 
 This is not a chatbot, autonomous researcher, monitoring system, forecasting engine, investment advisor, legal advisor, or autonomous decision maker.
 
@@ -56,37 +56,31 @@ It turns ambiguous source material, accepted project evidence, and decision ques
 
 ## Product Workflow
 
-The platform is organized as a local decision workspace:
+The platform is organized around the decision lifecycle. Projects remain long-lived containers, but the primary product object is the decision under review:
 
 ```text
-Project
+Decision Question
   |
   v
-Decision Questions
+Decision Context
   |
   v
-Evidence Library
+Supporting Evidence
   |
   v
-Evidence Intelligence
+Decision Assessment
   |
   v
-Decision Readiness
+Confidence, Evidence Used, Strategic Considerations
   |
   v
-Decision Pathway Drafts
+Assumptions and Limitations
   |
   v
-Pathway Comparison Matrix
-  |
-  v
-Reviewer Review
-  |
-  v
-Decision Timeline and Delta
+Export Assessment
 ```
 
-Evidence can be retrieved only through explicit reviewer action. Retrieved items enter a review queue first. Accepted evidence becomes part of the project Evidence Library. Analysis and decision-support views remain deterministic and do not bypass reviewer control.
+Evidence can be retrieved only through explicit reviewer action. Retrieved items enter a review queue first. Accepted evidence may become part of the project evidence record, but the primary assessment flow distinguishes reviewer-authored context from supporting evidence.
 
 The system helps reviewers compare defensible decision paths. It does not choose a best path, rank options, assign probabilities, or make final decisions.
 
@@ -104,7 +98,7 @@ portfolio_assets/
 
 Current screenshot placeholder: [docs/Images/dashboard-overview.png](docs/Images/dashboard-overview.png)
 
-Future screenshots should show a populated Decision Workspace with an active project, evidence, analysis result, and reviewer panels.
+Future screenshots should show a populated Decision Assessment with a decision question, context, supporting evidence, assessment result, and export actions.
 
 ## Demo In 3 Minutes
 
@@ -158,8 +152,8 @@ This output is a decision-support artifact. It is not investment advice, legal a
 
 | Capability | What It Provides | Where To Learn More |
 | --- | --- | --- |
-| Decision Workspace | Project-scoped questions, evidence, runs, timeline, delta, and review state. | [Product Overview](docs/ProductOverview.md) |
-| Evidence Library | Local evidence store for manual notes and accepted retrieved evidence. | [Evidence Architecture](docs/EvidenceArchitecture.md) |
+| Decision Assessment Interface | Decision question, context, supporting evidence, assessment review, and export actions. | [Product Overview](docs/ProductOverview.md) |
+| Supporting Evidence | Local evidence input and accepted retrieved evidence used for assessment. | [Evidence Architecture](docs/EvidenceArchitecture.md) |
 | Evidence Intelligence | Deterministic duplicate, conflict, novelty, freshness, coverage, and source-diversity support. | [Evidence Philosophy](docs/EvidencePhilosophy.md) |
 | Decision Readiness | Evidence and framework coverage map with assumptions, unknowns, gaps, and reviewer questions. | [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md) |
 | Decision Pathway Drafts | Reviewer-facing pathway scaffolds without ranking or recommendation. | [Documentation Index](docs/DocumentationIndex.md) |
@@ -189,16 +183,16 @@ The reviewer remains responsible for accepting evidence, interpreting trade-offs
 
 ## Architecture
 
-The repository is a local FastAPI application with a deterministic analysis pipeline, local JSON storage, a vanilla Decision Workspace, and downloadable artifacts.
+The repository is a local FastAPI application with a deterministic analysis pipeline, local JSON storage, a vanilla Decision Assessment interface, and downloadable artifacts.
 
 ```text
-Decision Workspace (vanilla HTML/CSS/JS)
+Decision Assessment Interface (vanilla HTML/CSS/JS)
   |
   v
 FastAPI App
   |
   v
-Project Workspace
+Project Storage
   |
   v
 Evidence + Readiness + Pathway + Review Modules
@@ -214,7 +208,7 @@ Markdown, TXT, JSON, Trace, Metadata
 | --- | --- |
 | `app.py` | FastAPI entrypoint and API routes. |
 | `src/` | Decision engine, evidence, readiness, pathway, comparison, review, confidence, and evaluation modules. |
-| `dashboard/` | Local browser implementation for the Decision Workspace. |
+| `dashboard/` | Local browser implementation for the Decision Assessment interface. |
 | `knowledge_base/` | Local mechanism, analogue, outcome, and playbook records. |
 | `docs/` | Product, engineering, governance, evidence, evaluation, and research documentation. |
 | `demo_case_outputs/` | Bundled generated artifacts for review. |
@@ -228,7 +222,7 @@ Important modules:
 - `src/decision_pathways.py`: deterministic pathway draft generation.
 - `src/pathway_comparison.py`: categorical pathway comparison.
 - `src/decision_review.py`: reviewer-controlled review layer.
-- `dashboard/project.js`: Decision Workspace browser behavior.
+- `dashboard/project.js`: Decision Assessment browser behavior and project-context integration.
 
 The platform does not require a database, cloud service, background worker, external UI framework, LangGraph, RAG framework, autonomous agent, or scheduled retrieval.
 
@@ -269,7 +263,7 @@ For Windows, double-click:
 launch/Launch Strategic Intelligence Decision Companion.bat
 ```
 
-The launcher starts the local app and opens the Decision Workspace. If the browser does not open automatically, open:
+The launcher starts the local app and opens the Decision Assessment interface. If the browser does not open automatically, open:
 
 ```text
 http://localhost:8000
@@ -307,17 +301,13 @@ python3 -m pytest
 
 ## Reviewer Workflow
 
-1. Create a project.
-2. Add a decision question.
-3. Add evidence manually or accept retrieved evidence into the Evidence Library.
-4. Select evidence for analysis.
-5. Run deterministic analysis.
-6. Inspect Evidence Intelligence.
-7. Review Decision Readiness.
-8. Compare Decision Pathway Drafts.
-9. Inspect the Pathway Comparison Matrix.
-10. Record reviewer notes, unresolved questions, and review statuses.
-11. Review Decision Timeline, Decision Delta, and downloadable Markdown/TXT/JSON artifacts.
+1. Select or create the current project.
+2. Enter the decision question.
+3. Add optional decision context: background, objectives, and constraints.
+4. Add supporting evidence by pasting text, uploading a supported file, or pasting a URL.
+5. Generate the deterministic Decision Assessment.
+6. Review the assessment, confidence, evidence used, strategic considerations, assumptions, and limitations before acting.
+7. Export Markdown, TXT, or JSON assessment artifacts if needed.
 
 ## Demo Scenarios
 
@@ -340,13 +330,13 @@ Curated portfolio demo assets are available under [portfolio_assets/](portfolio_
 | Area | Status |
 | --- | --- |
 | Architecture | Stable local Decision Intelligence Platform. |
-| Workspace | Project questions, evidence library, decision timeline, delta, and review state implemented. |
+| Project Storage | Project questions, evidence library, decision timeline, delta, and review state implemented behind the decision-first interface. |
 | Evidence | Evidence lifecycle, validation, ranking, intelligence, and review queue foundations implemented. |
 | Readiness | Decision readiness mapping, framework evidence mapping, gaps, assumptions, and unknowns implemented. |
 | Pathways | Deterministic pathway drafting and pathway comparison implemented. |
 | Review | Reviewer-controlled review layer implemented without approval or selection workflow. |
 | Evaluation | Deterministic Decision Quality Evaluation Harness implemented. |
-| Decision Workspace | Local reviewer workspace implemented in vanilla HTML/CSS/JavaScript. |
+| Decision Assessment Interface | Local decision-first reviewer interface implemented in vanilla HTML/CSS/JavaScript. |
 | CI | Ruff, compile checks, and pytest used for validation. |
 | Portfolio Readiness | Suitable for external review as a mature AI product architecture project. |
 

@@ -11,8 +11,8 @@ const localeText = {
     flowEvidence: "2. Review evidence",
     flowDecision: "3. Monitor change",
     resultsTitle: "Decision review",
-    decisionBriefTitle: "Recommended Action",
-    resultsSubtitle: "Start with what to do, why, confidence, and what to monitor. Supporting evidence and method details stay available below.",
+    decisionBriefTitle: "Decision Snapshot",
+    resultsSubtitle: "Review the decision-support output before acting. Supporting evidence and method details stay available below.",
     decisionGroup: "Decision",
     supportGroup: "Supporting material",
     analysisGroup: "Analysis",
@@ -22,14 +22,16 @@ const localeText = {
     downloadsGroup: "Downloads",
     runHistory: "Run History",
     emptyTitle: "Start with a decision question",
-    emptyBody: "Paste source material, add project evidence, or upload a supported file. The workspace will keep evidence, assumptions, and reviewer judgment separate.",
+    emptyBody: "Start with the decision question, then add evidence or source material. The workspace will keep evidence, assumptions, and reviewer judgment separate.",
     emptyDecision: "Decision-support output appears first for reviewer inspection.",
     emptyEvidence: "Evidence summaries, historical cases, and quality checks appear after analysis.",
     emptyDownloads: "Markdown, TXT, and JSON artifacts become available after analysis.",
     loadingTitle: "Building decision brief",
     loadingBody: "Reviewing the input, matching local historical cases, and preparing downloadable artifacts.",
-    assistantInputLabel: "Decision question and source material",
-    assistantPlaceholder: "What decision does this situation raise?\nWhich historical cases are most similar?\nWhat trade-offs should be considered?\nWhat evidence would change today's recommendation?\n\nPaste an article, policy excerpt, earnings note, URL, or operational update here.",
+    decisionQuestionLabel: "Decision Question",
+    decisionQuestionPlaceholder: "What decision needs reviewer judgment? What evidence would change the decision?",
+    assistantInputLabel: "Evidence / Source Material",
+    assistantPlaceholder: "Paste source material, article text, policy excerpt, earnings note, URL, or operational update here.",
     documentTextLabel: "Paste document or article here",
     questionInputLabel: "Ask a Question",
     questionPlaceholder: "What does this issue mean? What historical events resemble this? How have organizations responded in similar situations? What should I monitor next?",
@@ -48,7 +50,7 @@ const localeText = {
     sourceUrlLabel: "Paste source link",
     sourceUrlPlaceholder: "https://example.com/source-document",
     linkModeNote: "The app will try to fetch readable webpage text. If it cannot, paste the article text or upload a file.",
-    urlModeNote: "Paste a full webpage URL in the box to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.",
+    urlModeNote: "Paste a full webpage URL in Evidence / Source Material to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.",
     stepOne: "STEP 1",
     stepTwo: "STEP 2",
     stepThree: "STEP 3",
@@ -117,7 +119,7 @@ const localeText = {
     noContext: "No article content was detected. Please paste article text, upload a file, or use a working webpage link.",
     noImplications: "No implications returned.",
     analyzing: "Building brief...",
-    pasteFirst: "Add source material, a URL, or an uploaded file before building a decision brief.",
+    pasteFirst: "Add a decision question, source material, a URL, or an uploaded file before building a decision brief.",
     downloadFirst: "Run an analysis before downloading.",
   },
 };
@@ -199,8 +201,9 @@ async function checkHealth() {
 }
 
 async function analyzeDocument() {
+  const decisionQuestionValue = document.getElementById("decision-question-input")?.value.trim() || "";
   const assistantValue = document.getElementById("assistant-input").value.trim();
-  const parsedInput = parseAssistantInput(assistantValue);
+  const parsedInput = parseAssistantInput(assistantValue || decisionQuestionValue);
   if (!parsedInput.text && !parsedInput.sourceUrl) {
     setEmpty("summary-section", t("pasteFirst"));
     return;
@@ -208,7 +211,7 @@ async function analyzeDocument() {
   const projectContext = window.getActiveProjectAnalysisContext
     ? window.getActiveProjectAnalysisContext()
     : { project_id: "", project_question_id: "", question_text: "" };
-  const questionText = projectContext.question_text || parsedInput.questionText || t("assistantPlaceholder").split("\n")[0];
+  const questionText = projectContext.question_text || decisionQuestionValue || parsedInput.questionText || t("decisionQuestionPlaceholder");
   const button = document.getElementById("analyze-button");
   button.disabled = true;
   button.textContent = t("analyzing");
@@ -537,7 +540,7 @@ function renderDecisionOverview(sections, analysis) {
   return `
     <article class="decision-overview">
       <div class="overview-main">
-        <div class="overview-kicker">Recommended Action</div>
+        <div class="overview-kicker">Review before acting</div>
         <h3>${formatInline(recommendation)}</h3>
         <div class="overview-grid">
           <div>
@@ -545,7 +548,7 @@ function renderDecisionOverview(sections, analysis) {
             <p>${formatInline(confidence)}</p>
           </div>
           <div>
-            <strong>Why this recommendation</strong>
+            <strong>Why this position</strong>
             <p>${formatInline(why)}</p>
           </div>
           <div>

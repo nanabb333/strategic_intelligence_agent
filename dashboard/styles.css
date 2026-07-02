@@ -92,7 +92,7 @@ body {
 
 .workbench {
   display: grid;
-  grid-template-columns: minmax(360px, 420px) minmax(720px, 1fr);
+  grid-template-columns: minmax(430px, 520px) minmax(680px, 1fr);
   gap: var(--space-6);
   max-width: 1680px;
   margin: 0 auto;
@@ -131,11 +131,27 @@ body {
 .input-panel {
   display: flex;
   flex-direction: column;
-  gap: var(--space-3);
+  gap: var(--space-4);
   position: sticky;
   top: 24px;
   max-height: calc(100vh - 48px);
   overflow: auto;
+}
+
+.decision-setup-section {
+  order: 1;
+}
+
+.analysis-action-section {
+  order: 2;
+}
+
+.project-workspace-card {
+  order: 3;
+}
+
+.artifact-workspace-section {
+  order: 4;
 }
 
 .brand-row,
@@ -268,6 +284,10 @@ details {
 
 .compact-workspace-section {
   gap: var(--space-3);
+}
+
+.compact-card-header {
+  margin-top: var(--space-1);
 }
 
 .compact-card {
@@ -810,6 +830,11 @@ details {
   text-transform: uppercase;
 }
 
+.workflow-divider {
+  border-top: 1px solid var(--line);
+  margin: var(--space-1) 0;
+}
+
 .action-step #analyze-button {
   width: 100%;
   font-size: 16px;
@@ -904,6 +929,13 @@ textarea {
   background: #fff;
 }
 
+.decision-question-input {
+  min-height: 130px;
+  border-color: var(--accent-border);
+  background: #fff;
+  font-size: 15px;
+}
+
 .document-dropzone:focus,
 .document-dropzone.drag-active,
 .question-input:focus,
@@ -919,7 +951,7 @@ textarea {
 }
 
 .assistant-input {
-  min-height: 240px;
+  min-height: 180px;
   font: 14px/1.55 inherit;
 }
 

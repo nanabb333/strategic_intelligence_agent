@@ -213,24 +213,34 @@
             </div>
           </section>
 
-          <section class="workspace-section" aria-labelledby="decision-input-title">
+          <section class="workspace-section decision-setup-section" aria-labelledby="decision-input-title">
             <div class="workspace-card-header">
-              <span class="step-pill">Decision Authoring</span>
-              <h2 id="decision-input-title">Decision Input</h2>
+              <span class="step-pill">Step 1</span>
+              <h2 id="decision-input-title">Decision Question</h2>
             </div>
-            <label for="assistant-input" class="input-label" data-i18n="assistantInputLabel">Decision question and source material</label>
-            <textarea id="assistant-input" class="document-dropzone assistant-input" spellcheck="true" data-i18n-placeholder="assistantPlaceholder" placeholder="What decision does this situation raise?
-Which historical cases are most similar?
-What trade-offs should be considered?
-What evidence would change today's recommendation?
+            <label for="decision-question-input" class="input-label" data-i18n="decisionQuestionLabel">Decision Question</label>
+            <textarea
+              id="decision-question-input"
+              class="question-input decision-question-input"
+              spellcheck="true"
+              data-i18n-placeholder="decisionQuestionPlaceholder"
+              placeholder="What decision needs reviewer judgment? What evidence would change the decision?"
+            ></textarea>
 
-Paste an article, policy excerpt, earnings note, URL, or operational update here."></textarea>
+            <div class="workflow-divider" aria-hidden="true"></div>
+
+            <div class="workspace-card-header compact-card-header">
+              <span class="step-pill">Step 2</span>
+              <h2>Evidence / Source Material</h2>
+            </div>
+            <label for="assistant-input" class="input-label" data-i18n="assistantInputLabel">Evidence / Source Material</label>
+            <textarea id="assistant-input" class="document-dropzone assistant-input" spellcheck="true" data-i18n-placeholder="assistantPlaceholder" placeholder="Paste source material, article text, policy excerpt, earnings note, URL, or operational update here."></textarea>
           </section>
 
-          <section class="workspace-section compact-workspace-section" aria-labelledby="analysis-controls-title">
+          <section class="workspace-section compact-workspace-section analysis-action-section" aria-labelledby="analysis-controls-title">
             <div class="workspace-card-header">
-              <span class="step-pill">Analysis</span>
-              <h2 id="analysis-controls-title">Run Configuration</h2>
+              <span class="step-pill">Step 3</span>
+              <h2 id="analysis-controls-title">Analyze</h2>
             </div>
             <div class="assistant-actions">
               <label class="file-control upload-box compact-upload" for="file-input">
@@ -238,7 +248,7 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
                 <strong id="uploaded-file-name" data-i18n="noFileSelected">No file selected</strong>
                 <input id="file-input" type="file" accept=".md,.markdown,.txt,.pdf,text/markdown,text/plain,application/pdf">
               </label>
-              <p class="note" data-i18n="urlModeNote">Paste a full webpage URL in the box to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.</p>
+              <p class="note" data-i18n="urlModeNote">Paste a full webpage URL in Evidence / Source Material to fetch readable article text. If extraction fails, the app will stop and ask for pasted text or a file.</p>
             </div>
             <div class="selector-grid" aria-label="Output controls">
               <label for="mode-select" data-i18n="outputModeLabel">Output mode</label>
@@ -255,7 +265,7 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
             </div>
           </section>
 
-          <section class="workspace-section compact-workspace-section">
+          <section class="workspace-section compact-workspace-section artifact-workspace-section">
             <div class="workspace-card-header">
               <span class="step-pill">Results</span>
               <h2 data-i18n="downloadsGroup">Artifacts</h2>
@@ -276,8 +286,8 @@ Paste an article, policy excerpt, earnings note, URL, or operational update here
         <section class="results-panel" aria-live="polite" aria-labelledby="results-title">
           <header class="results-header">
             <p class="eyebrow" data-i18n="resultsTitle">Decision review</p>
-            <h2 id="results-title" data-i18n="decisionBriefTitle">Recommended Action</h2>
-            <p data-i18n="resultsSubtitle">Start with what to do, why, confidence, and what to monitor. Supporting evidence and method details stay available below.</p>
+            <h2 id="results-title" data-i18n="decisionBriefTitle">Decision Snapshot</h2>
+            <p data-i18n="resultsSubtitle">Review the decision-support output before acting. Supporting evidence and method details stay available below.</p>
           </header>
 
           <div class="section-divider" data-i18n="decisionGroup">Decision</div>

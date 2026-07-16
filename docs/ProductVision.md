@@ -6,7 +6,7 @@ Most AI products optimize for generating answers. Strategic Intelligence Decisio
 
 ## Product Category
 
-Strategic Intelligence Decision Companion is an Enterprise Decision Intelligence Platform.
+Strategic Intelligence Decision Companion is a reviewer-first Enterprise Decision Intelligence Platform.
 
 It is not:
 
@@ -14,9 +14,12 @@ It is not:
 - an autonomous agent
 - an autonomous researcher
 - a monitoring platform
+- a forecasting engine
 - a generic RAG demo
+- a compliance automation system
 - a legal advisor
 - an investment advisor
+- an autonomous decision maker
 
 It is:
 
@@ -31,16 +34,16 @@ It is:
 
 Strategic decisions fail when evidence is fragmented, assumptions are hidden, trade-offs are unclear, and teams do not know what would require reassessment.
 
-The product helps reviewers organize those moving parts into a local Decision Workspace.
+The product helps reviewers organize those moving parts through a decision-first flow: Decision Question, Decision Context, Supporting Evidence, Decision Assessment, Human Review, and Export.
 
 ## Reviewer-First Philosophy
 
 The reviewer controls:
 
-- which project is active
-- which question is being analyzed
-- which evidence is accepted
-- which evidence is selected for analysis
+- which Project, if any, persists the work
+- which Decision Question is being assessed
+- which Decision Context is reviewer-authored
+- which Supporting Evidence is accepted and used
 - which pathway drafts deserve comparison
 - which reviewer notes or unresolved questions are recorded
 
@@ -53,7 +56,7 @@ The product should help a reviewer answer:
 1. What decision are we actually reviewing?
 2. What evidence supports the current view?
 3. What assumptions and unknowns remain?
-4. What possible pathways deserve comparison?
+4. What possible pathways deserve comparison without ranking or preferred-option selection?
 5. What issues require human review before the decision is defensible?
 
 ## Product Non-Promise

@@ -1,85 +1,79 @@
 # Documentation Index
 
-Start here for the consolidated enterprise product view. Current behavior should be interpreted from the documents in the first three sections before consulting historical portfolio material.
+Use the current review path below as the product contract. Historical milestone, research, portfolio, and architecture material remains in the repository but must not override these documents.
 
-## Product Entry Points
+## Current Review Path
 
-- [README](../README.md): product overview, workflow, architecture, local testing, and roadmap.
-- [Product Vision](ProductVision.md): product category, philosophy, reviewer-first promise, and non-promises.
-- [Product Terminology](ProductTerminology.md): official vocabulary and prohibited claims.
-- [Enterprise Readiness Checklist](EnterpriseReadinessChecklist.md): enterprise-readiness posture and known local-first gaps.
-- [Repository Maturity Review](RepositoryMaturityReview.md): enterprise repository quality review and remaining maturity opportunities.
-- [Enterprise Design Review And Freeze Assessment](EnterpriseDesignReviewFreezeAssessment.md): V4 freeze recommendation, simplification opportunities, and V5 planning themes.
-- [Review Guide](ReviewGuide.md): reviewer flow for the local product.
-- [Enterprise Release Guide](EnterpriseReleaseGuide.md): release checks, diagnostics, and recovery model.
+1. [README](../README.md): concise repository homepage, setup, boundaries, and version status.
+2. [Product Overview](ProductOverview.md): current product workflow and capabilities.
+3. [Product Vision](ProductVision.md): reviewer-first purpose and non-promises.
+4. [Product Terminology](ProductTerminology.md): official current-facing vocabulary.
+5. [Architecture](architecture.md): canonical current architecture overview.
+6. [Engineering Architecture](EngineeringArchitecture.md): implementation-focused runtime description.
+7. [Demo Walkthrough](DemoWalkthrough.md): three-minute review of bundled artifacts.
+8. [Release Notes](releases/README.md): verified release chronology.
 
-## Getting Started
+## Current Product Definition
 
-- [Double-Click Launchers](../launch/README.md): macOS and Windows local launch paths.
-- [Demo Walkthrough](DemoWalkthrough.md): three-minute reviewer path through the V4 workspace demo.
-- [Portfolio Review Guide](PortfolioReviewGuide.md): product, engineering, Decision Intelligence, and enterprise review guide.
-- [Demo Scenarios](GettingStarted/DemoScenarios.md): polished end-to-end scenarios for portfolio review.
-- [V4 Workspace Demo](../demo_case_outputs/v4_workspace/README.md): generated workspace artifacts with linked questions, evidence, timeline, and delta.
-- [Local App Setup](local_app_setup.md): local product setup for non-technical users and developers.
-- [Non-AI User Guide](non_ai_user_guide.md): reviewer workflow without prompt-writing assumptions.
+Strategic Intelligence Decision Companion is a reviewer-first Enterprise Decision Intelligence Platform with this primary flow:
 
-## Architecture
+```text
+Decision Question
+  -> Decision Context
+  -> Supporting Evidence
+  -> Decision Assessment
+  -> Human Review
+  -> Export
+```
 
-- [Current Architecture](architecture.md): canonical architecture overview for the current local product.
-- [Enterprise Architecture](Architecture/EnterpriseArchitecture.md): product flow, dependency direction, and module interaction diagrams.
-- [Module Boundaries](Architecture/ModuleBoundaries.md): inputs, outputs, dependencies, ownership, and refactor findings.
-- [Engineering Architecture](EngineeringArchitecture.md): FastAPI, service, pipeline, artifacts, and storage.
-- [Analysis Pipeline](Pipeline.md): deterministic analysis flow and artifacts.
-- [Version 4 Architecture](Version4Architecture.md): project workspace, evidence library, decision timeline, and decision delta.
+Current Project is a secondary persistent container. Workspace Management and Decision Workspace are not the primary product workflow.
 
-## Evidence
+## Getting Started And Review
 
-- [Evidence Architecture](EvidenceArchitecture.md): evidence flow, transparency, quality, and traceability.
-- [Evidence Intelligence Engine](EvidenceIntelligenceEngine.md): deterministic evidence review support.
-- [Sprint 2 Evidence Architecture](Sprint2EvidenceArchitecture.md): evidence-aware decision context background.
+- [Double-Click Launchers](../launch/README.md)
+- [Local App Setup](local_app_setup.md)
+- [Non-AI User Guide](non_ai_user_guide.md)
+- [Demo Walkthrough](DemoWalkthrough.md)
+- [Portfolio Review Guide](PortfolioReviewGuide.md)
+- [Bundled V4 Project Demo](../demo_case_outputs/v4_workspace/README.md)
 
-## Decision
+The bundled V4 demo and some user guides retain earlier terminology. Use them for artifact and compatibility context, not as the current naming authority.
 
-- [Decision Intelligence Framework](DecisionIntelligenceFramework.md): conceptual decision reasoning framework.
-- [Decision Framework Library](DecisionFrameworkLibrary.md): deterministic framework classification.
-- [Decision Readiness](DecisionReadiness.md): readiness map and evidence gaps.
-- [Domain Decision Evaluation](DomainDecisionEvaluation.md): domain-specific evidence mapping with advisory boundaries.
-- [Decision Pathways](DecisionPathways.md): deterministic pathway drafts for reviewer comparison.
-- [Pathway Comparison Matrix](PathwayComparisonMatrix.md): categorical side-by-side comparison.
-- [Decision Review Layer](DecisionReviewLayer.md): reviewer-controlled state, notes, and unresolved questions.
+## Supporting Architecture And Engineering
 
-## Governance
+- [Analysis Pipeline](Pipeline.md)
+- [Folder Structure](FolderStructure.md)
+- [API Conventions](Developer/APIConventions.md)
+- [Testing](Testing.md)
+- [Enterprise Architecture](Architecture/EnterpriseArchitecture.md)
+- [Module Boundaries](Architecture/ModuleBoundaries.md)
 
-- [Decision Intelligence Constitution](DecisionIntelligenceConstitution.md): product and architecture principles.
-- [Trust Model](TrustModel.md): trust boundaries.
-- [Repository Trust Audit](RepositoryTrustAudit.md): repository review posture.
-- [Public Release Checklist](PublicReleaseChecklist.md): release readiness checks.
-- [Security](../SECURITY.md): local-first security posture and deployment warning.
+The canonical current overview is [`architecture.md`](architecture.md). `EngineeringArchitecture.md` covers implementation. Other architecture documents provide deeper or historical context.
 
-## Releases
+## Decision And Evidence Reference
 
-- [Release Notes Index](releases/README.md): current and historical release notes.
-- [V4.3 Launch Experience Release](releases/V4.3.md): product landing page and workspace route.
-- [V4.4 Product Distribution Release](releases/V4.4.md): double-click local launchers.
-- [V4.5 Enterprise Repository Excellence Release](releases/V4.5.md): product presentation, repository navigation, and release notes.
-- [V4.9 Enterprise Design Review And Freeze Assessment](releases/V4.9.md): V4 freeze assessment and V5 planning boundary.
-- [Version 5 Release Notes](Version5ReleaseNotes.md): enterprise release notes and compatibility boundaries.
+- [Evidence Architecture](EvidenceArchitecture.md)
+- [Evidence Intelligence Engine](EvidenceIntelligenceEngine.md)
+- [Decision Intelligence Framework](DecisionIntelligenceFramework.md)
+- [Decision Framework Library](DecisionFrameworkLibrary.md)
+- [Decision Readiness](DecisionReadiness.md)
+- [Decision Pathways](DecisionPathways.md)
+- [Pathway Comparison Matrix](PathwayComparisonMatrix.md)
+- [Decision Review Layer](DecisionReviewLayer.md)
+- [Trust Model](TrustModel.md)
 
-## Developer Reference
+These documents describe supporting capabilities. Older recommendation-oriented language may reflect prior milestones or compatibility artifacts and is not the current product promise.
 
-- [API Conventions](Developer/APIConventions.md): route naming and compatibility standards.
-- [Testing](Testing.md): test scope and commands.
-- [Folder Structure](FolderStructure.md): repository layout.
-- [Naming Review](Reference/NamingReview.md): product naming assessment.
-- [Changelog](../CHANGELOG.md): consolidation release summary.
+## Governance And Releases
 
-## Portfolio Assets
+- [Security](../SECURITY.md)
+- [Public Release Checklist](PublicReleaseChecklist.md)
+- [Repository Trust Audit](RepositoryTrustAudit.md)
+- [V4.9 Freeze Assessment](EnterpriseDesignReviewFreezeAssessment.md)
+- [Release Notes Index](releases/README.md)
+- [V5 Sprint 0 Notes](releases/V5-Sprint-0.md)
+- [Changelog](../CHANGELOG.md)
 
-- [Portfolio Assets](../portfolio_assets/README.md): curated screenshots, sample inputs, sample outputs, and future media structure.
-- [Demo Notes](../portfolio_assets/demo_notes/README.md): reviewer checklists and presentation notes.
-- [Sample Inputs](../portfolio_assets/sample_inputs/README.md): curated demo input guidance.
-- [Sample Outputs](../portfolio_assets/sample_outputs/README.md): curated demo output guidance.
+## Historical Material
 
-## Historical Portfolio Material
-
-Older milestone, localization, V-series validation, case-study, and research notes remain in `docs/` for portfolio history. Current product behavior should be interpreted from the consolidated documents above.
+Earlier V-series milestones, the V4 workspace architecture, agent-era implementation, superseded plans, audits, and portfolio narratives are preserved in the [Documentation Archive](archive/README.md). Case studies and research remain in their existing reference directories. Historical terminology and claims are not authoritative for the current product.

@@ -19,9 +19,11 @@ This document describes the current repository layout.
 ├── demo_case_outputs/
 ├── docs/
 │   ├── Architecture/
+│   ├── archive/
 │   ├── Developer/
 │   ├── GettingStarted/
-│   └── Reference/
+│   ├── Reference/
+│   └── releases/
 ├── evaluation/
 ├── examples/
 ├── knowledge_base/
@@ -94,6 +96,10 @@ Pytest suite for helper modules and FastAPI endpoint smoke tests.
 ### `docs/Architecture/`
 
 Enterprise architecture and module-boundary documentation.
+
+### `docs/archive/`
+
+Superseded milestone, architecture, planning, audit, portfolio, and reviewer documents retained for history. These files are not the current product contract.
 
 ### `docs/Developer/`
 

@@ -144,7 +144,7 @@ def validate_docs() -> None:
         "docs/non_ai_user_guide_zh_TW.md",
         "docs/localization_design.md",
         "docs/guided_question_design.md",
-        "docs/v45_non_ai_user_layer.md",
+        "docs/archive/v45_non_ai_user_layer.md",
     ]:
         assert_exists(path)
 

@@ -1,20 +1,10 @@
 # Demo Walkthrough
 
-This walkthrough helps reviewers understand Strategic Intelligence Decision Companion without running the product.
+This three-minute walkthrough shows how Strategic Intelligence Decision Companion preserves a reviewer-controlled decision process without requiring the reviewer to run the product.
 
-## Demo Objective
+## What The Demo Shows
 
-Show how Repo 5 structures a strategic decision into evidence, readiness, pathway comparison, review state, timeline, and delta artifacts.
-
-The objective is not to show a chatbot answer. The objective is to show reviewer-first Decision Intelligence.
-
-## Recommended Showcase Scenario
-
-Use the V4 workspace demo:
-
-```text
-demo_case_outputs/v4_workspace/
-```
+The bundled artifacts demonstrate an earlier V4 Project container with linked questions, accepted evidence, assessments, history, and delta. They predate the V5 Sprint 0 interface migration, so use them to inspect persistence and artifacts—not as a current UI or terminology reference.
 
 Recommended question:
 
@@ -22,126 +12,28 @@ Recommended question:
 Should we adjust investment and supply-chain plans in response to new export controls?
 ```
 
-This scenario is useful because it contains:
+## Review Path
 
-- strategic uncertainty
-- regulatory context
-- operational implications
-- evidence constraints
-- multiple review questions
-- decision history and delta artifacts
+1. Open [`demo_case_outputs/v4_workspace/project.json`](../demo_case_outputs/v4_workspace/project.json) to see the persistent Project context.
+2. Open the [Evidence Library](../demo_case_outputs/v4_workspace/evidence_library.json) to inspect evidence IDs, sources, types, and metadata.
+3. Review the first [Decision Brief](../demo_case_outputs/v4_workspace/question_1_q_export_controls_immediate/brief.md) as a deterministic decision-support artifact.
+4. Inspect the matching [analysis JSON](../demo_case_outputs/v4_workspace/question_1_q_export_controls_immediate/analysis.json) for structured fields.
+5. Open the [second question artifacts](../demo_case_outputs/v4_workspace/question_2_q_export_controls_update/) to see related work persisted in one Project.
+6. Compare [Decision History](../demo_case_outputs/v4_workspace/decision_history.json) with [Decision Delta](../demo_case_outputs/v4_workspace/decision_delta.json).
 
-## Step-By-Step Walkthrough
+## Map The Artifacts To The Current Workflow
 
-1. Start with the project file:
+| Current step | Demo evidence |
+| --- | --- |
+| Decision Question | Questions stored in `project.json` and question-specific directories. |
+| Decision Context | Project and run metadata surrounding each question. |
+| Supporting Evidence | Accepted items in `evidence_library.json`. |
+| Decision Assessment | Brief and analysis artifacts for each question. |
+| Human Review | Inspectable history, delta, and review-oriented metadata. |
+| Export | Markdown, TXT, JSON, trace, and metadata files. |
 
-   ```text
-   demo_case_outputs/v4_workspace/project.json
-   ```
+## Reviewer Checkpoints
 
-   Observe how the workspace groups questions, evidence, decisions, and timestamps.
+The reviewer remains responsible for defining the question and context, accepting evidence, inspecting assumptions and unknowns, comparing any pathway drafts without ranking, recording unresolved questions, and making the final decision outside the system.
 
-2. Open the evidence library:
-
-   ```text
-   demo_case_outputs/v4_workspace/evidence_library.json
-   ```
-
-   Observe evidence IDs, source names, source types, and reviewable metadata.
-
-3. Open the first decision brief:
-
-   ```text
-   demo_case_outputs/v4_workspace/question_1_q_export_controls_immediate/brief.md
-   ```
-
-   Observe how the brief presents a structured decision-support artifact rather than an open-ended answer.
-
-4. Open the first analysis JSON:
-
-   ```text
-   demo_case_outputs/v4_workspace/question_1_q_export_controls_immediate/analysis.json
-   ```
-
-   Observe machine-readable analysis sections and traceable structured fields.
-
-5. Open the second question artifacts:
-
-   ```text
-   demo_case_outputs/v4_workspace/question_2_q_export_controls_update/
-   ```
-
-   Observe how a later question can build a project decision history.
-
-6. Open the decision history:
-
-   ```text
-   demo_case_outputs/v4_workspace/decision_history.json
-   ```
-
-   Observe how the project keeps prior decision runs inspectable.
-
-7. Open the decision delta:
-
-   ```text
-   demo_case_outputs/v4_workspace/decision_delta.json
-   ```
-
-   Observe how the product compares the latest decision context against prior project history.
-
-## Expected Reviewer Observations
-
-Reviewers should see that the product:
-
-- organizes decisions into project workspaces
-- separates evidence from analysis
-- preserves local artifacts
-- supports multiple linked decision questions
-- makes decision history inspectable
-- avoids autonomous decision-making
-- keeps reviewer interpretation central
-
-## Decision Intelligence Value
-
-The demo illustrates the product category:
-
-```text
-Most AI systems optimize for generating answers.
-Strategic Intelligence Decision Companion optimizes for improving decision quality.
-```
-
-Decision Intelligence value appears in:
-
-- explicit decision questions
-- evidence traceability
-- readiness and review concepts
-- pathway comparison without ranking
-- decision history and delta
-- human-controlled interpretation
-
-## Human-In-The-Loop Checkpoints
-
-The reviewer remains responsible for:
-
-- choosing the project
-- defining the decision question
-- deciding which evidence is accepted
-- deciding which evidence is selected for analysis
-- reviewing assumptions and unknowns
-- interpreting pathway drafts
-- recording unresolved questions
-- making any final decision outside the system
-
-## What Not To Claim
-
-Do not describe this demo as:
-
-- autonomous research
-- legal advice
-- investment advice
-- compliance automation
-- forecasting
-- final decision selection
-- evidence truth verification
-
-It is a local, deterministic, reviewer-first decision-support workflow.
+Do not present the demo as autonomous research, monitoring, forecasting, evidence truth verification, compliance automation, legal or investment advice, preferred-option selection, or final decision-making.

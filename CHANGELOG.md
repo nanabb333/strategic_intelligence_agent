@@ -1,5 +1,28 @@
 # Changelog
 
+## V5 Sprint 0 - Decision-First Information Architecture Migration
+
+### Changed
+
+- Reframed the primary interface around Decision Question, Decision Context, Supporting Evidence, Decision Assessment, Human Review, and Export.
+- Kept Project as a secondary persistent container rather than presenting workspace management as the primary workflow.
+- Added a follow-up layout-stability fix after the information architecture migration.
+
+### Status
+
+- Sprint 0 is an information architecture migration, not a complete final V5 release.
+- The dashboard and landing page report `V5 Sprint 0`. Runtime metadata retains software version `5.0.0` and the compatibility label `Enterprise Product Release`, with explicit `milestone` and `stage` fields for Sprint 0.
+
+## V4.10 - Reviewer Workflow Layout Correction
+
+### Changed
+
+- Corrected the reviewer workflow layout and decision-review copy without adding Decision Intelligence capability.
+
+### Preserved
+
+- V4.9 remained the stable freeze baseline for product behavior and architecture.
+
 ## V4.9 - Enterprise Design Review And Freeze Assessment
 
 ### Added

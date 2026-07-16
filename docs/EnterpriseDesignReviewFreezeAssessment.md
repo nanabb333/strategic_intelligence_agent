@@ -82,7 +82,7 @@ Recommended V4 posture:
 High-priority debt:
 
 - Documentation sprawl: many historical docs remain at top-level `docs/`, which increases reviewer navigation cost.
-- Historical naming: files such as `docs/agent_router_design.md` preserve older agent-oriented terminology and should be clearly treated as historical.
+- Historical naming: files such as `docs/archive/agent_router_design.md` preserve older agent-oriented terminology and are archived rather than treated as current.
 - Root utility ambiguity: `live_evidence.py` overlaps conceptually with later evidence retrieval modules and should be reviewed before any V5 retrieval work.
 
 Medium-priority debt:
@@ -111,9 +111,9 @@ Candidate archive or deprecation review list:
 
 | Item | Recommendation | Reason |
 | --- | --- | --- |
-| `docs/agent_router_design.md` | Archive as historical | The current product should avoid agent-forward terminology. |
-| `docs/v45_non_ai_user_layer.md`, `docs/v70_historical_outcomes.md`, `docs/v80_current_event_layer.md` | Archive as historical milestones | Current behavior should be interpreted through canonical docs. |
-| `docs/system_architecture.md` and older architecture notes | Review for consolidation | Keep one canonical architecture path to reduce drift. |
+| `docs/archive/agent_router_design.md` | Archived as historical | The current product avoids agent-forward terminology. |
+| `docs/archive/v45_non_ai_user_layer.md`, `docs/archive/v70_historical_outcomes.md`, `docs/archive/v80_current_event_layer.md` | Archived as historical milestones | Current behavior is interpreted through canonical docs. |
+| `docs/archive/system_architecture.md` and older architecture notes | Archived | `docs/architecture.md` is the canonical architecture path. |
 | `demo_outputs/v11_2_rescue/` and `demo_outputs/v12_rebuild/` | Mark historical or archive | Current canonical demo is V4 workspace. |
 | `legacy/financial_rubric_agent/` | Preserve as legacy or archive | Do not expose as current product behavior. |
 | `live_evidence.py` | Review before V5 retrieval planning | Determine whether it is a standalone utility, legacy helper, or removable overlap. |

@@ -7,7 +7,8 @@
   "release": {
     "version": "5.0.0",
     "label": "Enterprise Product Release",
-    "stage": "release",
+    "milestone": "V5 Sprint 0",
+    "stage": "sprint-0",
     "released_on": "2026-06-30",
     "compatibility": "Compatible with Version 4 and Version 4.5 local project JSON workspaces.",
     "storage_schema": "local-json-v1",

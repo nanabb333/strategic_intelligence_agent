@@ -6,4 +6,4 @@ requests
 trafilatura
 pytest
 ruff
-httpx2
+httpx>=0.27,<1

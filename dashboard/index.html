@@ -12,25 +12,8 @@
         <div class="shell-brand">
           <p class="eyebrow" data-i18n="workbenchLabel">Enterprise Decision Intelligence</p>
           <h1 id="app-title" data-i18n="appTitle">Strategic Intelligence Decision Companion</h1>
-          <p class="hero-subtitle">Local-first Enterprise Decision Intelligence</p>
-          <p id="helper-text" class="hero-copy">Frame the decision, provide reviewer context and supporting evidence, then review the assessment before acting.</p>
         </div>
         <div class="shell-status">
-          <div class="current-project-control" aria-label="Current project">
-            <label for="project-list">Current Project</label>
-            <select id="project-list" class="project-select">
-              <option value="">No project selected</option>
-            </select>
-            <div class="header-project-create">
-              <input
-                id="project-name-input"
-                class="project-input"
-                type="text"
-                placeholder="New project name"
-              >
-              <button id="create-project-button" type="button">Create</button>
-            </div>
-          </div>
           <span id="api-status" class="status-pill">Checking local product</span>
           <span class="local-pill">Local-first reviewer workflow</span>
         </div>
@@ -211,6 +194,31 @@
                 </div>
                 <div id="project-delta-panel" class="project-delta-panel"></div>
               </div>
+            </div>
+          </section>
+
+          <section class="workspace-section compact-workspace-section project-management-card" aria-labelledby="current-project-title">
+            <div class="workspace-card-header">
+              <span class="step-pill">Project</span>
+              <h2 id="current-project-title">Current Project</h2>
+            </div>
+
+            <label for="project-list" class="input-label">Project</label>
+            <select id="project-list" class="project-select">
+              <option value="">No project selected</option>
+            </select>
+
+            <label for="project-name-input" class="input-label">New Project</label>
+            <input
+              id="project-name-input"
+              class="project-input"
+              type="text"
+              placeholder="New project name"
+            >
+
+            <div class="project-actions">
+              <button id="create-project-button" type="button">Create</button>
+              <button id="delete-project-button" class="danger-button" type="button">Delete</button>
             </div>
           </section>
 

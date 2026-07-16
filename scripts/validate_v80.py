@@ -94,7 +94,10 @@ def validate_walkthroughs_and_docs() -> None:
             require(heading in text, f"{case_name} walkthrough missing {heading}.")
 
     require((ROOT / "docs" / "demo_case_library.md").exists(), "docs/demo_case_library.md missing.")
-    require((ROOT / "docs" / "v80_current_event_layer.md").exists(), "docs/v80_current_event_layer.md missing.")
+    require(
+        (ROOT / "docs" / "archive" / "v80_current_event_layer.md").exists(),
+        "docs/archive/v80_current_event_layer.md missing.",
+    )
 
 
 def main() -> None:

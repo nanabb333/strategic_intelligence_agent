@@ -127,7 +127,7 @@ def validate_dashboard_and_docs() -> None:
         if marker not in html and marker not in js:
             raise AssertionError(f"Dashboard missing V7 marker: {marker}")
     for path in [
-        "docs/v70_historical_outcomes.md",
+        "docs/archive/v70_historical_outcomes.md",
         "docs/strategic_lessons_framework.md",
     ]:
         if not (ROOT / path).exists():

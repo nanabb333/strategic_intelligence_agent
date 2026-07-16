@@ -232,7 +232,7 @@ def landing_page() -> str:
       </ul>
       <div class="actions">
         <a class="button" href="/workspace">Open Decision Workspace</a>
-        <span class="version">Version 4.5 · Build local</span>
+        <span class="version">V5 Sprint 0 · Build local</span>
       </div>
     </main>
   </body>

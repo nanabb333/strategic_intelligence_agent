@@ -1,32 +1,38 @@
 # Product Terminology
 
-Repo 5 uses one official English vocabulary across README, docs, dashboard, API descriptions, tests, and demo scenarios.
+Current-facing documentation uses one official English vocabulary. Historical documents, code symbols, generated artifact fields, and compatibility routes may retain older wording when changing them would alter behavior or historical accuracy.
 
-## Official Product Name
+## Product Identity
 
-Strategic Intelligence Decision Companion
+- **Official product name:** Strategic Intelligence Decision Companion
+- **Official category:** Reviewer-first Enterprise Decision Intelligence Platform
+- **Operating principles:** reviewer-first, local-first, deterministic
 
-## Official Capability Names
+## Current Workflow Terms
 
-| Term | Definition | Do Not Use As A Synonym |
-| --- | --- | --- |
-| Decision Workspace | Project-scoped workspace for questions, evidence, analyses, timeline, delta, and review state. | Chat, conversation, agent session |
-| Evidence Library | Project store of reviewer-provided or accepted evidence items. | Vector store, RAG corpus, memory |
-| Evidence Retrieval | User-triggered retrieval of reviewable evidence candidates. | Autonomous browsing, monitoring, agent research |
-| Evidence Intelligence | Deterministic review support for duplicates, conflicts, freshness, coverage, novelty, and source diversity. | Evidence judge, truth engine |
-| Evidence Traceability | Durable evidence IDs and metadata linking evidence to analyses and reviewer workflows. | Hidden context, prompt memory |
-| Decision Readiness | Deterministic map of evidence coverage, gaps, assumptions, unknowns, and reviewer questions. | Recommendation readiness, approval status |
-| Decision Framework | Deterministic framework used to classify the decision question and evidence needs. | Prompt template, LLM chain |
-| Domain Decision Evaluation | Domain-specific evidence mapping for investment, credit, asset allocation, and insurance contexts with advisory boundaries. | Investment recommendation, legal opinion |
-| Decision Pathway Draft | Reviewer-facing pathway scaffold generated from Decision Readiness. | Recommendation, ranking, best option |
-| Pathway Comparison Matrix | Categorical side-by-side comparison of pathway drafts. | Scoring matrix, ranking model |
-| Decision Review | Reviewer-controlled status, notes, unresolved questions, and review summary. | Approval workflow, final decision |
-| Decision Record | Future reviewer-controlled decision record capability. | Automated decision, selected pathway |
+| Term | Definition |
+| --- | --- |
+| Decision Question | The decision that requires reviewer judgment. |
+| Decision Context | Reviewer-authored background, objectives, constraints, or criteria; not evidence. |
+| Supporting Evidence | Material supplied or accepted for use in the assessment. |
+| Decision Assessment | The structured review artifact presented before a human acts. |
+| Human Review | Reviewer inspection, notes, unresolved questions, and judgment. |
+| Export | Local Markdown, TXT, JSON, trace, or metadata artifacts. |
+| Current Project | Optional persistent container for related questions, evidence, assessments, timeline, delta, and review state. |
 
-## Language Standard
+## Supporting Capability Terms
 
-English is the official product language. The architecture keeps narrow compatibility boundaries where localization could return later, but current UI, docs, demos, and generated product copy should be English-only.
+| Term | Definition |
+| --- | --- |
+| Evidence Retrieval | User-triggered retrieval of reviewable evidence candidates. |
+| Evidence Intelligence | Deterministic support for duplicate, conflict, freshness, coverage, novelty, and source-diversity review. |
+| Decision Readiness | Deterministic map of evidence coverage, gaps, assumptions, unknowns, and reviewer questions. |
+| Decision Pathway Draft | Reviewer-facing comparison scaffold without ranking or recommendation. |
+| Pathway Comparison Matrix | Categorical side-by-side comparison without preferred-option selection. |
+| Decision Review | Reviewer-controlled status, notes, unresolved questions, and review summary. |
 
-## Prohibited Product Claims
+## Avoid In Current-Facing Copy
 
-Do not describe Repo 5 as a chatbot, autonomous agent, autonomous researcher, monitoring system, forecasting engine, investment advisor, legal advisor, or decision maker.
+Do not present the product or primary workflow as an AI Agent, Agent Router, Workspace Management, Decision Workspace, Decision Snapshot, preferred-option selector, autonomous recommendation system, chatbot, autonomous researcher, monitoring system, forecasting engine, legal or investment advisor, compliance automation system, generic RAG demo, or autonomous decision maker.
+
+Older code symbols and compatibility artifacts should not be renamed solely for copy consistency.

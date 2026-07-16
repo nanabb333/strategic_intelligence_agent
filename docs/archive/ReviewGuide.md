@@ -4,21 +4,21 @@ This guide is for reviewers who want to understand Strategic Intelligence Decisi
 
 ## Recommended Reading Order
 
-1. [README](../README.md): product summary, setup, demo walkthrough, and limitations.
-2. [Product Overview](ProductOverview.md): users, supported inputs, outputs, workflow, and limitations.
-3. [Decision Intelligence Framework](DecisionIntelligenceFramework.md): conceptual layers behind the product.
-4. [Evidence Architecture](EvidenceArchitecture.md): how evidence, observations, inferences, recommendations, confidence, and evaluation relate.
+1. [README](../../README.md): product summary, setup, demo walkthrough, and limitations.
+2. [Product Overview](../ProductOverview.md): users, supported inputs, outputs, workflow, and limitations.
+3. [Decision Intelligence Framework](../DecisionIntelligenceFramework.md): conceptual layers behind the product.
+4. [Evidence Architecture](../EvidenceArchitecture.md): how evidence, observations, inferences, recommendations, confidence, and evaluation relate.
 5. [Demo Scenarios](DemoScenarios.md): realistic portfolio demo cases.
-6. [Engineering Architecture](EngineeringArchitecture.md): FastAPI, service layer, pipeline, artifacts, and storage.
-7. [Testing](Testing.md): test scope, CI checks, and validation commands.
-8. [Repository Trust Audit](RepositoryTrustAudit.md): scientific, engineering, product, and UX credibility review.
+6. [Engineering Architecture](../EngineeringArchitecture.md): FastAPI, service layer, pipeline, artifacts, and storage.
+7. [Testing](../Testing.md): test scope, CI checks, and validation commands.
+8. [Repository Trust Audit](../RepositoryTrustAudit.md): scientific, engineering, product, and UX credibility review.
 9. [Version 4 Architecture](Version4Architecture.md): project workspace, evidence library, timeline, delta, and non-agent boundaries.
 
 For V2 evidence-aware examples, review:
 
-- [Semiconductor Export Controls](case_studies/semiconductor_export_controls.md)
-- [Red Sea Shipping Disruption](case_studies/red_sea_shipping_disruption.md)
-- [Industrial Subsidy Strategy](case_studies/industrial_subsidy_strategy.md)
+- [Semiconductor Export Controls](../case_studies/semiconductor_export_controls.md)
+- [Red Sea Shipping Disruption](../case_studies/red_sea_shipping_disruption.md)
+- [Industrial Subsidy Strategy](../case_studies/industrial_subsidy_strategy.md)
 
 ## How To Run Locally
 
@@ -200,4 +200,4 @@ It should be evaluated as a local AI decision-support product and portfolio arti
 
 ## Screenshots
 
-Existing dashboard preview files are stored in [docs/screenshots](screenshots/).
+Existing dashboard preview files are stored in [docs/screenshots](../screenshots/).

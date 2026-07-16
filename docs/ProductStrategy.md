@@ -8,7 +8,7 @@ Future changes should also respect the [Decision Intelligence Constitution](Deci
 
 Evidence handling should follow the [Evidence Architecture](EvidenceArchitecture.md), which defines how evidence, observations, inferences, and recommendations should remain distinct as they move through the platform.
 
-Version 4 direction is defined in [Version 4 Architecture](Version4Architecture.md). It extends the product toward project workspaces, evidence bundles, evidence libraries, traceability, and decision evolution without changing the core identity into a chatbot, autonomous agent, or live monitoring system.
+Historical Version 4 direction is preserved in [Version 4 Architecture](archive/Version4Architecture.md). It extended the product toward project workspaces, evidence bundles, evidence libraries, traceability, and decision evolution without changing the core identity into a chatbot, autonomous agent, or live monitoring system.
 
 ## Product Identity
 

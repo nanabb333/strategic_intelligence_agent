@@ -1,29 +1,26 @@
 # Architecture
 
-Strategic Intelligence Decision Companion is a local-first Enterprise Decision Intelligence Platform. It is designed to help reviewers structure decisions with evidence, deterministic analysis, readiness checks, pathway comparison, and auditable human review.
+Strategic Intelligence Decision Companion is a local-first, reviewer-first Enterprise Decision Intelligence Platform. It helps reviewers structure decisions with evidence, deterministic analysis, readiness checks, pathway comparison, and auditable human review.
 
 This document is the current canonical architecture overview. Older architecture notes remain in `docs/` as portfolio history and should not be treated as the active product contract.
 
 ## Product Architecture
 
 ```text
-Decision Workspace
-  -> Project Questions
-  -> Evidence Library
-  -> Evidence Intelligence
-  -> Decision Readiness
-  -> Decision Pathway Drafts
-  -> Pathway Comparison Matrix
-  -> Decision Review
-  -> Decision Timeline and Delta
+Decision Question
+  -> Decision Context
+  -> Supporting Evidence
+  -> Decision Assessment
+  -> Human Review
+  -> Export
 ```
 
-The system does not choose a best pathway, rank decisions, assign probabilities, provide legal advice, provide investment advice, or make final decisions.
+Current Project is a secondary persistent container for related questions, evidence, assessments, timeline, delta, and review state. The system does not choose a best pathway, rank decisions, assign probabilities, provide legal advice, provide investment advice, or make final decisions.
 
 ## Runtime Architecture
 
 ```text
-Browser Decision Workspace
+Browser Decision Assessment interface
   -> FastAPI app.py
   -> Local JSON project storage
   -> Deterministic Python modules
@@ -35,8 +32,8 @@ Browser Decision Workspace
 | Layer | Responsibility |
 | --- | --- |
 | Launch Experience | Starts the local app and opens `http://localhost:8000`. |
-| Product Entry | Landing page at `/` and Decision Workspace at `/workspace`. |
-| Workspace UI | Vanilla HTML/CSS/JavaScript under `dashboard/`. |
+| Product Entry | Landing page at `/`; `/workspace` remains a compatibility route to the current interface. |
+| Assessment UI | Vanilla HTML/CSS/JavaScript under `dashboard/`. |
 | API Layer | FastAPI routes in `app.py`. |
 | Project Storage | Local JSON project, evidence, review, timeline, and delta state. |
 | Decision Engine | Deterministic analysis, evidence, confidence, and evaluation modules. |
@@ -55,21 +52,21 @@ Browser Decision Workspace
 | `src/pathway_comparison.py` | Categorical side-by-side pathway comparison. |
 | `src/decision_review.py` | Reviewer-controlled statuses, notes, unresolved questions, and review summary. |
 | `src/analysis_service.py` | Coordinates deterministic analysis execution and artifact persistence. |
-| `dashboard/project.js` | Browser behavior for project workspace panels. |
+| `dashboard/project.js` | Browser behavior for Current Project context and project-backed review panels. |
 
 ## Data Flow
 
 ```text
-Reviewer creates project
-  -> adds decision question
-  -> adds or accepts evidence
-  -> selects evidence for analysis
-  -> runs deterministic analysis
-  -> reviews evidence intelligence and readiness
-  -> compares pathway drafts
-  -> records reviewer notes and unresolved questions
-  -> inspects timeline, delta, and downloadable artifacts
+Reviewer selects an optional Current Project
+  -> defines the Decision Question
+  -> adds Decision Context
+  -> supplies or accepts Supporting Evidence
+  -> generates a deterministic Decision Assessment
+  -> performs Human Review
+  -> exports local artifacts
 ```
+
+Evidence Intelligence, Decision Readiness, pathway drafts, comparison, timeline, and delta remain supporting review capabilities behind this primary flow.
 
 ## Storage Model
 

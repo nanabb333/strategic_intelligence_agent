@@ -2,369 +2,195 @@
 
 [![CI](https://github.com/nanabb333/strategic_intelligence_agent/actions/workflows/ci.yml/badge.svg)](https://github.com/nanabb333/strategic_intelligence_agent/actions/workflows/ci.yml)
 
-Strategic Intelligence Decision Companion is a reviewer-first Enterprise Decision Intelligence Platform for structuring complex strategic decisions.
+Strategic Intelligence Decision Companion is a reviewer-first Enterprise Decision Intelligence Platform. It helps reviewers structure complex strategic decisions as local, deterministic, evidence-backed artifacts that remain open to human inspection.
 
-It helps product leaders, analysts, executives, and reviewers turn ambiguous source material and project evidence into deterministic, evidence-backed, auditable decision-support artifacts.
+![Legacy interface placeholder for Strategic Intelligence Decision Companion](portfolio_assets/screenshots/historical/dashboard-overview.png)
 
-> Tagline: Reviewer-first Enterprise Decision Intelligence for evidence-backed strategic decisions.
+> Screenshot status: this pre-Sprint 0 placeholder shows an earlier workspace layout and stale terminology. It is retained until a populated screenshot of the current Decision Assessment interface is captured.
 
-![Strategic Intelligence Decision Companion Decision Assessment interface](docs/Images/dashboard-overview.png)
+## Problem And Product Value
 
-The Decision Assessment interface starts with the decision question, adds reviewer-authored context and supporting evidence, then produces deterministic review artifacts.
+Strategic decisions become difficult when evidence is fragmented, assumptions are hidden, trade-offs are unclear, and teams cannot see what should change their view. Generating a fluent answer does not solve those problems.
 
-This is not a chatbot, autonomous researcher, monitoring system, forecasting engine, investment advisor, legal advisor, or autonomous decision maker.
+The product makes the decision question, reviewer context, supporting evidence, assessment, limitations, and review state explicit. Projects remain available as persistent containers for related questions and artifacts, but project management is not the primary workflow.
 
-Strategic decisions rarely fail because no one can generate text. They fail because evidence is incomplete, trade-offs are unclear, assumptions are hidden, and teams do not know what should change their view.
+It is designed to help reviewers see:
 
-Repo 5 is built around that problem.
+- what decision actually requires judgment
+- which context was supplied by the reviewer
+- which evidence supports or weakens the assessment
+- which assumptions and unknowns remain
+- which pathways deserve comparison
+- what requires review or later reassessment
 
-Most AI systems optimize for generating answers. Strategic Intelligence Decision Companion optimizes for improving decision quality.
-
-It separates evidence from inference, recommendations from facts, confidence from certainty, and reviewer judgment from system-generated structure. The goal is not to predict outcomes. The goal is to make strategic reasoning explicit enough for human review.
-
-## The Problem
-
-Modern AI systems are excellent at answering questions, summarizing documents, and generating fluent text. Those capabilities are useful, but they are not the same as decision support.
-
-Strategic decisions require a different shape of reasoning. A reviewer needs to know:
-
-- What decision is actually being made.
-- Which evidence matters.
-- Which assumptions remain unresolved.
-- Which constraints affect the decision.
-- Which risks are supported by evidence.
-- Which evidence conflicts with or duplicates other evidence.
-- Whether the decision is ready for review.
-- Which possible pathways deserve comparison.
-- What would require reassessment later.
-
-Strategic Intelligence Decision Companion was built to support that workflow.
-
-It turns ambiguous source material, accepted project evidence, and decision questions into reviewable decision briefs, evidence intelligence, readiness maps, pathway drafts, pathway comparison matrices, and reviewer-controlled review records.
-
-## Before And After
-
-| Traditional AI | Strategic Intelligence Decision Companion |
-| --- | --- |
-| Summarizes source material | Structures a decision-support workflow |
-| Answers a question | Clarifies the decision being made |
-| Generates text | Builds reviewable decision artifacts |
-| Produces a response | Produces evidence-backed decision support |
-| Treats uncertainty as prose | Exposes assumptions, unknowns, gaps, and change triggers |
-| Hides reasoning inside a generated answer | Preserves traceable evidence, metadata, and review state |
-| Ends at the answer | Supports timeline, delta, readiness, pathway comparison, and review |
-
-## Product Workflow
-
-The platform is organized around the decision lifecycle. Projects remain long-lived containers, but the primary product object is the decision under review:
+## Decision-First Workflow
 
 ```text
 Decision Question
-  |
-  v
-Decision Context
-  |
-  v
-Supporting Evidence
-  |
-  v
-Decision Assessment
-  |
-  v
-Confidence, Evidence Used, Strategic Considerations
-  |
-  v
-Assumptions and Limitations
-  |
-  v
-Export Assessment
+  -> Decision Context
+  -> Supporting Evidence
+  -> Decision Assessment
+  -> Human Review
+  -> Export
 ```
 
-Evidence can be retrieved only through explicit reviewer action. Retrieved items enter a review queue first. Accepted evidence may become part of the project evidence record, but the primary assessment flow distinguishes reviewer-authored context from supporting evidence.
+The reviewer defines the question and context, controls evidence, inspects the assessment, and makes any final decision. The system does not select a preferred option, rank pathways, assign probabilities, or act autonomously.
 
-The system helps reviewers compare defensible decision paths. It does not choose a best path, rank options, assign probabilities, or make final decisions.
+## Reviewer Workflow
 
-## Product Presentation Assets
-
-The repository includes a dedicated portfolio asset structure:
-
-```text
-portfolio_assets/
-  screenshots/
-  sample_inputs/
-  sample_outputs/
-  media/
-```
-
-Current screenshot placeholder: [docs/Images/dashboard-overview.png](docs/Images/dashboard-overview.png)
-
-Future screenshots should show a populated Decision Assessment with a decision question, context, supporting evidence, assessment result, and export actions.
-
-## Demo In 3 Minutes
-
-Reviewers can understand the product without running it:
-
-1. Read the [Demo Walkthrough](docs/DemoWalkthrough.md).
-2. Open the [V4 Workspace Demo](demo_case_outputs/v4_workspace/README.md).
-3. Inspect the [Evidence Library](demo_case_outputs/v4_workspace/evidence_library.json).
-4. Open the first [Decision Brief](demo_case_outputs/v4_workspace/question_1_q_export_controls_immediate/brief.md).
-5. Compare the [Decision History](demo_case_outputs/v4_workspace/decision_history.json) and [Decision Delta](demo_case_outputs/v4_workspace/decision_delta.json).
-
-For a portfolio-oriented review, start with the [Portfolio Review Guide](docs/PortfolioReviewGuide.md).
-
-## Example Decision-Support Output
-
-A semiconductor manufacturer faces new export controls. Management needs to decide whether investment plans, customer exposure reviews, and supply-chain monitoring should change.
-
-The platform structures the situation as:
-
-```text
-Decision Question:
-Should we adjust investment and supply-chain plans in response to new export controls?
-
-Evidence:
-Accepted project evidence covering customer eligibility, licensing uncertainty,
-supplier exposure, compliance burden, market access, and operational timing.
-
-Evidence Intelligence:
-Possible duplicate evidence, potential conflicts, freshness concerns,
-source concentration risks, and reviewer attention items.
-
-Decision Readiness:
-Mapped evidence coverage, assumptions, unknowns, constraints, historical support,
-and open reviewer questions.
-
-Decision Pathway Drafts:
-Possible staged response, further evidence required, regulatory clarity,
-or contingency preparation pathways.
-
-Pathway Comparison:
-Side-by-side comparison of constraints, risks, supporting evidence,
-unknowns, trade-offs, and decision triggers.
-
-Reviewer Review:
-Human-controlled notes, unresolved questions, and review statuses.
-```
-
-This output is a decision-support artifact. It is not investment advice, legal advice, trading advice, or a claim of future accuracy.
+1. Select or create a Current Project if the work should persist.
+2. State the Decision Question.
+3. Add optional Decision Context such as background, objectives, and constraints.
+4. Add Supporting Evidence by pasting text, uploading a supported file, providing a readable URL, or using accepted project evidence.
+5. Generate the deterministic Decision Assessment.
+6. Review evidence used, confidence, strategic considerations, assumptions, and limitations.
+7. Record human review state and export the required artifacts.
 
 ## Core Capabilities
 
-| Capability | What It Provides | Where To Learn More |
-| --- | --- | --- |
-| Decision Assessment Interface | Decision question, context, supporting evidence, assessment review, and export actions. | [Product Overview](docs/ProductOverview.md) |
-| Supporting Evidence | Local evidence input and accepted retrieved evidence used for assessment. | [Evidence Architecture](docs/EvidenceArchitecture.md) |
-| Evidence Intelligence | Deterministic duplicate, conflict, novelty, freshness, coverage, and source-diversity support. | [Evidence Philosophy](docs/EvidencePhilosophy.md) |
-| Decision Readiness | Evidence and framework coverage map with assumptions, unknowns, gaps, and reviewer questions. | [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md) |
-| Decision Pathway Drafts | Reviewer-facing pathway scaffolds without ranking or recommendation. | [Documentation Index](docs/DocumentationIndex.md) |
-| Pathway Comparison Matrix | Categorical side-by-side comparison of possible pathways. | [Documentation Index](docs/DocumentationIndex.md) |
-| Reviewer Review Layer | Reviewer-controlled statuses, notes, unresolved questions, and audit-friendly review summary. | [Trust Model](docs/TrustModel.md) |
-| Decision Brief | Deterministic analysis artifact with evidence, confidence, monitoring signals, and quality checks. | [Review Guide](docs/ReviewGuide.md) |
-| Decision Quality Evaluation | Deterministic checks for product-quality properties of generated briefs. | [Evaluation Strategy](docs/EvaluationStrategy.md) |
-| Historical Analogues | Historical comparison without treating past cases as predictions. | [Product Overview](docs/ProductOverview.md) |
+| Capability | Reviewer value |
+| --- | --- |
+| Decision Assessment | Structures the decision, evidence used, strategic considerations, assumptions, and limitations. |
+| Evidence support | Accepts pasted text, supported files, readable URLs, and reviewer-approved project evidence. |
+| Evidence Intelligence | Surfaces duplicates, conflicts, freshness, coverage, novelty, and source-diversity concerns. |
+| Decision Readiness | Maps evidence coverage, assumptions, unknowns, gaps, and reviewer questions. |
+| Pathway comparison | Provides categorical scaffolds for comparison without ranking or recommendation. |
+| Human review | Preserves reviewer notes, unresolved questions, statuses, timeline, and decision delta. |
+| Local artifacts | Exports Markdown, TXT, JSON, trace, and metadata files for inspection. |
 
-## Reviewer-First Governance
+## Three-Minute Demo
 
-The product is intentionally bounded.
+1. Read the [Demo Walkthrough](docs/DemoWalkthrough.md).
+2. Open the bundled [V4 project demo](demo_case_outputs/v4_workspace/README.md).
+3. Inspect its [Evidence Library](demo_case_outputs/v4_workspace/evidence_library.json).
+4. Review the first [Decision Brief](demo_case_outputs/v4_workspace/question_1_q_export_controls_immediate/brief.md).
+5. Compare the [Decision History](demo_case_outputs/v4_workspace/decision_history.json) and [Decision Delta](demo_case_outputs/v4_workspace/decision_delta.json).
 
-It does not:
-
-- Autonomously browse the web.
-- Run background monitoring.
-- Make final decisions.
-- Select a best pathway.
-- Rank pathways.
-- Assign probabilities to outcomes.
-- Provide investment advice.
-- Provide legal advice.
-- Replace reviewer judgment.
-
-The reviewer remains responsible for accepting evidence, interpreting trade-offs, resolving open questions, and making any final decision.
+The demo artifacts predate the Sprint 0 interface migration but remain useful examples of project persistence and reviewable outputs.
 
 ## Architecture
 
-The repository is a local FastAPI application with a deterministic analysis pipeline, local JSON storage, a vanilla Decision Assessment interface, and downloadable artifacts.
-
 ```text
-Decision Assessment Interface (vanilla HTML/CSS/JS)
-  |
-  v
-FastAPI App
-  |
-  v
-Project Storage
-  |
-  v
-Evidence + Readiness + Pathway + Review Modules
-  |
-  v
-Deterministic Decision Engine
-  |
-  v
-Markdown, TXT, JSON, Trace, Metadata
+Browser Decision Assessment interface
+  -> FastAPI routes
+  -> deterministic Python services and analysis pipeline
+  -> local project and run storage
+  -> Markdown, TXT, JSON, trace, and metadata artifacts
 ```
 
 | Area | Role |
 | --- | --- |
-| `app.py` | FastAPI entrypoint and API routes. |
-| `src/` | Decision engine, evidence, readiness, pathway, comparison, review, confidence, and evaluation modules. |
-| `dashboard/` | Local browser implementation for the Decision Assessment interface. |
-| `knowledge_base/` | Local mechanism, analogue, outcome, and playbook records. |
-| `docs/` | Product, engineering, governance, evidence, evaluation, and research documentation. |
-| `demo_case_outputs/` | Bundled generated artifacts for review. |
-| `tests/` | Pytest coverage for API behavior, workspace behavior, and decision-quality foundations. |
+| `app.py` | FastAPI entrypoint, product routes, and downloads. |
+| `src/` | Analysis, evidence, readiness, pathway, review, confidence, and evaluation modules. |
+| `dashboard/` | Vanilla HTML, CSS, and JavaScript interface. |
+| `knowledge_base/` | Local curated mechanism, analogue, outcome, and playbook records. |
+| `data/projects/` | Local project state. |
+| `outputs/runs/` | Generated local run artifacts. |
+| `tests/` | API, workflow, and decision-quality validation. |
 
-Important modules:
+See the canonical [Architecture Overview](docs/architecture.md) and implementation-focused [Engineering Architecture](docs/EngineeringArchitecture.md).
 
-- `src/project_workspace.py`: local JSON project storage, questions, evidence library, timeline, delta, and review state.
-- `src/evidence_intelligence.py`: deterministic evidence-set review support.
+Key implementation modules include:
+
+- `src/analysis_service.py`: stable service entrypoint for analysis.
+- `src/analysis_pipeline.py`: explicit deterministic pipeline orchestration.
+- `src/project_workspace.py`: Current Project persistence and review state.
+- `src/evidence_intelligence.py`: evidence-set review support.
 - `src/decision_readiness.py`: evidence-to-framework readiness mapping.
-- `src/decision_pathways.py`: deterministic pathway draft generation.
+- `src/decision_pathways.py`: non-ranked pathway scaffolds.
 - `src/pathway_comparison.py`: categorical pathway comparison.
-- `src/decision_review.py`: reviewer-controlled review layer.
-- `dashboard/project.js`: Decision Assessment browser behavior and project-context integration.
-
-The platform does not require a database, cloud service, background worker, external UI framework, LangGraph, RAG framework, autonomous agent, or scheduled retrieval.
-
-## Repository Guide
-
-Start here:
-
-1. [Product Overview](docs/ProductOverview.md)
-2. [Product Vision](docs/ProductVision.md)
-3. [Architecture](docs/architecture.md)
-4. [Decision Intelligence Framework](docs/DecisionIntelligenceFramework.md)
-5. [Evidence Architecture](docs/EvidenceArchitecture.md)
-6. [Trust Model](docs/TrustModel.md)
-7. [Documentation Index](docs/DocumentationIndex.md)
-
-For release and repository maturity context:
-
-- [Enterprise Readiness Checklist](docs/EnterpriseReadinessChecklist.md)
-- [Demo Walkthrough](docs/DemoWalkthrough.md)
-- [Portfolio Review Guide](docs/PortfolioReviewGuide.md)
-- [Repository Maturity Review](docs/RepositoryMaturityReview.md)
-- [Testing](docs/Testing.md)
-- [Folder Structure](docs/FolderStructure.md)
-- [Changelog](CHANGELOG.md)
-- [Release Notes](docs/releases/V4.5.md)
+- `src/decision_review.py`: reviewer-controlled notes and status.
 
 ## Quick Start
 
-For macOS, double-click:
+Python 3.10 or later is required. Install dependencies before the first launch:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+On macOS, double-click:
 
 ```text
 launch/Launch Strategic Intelligence Decision Companion.command
 ```
 
-For Windows, double-click:
+On Windows, double-click:
 
 ```text
 launch/Launch Strategic Intelligence Decision Companion.bat
 ```
 
-The launcher starts the local app and opens the Decision Assessment interface. If the browser does not open automatically, open:
-
-```text
-http://localhost:8000
-```
-
-## Developer Startup
-
-Technical users can still launch from a terminal:
+Or start from a terminal:
 
 ```bash
 ./run_app.sh
+# or
 python3 launch.py
 ```
 
-Developers can also run the FastAPI app directly:
+Open `http://localhost:8000` if the browser does not open automatically. Developers can run `python3 -m uvicorn app:app --reload` and use the compatibility route at `http://127.0.0.1:8000/workspace`.
+
+## Validation
+
+The repository CI and local validation use:
 
 ```bash
-python3 -m pip install -r requirements.txt
-python3 -m uvicorn app:app --reload
-```
-
-Developer route:
-
-```text
-http://127.0.0.1:8000/workspace
-```
-
-Run validation:
-
-```bash
-.venv/bin/ruff check .
-python3 -m py_compile app.py src/*.py
+ruff check .
+python3 -m py_compile app.py src/*.py launch.py
 python3 -m pytest
+node --check dashboard/app.js
+node --check dashboard/project.js
 ```
 
-## Reviewer Workflow
+Passing these checks validates repository behavior covered by the test suite; it does not establish real-world factual accuracy, benchmark superiority, security hardening, or deployment readiness.
 
-1. Select or create the current project.
-2. Enter the decision question.
-3. Add optional decision context: background, objectives, and constraints.
-4. Add supporting evidence by pasting text, uploading a supported file, or pasting a URL.
-5. Generate the deterministic Decision Assessment.
-6. Review the assessment, confidence, evidence used, strategic considerations, assumptions, and limitations before acting.
-7. Export Markdown, TXT, or JSON assessment artifacts if needed.
+Validation covers:
 
-## Demo Scenarios
+- Python style and syntax
+- API and workflow tests
+- deterministic decision-quality foundations
+- dashboard JavaScript syntax
+- repository behavior represented by the current test suite
 
-Demo walkthroughs are documented in [docs/GettingStarted/DemoScenarios.md](docs/GettingStarted/DemoScenarios.md).
+## Boundaries And Limitations
 
-Representative scenarios include:
+The product is local-first and single-user. It does not provide:
 
-- Federal Reserve Rate Hike
-- Export Controls
-- Supply Chain Disruption
-- Insurance Company Review
-- Strategic Partnership
+- autonomous research or autonomous agents
+- background monitoring
+- forecasting or probability estimates
+- preferred-option selection or final decision-making
+- legal, investment, or compliance advice
+- compliance automation
+- authentication or multi-user access control
+- cloud deployment or public-internet hardening
+- OCR for scanned PDFs
+- real-world accuracy guarantees
 
-Generated workspace artifacts are available under `demo_case_outputs/`.
+URL retrieval is user-triggered, not autonomous. All outputs require human review before executive, legal, financial, operational, or geopolitical use.
 
-Curated portfolio demo assets are available under [portfolio_assets/](portfolio_assets/README.md).
+## Current Version Status
 
-## Current Status
-
-| Area | Status |
+| Milestone | Meaning |
 | --- | --- |
-| Architecture | Stable local Decision Intelligence Platform. |
-| Project Storage | Project questions, evidence library, decision timeline, delta, and review state implemented behind the decision-first interface. |
-| Evidence | Evidence lifecycle, validation, ranking, intelligence, and review queue foundations implemented. |
-| Readiness | Decision readiness mapping, framework evidence mapping, gaps, assumptions, and unknowns implemented. |
-| Pathways | Deterministic pathway drafting and pathway comparison implemented. |
-| Review | Reviewer-controlled review layer implemented without approval or selection workflow. |
-| Evaluation | Deterministic Decision Quality Evaluation Harness implemented. |
-| Decision Assessment Interface | Local decision-first reviewer interface implemented in vanilla HTML/CSS/JavaScript. |
-| CI | Ruff, compile checks, and pytest used for validation. |
-| Portfolio Readiness | Suitable for external review as a mature AI product architecture project. |
+| V4.9 | Stable V4 freeze baseline and enterprise design assessment. |
+| V4.10 | Reviewer workflow layout correction; no new Decision Intelligence capability. |
+| V5 Sprint 0 | Current decision-first information architecture migration. It is not a complete final V5 release. |
+| Current branch follow-up | Restores the stable enterprise workbench layout after the Sprint 0 migration. |
 
-## Limitations
+The dashboard and landing page identify the current milestone as `V5 Sprint 0`. Runtime `/version` metadata retains software version `5.0.0` and the compatibility label `Enterprise Product Release`, while its `milestone` and `stage` fields identify Sprint 0. The milestone and release notes—not the compatibility label alone—define current release status.
 
-The repository intentionally avoids:
+## Canonical Documentation
 
-- Autonomous web agents
-- Background retrieval
-- Live monitoring
-- Benchmark superiority claims
-- Investment advice
-- Legal advice
-- Trading advice
-- Statistical confidence claims
-- Database infrastructure
-- Login, auth, or account systems
-- Cloud dependency
-- External frontend frameworks
+- [Documentation Index](docs/DocumentationIndex.md)
+- [Product Overview](docs/ProductOverview.md)
+- [Product Vision](docs/ProductVision.md)
+- [Product Terminology](docs/ProductTerminology.md)
+- [Architecture Overview](docs/architecture.md)
+- [Engineering Architecture](docs/EngineeringArchitecture.md)
+- [Demo Walkthrough](docs/DemoWalkthrough.md)
+- [Release Notes Index](docs/releases/README.md)
+- [Changelog](CHANGELOG.md)
 
-These boundaries keep the platform local, reviewable, deterministic, auditable, and maintainable.
-
-## Roadmap
-
-Near-term direction:
-
-1. Preserve the reviewer-first decision workspace as the center of the product.
-2. Continue tightening documentation around workspace, evidence, readiness, pathway comparison, and review.
-3. Keep retrieval user-triggered and review-queue based.
-4. Add future retrieval providers only behind the existing provider interface.
-5. Avoid autonomous decision behavior, hidden ranking, or unreviewable reasoning loops.
+Historical milestone and portfolio documents remain in place for context. Use the [Documentation Index](docs/DocumentationIndex.md) to distinguish the current product contract from historical material.

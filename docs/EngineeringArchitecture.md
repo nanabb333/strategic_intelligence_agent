@@ -1,6 +1,6 @@
 # Engineering Architecture
 
-This document describes the current local application architecture. It does not describe planned or imaginary infrastructure.
+This implementation-focused document describes how the current local application executes the product flow defined by the canonical [Architecture Overview](architecture.md). It does not define a competing product architecture or planned infrastructure.
 
 ## Related Docs
 
@@ -9,15 +9,15 @@ This document describes the current local application architecture. It does not 
 - [Analysis Pipeline](Pipeline.md)
 - [Folder Structure](FolderStructure.md)
 - [Testing](Testing.md)
-- [Portfolio Narrative](PortfolioNarrative.md)
+- [Documentation Archive](archive/README.md)
 
 ## Runtime Shape
 
 ```text
-User Input
+Decision Question + Decision Context + Supporting Evidence
   |
   v
-Browser Dashboard
+Browser Decision Assessment interface
   |
   v
 FastAPI app.py
@@ -40,7 +40,7 @@ decision case, evidence ledger, confidence assessment, evaluation
   |
   v
 Artifact Generation
-analysis JSON, markdown brief, text brief, agent trace, metadata
+analysis JSON, Markdown brief, text brief, compatibility trace, metadata
   |
   v
 Run Storage + Downloads
@@ -84,7 +84,7 @@ The pipeline intentionally remains explicit so the workflow is easy to inspect.
 
 - `src/analysis_input.py`: text, URL, and analysis-text preparation
 - `src/analysis_metadata.py`: metadata artifact construction
-- `src/agent_trace.py`: agent trace artifact construction
+- `src/agent_trace.py`: compatibility trace artifact construction; the filename is retained for schema and code stability
 - `src/analysis_artifact.py`: analysis JSON artifact construction
 - `src/decision_case.py`: additive Decision Case schema for the primary decision issue
 - `src/evidence_ledger.py`: additive Evidence Ledger records for reviewable evidence items
@@ -96,6 +96,10 @@ The pipeline intentionally remains explicit so the workflow is easy to inspect.
 - `src/url_reader.py`: readable webpage text extraction
 - `src/pdf_reader.py`: text-based PDF extraction
 
+## Project Context And Storage
+
+`src/project_workspace.py` persists the optional Current Project context: questions, accepted evidence, decision history, delta, and review state. Project persistence supports the Decision Assessment flow; it is not the primary product workflow. Run artifacts are stored locally under `outputs/runs/`, and project JSON is stored under `data/projects/`.
+
 ## Constraints
 
-The project is a local decision-support application. It does not provide forecasting, probability estimates, trading recommendations, legal advice, or investment advice.
+The product is a local, single-user decision-support application. It does not provide autonomous agents or research, background monitoring, forecasting, probability estimates, preferred-option selection, trading recommendations, legal advice, investment advice, authentication, or cloud deployment.

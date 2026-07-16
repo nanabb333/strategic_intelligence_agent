@@ -20,10 +20,14 @@ This document describes the current repository layout.
 ├── docs/
 │   ├── Architecture/
 │   ├── archive/
+│   ├── case_studies/
+│   ├── demo_case_walkthroughs/
 │   ├── Developer/
 │   ├── GettingStarted/
 │   ├── Reference/
-│   └── releases/
+│   ├── releases/
+│   ├── research/
+│   └── screenshots/
 ├── evaluation/
 ├── examples/
 ├── knowledge_base/
@@ -87,7 +91,7 @@ Generated run artifacts. Runtime run folders under `outputs/runs/` are ignored b
 
 ### `portfolio_assets/`
 
-Curated presentation assets for screenshots, sample inputs, sample outputs, and future demo media. Generated artifacts should remain under `outputs/` or `demo_case_outputs/`.
+Curated screenshot assets and presentation guidance. The historical pre-Sprint 0 placeholder is retained under `portfolio_assets/screenshots/historical/`. Generated artifacts remain under `outputs/`, `demo_case_outputs/`, or compatibility paths required by historical validation.
 
 ### `tests/`
 

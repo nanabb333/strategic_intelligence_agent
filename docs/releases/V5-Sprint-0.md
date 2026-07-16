@@ -7,7 +7,7 @@ This document describes **V5 Sprint 0**, not a complete final Version 5 release.
 - **V4.9:** stable V4 freeze baseline and enterprise design assessment.
 - **V4.10:** reviewer workflow layout correction.
 - **V5 Sprint 0:** decision-first information architecture migration.
-- **Current follow-up:** restoration of the stable enterprise workbench layout after the Sprint 0 migration.
+- **Sprint 0 stabilization:** restoration of the stable enterprise workbench layout after the decision-first migration.
 
 The dashboard and landing page report `V5 Sprint 0`. Application configuration and `GET /version` retain software version `5.0.0` and the compatibility label `Enterprise Product Release`; explicit `milestone: V5 Sprint 0` and `stage: sprint-0` fields define the current release phase. The compatibility label alone does not indicate a complete final V5 release.
 
@@ -41,7 +41,7 @@ Sprint 0 does not establish a final V5 release, production readiness, enterprise
 
 ## Compatibility And Validation
 
-The migration retained the existing routes, storage schemas, and analysis behavior. Validate the current repository with:
+The migration and layout stabilization retained the existing routes, storage schemas, and analysis behavior. Validate the current repository with:
 
 ```bash
 ruff check .

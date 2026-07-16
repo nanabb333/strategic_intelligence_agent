@@ -177,7 +177,7 @@ URL retrieval is user-triggered, not autonomous. All outputs require human revie
 | V4.9 | Stable V4 freeze baseline and enterprise design assessment. |
 | V4.10 | Reviewer workflow layout correction; no new Decision Intelligence capability. |
 | V5 Sprint 0 | Current decision-first information architecture migration. It is not a complete final V5 release. |
-| Current branch follow-up | Restores the stable enterprise workbench layout after the Sprint 0 migration. |
+| V5 Sprint 0 stabilization | Restored the stable enterprise workbench layout after the decision-first migration. |
 
 The dashboard and landing page identify the current milestone as `V5 Sprint 0`. Runtime `/version` metadata retains software version `5.0.0` and the compatibility label `Enterprise Product Release`, while its `milestone` and `stage` fields identify Sprint 0. The milestone and release notes—not the compatibility label alone—define current release status.
 
@@ -193,4 +193,4 @@ The dashboard and landing page identify the current milestone as `V5 Sprint 0`. 
 - [Release Notes Index](docs/releases/README.md)
 - [Changelog](CHANGELOG.md)
 
-Historical milestone and portfolio documents remain in place for context. Use the [Documentation Index](docs/DocumentationIndex.md) to distinguish the current product contract from historical material.
+Historical milestone and portfolio documents are preserved under the [Documentation Archive](docs/archive/README.md) or retained in compatibility locations where validation scripts still depend on them. Use the [Documentation Index](docs/DocumentationIndex.md) to distinguish the current product contract from historical material.

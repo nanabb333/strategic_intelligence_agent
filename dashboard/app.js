@@ -163,7 +163,6 @@ function applyLocale() {
   document.querySelectorAll("[data-source]").forEach((node) => {
     node.textContent = sourceLabel(node.dataset.source);
   });
-  document.getElementById("helper-text").textContent = t("helperText");
   applyOutputModeVisibility();
   if (!currentRun) {
     renderEmptyWorkspace();

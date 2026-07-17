@@ -50,89 +50,22 @@ def _section_map(markdown_text: str) -> dict[str, str]:
 
 
 def _render_executive_output(markdown_text: str) -> str:
-    sections = _section_map(markdown_text)
-    preferred_order = [
-        "Decision Snapshot",
-        "Decision Criteria",
-        "Preferred Path",
-        "Role-Based Implications",
-        "Assumptions",
-        "Trade-offs",
-        "Risk Analysis",
-        "Failure Modes",
-        "Decision Blind Spots",
-        "What Could Change This Recommendation",
-        "Regulatory Considerations",
-        "What to Monitor",
-        "Recommendation Action Plan",
-        "Action Timeline",
-        "Limitations",
-    ]
-    lines = ["# Executive Summary", ""]
-    for section in preferred_order:
-        body = sections.get(section)
-        if body:
-            lines.extend([f"## {section}", "", body, ""])
-    if len(lines) <= 2:
-        return markdown_text.strip() + "\n"
-    return "\n".join(lines).strip() + "\n"
+    """Preserve the complete assessment while applying an executive title."""
+    return _replace_document_title(markdown_text, "Executive Decision Assessment")
 
 
 def _render_beginner_output(markdown_text: str) -> str:
-    sections = _section_map(markdown_text)
-    snapshot = sections.get("Decision Snapshot", "").strip()
-    question = sections.get("Decision Question", "").strip()
-    criteria = sections.get("Decision Criteria", "").strip()
-    paths = sections.get("Decision Paths", "").strip()
-    preferred = sections.get("Preferred Path", "").strip()
-    role_implications = sections.get("Role-Based Implications", "").strip()
-    monitor = sections.get("What to Monitor", "").strip()
-    change_section = sections.get("What Could Change This Recommendation", "").strip()
-    limitations = sections.get("Limitations", "").strip()
+    """Preserve the complete assessment while applying a beginner-facing title."""
+    return _replace_document_title(markdown_text, "Beginner Decision Assessment")
 
-    return "\n".join(
-        [
-            "# Beginner Explanation",
-            "",
-            "## Decision Snapshot",
-            "",
-            snapshot or "**Current Position:** Review the decision brief before acting.",
-            "",
-            "## What this means",
-            "",
-            question or "- The issue should be treated as a decision question, not only a news summary.",
-            "",
-            "## What matters most",
-            "",
-            _beginner_criteria(criteria),
-            "",
-            "## Possible choices",
-            "",
-            paths or "- Compare waiting, staged preparation, and defensive action against evidence and reversibility.",
-            "",
-            "## Current decision-support view",
-            "",
-            preferred or "- Review the full brief for the current decision-support view.",
-            "",
-            "## Who needs to do what",
-            "",
-            role_implications
-            or "- Assign a decision owner, clarify exposure, separate confirmed facts from assumptions, and define review triggers.",
-            "",
-            "## What to watch next",
-            "",
-            monitor or "- Watch for evidence that the issue is becoming more costly, less reversible, or more structural.",
-            "",
-            "## What could change this view",
-            "",
-            change_section or "- New evidence, stronger constraints, or unresolved contradictions could change the view.",
-            "",
-            "## Limitations",
-            "",
-            limitations
-            or "- This is a deterministic decision-support draft for human review, not a forecast, legal advice, investment advice, or verified research.",
-        ]
-    ).strip() + "\n"
+
+def _replace_document_title(markdown_text: str, title: str) -> str:
+    lines = markdown_text.strip().splitlines()
+    if lines and lines[0].startswith("# "):
+        lines[0] = f"# {title}"
+    else:
+        lines = [f"# {title}", "", *lines]
+    return "\n".join(lines).strip() + "\n"
 
 
 def _beginner_criteria(criteria_text: str) -> str:

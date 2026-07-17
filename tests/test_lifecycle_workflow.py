@@ -133,9 +133,12 @@ def test_referenced_evidence_remains_traceable_when_used_in_decision() -> None:
         question_id=question_id,
         run_id="run_test",
         analysis={
-            "decision_case": {"recommended_path": "Proceed carefully."},
-            "confidence_assessment": {"confidence_level": "Moderate"},
-            "decision_quality_evaluation": {"overall_score": 0.8},
+            "decision_assessment": {
+                "assessment_summary": "Review exposure across neutral pathways.",
+                "reviewer_selected_path": "",
+            },
+            "evidence_sufficiency": {"tier": "Reviewable"},
+            "artifact_completeness": {"completion_rate": 0.8, "passed_checks": 8, "total_checks": 10},
         },
         evidence_ids=[evidence_id],
     )
@@ -143,6 +146,8 @@ def test_referenced_evidence_remains_traceable_when_used_in_decision() -> None:
     assert project["evidence_library"][0]["lifecycle_state"] == REFERENCED
     assert project["decision_history"][0]["decision_status"] == REVIEWED
     assert project["decision_history"][0]["supporting_evidence_count"] == 1
+    assert project["decision_history"][0]["artifact_completeness_passed"] == 8
+    assert project["decision_history"][0]["artifact_completeness_total"] == 10
     assert project["evidence_audit_log"][-1]["reviewer_action"] == "reference_in_decision"
     assert project["evidence_audit_log"][-1]["decision_run_id"] == "run_test"
     assert project["evidence_audit_log"][-1]["project_question_id"] == question_id
@@ -174,6 +179,21 @@ def test_old_project_evidence_remains_compatible() -> None:
 
     assert bundle[0]["evidence_id"] == "old_1"
     assert project["workspace_state"]["evidence_count"] == 1
+
+
+def test_legacy_history_recommendation_is_not_exposed_as_current_assessment() -> None:
+    project = project_workspace.create_project("Legacy History Workspace")
+    project["decision_history"] = [
+        {
+            "decision_id": "legacy_1",
+            "recommendation_summary": "Option B was selected by the old system.",
+            "created_at": "2025-01-01T00:00:00",
+        }
+    ]
+    project = project_workspace.save_project(project)
+
+    assert "Option B" not in project["workspace_state"]["current_assessment"]
+    assert "suppressed" in project["workspace_state"]["current_assessment"]
 
 
 def test_confidence_metadata_remains_additive() -> None:

@@ -9,14 +9,15 @@ from agent_trace import build_agent_trace
 from analysis_artifact import build_analysis_artifact
 from analysis_input import prepare_analysis_input
 from analysis_metadata import build_analysis_metadata
-from brief_generator import generate_brief
+from artifact_completeness import check_artifact_completeness
 from context_retriever import retrieve_current_context
-from confidence_layer import assess_confidence, render_evidence_confidence_section
-from decision_case import build_decision_case
-from decision_quality_evaluator import evaluate_decision_quality, render_decision_quality_review
+from decision_assessment import build_neutral_decision_assessment
+from decision_pathways import build_decision_pathway_drafts
+from decision_readiness import build_decision_readiness_map
 from evidence_assessor import assess_evidence
 from evidence_credibility import assess_evidence_credibility
 from evidence_ledger import build_evidence_ledger
+from evidence_sufficiency import assess_evidence_sufficiency
 from event_context import extract_event_context
 from event_understanding import detect_event_understanding
 from historical_retriever import retrieve_historical_analogues
@@ -27,8 +28,10 @@ from localization import localized_question_route
 from markdown_utils import markdown_to_text
 from mechanism_detector import detect_mechanisms
 from multi_lens_analyzer import analyze_lenses
+from neutral_brief_renderer import render_rich_neutral_assessment
 from output_adapter import adapt_output
 from outcome_retriever import retrieve_historical_outcomes
+from pathway_comparison import build_pathway_comparison_matrix
 from question_router import route_question
 from response_playbook_retriever import retrieve_response_patterns
 from run_storage import create_run_dir, download_links, write_json
@@ -115,58 +118,35 @@ def execute_analysis_pipeline(
         contexts=contexts.get(primary_title, []),
         project_evidence=evidence_bundle,
     )
-    decision_case = build_decision_case(
-        issue=primary_issue,
-        classification=primary_classification,
-        analogues=analogues.get(primary_title, []),
-        mechanisms=mechanisms.get(primary_title, []),
-        strategic_assessment=strategic_assessments.get(primary_title),
-        evidence_ids=evidence_ledger.ids(),
-        question_text=question_text,
+    readiness_evidence = _readiness_evidence(evidence_bundle, evidence_ledger)
+    readiness_map = build_decision_readiness_map(
+        decision_question=question_text,
+        decision_context=text[:4000],
+        evidence_items=readiness_evidence,
     )
-    confidence_assessment = assess_confidence(decision_case, evidence_ledger)
-    base_brief = generate_brief(
-        issues,
-        classifications,
-        analogues,
-        contexts,
-        analyses,
-        agent_route=route,
-        mechanisms=mechanisms,
-        interpretations=interpretations,
-        evidence_assessments=evidence_assessments,
-        historical_outcomes=historical_outcomes,
-        strategic_lessons=strategic_lessons,
-        strategic_assessments=strategic_assessments,
-        evidence_credibility=evidence_credibility,
-        response_patterns=response_patterns,
-        event_context=event_context,
-        event_understanding=event_understanding,
-        source_url=source_url,
+    pathway_draft_set = build_decision_pathway_drafts(
+        decision_question=question_text,
+        decision_context=text[:4000],
+        readiness_map=readiness_map,
+        accepted_evidence_refs=_accepted_evidence_refs(readiness_evidence),
     )
-    brief_markdown = adapt_output(base_brief, mode=output_mode, language=language)
-    brief_markdown = (
-        brief_markdown.rstrip()
-        + "\n\n"
-        + render_evidence_confidence_section(
-            evidence_ledger=evidence_ledger,
-            confidence_assessment=confidence_assessment,
-        )
+    pathway_comparison = build_pathway_comparison_matrix(
+        decision_question=question_text,
+        pathway_draft_set=pathway_draft_set,
+        readiness_map=readiness_map,
+        domain_evaluation=readiness_map.get("domain_evaluation", {}),
     )
-    decision_quality_evaluation = evaluate_decision_quality(
-        decision_case=decision_case,
+    decision_assessment = build_neutral_decision_assessment(
+        assessment_summary=_assessment_summary(primary_issue, primary_classification),
+        pathway_draft_set=pathway_draft_set,
+        comparison_matrix=pathway_comparison,
+    )
+    evidence_sufficiency = assess_evidence_sufficiency(decision_assessment, evidence_ledger)
+    artifact_completeness = check_artifact_completeness(
+        assessment=decision_assessment,
         evidence_ledger=evidence_ledger,
-        confidence_assessment=confidence_assessment,
-        brief_markdown=brief_markdown,
-        language=language,
+        evidence_sufficiency=evidence_sufficiency,
     )
-    brief_markdown = (
-        brief_markdown.rstrip()
-        + "\n\n"
-        + render_decision_quality_review(decision_quality_evaluation)
-        + "\n"
-    )
-    brief_text = markdown_to_text(brief_markdown)
 
     metadata = build_analysis_metadata(
         run_id=run_id,
@@ -206,13 +186,19 @@ def execute_analysis_pipeline(
         file_type=file_type,
         route=route,
         metadata=metadata,
-        decision_case=decision_case,
+        decision_assessment=decision_assessment,
+        decision_readiness=readiness_map,
+        decision_pathways=pathway_draft_set,
+        pathway_comparison=pathway_comparison,
         evidence_ledger=evidence_ledger,
-        confidence_assessment=confidence_assessment,
-        decision_quality_evaluation=decision_quality_evaluation,
+        evidence_sufficiency=evidence_sufficiency,
+        artifact_completeness=artifact_completeness,
         evidence_bundle=evidence_bundle,
     )
     analysis = localize_analysis_payload(analysis, language)
+    base_brief = render_rich_neutral_assessment(analysis)
+    brief_markdown = adapt_output(base_brief, mode=output_mode, language=language)
+    brief_text = markdown_to_text(brief_markdown)
     agent_trace = build_agent_trace(route)
 
     (run_dir / "input.txt").write_text(text, encoding="utf-8")
@@ -230,3 +216,43 @@ def execute_analysis_pipeline(
         "brief_text": brief_text,
         "downloads": download_links(run_id),
     }
+
+
+def _readiness_evidence(evidence_bundle: list[dict[str, Any]], evidence_ledger: Any) -> list[dict[str, Any]]:
+    """Normalize current evidence for neutral pathway generation."""
+    if evidence_bundle:
+        return [dict(item) for item in evidence_bundle]
+    return [
+        {
+            "evidence_id": item.evidence_id,
+            "title": item.observation or item.claim_supported,
+            "source_type": item.source_type,
+            "source_name": item.source_type,
+            "source_url": "",
+            "excerpt": item.evidence_text,
+            "summary": item.evidence_text,
+            "status": "User Provided" if item.source_type.startswith("User-provided") else "Retrieved",
+        }
+        for item in evidence_ledger.items
+    ]
+
+
+def _accepted_evidence_refs(evidence_items: list[dict[str, Any]]) -> list[dict[str, str]]:
+    return [
+        {
+            "evidence_id": str(item.get("evidence_id") or ""),
+            "title": str(item.get("title") or "Evidence item"),
+            "source_url": str(item.get("source_url") or ""),
+        }
+        for item in evidence_items
+        if item.get("evidence_id")
+    ]
+
+
+def _assessment_summary(issue: Any | None, classification: Any | None) -> str:
+    if issue is None:
+        return "The supplied material did not produce a structured issue; reviewer clarification is required."
+    scenario = getattr(classification, "primary_scenario", "") if classification else ""
+    summary = getattr(issue, "core_issue", "") or getattr(issue, "summary", "") or getattr(issue, "title", "")
+    suffix = f" The deterministic scenario frame is {scenario}." if scenario else ""
+    return f"{summary}{suffix}".strip()

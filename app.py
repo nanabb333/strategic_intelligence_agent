@@ -3,12 +3,13 @@
 from __future__ import annotations
 
 import base64
+import json
 import sys
 from pathlib import Path
 from typing import Any
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, HTMLResponse
+from fastapi.responses import FileResponse, HTMLResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
@@ -22,10 +23,16 @@ from analysis_service import run_analysis  # noqa: E402
 from config import load_config, release_metadata  # noqa: E402
 from diagnostics import build_diagnostics  # noqa: E402
 from decision_pathways import build_project_decision_pathway_drafts  # noqa: E402
+from decision_assessment import (  # noqa: E402
+    normalize_stored_decision_assessment,
+    render_normalized_stored_assessment,
+)
 from decision_readiness import build_project_decision_readiness  # noqa: E402
 from domain_evaluation import build_project_domain_evaluation  # noqa: E402
 from evidence_intelligence import build_evidence_intelligence  # noqa: E402
 from evidence_retrieval import retrieve_evidence  # noqa: E402
+from evidence_sufficiency import normalize_stored_evidence_sufficiency  # noqa: E402
+from markdown_utils import markdown_to_text  # noqa: E402
 from pathway_comparison import build_project_pathway_comparison  # noqa: E402
 from pdf_reader import extract_pdf_text  # noqa: E402
 from project_workspace import (
@@ -127,6 +134,7 @@ def landing_page() -> str:
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Strategic Intelligence Decision Companion</title>
+    <link rel="icon" href="data:,">
     <style>
       :root {
         --primary: #B8A7E8;
@@ -552,19 +560,29 @@ def list_runs() -> list[dict[str, Any]]:
 def get_run(run_id: str) -> dict[str, Any]:
     """Return stored artifacts for one run."""
     run_dir = run_dir_or_404(run_id)
-    return {
+    stored_analysis = read_json(run_dir / "analysis.json")
+    stored_brief = (run_dir / "brief.md").read_text(encoding="utf-8")
+    is_legacy = not bool(stored_analysis.get("decision_assessment"))
+    analysis = _current_analysis_view(stored_analysis)
+    if is_legacy:
+        stored_brief = render_normalized_stored_assessment(analysis["decision_assessment"])
+    payload = {
         "metadata": read_json(run_dir / "metadata.json"),
-        "analysis": read_json(run_dir / "analysis.json"),
-        "agent_trace": read_json(run_dir / "agent_trace.json"),
-        "brief_markdown": (run_dir / "brief.md").read_text(encoding="utf-8"),
-        "brief_text": (run_dir / "brief.txt").read_text(encoding="utf-8"),
+        "analysis": analysis,
+        "tool_routing_trace": read_json(run_dir / "agent_trace.json"),
+        "brief_markdown": stored_brief,
+        "brief_text": markdown_to_text(stored_brief),
         "downloads": download_links(run_id),
     }
+    if is_legacy:
+        payload["legacy_contract"] = _legacy_contract_marker(run_id)
+        payload["historical_raw_downloads"] = _historical_raw_download_links(run_id)
+    return payload
 
 
 @app.get("/run/{run_id}/download/{artifact}")
-def download_run_artifact(run_id: str, artifact: str) -> FileResponse:
-    """Download a stored run artifact."""
+def download_run_artifact(run_id: str, artifact: str) -> Response:
+    """Export the current assessment contract, neutralizing legacy runs."""
     filename_by_artifact = {
         "markdown": "brief.md",
         "txt": "brief.txt",
@@ -573,6 +591,110 @@ def download_run_artifact(run_id: str, artifact: str) -> FileResponse:
     filename = filename_by_artifact.get(artifact)
     if not filename:
         raise HTTPException(status_code=404, detail="Unknown artifact.")
-    path = run_dir_or_404(run_id) / filename
+    run_dir = run_dir_or_404(run_id)
+    path = run_dir / filename
+    stored_analysis = read_json(run_dir / "analysis.json")
+    if not stored_analysis.get("decision_assessment"):
+        analysis = _current_analysis_view(stored_analysis)
+        markdown = render_normalized_stored_assessment(analysis["decision_assessment"])
+        if artifact == "markdown":
+            return _download_response(markdown, "current-neutral-assessment.md", "text/markdown")
+        if artifact == "txt":
+            return _download_response(markdown_to_text(markdown), "current-neutral-assessment.txt", "text/plain")
+        return _download_response(
+            json.dumps(analysis, indent=2, ensure_ascii=False),
+            "current-neutral-assessment.json",
+            "application/json",
+        )
     media_type = "application/json" if artifact == "json" else "text/plain"
     return FileResponse(path, media_type=media_type, filename=filename)
+
+
+@app.get("/run/{run_id}/download/historical-raw/{artifact}")
+def download_historical_raw_artifact(run_id: str, artifact: str) -> FileResponse:
+    """Download an unchanged artifact generated under a superseded contract."""
+    filename_by_artifact = {"markdown": "brief.md", "txt": "brief.txt", "json": "analysis.json"}
+    filename = filename_by_artifact.get(artifact)
+    if not filename:
+        raise HTTPException(status_code=404, detail="Unknown historical raw artifact.")
+    run_dir = run_dir_or_404(run_id)
+    if read_json(run_dir / "analysis.json").get("decision_assessment"):
+        raise HTTPException(status_code=404, detail="This run does not use a superseded historical contract.")
+    path = run_dir / filename
+    media_type = "application/json" if artifact == "json" else "text/plain"
+    return FileResponse(
+        path,
+        media_type=media_type,
+        filename=f"historical-raw-read-only-{filename}",
+        headers={
+            "X-Artifact-Mode": "historical-raw-read-only",
+            "X-Artifact-Contract": "superseded",
+        },
+    )
+
+
+def _current_analysis_view(stored_analysis: dict[str, Any]) -> dict[str, Any]:
+    """Return current-contract fields without exposing superseded evaluative keys."""
+    is_legacy = not bool(stored_analysis.get("decision_assessment"))
+    analysis = _strip_legacy_evaluative_fields(stored_analysis) if is_legacy else dict(stored_analysis)
+    analysis["decision_assessment"] = normalize_stored_decision_assessment(stored_analysis)
+    sufficiency = normalize_stored_evidence_sufficiency(stored_analysis)
+    if sufficiency:
+        analysis["evidence_sufficiency"] = sufficiency
+    for key in ("decision_case", "confidence_assessment", "decision_quality_evaluation"):
+        analysis.pop(key, None)
+    if is_legacy:
+        analysis["legacy_contract"] = _legacy_contract_marker("")
+    return analysis
+
+
+def _strip_legacy_evaluative_fields(value: Any) -> Any:
+    """Remove superseded recommendation, confidence, and quality keys from a current view."""
+    prohibited = {
+        "recommended_path",
+        "recommendation",
+        "preferred_path",
+        "confidence",
+        "confidence_level",
+        "confidence_assessment",
+        "decision_quality_evaluation",
+        "overall_score",
+        "overall_label",
+        "recommendation_score",
+    }
+    if isinstance(value, dict):
+        return {
+            key: _strip_legacy_evaluative_fields(item)
+            for key, item in value.items()
+            if key not in prohibited
+        }
+    if isinstance(value, list):
+        return [_strip_legacy_evaluative_fields(item) for item in value]
+    return value
+
+
+def _legacy_contract_marker(run_id: str) -> dict[str, Any]:
+    return {
+        "is_legacy": True,
+        "read_only": True,
+        "contract_status": "superseded",
+        "display_mode": "neutralized-current-assessment",
+        "statement": (
+            "The original run was generated under a superseded recommendation-oriented contract. "
+            "Historical raw artifacts remain available separately for audit only."
+        ),
+        "run_id": run_id,
+    }
+
+
+def _historical_raw_download_links(run_id: str) -> dict[str, str]:
+    base = f"/run/{run_id}/download/historical-raw"
+    return {"markdown": f"{base}/markdown", "txt": f"{base}/txt", "json": f"{base}/json"}
+
+
+def _download_response(content: str, filename: str, media_type: str) -> Response:
+    return Response(
+        content=content,
+        media_type=media_type,
+        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+    )

@@ -60,7 +60,7 @@ ARTIFACT_FILENAMES = {
     "analysis": "analysis.json",
     "brief_markdown": "brief.md",
     "brief_text": "brief.txt",
-    "agent_trace": "agent_trace.json",
+    "tool_routing_trace": "agent_trace.json",
     "metadata": "metadata.json",
 }
 

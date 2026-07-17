@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Strategic Intelligence Decision Companion</title>
+    <link rel="icon" href="data:,">
     <link rel="stylesheet" href="/dashboard/styles.css">
   </head>
   <body>
@@ -400,26 +401,26 @@
           </details>
 
           <details id="evaluation-tab" class="internal-detail">
-            <summary><span data-i18n="evaluation">Evaluation</span> <span data-source="Benchmark Framework">Benchmark Framework</span></summary>
+            <summary><span data-i18n="evaluation">Regression Validation</span> <span data-source="Contract Suite">Contract Suite</span></summary>
             <div id="evaluation-section" class="section-body">
-              <h3>Internal benchmark snapshot</h3>
-              <p>These values come from compact synthetic / curated benchmark cases. They measure deterministic consistency and coverage inside this repository, not real-world accuracy.</p>
+              <h3>Deterministic regression and contract snapshot</h3>
+              <p>These synthetic cases check predetermined rules and output contracts. They are not model accuracy, decision quality, an independent research dataset, or external validation.</p>
               <ul>
-                <li>Benchmark cases: 25</li>
-                <li>Scenario Accuracy: 88%</li>
-                <li>Mechanism Accuracy: 72%</li>
-                <li>Lens Coverage Rate: 100%</li>
-                <li>Response Retrieval Coverage: 100%</li>
-                <li>Overall Benchmark Score: 90%</li>
+                <li>Regression cases: 25</li>
+                <li>Scenario contract match rate: 88%</li>
+                <li>Expected mechanism coverage rate: 72%</li>
+                <li>Fixed lens contract coverage: 100%</li>
+                <li>Fixed response contract coverage: 100%</li>
+                <li>No single overall score is reported.</li>
               </ul>
               <p><span class="evidence"><span data-i18n="source">Source</span>: evaluation/benchmark_results.csv</span></p>
-              <p>Known limitation: current benchmark cases do not prove factual correctness, legal accuracy, financial accuracy, geopolitical accuracy, or future outcomes.</p>
+              <p>Known limitation: the cases are not held out from rule design and do not include external gold annotations or a human reviewer study.</p>
             </div>
           </details>
 
-          <div class="section-divider" data-i18n="downloadsGroup">Export Assessment</div>
-          <div class="download-shelf" aria-label="Export assessment">
-            <span>Export Assessment</span>
+          <div class="section-divider" data-i18n="downloadsGroup">Export Current Assessment</div>
+          <div class="download-shelf" aria-label="Export current assessment">
+            <span>Export Current Assessment</span>
             <button id="download-shelf-md" type="button">Markdown</button>
             <button id="download-shelf-txt" type="button">TXT</button>
             <button id="download-shelf-json" type="button">JSON</button>

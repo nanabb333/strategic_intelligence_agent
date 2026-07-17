@@ -10,11 +10,11 @@ These definitions are intended to ensure consistent language across the architec
 
 ### Definition
 
-New evidence or changing conditions that could alter the current recommendation.
+New evidence or changing conditions that could alter the current assessment or a reviewer-owned selection.
 
 ### Purpose
 
-Ensures that recommendations remain adaptive rather than static.
+Ensures that assessments remain adaptive rather than static.
 
 ---
 
@@ -38,7 +38,7 @@ The realistic courses of action available to the decision-maker.
 
 ### Purpose
 
-Defines the feasible alternatives before selecting a preferred path.
+Defines feasible archetypes for reviewer comparison without selecting a path.
 
 ---
 
@@ -66,15 +66,15 @@ Provides supporting evidence without allowing historical analogues to become the
 
 ---
 
-## Preferred Path
+## Reviewer-Selected Path
 
 ### Definition
 
-The decision path that is currently best supported by the available evidence and reasoning.
+An optional pathway explicitly selected by a human reviewer after inspecting the assessment.
 
 ### Purpose
 
-Represents the system's current judgment while remaining open to revision if new evidence emerges.
+Remains empty unless a reviewer records a selection; pathway order and system output never populate it.
 
 ---
 
@@ -86,4 +86,4 @@ The benefits gained, costs accepted, opportunities sacrificed, and remaining unc
 
 ### Purpose
 
-Makes the consequences of each option explicit instead of presenting recommendations without context.
+Makes template-based and case-derived pathway considerations inspectable without implying a recommendation.

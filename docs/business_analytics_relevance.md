@@ -1,6 +1,6 @@
 # Business Analytics Relevance
 
-Strategic Intelligence Agent is not just an AI demo. It is an analytics product
+Strategic Intelligence Decision Companion is a deterministic analytics product
 that turns unstructured source material into a repeatable decision-support
 workflow.
 
@@ -35,4 +35,3 @@ a clear input, output, and validation path.
 The V2 Analyst Workbench turns the pipeline into a usable product surface. It
 supports input, review, evidence tracing, and export while maintaining clear
 boundaries against forecasting and investment advice.
-

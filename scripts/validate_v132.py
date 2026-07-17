@@ -1,4 +1,4 @@
-"""Validate V13.2 criteria-driven reasoning consolidation."""
+"""RETIRED historical validator for the superseded V13.2 recommendation contract."""
 
 from __future__ import annotations
 
@@ -151,4 +151,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit("RETIRED: validates the superseded V13.2 ranking contract; not a current V5 validator.")

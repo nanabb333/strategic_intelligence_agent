@@ -26,16 +26,16 @@ This is an operational resilience and supply-chain decision-support case. The de
 
 ## Evidence Ledger Example
 
-| evidence_id | observation | inference | claim_supported | relevance | confidence | limitation |
+| evidence_id | observation | inference | claim_supported | relevance | support level | limitation |
 | --- | --- | --- | --- | --- | --- | --- |
 | E1 | Based on the provided source material, Red Sea disruption affects route reliability and delivery timing. | The situation creates a decision about rerouting, buffers, and customer communication. | Situation understanding and decision definition. | High | Moderate | The source summary does not provide shipment-level exposure or route-specific capacity. |
 | E2 | Based on the provided source material, costs may rise through longer routes, insurance, and logistics adjustments. | Cost and service reliability should both be decision criteria. | Decision criteria and trade-off reasoning. | High | Moderate | Exact cost deltas and contract terms are unknown. |
 | E3 | Based on historical analogue structure, supply-chain disruptions often require staged continuity planning rather than a single immediate response. | A staged response may preserve flexibility while more evidence develops. | Option reasoning and historical comparison. | Moderate | Moderate | Prior disruptions may differ in geography, duration, and carrier behavior. |
-| E4 | Based on the evidence architecture, monitoring should focus on signals that could invalidate the current posture. | Recommendations should remain revisable as route conditions change. | Monitoring and confidence layer. | High | Moderate | The platform does not monitor live shipping data. |
+| E4 | Based on the evidence architecture, monitoring should focus on signals that could invalidate the current posture. | The assessment should remain revisable as route conditions change. | Monitoring and Evidence Sufficiency layer. | High | Moderate | The platform does not monitor live shipping data. |
 
-## Confidence and Assumptions
+## Evidence Sufficiency and Assumptions
 
-**Confidence level:** Moderate
+**Structural Evidence Sufficiency tier:** Reviewable
 
 **Key assumptions**
 
@@ -58,7 +58,7 @@ This is an operational resilience and supply-chain decision-support case. The de
 - Customer tolerance for delivery changes.
 - Contractual penalties or insurance requirements.
 
-## Decision Quality Evaluation Example
+## Historical V2 Completeness Illustration
 
 These labels illustrate deterministic product-quality evaluation. They are internal review aids, not scientific proof or real-world accuracy claims.
 
@@ -75,4 +75,4 @@ These labels illustrate deterministic product-quality evaluation. They are inter
 
 ## Reviewer Takeaway
 
-This case demonstrates that the V2 layer can make operational uncertainty easier to review. The evidence ledger shows what is known from the provided material, what is inferred, and what must be monitored before the recommendation should change.
+This case demonstrates that the V2 layer can make operational uncertainty easier to review. The evidence ledger shows what is known from the provided material, what is inferred, and what must be monitored before the assessment or a reviewer-owned selection should change.

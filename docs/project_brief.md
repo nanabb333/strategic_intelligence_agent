@@ -2,8 +2,8 @@
 
 ## Purpose
 
-Strategic Intelligence Agent is an analyst productivity and executive
-decision-support tool. It helps transform unstructured documents into
+Strategic Intelligence Decision Companion is a deterministic analyst-productivity and executive
+decision-support system. It helps transform unstructured documents into
 structured strategic intelligence briefs.
 
 The project evolves the earlier `financial_rubric_agent` concept from:
@@ -24,9 +24,9 @@ Document -> Issue Extraction -> Scenario Classification
 
 This repository is designed to demonstrate:
 
-- LLM application development.
-- Agent-oriented workflow design.
-- Tool use and retrieval integration.
+- Deterministic decision-support application development.
+- Rules-based tool routing and workflow orchestration.
+- Structured evidence processing and retrieval integration.
 - Multi-step workflow orchestration.
 - Business analytics and strategic reasoning.
 - Executive-facing synthesis.
@@ -56,4 +56,3 @@ The core output is an executive intelligence brief that includes:
 - Current context.
 - Strategic implications.
 - Open questions and uncertainties.
-

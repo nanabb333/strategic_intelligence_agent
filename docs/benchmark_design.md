@@ -1,6 +1,6 @@
-# Benchmark Design
+# Regression Fixture Design
 
-The V5 benchmark evaluates the existing Strategic Intelligence Agent pipeline against a curated set of strategic intelligence cases.
+The V5 synthetic fixture suite checks the existing deterministic pipeline against predetermined engineering contracts.
 
 ## Case Selection
 
@@ -42,8 +42,8 @@ The benchmark uses deterministic scoring:
 - Mechanism detection is expected-item coverage.
 - Lens coverage is expected-item coverage.
 - Response retrieval coverage is expected-item coverage.
-- Overall score is the average of those four measures.
+- Results remain separate; no overall score is calculated or presented as research performance.
 
 ## Credibility Principle
 
-The benchmark is intentionally modest. It is designed to reveal strengths and gaps, not to inflate performance claims. Current results are written to `evaluation/benchmark_results.csv` and summarized in `evaluation/evaluation_summary.md`.
+The suite is designed for regression detection. Because fixture wording and expected labels were created alongside the rules, results cannot establish external validity. Current component results are written to `evaluation/benchmark_results.csv` and summarized in `evaluation/evaluation_summary.md`.

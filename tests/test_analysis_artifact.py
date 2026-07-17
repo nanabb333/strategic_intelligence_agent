@@ -56,6 +56,8 @@ def test_build_analysis_artifact_preserves_top_level_shape() -> None:
 
     assert artifact["issue"] == {"title": "Test issue", "summary": "Summary"}
     assert artifact["scenario"] == {"issue_title": "Test issue", "primary_scenario": "Export Controls"}
-    assert artifact["agent_trace"]["document_type"] == "Policy"
-    assert artifact["evaluation_metadata"]["framework"] == "V5 deterministic benchmark framework"
+    assert artifact["tool_routing_trace"]["document_type"] == "Policy"
+    assert artifact["evaluation_metadata"]["framework"] == (
+        "V5 deterministic regression and contract validation framework"
+    )
     assert artifact["metadata"] == {"run_id": "run_1"}

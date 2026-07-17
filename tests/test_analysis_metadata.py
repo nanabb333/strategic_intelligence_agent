@@ -31,7 +31,7 @@ def test_build_analysis_metadata_preserves_keys_and_paths() -> None:
         "analysis": "outputs/runs/run_20260626_001/analysis.json",
         "brief_markdown": "outputs/runs/run_20260626_001/brief.md",
         "brief_text": "outputs/runs/run_20260626_001/brief.txt",
-        "agent_trace": "outputs/runs/run_20260626_001/agent_trace.json",
+        "tool_routing_trace": "outputs/runs/run_20260626_001/agent_trace.json",
         "metadata": "outputs/runs/run_20260626_001/metadata.json",
     }
     assert "created_at" in metadata

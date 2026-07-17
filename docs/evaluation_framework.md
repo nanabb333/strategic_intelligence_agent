@@ -1,8 +1,8 @@
-# Evaluation Framework
+# Deterministic Regression and Contract Validation Framework
 
-V5 adds a credibility layer for Strategic Intelligence Agent. It measures the existing deterministic workflow without adding analytical features, external APIs, forecasts, probabilities, or advice.
+V5 retains an engineering regression layer for the deterministic workflow without adding analytical features, external APIs, forecasts, probabilities, or advice.
 
-The benchmark cases are compact synthetic / curated test cases. Scores measure internal deterministic benchmark performance only. They are intended to test system consistency, coverage, and regression behavior. They do not represent real-world accuracy.
+The cases are compact synthetic contract fixtures. Component values test rule stability and expected coverage only. They are not model accuracy, research performance, decision quality, or external validity.
 
 ## Why Evaluation Matters
 
@@ -16,13 +16,13 @@ Strategic intelligence tools need reviewable claims. Evaluation helps show:
 
 ## Metrics
 
-### Scenario Accuracy
+### Scenario Contract Match Rate
 
-Scenario Accuracy is the share of benchmark cases where the actual scenario exactly matches the expected scenario.
+Scenario Contract Match is the share of regression cases where the actual scenario exactly matches the fixture expectation.
 
-### Mechanism Accuracy
+### Expected Mechanism Coverage Rate
 
-Mechanism Accuracy is expected mechanism coverage:
+Expected Mechanism Coverage is calculated as:
 
 ```text
 matched expected mechanisms / total expected mechanisms
@@ -48,9 +48,9 @@ Response Retrieval Coverage is expected response-category coverage:
 matched expected response categories / total expected response categories
 ```
 
-### Overall Benchmark Score
+### No Overall Score
 
-Overall Benchmark Score is the average of scenario accuracy, mechanism accuracy, lens coverage, and response retrieval coverage for each case, then averaged across cases.
+No single overall score is reported. Lens and response coverage are fixed contract checks, while scenario and mechanism values have different meanings; averaging them would obscure those differences.
 
 ## Artifacts
 
@@ -67,6 +67,7 @@ Overall Benchmark Score is the average of scenario accuracy, mechanism accuracy,
 - It does not replace human expert review.
 - It does not evaluate live web retrieval.
 - It does not evaluate LLM reasoning quality.
+- It does not use an independent held-out research dataset, external gold annotations, or a completed human reviewer study.
 
 ## Current Limitations
 

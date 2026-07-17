@@ -235,11 +235,10 @@ forecasts, probabilities, or investment advice.
 
 ### 16. Evaluation Reporting
 
-V5 evaluates the existing pipeline against benchmark cases. It calculates
-scenario accuracy, mechanism accuracy, lens coverage rate, response retrieval
-coverage, and an overall benchmark score. Evaluation artifacts are stored in
-`evaluation/` and are used for credibility reporting rather than new analytical
-claims.
+V5 checks the existing pipeline against synthetic regression fixtures. It reports
+separate scenario-contract, expected-mechanism, fixed-lens, and fixed-response
+components without an overall score. Artifacts under `evaluation/` support
+engineering regression detection, not research credibility or external validity.
 
 ### 17. Local App Storage
 

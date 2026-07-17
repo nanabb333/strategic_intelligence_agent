@@ -1,4 +1,4 @@
-"""Validate V13.3 localization parity and information architecture."""
+"""RETIRED historical validator for the superseded V13.3 recommendation contract."""
 
 from __future__ import annotations
 
@@ -242,4 +242,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit("RETIRED: validates the superseded V13.3 localized recommendation contract; not a current V5 validator.")

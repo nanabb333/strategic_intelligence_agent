@@ -27,7 +27,7 @@ DEFAULT_EXPECTED_LENSES = [
 
 @dataclass
 class BenchmarkResult:
-    """Evaluation output for one benchmark case."""
+    """Regression-contract output for one synthetic case."""
 
     case_id: str
     scenario_expected: str
@@ -42,7 +42,6 @@ class BenchmarkResult:
     response_expected: list[str]
     response_actual: list[str]
     response_coverage_score: float
-    overall_score: float
     comments: str
 
 
@@ -96,8 +95,6 @@ def evaluate_case(case: dict[str, str]) -> BenchmarkResult:
     mechanism_score = _coverage_score(expected_mechanisms, actual_mechanisms)
     lens_score = _coverage_score(expected_lenses, actual_lenses)
     response_score = _coverage_score(expected_responses, actual_responses)
-    overall_score = round(mean([scenario_score, mechanism_score, lens_score, response_score]), 3)
-
     comments = []
     if scenario_score < 1:
         comments.append(f"scenario mismatch: expected {case['expected_scenario']}, got {classification.primary_scenario}")
@@ -127,7 +124,6 @@ def evaluate_case(case: dict[str, str]) -> BenchmarkResult:
         response_expected=expected_responses,
         response_actual=actual_responses,
         response_coverage_score=response_score,
-        overall_score=overall_score,
         comments="; ".join(comments),
     )
 
@@ -169,11 +165,10 @@ def write_results(results: list[BenchmarkResult], path: str | Path) -> None:
         "response_expected",
         "response_actual",
         "response_coverage_score",
-        "overall_score",
         "comments",
     ]
     with destination.open("w", newline="", encoding="utf-8") as csv_file:
-        writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        writer = csv.DictWriter(csv_file, fieldnames=fieldnames, lineterminator="\n")
         writer.writeheader()
         for result in results:
             writer.writerow(
@@ -191,30 +186,27 @@ def write_results(results: list[BenchmarkResult], path: str | Path) -> None:
                     "response_expected": "; ".join(result.response_expected),
                     "response_actual": "; ".join(result.response_actual),
                     "response_coverage_score": result.response_coverage_score,
-                    "overall_score": result.overall_score,
                     "comments": result.comments,
                 }
             )
 
 
 def metric_summary(results: list[BenchmarkResult]) -> dict[str, float]:
-    """Calculate aggregate deterministic benchmark metrics."""
+    """Calculate separate deterministic regression-contract metrics."""
     if not results:
         return {
             "benchmark_case_count": 0.0,
-            "mechanism_accuracy": 0.0,
-            "scenario_accuracy": 0.0,
+            "mechanism_expected_coverage_rate": 0.0,
+            "scenario_contract_match_rate": 0.0,
             "lens_coverage_rate": 0.0,
             "response_retrieval_coverage": 0.0,
-            "overall_benchmark_score": 0.0,
         }
     return {
         "benchmark_case_count": float(len(results)),
-        "mechanism_accuracy": round(mean(item.mechanism_match_score for item in results), 3),
-        "scenario_accuracy": round(mean(item.scenario_match_score for item in results), 3),
+        "mechanism_expected_coverage_rate": round(mean(item.mechanism_match_score for item in results), 3),
+        "scenario_contract_match_rate": round(mean(item.scenario_match_score for item in results), 3),
         "lens_coverage_rate": round(mean(item.lens_coverage_score for item in results), 3),
         "response_retrieval_coverage": round(mean(item.response_coverage_score for item in results), 3),
-        "overall_benchmark_score": round(mean(item.overall_score for item in results), 3),
     }
 
 
@@ -233,15 +225,15 @@ def write_summary(
 
     strengths = [
         "Lens coverage is explicit and easy to verify because the system uses a fixed multi-lens framework.",
-        "Scenario scoring highlights where keyword-based classification is aligned or misaligned with benchmark expectations.",
-        "Mechanism scoring makes retrieval gaps visible without adding new analytical claims.",
+        "Scenario contract matching highlights where keyword-based classification changes against fixture expectations.",
+        "Expected-mechanism coverage makes rule regressions visible without adding new analytical claims.",
     ]
     limitations = [
-        "Benchmark documents are compact synthetic cases derived from the benchmark metadata.",
-        "Scores measure internal deterministic benchmark performance, not real-world accuracy.",
-        "Mechanism scoring measures expected-name coverage, not deeper semantic correctness.",
-        "Response playbook retrieval currently exposes a narrow deterministic response pattern.",
-        "Metrics are evaluation aids, not claims of real-world accuracy.",
+        "Regression documents are compact synthetic cases derived from fixture metadata.",
+        "Component values measure deterministic contract behavior, not real-world accuracy.",
+        "Expected-mechanism coverage measures expected-name presence, not deeper semantic correctness.",
+        "Lens coverage is fixed because all five lenses are always generated and expected.",
+        "Response coverage is fixed because the current renderer and fixture expect one response pattern.",
     ]
 
     lines = [
@@ -249,9 +241,9 @@ def write_summary(
         "",
         "## Overview",
         "",
-        "V5 adds a deterministic benchmark framework for measuring credibility of the existing Strategic Intelligence Agent pipeline. It does not add new analytical features, forecasting, LLM APIs, or investment advice.",
+        "V5 preserves a deterministic regression and contract validation suite for the rules-based pipeline.",
         "",
-        "These benchmark scores measure internal deterministic benchmark performance only. The cases are compact synthetic / curated test cases intended to test consistency, coverage, and regression behavior. They do not represent real-world accuracy.",
+        "These synthetic cases test whether known rules and predetermined output contracts remain stable. They are not an independent research dataset and do not measure model accuracy, decision quality, or external validity.",
         "",
         "## Methodology",
         "",
@@ -272,20 +264,22 @@ def write_summary(
             "",
             "## Results",
             "",
-            f"- Scenario Accuracy: {metrics['scenario_accuracy']}",
-            f"- Mechanism Accuracy: {metrics['mechanism_accuracy']}",
-            f"- Lens Coverage Rate: {metrics['lens_coverage_rate']}",
-            f"- Response Retrieval Coverage: {metrics['response_retrieval_coverage']}",
-            f"- Overall Benchmark Score: {metrics['overall_benchmark_score']}",
+            f"- Scenario contract match rate: {metrics['scenario_contract_match_rate']}",
+            f"- Expected mechanism coverage rate: {metrics['mechanism_expected_coverage_rate']}",
+            f"- Fixed lens contract coverage: {metrics['lens_coverage_rate']}",
+            f"- Fixed response contract coverage: {metrics['response_retrieval_coverage']}",
+            "- No single overall score is reported because the components have different meanings and two are fixed contract checks.",
             f"- Detailed results: `{result_display_path}`",
             "",
-            "## What the Evaluation Does Not Prove",
+            "## Research Evaluation Gap",
             "",
             "- It does not prove factual correctness of all generated outputs.",
             "- It does not prove legal, financial, or geopolitical accuracy.",
             "- It does not replace human expert review.",
             "- It does not evaluate live web retrieval.",
             "- It does not evaluate LLM reasoning quality.",
+            "- The cases are not an independent held-out research dataset.",
+            "- External gold annotations and a human reviewer study have not been completed.",
             "",
             "## Strengths",
             "",
@@ -321,13 +315,12 @@ def main() -> None:
     """Run benchmark evaluation from the command line."""
     results = evaluate_benchmark()
     metrics = metric_summary(results)
-    print("V5 evaluation completed.")
-    print(f"Benchmark cases: {int(metrics['benchmark_case_count'])}")
-    print(f"Scenario Accuracy: {metrics['scenario_accuracy']}")
-    print(f"Mechanism Accuracy: {metrics['mechanism_accuracy']}")
-    print(f"Lens Coverage Rate: {metrics['lens_coverage_rate']}")
-    print(f"Response Retrieval Coverage: {metrics['response_retrieval_coverage']}")
-    print(f"Overall Benchmark Score: {metrics['overall_benchmark_score']}")
+    print("V5 deterministic regression and contract validation completed.")
+    print(f"Regression cases: {int(metrics['benchmark_case_count'])}")
+    print(f"Scenario contract match rate: {metrics['scenario_contract_match_rate']}")
+    print(f"Expected mechanism coverage rate: {metrics['mechanism_expected_coverage_rate']}")
+    print(f"Fixed lens contract coverage: {metrics['lens_coverage_rate']}")
+    print(f"Fixed response contract coverage: {metrics['response_retrieval_coverage']}")
 
 
 if __name__ == "__main__":

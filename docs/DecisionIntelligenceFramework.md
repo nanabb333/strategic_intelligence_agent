@@ -20,13 +20,13 @@ Each layer has a distinct responsibility. The layers should remain stable even a
 
 ### Purpose
 
-Understand what has happened before attempting any recommendation.
+Understand what has happened before constructing pathway comparisons.
 
 ### Description
 
 This layer establishes the basic decision environment. It identifies the context, stakeholders, event type, uncertainty, and operating conditions around the source material.
 
-The goal is to avoid premature recommendation. A system cannot support a decision well until it has first understood the situation that created the decision need.
+The goal is to avoid premature pathway preference. A system cannot support a decision well until it has first understood the situation that created the decision need.
 
 This layer should clarify:
 
@@ -46,7 +46,7 @@ Clarify the actual decision that must be made.
 
 This layer translates situation understanding into a decision frame. It defines the decision question, decision objective, decision criteria, and constraints.
 
-The goal is to make the user's real choice explicit. Many source materials describe events without stating the decision they create. This layer connects information to action without jumping directly to a recommendation.
+The goal is to make the user's real choice explicit. Many source materials describe events without stating the decision they create. This layer connects information to possible action without selecting a path.
 
 This layer should clarify:
 
@@ -63,7 +63,7 @@ Collect, organize, and evaluate available evidence.
 
 ### Description
 
-This layer separates what is supported by available source material from what is inferred, assumed, or missing. It evaluates evidence quality, relevance, limitations, uncertainty, and confidence.
+This layer separates what is supported by available source material from what is inferred, assumed, or missing. It records structural evidence sufficiency, relevance signals, limitations, and uncertainty without claiming calibrated confidence.
 
 The goal is to make the evidence base reviewable. Decision support becomes less trustworthy when evidence boundaries are hidden or when weak evidence is presented with excessive certainty.
 
@@ -73,7 +73,7 @@ This layer should clarify:
 - Relevance: how closely the evidence supports the decision question.
 - Limitations: what the evidence does not show.
 - Uncertainty: what remains unresolved or dependent on future information.
-- Confidence: the appropriate level of confidence for the analysis, without false precision.
+- Evidence Sufficiency: a structural workflow tier whose explicit limits remain visible.
 
 ## Layer 4: Historical Knowledge
 
@@ -87,7 +87,7 @@ This layer compares the current situation with historical cases, recurring mecha
 
 Historical knowledge helps users reason from patterns. It can identify mechanisms such as market-access restriction, compliance burden, supply-chain disruption, industrial policy response, or stakeholder adaptation. It can also show where current conditions differ from earlier cases.
 
-Historical analogues inform reasoning but never determine conclusions. They provide context, comparison, and caution. They do not predict outcomes, prove recommendations, or replace current evidence.
+Historical analogues inform reasoning but never determine conclusions. They provide context, comparison, and caution. They do not predict outcomes, prove a pathway, or replace current evidence.
 
 This layer should clarify:
 
@@ -101,40 +101,40 @@ This layer should clarify:
 
 ### Purpose
 
-Transform evidence into structured recommendations.
+Organize evidence and constraints into neutral pathway comparisons.
 
 ### Description
 
-This layer turns the prior layers into decision options, trade-offs, assumptions, a preferred path, and rationale.
+This layer combines deterministic pathway archetypes with case-derived references, risks, constraints, assumptions, and unknowns. Archetype titles, trade-offs, and several comparison buckets are reusable templates rather than fully evidence-derived content.
 
-The goal is not to make an unsupported prediction or issue domain-specific advice. The goal is to help the user understand the available paths and why one path may be more appropriate under the current evidence and criteria.
+The goal is not to make an unsupported prediction, issue domain-specific advice, or select a path. The goal is to help the reviewer inspect how available pathways differ under the recorded evidence and constraints.
 
-This layer must clearly distinguish facts from recommendations. Facts describe what the available evidence indicates. Recommendations express a reasoned preference based on criteria, assumptions, and trade-offs.
+This layer must clearly distinguish facts, system-generated pathway considerations, and any later reviewer-authored selection.
 
 This layer should clarify:
 
 - Decision options: plausible paths the user could consider.
 - Trade-offs: benefits, costs, risks, and implementation consequences.
 - Assumptions: conditions that must hold for the reasoning to remain valid.
-- Preferred path: the currently favored option, if the evidence supports one.
-- Rationale: why the preferred path follows from the criteria and evidence.
+- Reviewer selection: an optional human-owned field that remains empty until a reviewer records a choice.
+- Selection rationale: an optional reviewer-authored explanation, never inferred from pathway order.
 
 ## Layer 6: Monitoring
 
 ### Purpose
 
-Identify future signals that could invalidate today's recommendation.
+Identify future signals that could change the assessment or a reviewer-owned selection.
 
 ### Description
 
 This layer defines what should be watched after the brief is produced. It identifies monitoring signals, change triggers, review timing, and evidence updates.
 
-Recommendations should remain revisable. Strategic situations change, and a responsible decision-support system should show what would justify updating the analysis.
+Assessments should remain revisable. Strategic situations change, and a responsible decision-support system should show what would justify updating the analysis.
 
 This layer should clarify:
 
 - Monitoring signals: observable developments relevant to the decision.
-- Change triggers: specific conditions that would alter the recommendation.
+- Change triggers: specific conditions that would alter the assessment or pathway comparison.
 - Review timing: when the user should revisit the analysis.
 - Evidence updates: new information that would strengthen, weaken, or change the reasoning.
 
@@ -152,7 +152,7 @@ Learning should improve the framework rather than rewriting history. Prior outpu
 
 This layer should clarify:
 
-- Outcome review: what happened after a decision or recommendation.
+- Outcome review: what happened after a decision or review.
 - Retrospective analysis: what the original reasoning handled well or missed.
 - Framework refinement: how concepts, criteria, or rubrics should improve.
 - Evaluation feedback: what benchmark results or human review show.
@@ -170,7 +170,7 @@ Existing repository components align with the framework where the mapping is nat
 | Historical analogue engine | Layer 4: Historical Knowledge |
 | Historical outcomes and strategic lessons | Layer 4: Historical Knowledge |
 | Decision brief | Layer 5: Decision Reasoning |
-| Preferred path and rationale | Layer 5: Decision Reasoning |
+| Neutral pathway comparison and reviewer-owned selection fields | Layer 5: Decision Reasoning |
 | Monitoring signals and review windows | Layer 6: Monitoring |
 | Evaluation Strategy | Cross-cutting across Layers 2 through 7 |
 | Testing and CI | Supporting reliability, not a substitute for decision-quality evaluation |
@@ -180,13 +180,13 @@ This mapping should not be forced. Some implementation details support multiple 
 
 ## Design Principles
 
-- Separate facts from recommendations.
+- Separate facts from pathway considerations and reviewer decisions.
 - Evidence should be reviewable.
-- Recommendations must expose assumptions.
+- Pathway considerations must expose assumptions.
 - Historical analogues support reasoning.
 - Decision support is not prediction.
 - Trust is earned through transparency.
-- Recommendations should be revisable.
+- Assessments should be revisable.
 - Frameworks remain stable while implementations evolve.
 
 ## Governance Role

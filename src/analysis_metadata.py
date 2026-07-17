@@ -46,7 +46,7 @@ def build_analysis_metadata(
             "analysis": f"outputs/runs/{run_id}/analysis.json",
             "brief_markdown": f"outputs/runs/{run_id}/brief.md",
             "brief_text": f"outputs/runs/{run_id}/brief.txt",
-            "agent_trace": f"outputs/runs/{run_id}/agent_trace.json",
+            "tool_routing_trace": f"outputs/runs/{run_id}/agent_trace.json",
             "metadata": f"outputs/runs/{run_id}/metadata.json",
         },
     }

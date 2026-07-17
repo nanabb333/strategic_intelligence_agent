@@ -17,9 +17,14 @@
       .replaceAll("'", "&#039;");
   }
 
-  function projectScore(value) {
-    if (typeof value !== "number") return "Not scored";
-    return `${(value * 10).toFixed(1)} / 10`;
+  function projectStructuralChecks(passed, total, legacyRate) {
+    if (typeof passed === "number" && typeof total === "number") {
+      return `${passed} of ${total} structural checks passed`;
+    }
+    if (typeof legacyRate === "number") {
+      return `Legacy completeness rate ${legacyRate.toFixed(3)}; structural counts unavailable`;
+    }
+    return "Structural checks not available";
   }
 
   function projectDomId(value) {
@@ -36,7 +41,7 @@
 
   function projectRunLink(runId) {
     if (!runId) return "";
-    return `<a href="${PROJECT_API_BASE}/run/${projectEscapeHtml(runId)}/download/markdown" target="_blank" rel="noreferrer">Run ${projectEscapeHtml(runId)}</a>`;
+    return `<a href="${PROJECT_API_BASE}/run/${projectEscapeHtml(runId)}/download/markdown" target="_blank" rel="noreferrer">Export current assessment for run ${projectEscapeHtml(runId)}</a>`;
   }
 
   async function loadProjects() {
@@ -1275,8 +1280,9 @@
       <div class="timeline-item">
         <span>${projectEscapeHtml(item.created_at || "")}</span>
         <strong>${projectEscapeHtml(questionsById.get(item.question_id) || "Project question")}</strong>
-        <p>${projectEscapeHtml(item.recommendation_summary || "Review stored decision brief.")}</p>
-        <span>Confidence: ${projectEscapeHtml(item.confidence_label || "Not stated")} - Decision Quality: ${projectScore(item.decision_quality_score)}</span>
+        <p>${projectEscapeHtml(item.assessment_summary || "Legacy assessment; former system recommendation is suppressed.")}</p>
+        <span>Evidence Sufficiency: ${projectEscapeHtml(item.evidence_sufficiency_tier || "Not assessed")} — Structural assessment only</span>
+        <span>Artifact Completeness: ${projectEscapeHtml(projectStructuralChecks(item.artifact_completeness_passed, item.artifact_completeness_total, item.artifact_completeness_rate))}. Completeness does not establish factual or decision quality.</span>
         ${projectRunLink(item.run_id)}
       </div>
     `).join("");
@@ -1299,19 +1305,19 @@
       panel.innerHTML = `
         <div class="delta-grid">
           <div>
-            <strong>Previous recommendation</strong>
-            <p>${projectEscapeHtml(delta.previous_recommendation || "Not stated")}</p>
+            <strong>Previous assessment</strong>
+            <p>${projectEscapeHtml(delta.previous_assessment || "Not stated")}</p>
           </div>
           <div>
-            <strong>Current recommendation</strong>
-            <p>${projectEscapeHtml(delta.current_recommendation || "Not stated")}</p>
+            <strong>Current assessment</strong>
+            <p>${projectEscapeHtml(delta.current_assessment || "Not stated")}</p>
           </div>
         </div>
         <p>${projectEscapeHtml(delta.what_changed || "")}</p>
-        <p>Recommendation changed: ${delta.recommendation_changed ? "Yes" : "No"}</p>
-        <p>Confidence: ${projectEscapeHtml(delta.confidence_change?.previous || "Not stated")} -> ${projectEscapeHtml(delta.confidence_change?.current || "Not stated")}</p>
-        <p>Decision Quality: ${projectScore(delta.decision_quality_change?.previous)} -> ${projectScore(delta.decision_quality_change?.current)}</p>
-        <p>Decision Quality Change: ${typeof delta.decision_quality_change?.delta === "number" ? `${(delta.decision_quality_change.delta * 10).toFixed(1)} / 10` : "Not scored"}</p>
+        <p>Assessment changed: ${delta.assessment_changed ? "Yes" : "No"}</p>
+        <p>Evidence Sufficiency: ${projectEscapeHtml(delta.evidence_sufficiency_change?.previous || "Not assessed")} → ${projectEscapeHtml(delta.evidence_sufficiency_change?.current || "Not assessed")} — structural assessment only</p>
+        <p>Artifact Completeness: ${projectEscapeHtml(projectStructuralChecks(delta.artifact_completeness_change?.previous_passed, delta.artifact_completeness_change?.previous_total, delta.artifact_completeness_change?.previous))} → ${projectEscapeHtml(projectStructuralChecks(delta.artifact_completeness_change?.current_passed, delta.artifact_completeness_change?.current_total, delta.artifact_completeness_change?.current))}</p>
+        <p>Passed structural checks change: ${typeof delta.artifact_completeness_change?.previous_passed === "number" && typeof delta.artifact_completeness_change?.current_passed === "number" ? `${delta.artifact_completeness_change.current_passed - delta.artifact_completeness_change.previous_passed}` : "Counts unavailable"}. This is not a quality score.</p>
         <p>Evidence added: ${projectEscapeHtml((delta.evidence_added || []).join(", ") || "None")}</p>
         <p>Evidence missing or weakened: ${projectEscapeHtml((delta.evidence_missing_or_weakened || []).join(", ") || "None")}</p>
       `;

@@ -8,6 +8,7 @@ from pathlib import Path
 from typing import Any
 from uuid import uuid4
 
+from decision_assessment import normalize_stored_decision_assessment
 from decision_lifecycle import decision_governance_metadata
 from decision_review import default_decision_review_state, update_decision_review_state
 from evidence_ledger import build_evidence_workflow_entry, confidence_effect_for_evidence
@@ -138,8 +139,8 @@ def save_project(project: dict[str, Any]) -> dict[str, Any]:
 def _workspace_state(evidence_library: list[dict[str, Any]], history: list[dict[str, Any]]) -> dict[str, Any]:
     latest = history[-1] if history else {}
     return {
-        "current_recommendation": latest.get("recommendation_summary", ""),
-        "current_confidence": latest.get("confidence_label", ""),
+        "current_assessment": _history_assessment_summary(latest),
+        "current_evidence_sufficiency": latest.get("evidence_sufficiency_tier", ""),
         "last_analyzed_question_id": latest.get("question_id", ""),
         "last_updated_at": latest.get("created_at", ""),
         "evidence_count": len(evidence_library),
@@ -148,25 +149,35 @@ def _workspace_state(evidence_library: list[dict[str, Any]], history: list[dict[
 
 
 def _summary_from_analysis(analysis: dict[str, Any]) -> str:
-    decision_case = analysis.get("decision_case") or {}
+    assessment = normalize_stored_decision_assessment(analysis)
     return (
-        str(decision_case.get("recommended_path") or "").strip()
-        or str(decision_case.get("decision_question") or "").strip()
+        str(assessment.get("assessment_summary") or "").strip()
+        or str(assessment.get("decision_question") or "").strip()
         or "Review stored decision brief."
     )
 
 
-def _confidence_from_analysis(analysis: dict[str, Any]) -> str:
-    confidence = analysis.get("confidence_assessment") or {}
-    return str(confidence.get("confidence_level") or "Not stated")
+def _sufficiency_from_analysis(analysis: dict[str, Any]) -> str:
+    sufficiency = analysis.get("evidence_sufficiency") or {}
+    return str(sufficiency.get("tier") or "Not assessed")
 
 
-def _quality_from_analysis(analysis: dict[str, Any]) -> float | None:
-    quality = analysis.get("decision_quality_evaluation") or {}
-    score = quality.get("overall_score")
+def _completeness_from_analysis(analysis: dict[str, Any]) -> float | None:
+    completeness = analysis.get("artifact_completeness") or {}
+    score = completeness.get("completion_rate")
     if isinstance(score, (int, float)):
         return round(float(score), 3)
     return None
+
+
+def _completeness_counts_from_analysis(analysis: dict[str, Any]) -> tuple[int | None, int | None]:
+    completeness = analysis.get("artifact_completeness") or {}
+    passed = completeness.get("passed_checks")
+    total = completeness.get("total_checks")
+    return (
+        int(passed) if isinstance(passed, (int, float)) else None,
+        int(total) if isinstance(total, (int, float)) else None,
+    )
 
 
 def _evidence_ids_from_analysis(analysis: dict[str, Any]) -> list[str]:
@@ -204,13 +215,18 @@ def _record_decision_history(
         None,
     )
     record = existing if existing is not None else {"decision_id": str(uuid4())[:8], "created_at": _now()}
+    passed_checks, total_checks = _completeness_counts_from_analysis(analysis)
     record.update(
         {
             "question_id": question_id,
             "run_id": run_id,
-            "recommendation_summary": _summary_from_analysis(analysis),
-            "confidence_label": _confidence_from_analysis(analysis),
-            "decision_quality_score": _quality_from_analysis(analysis),
+            "assessment_summary": _summary_from_analysis(analysis),
+            "reviewer_selected_path": "",
+            "selection_rationale": "",
+            "evidence_sufficiency_tier": _sufficiency_from_analysis(analysis),
+            "artifact_completeness_rate": _completeness_from_analysis(analysis),
+            "artifact_completeness_passed": passed_checks,
+            "artifact_completeness_total": total_checks,
             "evidence_ids": evidence_ids if evidence_ids is not None else _evidence_ids_from_analysis(analysis),
         }
     )
@@ -536,13 +552,13 @@ def decision_delta(project_id: str) -> dict[str, Any]:
 
     previous = history[-2]
     current = history[-1]
-    previous_score = previous.get("decision_quality_score")
-    current_score = current.get("decision_quality_score")
+    previous_score = previous.get("artifact_completeness_rate")
+    current_score = current.get("artifact_completeness_rate")
     previous_ids = set(previous.get("evidence_ids") or [])
     current_ids = set(current.get("evidence_ids") or [])
-    recommendation_changed = (
-        previous.get("recommendation_summary") != current.get("recommendation_summary")
-    )
+    previous_assessment = _history_assessment_summary(previous)
+    current_assessment = _history_assessment_summary(current)
+    assessment_changed = previous_assessment != current_assessment
 
     quality_change = None
     if isinstance(previous_score, (int, float)) and isinstance(current_score, (int, float)):
@@ -552,19 +568,32 @@ def decision_delta(project_id: str) -> dict[str, Any]:
         "available": True,
         "previous_decision_id": previous.get("decision_id"),
         "current_decision_id": current.get("decision_id"),
-        "previous_recommendation": previous.get("recommendation_summary"),
-        "current_recommendation": current.get("recommendation_summary"),
-        "what_changed": "Recommendation changed." if recommendation_changed else "Recommendation remained stable.",
-        "confidence_change": {
-            "previous": previous.get("confidence_label"),
-            "current": current.get("confidence_label"),
+        "previous_assessment": previous_assessment,
+        "current_assessment": current_assessment,
+        "what_changed": "Assessment summary changed." if assessment_changed else "Assessment summary remained stable.",
+        "evidence_sufficiency_change": {
+            "previous": previous.get("evidence_sufficiency_tier") or "Legacy status unavailable",
+            "current": current.get("evidence_sufficiency_tier") or "Legacy status unavailable",
         },
-        "decision_quality_change": {
+        "artifact_completeness_change": {
             "previous": previous_score,
             "current": current_score,
             "delta": quality_change,
+            "previous_passed": previous.get("artifact_completeness_passed"),
+            "previous_total": previous.get("artifact_completeness_total"),
+            "current_passed": current.get("artifact_completeness_passed"),
+            "current_total": current.get("artifact_completeness_total"),
         },
         "evidence_added": sorted(current_ids - previous_ids),
         "evidence_missing_or_weakened": sorted(previous_ids - current_ids),
-        "recommendation_changed": recommendation_changed,
+        "assessment_changed": assessment_changed,
     }
+
+
+def _history_assessment_summary(record: dict[str, Any]) -> str:
+    summary = str(record.get("assessment_summary") or "").strip()
+    if summary:
+        return summary
+    if record.get("recommendation_summary"):
+        return "Legacy decision record; the former system-generated recommendation is suppressed."
+    return "Assessment summary not available."

@@ -1,6 +1,6 @@
-# Evaluation Methodology
+# Regression Validation Methodology
 
-This document describes the current evaluation approach. It does not claim real-world accuracy.
+This document describes the current deterministic regression and contract validation approach. It does not claim model accuracy, decision quality, or real-world usefulness. Planned research evaluation is defined in [Research Evaluation Plan](research/EvaluationPlan.md).
 
 ## Current Evaluation Scope
 
@@ -22,7 +22,7 @@ The current benchmark measures:
 - Expected mechanism coverage.
 - Expected lens coverage.
 - Expected response retrieval coverage.
-- Average internal benchmark score.
+- Separate contract-match and expected-coverage component results. No single overall score is reported.
 
 ## What Is Not Measured
 
@@ -33,7 +33,7 @@ The current benchmark does not measure:
 - Legal, financial, geopolitical, or operational correctness.
 - Live web retrieval quality.
 - LLM reasoning quality.
-- Human agreement with recommendations.
+- Human judgment about pathway usefulness, evidence clarity, and decision support.
 - Long-document robustness.
 
 ## Reproducibility
@@ -56,7 +56,7 @@ python3 -m pytest
 
 Scores should be read as internal signals:
 
-- High scores mean the current deterministic rules covered expected labels in the curated benchmark.
+- High component values mean the current deterministic rules reproduced predetermined synthetic-case contracts.
 - Low scores expose mismatch or missing coverage.
 - Scores do not prove the app is accurate in the real world.
 

@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from datetime import datetime
+from hashlib import sha256
 from typing import Any
 from uuid import uuid4
 
@@ -22,6 +23,9 @@ class EvidenceItem:
     confidence: str
     limitations: str
     used_in_section: str
+    source_identity: str = ""
+    source_status: str = ""
+    externally_sourced: bool = False
 
 
 @dataclass
@@ -138,6 +142,7 @@ def build_evidence_ledger(
 ) -> EvidenceLedger:
     """Build a deterministic evidence ledger from existing pipeline outputs."""
     items: list[EvidenceItem] = []
+    input_identity = _input_source_identity(source_url, issue)
 
     if issue is not None:
         items.append(
@@ -146,12 +151,15 @@ def build_evidence_ledger(
                 source_type=_source_type(source_url),
                 evidence_text=getattr(issue, "summary", "") or getattr(issue, "core_issue", "") or "Input material was processed.",
                 observation=getattr(issue, "core_issue", "") or "A primary issue was extracted from the supplied material.",
-                inference="The extracted issue defines the decision frame; the recommendation should not extend beyond the supplied source material without human review.",
+                inference="The extracted issue defines the decision frame; reviewer conclusions should not extend beyond the supplied source material without further verification.",
                 claim_supported="Situation understanding and decision framing.",
                 relevance="High",
                 confidence="Moderate",
                 limitations="Source detail depends on the supplied material. No primary supporting source is currently available unless a readable URL was provided.",
                 used_in_section="Decision Snapshot; Decision Question; Decision Criteria",
+                source_identity=input_identity,
+                source_status="URL supplied" if source_url else "User-provided material",
+                externally_sourced=bool(source_url and source_url != "source pending"),
             )
         )
     else:
@@ -167,6 +175,9 @@ def build_evidence_ledger(
                 confidence="Low",
                 limitations="Issue extraction failed or returned no issue.",
                 used_in_section="Evidence and Confidence",
+                source_identity=input_identity,
+                source_status="Source pending",
+                externally_sourced=False,
             )
         )
 
@@ -182,12 +193,15 @@ def build_evidence_ledger(
                 source_type=source_type,
                 evidence_text=summary or str(evidence.get("title") or "Project evidence item").strip(),
                 observation=str(evidence.get("title") or "Selected project evidence was included in the run.").strip(),
-                inference="This evidence was selected from the project evidence library and should inform the recommendation only through the deterministic evidence ledger.",
+                inference="This evidence was selected from the project evidence library and should inform reviewer comparison only through the deterministic evidence ledger.",
                 claim_supported="Project evidence bundle and reviewer-selected context.",
                 relevance="High",
                 confidence=_confidence_from_status(status),
                 limitations=f"Evidence status: {status}. {freshness}".strip(),
                 used_in_section="Project Evidence Bundle; Evidence and Confidence",
+                source_identity=_project_source_identity(evidence),
+                source_status=status,
+                externally_sourced=_is_traceable_project_source(evidence),
             )
         )
 
@@ -204,6 +218,9 @@ def build_evidence_ledger(
                 confidence="Moderate",
                 limitations=_analogue_limitations(analogue),
                 used_in_section="Historical Evidence; Evidence and Confidence",
+                source_identity=_analogue_identity(analogue),
+                source_status="Unverified local analogue",
+                externally_sourced=False,
             )
         )
 
@@ -220,6 +237,9 @@ def build_evidence_ledger(
                 confidence=_confidence_from_note(getattr(mechanism, "confidence_note", "")),
                 limitations="Mechanism detection is deterministic and should be reviewed against source details.",
                 used_in_section="Mechanisms Detected; Evidence and Confidence",
+                source_identity=input_identity,
+                source_status="Derived deterministic record",
+                externally_sourced=False,
             )
         )
 
@@ -233,12 +253,15 @@ def build_evidence_ledger(
                 source_type="Evidence assessment",
                 evidence_text="; ".join(supporting[:2]) or "Evidence assessment generated from multi-lens interpretation.",
                 observation=f"{getattr(assessment, 'lens', 'Interpretation')} has supporting and weakening evidence.",
-                inference="The recommendation should be constrained where weakening or missing evidence remains.",
+                inference="Reviewer conclusions should remain constrained where weakening or missing evidence remains.",
                 claim_supported="Evidence quality and uncertainty.",
                 relevance="High",
                 confidence=_normalize_confidence(getattr(assessment, "confidence_language", "")),
                 limitations="; ".join((weakening + missing)[:2]) or "No specific weakening or missing evidence was listed.",
                 used_in_section="Supporting Evidence; Weakening Evidence; Missing Evidence",
+                source_identity=input_identity,
+                source_status="Derived deterministic record",
+                externally_sourced=False,
             )
         )
 
@@ -255,6 +278,9 @@ def build_evidence_ledger(
                 confidence=_normalize_confidence(getattr(outcome, "confidence", "")),
                 limitations=getattr(outcome, "source_status", "") or "Outcome record should be reviewed before executive use.",
                 used_in_section="Historical Outcomes; Historical Evidence",
+                source_identity=_outcome_identity(outcome),
+                source_status="Unverified local historical outcome",
+                externally_sourced=False,
             )
         )
 
@@ -271,6 +297,9 @@ def build_evidence_ledger(
                 confidence="Moderate",
                 limitations="Current-context records are local references and may not reflect live updates.",
                 used_in_section="Current Context; Monitoring Considerations",
+                source_identity=_context_identity(context),
+                source_status="Unverified local context",
+                externally_sourced=False,
             )
         )
 
@@ -292,6 +321,52 @@ def _next_id(items: list[EvidenceItem]) -> str:
 
 def _source_type(source_url: str) -> str:
     return "User-provided readable URL or extracted page text" if source_url else "User-provided input material"
+
+
+def _input_source_identity(source_url: str, issue: Any | None) -> str:
+    if source_url and source_url != "source pending":
+        return f"url:{source_url.strip().lower()}"
+    text = "|".join(
+        [
+            str(getattr(issue, "title", "") or ""),
+            str(getattr(issue, "core_issue", "") or ""),
+            str(getattr(issue, "summary", "") or ""),
+        ]
+    )
+    return f"input:{sha256(text.encode('utf-8')).hexdigest()[:16]}"
+
+
+def _project_source_identity(evidence: dict[str, Any]) -> str:
+    for key in ("source_url", "source_name", "publisher", "trace_id", "evidence_id"):
+        value = str(evidence.get(key) or "").strip().lower()
+        if value and value != "source pending":
+            return f"{key}:{value}"
+    text = str(evidence.get("summary") or evidence.get("text_excerpt") or evidence.get("title") or "")
+    return f"project:{sha256(text.encode('utf-8')).hexdigest()[:16]}"
+
+
+def _is_traceable_project_source(evidence: dict[str, Any]) -> bool:
+    values = [
+        str(evidence.get(key) or "").strip().lower()
+        for key in ("source_url", "source_name", "publisher", "trace_id")
+    ]
+    return any(value and value != "source pending" for value in values)
+
+
+def _analogue_identity(analogue: Any) -> str:
+    title = str(getattr(analogue, "case_title", "") or "historical analogue").strip().lower()
+    year = str(getattr(analogue, "year", "") or "").strip()
+    return f"local-analogue:{title}:{year}"
+
+
+def _outcome_identity(outcome: Any) -> str:
+    title = str(getattr(outcome, "case_title", "") or getattr(outcome, "case_name", "") or "historical outcome")
+    return f"local-outcome:{title.strip().lower()}"
+
+
+def _context_identity(context: Any) -> str:
+    title = str(getattr(context, "context_title", "") or getattr(context, "title", "") or "current context")
+    return f"local-context:{title.strip().lower()}"
 
 
 def _analogue_text(analogue: Any) -> str:

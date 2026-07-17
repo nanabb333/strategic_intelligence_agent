@@ -12,8 +12,8 @@ The repository currently supports product quality through:
 - Reviewable Markdown, TXT, JSON, trace, and metadata artifacts.
 - Decision Case Schema.
 - Evidence Ledger.
-- Confidence Assessment.
-- Deterministic Decision Quality Evaluation.
+- Evidence Sufficiency Assessment.
+- Artifact Completeness Check.
 - Case studies and documentation.
 - Ruff, compile checks, pytest, and CI.
 

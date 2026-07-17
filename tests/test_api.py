@@ -1,6 +1,8 @@
 from fastapi.testclient import TestClient
+import json
 import pytest
 
+import app as app_module
 from app import app
 from evidence_retrieval import source_tier
 from helpers import ANALYZE_PAYLOAD, create_analysis_run
@@ -17,6 +19,21 @@ def test_health_returns_ok() -> None:
 
     assert response.status_code == 200
     assert response.json()["status"] == "ok"
+
+
+def test_cors_allows_local_origin_and_rejects_unlisted_origin() -> None:
+    client = TestClient(app)
+    allowed = client.options(
+        "/health",
+        headers={"Origin": "http://127.0.0.1:8000", "Access-Control-Request-Method": "GET"},
+    )
+    blocked = client.options(
+        "/health",
+        headers={"Origin": "https://untrusted.example", "Access-Control-Request-Method": "GET"},
+    )
+
+    assert allowed.headers.get("access-control-allow-origin") == "http://127.0.0.1:8000"
+    assert blocked.headers.get("access-control-allow-origin") is None
 
 
 def test_dashboard_static_files_load() -> None:
@@ -54,22 +71,35 @@ def test_analyze_returns_current_response_shape() -> None:
     assert payload["downloads"]["markdown"]
     assert payload["downloads"]["txt"]
     assert payload["downloads"]["json"]
-    assert "## Evidence and Confidence" in payload["brief_markdown"]
-    assert payload["analysis"]["decision_case"]["decision_question"]
+    assert "## Evidence Sufficiency" in payload["brief_markdown"]
+    assessment = payload["analysis"]["decision_assessment"]
+    assert assessment["decision_question"]
+    assert assessment["reviewer_selected_path"] == ""
+    assert assessment["selection_status"] == "No pathway selected"
+    assert "recommended_path" not in assessment
     assert payload["analysis"]["evidence_ledger"]["items"]
-    assert payload["analysis"]["confidence_assessment"]["confidence_level"] in {"Low", "Moderate", "High"}
-    evaluation = payload["analysis"]["decision_quality_evaluation"]
-    assert 0.0 <= evaluation["overall_score"] <= 1.0
-    assert set(evaluation) >= {
-        "direct_answer_quality",
-        "historical_analogue_relevance",
-        "evidence_use",
-        "option_clarity",
-        "risk_identification",
-        "change_trigger_quality",
-        "localization_quality",
-        "overconfidence_control",
+    assert payload["analysis"]["evidence_sufficiency"]["tier"] in {
+        "Insufficient", "Limited", "Reviewable", "Evidence-rich"
     }
+    completeness = payload["analysis"]["artifact_completeness"]
+    assert 0.0 <= completeness["completion_rate"] <= 1.0
+    assert completeness["passed_checks"] <= completeness["total_checks"]
+    assert completeness["interpretation_boundary"]
+
+
+@pytest.mark.parametrize("output_mode", ["analyst", "beginner", "executive"])
+def test_all_output_modes_remain_neutral(output_mode: str) -> None:
+    payload = TestClient(app).post(
+        "/analyze",
+        json={**ANALYZE_PAYLOAD, "output_mode": output_mode},
+    ).json()
+
+    assessment = payload["analysis"]["decision_assessment"]
+    assert assessment["reviewer_selected_path"] == ""
+    assert "recommended_path" not in assessment
+    assert "Option B (Recommended)" not in payload["brief_markdown"]
+    assert "## Preferred Path" not in payload["brief_markdown"]
+    assert "## Option Ranking" not in payload["brief_markdown"]
 
 
 def test_markdown_download_route_returns_analyze_artifact() -> None:
@@ -92,12 +122,98 @@ def test_get_run_returns_stored_artifact_shape() -> None:
     assert set(payload) == {
         "metadata",
         "analysis",
-        "agent_trace",
+        "tool_routing_trace",
         "brief_markdown",
         "brief_text",
         "downloads",
     }
     assert payload["metadata"]["run_id"] == run_id
+
+
+def test_legacy_run_is_rendered_as_neutral_read_only_view(tmp_path, monkeypatch) -> None:
+    run_dir = tmp_path / "legacy_run"
+    run_dir.mkdir()
+    (run_dir / "metadata.json").write_text(json.dumps({"run_id": "legacy_run"}), encoding="utf-8")
+    (run_dir / "analysis.json").write_text(
+        json.dumps(
+            {
+                "decision_case": {
+                    "decision_question": "What should reviewers compare?",
+                    "situation": "Legacy situation",
+                    "recommended_path": "Option B legacy system recommendation",
+                },
+                "confidence_assessment": {"confidence_level": "Moderate"},
+            }
+        ),
+        encoding="utf-8",
+    )
+    (run_dir / "agent_trace.json").write_text("{}", encoding="utf-8")
+    (run_dir / "brief.md").write_text("## Preferred Path\nOption B", encoding="utf-8")
+    (run_dir / "brief.txt").write_text("Option B", encoding="utf-8")
+    monkeypatch.setattr(app_module, "run_dir_or_404", lambda run_id: run_dir)
+
+    payload = TestClient(app).get("/run/legacy_run").json()
+
+    assert payload["analysis"]["decision_assessment"]["reviewer_selected_path"] == ""
+    assert payload["analysis"]["decision_assessment"]["selection_rationale"] == ""
+    assert "decision_case" not in payload["analysis"]
+    assert "confidence_assessment" not in payload["analysis"]
+    assert "decision_quality_evaluation" not in payload["analysis"]
+    assert "Option B" not in payload["brief_markdown"]
+    assert "former system-generated recommendation is not displayed" in payload["brief_markdown"]
+    assert "#" not in payload["brief_text"]
+    assert "**" not in payload["brief_text"]
+    assert payload["legacy_contract"]["contract_status"] == "superseded"
+    assert payload["historical_raw_downloads"]["markdown"].endswith("/historical-raw/markdown")
+
+
+def test_legacy_current_exports_are_neutral_and_historical_raw_is_explicit(tmp_path, monkeypatch) -> None:
+    run_dir = tmp_path / "legacy_exports"
+    run_dir.mkdir()
+    legacy_analysis = {
+        "decision_case": {
+            "decision_question": "What should reviewers compare?",
+            "situation": "Legacy situation",
+            "recommended_path": "Option B legacy system recommendation",
+        },
+        "confidence_assessment": {"confidence_level": "High"},
+        "decision_quality_evaluation": {"overall_score": 1.0},
+        "evidence_ledger": {"items": [{"evidence_id": "E1", "confidence": "High"}]},
+    }
+    (run_dir / "metadata.json").write_text(json.dumps({"run_id": "legacy_exports"}), encoding="utf-8")
+    (run_dir / "analysis.json").write_text(json.dumps(legacy_analysis), encoding="utf-8")
+    (run_dir / "agent_trace.json").write_text("{}", encoding="utf-8")
+    (run_dir / "brief.md").write_text("## Preferred Path\nOption B", encoding="utf-8")
+    (run_dir / "brief.txt").write_text("Option B", encoding="utf-8")
+    monkeypatch.setattr(app_module, "run_dir_or_404", lambda run_id: run_dir)
+    client = TestClient(app)
+
+    markdown = client.get("/run/legacy_exports/download/markdown")
+    text = client.get("/run/legacy_exports/download/txt")
+    current_json = client.get("/run/legacy_exports/download/json")
+
+    for response in (markdown, text, current_json):
+        assert response.status_code == 200
+        assert "Option B" not in response.text
+        assert "Preferred Path" not in response.text
+        assert "overall_score" not in response.text
+    assert "#" not in text.text
+    assert "**" not in text.text
+    assert current_json.json()["decision_assessment"]["reviewer_selected_path"] == ""
+    assert current_json.json()["decision_assessment"]["selection_rationale"] == ""
+    assert "confidence" not in current_json.json()["evidence_ledger"]["items"][0]
+    assert current_json.json()["decision_assessment"]["assessment_summary"] == (
+        "Legacy assessment artifact normalized for current neutral review."
+    )
+
+    raw_markdown = client.get("/run/legacy_exports/download/historical-raw/markdown")
+    raw_json = client.get("/run/legacy_exports/download/historical-raw/json")
+    assert "Option B" in raw_markdown.text
+    assert raw_json.json()["decision_case"]["recommended_path"].startswith("Option B")
+    assert raw_markdown.headers["x-artifact-mode"] == "historical-raw-read-only"
+    assert raw_markdown.headers["x-artifact-contract"] == "superseded"
+    assert "historical-raw-read-only" in raw_markdown.headers["content-disposition"]
+    assert (run_dir / "brief.md").read_text(encoding="utf-8") == "## Preferred Path\nOption B"
 
 
 def test_all_download_routes_return_success() -> None:
@@ -285,21 +401,22 @@ def test_project_analyze_creates_question_decision_history_and_delta() -> None:
     assert len(refreshed["questions"]) == 2
     assert refreshed["questions"][0]["run_id"] == first.json()["run_id"]
     assert len(refreshed["decision_history"]) == 2
-    assert refreshed["decision_history"][0]["recommendation_summary"]
-    assert 0.0 <= refreshed["decision_history"][0]["decision_quality_score"] <= 1.0
+    assert refreshed["decision_history"][0]["assessment_summary"]
+    assert refreshed["decision_history"][0]["reviewer_selected_path"] == ""
+    assert 0.0 <= refreshed["decision_history"][0]["artifact_completeness_rate"] <= 1.0
 
     delta = client.get(f"/projects/{project['project_id']}/delta")
     assert delta.status_code == 200
     delta_payload = delta.json()
     assert delta_payload["available"] is True
     assert set(delta_payload) >= {
-        "previous_recommendation",
-        "current_recommendation",
-        "confidence_change",
-        "decision_quality_change",
+        "previous_assessment",
+        "current_assessment",
+        "evidence_sufficiency_change",
+        "artifact_completeness_change",
         "evidence_added",
         "evidence_missing_or_weakened",
-        "recommendation_changed",
+        "assessment_changed",
     }
 
 

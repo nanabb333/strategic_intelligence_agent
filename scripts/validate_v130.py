@@ -1,4 +1,4 @@
-"""Validate V13 reasoning transparency."""
+"""RETIRED historical validator for the superseded V13 recommendation contract."""
 
 from __future__ import annotations
 
@@ -143,4 +143,4 @@ def main() -> None:
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit("RETIRED: validates the superseded V13 recommendation contract; not a current V5 validator.")

@@ -31,8 +31,13 @@ class FakeResponse:
     def __exit__(self, exc_type, exc, traceback) -> None:
         return None
 
-    def read(self) -> bytes:
-        return self.body
+    def read(self, size: int = -1) -> bytes:
+        if not self.body:
+            return b""
+        if size < 0:
+            size = len(self.body)
+        chunk, self.body = self.body[:size], self.body[size:]
+        return chunk
 
     def geturl(self) -> str:
         return self.final_url
@@ -169,6 +174,7 @@ def test_url_provider_preserves_redirect_final_url() -> None:
 
 
 def test_retrieve_evidence_uses_url_provider_for_explicit_url(monkeypatch) -> None:
+    monkeypatch.setattr(evidence_provider, "validate_public_http_url", lambda url, **kwargs: url)
     monkeypatch.setattr(
         evidence_provider,
         "build_opener",
@@ -198,6 +204,7 @@ def test_retrieve_evidence_non_url_behavior_still_uses_local_candidates() -> Non
 
 
 def test_retrieve_evidence_url_failure_returns_clear_api_error(monkeypatch) -> None:
+    monkeypatch.setattr(evidence_provider, "validate_public_http_url", lambda url, **kwargs: url)
     monkeypatch.setattr(
         evidence_provider,
         "build_opener",

@@ -21,7 +21,7 @@ material into structured strategic insight.
 
 Suggested portfolio description:
 
-> Strategic Intelligence Agent is an LLM-powered analyst workflow that converts
+> Historical positioning (superseded): Strategic Intelligence Agent was described as an LLM-powered analyst workflow that converts
 > source documents into executive intelligence briefs by extracting issues,
 > classifying scenarios, retrieving historical analogues, adding current
 > context, and synthesizing strategic implications.
@@ -40,4 +40,3 @@ communication.
 - Show intermediate JSON outputs for every workflow stage.
 - Publish a sample executive brief in `examples/`.
 - Add a simple CLI command that runs the full pipeline.
-

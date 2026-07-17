@@ -1,6 +1,6 @@
 # Product Overview
 
-Strategic Intelligence Decision Companion is a reviewer-first Enterprise Decision Intelligence Platform. The local FastAPI application turns a defined decision, reviewer context, and supporting evidence into deterministic, inspectable decision-support artifacts.
+Strategic Intelligence Decision Companion is a deterministic, auditable, reviewer-first strategic decision-support system. The local FastAPI application turns a defined decision, reviewer context, and supporting evidence into inspectable decision-support artifacts.
 
 ## Product Purpose
 
@@ -37,12 +37,13 @@ PDF extraction is text-based only; scanned image PDFs are not supported.
 The dashboard and pipeline provide:
 
 - beginner, analyst, and executive output modes
-- a structured Decision Assessment
-- evidence, confidence, strategic considerations, assumptions, and limitations
+- a Neutral Decision Assessment with no automatic pathway selection
+- evidence sufficiency, strategic considerations, assumptions, uncertainties, and limitations
+- an Artifact Completeness Check that validates structure rather than decision quality
 - evidence-intelligence and readiness views
 - non-ranked pathway drafts and categorical comparison
 - reviewer-controlled notes, statuses, and unresolved questions
-- Markdown, TXT, JSON, trace, and metadata artifacts under `outputs/runs/`
+- Markdown, TXT, JSON, tool-routing compatibility trace, and metadata artifacts under `outputs/runs/`
 
 ## Product Value
 

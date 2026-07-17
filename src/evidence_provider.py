@@ -10,6 +10,8 @@ from urllib.error import HTTPError, URLError
 from urllib.parse import urlparse
 from urllib.request import HTTPRedirectHandler, Request, build_opener
 
+from url_security import UnsafeURLError, validate_public_http_url
+
 
 @dataclass(frozen=True)
 class SearchResult:
@@ -117,15 +119,17 @@ class EvidenceFetchError(RuntimeError):
 
 
 class _LimitedRedirectHandler(HTTPRedirectHandler):
-    def __init__(self, max_redirects: int) -> None:
+    def __init__(self, max_redirects: int, validator: Any) -> None:
         self.max_redirects = max_redirects
         self.redirect_count = 0
+        self.validator = validator
         super().__init__()
 
     def redirect_request(self, req: Any, fp: Any, code: int, msg: str, headers: Any, newurl: str) -> Any:
         self.redirect_count += 1
         if self.redirect_count > self.max_redirects:
             raise EvidenceFetchError(f"Too many redirects while retrieving URL: {newurl}")
+        self.validator(newurl)
         return super().redirect_request(req, fp, code, msg, headers, newurl)
 
 
@@ -139,10 +143,21 @@ class URLEvidenceProvider(BaseEvidenceProvider):
     provider_name = "url"
     provider_type = "explicit_url"
 
-    def __init__(self, *, timeout_seconds: float = 8.0, max_redirects: int = 3, opener: Any = None) -> None:
+    def __init__(
+        self,
+        *,
+        timeout_seconds: float = 8.0,
+        max_redirects: int = 3,
+        max_response_bytes: int = 2_000_000,
+        opener: Any = None,
+        resolver: Any = None,
+    ) -> None:
         self.timeout_seconds = timeout_seconds
         self.max_redirects = max_redirects
+        self.max_response_bytes = max_response_bytes
         self.opener = opener
+        self.resolver = resolver
+        self.resolve_hosts = opener is None or resolver is not None
 
     def search(self, query: str, *, limit: int = 5) -> list[SearchResult]:
         url = normalize_url(query)
@@ -161,6 +176,7 @@ class URLEvidenceProvider(BaseEvidenceProvider):
         url = normalize_url(result.source_url)
         if not is_url(url):
             raise EvidenceFetchError("Unsupported URL. Provide an explicit http or https URL.")
+        self._validate_url(url)
 
         request = Request(
             url,
@@ -169,17 +185,18 @@ class URLEvidenceProvider(BaseEvidenceProvider):
                 "Accept": "text/html,application/xhtml+xml,text/plain;q=0.9,*/*;q=0.1",
             },
         )
-        opener = self.opener or build_opener(_LimitedRedirectHandler(self.max_redirects))
+        opener = self.opener or build_opener(_LimitedRedirectHandler(self.max_redirects, self._validate_url))
         try:
             with opener.open(request, timeout=self.timeout_seconds) as response:
                 final_url = response.geturl()
+                self._validate_url(final_url)
                 content_type = response.headers.get("Content-Type", "")
                 media_type = _media_type(content_type)
                 if not _supported_content_type(media_type):
                     raise EvidenceFetchError(
                         f"Unsupported content type for URL evidence retrieval: {media_type or 'unknown'}"
                     )
-                raw = response.read()
+                raw = _read_bounded(response, self.max_response_bytes)
         except EvidenceFetchError:
             raise
         except HTTPError as exc:
@@ -208,6 +225,16 @@ class URLEvidenceProvider(BaseEvidenceProvider):
             return RetrievedDocument(html=text, **common)
         return RetrievedDocument(text=text, **common)
 
+    def _validate_url(self, url: str) -> None:
+        try:
+            validate_public_http_url(
+                url,
+                resolver=self.resolver,
+                resolve_host=self.resolve_hosts,
+            )
+        except UnsafeURLError as exc:
+            raise EvidenceFetchError(f"Unsafe URL blocked: {exc}") from exc
+
     def metadata(self) -> dict[str, Any]:
         metadata = super().metadata()
         metadata.update(
@@ -215,6 +242,7 @@ class URLEvidenceProvider(BaseEvidenceProvider):
                 "supports": ["single_explicit_url"],
                 "timeout_seconds": self.timeout_seconds,
                 "max_redirects": self.max_redirects,
+                "max_response_bytes": self.max_response_bytes,
             }
         )
         return metadata
@@ -246,3 +274,24 @@ def _charset(content_type: str) -> str:
 
 def _supported_content_type(media_type: str) -> bool:
     return media_type in {"", "text/html", "application/xhtml+xml", "text/plain"}
+
+
+def _read_bounded(response: Any, max_bytes: int) -> bytes:
+    chunks: list[bytes] = []
+    total = 0
+    while total <= max_bytes:
+        request_size = min(65_536, max_bytes + 1 - total)
+        try:
+            chunk = response.read(request_size)
+        except TypeError as exc:
+            read1 = getattr(response, "read1", None)
+            if not callable(read1):
+                raise EvidenceFetchError("URL response does not support bounded reading.") from exc
+            chunk = read1(request_size)
+        if not chunk:
+            break
+        chunks.append(chunk)
+        total += len(chunk)
+        if total > max_bytes:
+            raise EvidenceFetchError(f"URL response exceeds the {max_bytes}-byte safety limit.")
+    return b"".join(chunks)

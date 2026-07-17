@@ -2,9 +2,9 @@
 
 ## Overview
 
-V5 adds a deterministic benchmark framework for measuring credibility of the existing Strategic Intelligence Agent pipeline. It does not add new analytical features, forecasting, LLM APIs, or investment advice.
+V5 preserves a deterministic regression and contract validation suite for the rules-based pipeline.
 
-These benchmark scores measure internal deterministic benchmark performance only. The cases are compact synthetic / curated test cases intended to test consistency, coverage, and regression behavior. They do not represent real-world accuracy.
+These synthetic cases test whether known rules and predetermined output contracts remain stable. They are not an independent research dataset and do not measure model accuracy, decision quality, or external validity.
 
 ## Methodology
 
@@ -29,34 +29,36 @@ These benchmark scores measure internal deterministic benchmark performance only
 
 ## Results
 
-- Scenario Accuracy: 88%
-- Mechanism Accuracy: 72%
-- Lens Coverage Rate: 100%
-- Response Retrieval Coverage: 100%
-- Overall Benchmark Score: 90%
+- Scenario contract match rate: 0.88
+- Expected mechanism coverage rate: 0.72
+- Fixed lens contract coverage: 1.0
+- Fixed response contract coverage: 1.0
+- No single overall score is reported because the components have different meanings and two are fixed contract checks.
 - Detailed results: `evaluation/benchmark_results.csv`
 
-## What the Evaluation Does Not Prove
+## Research Evaluation Gap
 
 - It does not prove factual correctness of all generated outputs.
 - It does not prove legal, financial, or geopolitical accuracy.
 - It does not replace human expert review.
 - It does not evaluate live web retrieval.
 - It does not evaluate LLM reasoning quality.
+- The cases are not an independent held-out research dataset.
+- External gold annotations and a human reviewer study have not been completed.
 
 ## Strengths
 
 - Lens coverage is explicit and easy to verify because the system uses a fixed multi-lens framework.
-- Scenario scoring highlights where keyword-based classification is aligned or misaligned with benchmark expectations.
-- Mechanism scoring makes retrieval gaps visible without adding new analytical claims.
+- Scenario contract matching highlights where keyword-based classification changes against fixture expectations.
+- Expected-mechanism coverage makes rule regressions visible without adding new analytical claims.
 
 ## Limitations
 
-- Benchmark documents are compact synthetic cases derived from the benchmark metadata.
-- Scores measure internal deterministic benchmark performance, not real-world accuracy.
-- Mechanism scoring measures expected-name coverage, not deeper semantic correctness.
-- Response playbook retrieval currently exposes a narrow deterministic response pattern.
-- Metrics are evaluation aids, not claims of real-world accuracy.
+- Regression documents are compact synthetic cases derived from fixture metadata.
+- Component values measure deterministic contract behavior, not real-world accuracy.
+- Expected-mechanism coverage measures expected-name presence, not deeper semantic correctness.
+- Lens coverage is fixed because all five lenses are always generated and expected.
+- Response coverage is fixed because the current renderer and fixture expect one response pattern.
 
 ## Future Improvements
 

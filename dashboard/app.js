@@ -18,13 +18,13 @@ const localeText = {
     analysisGroup: "Evidence Used",
     methodsGroup: "Assumptions and Limitations",
     settingsGroup: "Brief settings",
-    artifactsGroup: "Export Assessment",
-    downloadsGroup: "Export Assessment",
+    artifactsGroup: "Export Current Assessment",
+    downloadsGroup: "Export Current Assessment",
     runHistory: "Recent Decisions",
     emptyTitle: "Start with a decision question",
     emptyBody: "Start with the decision question, then add decision context and supporting evidence. The product keeps reviewer judgment separate from evidence.",
     emptyDecision: "Decision Assessment appears first for reviewer inspection.",
-    emptyEvidence: "Confidence, evidence used, strategic considerations, assumptions, and limitations appear after analysis.",
+    emptyEvidence: "Evidence sufficiency, evidence used, strategic considerations, assumptions, and limitations appear after analysis.",
     emptyDownloads: "Markdown, TXT, and JSON assessment exports become available after analysis.",
     loadingTitle: "Generating decision assessment",
     loadingBody: "Reviewing the question, context, supporting evidence, and local historical cases.",
@@ -91,7 +91,7 @@ const localeText = {
     methodDetails: "Method Details",
     primaryScenario: "Primary scenario",
     matchedKeywords: "Matched keywords",
-    confidenceLabel: "Confidence label",
+    confidenceLabel: "Rule match strength",
     source: "Source",
     eventType: "Event type",
     primaryActor: "Primary actor",
@@ -99,12 +99,12 @@ const localeText = {
     affectedSectors: "Affected sectors",
     affectedRegions: "Affected regions",
     policyDomain: "Policy domain",
-    confidence: "Confidence",
+    confidence: "Support level",
     eventSummary: "Event summary",
     limitations: "Limitations",
     strategicResponse: "Strategic response",
     supportingCases: "Supporting historical cases",
-    confidenceDistribution: "Confidence distribution",
+    confidenceDistribution: "Support-level distribution",
     sourceStatusDistribution: "Source status distribution",
     keyLimitations: "Key limitations",
     reviewerNote: "Reviewer note",
@@ -359,7 +359,7 @@ function renderRun(run) {
   const issue = analysis.issue || {};
   const scenario = analysis.scenario || {};
   renderEventContext(analysis.event_context || {});
-  document.getElementById("run-note").textContent = `Saved assessment: ${metadata.run_id}. Exports are stored under outputs/runs/${metadata.run_id}/.`;
+  renderRunArtifactNote(run);
   if (analysis.message && analysis.source_url) {
     document.getElementById("summary-section").innerHTML = `<p>${escapeHtml(analysis.message)}</p><p><span class="evidence">${t("source")}: ${escapeHtml(analysis.source_url)}</span></p>`;
     document.getElementById("brief-section").innerHTML = renderBriefCards(run.brief_markdown || "");
@@ -378,7 +378,7 @@ function renderRun(run) {
   renderCards("evidence-assessment-section", analysis.evidence || [], renderEvidenceAssessmentCard);
   renderEvidenceCredibility(analysis.evidence_credibility || {});
   renderImplications(analysis.implications || []);
-  renderTrace(analysis.agent_trace || {});
+  renderTrace(analysis.tool_routing_trace || analysis.agent_trace || {});
   document.getElementById("path-section").innerHTML = renderPath();
   document.getElementById("brief-section").innerHTML = renderBriefCards(run.brief_markdown || "", analysis);
 }
@@ -396,6 +396,22 @@ function parseBriefSections(markdownText) {
         lines,
       };
     });
+}
+
+function renderRunArtifactNote(run) {
+  const metadata = run.metadata || {};
+  const note = document.getElementById("run-note");
+  if (!note) return;
+  const base = `Saved assessment: ${escapeHtml(metadata.run_id || "unknown")}. Current exports use the neutral assessment contract.`;
+  const raw = run.historical_raw_downloads || {};
+  if (!raw.markdown) {
+    note.innerHTML = base;
+    return;
+  }
+  note.innerHTML = `${base}<br><strong>Historical raw artifact — read-only, superseded contract:</strong>
+    <a href="${escapeHtml(`${API_BASE}${raw.markdown}`)}">Markdown</a> ·
+    <a href="${escapeHtml(`${API_BASE}${raw.txt}`)}">TXT</a> ·
+    <a href="${escapeHtml(`${API_BASE}${raw.json}`)}">JSON</a>`;
 }
 
 function renderBriefCards(markdownText, analysis = {}) {
@@ -418,7 +434,7 @@ function renderBriefCards(markdownText, analysis = {}) {
 }
 
 function renderSectionBody(title, lines) {
-  if (title === "Evidence and Confidence") {
+  if (title === "Evidence Sufficiency") {
     return renderEvidenceConfidenceSection(lines);
   }
   return renderMarkdownLines(lines);
@@ -544,13 +560,13 @@ function renderEvidenceMeta(value) {
 }
 
 function renderDecisionOverview(sections, analysis) {
-  const snapshot = briefSection(sections, ["Decision Snapshot"]);
+  const snapshot = briefSection(sections, ["Assessment Summary"]);
   if (!snapshot) return "";
 
-  const recommendation = sectionField(snapshot, ["Current Position"]) || firstMeaningfulLine(snapshot);
-  const confidence = sectionField(snapshot, ["Confidence"]) || analysis.confidence_assessment?.confidence_level || "Not stated";
-  const why = sectionField(snapshot, ["Why"]) || "Review the full brief for rationale.";
-  const nextWindow = sectionField(snapshot, ["Next 30-90 Days", "未来 30-90 天", "未來 30-90 天"]) || firstBullet(briefSection(sections, ["What to Monitor"]));
+  const assessmentSummary = firstMeaningfulLine(snapshot) || "Review the structured assessment.";
+  const sufficiency = analysis.evidence_sufficiency?.tier || "Not assessed";
+  const selectionStatus = sectionField(snapshot, ["Selection status"]) || analysis.decision_assessment?.selection_status || "No pathway selected";
+  const nextWindow = firstBullet(briefSection(sections, ["Reviewer Questions"]));
   const topRisks = topRiskLines(sections);
   const trustSignals = trustSignalItems(analysis);
 
@@ -558,23 +574,23 @@ function renderDecisionOverview(sections, analysis) {
     <article class="decision-overview">
       <div class="overview-main">
         <div class="overview-kicker">Review before acting</div>
-        <h3>${formatInline(recommendation)}</h3>
+        <h3>${formatInline(assessmentSummary)}</h3>
         <div class="overview-grid">
           <div>
-            <strong>Confidence</strong>
-            <p>${formatInline(confidence)}</p>
+            <strong>Evidence Sufficiency</strong>
+            <p>${formatInline(sufficiency)}</p>
           </div>
           <div>
-            <strong>Why this position</strong>
-            <p>${formatInline(why)}</p>
+            <strong>Reviewer Selection</strong>
+            <p>${formatInline(selectionStatus)}</p>
           </div>
           <div>
             <strong>Top Risks</strong>
             ${renderCompactList(topRisks)}
           </div>
           <div>
-            <strong>Next 30-90 Days</strong>
-            <p>${formatInline(nextWindow || "Monitor new evidence that could change the recommendation.")}</p>
+            <strong>Next Review Question</strong>
+            <p>${formatInline(nextWindow || "Review evidence gaps and pathway change triggers.")}</p>
           </div>
         </div>
       </div>
@@ -617,8 +633,8 @@ function firstBullet(section) {
 }
 
 function topRiskLines(sections) {
-  const tradeoffs = briefSection(sections, ["Trade-offs"]);
-  const change = briefSection(sections, ["What Could Change This Recommendation"]);
+  const tradeoffs = briefSection(sections, ["Strategic Considerations"]);
+  const change = briefSection(sections, ["Reviewer Questions"]);
   const risks = [];
   if (tradeoffs) {
     tradeoffs.lines.slice(1).forEach((line) => {
@@ -645,43 +661,45 @@ function renderCompactList(items) {
 function trustSignalItems(analysis) {
   const evidenceCount = analysis.evidence_ledger?.items?.length || 0;
   const analogueCount = analysis.analogues?.length || 0;
-  const qualityItems = analysis.decision_quality_evaluation?.dimensions || {};
-  const qualityCount = Object.keys(qualityItems).length || 8;
-  const confidenceLevel = analysis.confidence_assessment?.confidence_level || "Qualitative";
+  const completenessItems = analysis.artifact_completeness?.dimensions || [];
+  const completenessTotal = analysis.artifact_completeness?.total_checks ?? completenessItems.length;
+  const completenessPassed = analysis.artifact_completeness?.passed_checks
+    ?? completenessItems.filter((item) => item.complete).length;
+  const sufficiencyTier = analysis.evidence_sufficiency?.tier || "Not assessed";
   return [
     { label: "Evidence Summary", value: evidenceCount ? `${evidenceCount} ledger items` : "Reviewable evidence ledger" },
     { label: "Historical Analogues", value: analogueCount ? `${analogueCount} retrieved cases` : "Local analogue comparison" },
-    { label: "Confidence Assessment", value: confidenceLevel },
-    { label: "Decision Quality Check", value: `${qualityCount} deterministic checks` },
+    { label: "Evidence Sufficiency", value: `${sufficiencyTier} — structural assessment only` },
+    { label: "Artifact Completeness", value: `${completenessPassed} of ${completenessTotal} structural checks passed; not factual or decision quality` },
   ];
 }
 
 function briefSectionClass(title) {
   const classes = ["brief-card"];
-  const decisionTitles = ["Decision Snapshot"];
-  const criteriaTitles = ["Decision Criteria"];
-  const choiceTitles = ["Decision Paths"];
-  const rankingTitles = ["Option Ranking"];
-  const preferredTitles = ["Preferred Path"];
-  const assumptionTitles = ["Assumptions"];
-  const roleTitles = ["Role-Based Implications"];
-  const tradeoffTitles = ["Trade-offs"];
-  const changeTitles = ["What Could Change This Recommendation"];
-  const blindSpotTitles = ["Decision Blind Spots"];
-  const actionTitles = ["Action Timeline"];
-  const monitorTitles = ["What to Monitor"];
-  const qualityTitles = ["Decision Quality Review"];
+  const decisionTitles = ["Assessment Summary", "Decision Question"];
+  const criteriaTitles = ["Current Event Context"];
+  const choiceTitles = ["Pathways for Review"];
+  const assumptionTitles = ["Assumptions, Unknowns and Constraints"];
+  const roleTitles = ["Strategic Considerations"];
+  const tradeoffTitles = ["Pathway Implications and Trade-offs"];
+  const changeTitles = ["Reviewer Questions", "Change Triggers"];
+  const blindSpotTitles = ["Evidence Credibility and Limitations"];
+  const actionTitles = [];
+  const monitorTitles = ["Monitoring Considerations"];
+  const qualityTitles = ["Artifact Completeness"];
   const supportingTitles = [
-    "Historical Evidence",
-    "Market Expectations vs Actual Outcomes",
-    "Evidence Used",
-    "Limitations",
+    "Evidence Overview",
+    "Mechanisms Detected",
+    "Historical Analogues and Outcomes",
+    "Similarities and Differences",
+    "Competing Interpretations",
+    "Multi-Lens Analysis",
+    "Evidence Sufficiency",
+    "Judgment Boundary",
   ];
   if (decisionTitles.includes(title)) classes.push("decision-card");
   if (criteriaTitles.includes(title)) classes.push("criteria-card");
   if (choiceTitles.includes(title)) classes.push("choices-card");
-  if (rankingTitles.includes(title)) classes.push("ranking-card");
-  if (preferredTitles.includes(title)) classes.push("recommended-card");
   if (assumptionTitles.includes(title)) classes.push("assumption-card");
   if (roleTitles.includes(title)) classes.push("role-card");
   if (tradeoffTitles.includes(title)) classes.push("tradeoff-card");
@@ -728,9 +746,11 @@ function renderMarkdownLines(lines) {
       html += "</ul>";
       inList = false;
     }
-    if (line.startsWith("### ")) {
+    if (line.startsWith("#### ")) {
+      html += `<h5>${formatInline(line.replace(/^#### /, ""))}</h5>`;
+    } else if (line.startsWith("### ")) {
       const heading = line.replace(/^### /, "");
-      const className = heading.includes("Recommended") ? ' class="recommended-option"' : "";
+      const className = heading.startsWith("Possible pathway") ? ' class="pathway-option"' : "";
       html += `<h4${className}>${formatInline(heading)}</h4>`;
     } else {
       html += `<p>${formatInline(line.replace(/^#+\s*/, ""))}</p>`;
@@ -862,7 +882,7 @@ function renderImplications(items) {
 
 function renderTrace(trace) {
   document.getElementById("tools-section").innerHTML = `<p><strong>${t("selected")}:</strong> ${escapeHtml((trace.selected_tools || []).join(", ") || t("none"))}</p><p><strong>${t("skipped")}:</strong> ${escapeHtml((trace.skipped_tools || []).join(", ") || t("none"))}</p><p>${sourceBadge("Tool Router")}</p>`;
-  document.getElementById("trace-section").innerHTML = `<ol>${(trace.trace || []).map((step) => `<li>${escapeHtml(step.event)}: ${escapeHtml(step.detail)}</li>`).join("")}</ol><p>${sourceBadge("agent_trace.json")}</p>`;
+  document.getElementById("trace-section").innerHTML = `<ol>${(trace.trace || []).map((step) => `<li>${escapeHtml(step.event)}: ${escapeHtml(step.detail)}</li>`).join("")}</ol><p>${sourceBadge("Tool routing compatibility trace")}</p>`;
 }
 
 function renderPath() {

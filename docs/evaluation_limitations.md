@@ -1,6 +1,6 @@
 # Evaluation Limitations
 
-The V5 benchmark improves portfolio credibility by making performance measurable, but it should be read conservatively.
+The V5 regression suite makes deterministic contract behavior inspectable, but it does not measure research performance.
 
 ## Why Benchmark Scores May Be High
 

@@ -2,7 +2,7 @@
 
 Repo 5 is not designed to predict the future.
 
-It is designed to improve decision quality under uncertainty.
+It is designed to support human decision quality under uncertainty. That objective requires future human evaluation and is not an automated product score.
 
 ## Core Principles
 
@@ -24,11 +24,11 @@ Every output should help the user understand:
 
 ---
 
-### 3. A recommendation must be revisable
+### 3. An assessment must be revisable
 
-No recommendation should be treated as permanent.
+No assessment or reviewer selection should be treated as permanent.
 
-Every recommendation should explain:
+Every assessment should expose:
 
 - assumptions
 - trade-offs
@@ -38,7 +38,7 @@ Every recommendation should explain:
 
 ### 4. Decision quality matters more than prediction accuracy
 
-The product should not claim certainty.
+The product should not claim certainty or that it has measured decision quality.
 
 It should help users make better choices even when the future is uncertain.
 

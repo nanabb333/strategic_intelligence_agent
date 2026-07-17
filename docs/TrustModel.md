@@ -1,6 +1,6 @@
 # Trust Model
 
-This document explains when Strategic Intelligence Agent should and should not be trusted.
+This document explains when Strategic Intelligence Decision Companion should and should not be trusted.
 
 ## Trust Boundary
 
@@ -11,7 +11,7 @@ Trust should be assigned to:
 - The reproducibility of the local workflow.
 - The visibility of generated artifacts.
 - The deterministic nature of the current rules.
-- The ability to inspect source files, benchmark cases, run metadata, and traces.
+- The ability to inspect source files, regression fixtures, run metadata, and traces.
 
 Trust should not be assigned to:
 
@@ -30,8 +30,8 @@ The repository exposes:
 - Structured analysis through `analysis.json`.
 - Generated brief text through `brief.md` and `brief.txt`.
 - Tool route information through `agent_trace.json`.
-- Evaluation cases through `evaluation/benchmark_cases.csv`.
-- Evaluation results through `evaluation/benchmark_results.csv`.
+- Synthetic regression fixtures through `evaluation/benchmark_cases.csv`.
+- Separate contract-validation component results through `evaluation/benchmark_results.csv`.
 
 This makes the workflow inspectable, even though it is not a scientific proof of correctness.
 

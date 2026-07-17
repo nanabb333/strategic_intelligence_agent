@@ -2,7 +2,7 @@
 
 This document defines the long-term governance principles for Strategic Intelligence Agent.
 
-Governance matters because mature AI products need stable rules for deciding what should change, what should stay constrained, and what should be rejected. Implementations can evolve as the repository improves, but the principles that protect decision quality, trust, and maintainability should remain stable.
+Governance matters because mature decision-support products need stable rules for deciding what should change, what should stay constrained, and what should be rejected. Implementations can evolve as the repository improves, but the principles that protect human decision quality, trust, and maintainability should remain stable.
 
 The Constitution complements the Decision Intelligence Framework. The Framework explains how decision intelligence works. The Constitution explains what every future change must respect.
 
@@ -12,7 +12,7 @@ The Constitution complements the Decision Intelligence Framework. The Framework 
 
 ### Principle
 
-Every new capability must improve decision quality rather than increase feature count.
+Every new capability must support human decision quality rather than increase feature count. Decision quality is a product objective for future human evaluation, not an automated score produced by the current system.
 
 ### Rationale
 
@@ -28,7 +28,7 @@ Features that add surface area without improving decision quality should normall
 
 ### Principle
 
-Recommendations should always be supported by reviewable evidence.
+Pathway considerations should always expose their reviewable evidence references and limitations.
 
 ### Rationale
 
@@ -36,23 +36,23 @@ Decision support becomes unreliable when conclusions appear before the evidence 
 
 ### Implication
 
-New capabilities should strengthen evidence visibility, evidence quality, or limitation disclosure before adding more assertive recommendations.
+New capabilities should strengthen evidence visibility, evidence quality, or limitation disclosure before adding more assertive pathway language.
 
 ## Article 3
 
-### Separate Facts From Recommendations
+### Separate Facts From Pathway Considerations
 
 ### Principle
 
-Factual observations and recommended actions must never be mixed together.
+Factual observations, deterministic pathway considerations, and reviewer-authored decisions must never be mixed together.
 
 ### Rationale
 
-Users need to know what the source material indicates, what the system infers, and what the system recommends. Mixing these categories can create false authority.
+Users need to know what the source material indicates, what the system infers, and what remains a reviewer decision. Mixing these categories can create false authority.
 
 ### Implication
 
-Outputs, artifacts, and future evaluation rubrics should preserve a clear boundary between facts, analysis, assumptions, and recommendations.
+Outputs, artifacts, and future evaluation rubrics should preserve a clear boundary between facts, analysis, assumptions, pathway considerations, and reviewer decisions.
 
 ## Article 4
 
@@ -88,15 +88,15 @@ Design choices that make outputs harder to inspect should be avoided, even if th
 
 ## Article 6
 
-### Recommendations Must Be Revisable
+### Assessments Must Be Revisable
 
 ### Principle
 
-Every recommendation should expose assumptions and possible change triggers.
+Every assessment should expose assumptions and possible change triggers.
 
 ### Rationale
 
-Strategic situations change. A useful recommendation should show the conditions under which it should be revisited.
+Strategic situations change. A useful assessment should show the conditions under which it should be revisited.
 
 ### Implication
 
@@ -172,7 +172,7 @@ Every proposed feature, roadmap item, or design change should answer:
 
 - Which framework layer does this strengthen?
 - Which constitutional principle does this reinforce?
-- Does it improve decision quality?
+- Does it support human decision quality without implying an automated quality score?
 - Does it increase user trust?
 - Is the engineering cost justified?
 - Does it introduce unnecessary complexity?

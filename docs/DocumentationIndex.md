@@ -12,10 +12,13 @@ Use the current review path below as the product contract. Historical milestone,
 6. [Engineering Architecture](EngineeringArchitecture.md): implementation-focused runtime description.
 7. [Demo Walkthrough](DemoWalkthrough.md): three-minute review of bundled artifacts.
 8. [Release Notes](releases/README.md): verified release chronology.
+9. [Research Protocol](research/ResearchProtocol.md): canonical planned study contract and current-vs-planned boundary.
+10. [Dataset Card](research/DatasetCard.md): intended research dataset provenance and annotation contract.
+11. [Evaluation Plan](research/EvaluationPlan.md): regression-versus-research evaluation distinction.
 
 ## Current Product Definition
 
-Strategic Intelligence Decision Companion is a reviewer-first Enterprise Decision Intelligence Platform with this primary flow:
+Strategic Intelligence Decision Companion is a deterministic, auditable, reviewer-first strategic decision-support system with this primary flow:
 
 ```text
 Decision Question

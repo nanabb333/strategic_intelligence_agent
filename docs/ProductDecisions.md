@@ -1,12 +1,12 @@
 # Product Decisions
 
-This document records key product and architecture decisions that shape Strategic Intelligence Agent as a mature AI Decision Intelligence product.
+This document records key product and architecture decisions that shape Strategic Intelligence Decision Companion as a deterministic, auditable, reviewer-first strategic decision-support system.
 
 ## Decision 1: Position Repo 5 As A Decision Intelligence Platform, Not An AI Agent
 
 ### Decision
 
-The project is positioned as a Decision Intelligence Platform rather than an autonomous AI agent.
+The project is positioned as a deterministic decision-support system rather than an autonomous AI agent.
 
 ### Rationale
 

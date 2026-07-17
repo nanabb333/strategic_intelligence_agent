@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/nanabb333/strategic_intelligence_agent/actions/workflows/ci.yml/badge.svg)](https://github.com/nanabb333/strategic_intelligence_agent/actions/workflows/ci.yml)
 
-Strategic Intelligence Decision Companion is a reviewer-first Enterprise Decision Intelligence Platform. It helps reviewers structure complex strategic decisions as local, deterministic, evidence-backed artifacts that remain open to human inspection.
+Strategic Intelligence Decision Companion is a deterministic, auditable, reviewer-first strategic decision-support system. It helps reviewers structure complex strategic decisions as local, evidence-backed artifacts that remain open to human inspection.
 
 ![Legacy interface placeholder for Strategic Intelligence Decision Companion](portfolio_assets/screenshots/historical/dashboard-overview.png)
 
@@ -50,7 +50,7 @@ The reviewer defines the question and context, controls evidence, inspects the a
 
 | Capability | Reviewer value |
 | --- | --- |
-| Decision Assessment | Structures the decision, evidence used, strategic considerations, assumptions, and limitations. |
+| Neutral Decision Assessment | Structures evidence-aware pathways, implications, assumptions, uncertainties, and limitations without selecting a pathway. |
 | Evidence support | Accepts pasted text, supported files, readable URLs, and reviewer-approved project evidence. |
 | Evidence Intelligence | Surfaces duplicates, conflicts, freshness, coverage, novelty, and source-diversity concerns. |
 | Decision Readiness | Maps evidence coverage, assumptions, unknowns, gaps, and reviewer questions. |
@@ -81,7 +81,7 @@ Browser Decision Assessment interface
 | Area | Role |
 | --- | --- |
 | `app.py` | FastAPI entrypoint, product routes, and downloads. |
-| `src/` | Analysis, evidence, readiness, pathway, review, confidence, and evaluation modules. |
+| `src/` | Analysis, evidence, sufficiency, pathway, review, completeness, and regression-validation modules. |
 | `dashboard/` | Vanilla HTML, CSS, and JavaScript interface. |
 | `knowledge_base/` | Local curated mechanism, analogue, outcome, and playbook records. |
 | `data/projects/` | Local project state. |
@@ -94,6 +94,9 @@ Key implementation modules include:
 
 - `src/analysis_service.py`: stable service entrypoint for analysis.
 - `src/analysis_pipeline.py`: explicit deterministic pipeline orchestration.
+- `src/decision_assessment.py`: neutral assessment contract and legacy read-only normalization.
+- `src/evidence_sufficiency.py`: deterministic evidence-workflow sufficiency tiers.
+- `src/artifact_completeness.py`: internal structure and field-presence checks.
 - `src/project_workspace.py`: Current Project persistence and review state.
 - `src/evidence_intelligence.py`: evidence-set review support.
 - `src/decision_readiness.py`: evidence-to-framework readiness mapping.
@@ -153,6 +156,8 @@ Validation covers:
 - dashboard JavaScript syntax
 - repository behavior represented by the current test suite
 
+The synthetic cases under `evaluation/` are a Deterministic Regression and Contract Validation Suite. Component results show whether predetermined rules and schemas remain stable. They are not model accuracy, decision quality, an independent held-out research result, or external validation; no single overall score is reported.
+
 ## Boundaries And Limitations
 
 The product is local-first and single-user. It does not provide:
@@ -192,5 +197,8 @@ The dashboard and landing page identify the current milestone as `V5 Sprint 0`. 
 - [Demo Walkthrough](docs/DemoWalkthrough.md)
 - [Release Notes Index](docs/releases/README.md)
 - [Changelog](CHANGELOG.md)
+- [Research Protocol](docs/research/ResearchProtocol.md)
+- [Research Dataset Card](docs/research/DatasetCard.md)
+- [Research Evaluation Plan](docs/research/EvaluationPlan.md)
 
 Historical milestone and portfolio documents are preserved under the [Documentation Archive](docs/archive/README.md) or retained in compatibility locations where validation scripts still depend on them. Use the [Documentation Index](docs/DocumentationIndex.md) to distinguish the current product contract from historical material.

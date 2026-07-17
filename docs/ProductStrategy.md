@@ -1,12 +1,12 @@
 # Product Strategy
 
-Strategic Intelligence Agent is positioned as a long-term AI Decision Intelligence Platform: a local, reviewable workspace that helps users convert ambiguous strategic material into structured decision-support artifacts.
+Strategic Intelligence Decision Companion is positioned as a deterministic, auditable, reviewer-first strategic decision-support system that helps users convert ambiguous strategic material into structured review artifacts.
 
 The product direction is not to become a general chatbot, a content summarizer, or an autonomous web agent. The direction is governed by the [Decision Intelligence Framework](DecisionIntelligenceFramework.md), which defines the seven conceptual layers for situation understanding, decision definition, evidence assessment, historical knowledge, decision reasoning, monitoring, and learning.
 
 Future changes should also respect the [Decision Intelligence Constitution](DecisionIntelligenceConstitution.md), which defines the governance principles for preserving decision quality, trust, conceptual consistency, and justified complexity over time.
 
-Evidence handling should follow the [Evidence Architecture](EvidenceArchitecture.md), which defines how evidence, observations, inferences, and recommendations should remain distinct as they move through the platform.
+Evidence handling should follow the [Evidence Architecture](EvidenceArchitecture.md), which defines how evidence, observations, inferences, and pathway considerations should remain distinct as they move through the platform.
 
 Historical Version 4 direction is preserved in [Version 4 Architecture](archive/Version4Architecture.md). It extended the product toward project workspaces, evidence bundles, evidence libraries, traceability, and decision evolution without changing the core identity into a chatbot, autonomous agent, or live monitoring system.
 
@@ -16,9 +16,9 @@ The product is a decision-support workbench for strategic intelligence analysis.
 
 It should be understood as:
 
-- A local AI-enabled analysis application.
+- A local deterministic analysis application.
 - A structured decision-support workflow.
-- A portfolio-ready example of AI product architecture.
+- A portfolio-ready example of deterministic decision-support architecture.
 - A foundation for future evidence, evaluation, and trust capabilities.
 
 It should not be understood as:
@@ -36,7 +36,7 @@ The platform is designed for users who need structured review of strategic mater
 - Analysts preparing executive or management briefings.
 - Product managers and strategy teams evaluating policy, supply-chain, market-access, or regulatory events.
 - Business analytics stakeholders who need structured reasoning artifacts.
-- Reviewers evaluating the project as a mature AI product architecture portfolio artifact.
+- Reviewers evaluating the project as a mature decision-support architecture portfolio artifact.
 
 The product should serve users who need clarity, traceability, and repeatable reasoning more than conversational breadth.
 
@@ -51,7 +51,7 @@ The product exists to make that framework explicit, repeatable, and reviewable.
 Generic AI interfaces often produce plausible narrative answers without a durable decision structure. Strategic Intelligence Agent exists to impose product discipline on the analysis process:
 
 - Inputs are turned into structured artifacts.
-- Outputs separate recommendation logic, evidence, assumptions, and limitations.
+- Outputs separate pathway considerations, evidence, assumptions, and limitations.
 - Historical analogues are treated as context, not proof.
 - Monitoring signals are made explicit.
 - Runs are stored for review and comparison.
@@ -84,7 +84,7 @@ The platform should keep the user in control of source selection and review. Fut
 
 ### 1. Decision Support
 
-The product should help users make decisions more clearly. It should frame the issue, identify decision criteria, compare options, and explain why one path may be preferred under the available evidence.
+The product should help users review decisions more clearly. It should frame the issue, identify comparison criteria, and populate deterministic pathway archetypes with case-derived references, risks, constraints, assumptions, and unknowns without selecting a path.
 
 ### 2. Evidence
 
@@ -112,7 +112,7 @@ Monitoring should focus on change triggers, review windows, and signals that wou
 
 ### 8. Continuous Improvement
 
-Future versions should improve through benchmark cases, human review, failure-mode tracking, and clearer evidence standards. Improvement should be measured by decision quality and reviewer confidence, not feature volume.
+Future versions should improve through regression cases, human review, failure-mode tracking, and clearer evidence standards. Human studies may evaluate decision quality and appropriate reviewer trust; the current product does not calculate either as an automated score.
 
 ## Product Principles
 

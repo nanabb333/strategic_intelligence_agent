@@ -26,16 +26,16 @@ This is a market-access and compliance decision-support case. The organization n
 
 ## Evidence Ledger Example
 
-| evidence_id | observation | inference | claim_supported | relevance | confidence | limitation |
+| evidence_id | observation | inference | claim_supported | relevance | support level | limitation |
 | --- | --- | --- | --- | --- | --- | --- |
 | E1 | Based on the provided source material, export controls affect advanced chip supply chains and market access. | The situation raises a decision about exposure mapping and staged response planning. | Situation understanding and decision framing. | High | Moderate | The source summary does not quantify revenue, customer-level exposure, or license probability. |
 | E2 | Based on the provided source material, firms are reviewing licensing requirements and customer eligibility. | Compliance and customer-screening work are central decision criteria. | Decision criteria and risk identification. | High | Moderate | Specific regulatory text and implementation guidance are not included. |
 | E3 | Based on historical analogue structure, prior export-control cases often required exposure mapping and documentation routines. | Historical patterns support considering a staged operational response. | Historical comparison and option reasoning. | Moderate | Moderate | Historical analogues support reasoning but do not determine the current outcome. |
-| E4 | Based on the evidence architecture, uncertainty remains around implementation details and stakeholder responses. | Confidence should remain qualitative and revisable. | Confidence and assumption layer. | High | Moderate | The platform does not independently verify live developments. |
+| E4 | Based on the evidence architecture, uncertainty remains around implementation details and stakeholder responses. | Evidence Sufficiency should remain structural and revisable. | Evidence Sufficiency and assumption layer. | High | Moderate | The platform does not independently verify live developments. |
 
-## Confidence and Assumptions
+## Evidence Sufficiency and Assumptions
 
-**Confidence level:** Moderate
+**Structural Evidence Sufficiency tier:** Reviewable
 
 **Key assumptions**
 
@@ -58,7 +58,7 @@ This is a market-access and compliance decision-support case. The organization n
 - Timing and scope of implementation rules.
 - Internal compliance capacity and supplier dependencies.
 
-## Decision Quality Evaluation Example
+## Historical V2 Completeness Illustration
 
 These labels illustrate deterministic product-quality evaluation. They are internal review aids, not scientific proof or real-world accuracy claims.
 
@@ -71,8 +71,8 @@ These labels illustrate deterministic product-quality evaluation. They are inter
 | risk_identification | Strong | Compliance, exposure, implementation, and evidence risks are visible. |
 | change_trigger_quality | Strong | Rule details, license outcomes, and stakeholder responses are observable triggers. |
 | localization_quality | Adequate | The case structure can be localized, but this example is written in English. |
-| overconfidence_control | Strong | Confidence is qualitative, limitations are explicit, and no prediction is claimed. |
+| overconfidence_control | Strong | Structural sufficiency is bounded, limitations are explicit, and no prediction is claimed. |
 
 ## Reviewer Takeaway
 
-This case demonstrates how the V2 layer makes a familiar strategic technology-policy case more reviewable. The value is not a stronger claim about what will happen; it is clearer separation between evidence, inference, recommendation, assumptions, and triggers for revision.
+This case demonstrates how the V2 layer makes a familiar strategic technology-policy case more reviewable. The value is not a stronger claim about what will happen; it is clearer separation between evidence, inference, pathway considerations, assumptions, and triggers for revision.

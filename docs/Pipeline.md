@@ -57,7 +57,7 @@ Historical Outcome and Strategic Lesson Retrieval
 Strategic Assessment and Response Pattern Retrieval
   |
   v
-Decision Case, Evidence Ledger, Confidence Assessment, and Decision Quality Evaluation
+Neutral Decision Assessment, Evidence Ledger, Evidence Sufficiency Assessment, and Artifact Completeness Check
   |
   v
 English Brief Generation
@@ -71,7 +71,9 @@ Run Storage
 
 The pipeline is deterministic and local. It does not perform live web research, autonomous planning, or probability scoring.
 
-The V2 decision-quality layer is additive. It exposes `decision_case`, `evidence_ledger`, `confidence_assessment`, and `decision_quality_evaluation` in `analysis.json` without removing earlier fields or changing download behavior.
+New runs expose `decision_assessment`, `evidence_ledger`, `evidence_sufficiency`, and `artifact_completeness` in `analysis.json`. Legacy `decision_case`, `confidence_assessment`, and `decision_quality_evaluation` fields are read-only compatibility inputs and are not written into new runs.
+
+`decision_assessment.judgment_boundary` records that judgment ownership belongs to the reviewer; it is not a system judgment. Evidence Sufficiency is a structural assessment only, and Artifact Completeness is exported as passed/missing structural checks rather than a quality-like score.
 
 ## Outputs Written Per Run
 

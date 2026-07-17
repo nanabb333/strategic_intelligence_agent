@@ -1,6 +1,6 @@
 # Architecture
 
-Strategic Intelligence Decision Companion is a local-first, reviewer-first Enterprise Decision Intelligence Platform. It helps reviewers structure decisions with evidence, deterministic analysis, readiness checks, pathway comparison, and auditable human review.
+Strategic Intelligence Decision Companion is a deterministic, auditable, reviewer-first strategic decision-support system. It helps reviewers structure decisions with evidence, deterministic analysis, sufficiency checks, neutral pathway comparison, and auditable human review.
 
 This document is the current canonical architecture overview. Older architecture notes remain in `docs/` as portfolio history and should not be treated as the active product contract.
 
@@ -36,7 +36,7 @@ Browser Decision Assessment interface
 | Assessment UI | Vanilla HTML/CSS/JavaScript under `dashboard/`. |
 | API Layer | FastAPI routes in `app.py`. |
 | Project Storage | Local JSON project, evidence, review, timeline, and delta state. |
-| Decision Engine | Deterministic analysis, evidence, confidence, and evaluation modules. |
+| Decision Engine | Deterministic analysis, evidence sufficiency, neutral pathway, and artifact completeness modules. |
 | Review Layers | Evidence Intelligence, Decision Readiness, Pathways, Comparison, and Review. |
 | Artifacts | Local Markdown, TXT, JSON, trace, and metadata files. |
 
@@ -51,6 +51,9 @@ Browser Decision Assessment interface
 | `src/decision_pathways.py` | Reviewer-facing pathway drafts without ranking or recommendation. |
 | `src/pathway_comparison.py` | Categorical side-by-side pathway comparison. |
 | `src/decision_review.py` | Reviewer-controlled statuses, notes, unresolved questions, and review summary. |
+| `src/decision_assessment.py` | Neutral assessment contract, renderer, and isolated legacy normalization. |
+| `src/evidence_sufficiency.py` | Deterministic evidence-workflow tier with explicit non-probability boundary. |
+| `src/artifact_completeness.py` | Internal field-presence and review-structure checks. |
 | `src/analysis_service.py` | Coordinates deterministic analysis execution and artifact persistence. |
 | `dashboard/project.js` | Browser behavior for Current Project context and project-backed review panels. |
 

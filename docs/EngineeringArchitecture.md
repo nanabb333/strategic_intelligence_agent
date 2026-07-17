@@ -35,8 +35,8 @@ Intelligence Modules
 issue extraction, scenario classification, retrieval, assessment, brief generation
   |
   v
-V2 Decision-Quality Layer
-decision case, evidence ledger, confidence assessment, evaluation
+V5 Reviewer Contract Layer
+neutral assessment, evidence ledger, evidence sufficiency, artifact completeness
   |
   v
 Artifact Generation
@@ -88,8 +88,9 @@ The pipeline intentionally remains explicit so the workflow is easy to inspect.
 - `src/analysis_artifact.py`: analysis JSON artifact construction
 - `src/decision_case.py`: additive Decision Case schema for the primary decision issue
 - `src/evidence_ledger.py`: additive Evidence Ledger records for reviewable evidence items
-- `src/confidence_layer.py`: qualitative Confidence Assessment and Evidence and Confidence brief section
-- `src/decision_quality_evaluator.py`: deterministic Decision Quality Evaluation for generated artifacts
+- `src/evidence_sufficiency.py`: deterministic Evidence Sufficiency tier and brief section
+- `src/artifact_completeness.py`: deterministic Artifact Completeness Check for generated artifacts
+- `src/decision_assessment.py`: neutral assessment schema, renderer, and isolated legacy adapter
 - `src/serialization.py`: dataclass/list/dict serialization helper
 - `src/markdown_utils.py`: markdown-to-text conversion
 - `src/run_storage.py`: run directory and JSON storage helpers

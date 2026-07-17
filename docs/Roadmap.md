@@ -28,13 +28,13 @@ Version 1.0 includes:
 
 ### Portfolio Value
 
-Version 1.0 shows mature AI product thinking: bounded scope, clear limitations, reviewable artifacts, testable architecture, and a working local application.
+Version 1.0 shows mature deterministic product engineering: bounded scope, clear limitations, reviewable artifacts, testable architecture, and a working local application.
 
 ### What Should Not Be Included
 
 Version 1.0 should not expand into autonomous web research, production SaaS deployment, login systems, databases, multi-agent orchestration, or advice-oriented claims.
 
-## Version 2: Evidence, Evaluation, And Decision Quality
+## Version 2: Evidence, Evaluation, And Artifact Reviewability
 
 ### Objective
 
@@ -48,7 +48,7 @@ Users should better understand why a brief says what it says, how strong the sup
 
 Potential Version 2 scope:
 
-- Initial Decision Case Schema, Evidence Ledger, and qualitative Confidence Assessment.
+- Historical V2 Decision Case Schema, Evidence Ledger, and qualitative confidence compatibility fields; current runs use Neutral Decision Assessment and Evidence Sufficiency.
 - More explicit evidence quality labels.
 - Better limitation and uncertainty language.
 - Expanded benchmark cases for decision-support quality.
@@ -103,7 +103,7 @@ Version 4 should evolve the platform from a one-time analysis tool into a struct
 
 ### User Value
 
-Users should be able to work on a decision over time. A Project should hold related Questions, evidence, generated briefs, decision history, and change records so the user can see how recommendations evolve as evidence changes.
+Users should be able to work on a decision over time. A Project should hold related Questions, evidence, generated assessments, review history, and change records so the user can see how evidence and pathway considerations evolve.
 
 ### Engineering Scope
 
@@ -113,11 +113,11 @@ Potential Version 4 scope:
 - Question records that generate independent, reproducible analyses.
 - Evidence Bundle model that unifies uploaded documents, user notes, supplied URLs, project evidence, and optional retrieved evidence.
 - Project Evidence Library for reusable source material.
-- Stronger evidence traceability from recommendation to reasoning rule, analogue, evidence statement, and original source.
+- Stronger traceability from pathway considerations to reasoning rules, analogues, evidence statements, and original sources.
 - Evidence status labels such as User Provided, Corroborated, Historical Only, Conflicting, Outdated, or Unavailable.
 - Deterministic evidence ranking based on authority, freshness, specificity, corroboration, and question relevance.
 - Conflict detection that lowers confidence and identifies what additional evidence is needed.
-- Decision evolution records comparing previous recommendations, new evidence, what changed, and updated recommendations.
+- Assessment evolution records comparing prior assessments, new evidence, what changed, and reviewer-recorded selections when present.
 - Optional user-triggered live retrieval that supplements evidence bundles without autonomous browsing or monitoring.
 
 ### Portfolio Value

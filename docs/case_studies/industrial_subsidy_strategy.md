@@ -26,16 +26,16 @@ This is an industrial policy and corporate strategy decision-support case. The r
 
 ## Evidence Ledger Example
 
-| evidence_id | observation | inference | claim_supported | relevance | confidence | limitation |
+| evidence_id | observation | inference | claim_supported | relevance | support level | limitation |
 | --- | --- | --- | --- | --- | --- | --- |
 | E1 | Based on the provided source material, subsidies may affect eligibility and capital allocation choices. | The situation raises a strategic review decision rather than an immediate commitment decision. | Situation understanding and decision framing. | High | Moderate | The source summary does not contain final eligibility rules or firm-specific financial data. |
 | E2 | Based on the provided source material, domestic-content or partnership conditions may matter. | Compliance burden and partner availability should be explicit decision criteria. | Decision criteria and risk identification. | High | Moderate | Detailed policy text and implementation guidance are not provided. |
 | E3 | Based on historical analogue structure, industrial policy episodes often require monitoring eligibility, domestic content, and implementation details. | Historical patterns support staged investigation before resource commitment. | Historical knowledge and option reasoning. | Moderate | Moderate | Analogue transferability depends on sector, jurisdiction, and program design. |
-| E4 | Based on the confidence layer, unknown eligibility and operational constraints limit confidence. | The recommendation should expose assumptions and change triggers. | Confidence and assumption layer. | High | Moderate | The platform does not assess legal eligibility or provide compliance advice. |
+| E4 | Under the evidence-sufficiency rules, unknown eligibility and operational constraints limit support. | The assessment should expose assumptions and change triggers. | Evidence Sufficiency and assumption layer. | High | Moderate | The platform does not assess legal eligibility or provide compliance advice. |
 
-## Confidence and Assumptions
+## Evidence Sufficiency and Assumptions
 
-**Confidence level:** Moderate
+**Structural Evidence Sufficiency tier:** Reviewable
 
 **Key assumptions**
 
@@ -59,7 +59,7 @@ This is an industrial policy and corporate strategy decision-support case. The r
 - Competitive response.
 - Firm-specific financial and operational exposure.
 
-## Decision Quality Evaluation Example
+## Historical V2 Completeness Illustration
 
 These labels illustrate deterministic product-quality evaluation. They are internal review aids, not scientific proof or real-world accuracy claims.
 
@@ -72,8 +72,8 @@ These labels illustrate deterministic product-quality evaluation. They are inter
 | risk_identification | Strong | Eligibility, compliance, capital, partner, and evidence risks are explicit. |
 | change_trigger_quality | Strong | Final rules, domestic-content requirements, and competitor responses are clear triggers. |
 | localization_quality | Adequate | The case structure can be localized, but this example is written in English. |
-| overconfidence_control | Strong | The case avoids legal or financial advice and keeps confidence qualitative. |
+| overconfidence_control | Strong | The case avoids legal or financial advice and keeps structural sufficiency separate from correctness. |
 
 ## Reviewer Takeaway
 
-This case demonstrates how the V2 layer supports strategy review without overstating certainty. It shows how evidence-aware structure can help reviewers separate policy facts, strategic inference, assumptions, and conditions that would change the preferred path.
+This case demonstrates how the V2 layer supports strategy review without overstating certainty. It shows how evidence-aware structure can help reviewers separate policy facts, strategic inference, assumptions, and conditions that would change the assessment or a reviewer-owned selection.

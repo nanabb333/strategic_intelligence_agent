@@ -1,5 +1,7 @@
 # Evidence Architecture
 
+> Historical V2 design note: recommendation and qualitative-confidence language below documents the earlier artifact contract. Current runs use neutral pathways, reviewer-owned selection, and Evidence Sufficiency. See `docs/Pipeline.md` and `docs/research/EvaluationPlan.md` for the current contract.
+
 This document defines how evidence should move through Strategic Intelligence Agent. It is a conceptual architecture document, not an implementation plan.
 
 The Evidence Architecture supports future work on an Evidence Ledger, Confidence Layer, Evaluation Harness, and Decision Brief generation. Its purpose is to preserve trust, explainability, and consistency as the platform evolves.

@@ -2,13 +2,13 @@
 
 This document defines the long-term research direction for Strategic Intelligence Agent.
 
-The current repository is a mature local AI Decision Intelligence product with deterministic product-quality checks. The research agenda describes how future work could validate decision-support quality more rigorously while preserving the product's constraints: local execution, reviewable artifacts, transparent limitations, and human-controlled judgment.
+The current repository is a deterministic, auditable, reviewer-first strategic decision-support system with internal completeness and regression checks. The research agenda describes how future work could validate reviewer outcomes while preserving local execution, reviewable artifacts, transparent limitations, and human-controlled judgment.
 
 This document does not claim scientific proof, benchmark superiority, or real-world decision accuracy.
 
 ## Motivation
 
-Decision-support systems are useful only when their outputs can be inspected, challenged, revised, and improved. A polished brief is not enough. Reviewers need to understand whether evidence is represented clearly, whether historical analogues are relevant, whether confidence language is appropriate, and whether recommendations remain bounded by the available evidence.
+Decision-support systems are useful only when their outputs can be inspected, challenged, revised, and improved. A polished artifact is not enough. Reviewers need to understand whether evidence is represented clearly, whether historical analogues are relevant, whether evidence-sufficiency language is appropriate, and whether pathway comparisons remain bounded by the available evidence.
 
 Research validation matters because decision-support quality is broader than software correctness. A system can pass tests and still provide weak decision support if it hides uncertainty, overstates analogues, omits risks, or fails to expose assumptions.
 
@@ -28,7 +28,7 @@ Research should make the platform more accountable, not more complex for its own
 
 ## Why Decision Support Requires Validation
 
-Decision-support systems operate under uncertainty. They combine source material, extracted observations, historical context, assumptions, risks, and recommendations. Each layer can fail in different ways.
+Decision-support systems operate under uncertainty. They combine source material, extracted observations, historical context, assumptions, risks, and pathway considerations. Each layer can fail in different ways.
 
 Validation should ask whether the system:
 
@@ -37,7 +37,7 @@ Validation should ask whether the system:
 - Selects relevant historical analogues.
 - Identifies risks and missing information.
 - Keeps confidence language proportional to evidence quality.
-- Explains what would change the recommendation.
+- Explains what new evidence could change the assessment or a reviewer's selection.
 - Supports human review rather than replacing it.
 
 These questions are different from whether the application starts, routes requests, writes artifacts, or passes unit tests.
@@ -54,19 +54,19 @@ This repository currently implements product QA and deterministic product-qualit
 
 ### Evidence Representation
 
-How should evidence, observations, inferences, assumptions, and recommendations be represented so reviewers can inspect the decision path?
+How should evidence, observations, inferences, assumptions, and pathway considerations be represented so reviewers can inspect the decision path?
 
 ### Historical Analogue Quality
 
 How should analogue relevance be evaluated beyond keyword overlap or scenario similarity? What makes a historical case useful, misleading, or only partially transferable?
 
-### Confidence Calibration
+### Evidence Sufficiency and Appropriate Reliance
 
-How can qualitative confidence remain proportional to evidence quality, uncertainty, missing information, and analogue strength without creating false precision?
+How can deterministic evidence sufficiency make missing information and limitations visible without implying calibrated probability or correctness?
 
 ### Decision Explainability
 
-What explanations help reviewers understand why a recommendation follows from criteria, evidence, assumptions, and trade-offs?
+What explanations help reviewers understand how pathway considerations relate to criteria, evidence, assumptions, and trade-offs without selecting a preferred path?
 
 ### Human-AI Collaboration
 
@@ -74,14 +74,14 @@ How should analysts review, challenge, correct, and annotate decision-support ou
 
 ### Decision Auditability
 
-How can generated briefs, JSON artifacts, evidence ledgers, confidence assessments, and evaluation outputs support retrospective review?
+How can generated briefs, JSON artifacts, evidence ledgers, evidence sufficiency assessments, and research outputs support retrospective review?
 
 ## Open Research Questions
 
-- What evidence representation best helps reviewers distinguish observation, inference, assumption, and recommendation?
+- What evidence representation best helps reviewers distinguish observation, inference, assumption, and pathway consideration?
 - How should historical analogue relevance be judged across different decision domains?
 - What human-review rubric best identifies useful versus misleading analogues?
-- How should qualitative confidence labels be calibrated without implying statistical probability?
+- How should evidence sufficiency tiers be evaluated against independent reviewer judgments without implying statistical probability?
 - Which failure modes most often reduce decision-support quality?
 - How should reviewer disagreement be captured and used?
 - What baseline comparison is fair for a bounded Decision Intelligence platform?

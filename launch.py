@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 VENV_DIR = ROOT / ".venv"
 REQUIREMENTS = ROOT / "requirements.txt"
-HOST = os.environ.get("SIDC_HOST", "0.0.0.0")
+HOST = os.environ.get("SIDC_HOST", "127.0.0.1")
 PORT = os.environ.get("SIDC_PORT", "8000")
 PYTHON = VENV_DIR / ("Scripts/python.exe" if os.name == "nt" else "bin/python")
 LOCAL_URL = f"http://localhost:{PORT}"

@@ -1,34 +1,16 @@
-import requests
-import trafilatura
+"""Compatibility wrapper for the secured reviewer-triggered URL reader."""
+
+import sys
+from pathlib import Path
 
 
-def fetch_url_text(url: str) -> str:
-    """
-    Fetch readable text from a public URL.
+SRC = Path(__file__).resolve().parent / "src"
+if str(SRC) not in sys.path:
+    sys.path.insert(0, str(SRC))
 
-    This function is used as an evidence source.
-    It does not make decisions by itself.
-    """
-    if not url.startswith(("http://", "https://")):
-        raise ValueError("URL must start with http:// or https://")
+from url_reader import fetch_url_text  # noqa: E402
 
-    response = requests.get(
-        url,
-        timeout=15,
-        headers={
-            "User-Agent": "Mozilla/5.0"
-        },
-    )
 
-    response.raise_for_status()
-
-    extracted = trafilatura.extract(response.text)
-
-    if not extracted or len(extracted.strip()) < 20:
-        raise ValueError("Could not extract enough readable text from this URL.")
-
-    return extracted.strip()
-    
 if __name__ == "__main__":
     url = "https://example.com"
 

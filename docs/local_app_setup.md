@@ -61,3 +61,5 @@ The backward-compatible route remains available at `/dashboard`.
 ## Local-Only Scope
 
 The app is intended for local execution. It can retrieve evidence only through explicit user action. It does not add live web search, autonomous browsing, external monitoring, LLM APIs, forecasting, investment advice, legal advice, or trading recommendations.
+
+The launcher binds to `127.0.0.1` by default. `SIDC_HOST` can explicitly override the bind address, but non-loopback use requires a separate security review. CORS defaults to the local `localhost:8000` and `127.0.0.1:8000` origins and can be explicitly configured with `SIDC_ALLOWED_ORIGINS`.

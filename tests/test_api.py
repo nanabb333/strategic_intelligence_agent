@@ -21,6 +21,21 @@ def test_health_returns_ok() -> None:
     assert response.json()["status"] == "ok"
 
 
+def test_cors_allows_local_origin_and_rejects_unlisted_origin() -> None:
+    client = TestClient(app)
+    allowed = client.options(
+        "/health",
+        headers={"Origin": "http://127.0.0.1:8000", "Access-Control-Request-Method": "GET"},
+    )
+    blocked = client.options(
+        "/health",
+        headers={"Origin": "https://untrusted.example", "Access-Control-Request-Method": "GET"},
+    )
+
+    assert allowed.headers.get("access-control-allow-origin") == "http://127.0.0.1:8000"
+    assert blocked.headers.get("access-control-allow-origin") is None
+
+
 def test_dashboard_static_files_load() -> None:
     client = TestClient(app)
 

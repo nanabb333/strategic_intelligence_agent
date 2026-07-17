@@ -2,9 +2,10 @@
 
 from __future__ import annotations
 
-import requests
 import trafilatura
 from fastapi import HTTPException
+
+from evidence_provider import EvidenceFetchError, SearchResult, URLEvidenceProvider
 
 
 def fetch_url_text(source_url: str) -> str:
@@ -16,18 +17,10 @@ def fetch_url_text(source_url: str) -> str:
         )
 
     try:
-        response = requests.get(
-            source_url,
-            timeout=15,
-            headers={
-                "User-Agent": (
-                    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
-                    "AppleWebKit/537.36 Chrome/137 Safari/537.36"
-                )
-            },
+        document = URLEvidenceProvider(timeout_seconds=15.0).retrieve(
+            SearchResult(title=source_url, source_url=source_url)
         )
-        response.raise_for_status()
-    except requests.RequestException as exc:
+    except EvidenceFetchError as exc:
         raise HTTPException(
             status_code=400,
             detail=(
@@ -36,7 +29,7 @@ def fetch_url_text(source_url: str) -> str:
             ),
         ) from exc
 
-    text = trafilatura.extract(response.text)
+    text = document.text or trafilatura.extract(document.html)
 
     if not text or len(text.strip()) < 300:
         raise HTTPException(

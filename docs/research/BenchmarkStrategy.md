@@ -1,8 +1,8 @@
-# Benchmark Strategy
+# Regression and Research Evaluation Strategy
 
-This document explains how future benchmarking should be approached for Strategic Intelligence Agent.
+This document distinguishes the current deterministic regression suite from future research evaluation. The canonical planned protocol is [EvaluationPlan](EvaluationPlan.md).
 
-Benchmarking should support research validation without overstating what the repository currently proves. The platform currently implements product QA and deterministic product-quality evaluation. It does not currently implement academic benchmarking, model leaderboards, LLM-judge evaluation, or statistical claims.
+The current synthetic suite validates predetermined rules and output contracts. It is not academic benchmarking, model evaluation, decision-quality validation, or external evidence of usefulness.
 
 ## Evaluation Categories
 
@@ -16,9 +16,9 @@ Examples:
 - Markdown and JSON artifacts are generated.
 - Required output sections are present.
 - V2 fields remain additive and backward-compatible.
-- Deterministic Decision Quality Evaluation runs without external services.
+- Artifact Completeness Check runs without external services.
 
-The repository currently implements this category.
+The repository currently implements this category and a deterministic regression and contract validation suite.
 
 ### Research Validation
 
@@ -29,7 +29,7 @@ Examples:
 - Human reviewers assess evidence use and analogue relevance.
 - Outputs are reviewed against structured rubrics.
 - Failure modes are tracked across cases.
-- Confidence language is compared with evidence quality.
+- Evidence sufficiency is compared with independent reviewer judgments.
 - Historical decision replay is used carefully as a retrospective exercise.
 
 The repository defines the foundation for this category but does not yet implement it.
@@ -73,7 +73,8 @@ Reviewers could score outputs against dimensions such as direct answer quality, 
 The current repository implements:
 
 - Product QA through tests, compile checks, linting, and API smoke tests.
-- Deterministic product-quality evaluation through `decision_quality_evaluation`.
+- Artifact completeness validation through `artifact_completeness`.
+- Separate synthetic regression-contract component results without an overall research score.
 - Documentation and case studies that make evidence, confidence, and evaluation visible.
 
 It does not implement:

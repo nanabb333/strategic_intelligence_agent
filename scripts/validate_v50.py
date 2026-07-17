@@ -41,7 +41,6 @@ REQUIRED_RESULT_COLUMNS = {
     "response_expected",
     "response_actual",
     "response_coverage_score",
-    "overall_score",
     "comments",
 }
 
@@ -92,11 +91,10 @@ def validate_results_and_summary() -> None:
         raise AssertionError("Benchmark result columns do not match V5 schema.")
 
     metric_names = [
-        "mechanism_accuracy",
-        "scenario_accuracy",
+        "mechanism_expected_coverage_rate",
+        "scenario_contract_match_rate",
         "lens_coverage_rate",
         "response_retrieval_coverage",
-        "overall_benchmark_score",
     ]
     for metric_name in metric_names:
         metric_value = metrics[metric_name]
@@ -111,8 +109,8 @@ def validate_results_and_summary() -> None:
 
 def validate_dashboard_and_docs() -> None:
     dashboard = (ROOT / "dashboard/index.html").read_text(encoding="utf-8")
-    if "evaluation-tab" not in dashboard or "Benchmark results" not in dashboard:
-        raise AssertionError("Dashboard evaluation tab is missing.")
+    if "evaluation-tab" not in dashboard or "Deterministic regression and contract snapshot" not in dashboard:
+        raise AssertionError("Dashboard regression validation tab is missing.")
     for path in [
         "docs/evaluation_framework.md",
         "docs/benchmark_design.md",

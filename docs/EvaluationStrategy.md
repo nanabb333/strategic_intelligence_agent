@@ -1,16 +1,16 @@
 # Evaluation Strategy
 
-This document defines the future evaluation strategy for Strategic Intelligence Decision Companion. It does not implement a new evaluation harness.
+This document is a compatibility overview. The canonical planned research protocol is [Research Evaluation Plan](research/EvaluationPlan.md). The current repository implements artifact completeness checks and a deterministic regression and contract validation suite; it does not implement external decision-quality evaluation.
 
 The goal is to evaluate decision-support quality, not to claim real-world accuracy or prediction capability.
 
-The V2 foundation now exposes a Decision Case Schema, Evidence Ledger, and qualitative Confidence Assessment. Future evaluation work should use these structures as reviewable inputs for evidence use, overconfidence control, limitation disclosure, and change-trigger quality.
+The current foundation exposes a Neutral Decision Assessment, Evidence Ledger, Evidence Sufficiency Assessment, and Artifact Completeness Check. Future research should use these structures as study materials, not as self-validating quality evidence.
 
-The first Decision Quality Evaluation Harness is deterministic and product-focused. It evaluates generated artifacts across direct answer quality, historical analogue relevance, evidence use, option clarity, risk identification, change trigger quality, localization quality, and overconfidence control. Its scores are internal review aids only, not scientific or real-world accuracy claims.
+The Artifact Completeness Check measures field presence and review structure only. It does not validate pathway correctness, evidence validity, decision correctness, human decision quality, or real-world usefulness.
 
 ## Why Evaluation Matters
 
-AI decision-support systems can produce structured, fluent, and plausible outputs even when the reasoning is incomplete. Evaluation is necessary because the product is intended to help users reason under uncertainty.
+Decision-support systems can produce structured and plausible outputs even when the reasoning is incomplete. Evaluation is necessary because the product is intended to help users reason under uncertainty.
 
 Evaluation should answer:
 
@@ -34,7 +34,7 @@ Software correctness asks whether the application behaves as implemented:
 - Tests pass.
 - The pipeline does not crash.
 
-Decision quality asks whether the product output is useful, grounded, and appropriately cautious:
+Future human evaluation of decision quality would ask whether the product output is useful, grounded, and appropriately cautious; the current automated checks do not answer these questions:
 
 - The decision question is framed correctly.
 - Options are clear.
@@ -104,7 +104,7 @@ Reviewers should assess:
 - Whether the brief is useful for a real decision conversation.
 - Whether the evidence and limitations are understandable.
 - Whether analogues add insight or distract.
-- Whether the preferred path is justified by the stated criteria.
+- Whether neutral pathway comparisons help reviewers form and explain their own judgment.
 - Whether risks and change triggers are practical.
 - Whether the output remains within product boundaries.
 
@@ -117,7 +117,7 @@ Future versions should track recurring failure modes such as:
 - Generic summary instead of decision support.
 - Weak or irrelevant analogues.
 - Missing evidence limitations.
-- Overconfident recommendation language.
+- Overconfident pathway or conclusion language.
 - Vague options.
 - Missing downside risks.
 - Product terminology drift.
